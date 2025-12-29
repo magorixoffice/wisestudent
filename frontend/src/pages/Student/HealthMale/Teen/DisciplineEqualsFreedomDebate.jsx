@@ -116,15 +116,16 @@ const DisciplineEqualsFreedomDebate = () => {
       text: "What is the ultimate result of consistent discipline?",
       options: [
         {
-          id: "a",
-          text: "Boredom and restriction",
-          emoji: "😴"
-        },
-        {
           id: "c",
           text: "Personal mastery and freedom",
           emoji: "👑"
         },
+        {
+          id: "a",
+          text: "Boredom and restriction",
+          emoji: "😴"
+        },
+        
         {
           id: "b",
           text: "Constant struggle",

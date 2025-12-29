@@ -63,10 +63,10 @@ const PuzzleAnimalHomes = () => {
   // Animal Homes (right side) - 5 items
   const animalHomes = [
     { id: 3, name: "Ocean", emoji: "🌊", description: "Water habitat" },
+    { id: 2, name: "Cave", emoji: "⛰️", description: "Rocky shelter" },
     { id: 5, name: "Hive", emoji: "🪲", description: "Bee's home" },
     { id: 1, name: "Nest", emoji: "🪹", description: "Bird's home" },
     { id: 4, name: "Burrow", emoji: "🕳️", description: "Underground home" },
-    { id: 2, name: "Cave", emoji: "⛰️", description: "Rocky shelter" }
   ];
 
   // Correct matches

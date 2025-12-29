@@ -56,16 +56,17 @@ const TeenShavingSimulation = () => {
             title: "Lather Up",
             instruction: "Apply product.",
             options: [
-                {
-                    id: "a",
-                    text: "Apply shaving cream/gel",
-                    emoji: "🧼",
-                    isCorrect: false
-                },
+               
                 {
                     id: "b",
                     text: "Use nothing",
                     emoji: "🚫",
+                    isCorrect: false
+                },
+                 {
+                    id: "a",
+                    text: "Apply shaving cream/gel",
+                    emoji: "🧼",
                     isCorrect: true
                 },
                 {
@@ -87,12 +88,7 @@ const TeenShavingSimulation = () => {
             title: "The Shave",
             instruction: "Start shaving.",
             options: [
-                {
-                    id: "a",
-                    text: "Gentle strokes with grain",
-                    emoji: "⬇️",
-                    isCorrect: false
-                },
+               
                 {
                     id: "b",
                     text: "Press very hard",
@@ -109,8 +105,14 @@ const TeenShavingSimulation = () => {
                     id: "d",
                     text: "Use light, steady pressure",
                     emoji: "👐",
+                    isCorrect: false
+                },
+                 {
+                    id: "a",
+                    text: "Gentle strokes with grain",
+                    emoji: "⬇️",
                     isCorrect: true
-                }
+                },
             ]
         },
         {
@@ -118,12 +120,7 @@ const TeenShavingSimulation = () => {
             title: "Rinse",
             instruction: "Clean up.",
             options: [
-                {
-                    id: "a",
-                    text: "Rinse with cool water",
-                    emoji: "💧",
-                    isCorrect: false
-                },
+               
                 {
                     id: "b",
                     text: "Wipe with dirty towel",
@@ -134,6 +131,12 @@ const TeenShavingSimulation = () => {
                     id: "c",
                     text: "Leave cream on",
                     emoji: "👻",
+                    isCorrect: false
+                },
+                 {
+                    id: "a",
+                    text: "Rinse with cool water",
+                    emoji: "💧",
                     isCorrect: true
                 },
                 {
@@ -149,16 +152,17 @@ const TeenShavingSimulation = () => {
             title: "Aftercare",
             instruction: "Finish up.",
             options: [
-                {
-                    id: "a",
-                    text: "Apply moisturizer/balm",
-                    emoji: "🧴",
-                    isCorrect: false
-                },
+                
                 {
                     id: "b",
                     text: "Scratch face",
                     emoji: "💅",
+                    isCorrect: false
+                },
+                {
+                    id: "a",
+                    text: "Apply moisturizer/balm",
+                    emoji: "🧴",
                     isCorrect: true
                 },
                 {

@@ -32,7 +32,7 @@ const DentistStory = () => {
           id: "b",
           text: "The baker",
           emoji: "👨‍🍳",
-          description: "Bakers make bread, not fix teeth",
+        
           isCorrect: false
         },
         
@@ -40,14 +40,14 @@ const DentistStory = () => {
           id: "c",
           text: "The gardener",
           emoji: "🌻",
-          description: "Gardeners take care of plants",
+         
           isCorrect: false
         },
         {
           id: "a",
           text: "The dentist",
           emoji: "🦷",
-          description: "Dentists are doctors for your teeth",
+         
           isCorrect: true
         },
       ]
@@ -60,14 +60,12 @@ const DentistStory = () => {
           id: "a",
           text: "Twice a day",
           emoji: "☀️🌙",
-          description: "Brush in the morning and before bed",
           isCorrect: true
         },
         {
           id: "c",
           text: "Once a week",
           emoji: "📅",
-          description: "That's not enough to stop cavities",
           isCorrect: false
         },
         
@@ -75,7 +73,6 @@ const DentistStory = () => {
           id: "b",
           text: "Only on birthdays",
           emoji: "🎂",
-          description: "You need to brush every day",
           isCorrect: false
         }
       ]
@@ -88,21 +85,18 @@ const DentistStory = () => {
           id: "b",
           text: "Apples",
           emoji: "🍎",
-          description: "Apples are healthy and crunchy",
           isCorrect: false
         },
         {
           id: "a",
           text: "Sticky candy",
           emoji: "🍬",
-          description: "Sugar sticks to teeth and causes cavities",
           isCorrect: true
         },
         {
           id: "c",
           text: "Carrots",
           emoji: "🥕",
-          description: "Carrots are good for your teeth",
           isCorrect: false
         }
       ]
@@ -115,21 +109,18 @@ const DentistStory = () => {
           id: "c",
           text: "Makes teeth blue",
           emoji: "🔵",
-          description: "Floss doesn't change tooth color",
           isCorrect: false
         },
         {
           id: "a",
           text: "Cleans between teeth",
           emoji: "🧵",
-          description: "It removes food where your brush can't reach",
           isCorrect: true
         },
         {
           id: "b",
           text: "Tastes like pizza",
           emoji: "🍕",
-          description: "Floss usually tastes like mint",
           isCorrect: false
         }
       ]
@@ -142,21 +133,18 @@ const DentistStory = () => {
           id: "b",
           text: "To get toys",
           emoji: "🧸",
-          description: "We go for health, not just prizes",
           isCorrect: false
         },
         {
           id: "c",
           text: "To take a nap",
           emoji: "😴",
-          description: "You need to be awake to open your mouth",
           isCorrect: false
         },
         {
           id: "a",
           text: "To check for cavities",
           emoji: "🔍",
-          description: "Dentists catch problems early to keep teeth strong",
           isCorrect: true
         }
       ]

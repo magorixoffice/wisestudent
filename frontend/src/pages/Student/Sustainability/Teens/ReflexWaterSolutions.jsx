@@ -25,7 +25,7 @@ const questions = [
     options: [
       { id: 'a', text: " Low-flow showerheads", emoji: "🚿", isCorrect: true },
       { id: 'b', text: " Regular taps", emoji: "🚰", isCorrect: false },
-      { id: 'c', text: " Wide pipes", emoji: " труб", isCorrect: false },
+      { id: 'c', text: " Wide pipes", emoji: "🅿️", isCorrect: false },
       { id: 'd', text: " Large tanks", emoji: "💧", isCorrect: false }
     ]
   },
@@ -43,7 +43,7 @@ const questions = [
     id: 4,
     text: "What's an innovative greywater system?",
     options: [
-      { id: 'b', text: " Simple storage", emoji: "桶", isCorrect: false },
+      { id: 'b', text: " Simple storage", emoji: "🫙", isCorrect: false },
       { id: 'c', text: " Direct disposal", emoji: "🗑️", isCorrect: false },
       { id: 'a', text: " Smart treatment units", emoji: "💧", isCorrect: true },
       { id: 'd', text: " Ground infiltration", emoji: "🌱", isCorrect: false }

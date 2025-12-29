@@ -38,7 +38,7 @@ const GrowingStrongBadge = () => {
         },
         {
           text: "Yes, absolutely",
-          emoji: "✅",
+          emoji: "😄",
           isCorrect: true
         },
         {
@@ -105,7 +105,7 @@ const GrowingStrongBadge = () => {
         },
         {
           text: "It's artificial",
-          emoji: "🤖",
+          emoji: "😣",
           isCorrect: false
         }
       ],

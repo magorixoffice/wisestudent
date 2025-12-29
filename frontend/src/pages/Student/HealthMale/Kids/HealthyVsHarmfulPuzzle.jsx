@@ -25,29 +25,29 @@ const HealthyVsHarmfulPuzzle = () => {
 
   // Healthy items (left side) - 5 items
   const healthyItems = [
-    { id: 1, name: "Fresh Water", emoji: "💧", description: "Clear liquid" },
-    { id: 2, name: "Apples", emoji: "🍎", description: "Red fruit" },
-    { id: 3, name: "Running", emoji: "🏃", description: "Fast movement" },
-    { id: 4, name: "Vegetables", emoji: "🥦", description: "Green plants" },
-    { id: 5, name: "Reading Books", emoji: "📚", description: "Learning activity" }
+    { id: 1, name: "Fresh Water", emoji: "💧" },
+    { id: 2, name: "Fruits", emoji: "🍎" },
+    { id: 3, name: "Exercise", emoji: "🏃" },
+    { id: 4, name: "Vegetables", emoji: "🥦" },
+    { id: 5, name: "Sleep Early", emoji: "😴" }
   ];
 
   // Harmful items (right side) - 5 items
   const harmfulItems = [
-    { id: 3, name: "Taking Drugs", emoji: "💊", description: "Dangerous pills" },
-    { id: 5, name: "Unknown Pills", emoji: "💊", description: "Unsafe medication" },
-    { id: 1, name: "Cigarettes", emoji: "🚬", description: "Tobacco product" },
-    { id: 4, name: "Smoke", emoji: "🌫️", description: "Air pollutant" },
-    { id: 2, name: "Drinking Alcohol", emoji: "🍷", description: "Adult beverage" }
+    { id: 5, name: "Staying Up Late", emoji: "🌙" },
+    { id: 1, name: "Soda", emoji: "🥤" },
+    { id: 2, name: "Junk Food", emoji: "🍔" },
+    { id: 3, name: "Sitting All Day", emoji: "🛋️" },
+    { id: 4, name: "Skipping Vegetables", emoji: "❌" },
   ];
 
-  // Correct matches
+  // Correct matches - creating logical pairings
   const correctMatches = [
-    { healthyId: 1, harmfulId: 1 }, // Fresh Water → Cigarettes
-    { healthyId: 2, harmfulId: 2 }, // Apples → Drinking Alcohol
-    { healthyId: 3, harmfulId: 3 }, // Running → Taking Drugs
-    { healthyId: 4, harmfulId: 4 }, // Vegetables → Smoke
-    { healthyId: 5, harmfulId: 5 }  // Reading Books → Unknown Pills
+    { healthyId: 1, harmfulId: 1 }, // Fresh Water → Soda (healthy drink vs unhealthy drink)
+    { healthyId: 2, harmfulId: 2 }, // Fruits → Junk Food (healthy food vs unhealthy food)
+    { healthyId: 3, harmfulId: 3 }, // Exercise → Sitting All Day (active vs inactive)
+    { healthyId: 4, harmfulId: 4 }, // Vegetables → Skipping Vegetables (eating vs not eating healthy food)
+    { healthyId: 5, harmfulId: 5 }  // Sleep Early → Staying Up Late (healthy vs unhealthy sleep)
   ];
 
   const handleHealthySelect = (healthy) => {
@@ -163,7 +163,6 @@ const HealthyVsHarmfulPuzzle = () => {
                       <div className="text-2xl mr-3">{healthy.emoji}</div>
                       <div>
                         <h4 className="font-bold text-white">{healthy.name}</h4>
-                        <p className="text-white/80 text-sm">{healthy.description}</p>
                       </div>
                     </div>
                   </button>
@@ -218,7 +217,6 @@ const HealthyVsHarmfulPuzzle = () => {
                       <div className="text-2xl mr-3">{harmful.emoji}</div>
                       <div>
                         <h4 className="font-bold text-white">{harmful.name}</h4>
-                        <p className="text-white/80 text-sm">{harmful.description}</p>
                       </div>
                     </div>
                   </button>

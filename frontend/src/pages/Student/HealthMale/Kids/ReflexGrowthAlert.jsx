@@ -34,20 +34,20 @@ const ReflexGrowthAlert = () => {
       id: 1,
       question: "What helps you grow?",
       options: [
-        { id: 'a', text: "Exercise Daily", emoji: "🏃", isCorrect: true },
         { id: 'b', text: "No Exercise", emoji: "❌", isCorrect: false },
+        { id: 'a', text: "Exercise Daily", emoji: "🏃", isCorrect: true },
         { id: 'c', text: "Sit All Day", emoji: "🪑", isCorrect: false },
         { id: 'd', text: "Sleep Less", emoji: "😴", isCorrect: false }
       ]
     },
     {
       id: 2,
-      question: "Best drink for growth?",
+      question: "Which vitamin helps your body absorb calcium for strong bones?",
       options: [
-        { id: 'a', text: "Soda", emoji: "🥤", isCorrect: false },
-        { id: 'b', text: "Milk", emoji: "🥛", isCorrect: true },
-        { id: 'c', text: "Energy Drink", emoji: "⚡", isCorrect: false },
-        { id: 'd', text: "Coffee", emoji: "☕", isCorrect: false }
+        { id: 'b', text: "Vitamin D", emoji: "☀️", isCorrect: true },
+        { id: 'a', text: "Vitamin A", emoji: "👁️", isCorrect: false },
+        { id: 'c', text: "Vitamin C", emoji: "🍊", isCorrect: false },
+        { id: 'd', text: "Vitamin B", emoji: "🍞", isCorrect: false }
       ]
     },
     {
@@ -62,12 +62,12 @@ const ReflexGrowthAlert = () => {
     },
     {
       id: 4,
-      question: "Healthy food choice?",
+      question: "What happens if you don't get enough sleep when you're growing?",
       options: [
-        { id: 'a', text: "Junk Food", emoji: "🍔", isCorrect: false },
-        { id: 'b', text: "Candy", emoji: "🍬", isCorrect: false },
-        { id: 'c', text: "Healthy Food", emoji: "🥕", isCorrect: true },
-        { id: 'd', text: "Chips", emoji: "🍟", isCorrect: false },
+        { id: 'a', text: "Faster Growth", emoji: " ↑", isCorrect: false },
+        { id: 'b', text: "Better Grades", emoji: " 📚", isCorrect: false },
+        { id: 'c', text: "Slower Growth", emoji: " ↓", isCorrect: true },
+        { id: 'd', text: "More Energy", emoji: " ⚡", isCorrect: false }
       ]
     },
     {

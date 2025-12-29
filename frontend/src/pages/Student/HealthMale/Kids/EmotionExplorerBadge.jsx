@@ -126,7 +126,7 @@ const EmotionExplorerBadge = () => {
         },
         {
           text: "Push people",
-          emoji: " shove",
+          emoji: "👊",
           isCorrect: false
         },
         {
@@ -167,7 +167,7 @@ const EmotionExplorerBadge = () => {
         },
         {
           text: "Strangers online",
-          emoji: "使用網路",
+          emoji: "🌐",
           isCorrect: false
         }
       ],

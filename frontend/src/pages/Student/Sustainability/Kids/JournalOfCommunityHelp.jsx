@@ -71,8 +71,10 @@ const JournalOfCommunityHelp = () => {
   const currentPrompt = prompts[currentPromptIndex];
 
   const handleSaveEntry = () => {
-    if (!journalEntry.trim()) {
-      alert("Please write something in your journal!");
+    const entryText = journalEntry.trim();
+    
+    if (entryText.length < 10) {
+      alert("Please write at least 10 characters in your journal!");
       return;
     }
 
@@ -129,7 +131,7 @@ const JournalOfCommunityHelp = () => {
                 {currentPrompt}
               </h3>
               
-              <div className="mb-6">
+              <div className="mb-4">
                 <textarea
                   value={journalEntry}
                   onChange={(e) => setJournalEntry(e.target.value)}
@@ -138,10 +140,23 @@ const JournalOfCommunityHelp = () => {
                 />
               </div>
               
+              <div className="text-white/60 text-sm mb-2 text-center">
+                Write at least 10 characters
+              </div>
+              
+              <div className="text-white/50 text-xs mb-4 text-center">
+                {journalEntry.trim().length}/10 characters
+              </div>
+              
               <div className="text-center">
                 <button
                   onClick={handleSaveEntry}
-                  className="bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 text-white px-8 py-3 rounded-full font-bold transition-all transform hover:scale-105"
+                  className={`px-8 py-3 rounded-full font-bold transition-all transform hover:scale-105 ${
+                    journalEntry.trim().length >= 10
+                      ? 'bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 text-white'
+                      : 'bg-gray-500 text-gray-300 cursor-not-allowed opacity-50'
+                  }`}
+                  disabled={journalEntry.trim().length < 10}
                 >
                   Save Entry
                 </button>

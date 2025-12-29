@@ -1,24 +1,44 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import GameShell from "../../Finance/GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
+import { getGameDataById } from "../../../../utils/getGameData";
 import { getSustainabilityTeenGames } from "../../../../pages/Games/GameCategories/Sustainability/teenGamesData";
 
 const BadgeMasterSustainabilityLeader = () => {
-  const navigate = useNavigate();
-  const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
+  const location = useLocation();
   
-  const gameId = "sustainability-teens-100";
-  const games = getSustainabilityTeenGames({});
-  const currentGameIndex = games.findIndex(game => game.id === gameId);
-  const nextGame = games[currentGameIndex + 1];
-  const nextGamePath = nextGame ? nextGame.path : "/games/sustainability/teens";
-  const nextGameId = nextGame ? nextGame.id : null;
+  const gameData = getGameDataById("sustainability-teens-100");
+  const gameId = gameData?.id || "sustainability-teens-100";
+  
+  const coinsPerLevel = gameData?.coins || location.state?.coinsPerLevel || 1;
+  const totalCoins = gameData?.coins || location.state?.totalCoins || 5;
+  const totalXp = gameData?.xp || location.state?.totalXp || 10;
+  
+  const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
-  // Hardcode rewards to align with rule: 1 coin per question, 5 total coins, 10 total XP
-  const coinsPerLevel = 1;
-  const totalCoins = 5;
-  const totalXp = 10;
+  const { nextGamePath, nextGameId } = (() => {
+    if (location.state?.nextGamePath) {
+      return {
+        nextGamePath: location.state.nextGamePath,
+        nextGameId: location.state.nextGameId || null
+      };
+    }
+    try {
+      const games = getSustainabilityTeenGames({});
+      const currentGame = games.find(g => g.id === gameId);
+      if (currentGame && currentGame.index !== undefined) {
+        const nextGame = games.find(g => g.index === currentGame.index + 1 && g.isSpecial && g.path);
+        return {
+          nextGamePath: nextGame ? nextGame.path : null,
+          nextGameId: nextGame ? nextGame.id : null
+        };
+      }
+    } catch (error) {
+      console.warn("Error finding next game:", error);
+    }
+    return { nextGamePath: null, nextGameId: null };
+  })();
 
   const [challenge, setChallenge] = useState(0);
   const [score, setScore] = useState(0);
@@ -31,29 +51,29 @@ const BadgeMasterSustainabilityLeader = () => {
       id: 1,
       question: "What defines a master sustainability leader?",
       options: [
-        { id: 'b', text: "Someone focused on personal gain", emoji: "💰", isCorrect: false },
-        { id: 'a', text: "Someone who inspires systemic change for environmental good", emoji: "🌱", isCorrect: true },
-        { id: 'c', text: "Someone who avoids responsibility", emoji: "🏃", isCorrect: false },
-        { id: 'd', text: "Someone who works in isolation", emoji: "👤", isCorrect: false }
+        { id: 'b', text: "Personal gain focus", emoji: "💰", isCorrect: false },
+        { id: 'a', text: "Systemic change inspiration", emoji: "🌱", isCorrect: true },
+        { id: 'c', text: "Avoids responsibility", emoji: "🏃", isCorrect: false },
+        { id: 'd', text: "Works in isolation", emoji: "👤", isCorrect: false }
       ]
     },
     {
       id: 2,
       question: "How should a master leader approach complex sustainability challenges?",
       options: [
-        { id: 'a', text: "With systems thinking and collaborative solutions", emoji: "🤝", isCorrect: true },
-        { id: 'b', text: "With individual decision-making", emoji: "👤", isCorrect: false },
-        { id: 'c', text: "With short-term thinking", emoji: "⚡", isCorrect: false },
-        { id: 'd', text: "By avoiding complexity", emoji: "鸵鸟", isCorrect: false }
+        { id: 'a', text: "Systems thinking & collaboration", emoji: "🤝", isCorrect: true },
+        { id: 'b', text: "Individual decision-making", emoji: "👤", isCorrect: false },
+        { id: 'c', text: "Short-term thinking", emoji: "⚡", isCorrect: false },
+        { id: 'd', text: "Avoid complexity", emoji: "😥", isCorrect: false }
       ]
     },
     {
       id: 3,
       question: "What is the primary goal of a sustainability leader?",
       options: [
-        { id: 'b', text: "Achieving personal recognition", emoji: "🏆", isCorrect: false },
+        { id: 'b', text: "Personal recognition", emoji: "🏆", isCorrect: false },
         { id: 'c', text: "Maximizing profits", emoji: "💰", isCorrect: false },
-        { id: 'a', text: "Creating positive environmental and social impact", emoji: "🌍", isCorrect: true },
+        { id: 'a', text: "Positive environmental impact", emoji: "🌍", isCorrect: true },
         { id: 'd', text: "Gaining authority", emoji: "👑", isCorrect: false }
       ]
     },
@@ -61,18 +81,18 @@ const BadgeMasterSustainabilityLeader = () => {
       id: 4,
       question: "How should a master leader handle resistance to sustainability initiatives?",
       options: [
-        { id: 'b', text: "With force and authority", emoji: "💪", isCorrect: false },
-        { id: 'c', text: "By ignoring resistance", emoji: "🙉", isCorrect: false },
-        { id: 'd', text: "By avoiding difficult conversations", emoji: "🤐", isCorrect: false },
-        { id: 'a', text: "With empathy, understanding, and collaborative problem-solving", emoji: "💬", isCorrect: true },
+        { id: 'b', text: "With force & authority", emoji: "💪", isCorrect: false },
+        { id: 'c', text: "Ignore resistance", emoji: "🙉", isCorrect: false },
+        { id: 'd', text: "Avoid difficult conversations", emoji: "🤐", isCorrect: false },
+        { id: 'a', text: "Empathy & collaborative problem-solving", emoji: "💬", isCorrect: true },
       ]
     },
     {
       id: 5,
       question: "What marks the completion of a master sustainability leader's journey?",
       options: [
-        { id: 'a', text: "Creating lasting positive change in the community and environment", emoji: "🌱", isCorrect: true },
-        { id: 'b', text: "Receiving personal awards", emoji: "🏆", isCorrect: false },
+        { id: 'a', text: "Lasting positive change", emoji: "🌱", isCorrect: true },
+        { id: 'b', text: "Personal awards", emoji: "🏆", isCorrect: false },
         { id: 'c', text: "Accumulating authority", emoji: "👑", isCorrect: false },
         { id: 'd', text: "Completing a single project", emoji: "✅", isCorrect: false }
       ]
@@ -115,7 +135,11 @@ const BadgeMasterSustainabilityLeader = () => {
   };
 
   const handleNext = () => {
-    navigate("/games/sustainability/teens");
+    if (nextGamePath) {
+      window.location.href = nextGamePath;
+    } else {
+      window.location.href = "/games/sustainability/teens";
+    }
   };
 
   const currentChallenge = challenges[challenge];
@@ -128,7 +152,7 @@ const BadgeMasterSustainabilityLeader = () => {
       currentLevel={challenge + 1}
       totalLevels={challenges.length}
       maxScore={challenges.length}
-      showConfetti={showResult && score === challenges.length}
+      showConfetti={showResult && score >= 3}
       flashPoints={flashPoints}
       showAnswerConfetti={showAnswerConfetti}
       showGameOver={showResult}
@@ -139,7 +163,6 @@ const BadgeMasterSustainabilityLeader = () => {
       totalXp={totalXp}
       nextGamePath={nextGamePath}
       nextGameId={nextGameId}
-      backPath="/games/sustainability/teens"
     >
       <div className="min-h-[calc(100vh-200px)] flex flex-col justify-center max-w-4xl mx-auto px-4 py-4">
         {!showResult ? (
@@ -150,19 +173,19 @@ const BadgeMasterSustainabilityLeader = () => {
                 <span className="text-yellow-400 font-bold">Score: {score}</span>
               </div>
               
-              <h3 className="text-xl font-bold text-white mb-4">Master Sustainability Leader Challenge</h3>
+              {/* <h3 className="text-xl font-bold text-white mb-4">Master Sustainability Leader Challenge</h3> */}
               
               <p className="text-white text-lg mb-6">{currentChallenge.question}</p>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 {currentChallenge.options.map((option) => (
                   <button
                     key={option.id}
                     onClick={() => handleAnswer(option)}
                     disabled={answered}
-                    className="bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-medium py-4 px-6 rounded-xl transition-all duration-200 flex items-center space-x-3"
+                    className="bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-medium py-3 px-2 rounded-lg transition-all duration-200 flex flex-col items-center justify-center space-y-1 text-sm"
                   >
-                    <span className="text-2xl">{option.emoji}</span>
+                    <span className="text-xl">{option.emoji}</span>
                     <span>{option.text}</span>
                   </button>
                 ))}

@@ -32,7 +32,7 @@ const LifelongHealthyManBadge = () => {
         {
           text: "Consistent personal hygiene",
           emoji: "🚿",
-          isCorrect: false
+          isCorrect: true
         },
         {
           text: "Showering once a week",
@@ -42,7 +42,7 @@ const LifelongHealthyManBadge = () => {
         {
           text: "Using only deodorant",
           emoji: "💨",
-          isCorrect: true
+          isCorrect: false
         }
       ]
     },
@@ -57,6 +57,11 @@ const LifelongHealthyManBadge = () => {
           isCorrect: false
         },
         {
+          text: "Balanced diet & regular exercise",
+          emoji: "🥗",
+          isCorrect: true
+        },
+        {
           text: "Sit on the couch all day",
           emoji: "📺",
           isCorrect: false
@@ -66,11 +71,7 @@ const LifelongHealthyManBadge = () => {
           emoji: "❌",
           isCorrect: false
         },
-        {
-          text: "Balanced diet & regular exercise",
-          emoji: "🥗",
-          isCorrect: true
-        }
+        
       ]
     },
     {
@@ -133,6 +134,11 @@ const LifelongHealthyManBadge = () => {
       question: "What does a 'Lifelong Healthy Man' commit to?",
       options: [
         {
+          text: "Continuous learning & self-improvement",
+          emoji: "📈",
+          isCorrect: true
+        },
+        {
           text: "Stopping learning after school",
           emoji: "🛑",
           isCorrect: false
@@ -147,11 +153,7 @@ const LifelongHealthyManBadge = () => {
           emoji: "🙉",
           isCorrect: false
         },
-        {
-          text: "Continuous learning & self-improvement",
-          emoji: "📈",
-          isCorrect: true
-        }
+        
       ]
     }
   ];

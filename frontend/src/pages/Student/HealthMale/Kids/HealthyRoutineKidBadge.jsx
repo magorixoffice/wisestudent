@@ -98,16 +98,17 @@ const HealthyRoutineKidBadge = () => {
           emoji: "🎮",
           isCorrect: false
         },
+        
+        {
+          text: "Napping all day",
+          emoji: "😴",
+          isCorrect: false
+        },
         {
           text: "Exercise & Play",
           emoji: "🏃",
           isCorrect: true
         },
-        {
-          text: "Napping all day",
-          emoji: "😴",
-          isCorrect: false
-        }
       ],
       feedback: {
         correct: "Great! Moving your body makes your heart happy!",
@@ -151,6 +152,11 @@ const HealthyRoutineKidBadge = () => {
       text: "Why do you need sleep?",
       options: [
         {
+          text: "To rest & grow",
+          emoji: "😴",
+          isCorrect: true
+        },
+        {
           text: "To dream",
           emoji: "💭",
           isCorrect: false
@@ -160,11 +166,7 @@ const HealthyRoutineKidBadge = () => {
           emoji: "😑",
           isCorrect: false
         },
-        {
-          text: "To rest & grow",
-          emoji: "😴",
-          isCorrect: true
-        },
+        
         {
           text: "To avoid chores",
           emoji: "🧹",

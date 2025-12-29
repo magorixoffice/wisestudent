@@ -56,7 +56,7 @@ const PuzzleMaterialLife = () => {
     { id: 1, name: "Bottle", emoji: "🥤", description: "A plastic container" },
     { id: 2, name: "Box", emoji: "📦", description: "A cardboard container" },
     { id: 3, name: "Crayon", emoji: "🖍️", description: "A coloring tool" },
-    { id: 4, name: "Jar", emoji: "โหล", description: "A glass container" },
+    { id: 4, name: "Jar", emoji: "🫙", description: "A glass container" },
     { id: 5, name: "T-Shirt", emoji: "👕", description: "A piece of clothing" }
   ];
 

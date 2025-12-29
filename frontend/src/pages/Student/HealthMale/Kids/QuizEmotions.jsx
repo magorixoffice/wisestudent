@@ -22,125 +22,129 @@ const QuizEmotions = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [showFeedback, setShowFeedback] = useState(false);
   const [gameFinished, setGameFinished] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
   const { showCorrectAnswerFeedback, resetFeedback, flashPoints } = useGameFeedback();
 
   const questions = [
     {
       id: 1,
-      text: "Which of these is an emotion?",
+      text: "When you get a present you really wanted, which emotion do you feel?",
       options: [
-        {
-          id: "a",
-          text: "Happy",
-          emoji: "😊",
-          isCorrect: true
-        },
+      
         {
           id: "b",
-          text: "Chair",
-          emoji: "🪑",
+          text: "Scared and worried",
+          emoji: "😰",
           isCorrect: false
         },
         {
           id: "c",
-          text: "Book",
-          emoji: "📚",
+          text: "Angry and frustrated",
+          emoji: "😠",
           isCorrect: false
-        }
+        },
+          {
+          id: "a",
+          text: "Happy and excited",
+          emoji: "😊",
+          isCorrect: true
+        },
       ]
     },
     {
       id: 2,
-      text: "What does 'sad' mean?",
+      text: "What can you do when you feel sad?",
       options: [
         {
           id: "a",
-          text: "A game you play",
-          emoji: "🎮",
-          isCorrect: false
-        },
-        {
-          id: "b",
-          text: "When you feel unhappy",
-          emoji: "😢",
+          text: "Talk to someone you trust",
+          emoji: "🗣️",
           isCorrect: true
         },
         {
+          id: "b",
+          text: "Hide your feelings and stay quiet",
+          emoji: "🤐",
+          isCorrect: false
+        },
+        {
           id: "c",
-          text: "A type of food",
-          emoji: "🍎",
+          text: "Get mad at others",
+          emoji: "💢",
           isCorrect: false
         }
       ]
     },
     {
       id: 3,
-      text: "Which shows someone is angry?",
+      text: "Which is a healthy way to handle anger?",
       options: [
-        {
-          id: "a",
-          text: "Frowning and crossing arms",
-          emoji: "😠",
-          isCorrect: true
-        },
+        
         {
           id: "b",
-          text: "Jumping with joy",
-          emoji: "🤾",
+          text: "Yell at someone",
+          emoji: "😠",
           isCorrect: false
         },
         {
+          id: "a",
+          text: "Take deep breaths and count to 10",
+          emoji: "😮‍💨",
+          isCorrect: true
+        },
+        {
           id: "c",
-          text: "Smiling and laughing",
-          emoji: "😄",
+          text: "Break something",
+          emoji: "💥",
           isCorrect: false
         }
       ]
     },
     {
       id: 4,
-      text: "What is 'excited'?",
+      text: "How might you feel before starting at a new school?",
       options: [
         {
           id: "a",
-          text: "A type of vegetable",
-          emoji: "🥕",
-          isCorrect: false
+          text: "Nervous but excited",
+          emoji: "😰",
+          isCorrect: true
         },
         {
           id: "b",
-          text: "When you're very tired",
-          emoji: "😴",
+          text: "Super angry",
+          emoji: "😠",
           isCorrect: false
         },
         {
           id: "c",
-          text: "When you feel really happy and energetic",
-          emoji: "🎉",
-          isCorrect: true
+          text: "Very sleepy",
+          emoji: "😴",
+          isCorrect: false
         }
       ]
     },
     {
       id: 5,
-      text: "Which feeling helps you know something is wrong?",
+      text: "What is the best thing to do when you feel scared?",
       options: [
+       
         {
+          id: "b",
+          text: "Hide by yourself",
+          emoji: "🙈",
+          isCorrect: false
+        },
+         {
           id: "a",
-          text: "Fear",
-          emoji: "😨",
+          text: "Find a trusted adult to help you",
+          emoji: "👨‍👩‍👧",
           isCorrect: true
         },
         {
-          id: "b",
-          text: "Boredom",
-          emoji: "😐",
-          isCorrect: false
-        },
-        {
           id: "c",
-          text: "Happiness",
-          emoji: "😊",
+          text: "Ignore the feeling and hope it goes away",
+          emoji: "🤷",
           isCorrect: false
         }
       ]
@@ -160,6 +164,11 @@ const QuizEmotions = () => {
     if (isCorrect) {
       setCoins(prev => prev + 1);
       showCorrectAnswerFeedback(1, true);
+      setShowConfetti(true);
+      // Hide confetti after a short delay
+      setTimeout(() => {
+        setShowConfetti(false);
+      }, 1000);
     } else {
       showCorrectAnswerFeedback(0, false);
     }
@@ -194,7 +203,7 @@ const QuizEmotions = () => {
       gameType="health-male"
       totalLevels={5}
       currentLevel={52}
-      showConfetti={gameFinished}
+      showConfetti={showConfetti || gameFinished}
       backPath="/games/health-male/kids"
       maxScore={questions.length}
       coinsPerLevel={coinsPerLevel}
@@ -210,7 +219,7 @@ const QuizEmotions = () => {
                 <span className="text-yellow-400 font-bold">Score: {coins}/{questions.length}</span>
               </div>
               
-              <div className="text-6xl mb-4 text-center">😊</div>
+              <div className="text-6xl mb-4 text-center">🤔</div>
               
               <p className="text-white text-lg md:text-xl mb-6 text-center">
                 {questions[currentQuestion].text}

@@ -72,17 +72,18 @@ const ViolenceStory = () => {
       text: "How can you respond to peer pressure to fight?",
       options: [
         {
-          id: "a",
-          text: "Give in to pressure",
-          emoji: "😞",
-          isCorrect: false
-        },
-        {
           id: "c",
           text: "Say no and suggest talking instead",
           emoji: "💬",
           isCorrect: true
         },
+        {
+          id: "a",
+          text: "Give in to pressure",
+          emoji: "😞",
+          isCorrect: false
+        },
+        
         {
           id: "b",
           text: "Challenge them back",

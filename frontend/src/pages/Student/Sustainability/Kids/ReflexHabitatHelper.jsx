@@ -54,7 +54,7 @@ const questions = [
     text: "What's the best way to help forest animals?",
     options: [
       { id: 'a', text: " Respect their space", emoji: "🌲", isCorrect: true },
-      { id: 'b', text: " Capture them", emoji: "为抓", isCorrect: false },
+      { id: 'b', text: " Capture them", emoji: "🪝", isCorrect: false },
       { id: 'c', text: " Feed them", emoji: "🍎", isCorrect: false },
       { id: 'd', text: " Disturb them", emoji: "⚠️", isCorrect: false }
     ]

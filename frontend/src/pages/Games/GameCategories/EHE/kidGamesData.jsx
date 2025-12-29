@@ -592,8 +592,8 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         },
         {
             id: 'ehe-kids-41',
-            title: 'Lemonade Kid Story',
-            description: 'A 10-year-old sells lemonade in summer. Why?',
+            title: 'Ice Cream Kid Story',
+            description: 'A 10-year-old sells ice cream in summer. Why?',
             icon: <Droplets className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -601,7 +601,7 @@ export const getEheKidsGames = (gameCompletionStatus) => {
             xp: 10,
             completed: gameCompletionStatus['ehe-kids-41'] || false,
             isSpecial: true,
-            path: '/student/ehe/kids/lemonade-kid-story',
+            path: '/student/ehe/kids/ice-cream-kid-story',
             index: 40
         },
         {

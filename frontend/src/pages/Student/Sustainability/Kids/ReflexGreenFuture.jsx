@@ -13,8 +13,9 @@ const questions = [
     id: 1,
     text: "Which choice is a green choice?",
     options: [
-      { id: 'a', text: " Plant Trees", emoji: "🌱", isCorrect: true },
+      
       { id: 'b', text: " Waste Water", emoji: "💧", isCorrect: false },
+      { id: 'a', text: " Plant Trees", emoji: "🌱", isCorrect: true },
       { id: 'c', text: " Use Plastic Bags", emoji: "🛍️", isCorrect: false },
       { id: 'd', text: " Ignore Environment", emoji: "🙈", isCorrect: false }
     ]
@@ -23,10 +24,10 @@ const questions = [
     id: 2,
     text: "What's a harmful choice for our future?",
     options: [
-      { id: 'b', text: " Pollute Rivers", emoji: "🌊", isCorrect: false },
-      { id: 'a', text: " Conserve Energy", emoji: "⚡", isCorrect: true },
-      { id: 'c', text: " Cut Forests", emoji: "🪚", isCorrect: false },
-      { id: 'd', text: " Waste Food", emoji: "🍕", isCorrect: false }
+      { id: 'a', text: " Pollute Rivers", emoji: "🌊", isCorrect: true },
+      { id: 'b', text: " Conserve Energy", emoji: "⚡", isCorrect: false },
+      { id: 'c', text: " Plant Trees", emoji: "🌱", isCorrect: false },
+      { id: 'd', text: " Recycle", emoji: "♻️", isCorrect: false }
     ]
   },
   {

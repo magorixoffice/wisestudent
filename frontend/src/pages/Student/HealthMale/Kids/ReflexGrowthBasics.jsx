@@ -42,12 +42,12 @@ const ReflexGrowthBasics = () => {
     },
     {
       id: 2,
-      question: "Best drink for bones?",
+      question: "What helps keep your bones strong?",
       options: [
-        { id: 'a', text: "Soda", emoji: "🥤", isCorrect: false },
+        { id: 'a', text: "Candy", emoji: "🍬", isCorrect: false },
         { id: 'b', text: "Milk", emoji: "🥛", isCorrect: true },
-        { id: 'c', text: "Juice", emoji: "🧃", isCorrect: false },
-        { id: 'd', text: "Coffee", emoji: "☕", isCorrect: false }
+        { id: 'c', text: "Soda", emoji: "🥤", isCorrect: false },
+        { id: 'd', text: "Water", emoji: "💧", isCorrect: false }
       ]
     },
     {
@@ -62,12 +62,12 @@ const ReflexGrowthBasics = () => {
     },
     {
       id: 4,
-      question: "Healthy food choice?",
+      question: "Which food helps you grow strong?",
       options: [
-        { id: 'a', text: "Cookies", emoji: "🍪", isCorrect: false },
-        { id: 'b', text: "Chips", emoji: "🍟", isCorrect: false },
-        { id: 'c', text: "Veggies", emoji: "🥕", isCorrect: true },
-        { id: 'd', text: "Cake", emoji: "🍰", isCorrect: false }
+        { id: 'a', text: "Candy", emoji: "🍬", isCorrect: false },
+        { id: 'b', text: "Fries", emoji: "🍟", isCorrect: false },
+        { id: 'c', text: "Fruits", emoji: "🍎", isCorrect: true },
+        { id: 'd', text: "Cookies", emoji: "🍪", isCorrect: false }
       ]
     },
     {

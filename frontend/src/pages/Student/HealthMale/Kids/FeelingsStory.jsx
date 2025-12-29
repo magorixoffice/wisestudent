@@ -33,21 +33,21 @@ const FeelingsStory = () => {
           id: "b",
           text: "I'm a bad kid for feeling sad",
           emoji: "😢",
-          description: "Sadness is a normal feeling everyone has",
+         
           isCorrect: false
         },
         {
           id: "a",
           text: "It's okay to feel sad sometimes",
           emoji: "💙",
-          description: "All feelings are normal and okay to have",
+          
           isCorrect: true
         },
         {
           id: "c",
           text: "I should never feel sad",
           emoji: "😠",
-          description: "Everyone feels sad sometimes, it's part of being human",
+          
           isCorrect: false
         }
       ]
@@ -60,21 +60,19 @@ const FeelingsStory = () => {
           id: "a",
           text: "Tell someone you trust",
           emoji: "💬",
-          description: "Sharing feelings helps you feel better",
+          
           isCorrect: true
         },
         {
           id: "c",
           text: "Hide it and pretend to be happy",
           emoji: "😶",
-          description: "It's better to express feelings than hide them",
           isCorrect: false
         },
         {
           id: "b",
           text: "Keep it inside forever",
           emoji: "🔒",
-          description: "Talking about feelings is healthy and helpful",
           isCorrect: false
         }
       ]
@@ -87,21 +85,18 @@ const FeelingsStory = () => {
           id: "b",
           text: "No, you should never feel jealous",
           emoji: "❌",
-          description: "Jealousy is a normal feeling that everyone experiences",
           isCorrect: false
         },
         {
           id: "a",
           text: "Yes, all feelings are okay",
-          emoji: "✅",
-          description: "It's normal to feel jealous sometimes",
+          emoji: "👌",
           isCorrect: true
         },
         {
           id: "c",
           text: "Only bad kids feel jealous",
           emoji: "👿",
-          description: "Good kids feel jealous too, it's completely normal",
           isCorrect: false
         }
       ]
@@ -114,21 +109,18 @@ const FeelingsStory = () => {
           id: "c",
           text: "Nothing, you feel exactly the same",
           emoji: "😑",
-          description: "Anger makes your heart beat faster and face feel hot",
           isCorrect: false
         },
         {
           id: "b",
           text: "You feel sleepy",
           emoji: "😴",
-          description: "Anger gives you energy, not sleepiness",
           isCorrect: false
         },
         {
           id: "a",
           text: "Your heart beats faster",
           emoji: "💓",
-          description: "Anger is a strong feeling that affects your body",
           isCorrect: true
         },
       ]
@@ -141,21 +133,18 @@ const FeelingsStory = () => {
           id: "a",
           text: "Talk about them or find healthy ways to express",
           emoji: "🗣️",
-          description: "Healthy expression helps you feel better",
           isCorrect: true
         },
         {
           id: "b",
           text: "Bottle them up inside",
           emoji: "🍾",
-          description: "Expressing feelings in healthy ways is better",
           isCorrect: false
         },
         {
           id: "c",
           text: "Ignore them completely",
           emoji: "🙈",
-          description: "Feelings need to be acknowledged and expressed",
           isCorrect: false
         },
       ]

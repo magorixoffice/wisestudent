@@ -33,21 +33,19 @@ const SweatStory = () => {
           id: "b",
           text: "Ignore it",
           emoji: "😅",
-          description: "Sweating shows your body is working hard",
+         
           isCorrect: false
         },
         {
           id: "a",
           text: "Take a bath",
           emoji: "🧼",
-          description: "Bathing after sweating keeps you fresh and clean",
           isCorrect: true
         },
         {
           id: "c",
           text: "Put on more clothes",
           emoji: "👕",
-          description: "Bathing is the best way to handle sweat",
           isCorrect: false
         }
       ]
@@ -60,21 +58,18 @@ const SweatStory = () => {
           id: "a",
           text: "Drink water and rest",
           emoji: "💧",
-          description: "Stay hydrated and cool down after sweating",
           isCorrect: true
         },
         {
           id: "b",
           text: "Stop playing forever",
           emoji: "😞",
-          description: "Sweating is normal during physical activity",
           isCorrect: false
         },
         {
           id: "c",
           text: "Wear tight clothes",
           emoji: "👔",
-          description: "Loose clothes and hydration help with sweat",
           isCorrect: false
         }
       ]
@@ -87,21 +82,18 @@ const SweatStory = () => {
           id: "c",
           text: "Keep wearing it all day",
           emoji: "👕",
-          description: "Change clothes or clean up when sweaty",
           isCorrect: false
         },
         {
           id: "b",
           text: "Spray perfume to hide smell",
           emoji: "🌸",
-          description: "Cleaning your body is better than covering smells",
           isCorrect: false
         },
         {
           id: "a",
           text: "Change shirt after school",
           emoji: "🧺",
-          description: "Fresh clothes help you feel comfortable",
           isCorrect: true
         }
       ]
@@ -114,21 +106,18 @@ const SweatStory = () => {
           id: "b",
           text: "Yes, it's embarrassing",
           emoji: "😳",
-          description: "Sweating is normal when you're thinking hard",
           isCorrect: false
         },
         {
           id: "c",
           text: "Tell everyone about it",
           emoji: "📢",
-          description: "Sweating is a normal body response",
           isCorrect: false
         },
         {
           id: "a",
           text: "No, it's normal",
           emoji: "😊",
-          description: "Body sweats to cool down and stay healthy",
           isCorrect: true
         }
       ]
@@ -141,21 +130,18 @@ const SweatStory = () => {
           id: "b",
           text: "Wait until tomorrow",
           emoji: "⏰",
-          description: "Clean up right after sweating",
           isCorrect: false
         },
         {
           id: "a",
           text: "Take a cool shower",
           emoji: "🚿",
-          description: "Shower helps remove sweat and feel fresh",
           isCorrect: true
         },
         {
           id: "c",
           text: "Just wipe with towel",
           emoji: "🧻",
-          description: "Full shower is best after heavy sweating",
           isCorrect: false
         }
       ]

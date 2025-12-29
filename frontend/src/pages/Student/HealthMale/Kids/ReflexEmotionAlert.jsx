@@ -55,8 +55,8 @@ const ReflexEmotionAlert = () => {
       instruction: "When excited, it's good to...?",
       options: [
         { id: 'a', text: "Jump Up And Down", emoji: "😄", isCorrect: false },
-        { id: 'b', text: "Share Excitement", emoji: "😊", isCorrect: false },
-        { id: 'c', text: "Act Bored", emoji: "😑", isCorrect: true },
+        { id: 'b', text: "Share Excitement", emoji: "😊", isCorrect: true },
+        { id: 'c', text: "Act Bored", emoji: "😑", isCorrect: false },
         { id: 'd', text: "Celebrate Joyfully", emoji: "🎉", isCorrect: false }
       ]
     },
@@ -64,8 +64,8 @@ const ReflexEmotionAlert = () => {
       id: 4,
       instruction: "When scared, you can...?",
       options: [
-        { id: 'a', text: "Run Away", emoji: "🏃", isCorrect: true },
-        { id: 'b', text: "Face Fear", emoji: "🤝", isCorrect: false },
+        { id: 'b', text: "Face Fear", emoji: "🤝", isCorrect: true },
+        { id: 'a', text: "Run Away", emoji: "🏃", isCorrect: false },
         { id: 'c', text: "Ask for Help", emoji: "🤝", isCorrect: false },
         { id: 'd', text: "Hide Yourself", emoji: "🙈", isCorrect: false }
       ]
@@ -75,9 +75,9 @@ const ReflexEmotionAlert = () => {
       instruction: "When worried, try to...?",
       options: [
         { id: 'a', text: "Think Positive", emoji: "💭", isCorrect: false },
-        { id: 'b', text: "Stay Worried", emoji: "😰", isCorrect: false },
-        { id: 'c', text: "Talk To Someone", emoji: "👂", isCorrect: false },
-        { id: 'd', text: "Problem Solve", emoji: "🤔", isCorrect: true }
+        { id: 'b', text: "Keep Worrying", emoji: "😰", isCorrect: false },
+        { id: 'd', text: "Problem Solve", emoji: "🤔", isCorrect: true },
+        { id: 'c', text: "Seek Help", emoji: "🤝", isCorrect: false },
       ]
     }
   ];

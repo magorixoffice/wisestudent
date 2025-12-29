@@ -16,14 +16,14 @@ const questions = [
       { id: 'a', text: " Help Animals", emoji: "🐾", isCorrect: true },
       { id: 'b', text: " Harm Animals", emoji: "❌", isCorrect: false },
       { id: 'c', text: " Ignore Animals", emoji: "😴", isCorrect: false },
-      { id: 'd', text: " Catch Animals", emoji: "为抓", isCorrect: false }
+      { id: 'd', text: " Catch Animals", emoji: "🫴", isCorrect: false }
     ]
   },
   {
     id: 2,
     text: "What should you do when you see an injured animal?",
     options: [
-      { id: 'a', text: " Help it", emoji: "救助", isCorrect: true },
+      { id: 'a', text: " Help it", emoji: "😣", isCorrect: true },
       { id: 'b', text: " Leave it", emoji: "🚶", isCorrect: false },
       { id: 'c', text: " Take it home", emoji: "🏠", isCorrect: false },
       { id: 'd', text: " Ignore it", emoji: "😶", isCorrect: false }

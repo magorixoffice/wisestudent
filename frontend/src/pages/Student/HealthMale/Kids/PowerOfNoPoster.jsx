@@ -25,144 +25,134 @@ const PowerOfNoPoster = () => {
 
   const stages = [
     {
-      question: "Which poster shows the power of saying NO?",
+      question: "Your friend wants you to skip class to play games, but you know it's wrong. What should you do?",
       posters: [
         {
           id: 1,
-          title: "Say Yes to Everything",
-          description: "A poster showing someone always agreeing",
-          emoji: "👍",
+          title: "Skip class anyway, it's just one time",
+          
+          emoji: "🏃",
           isCorrect: false
         },
         {
           id: 2,
-          title: "Power of No",
-          description: "A poster showing strength in saying no",
-          emoji: "🛡️",
+          title: "Politely say no and suggest studying together later",
+        
+          emoji: "💬",
           isCorrect: true
         },
         {
           id: 3,
-          title: "Maybe Later",
-          description: "A poster showing indecision",
-          emoji: "🤷",
+          title: "Go with them but feel guilty about it",
+          emoji: "😰",
           isCorrect: false
         }
       ],
-      correctFeedback: "The Power of No protects you!",
-      explanation: "Saying no is a superpower that keeps you safe and strong!"
+      correctFeedback: "Great choice! Standing up for what's right takes courage!",
+      explanation: "It's important to make good choices even when your friends try to convince you otherwise."
     },
     {
-      question: "Which poster shows standing up to peer pressure?",
+      question: "An older student is pressuring you to share your personal information online. What's the best response?",
       posters: [
         {
           id: 1,
-          title: "Follow the Crowd",
-          description: "A poster showing doing what everyone else does",
+          title: "Share everything to make them like you",
+          emoji: "📱",
+          isCorrect: false
+        },
+        
+        {
+          id: 2,
+          title: "Ask your parents for advice first",
+          emoji: "❓",
+          isCorrect: false
+        },
+        {
+          id: 3,
+          title: "Say no firmly and walk away",
+          emoji: "🚶",
+          isCorrect: true
+        },
+      ],
+      correctFeedback: "Perfect! Protecting your privacy is very important!",
+      explanation: "Never share personal information with strangers or people pressuring you."
+    },
+    {
+      question: "Your friend is being mean to someone new at school and wants you to join in. What do you do?",
+      posters: [
+        {
+          id: 1,
+          title: "Stand up for the new student and tell your friend it's wrong",
+          emoji: "🦸",
+          isCorrect: true
+        },
+        {
+          id: 2,
+          title: "Join in so you fit in with your friend",
+          emoji: "👎",
+          isCorrect: false
+        },
+        
+        {
+          id: 3,
+          title: "Stay quiet to avoid conflict",
+          emoji: "🤐",
+          isCorrect: false
+        }
+      ],
+      correctFeedback: "Excellent! Being kind and standing up for others is the right thing to do!",
+      explanation: "True friends don't ask you to be mean to others. It's important to stand up for what's right."
+    },
+    {
+      question: "Someone is offering you a reward to do something that doesn't feel right to you. What should you choose?",
+      posters: [
+        {
+          id: 3,
+          title: "Take the reward and do it, since you'll benefit",
+          emoji: "💰",
+          isCorrect: false
+        },
+        
+        {
+          id: 1,
+          title: "Ask other friends what they would do",
           emoji: "👥",
           isCorrect: false
         },
         {
-          id: 3,
-          title: "Stand Tall",
-          description: "A poster showing standing confident and firm",
-          emoji: "🦁",
+          id: 2,
+          title: "Say no and trust your instincts",
+          emoji: "🧠",
           isCorrect: true
         },
-        {
-          id: 2,
-          title: "Hide Away",
-          description: "A poster showing hiding from problems",
-          emoji: "🙈",
-          isCorrect: false
-        }
       ],
-      correctFeedback: "Stand Tall and be confident!",
-      explanation: "Confidence helps you resist pressure from others!"
+      correctFeedback: "Wise decision! Always trust your instincts!",
+      explanation: "If something doesn't feel right, it probably isn't. Your instincts protect you."
     },
     {
-      question: "Which poster shows a healthy boundary?",
+      question: "A trusted adult is asking you to do something that makes you uncomfortable, even though they seem nice. What's your best action?",
       posters: [
         {
           id: 2,
-          title: "No Rules",
-          description: "A poster showing chaos and no limits",
-          emoji: "🌀",
+          title: "Do what they say because adults are always right",
+          emoji: "🤖",
           isCorrect: false
         },
         {
           id: 1,
-          title: "My Space",
-          description: "A poster showing personal space and rules",
-          emoji: "🚧",
+          title: "Say no and tell another trusted adult immediately",
+          emoji: "🗣️",
           isCorrect: true
         },
         {
           id: 3,
-          title: "Open Door",
-          description: "A poster showing letting anyone do anything",
-          emoji: "🚪",
+          title: "Ignore the feeling and go along with it",
+          emoji: "😔",
           isCorrect: false
         }
       ],
-      correctFeedback: "My Space, my rules!",
-      explanation: "Boundaries are like fences that keep the good in and bad out!"
-    },
-    {
-      question: "Which poster shows asking for help?",
-      posters: [
-        {
-          id: 3,
-          title: "Solve Alone",
-          description: "A poster showing struggling alone",
-          emoji: "😓",
-          isCorrect: false
-        },
-        {
-          id: 2,
-          title: "Trusted Adult",
-          description: "A poster showing talking to a parent or teacher",
-          emoji: "👨‍👩‍👧",
-          isCorrect: true
-        },
-        {
-          id: 1,
-          title: "Keep Secrets",
-          description: "A poster showing keeping problems inside",
-          emoji: "🤫",
-          isCorrect: false
-        }
-      ],
-      correctFeedback: "Trusted Adults are there to help!",
-      explanation: "You don't have to face big problems alone. Asking for help is smart!"
-    },
-    {
-      question: "Which poster shows true friendship?",
-      posters: [
-        {
-          id: 2,
-          title: "Respectful Friend",
-          description: "A poster showing friends listening to each other",
-          emoji: "🤝",
-          isCorrect: true
-        },
-        {
-          id: 1,
-          title: "Bossy Friend",
-          description: "A poster showing one friend controlling another",
-          emoji: "👉",
-          isCorrect: false
-        },
-        {
-          id: 3,
-          title: "Mean Friend",
-          description: "A poster showing teasing and pressure",
-          emoji: "😠",
-          isCorrect: false
-        }
-      ],
-      correctFeedback: "Respect is key to friendship!",
-      explanation: "True friends respect your 'No' and like you for who you are!"
+      correctFeedback: "Smart thinking! Always speak up if something feels wrong!",
+      explanation: "Even trusted adults should respect your boundaries. Tell another adult you trust if something feels wrong."
     }
   ];
 

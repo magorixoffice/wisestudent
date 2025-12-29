@@ -33,21 +33,21 @@ const ShavingStory = () => {
           id: "b",
           text: "No, ignore it",
           emoji: "🙈",
-          description: "Learning safe grooming is important for hygiene",
+          
           isCorrect: false
         },
         {
           id: "a",
           text: "Yes, learn properly",
-          emoji: "✂️",
-          description: "Safe shaving prevents cuts and keeps skin healthy",
+          emoji: "🛡️",
+          
           isCorrect: true
         },
         {
           id: "c",
           text: "Use any sharp object",
           emoji: "🔪",
-          description: "Safe tools and techniques are important",
+    
           isCorrect: false
         }
       ]
@@ -60,21 +60,18 @@ const ShavingStory = () => {
           id: "a",
           text: "Watch and learn carefully",
           emoji: "👀",
-          description: "Learning from parents helps you stay safe",
           isCorrect: true
         },
         {
           id: "b",
           text: "Try it alone first",
           emoji: "🧑‍🦰",
-          description: "Start with adult supervision for safety",
           isCorrect: false
         },
         {
           id: "c",
           text: "Say you don't need it",
           emoji: "🙅",
-          description: "Everyone needs to learn proper grooming",
           isCorrect: false
         }
       ]
@@ -87,21 +84,18 @@ const ShavingStory = () => {
           id: "c",
           text: "Keep shaving",
           emoji: "🩸",
-          description: "Stop and clean the cut properly",
           isCorrect: false
         },
         {
           id: "b",
           text: "Hide the cut",
           emoji: "🤐",
-          description: "Clean cuts properly and ask for help if needed",
           isCorrect: false
         },
         {
           id: "a",
           text: "Clean it and use antiseptic",
           emoji: "🩹",
-          description: "Proper wound care prevents infection",
           isCorrect: true
         }
       ]
@@ -114,21 +108,18 @@ const ShavingStory = () => {
           id: "b",
           text: "Never, use forever",
           emoji: "♻️",
-          description: "Dull blades can cause cuts and irritation",
           isCorrect: false
         },
         {
           id: "c",
           text: "Only when it breaks",
           emoji: "💔",
-          description: "Regular blade changes prevent skin problems",
           isCorrect: false
         },
         {
           id: "a",
           text: "Every few uses",
           emoji: "🔄",
-          description: "Fresh blades give smoother, safer shaves",
           isCorrect: true
         }
       ]
@@ -141,21 +132,18 @@ const ShavingStory = () => {
           id: "b",
           text: "Avoid mirrors",
           emoji: "🙈",
-          description: "Learning proper grooming builds confidence",
           isCorrect: false
         },
         {
           id: "a",
           text: "Learn proper grooming",
           emoji: "💇",
-          description: "Good hygiene habits make you feel confident",
           isCorrect: true
         },
         {
           id: "c",
           text: "Compare with friends",
           emoji: "👥",
-          description: "Everyone develops at their own pace",
           isCorrect: false
         }
       ]

@@ -30,21 +30,20 @@ const GrowingUpPoster = () => {
         {
           id: 1,
           title: "Stop Growing",
-          description: "A poster saying growth is bad",
+         
           emoji: "🚫",
           isCorrect: false
         },
         {
           id: 2,
           title: "Growing Strong",
-          description: "A poster showing a happy growing child",
+          
           emoji: "💪",
           isCorrect: true
         },
         {
           id: 3,
           title: "Shrinking Kid",
-          description: "A poster showing a child getting smaller",
           emoji: "📉",
           isCorrect: false
         }
@@ -58,21 +57,18 @@ const GrowingUpPoster = () => {
         {
           id: 1,
           title: "Silent Voice",
-          description: "A poster saying not to talk",
           emoji: "🤐",
           isCorrect: false
         },
         {
           id: 3,
           title: "Scary Sounds",
-          description: "A poster saying voice changes are scary",
           emoji: "😱",
           isCorrect: false
         },
         {
           id: 2,
           title: "New Voice",
-          description: "A poster showing voice changing is natural",
           emoji: "🗣️",
           isCorrect: true
         }
@@ -86,21 +82,18 @@ const GrowingUpPoster = () => {
         {
           id: 2,
           title: "Stay Up Late",
-          description: "A poster encouraging no sleep",
           emoji: "🌙",
           isCorrect: false
         },
         {
           id: 1,
           title: "Sleep & Eat Well",
-          description: "A poster with healthy food and good sleep",
           emoji: "🛌",
           isCorrect: true
         },
         {
           id: 3,
           title: "Junk Food Only",
-          description: "A poster with only candy and chips",
           emoji: "🍟",
           isCorrect: false
         }
@@ -114,21 +107,18 @@ const GrowingUpPoster = () => {
         {
           id: 3,
           title: "Hide Your Hair",
-          description: "A poster saying to hide body hair",
           emoji: "🙈",
           isCorrect: false
         },
         {
           id: 2,
           title: "Hair is Normal",
-          description: "A poster showing body hair is natural",
           emoji: "🧔",
           isCorrect: true
         },
         {
           id: 1,
           title: "Shave It All",
-          description: "A poster saying hair is bad",
           emoji: "🪒",
           isCorrect: false
         }
@@ -142,21 +132,18 @@ const GrowingUpPoster = () => {
         {
           id: 2,
           title: "Proud of Me",
-          description: "A poster showing confidence in growing up",
           emoji: "😎",
           isCorrect: true
         },
         {
           id: 1,
           title: "Be Ashamed",
-          description: "A poster about hiding changes",
           emoji: "😔",
           isCorrect: false
         },
         {
           id: 3,
           title: "Fear Growth",
-          description: "A poster about being scared of growing",
           emoji: "😨",
           isCorrect: false
         }

@@ -1,112 +1,196 @@
-import React, { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import { useLocation } from "react-router-dom";
 import GameShell from "../../Finance/GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
+import { getGameDataById } from "../../../../utils/getGameData";
 import { getSustainabilityTeenGames } from "../../../../pages/Games/GameCategories/Sustainability/teenGamesData";
 
 const TOTAL_ROUNDS = 5;
 const ROUND_TIME = 10;
 
 const ReflexInnovationSolutions = () => {
-  const navigate = useNavigate();
-  const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
+  const location = useLocation();
   
-  const gameId = "sustainability-teens-94";
-  const games = getSustainabilityTeenGames({});
-  const currentGameIndex = games.findIndex(game => game.id === gameId);
-  const nextGame = games[currentGameIndex + 1];
-  const nextGamePath = nextGame ? nextGame.path : "/games/sustainability/teens";
-  const nextGameId = nextGame ? nextGame.id : null;
-
-  // Hardcode rewards to align with rule: 1 coin per question, 5 total coins, 10 total XP
-  const coinsPerLevel = 1;
-  const totalCoins = 5;
-  const totalXp = 10;
-
-  const [gameState, setGameState] = useState("ready"); // ready, playing, finished
-  const [currentRound, setCurrentRound] = useState(0);
+  const gameData = getGameDataById("sustainability-teens-94");
+  const gameId = gameData?.id || "sustainability-teens-94";
+  
+  const coinsPerLevel = gameData?.coins || location.state?.coinsPerLevel || 1;
+  const totalCoins = gameData?.coins || location.state?.totalCoins || 5;
+  const totalXp = gameData?.xp || location.state?.totalXp || 10;
+  
+  const [currentRound, setCurrentRound] = useState(1);
+  const [gameState, setGameState] = useState('ready'); // ready, playing, finished
   const [score, setScore] = useState(0);
   const [timeLeft, setTimeLeft] = useState(ROUND_TIME);
   const [answered, setAnswered] = useState(false);
   const timerRef = useRef(null);
+  const currentRoundRef = useRef(1);
+  const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
+
+  const { nextGamePath, nextGameId } = (() => {
+    if (location.state?.nextGamePath) {
+      return {
+        nextGamePath: location.state.nextGamePath,
+        nextGameId: location.state.nextGameId || null
+      };
+    }
+    try {
+      const games = getSustainabilityTeenGames({});
+      const currentGame = games.find(g => g.id === gameId);
+      if (currentGame && currentGame.index !== undefined) {
+        const nextGame = games.find(g => g.index === currentGame.index + 1 && g.isSpecial && g.path);
+        return {
+          nextGamePath: nextGame ? nextGame.path : null,
+          nextGameId: nextGame ? nextGame.id : null
+        };
+      }
+    } catch (error) {
+      console.warn("Error finding next game:", error);
+    }
+    return { nextGamePath: null, nextGameId: null };
+  })();
 
   const questions = [
     {
       id: 1,
-      text: "Which innovation solves water scarcity?",
+      text: "Which technology represents the most promising approach to atmospheric carbon removal at scale?",
       options: [
-        { id: 'a', text: "Desalination Tech", emoji: "💧", isCorrect: true },
-        { id: 'b', text: "Coal Plant", emoji: "🏭", isCorrect: false },
-        { id: 'c', text: "Plastic Bottles", emoji: "🥤", isCorrect: false },
-        { id: 'd', text: "Gas Car", emoji: "⛽", isCorrect: false }
+        { id: 'a', text: "Direct Air Capture with Mineralization", emoji: "🧪", isCorrect: true },
+        { id: 'b', text: "Traditional Reforestation", emoji: "🌳", isCorrect: false },
+        { id: 'c', text: "Bioenergy with Carbon Capture", emoji: "⚡", isCorrect: false },
+        { id: 'd', text: "Enhanced Weathering", emoji: "🪨", isCorrect: false }
       ]
     },
     {
       id: 2,
-      text: "Which technology addresses climate change?",
+      text: "Which innovation could most effectively address the energy-water nexus in arid regions?",
       options: [
-        { id: 'a', text: "Carbon Capture", emoji: "🌱", isCorrect: true },
-        { id: 'b', text: "Oil Refinery", emoji: "🛢️", isCorrect: false },
-        { id: 'c', text: "Coal Mine", emoji: "⛏️", isCorrect: false },
-        { id: 'd', text: "Plastic Factory", emoji: "🏭", isCorrect: false }
+        { id: 'b', text: "Large-Scale Desalination", emoji: "🌊", isCorrect: false },
+        { id: 'a', text: "Atmospheric Water Generation with Solar", emoji: "💧", isCorrect: true },
+        { id: 'c', text: "Cloud Seeding Technology", emoji: "☁️", isCorrect: false },
+        { id: 'd', text: "Aquifer Recharge Systems", emoji: "🔋", isCorrect: false }
       ]
     },
     {
       id: 3,
-      text: "Which innovation helps food security?",
+      text: "Which represents the most sustainable approach to protein production for future food security?",
       options: [
-        { id: 'a', text: "Vertical Farming", emoji: "🌱", isCorrect: true },
-        { id: 'b', text: "Deforestation", emoji: "🪚", isCorrect: false },
-        { id: 'c', text: "Overfishing", emoji: "🎣", isCorrect: false },
-        { id: 'd', text: "Soil Erosion", emoji: "🌍", isCorrect: false }
+        { id: 'a', text: "Cellular Agriculture and Cultured Meat", emoji: "🥩", isCorrect: true },
+        { id: 'b', text: "Vertical Farming for Plant Proteins", emoji: "🌱", isCorrect: false },
+        { id: 'c', text: "Insect Protein Systems", emoji: "🪱", isCorrect: false },
+        { id: 'd', text: "Precision Fermentation", emoji: "🧬", isCorrect: false }
       ]
     },
     {
       id: 4,
-      text: "Which technology reduces waste?",
+      text: "Which technology offers the most comprehensive solution to plastic waste circularity?",
       options: [
-        { id: 'a', text: "Plastic Recycling", emoji: "♻️", isCorrect: true },
-        { id: 'b', text: "Landfill Expansion", emoji: "🗑️", isCorrect: false },
-        { id: 'c', text: "Incineration", emoji: "🔥", isCorrect: false },
-        { id: 'd', text: "Single Use", emoji: "❌", isCorrect: false }
+        { id: 'b', text: "Advanced Mechanical Recycling", emoji: "♻️", isCorrect: false },
+        { id: 'c', text: "Biodegradable Plastic Alternatives", emoji: "🌿", isCorrect: false },
+        { id: 'd', text: "Plastic-Eating Enzymes", emoji: "🦠", isCorrect: false },
+        { id: 'a', text: "Chemical Recycling to Monomers", emoji: "🔄", isCorrect: true },
       ]
     },
     {
       id: 5,
-      text: "Which innovation improves air quality?",
+      text: "Which innovation could most effectively reduce urban air pollution while addressing transportation needs?",
       options: [
-        { id: 'a', text: "Electric Public Transit", emoji: "🚌", isCorrect: true },
-        { id: 'b', text: "Gas Stations", emoji: "⛽", isCorrect: false },
-        { id: 'c', text: "Coal Plants", emoji: "🏭", isCorrect: false },
-        { id: 'd', text: "Traffic Jams", emoji: "🚗", isCorrect: false }
+        { id: 'b', text: "Hydrogen Fuel Cell Buses", emoji: "🚌", isCorrect: false },
+        { id: 'c', text: "Urban Air Mobility Drones", emoji: "🚁", isCorrect: false },
+        { id: 'a', text: "Autonomous Electric Micro-Mobility Networks", emoji: "🚲", isCorrect: true },
+        { id: 'd', text: "Congestion Pricing Systems", emoji: "🚦", isCorrect: false }
       ]
     }
   ];
 
-  // Timer effect
   useEffect(() => {
-    if (gameState === "playing" && timeLeft > 0 && !answered) {
-      timerRef.current = setTimeout(() => {
-        setTimeLeft(prev => prev - 1);
-      }, 1000);
-    } else if (timeLeft === 0 && !answered) {
-      handleTimeUp();
+    if (gameState === "finished") {
+      console.log(`🎮 Reflex Innovation Solutions game completed! Score: ${score}/${TOTAL_ROUNDS}, gameId: ${gameId}, nextGamePath: ${nextGamePath}, nextGameId: ${nextGameId}`);
+      if (nextGameId && window.history && window.history.replaceState) {
+        const currentState = window.history.state || {};
+        window.history.replaceState({
+          ...currentState,
+          nextGameId: nextGameId
+        }, '');
+      }
     }
+  }, [gameState, score, gameId, nextGamePath, nextGameId]);
+
+  // Update ref when currentRound changes
+  useEffect(() => {
+    currentRoundRef.current = currentRound;
+  }, [currentRound]);
+
+  // Reset timer when round changes
+  useEffect(() => {
+    if (gameState === "playing" && currentRound > 0 && currentRound <= TOTAL_ROUNDS) {
+      setTimeLeft(ROUND_TIME);
+      setAnswered(false);
+    }
+  }, [currentRound, gameState]);
+
+  // Handle time up - move to next question or show results
+  const handleTimeUp = useCallback(() => {
+    setAnswered(true);
+    resetFeedback();
+
+    const isLastQuestion = currentRoundRef.current >= TOTAL_ROUNDS;
+
+    setTimeout(() => {
+      if (isLastQuestion) {
+        setGameState("finished");
+      } else {
+        setCurrentRound((prev) => prev + 1);
+      }
+    }, 1000);
+  }, []);
+
+  // Timer effect - countdown from 10 seconds for each question
+  useEffect(() => {
+    if (gameState !== "playing") {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+        timerRef.current = null;
+      }
+      return;
+    }
+
+    // Check if game should be finished
+    if (currentRoundRef.current > TOTAL_ROUNDS) {
+      setGameState("finished");
+      return;
+    }
+
+    // Clear any existing timer
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = null;
+    }
+
+    // Start countdown timer
+    timerRef.current = setInterval(() => {
+      setTimeLeft((prev) => {
+        const newTime = prev - 1;
+        if (newTime <= 0) {
+          // Time's up for this round
+          if (timerRef.current) {
+            clearInterval(timerRef.current);
+            timerRef.current = null;
+          }
+          handleTimeUp();
+          return 0;
+        }
+        return newTime;
+      });
+    }, 1000);
 
     return () => {
       if (timerRef.current) {
-        clearTimeout(timerRef.current);
+        clearInterval(timerRef.current);
+        timerRef.current = null;
       }
     };
-  }, [gameState, timeLeft, answered]);
-
-  useEffect(() => {
-    if (gameState === "playing") {
-      setTimeLeft(ROUND_TIME);
-      setAnswered(false);
-      resetFeedback();
-    }
-  }, [currentRound, gameState]);
+  }, [gameState, handleTimeUp, currentRound]);
 
   const startGame = () => {
     setGameState("playing");
@@ -118,7 +202,13 @@ const ReflexInnovationSolutions = () => {
   };
 
   const handleAnswer = (option) => {
-    if (gameState !== "playing" || answered) return;
+    if (gameState !== "playing" || answered || currentRound > TOTAL_ROUNDS) return;
+
+    // Clear the timer immediately when user answers
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = null;
+    }
 
     setAnswered(true);
     resetFeedback();
@@ -128,29 +218,15 @@ const ReflexInnovationSolutions = () => {
       showCorrectAnswerFeedback(1, true);
     }
 
+    // Move to next round or show results after a short delay
     setTimeout(() => {
       if (currentRound >= TOTAL_ROUNDS) {
         setGameState("finished");
       } else {
         setCurrentRound((prev) => prev + 1);
+        setAnswered(false); // Reset answered state for next round
       }
-    }, 1000);
-  };
-
-  const handleTimeUp = () => {
-    if (answered) return; // Prevent double handling if answer was just submitted
-    
-    setAnswered(true);
-    resetFeedback();
-    showCorrectAnswerFeedback(0, false);
-    
-    setTimeout(() => {
-      if (currentRound >= TOTAL_ROUNDS) {
-        setGameState("finished");
-      } else {
-        setCurrentRound((prev) => prev + 1);
-      }
-    }, 1000);
+    }, 500);
   };
 
   const currentQuestion = questions[currentRound - 1];
@@ -158,85 +234,82 @@ const ReflexInnovationSolutions = () => {
   return (
     <GameShell
       title="Reflex Innovation Solutions"
-      subtitle={gameState === "playing" ? `Round ${currentRound}/${TOTAL_ROUNDS}: React fast!` : "Quickly identify green technology solutions to problems!"}
-      onNext={() => navigate(nextGamePath)}
-      nextEnabled={gameState === "finished"}
+      subtitle={gameState === "playing" ? `Round ${currentRound} of ${TOTAL_ROUNDS}` : gameState === "finished" ? "Game Complete!" : "Test your knowledge of advanced innovation solutions!"}
+      currentLevel={currentRound}
+      coinsPerLevel={coinsPerLevel}
       showGameOver={gameState === "finished"}
       score={score}
       gameId={gameId}
       gameType="sustainability"
-      totalLevels={TOTAL_ROUNDS}
-      currentLevel={currentRound}
-      maxScore={TOTAL_ROUNDS}
-      showConfetti={gameState === "finished"}
       flashPoints={flashPoints}
       showAnswerConfetti={showAnswerConfetti}
-      coinsPerLevel={coinsPerLevel}
+      totalLevels={TOTAL_ROUNDS}
+      maxScore={TOTAL_ROUNDS}
+      showConfetti={gameState === "finished" && score >= 3}
       totalCoins={totalCoins}
       totalXp={totalXp}
       nextGamePath={nextGamePath}
       nextGameId={nextGameId}
     >
-      <div className="flex flex-col items-center justify-center min-h-[calc(100vh-200px)] max-w-4xl mx-auto px-4 py-4">
+      <div className="space-y-8">
         {gameState === "ready" && (
-          <div className="text-center bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 w-full max-w-2xl">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Innovation Solutions Challenge</h2>
-            <p className="text-white/90 mb-6">Test your reflexes to identify green technology solutions!</p>
-            <p className="text-white/70 mb-2">• {TOTAL_ROUNDS} rounds</p>
-            <p className="text-white/70 mb-6">• {ROUND_TIME} seconds per round</p>
+          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 text-center">
+            <h3 className="text-2xl font-bold text-white mb-4">Get Ready!</h3>
+            <p className="text-white/80 mb-6 text-lg">Test your knowledge of advanced innovation solutions! You have {ROUND_TIME} seconds per round</p>
             <button
               onClick={startGame}
-              className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold py-3 px-8 rounded-xl transition-all duration-200"
+              className="bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 text-white px-8 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105"
             >
               Start Game
             </button>
+            <p className="text-white/60 mt-4">You'll have {ROUND_TIME} seconds per round</p>
           </div>
         )}
 
-        {gameState === "playing" && (
-          <div className="space-y-6 w-full max-w-2xl">
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-              <div className="flex justify-between items-center mb-4">
-                <span className="text-white/80">Round {currentRound}/{TOTAL_ROUNDS}</span>
-                <div className="flex items-center space-x-4">
-                  <span className="text-yellow-400 font-bold">Score: {score}</span>
-                  <div className={`text-xl font-bold px-3 py-1 rounded-lg ${
-                    timeLeft > 5 ? 'text-green-400' : timeLeft > 2 ? 'text-yellow-400' : 'text-red-400'
-                  }`}>
-                    {timeLeft}s
-                  </div>
-                </div>
+        {gameState === "playing" && currentQuestion && (
+          <div className="space-y-6">
+            <div className="flex justify-between items-center bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
+              <div className="text-white">
+                <span className="font-bold">Round:</span> {currentRound}/{TOTAL_ROUNDS}
               </div>
+              <div className={`font-bold ${timeLeft <= 2 ? 'text-red-500' : timeLeft <= 3 ? 'text-yellow-500' : 'text-green-400'}`}>
+                <span className="text-white">Time:</span> {timeLeft}s
+              </div>
+              <div className="text-white">
+                <span className="font-bold">Score:</span> {score}/{TOTAL_ROUNDS}
+              </div>
+            </div>
 
-              <p className="text-white text-xl mb-6 text-center">
+            <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20 text-center">
+              <h3 className="text-2xl md:text-3xl font-bold mb-6 text-white">
                 {currentQuestion.text}
-              </p>
+              </h3>
 
-              <div className="grid grid-cols-2 gap-4">
-                {currentQuestion.options.map((option) => (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {currentQuestion.options.map((option, index) => (
                   <button
-                    key={option.id}
+                    key={index}
                     onClick={() => handleAnswer(option)}
                     disabled={answered}
-                    className="bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-medium py-4 px-6 rounded-xl transition-all duration-200 flex flex-col items-center justify-center space-y-2"
+                    className="bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 text-white p-6 rounded-2xl shadow-lg transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                   >
-                    <span className="text-3xl">{option.emoji}</span>
-                    <span className="text-center">{option.text}</span>
+                    <div className="text-4xl mb-3">{option.emoji}</div>
+                    <h3 className="font-bold text-xl">{option.text}</h3>
                   </button>
                 ))}
               </div>
             </div>
           </div>
         )}
-
+        
         {gameState === "finished" && (
-          <div className="text-center bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 w-full max-w-2xl">
+          <div className="text-center bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 w-full max-w-2xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Game Complete!</h2>
             <p className="text-white/90 mb-2">Your score: {score}/{TOTAL_ROUNDS}</p>
-            <p className="text-white/70 mb-6">Great reflexes identifying innovation solutions!</p>
+            <p className="text-white/70 mb-6">Excellent knowledge of advanced innovation solutions!</p>
             <div className="flex justify-center gap-4">
               <button
-                onClick={() => navigate(nextGamePath)}
+                onClick={() => window.location.href = nextGamePath}
                 className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-200"
               >
                 Next Challenge

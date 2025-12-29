@@ -119,12 +119,7 @@ const DisciplineStory = () => {
       id: 5,
       text: "What is the benefit of self-discipline for teens?",
       options: [
-        {
-          id: "a",
-          text: "Greater independence",
-          emoji: "🦅",
-          isCorrect: true
-        },
+        
         {
           id: "c",
           text: "More restrictions",
@@ -136,7 +131,13 @@ const DisciplineStory = () => {
           text: "Less work",
           emoji: "😌",
           isCorrect: false
-        }
+        },
+        {
+          id: "a",
+          text: "Greater independence",
+          emoji: "🦅",
+          isCorrect: true
+        },
       ]
     }
   ];

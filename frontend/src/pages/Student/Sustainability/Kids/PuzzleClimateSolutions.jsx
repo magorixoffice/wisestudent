@@ -61,10 +61,10 @@ const PuzzleClimateSolutions = () => {
 
   // Climate Solutions Methods (right side) - 5 items
   const climateSolutions = [
-    { id: 1, name: "Cool Air", emoji: "❄️", description: "Helps climate" },
     { id: 5, name: "Waste", emoji: "🗑️", description: "Harms environment" },
-    { id: 3, name: "Clean", emoji: "✨", description: "Good for environment" },
+    { id: 1, name: "Cool Air", emoji: "❄️", description: "Helps climate" },
     { id: 2, name: "Pollution", emoji: "🏭", description: "Harms climate" },
+    { id: 3, name: "Clean", emoji: "✨", description: "Good for environment" },
     { id: 4, name: "Green Energy", emoji: "⚡", description: "Clean power" },
   ];
 

@@ -66,7 +66,7 @@ const DailyRoutineSimulation48 = () => {
           id: "b",
           text: "Put on deodorant & clean clothes",
           emoji: "👕",
-          isCorrect: false
+          isCorrect: true
         },
         {
           id: "c",
@@ -78,7 +78,7 @@ const DailyRoutineSimulation48 = () => {
           id: "d",
           text: "Choose weather-appropriate outfit",
           emoji: "🧥",
-          isCorrect: true
+          isCorrect: false
         }
       ]
     },
@@ -93,12 +93,7 @@ const DailyRoutineSimulation48 = () => {
           emoji: "🍔",
           isCorrect: false
         },
-        {
-          id: "b",
-          text: "Wash hands first",
-          emoji: "🧼",
-          isCorrect: false
-        },
+        
         {
           id: "c",
           text: "Lick fingers",
@@ -106,10 +101,16 @@ const DailyRoutineSimulation48 = () => {
           isCorrect: false
         },
         {
+          id: "b",
+          text: "Wash hands first",
+          emoji: "🧼",
+          isCorrect: true
+        },
+        {
           id: "d",
           text: "Sanitize with hand gel",
           emoji: "🧴",
-          isCorrect: true
+          isCorrect: false
         }
       ]
     },
@@ -122,7 +123,7 @@ const DailyRoutineSimulation48 = () => {
           id: "a",
           text: "Shower",
           emoji: "🚿",
-          isCorrect: false
+          isCorrect: true
         },
         {
           id: "b",
@@ -140,7 +141,7 @@ const DailyRoutineSimulation48 = () => {
           id: "d",
           text: "Change into dry clothes",
           emoji: "👚",
-          isCorrect: true
+          isCorrect: false
         }
       ]
     },
@@ -159,7 +160,7 @@ const DailyRoutineSimulation48 = () => {
           id: "b",
           text: "Brush teeth & wear PJs",
           emoji: "🛌",
-          isCorrect: false
+          isCorrect: true
         },
         {
           id: "c",
@@ -171,7 +172,7 @@ const DailyRoutineSimulation48 = () => {
           id: "d",
           text: "Set alarm and organize tomorrow",
           emoji: "⏰",
-          isCorrect: true
+          isCorrect: false
         }
       ]
     }

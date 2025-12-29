@@ -27,10 +27,16 @@ const SimulationTeenStartup = () => {
           isCorrect: false
         },
         {
+          id: "d",
+          text: "Emphasize your unique value proposition and quality",
+          emoji: "✨",
+          isCorrect: true
+        },
+        {
           id: "b",
           text: "Safe, eco-friendly product with higher costs",
           emoji: "🌱",
-          isCorrect: true
+          isCorrect: false
         },
         {
           id: "c",
@@ -38,12 +44,7 @@ const SimulationTeenStartup = () => {
           emoji: "📋",
           isCorrect: false
         },
-        {
-          id: "d",
-          text: "Emphasize your unique value proposition and quality",
-          emoji: "✨",
-          isCorrect: false
-        }
+        
       ]
     },
     {

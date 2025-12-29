@@ -75,7 +75,7 @@ const QuizOnSustainabilityLeadership = () => {
       text: "What is the primary role of a sustainability leader?",
       options: [
         { id: 'b', text: "Focus on personal gain", emoji: "💰", isCorrect: false },
-        { id: 'a', text: "Inspire and guide others toward sustainable practices", emoji: "🌱", isCorrect: true },
+        { id: 'a', text: "Inspire others toward sustainable practices", emoji: "🌱", isCorrect: true },
         { id: 'c', text: "Enforce strict rules", emoji: "👮", isCorrect: false }
       ]
     },
@@ -83,7 +83,7 @@ const QuizOnSustainabilityLeadership = () => {
       id: 2,
       text: "Which trait is most important for sustainability leadership?",
       options: [
-        { id: 'a', text: "Empathy and ability to understand others", emoji: "❤️", isCorrect: true },
+        { id: 'a', text: "Empathy to understand others", emoji: "❤️", isCorrect: true },
         { id: 'b', text: "Authority and power", emoji: "👑", isCorrect: false },
         { id: 'c', text: "Competitiveness", emoji: "🏆", isCorrect: false }
       ]

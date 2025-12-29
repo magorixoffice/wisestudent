@@ -86,7 +86,7 @@ const BadgeUpcycleChampionKid = () => {
       options: [
         { id: "b", text: "Throw away", emoji: "🗑️", correct: false, coins: 0 },
         { id: "c", text: "Break it", emoji: "💥", correct: false, coins: 0 },
-        { id: "a", text: "Use as container", emoji: "โหล", correct: true, coins: 1 },
+        { id: "a", text: "Use as container", emoji: "🫙", correct: true, coins: 1 },
         { id: "d", text: "Ignore", emoji: "😶", correct: false, coins: 0 },
       ],
       feedback: {

@@ -55,7 +55,7 @@ const TeenStressDaySimulation = () => {
           id: "a",
           text: "Take a 10-minute break",
           emoji: "⏸️",
-          isCorrect: false
+          isCorrect: true
         },
         {
           id: "b",
@@ -73,7 +73,7 @@ const TeenStressDaySimulation = () => {
           id: "d",
           text: "Ask for help",
           emoji: "🤝",
-          isCorrect: true
+          isCorrect: false
         }
       ]
     },

@@ -100,30 +100,38 @@ const QuizOnClimateChange = () => {
       id: 2,
       text: "What happens when Earth gets too warm?",
       options: [
+       
         { 
+          id: "b", 
+          text: "Snow becomes ice cream", 
+          emoji: "🍦", 
+          isCorrect: false
+        },
+        { 
+          id: "c", 
+          text: "The sun gets colder", 
+          emoji: "❄️", 
+          isCorrect: false
+        },
+         { 
           id: "a", 
           text: "Ice caps melt", 
           emoji: "🧊", 
           isCorrect: true
         },
-        { 
-          id: "b", 
-          text: "Weather changes", 
-          emoji: "🌪️", 
-          isCorrect: true
-        },
-        { 
-          id: "c", 
-          text: "Animals get confused", 
-          emoji: "🐻", 
-          isCorrect: true
-        }
       ]
     },
     {
       id: 3,
       text: "How can we help stop climate change?",
       options: [
+        
+        { 
+          id: "b", 
+          text: "Use more plastic bags", 
+          emoji: "🛍️", 
+          isCorrect: false
+        },
         { 
           id: "a", 
           text: "Use less energy", 
@@ -131,16 +139,10 @@ const QuizOnClimateChange = () => {
           isCorrect: true
         },
         { 
-          id: "b", 
-          text: "Plant more trees", 
-          emoji: "🌱", 
-          isCorrect: true
-        },
-        { 
           id: "c", 
-          text: "Walk or bike more", 
-          emoji: "🚲", 
-          isCorrect: true
+          text: "Drive everywhere", 
+          emoji: "🚗", 
+          isCorrect: false
         }
       ]
     },
@@ -148,7 +150,12 @@ const QuizOnClimateChange = () => {
       id: 4,
       text: "What is a greenhouse gas?",
       options: [
-        
+        { 
+          id: "a", 
+          text: "Gas that traps heat", 
+          emoji: "🌡️", 
+          isCorrect: true
+        },
         { 
           id: "b", 
           text: "Gas that cools Earth", 
@@ -160,37 +167,32 @@ const QuizOnClimateChange = () => {
           text: "Gas that makes plants grow", 
           emoji: "🌱", 
           isCorrect: false
-        },
-        { 
-          id: "a", 
-          text: "Gas that traps heat", 
-          emoji: "🌡️", 
-          isCorrect: true
-        },
+        }
       ]
     },
     {
       id: 5,
       text: "Why is climate change a problem?",
       options: [
+        
+        { 
+          id: "b", 
+          text: "It makes seasons longer", 
+          emoji: "🌸", 
+          isCorrect: false
+        },
+        { 
+          id: "c", 
+          text: "It helps plants grow faster", 
+          emoji: "🌿", 
+          isCorrect: false
+        },
         { 
           id: "a", 
           text: "It affects animals", 
           emoji: "🦌", 
           isCorrect: true
         },
-        { 
-          id: "b", 
-          text: "It changes weather", 
-          emoji: "🌤️", 
-          isCorrect: true
-        },
-        { 
-          id: "c", 
-          text: "It makes Earth warmer", 
-          emoji: "🔥", 
-          isCorrect: true
-        }
       ]
     }
   ];

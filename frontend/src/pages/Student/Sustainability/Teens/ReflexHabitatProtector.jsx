@@ -15,7 +15,7 @@ const questions = [
     options: [
       { id: 'a', text: " Deforestation", emoji: "🪓", isCorrect: false },
       { id: 'b', text: " Habitat restoration", emoji: "🌱", isCorrect: true },
-      { id: 'c', text: " Pollution", emoji: " factory", isCorrect: false },
+      { id: 'c', text: " Pollution", emoji: "🏭", isCorrect: false },
       { id: 'd', text: " Urban expansion", emoji: "🏗️", isCorrect: false }
     ]
   },
@@ -23,8 +23,8 @@ const questions = [
     id: 2,
     text: "What helps maintain biodiversity?",
     options: [
-      { id: 'a', text: " Introducing invasive species", emoji: "🐜", isCorrect: false },
       { id: 'b', text: " Protecting ecosystems", emoji: "🌿", isCorrect: true },
+      { id: 'a', text: " Introducing invasive species", emoji: "🐜", isCorrect: false },
       { id: 'c', text: " Destroying wetlands", emoji: "🔥", isCorrect: false },
       { id: 'd', text: " Overfishing", emoji: "🎣", isCorrect: false }
     ]
@@ -44,9 +44,9 @@ const questions = [
     text: "What's a threat to habitats?",
     options: [
       { id: 'a', text: " Protected areas", emoji: "🛡️", isCorrect: false },
-      { id: 'b', text: " Climate change", emoji: "🌡️", isCorrect: true },
       { id: 'c', text: " Species conservation", emoji: "🦋", isCorrect: false },
-      { id: 'd', text: " Habitat preservation", emoji: "🏞️", isCorrect: false }
+      { id: 'd', text: " Habitat preservation", emoji: "🏞️", isCorrect: false },
+      { id: 'b', text: " Climate change", emoji: "🌡️", isCorrect: true },
     ]
   },
   {
@@ -54,8 +54,8 @@ const questions = [
     text: "Which choice supports habitat conservation?",
     options: [
       { id: 'a', text: " Overconsumption", emoji: "🛍️", isCorrect: false },
-      { id: 'b', text: " Sustainable development", emoji: "🌱", isCorrect: true },
       { id: 'c', text: " Industrial expansion", emoji: "🏭", isCorrect: false },
+      { id: 'b', text: " Sustainable development", emoji: "🌱", isCorrect: true },
       { id: 'd', text: " Ignoring conservation", emoji: "😑", isCorrect: false }
     ]
   }

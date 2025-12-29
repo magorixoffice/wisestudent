@@ -132,8 +132,8 @@ const RespectWomenSimulation = () => {
         },
         {
           id: "d",
-          text: "Respect her decision",
-          emoji: "🙌",
+          text: "Try to change her mind",
+          emoji: "🤔",
           isCorrect: false
         }
       ]
@@ -220,9 +220,7 @@ const RespectWomenSimulation = () => {
             <span className="text-yellow-400 font-bold">Coins: {coins}</span>
           </div>
 
-          <h2 className="text-xl font-semibold text-white mb-4">
-            Respect Women Simulation
-          </h2>
+        
           
           <p className="text-white/90 mb-6">
             {scenarios[currentScenario].text}

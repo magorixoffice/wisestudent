@@ -38,7 +38,7 @@ import JournalOfIdeas from "./JournalOfIdeas";
 import GameStory from "./GameStory";
 import ReflexDesignThinking from "./ReflexDesignThinking";
 import BadgeLittleInnovator from "./BadgeLittleInnovator";
-import LemonadeKidStory from "./LemonadeKidStory";
+import IceCreamKidStory from "./IceCreamKidStory";
 import QuizOnYoungEntrepreneurs from "./QuizOnYoungEntrepreneurs";
 import ReflexEntrepreneurBasics from "./ReflexEntrepreneurBasics";
 import PuzzleMatchStories from "./PuzzleMatchStories";
@@ -144,7 +144,7 @@ const kidEheGames = {
   "game-story": GameStory,
   "reflex-design-thinking": ReflexDesignThinking,
   "badge-little-innovator": BadgeLittleInnovator,
-  "lemonade-kid-story": LemonadeKidStory,
+  "ice-cream-kid-story": IceCreamKidStory,
   "quiz-on-young-entrepreneurs": QuizOnYoungEntrepreneurs,
   "reflex-entrepreneur-basics": ReflexEntrepreneurBasics,
   "puzzle-match-stories": PuzzleMatchStories,

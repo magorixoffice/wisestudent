@@ -23,19 +23,19 @@ const questions = [
     id: 2,
     text: "What's the most ethical food choice?",
     options: [
-      { id: 'a', text: " Organic and fair-trade", emoji: "🌱", isCorrect: true },
       { id: 'b', text: " Cheapest available", emoji: "💰", isCorrect: false },
       { id: 'c', text: " Trendy superfoods", emoji: "✨", isCorrect: false },
-      { id: 'd', text: " Highly processed", emoji: "📦", isCorrect: false }
+      { id: 'd', text: " Highly processed", emoji: "📦", isCorrect: false },
+      { id: 'a', text: " Organic and fair-trade", emoji: "🌱", isCorrect: true },
     ]
   },
   {
     id: 3,
     text: "Which farming practice is most sustainable?",
     options: [
-      { id: 'a', text: " Crop rotation", emoji: "🔄", isCorrect: true },
       { id: 'b', text: " Continuous monoculture", emoji: "🌾", isCorrect: false },
       { id: 'c', text: " Heavy pesticide use", emoji: "🧪", isCorrect: false },
+      { id: 'a', text: " Crop rotation", emoji: "🔄", isCorrect: true },
       { id: 'd', text: " Excessive irrigation", emoji: "💧", isCorrect: false }
     ]
   },
@@ -53,8 +53,8 @@ const questions = [
     id: 5,
     text: "Which packaging is most eco-friendly?",
     options: [
-      { id: 'a', text: " Reusable containers", emoji: "🥡", isCorrect: true },
       { id: 'b', text: " Single-use plastic", emoji: "🥤", isCorrect: false },
+      { id: 'a', text: " Reusable containers", emoji: "🥡", isCorrect: true },
       { id: 'c', text: " Excessive wrapping", emoji: "🎁", isCorrect: false },
       { id: 'd', text: " Styrofoam packaging", emoji: "📦", isCorrect: false }
     ]

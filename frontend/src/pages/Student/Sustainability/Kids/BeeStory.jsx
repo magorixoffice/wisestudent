@@ -75,7 +75,7 @@ const BeeStory = () => {
           id: "watch", 
           text: "Watch it carefully", 
           emoji: "👀", 
-          isCorrect: true
+          isCorrect: false
         },
         { 
           id: "leave", 

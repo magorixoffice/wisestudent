@@ -32,52 +32,52 @@ const ReflexEmotionCheck = () => {
   const scenarios = [
     {
       id: 1,
-      question: "Tap the emoji that shows HAPPY!",
+      question: "You won a prize at school! How would your face look?",
       options: [
-        { id: 'a', text: "Happy", emoji: "😊", isCorrect: true },
-        { id: 'b', text: "Sad", emoji: "😢", isCorrect: false },
-        { id: 'c', text: "Angry", emoji: "😠", isCorrect: false },
-        { id: 'd', text: "Scared", emoji: "😨", isCorrect: false }
+        { id: 'b', text: "Worried and scared", emoji: "😰", isCorrect: false },
+        { id: 'a', text: "Proud and joyful", emoji: "😊", isCorrect: true },
+        { id: 'c', text: "Jealous of others", emoji: "😒", isCorrect: false },
+        { id: 'd', text: "Bored and tired", emoji: "🥱", isCorrect: false }
       ]
     },
     {
       id: 2,
-      question: "Tap the emoji that shows SAD!",
+      question: "Your friend broke your favorite toy by accident. How might you feel?",
       options: [
-        { id: 'a', text: "Happy", emoji: "😄", isCorrect: false },
-        { id: 'b', text: "Sad", emoji: "😢", isCorrect: true },
-        { id: 'c', text: "Excited", emoji: "🤩", isCorrect: false },
-        { id: 'd', text: "Bored", emoji: "😐", isCorrect: false }
+        { id: 'b', text: "Surprised and curious", emoji: "😮", isCorrect: false },
+        { id: 'c', text: "Excited and happy", emoji: "🤩", isCorrect: false },
+        { id: 'a', text: "Frustrated but understanding", emoji: "😤", isCorrect: true },
+        { id: 'd', text: "Proud and confident", emoji: "😎", isCorrect: false }
       ]
     },
     {
       id: 3,
-      question: "Tap the emoji that shows ANGRY!",
+      question: "You're about to go on a tall roller coaster for the first time. What emotion might you feel?",
       options: [
-        { id: 'a', text: "Scared", emoji: "😨", isCorrect: false },
-        { id: 'b', text: "Bored", emoji: "😐", isCorrect: false },
-        { id: 'c', text: "Angry", emoji: "😠", isCorrect: true },
-        { id: 'd', text: "Happy", emoji: "😊", isCorrect: false }
+        { id: 'b', text: "Angry and mad", emoji: "😠", isCorrect: false },
+        { id: 'c', text: "Sleepy and tired", emoji: "😴", isCorrect: false },
+        { id: 'd', text: "Bored and uninterested", emoji: "😑", isCorrect: false },
+        { id: 'a', text: "Nervous but excited", emoji: "😰", isCorrect: true },
       ]
     },
     {
       id: 4,
-      question: "Tap the emoji that shows SCARED!",
+      question: "You see someone being treated unfairly. How might you feel?",
       options: [
-        { id: 'a', text: "Excited", emoji: "🤩", isCorrect: false },
-        { id: 'b', text: "Happy", emoji: "😄", isCorrect: false },
-        { id: 'c', text: "Sad", emoji: "😢", isCorrect: false },
-        { id: 'd', text: "Scared", emoji: "😨", isCorrect: true }
+        { id: 'b', text: "Jealous and envious", emoji: "😒", isCorrect: false },
+        { id: 'a', text: "Concerned and compassionate", emoji: "😔", isCorrect: true },
+        { id: 'c', text: "Confused and puzzled", emoji: "😕", isCorrect: false },
+        { id: 'd', text: "Giggly and amused", emoji: "🤪", isCorrect: false }
       ]
     },
     {
       id: 5,
-      question: "Tap the emoji that shows EXCITED!",
+      question: "You're waiting for the results of something important. How might you feel?",
       options: [
-        { id: 'a', text: "Bored", emoji: "😐", isCorrect: false },
-        { id: 'b', text: "Scared", emoji: "😨", isCorrect: false },
-        { id: 'c', text: "Sad", emoji: "😢", isCorrect: false },
-        { id: 'd', text: "Excited", emoji: "🤩", isCorrect: true }
+        { id: 'a', text: "Anxious and worried", emoji: "😟", isCorrect: true },
+        { id: 'b', text: "Shy and quiet", emoji: "😳", isCorrect: false },
+        { id: 'c', text: "Angry and frustrated", emoji: "😠", isCorrect: false },
+        { id: 'd', text: "Grateful and thankful", emoji: "🥲", isCorrect: false }
       ]
     }
   ];

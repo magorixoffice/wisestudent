@@ -28,22 +28,22 @@ const HygieneConfidenceDebate46 = () => {
       options: [
         {
           id: "a",
-          text: "Yes, definitely",
-          emoji: "😎"
+          text: "Yes, it boosts self-esteem",
+          emoji: "💪"
         },
         {
           id: "b",
-          text: "No, looks matter more",
-          emoji: "🙄"
+          text: "No, it doesn't matter much",
+          emoji: "🤷"
         },
         {
           id: "c",
-          text: "Only to dogs",
-          emoji: "🐶"
+          text: "Yes, helps in social situations",
+          emoji: "🤝"
         }
       ],
-      correctAnswer: "c",
-      explanation: "People notice too. You don't worry about odor, and smell is very noticeable."
+      correctAnswer: "a",
+      explanation: "Good hygiene boosts self-esteem. You feel better when you smell fresh, and it impacts social interactions positively."
     },
     {
       id: 2,

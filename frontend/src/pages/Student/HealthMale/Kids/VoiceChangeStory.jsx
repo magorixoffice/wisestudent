@@ -33,21 +33,20 @@ const VoiceChangeStory = () => {
           id: "b",
           text: "Yes, run to doctor",
           emoji: "🏥",
-          description: "Voice cracking is a normal part of puberty",
+         
           isCorrect: false
         },
         {
           id: "a",
           text: "No, it's normal",
           emoji: "🗣️",
-          description: "Voice changes are completely normal during growth",
+          
           isCorrect: true
         },
         {
           id: "c",
           text: "Hide from friends",
           emoji: "🙈",
-          description: "Voice changes happen to all boys eventually",
           isCorrect: false
         }
       ]
@@ -60,22 +59,19 @@ const VoiceChangeStory = () => {
           id: "a",
           text: "Keep practicing singing",
           emoji: "🎵",
-          description: "Practice helps as your voice develops",
           isCorrect: true
         },
         {
           id: "b",
           text: "Stop singing forever",
           emoji: "😢",
-          description: "Voice changes are temporary",
           isCorrect: false
         },
         {
           id: "c",
           text: "Pretend nothing changed",
           emoji: "😐",
-          description: "It's okay to acknowledge voice changes",
-          isCorrect: false
+            isCorrect: false
         }
       ]
     },
@@ -87,21 +83,18 @@ const VoiceChangeStory = () => {
           id: "c",
           text: "Get very angry",
           emoji: "😠",
-          description: "Friends might not understand voice changes yet",
           isCorrect: false
         },
         {
           id: "b",
           text: "Stop talking completely",
           emoji: "🤐",
-          description: "Voice changes are normal and temporary",
           isCorrect: false
         },
         {
           id: "a",
           text: "Laugh with them",
           emoji: "😄",
-          description: "Having a good attitude helps during changes",
           isCorrect: true
         }
       ]
@@ -114,21 +107,18 @@ const VoiceChangeStory = () => {
           id: "b",
           text: "Something is wrong",
           emoji: "😟",
-          description: "Deepening voice is a normal puberty change",
           isCorrect: false
         },
         {
           id: "c",
           text: "You're becoming an adult",
           emoji: "🧑",
-          description: "Voice deepening shows normal development",
           isCorrect: false
         },
         {
           id: "a",
           text: "You're growing up",
           emoji: "🌱",
-          description: "Voice changes are part of normal growth",
           isCorrect: true
         }
       ]
@@ -141,21 +131,18 @@ const VoiceChangeStory = () => {
           id: "b",
           text: "Try to talk less",
           emoji: "🤫",
-          description: "Talking normally helps you adjust",
           isCorrect: false
         },
         {
           id: "a",
           text: "Talk to trusted adult",
           emoji: "👨‍👦",
-          description: "Adults can explain that voice changes are normal",
           isCorrect: true
         },
         {
           id: "c",
           text: "Ignore the changes",
           emoji: "🙄",
-          description: "Understanding changes helps you feel better",
           isCorrect: false
         }
       ]

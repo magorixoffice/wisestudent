@@ -32,21 +32,21 @@ const ReadingStory = () => {
           id: "b",
           text: "It makes you sleepy",
           emoji: "😴",
-          description: "It can be relaxing, but it does more!",
+        
           isCorrect: false
         },
         {
           id: "a",
           text: "It exercises your brain",
           emoji: "🧠",
-          description: "Reading makes you smarter and creative.",
+         
           isCorrect: true
         },
         {
           id: "c",
           text: "It hurts your eyes",
           emoji: "👓",
-          description: "Reading in good light is fine for eyes.",
+          
           isCorrect: false
         }
       ]
@@ -55,25 +55,25 @@ const ReadingStory = () => {
       id: 2,
       text: "When is a good time to read?",
       options: [
+         {
+          id: "a",
+          text: "Before bed",
+          emoji: "🌙",
+          
+          isCorrect: true
+        },
         {
           id: "c",
           text: "While riding a bike",
           emoji: "🚲",
-          description: "That's dangerous!",
+         
           isCorrect: false
         },
-        {
-          id: "a",
-          text: "Before bed",
-          emoji: "🌙",
-          description: "It's a perfect way to relax.",
-          isCorrect: true
-        },
+       
         {
           id: "b",
           text: "In the shower",
           emoji: "🚿",
-          description: "Books get wet!",
           isCorrect: false
         }
       ]
@@ -86,21 +86,18 @@ const ReadingStory = () => {
           id: "b",
           text: "Nothing",
           emoji: "🤷",
-          description: "Books are full of information.",
           isCorrect: false
         },
         {
           id: "c",
           text: "How to fly",
           emoji: "🧚",
-          description: "Only in stories!",
           isCorrect: false
         },
         {
           id: "a",
           text: "New words and ideas",
           emoji: "💡",
-          description: "You learn something new every day.",
           isCorrect: true
         }
       ]
@@ -113,21 +110,18 @@ const ReadingStory = () => {
           id: "c",
           text: "The grocery store",
           emoji: "🛒",
-          description: "Sometimes, but mostly food.",
           isCorrect: false
         },
         {
           id: "a",
           text: "The library",
           emoji: "🏛️",
-          description: "Libraries have thousands of free books!",
           isCorrect: true
         },
         {
           id: "b",
           text: "The gym",
           emoji: "🏋️",
-          description: "Gyms are for exercise.",
           isCorrect: false
         }
       ]
@@ -140,21 +134,18 @@ const ReadingStory = () => {
           id: "b",
           text: "A chore",
           emoji: "🧹",
-          description: "It should be fun!",
           isCorrect: false
         },
         {
           id: "c",
           text: "A punishment",
           emoji: "☹️",
-          description: "Reading is a reward.",
           isCorrect: false
         },
         {
           id: "a",
           text: "An adventure",
           emoji: "🗺️",
-          description: "Books take you to new worlds!",
           isCorrect: true
         }
       ]

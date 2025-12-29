@@ -30,21 +30,19 @@ const MyBodyRespectPoster = () => {
         {
           id: 1,
           title: "My Body, My Rules",
-          description: "A poster showing a child setting boundaries",
+          
           emoji: "🛡️",
           isCorrect: true
         },
         {
           id: 2,
           title: "Share Everything",
-          description: "A poster saying to share private parts",
           emoji: "👀",
           isCorrect: false
         },
         {
           id: 3,
           title: "No Privacy",
-          description: "A poster saying privacy is bad",
           emoji: "🚫",
           isCorrect: false
         }
@@ -58,21 +56,18 @@ const MyBodyRespectPoster = () => {
         {
           id: 1,
           title: "Open Door",
-          description: "A poster showing bathroom door open",
           emoji: "🚪",
           isCorrect: false
         },
         {
           id: 3,
           title: "Look at Me",
-          description: "A poster asking for attention in private",
           emoji: "📢",
           isCorrect: false
         },
         {
           id: 2,
           title: "Private Time",
-          description: "A poster showing closing the door for privacy",
           emoji: "🔒",
           isCorrect: true
         }
@@ -86,21 +81,19 @@ const MyBodyRespectPoster = () => {
         {
           id: 2,
           title: "Point and Laugh",
-          description: "A poster showing making fun of others",
+         
           emoji: "😂",
           isCorrect: false
         },
         {
           id: 1,
           title: "Look Away",
-          description: "A poster showing looking away to give privacy",
           emoji: "🙈",
           isCorrect: true
         },
         {
           id: 3,
           title: "Stare",
-          description: "A poster showing staring at others",
           emoji: "👁️",
           isCorrect: false
         }
@@ -114,21 +107,18 @@ const MyBodyRespectPoster = () => {
         {
           id: 3,
           title: "Hurting",
-          description: "A poster showing hitting",
           emoji: "👊",
           isCorrect: false
         },
         {
           id: 2,
           title: "High Five",
-          description: "A poster showing a friendly high five",
           emoji: "✋",
           isCorrect: true
         },
         {
           id: 1,
           title: "Secret Touches",
-          description: "A poster about keeping bad secrets",
           emoji: "🤫",
           isCorrect: false
         }
@@ -142,21 +132,18 @@ const MyBodyRespectPoster = () => {
         {
           id: 2,
           title: "Say NO",
-          description: "A poster showing how to say NO to unsafe touches",
           emoji: "🗣️",
           isCorrect: true
         },
         {
           id: 1,
           title: "Stay Silent",
-          description: "A poster about not talking",
           emoji: "🤐",
           isCorrect: false
         },
         {
           id: 3,
           title: "Hide Away",
-          description: "A poster about hiding from problems",
           emoji: "📦",
           isCorrect: false
         }

@@ -73,8 +73,8 @@ const SimulationWaterConservationPlan = () => {
       text: "Which area in the community typically uses the most water?",
       options: [
         { id: "b", text: "Public swimming pools", emoji: "🏊", isCorrect: false },
-        { id: "c", text: "Industrial facilities", emoji: "🏭", isCorrect: false },
-        { id: "a", text: "Residential gardens", emoji: "🌱", isCorrect: true },
+        { id: "a", text: "Residential gardens", emoji: "🌱", isCorrect: false },
+        { id: "c", text: "Industrial facilities", emoji: "🏭", isCorrect: true },
         { id: "d", text: "Schools", emoji: "🏫", isCorrect: false }
       ]
     },

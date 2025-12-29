@@ -23,12 +23,7 @@ const SubstanceStory = () => {
       id: 1,
       text: "Teen at party sees drugs. Should he take them?",
       options: [
-        {
-          id: "b",
-          text: "No, absolutely not",
-          emoji: "✋",
-          isCorrect: true
-        },
+       
         {
           id: "c",
           text: "Try just a little",
@@ -40,7 +35,13 @@ const SubstanceStory = () => {
           text: "Ask what they are",
           emoji: "❓",
           isCorrect: false
-        }
+        },
+         {
+          id: "b",
+          text: "No, absolutely not",
+          emoji: "✋",
+          isCorrect: true
+        },
       ]
     },
     {
@@ -119,17 +120,18 @@ const SubstanceStory = () => {
       id: 5,
       text: "How can you help friends avoid drugs?",
       options: [
-        {
-          id: "b",
-          text: "Be a positive influence",
-          emoji: "⭐",
-          isCorrect: true
-        },
+        
         {
           id: "a",
           text: "Force them to stop",
           emoji: "🛑",
           isCorrect: false
+        },
+        {
+          id: "b",
+          text: "Be a positive influence",
+          emoji: "⭐",
+          isCorrect: true
         },
         {
           id: "c",

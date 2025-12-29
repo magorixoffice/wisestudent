@@ -25,144 +25,146 @@ const StayFreshPoster = () => {
 
   const stages = [
     {
-      question: "Which poster shows good daily hygiene?",
+      question: "Which poster shows the best way to stay clean and fresh?",
       posters: [
+       
         {
+          id: 2,
+          title: "Only bath on weekends",
+          description: "A poster showing a child skipping baths during the week",
+          emoji: "😴",
+          isCorrect: false
+        },
+         {
           id: 1,
-          title: "Daily Bath",
-          description: "A poster showing a daily shower routine",
-          emoji: "🚿",
+          title: "Take a bath every day",
+          description: "A poster showing a child taking a fun bubble bath",
+          emoji: "🛁",
           isCorrect: true
         },
         {
-          id: 2,
-          title: "Once a Week",
-          description: "A poster showing bathing only on Sundays",
-          emoji: "📅",
-          isCorrect: false
-        },
-        {
           id: 3,
-          title: "Perfume Only",
-          description: "A poster showing using perfume instead of bath",
-          emoji: "🌸",
+          title: "Just use cologne",
+          description: "A poster showing a child spraying cologne instead of bathing",
+          emoji: "💨",
           isCorrect: false
         }
       ],
-      correctFeedback: "Daily Bath is the best choice!",
-      explanation: "Bathing every day keeps your body clean and fresh!"
+      correctFeedback: "Great choice! Daily baths keep you clean and fresh!",
+      explanation: "Taking a bath every day washes away dirt and germs from your body!"
     },
     {
-      question: "Which poster shows clean clothes?",
+      question: "Which poster shows the best way to dress clean?",
       posters: [
         {
           id: 1,
-          title: "Dirty Shirt",
-          description: "A poster showing wearing the same shirt for a week",
+          title: "Wear yesterday's clothes",
+          
           emoji: "👕",
           isCorrect: false
         },
         {
           id: 3,
-          title: "Wet Clothes",
-          description: "A poster showing wearing wet clothes",
-          emoji: "💦",
+          title: "Wear wet clothes",
+          
+          emoji: "🌧️",
           isCorrect: false
         },
         {
           id: 2,
-          title: "Fresh Clothes",
-          description: "A poster showing wearing clean clothes daily",
-          emoji: "🧺",
+          title: "Wear fresh, clean clothes",
+          
+          emoji: "👕",
           isCorrect: true
         }
       ],
-      correctFeedback: "Fresh Clothes keep you healthy!",
-      explanation: "Changing into clean clothes prevents bad smells and germs!"
+      correctFeedback: "Perfect! Fresh clothes keep you feeling clean!",
+      explanation: "Wearing clean clothes every day helps you stay fresh and healthy!"
     },
     {
-      question: "Which poster shows dental care?",
+      question: "Which poster shows the best way to take care of your teeth?",
       posters: [
+         {
+          id: 2,
+          title: "Brush teeth twice daily",
+          
+          emoji: "🦷",
+          isCorrect: true
+        },
         {
           id: 1,
-          title: "Candy All Day",
-          description: "A poster showing eating sweets constantly",
-          emoji: "🍬",
+          title: "Eat candy all day",
+        
+          emoji: "🍭",
           isCorrect: false
         },
-        {
-          id: 2,
-          title: "Brush Twice",
-          description: "A poster showing brushing teeth morning and night",
-          emoji: "🪥",
-          isCorrect: true
-        },
+       
         {
           id: 3,
-          title: "No Brush",
-          description: "A poster showing skipping brushing",
-          emoji: "🚫",
+          title: "Skip brushing",
+       
+          emoji: "😬",
           isCorrect: false
         }
       ],
-      correctFeedback: "Brush Twice is perfect!",
-      explanation: "Brushing twice a day keeps your teeth strong and breath fresh!"
+      correctFeedback: "Excellent! Brushing twice daily keeps teeth healthy!",
+      explanation: "Brushing your teeth morning and night keeps them strong and white!"
     },
     {
-      question: "Which poster shows hand hygiene?",
+      question: "Which poster shows the best way to keep hands clean?",
       posters: [
         {
           id: 2,
-          title: "Lick Fingers",
-          description: "A poster showing licking dirty fingers",
-          emoji: "😋",
+          title: "Lick your fingers",
+         
+          emoji: "👅",
           isCorrect: false
         },
         {
           id: 3,
-          title: "Wash with Soap",
-          description: "A poster showing washing hands with soap and water",
+          title: "Wash hands with soap",
+        
           emoji: "🧼",
           isCorrect: true
         },
         {
           id: 1,
-          title: "Wipe on Pants",
-          description: "A poster showing wiping hands on clothes",
-          emoji: "👖",
+          title: "Wipe on your shirt",
+         
+          emoji: "👕",
           isCorrect: false
         }
       ],
-      correctFeedback: "Wash with Soap is the safe way!",
-      explanation: "Soap and water kill germs and keep you healthy!"
+      correctFeedback: "Right! Washing hands with soap gets rid of germs!",
+      explanation: "Soap and water for 20 seconds kills the germs on your hands!"
     },
     {
-      question: "Which poster shows overall freshness?",
+      question: "Which poster shows the best way to look and feel fresh?",
       posters: [
         {
           id: 2,
-          title: "Clean & Groomed",
-          description: "A poster showing a neat and clean appearance",
-          emoji: "✨",
+          title: "Comb your hair and look neat",
+          
+          emoji: "💇",
           isCorrect: true
         },
         {
           id: 1,
-          title: "Messy Hair",
-          description: "A poster showing uncombed hair",
-          emoji: "🦁",
+          title: "Keep messy, uncombed hair",
+          
+          emoji: "🪮",
           isCorrect: false
         },
         {
           id: 3,
-          title: "Muddy Shoes",
-          description: "A poster showing wearing muddy shoes inside",
-          emoji: "👞",
+          title: "Wear muddy shoes",
+        
+          emoji: "🥾",
           isCorrect: false
         }
       ],
-      correctFeedback: "Clean & Groomed is the goal!",
-      explanation: "Looking and feeling clean boosts your confidence!"
+      correctFeedback: "Perfect! Looking neat makes you feel fresh and confident!",
+      explanation: "Good grooming habits make you feel great and look your best!"
     }
   ];
 

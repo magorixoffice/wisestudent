@@ -77,10 +77,10 @@ const CraftStory = () => {
           isCorrect: true
         },
         { 
-          id: "recycle", 
-          text: "Recycle it", 
+          id: "don't recycle", 
+          text: "Don't Recycle it", 
           emoji: "♻️", 
-          isCorrect: true
+          isCorrect: false
         }
       ]
     },

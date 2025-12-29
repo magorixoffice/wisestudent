@@ -22,6 +22,7 @@ const QuizHygieneAdvanced = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [showFeedback, setShowFeedback] = useState(false);
   const [gameFinished, setGameFinished] = useState(false);
+  const [showAnswerConfetti, setShowAnswerConfetti] = useState(false);
   const { showCorrectAnswerFeedback, resetFeedback, flashPoints } = useGameFeedback();
 
   const questions = [
@@ -163,6 +164,11 @@ const QuizHygieneAdvanced = () => {
     if (isCorrect) {
       setCoins(prev => prev + 1);
       showCorrectAnswerFeedback(1, true);
+      setShowAnswerConfetti(true);
+      // Reset the confetti state after a short delay
+      setTimeout(() => {
+        setShowAnswerConfetti(false);
+      }, 1000);
     } else {
       showCorrectAnswerFeedback(0, false);
     }
@@ -198,6 +204,7 @@ const QuizHygieneAdvanced = () => {
       totalLevels={5}
       currentLevel={42}
       showConfetti={gameFinished}
+      showAnswerConfetti={showAnswerConfetti}
       backPath="/games/health-male/kids"
       maxScore={questions.length}
       coinsPerLevel={coinsPerLevel}

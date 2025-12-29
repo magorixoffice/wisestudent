@@ -10,21 +10,151 @@ const QuizOnSustainableLiving = () => {
   const location = useLocation();
   
   // Get game data from game category folder (source of truth)
-  const gameId = "sustainability-kids-87";
-  const gameData = getGameDataById(gameId);
+  const gameData = getGameDataById("sustainability-kids-87");
+  const gameId = gameData?.id || "sustainability-kids-87";
   
-  // Get coinsPerLevel, totalCoins, and totalXp from game category data, fallback to location.state, then defaults
-  const coinsPerLevel = gameData?.coins || location.state?.coinsPerLevel || 1;
-  const totalCoins = gameData?.coins || location.state?.totalCoins || 5;
-  const totalXp = gameData?.xp || location.state?.totalXp || 10;
-  const [coins, setCoins] = useState(0);
+  // Ensure gameId is always set correctly
+  if (!gameData || !gameData.id) {
+    console.warn("Game data not found for Quiz on Sustainable Living, using fallback ID");
+  }
+  
+  // Hardcode rewards to align with rule: 1 coin per question, 5 total coins, 10 total XP
+  const coinsPerLevel = 1;
+  const totalCoins = 5;
+  const totalXp = 10;
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [choices, setChoices] = useState([]);
   const [showResult, setShowResult] = useState(false);
   const [finalScore, setFinalScore] = useState(0);
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [showFeedback, setShowFeedback] = useState(false);
+  const [coins, setCoins] = useState(0);
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
+  
+  const questions = [
+    {
+      id: 1,
+      text: "Which of these is the BEST definition of sustainable living?",
+      options: [
+        
+        { 
+          id: "b", 
+          text: "Only using renewable resources and never using non-renewable ones", 
+          emoji: "⚡", 
+          isCorrect: false 
+        },
+        { 
+          id: "c", 
+          text: "Living without using any natural resources", 
+          emoji: "❌", 
+          isCorrect: false 
+        },
+        { 
+          id: "a", 
+          text: "Using resources in a way that meets present needs without compromising future generations", 
+          emoji: "🌱", 
+          isCorrect: true 
+        },
+      ]
+    },
+    {
+      id: 2,
+      text: "Which practice has the GREATEST impact on reducing your carbon footprint?",
+      options: [
+       
+        { 
+          id: "b", 
+          text: "Recycling plastic bottles", 
+          emoji: "🥤", 
+          isCorrect: false 
+        },
+         { 
+          id: "a", 
+          text: "Reducing meat consumption and choosing plant-based foods", 
+          emoji: "🥩", 
+          isCorrect: true 
+        },
+        { 
+          id: "c", 
+          text: "Using reusable shopping bags", 
+          emoji: "🛍️", 
+          isCorrect: false 
+        }
+      ]
+    },
+    {
+      id: 3,
+      text: "What is the most effective way to reduce water waste at home?",
+      options: [
+        { 
+          id: "a", 
+          text: "Taking shorter showers and fixing leaky faucets", 
+          emoji: "🚿", 
+          isCorrect: true 
+        },
+        { 
+          id: "b", 
+          text: "Using cold water instead of hot water", 
+          emoji: "❄️", 
+          isCorrect: false 
+        },
+        { 
+          id: "c", 
+          text: "Collecting rainwater for drinking", 
+          emoji: "🌧️", 
+          isCorrect: false 
+        }
+      ]
+    },
+    {
+      id: 4,
+      text: "Which transportation method is MOST environmentally friendly for short distances?",
+      options: [
+       
+        { 
+          id: "b", 
+          text: "Electric car sharing with others", 
+          emoji: "🚗", 
+          isCorrect: false 
+        },
+        { 
+          id: "c", 
+          text: "Public bus during peak hours", 
+          emoji: "🚌", 
+          isCorrect: false 
+        },
+         { 
+          id: "a", 
+          text: "Walking or cycling", 
+          emoji: "🚶", 
+          isCorrect: true 
+        },
+      ]
+    },
+    {
+      id: 5,
+      text: "What is the main purpose of the circular economy in sustainable living?",
+      options: [
+        
+        { 
+          id: "b", 
+          text: "To increase the production of new materials", 
+          emoji: "🏭", 
+          isCorrect: false 
+        },
+        { 
+          id: "a", 
+          text: "To minimize waste by reusing, repairing, and recycling materials", 
+          emoji: "♻️", 
+          isCorrect: true 
+        },
+        { 
+          id: "c", 
+          text: "To eliminate all consumption of natural resources", 
+          emoji: "🌍", 
+          isCorrect: false 
+        }
+      ]
+    }
+  ];
   
   // Find next game path and ID if not provided in location.state
   const { nextGamePath, nextGameId } = useMemo(() => {
@@ -57,7 +187,7 @@ const QuizOnSustainableLiving = () => {
   // Log when game completes and update location state with nextGameId
   useEffect(() => {
     if (showResult) {
-      console.log(`🎮 Quiz on Sustainable Living game completed! Score: ${finalScore}, gameId: ${gameId}, nextGamePath: ${nextGamePath}, nextGameId: ${nextGameId}`);
+      console.log(`🎮 Quiz on Sustainable Living game completed! Score: ${finalScore}/${questions.length}, gameId: ${gameId}, nextGamePath: ${nextGamePath}, nextGameId: ${nextGameId}`);
       
       // Update location state with nextGameId for GameOverModal
       if (nextGameId && window.history && window.history.replaceState) {
@@ -68,186 +198,140 @@ const QuizOnSustainableLiving = () => {
         }, '');
       }
     }
-  }, [showResult, finalScore, gameId, nextGamePath, nextGameId]);
+  }, [showResult, finalScore, gameId, nextGamePath, nextGameId, questions.length]);
 
-  const questions = [
-    {
-      id: 1,
-      text: "What is sustainable living?",
-      options: [
-        { id: "a", text: "Waste lots", emoji: "🗑️", isCorrect: false },
-        { id: "b", text: "Use less, save more", emoji: "🌱", isCorrect: true },
-        { id: "c", text: "Buy everything", emoji: "🛒", isCorrect: false },
-        { id: "d", text: "Ignore the environment", emoji: "🤷", isCorrect: false }
-      ]
-    },
-    {
-      id: 2,
-      text: "Which is a sustainable practice?",
-      options: [
-        { id: "b", text: "Recycling paper", emoji: "📄", isCorrect: true },
-        { id: "a", text: "Throwing away batteries", emoji: "🔋", isCorrect: false },
-        { id: "c", text: "Leaving lights on", emoji: "💡", isCorrect: false },
-        { id: "d", text: "Using plastic bags", emoji: "🛍️", isCorrect: false }
-      ]
-    },
-    {
-      id: 3,
-      text: "How can you help the environment?",
-      options: [
-        { id: "a", text: "Use more water", emoji: "💧", isCorrect: false },
-        { id: "c", text: "Drive everywhere", emoji: "🚗", isCorrect: false },
-        { id: "d", text: "Litter", emoji: "🗑️", isCorrect: false },
-        { id: "b", text: "Plant trees", emoji: "🌳", isCorrect: true },
-      ]
-    },
-    {
-      id: 4,
-      text: "What is a sustainable way to travel?",
-      options: [
-        { id: "b", text: "Drive alone", emoji: "🚗", isCorrect: false },
-        { id: "c", text: "Fly often", emoji: "✈️", isCorrect: false },
-        { id: "a", text: "Walk or bike", emoji: "🚶", isCorrect: true },
-        { id: "d", text: "Take taxis", emoji: "🚕", isCorrect: false }
-      ]
-    },
-    {
-      id: 5,
-      text: "Why is sustainable living important?",
-      options: [
-        { id: "a", text: "To waste resources", emoji: "❌", isCorrect: false },
-        { id: "b", text: "To protect our planet", emoji: "🌍", isCorrect: true },
-        { id: "c", text: "To ignore nature", emoji: "🙈", isCorrect: false },
-        { id: "d", text: "To use more energy", emoji: "⚡", isCorrect: false }
-      ]
-    }
-  ];
 
   const handleChoice = (optionId) => {
-    const selectedOption = questions[currentQuestion].options.find(opt => opt.id === optionId);
-    const isCorrect = selectedOption.isCorrect;
+    const newChoices = [...choices, { 
+      questionId: questions[currentQuestion].id, 
+      choice: optionId,
+      isCorrect: questions[currentQuestion].options.find(opt => opt.id === optionId)?.isCorrect
+    }];
     
+    setChoices(newChoices);
+    
+    // If the choice is correct, add coins and show flash/confetti
+    const isCorrect = questions[currentQuestion].options.find(opt => opt.id === optionId)?.isCorrect;
     if (isCorrect) {
+      setCoins(prev => prev + 1);
       showCorrectAnswerFeedback(1, true);
-      setCoins(prev => prev + 1); // Increment coins when correct
     } else {
       showCorrectAnswerFeedback(0, false);
     }
     
-    setChoices([...choices, { question: currentQuestion, optionId, isCorrect }]);
-    setSelectedOption(optionId);
-    setShowFeedback(true);
-    
-    setTimeout(() => {
-      if (currentQuestion < questions.length - 1) {
+    // Move to next question or show results
+    if (currentQuestion < questions.length - 1) {
+      setTimeout(() => {
         setCurrentQuestion(prev => prev + 1);
-        setSelectedOption(null);
-        setShowFeedback(false);
-        resetFeedback();
-      } else {
-        const score = choices.filter(choice => choice.isCorrect).length + (isCorrect ? 1 : 0);
-        setFinalScore(score);
+      }, isCorrect ? 1000 : 800);
+    } else {
+      // Calculate final score
+      const correctAnswers = newChoices.filter(choice => choice.isCorrect).length;
+      setFinalScore(correctAnswers);
+      setTimeout(() => {
         setShowResult(true);
-      }
-    }, 1500);
+      }, isCorrect ? 1000 : 800);
+    }
   };
 
-  const currentQuestionData = questions[currentQuestion];
+  const getCurrentQuestion = () => questions[currentQuestion];
+  
+  const handleTryAgain = () => {
+    setShowResult(false);
+    setCurrentQuestion(0);
+    setChoices([]);
+    setCoins(0);
+    setFinalScore(0);
+    resetFeedback();
+  };
   
   return (
     <GameShell
       title="Quiz on Sustainable Living"
+      score={coins}
       subtitle={showResult ? "Quiz Complete!" : `Question ${currentQuestion + 1} of ${questions.length}`}
-      currentLevel={currentQuestion + 1}
-      totalLevels={questions.length}
       coinsPerLevel={coinsPerLevel}
       totalCoins={totalCoins}
       totalXp={totalXp}
-      score={coins}
       showGameOver={showResult}
       gameId={gameId}
       gameType="sustainability"
+      totalLevels={questions.length}
+      currentLevel={currentQuestion + 1}
       maxScore={questions.length}
-      showConfetti={showResult && finalScore === questions.length}
+      showConfetti={showResult}
       flashPoints={flashPoints}
       showAnswerConfetti={showAnswerConfetti}
       nextGamePath={nextGamePath}
       nextGameId={nextGameId}
+      backPath="/games/sustainability/kids"
     >
-      {flashPoints}
-      {!showResult ? (
-        <div className="space-y-8 max-w-4xl mx-auto px-4 min-h-[calc(100vh-200px)] flex flex-col justify-center">
-          <div className="space-y-6">
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-              <div className="flex justify-between items-center mb-4">
-                <span className="text-white/80">Question {currentQuestion + 1}/{questions.length}</span>
-                <span className="text-yellow-400 font-bold">Score: {coins}/{questions.length}</span>
+      <div className="min-h-[calc(100vh-200px)] flex flex-col justify-center max-w-4xl mx-auto px-4 py-4">
+        {!showResult ? (
+          <div className="space-y-4 md:space-y-6">
+            <div className="bg-white/10 backdrop-blur-md rounded-xl md:rounded-2xl p-4 md:p-6 border border-white/20">
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4 md:mb-6">
+                <span className="text-white/80 text-sm md:text-base">Question {currentQuestion + 1}/{questions.length}</span>
+                <span className="text-yellow-400 font-bold text-sm md:text-base">Coins: {coins}</span>
               </div>
               
-              <div className="text-6xl mb-4 text-center">🌱</div>
+              <h2 className="text-white text-base md:text-lg lg:text-xl mb-4 md:mb-6 text-center">
+                {getCurrentQuestion().text}
+              </h2>
               
-              <h3 className="text-2xl font-bold text-white mb-6 text-center">
-                {currentQuestionData.text}
-              </h3>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {currentQuestionData.options.map((option, index) => {
-                  const isSelected = selectedOption === option.id;
-                  const isCorrectOption = option.isCorrect;
-                  let buttonClass = "bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 text-white p-6 rounded-2xl shadow-lg transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed";
-                  
-                  if (showFeedback) {
-                    if (isSelected) {
-                      buttonClass = isCorrectOption 
-                        ? "bg-gradient-to-r from-green-500 to-emerald-600 text-white p-6 rounded-2xl shadow-lg" 
-                        : "bg-gradient-to-r from-red-500 to-rose-600 text-white p-6 rounded-2xl shadow-lg";
-                    } else if (isCorrectOption) {
-                      buttonClass = "bg-gradient-to-r from-green-500 to-emerald-600 text-white p-6 rounded-2xl shadow-lg";
-                    }
-                  }
-                  
-                  return (
-                    <button
-                      key={option.id}
-                      onClick={() => !showFeedback && handleChoice(option.id)}
-                      disabled={showFeedback}
-                      className={buttonClass}
-                    >
-                      <div className="text-4xl mb-3">{option.emoji}</div>
-                      <h4 className="font-bold text-base">{option.text}</h4>
-                    </button>
-                  );
-                })}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
+                {getCurrentQuestion().options.map(option => (
+                  <button
+                    key={option.id}
+                    onClick={() => handleChoice(option.id)}
+                    className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white p-4 md:p-6 rounded-xl md:rounded-2xl shadow-lg transition-all transform hover:scale-105"
+                  >
+                    <div className="text-2xl md:text-3xl mb-2">{option.emoji}</div>
+                    <h3 className="font-bold text-base md:text-xl mb-2">{option.text}</h3>
+                  </button>
+                ))}
               </div>
-              
-              {showFeedback && (
-                <div className={`rounded-lg p-5 mt-6 ${
-                  questions[currentQuestion].options.find(opt => opt.id === selectedOption)?.isCorrect
-                    ? "bg-green-500/20"
-                    : "bg-red-500/20"
-                }`}>
-                  <p className="text-white whitespace-pre-line">
-                    {questions[currentQuestion].options.find(opt => opt.id === selectedOption)?.isCorrect
-                      ? "Great job! Sustainable living helps protect our planet! 🎉"
-                      : "Not quite right. Sustainable living means using resources wisely to protect our environment!"}
-                  </p>
-                </div>
-              )}
             </div>
           </div>
-        </div>
-      ) : (
-        <div className="text-center space-y-6">
-          <div className="text-6xl mb-4">🌱</div>
-          <h3 className="text-2xl font-bold text-white">Great job!</h3>
-          <p className="text-gray-300">
-            You got {finalScore} out of {questions.length} questions correct!
-          </p>
-          <p className="text-green-400 font-semibold">
-            You earned {coins} coins! Keep learning about sustainable living! 🌍
-          </p>
-        </div>
-      )}
+        ) : (
+          <div className="bg-white/10 backdrop-blur-md rounded-xl md:rounded-2xl p-6 md:p-8 border border-white/20 text-center flex-1 flex flex-col justify-center">
+            {finalScore >= 3 ? (
+              <div>
+                <div className="text-4xl md:text-5xl mb-4">🌱</div>
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-4">Sustainability Expert!</h3>
+                <p className="text-white/90 text-base md:text-lg mb-4">
+                  You got {finalScore} out of {questions.length} questions correct!
+                  You understand the importance of sustainable living!
+                </p>
+                <div className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white py-2 md:py-3 px-4 md:px-6 rounded-full inline-flex items-center gap-2 mb-4 text-sm md:text-base">
+                  <span>+{coins} Coins</span>
+                </div>
+                <p className="text-white/80 text-sm md:text-base">
+                  Great job! You know how to live sustainably and protect our planet!
+                </p>
+              </div>
+            ) : (
+              <div>
+                <div className="text-4xl md:text-5xl mb-4">🌱</div>
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-4">Keep Learning!</h3>
+                <p className="text-white/90 text-base md:text-lg mb-4">
+                  You got {finalScore} out of {questions.length} questions correct.
+                  Sustainable living means using resources wisely to protect our environment!
+                </p>
+                <button
+                  onClick={handleTryAgain}
+                  className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white py-2 md:py-3 px-4 md:px-6 rounded-full font-bold transition-all mb-4 text-sm md:text-base"
+                >
+                  Try Again
+                </button>
+                <p className="text-white/80 text-xs md:text-sm">
+                  Try to choose the option that promotes sustainable living.
+                </p>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
     </GameShell>
   );
 };

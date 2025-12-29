@@ -129,7 +129,7 @@ const SeasonStory = () => {
         { 
           id: "c", 
           text: "Ignore nature", 
-          emoji: "❌", 
+          emoji: "🤷", 
           isCorrect: false
         }
       ]
@@ -166,13 +166,13 @@ const SeasonStory = () => {
         { 
           id: "b", 
           text: "To ignore nature", 
-          emoji: "🙈", 
+          emoji: "🤷", 
           isCorrect: false
         },
         { 
           id: "c", 
           text: "To ignore changes", 
-          emoji: "🙈", 
+          emoji: "😣", 
           isCorrect: false
         },
         { 

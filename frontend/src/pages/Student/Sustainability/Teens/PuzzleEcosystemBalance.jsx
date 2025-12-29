@@ -53,8 +53,8 @@ const PuzzleEcosystemBalance = () => {
   // Ecosystem Problems (left side) - 5 items
   const problems = [
     { id: 1, name: "Species Extinction", emoji: "🦕", description: "Loss of biodiversity" },
-    { id: 2, name: "Habitat Destruction", emoji: " Bulldozer", description: "Natural home loss" },
-    { id: 3, name: "Pollution", emoji: " factory", description: "Environmental contamination" },
+    { id: 2, name: "Habitat Destruction", emoji: " 💥", description: "Natural home loss" },
+    { id: 3, name: "Pollution", emoji: " 🏭", description: "Environmental contamination" },
     { id: 4, name: "Climate Change", emoji: "🌡️", description: "Global temperature rise" },
     { id: 5, name: "Overfishing", emoji: "🎣", description: "Depleting marine life" }
   ];

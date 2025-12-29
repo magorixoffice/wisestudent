@@ -29,7 +29,7 @@ const QuizHygiene = () => {
          {
           id: "a",
           text: "Every day",
-          emoji: "🩲",
+          emoji: "📅",
           isCorrect: true
         },
         {

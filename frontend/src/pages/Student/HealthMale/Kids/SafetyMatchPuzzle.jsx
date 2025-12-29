@@ -34,10 +34,10 @@ const SafetyMatchPuzzle = () => {
 
   // Safety Items (right side) - 5 items
   const items = [
-    { id: 3, name: "Sunscreen", emoji: "🧴", description: "Skin protection" },
+    { id: 4, name: "Sunscreen", emoji: "🧴", description: "Skin protection" },
     { id: 5, name: "Life Jacket", emoji: "🦺", description: "Water safety" },
     { id: 1, name: "Helmet", emoji: "⛑️", description: "Head protection" },
-    { id: 4, name: "Crosswalk", emoji: "🦓", description: "Safe crossing" },
+    { id: 3, name: "Crosswalk", emoji: "🦓", description: "Safe crossing" },
     { id: 2, name: "Seatbelt", emoji: "💺", description: "Vehicle safety" }
   ];
 

@@ -23,8 +23,8 @@ const questions = [
     id: 2,
     text: "What helps maintain ecosystem health?",
     options: [
-      { id: 'a', text: " Introducing invasive species", emoji: "🐜", isCorrect: false },
       { id: 'b', text: " Protecting native species", emoji: "🦋", isCorrect: true },
+      { id: 'a', text: " Introducing invasive species", emoji: "🐜", isCorrect: false },
       { id: 'c', text: " Destroying habitats", emoji: "🔥", isCorrect: false },
       { id: 'd', text: " Overhunting", emoji: "🔫", isCorrect: false }
     ]
@@ -34,9 +34,9 @@ const questions = [
     text: "Which practice supports ecosystem balance?",
     options: [
       { id: 'a', text: " Monoculture farming", emoji: "🌾", isCorrect: false },
-      { id: 'b', text: " Sustainable agriculture", emoji: "🌱", isCorrect: true },
       { id: 'c', text: " Excessive logging", emoji: "🪵", isCorrect: false },
-      { id: 'd', text: " Chemical pollution", emoji: "🧪", isCorrect: false }
+      { id: 'd', text: " Chemical pollution", emoji: "🧪", isCorrect: false },
+      { id: 'b', text: " Sustainable agriculture", emoji: "🌱", isCorrect: true },
     ]
   },
   {
@@ -54,8 +54,8 @@ const questions = [
     text: "Which choice supports ecosystem health?",
     options: [
       { id: 'a', text: " Overconsumption", emoji: "🛍️", isCorrect: false },
+      { id: 'c', text: " Habitat destruction", emoji: "🌳", isCorrect: false },
       { id: 'b', text: " Sustainable resource use", emoji: "♻️", isCorrect: true },
-      { id: 'c', text: " Habitat destruction", emoji: " Bulldozer", isCorrect: false },
       { id: 'd', text: " Ignoring conservation", emoji: "😑", isCorrect: false }
     ]
   }

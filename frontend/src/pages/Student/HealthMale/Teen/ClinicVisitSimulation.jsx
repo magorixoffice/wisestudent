@@ -51,6 +51,12 @@ const ClinicVisitSimulation = () => {
       id: 2,
       text: "The nurse calls your name. How do you respond when they ask about your symptoms?",
       options: [
+         {
+          id: "d",
+          text: "Describe symptoms clearly and accurately",
+          emoji: "📝",
+          isCorrect: true
+        },
         {
           id: "a",
           text: "Be detailed and honest",
@@ -69,12 +75,7 @@ const ClinicVisitSimulation = () => {
           emoji: "📢",
           isCorrect: false
         },
-        {
-          id: "d",
-          text: "Describe symptoms clearly and accurately",
-          emoji: "📝",
-          isCorrect: true
-        }
+       
       ]
     },
     {
@@ -94,17 +95,18 @@ const ClinicVisitSimulation = () => {
           isCorrect: false
         },
         {
+          id: "d",
+          text: "Request written information about treatments",
+          emoji: "📄",
+          isCorrect: true
+        },
+        {
           id: "c",
           text: "Ask questions about options",
           emoji: "❓",
           isCorrect: false
         },
-        {
-          id: "d",
-          text: "Request written information about treatments",
-          emoji: "📄",
-          isCorrect: true
-        }
+        
       ]
     },
     {
@@ -148,6 +150,12 @@ const ClinicVisitSimulation = () => {
           isCorrect: false
         },
         {
+          id: "d",
+          text: "Track symptoms and medication effects",
+          emoji: "📊",
+          isCorrect: true
+        },
+        {
           id: "b",
           text: "Note any questions or concerns",
           emoji: "📝",
@@ -159,12 +167,7 @@ const ClinicVisitSimulation = () => {
           emoji: "📅",
           isCorrect: false
         },
-        {
-          id: "d",
-          text: "Track symptoms and medication effects",
-          emoji: "📊",
-          isCorrect: true
-        }
+        
       ]
     }
   ];

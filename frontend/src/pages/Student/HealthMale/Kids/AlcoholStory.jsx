@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
 import GameShell from "../../Finance/GameShell";
@@ -32,7 +33,6 @@ const AlcoholStory = () => {
           id: "b",
           text: "Try their drink",
           emoji: "🍷",
-          description: "Alcohol is for adults only",
           isCorrect: false
         },
         
@@ -40,14 +40,12 @@ const AlcoholStory = () => {
           id: "c",
           text: "Pretend to drink",
           emoji: "🎭",
-          description: "Just be yourself and drink what you like",
           isCorrect: false
         },
         {
           id: "a",
           text: "Juice or Water",
           emoji: "🧃",
-          description: "Stick to healthy drinks for kids",
           isCorrect: true
         },
       ]
@@ -58,26 +56,26 @@ const AlcoholStory = () => {
       options: [
         {
           id: "a",
-          text: "Juice or Water",
-          emoji: "🧃",
-          description: "Stick to healthy drinks for kids",
+          text: "It harms your developing brain and body",
+          emoji: "🧠",
           isCorrect: true
         },
-        {
-          id: "c",
-          text: "It's too expensive",
-          emoji: "💰",
-          description: "Cost isn't the main problem",
-          isCorrect: false
-        },
-       
+        
         {
           id: "b",
           text: "It makes you too tall",
           emoji: "📏",
-          description: "It doesn't make you tall",
           isCorrect: false
-        }
+        },
+        
+       
+        {
+          id: "c",
+          text: "It's too expensive",
+          emoji: "💰",
+          isCorrect: false
+        },
+        
       ]
     },
     {
@@ -88,21 +86,18 @@ const AlcoholStory = () => {
           id: "b",
           text: "You become a superhero",
           emoji: "🦸",
-          description: "Alcohol makes you weaker, not stronger",
           isCorrect: false
         },
         {
           id: "a",
           text: "You might get sick and dizzy",
           emoji: "🤢",
-          description: "It makes your body feel bad",
           isCorrect: true
         },
         {
           id: "c",
           text: "You run faster",
           emoji: "🏃",
-          description: "It makes you slow and clumsy",
           isCorrect: false
         }
       ]
@@ -115,7 +110,6 @@ const AlcoholStory = () => {
           id: "c",
           text: "Do it to be cool",
           emoji: "😎",
-          description: "Being safe is cooler than doing dangerous dares",
           isCorrect: false
         },
         
@@ -123,41 +117,36 @@ const AlcoholStory = () => {
           id: "b",
           text: "Drink a little bit",
           emoji: "🤏",
-          description: "Even a little bit is bad for kids",
           isCorrect: false
         },
         {
           id: "a",
           text: "Say No and leave",
           emoji: "🚶",
-          description: "Walk away from dangerous situations",
           isCorrect: true
         },
       ]
     },
     {
       id: 5,
-      text: "Who can you talk to if you are worried?",
+      text: "If someone offers you alcohol, who should you tell?",
       options: [
         {
           id: "b",
           text: "No one",
           emoji: "🤐",
-          description: "Always share your worries",
           isCorrect: false
         },
         {
           id: "c",
-          text: "Your pet",
-          emoji: "🐶",
-          description: "Pets listen, but adults can help",
+          text: "Your friends",
+          emoji: "👥",
           isCorrect: false
         },
         {
           id: "a",
           text: "Parents or Teachers",
           emoji: "👨‍👩‍👧",
-          description: "Trusted adults are there to help you",
           isCorrect: true
         }
       ]

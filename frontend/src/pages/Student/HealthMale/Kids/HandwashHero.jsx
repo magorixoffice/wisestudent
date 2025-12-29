@@ -32,21 +32,21 @@ const HandwashHero = () => {
           id: "b",
           text: "Just wipe on clothes",
           emoji: "👕",
-          description: "Clothes spread germs instead of removing them",
+          
           isCorrect: false
         },
         {
           id: "a",
           text: "Wash hands with soap",
           emoji: "🧼",
-          description: "Clean hands remove dirt and germs from playing",
+        
           isCorrect: true
         },
         {
           id: "c",
           text: "Nothing, hands are fine",
           emoji: "👍",
-          description: "Dirty hands can make you sick",
+         
           isCorrect: false
         }
       ]
@@ -59,21 +59,18 @@ const HandwashHero = () => {
           id: "c",
           text: "Once a week is enough",
           emoji: "📅",
-          description: "Hands need washing many times a day",
           isCorrect: false
         },
         {
           id: "a",
           text: "Only when they look dirty",
           emoji: "👀",
-          description: "Germs are invisible, you can't see them",
           isCorrect: false
         },
         {
           id: "b",
           text: "After using bathroom and before eating",
           emoji: "✋",
-          description: "These are important times to stay clean",
           isCorrect: true
         }
       ]
@@ -86,21 +83,18 @@ const HandwashHero = () => {
           id: "b",
           text: "20 seconds, sing happy birthday",
           emoji: "🎵",
-          description: "Perfect time to clean hands thoroughly",
           isCorrect: true
         },
         {
           id: "a",
           text: "5 seconds quickly",
           emoji: "⚡",
-          description: "Not enough time to remove all germs",
           isCorrect: false
         },
         {
           id: "c",
           text: "1 minute or more",
           emoji: "⏰",
-          description: "20 seconds is just right, longer wastes water",
           isCorrect: false
         }
       ]
@@ -113,21 +107,18 @@ const HandwashHero = () => {
           id: "c",
           text: "Hands become stronger",
           emoji: "💪",
-          description: "Clean hands are healthy hands",
           isCorrect: false
         },
         {
           id: "b",
           text: "Nothing bad happens",
           emoji: "😊",
-          description: "Germs can spread and cause sickness",
           isCorrect: false
         },
         {
           id: "a",
           text: "You might get sick",
           emoji: "🤒",
-          description: "Germs on hands can make you ill",
           isCorrect: true
         }
       ]
@@ -140,21 +131,18 @@ const HandwashHero = () => {
           id: "b",
           text: "Shake water off",
           emoji: "💧",
-          description: "Wet hands can still spread germs",
           isCorrect: false
         },
         {
           id: "a",
           text: "Use a clean towel",
           emoji: "🧺",
-          description: "Clean towel keeps hands hygienic",
           isCorrect: true
         },
         {
           id: "c",
           text: "Wipe on clothes",
           emoji: "👕",
-          description: "This can dirty your clothes",
           isCorrect: false
         }
       ]

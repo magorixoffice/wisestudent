@@ -70,18 +70,19 @@ const PaperStory = () => {
           emoji: "🗑️", 
           isCorrect: false
         },
-        { 
-          id: "recycle", 
-          text: "Recycle it", 
-          emoji: "♻️", 
-          isCorrect: true
-        },
+        
         { 
           id: "reuse", 
           text: "Reuse it", 
           emoji: "🔄", 
+          isCorrect: false
+        },
+        { 
+          id: "don't recycle it", 
+          text: "don't Recycle it", 
+          emoji: "♻️", 
           isCorrect: true
-        }
+        },
       ]
     },
     {
@@ -91,7 +92,7 @@ const PaperStory = () => {
         { 
           id: "recycle", 
           text: "Recycle it", 
-          emoji: "♻️", 
+          emoji: "🔁", 
           isCorrect: true
         },
         { 
@@ -129,7 +130,7 @@ const PaperStory = () => {
         { 
           id: "save", 
           text: "Use only what you need", 
-          emoji: "✅", 
+          emoji: "👤", 
           isCorrect: true
         },
       ]

@@ -79,7 +79,7 @@ const QuizOnBiodiversity = () => {
       text: "Why is biodiversity important?",
       options: [
         { id: "a", text: "Maintains ecosystem balance", emoji: "⚖️", isCorrect: true },
-        { id: "b", text: "Only for beauty", emoji: " красота", isCorrect: false },
+        { id: "b", text: "Only for beauty", emoji: "🪷", isCorrect: false },
         { id: "c", text: "No real importance", emoji: "🤷", isCorrect: false }
       ]
     },
@@ -87,7 +87,7 @@ const QuizOnBiodiversity = () => {
       id: 3,
       text: "What threatens biodiversity?",
       options: [
-        { id: "a", text: "Habitat destruction", emoji: " Bulldozer", isCorrect: true },
+        { id: "a", text: "Habitat destruction", emoji: "🌳", isCorrect: true },
         { id: "b", text: "Species protection", emoji: "🛡️", isCorrect: false },
         { id: "c", text: "Conservation efforts", emoji: "🌿", isCorrect: false }
       ]

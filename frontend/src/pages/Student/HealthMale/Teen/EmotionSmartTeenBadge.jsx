@@ -155,27 +155,29 @@ const EmotionSmartTeenBadge = () => {
       id: 5,
       title: "Self-Care Practices",
       text: "Self-care includes...",
-      icon: <Smile className="w-12 h-12 text-green-400" />,
+      icon: <Smile className="w-12 h-12 text-green-400" />, 
       options: [
-        {
-          text: "Working 24/7",
-          emoji: "💼",
-          isCorrect: false
-        },
-        {
-          text: "Eating junk food only",
-          emoji: "🍟",
-          isCorrect: false
-        },
        
         {
-          text: "Ignoring problems",
+          text: "Only physical exercise",
+          emoji: "🏃",
+          isCorrect: false
+        },
+        
+       
+        {
+          text: "Neglecting your needs",
           emoji: "🙈",
           isCorrect: false
         },
+        {
+          text: "Working constantly",
+          emoji: "💼",
+          isCorrect: false
+        },
          {
-          text: "Rest and hobbies",
-          emoji: "🛋️",
+          text: "Physical and mental wellness",
+          emoji: "🧘",
           isCorrect: true
         },
       ],

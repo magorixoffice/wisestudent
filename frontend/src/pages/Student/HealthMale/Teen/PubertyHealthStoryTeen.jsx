@@ -87,7 +87,7 @@ const PubertyHealthStoryTeen = () => {
         },
         {
           id: "a",
-          text: "Deodorant/Antiperspirant",
+          text: "Antiperspirant",
           emoji: "🧴",
           isCorrect: true
         }

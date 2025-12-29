@@ -24,8 +24,8 @@ const questions = [
     text: "What's the best way to reduce food waste?",
     options: [
       { id: 'a', text: " Buy in bulk", emoji: "🛒", isCorrect: false },
-      { id: 'b', text: " Plan meals ahead", emoji: "📝", isCorrect: true },
       { id: 'c', text: " Eat out more", emoji: "🍽️", isCorrect: false },
+      { id: 'b', text: " Plan meals ahead", emoji: "📝", isCorrect: true },
       { id: 'd', text: " Ignore expiration dates", emoji: "📅", isCorrect: false }
     ]
   },
@@ -44,9 +44,9 @@ const questions = [
     text: "What's the most eco-friendly packaging?",
     options: [
       { id: 'a', text: " Single-use plastic", emoji: "🥤", isCorrect: false },
-      { id: 'b', text: " Biodegradable materials", emoji: "🍃", isCorrect: true },
       { id: 'c', text: " Excessive wrapping", emoji: "📦", isCorrect: false },
-      { id: 'd', text: " Styrofoam containers", emoji: "📦", isCorrect: false }
+      { id: 'd', text: " Styrofoam containers", emoji: "📦", isCorrect: false },
+      { id: 'b', text: " Biodegradable materials", emoji: "🍃", isCorrect: true },
     ]
   },
   {
@@ -54,8 +54,8 @@ const questions = [
     text: "How can you support sustainable agriculture?",
     options: [
       { id: 'a', text: " Buy from big chains", emoji: "🏪", isCorrect: false },
-      { id: 'b', text: " Choose local produce", emoji: "🍎", isCorrect: true },
       { id: 'c', text: " Ignore labels", emoji: "🏷️", isCorrect: false },
+      { id: 'b', text: " Choose local produce", emoji: "🍎", isCorrect: true },
       { id: 'd', text: " Buy more meat", emoji: "🍖", isCorrect: false }
     ]
   }

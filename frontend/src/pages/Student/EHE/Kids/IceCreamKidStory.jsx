@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import GameShell from "../../Finance/GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 
-const LemonadeKidStory = () => {
+const IceCreamKidStory = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
@@ -22,7 +22,7 @@ const LemonadeKidStory = () => {
   const questions = [
     {
       id: 1,
-      text: "A 10-year-old sells lemonade in summer. Why?",
+      text: "A 10-year-old sells ice cream in summer. Why?",
       options: [
         {
           id: "c",
@@ -46,7 +46,7 @@ const LemonadeKidStory = () => {
     },
     {
       id: 2,
-      text: "What should the lemonade seller do with earnings?",
+      text: "What should the ice cream seller do with earnings?",
       options: [
         {
           id: "b",
@@ -70,7 +70,7 @@ const LemonadeKidStory = () => {
     },
     {
       id: 3,
-      text: "How can the lemonade stand be more successful?",
+      text: "How can the ice cream stand be more successful?",
       options: [
         {
           id: "c",
@@ -94,18 +94,18 @@ const LemonadeKidStory = () => {
     },
     {
       id: 4,
-      text: "What's an important cost in running a lemonade stand?",
+      text: "What's an important cost in running an ice cream stand?",
       options: [
         {
           id: "a",
-          text: "Buying lemons, sugar, and cups",
-          emoji: "🛒",
+          text: "Buying ice cream, cones, and supplies",
+          emoji: "🍦",
           isCorrect: true
         },
         {
           id: "b",
-          text: "Free lemons from trees",
-          emoji: "🌳",
+          text: "Free ice cream from the freezer",
+          emoji: "❄️",
           isCorrect: false
         },
         {
@@ -194,7 +194,7 @@ const LemonadeKidStory = () => {
 
   return (
     <GameShell
-      title="Lemonade Kid Story"
+      title="Ice Cream Kid Story"
       score={coins}
       subtitle={showResult ? "Story Complete!" : `Question ${currentQuestion + 1} of ${questions.length}`}
       coinsPerLevel={coinsPerLevel}
@@ -248,7 +248,7 @@ const LemonadeKidStory = () => {
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-4">Business Pro!</h3>
                 <p className="text-white/90 text-base md:text-lg mb-4">
                   You got {finalScore} out of {questions.length} questions correct!
-                  You understand the basics of running a successful lemonade stand!
+                  You understand the basics of running a successful ice cream stand!
                 </p>
                 <div className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white py-2 md:py-3 px-4 md:px-6 rounded-full inline-flex items-center gap-2 mb-4 text-sm md:text-base">
                   <span>+{coins} Coins</span>
@@ -283,4 +283,4 @@ const LemonadeKidStory = () => {
   );
 };
 
-export default LemonadeKidStory;
+export default IceCreamKidStory;

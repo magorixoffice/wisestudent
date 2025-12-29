@@ -116,13 +116,13 @@ const BusStory = () => {
         { 
           id: "share", 
           text: "Share transport", 
-          emoji: "🚌👥", 
+          emoji: "👥", 
           isCorrect: true
         },
         { 
           id: "waste", 
           text: "Use separate cars", 
-          emoji: "🚗🚗", 
+          emoji: "🚗", 
           isCorrect: false
         },
         { 

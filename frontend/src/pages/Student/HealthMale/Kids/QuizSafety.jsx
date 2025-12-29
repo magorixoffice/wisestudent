@@ -29,12 +29,7 @@ const QuizSafety = () => {
       id: 1,
       text: "What should you wear when riding a bike?",
       options: [
-        {
-          id: "a",
-          text: "A helmet",
-          emoji: "⛑️",
-          isCorrect: false
-        },
+       
         {
           id: "b",
           text: "A cool hat",
@@ -46,8 +41,14 @@ const QuizSafety = () => {
           id: "c",
           text: "Sunglasses",
           emoji: "🕶️",
+          isCorrect: false
+        },
+         {
+          id: "a",
+          text: "A helmet",
+          emoji: "⛑️",
           isCorrect: true
-        }
+        },
       ]
     },
     {

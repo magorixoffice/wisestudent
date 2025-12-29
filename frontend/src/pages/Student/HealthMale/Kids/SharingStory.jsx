@@ -28,25 +28,24 @@ const SharingStory = () => {
       id: 1,
       text: "You feel scared during a thunderstorm. What should you do?",
       options: [
-        {
-          id: "a",
-          text: "Tell your parents you're scared",
-          emoji: "💬",
-          description: "Sharing feelings helps you feel better and safer",
-          isCorrect: true
-        },
+       
         {
           id: "b",
           text: "Hide under the bed and stay quiet",
           emoji: "🛏️",
-          description: "It's better to talk about fears than hide them",
           isCorrect: false
+        },
+         {
+          id: "a",
+          text: "Tell your parents you're scared",
+          emoji: "💬",
+         
+          isCorrect: true
         },
         {
           id: "c",
           text: "Pretend you're not scared",
           emoji: "😊",
-          description: "It's okay to admit when you're scared",
           isCorrect: false
         }
       ]
@@ -59,21 +58,18 @@ const SharingStory = () => {
           id: "a",
           text: "Tell them how you feel",
           emoji: "🗣️",
-          description: "Sharing feelings helps friends understand each other",
           isCorrect: true
         },
         {
           id: "b",
           text: "Never talk to them again",
           emoji: "🚫",
-          description: "Friends can work through hurt feelings together",
           isCorrect: false
         },
         {
           id: "c",
           text: "Say nothing and stay mad",
           emoji: "😠",
-          description: "Talking about hurt feelings helps solve problems",
           isCorrect: false
         }
       ]
@@ -86,48 +82,44 @@ const SharingStory = () => {
           id: "b",
           text: "Keep worry inside and don't study",
           emoji: "😰",
-          description: "Sharing worries can help you feel supported",
           isCorrect: false
         },
-        {
-          id: "a",
-          text: "Talk to teacher or parents about it",
-          emoji: "👨‍🏫",
-          description: "Adults can help you with worries and give good advice",
-          isCorrect: true
-        },
+       
         {
           id: "c",
           text: "Pretend everything is fine",
           emoji: "😄",
-          description: "It's okay to ask for help when worried",
           isCorrect: false
-        }
+        },
+         {
+          id: "a",
+          text: "Talk to teacher or parents about it",
+          emoji: "👨‍🏫",
+          isCorrect: true
+        },
       ]
     },
     {
       id: 4,
       text: "You feel excited about your birthday party. What should you do?",
       options: [
-        {
-          id: "a",
-          text: "Share your excitement with family",
-          emoji: "🎉",
-          description: "Sharing happy feelings makes everyone feel good",
-          isCorrect: true
-        },
+        
         {
           id: "b",
           text: "Act like you don't care",
           emoji: "😑",
-          description: "It's fun to share excitement with others",
           isCorrect: false
+        },
+        {
+          id: "a",
+          text: "Share your excitement with family",
+          emoji: "🎉",
+          isCorrect: true
         },
         {
           id: "c",
           text: "Keep excitement to yourself",
           emoji: "🤐",
-          description: "Sharing excitement makes celebrations more fun",
           isCorrect: false
         }
       ]
@@ -140,21 +132,18 @@ const SharingStory = () => {
           id: "a",
           text: "Tell them calmly how you feel",
           emoji: "💭",
-          description: "Calm talking helps solve problems and feel better",
           isCorrect: true
         },
         {
           id: "b",
           text: "Yell and say mean things",
           emoji: "😡",
-          description: "Talking calmly helps solve problems better",
           isCorrect: false
         },
         {
           id: "c",
           text: "Stay silent and stay mad",
           emoji: "🤐",
-          description: "Expressing feelings with words is healthier",
           isCorrect: false
         }
       ]

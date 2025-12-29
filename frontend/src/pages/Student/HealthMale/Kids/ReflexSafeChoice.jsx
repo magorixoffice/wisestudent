@@ -34,50 +34,50 @@ const ReflexSafeChoice = () => {
       id: 1,
       instruction: "You are thirsty. What's the safest choice?",
       options: [
-        { id: 'a', text: "Alcohol", emoji: "🍺", isCorrect: false },
-        { id: 'b', text: "Soda", emoji: "🥤", isCorrect: false },
+        { id: 'a', text: "Soda", emoji: "🥤", isCorrect: false },
+        { id: 'b', text: "Energy Drink", emoji: "⚡", isCorrect: false },
         { id: 'c', text: "Water", emoji: "💧", isCorrect: true },
-        { id: 'd', text: "Energy Drink", emoji: "⚡", isCorrect: false }
+        { id: 'd', text: "Candy Drink", emoji: "🍭", isCorrect: false }
       ]
     },
     {
       id: 2,
-      instruction: "Someone offers a cigarette. What's the safest choice?",
+      instruction: "A stranger offers you candy. What's the safest choice?",
       options: [
+        { id: 'b', text: "Take It", emoji: "🍬", isCorrect: false },
         { id: 'a', text: "Say No", emoji: "✋", isCorrect: true },
-        { id: 'b', text: "Take It", emoji: "🚬", isCorrect: false },
-        { id: 'c', text: "Smoke Half", emoji: "🌬️", isCorrect: false },
-        { id: 'd', text: "Ask for Flavors", emoji: "🌈", isCorrect: false }
+        { id: 'c', text: "Ask for More", emoji: "🍭", isCorrect: false },
+        { id: 'd', text: "Share With Friends", emoji: "👥", isCorrect: false }
       ]
     },
     {
       id: 3,
       instruction: "You want to have fun. What's the safest choice?",
       options: [
-        { id: 'a', text: "Take Drugs", emoji: "💊", isCorrect: false },
-        { id: 'b', text: "Play Sports", emoji: "⚽", isCorrect: true },
-        { id: 'c', text: "Drink Alcohol", emoji: "🍺", isCorrect: false },
-        { id: 'd', text: "Smoke", emoji: "🚬", isCorrect: false }
+        { id: 'a', text: "Play Sports", emoji: "⚽", isCorrect: true },
+        { id: 'b', text: "Play Video Games All Day", emoji: "🎮", isCorrect: false },
+        { id: 'c', text: "Eat Too Much Candy", emoji: "🍭", isCorrect: false },
+        { id: 'd', text: "Stay Up Late", emoji: "🌙", isCorrect: false }
       ]
     },
     {
       id: 4,
-      instruction: "You see a bottle of wine. What's the safest choice?",
+      instruction: "You see a dangerous animal. What's the safest choice?",
       options: [
-        { id: 'a', text: "Drink It", emoji: "🍷", isCorrect: false },
-        { id: 'b', text: "Share It", emoji: "🍻", isCorrect: false },
-        { id: 'c', text: "Don't Touch", emoji: "🚫", isCorrect: true },
-        { id: 'd', text: "Smell It", emoji: "👃", isCorrect: false }
+        { id: 'a', text: "Pet It", emoji: "🐾", isCorrect: false },
+        { id: 'b', text: "Feed It", emoji: "🍖", isCorrect: false },
+        { id: 'c', text: "Stay Away", emoji: "🚫", isCorrect: true },
+        { id: 'd', text: "Chase It", emoji: "🏃", isCorrect: false }
       ]
     },
     {
       id: 5,
-      instruction: "Friends are smoking. What's the safest choice?",
+      instruction: "A friend invites you to play near a busy road. What's the safest choice?",
       options: [
-        { id: 'a', text: "Join Them", emoji: "👯", isCorrect: false },
-        { id: 'b', text: "Record Video", emoji: "📹", isCorrect: false },
-        { id: 'c', text: "Ask for a Drag", emoji: "💨", isCorrect: false },
-        { id: 'd', text: "Walk Away", emoji: "🏃", isCorrect: true }
+        { id: 'a', text: "Go Play", emoji: "🚗", isCorrect: false },
+        { id: 'c', text: "Run Across Road", emoji: "🏃", isCorrect: false },
+        { id: 'd', text: "Ignore Warning", emoji: "⚠️", isCorrect: false },
+        { id: 'b', text: "Suggest Playground", emoji: "🎡", isCorrect: true },
       ]
     }
   ];
