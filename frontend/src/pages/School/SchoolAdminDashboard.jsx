@@ -585,18 +585,49 @@ const SchoolAdminDashboard = () => {
     );
   }
 
+  const handleRefresh = () => {
+    fetchDashboardData();
+    toast.success('Dashboard refreshed!');
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 pb-12">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white py-12 px-6">
-        <div className="max-w-7xl mx-auto">
+      {/* Header Section */}
+      <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white py-12">
+        <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             className="flex items-center justify-between flex-wrap gap-4"
           >
-            <h1 className="text-4xl font-black mb-2">Dashboard</h1>
-            <p className="text-lg text-white/90">Welcome back, {adminProfile?.name || 'Admin'}</p>
+            <div>
+              <h1 className="text-4xl font-black mb-2 flex items-center gap-3">
+                Welcome back, {adminProfile?.organization || adminProfile?.name?.split(' ')[0] || 'Admin'}! 👋
+              </h1>
+              <p className="text-lg text-white/90">
+                Here's your school overview for today
+              </p>
+            </div>
+            <div className="flex items-center gap-3">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={handleRefresh}
+                className="flex items-center gap-2 px-4 py-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-lg border border-white/30 transition-all"
+              >
+                <RefreshCw className="w-5 h-5 text-white" />
+                <span className="text-sm font-semibold text-white">Refresh</span>
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setShowAddStudentModal(true)}
+                className="flex items-center gap-2 px-4 py-2 bg-white rounded-lg border border-purple-300 hover:bg-gray-50 transition-all"
+              >
+                <UserPlus className="w-4 h-4 text-purple-600" />
+                <span className="text-sm font-semibold text-purple-600">Add Student</span>
+              </motion.button>
+            </div>
           </motion.div>
         </div>
       </div>
@@ -606,38 +637,40 @@ const SchoolAdminDashboard = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-white rounded-2xl shadow-xl p-6 mb-6 border-2 border-gray-100"
+          className="p-6 mb-6"
         >
-          <QuickActionButton
-            label="View Analytics"
-            icon={BarChart3}
-            color="from-purple-500 to-pink-600"
-            onClick={() => navigate("/school/admin/analytics")}
-          />
-          <QuickActionButton
-            label="Manage Students"
-            icon={Users}
-            color="from-blue-500 to-cyan-600"
-            onClick={() => navigate("/school/admin/students")}
-          />
-          <QuickActionButton
-            label="Manage Teachers"
-            icon={BookOpen}
-            color="from-green-500 to-emerald-600"
-            onClick={() => navigate("/school/admin/teachers")}
-          />
-          <QuickActionButton
-            label="Manage Classes"
-            icon={Building2}
-            color="from-indigo-500 to-purple-600"
-            onClick={() => navigate("/school/admin/classes")}
-          />
-          <QuickActionButton
-            label="Pending Approvals"
-            icon={CheckCircle}
-            color="from-orange-500 to-red-600"
-            onClick={() => navigate("/school/admin/approvals")}
-          />
+          <div className="flex items-center justify-center gap-4 flex-wrap">
+            <QuickActionButton
+              label="View Analytics"
+              icon={BarChart3}
+              color="from-purple-500 to-pink-600"
+              onClick={() => navigate("/school/admin/analytics")}
+            />
+            <QuickActionButton
+              label="Manage Students"
+              icon={Users}
+              color="from-blue-500 to-cyan-600"
+              onClick={() => navigate("/school/admin/students")}
+            />
+            <QuickActionButton
+              label="Manage Teachers"
+              icon={BookOpen}
+              color="from-green-500 to-emerald-600"
+              onClick={() => navigate("/school/admin/teachers")}
+            />
+            <QuickActionButton
+              label="Manage Classes"
+              icon={Building2}
+              color="from-indigo-500 to-purple-600"
+              onClick={() => navigate("/school/admin/classes")}
+            />
+            <QuickActionButton
+              label="Pending Approvals"
+              icon={CheckCircle}
+              color="from-orange-500 to-red-600"
+              onClick={() => navigate("/school/admin/approvals")}
+            />
+          </div>
         </motion.div>
 
         {/* Key Metrics */}
