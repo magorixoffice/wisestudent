@@ -481,6 +481,7 @@ export const completeGame = async (req, res) => {
     const io = req.app.get('io');
     if (io) {
       io.to(userId.toString()).emit('game-completed', {
+        userId: userId.toString(),
         gameId,
         coinsEarned,
         xpEarned,
@@ -488,6 +489,8 @@ export const completeGame = async (req, res) => {
         streak: userProgress.streak,
         level: userProgress.level,
         totalXP: userProgress.xp,
+        weeklyXP: userProgress.weeklyXP || 0,
+        rank: userProgress.rank || 0,
         achievements: gameProgress.achievements,
         message: 'Game completed and rewards granted!'
       });
@@ -1355,6 +1358,7 @@ export const completeUnifiedGame = async (req, res) => {
     if (io && (coinsToAward > 0 || gameProgress.fullyCompleted)) {
       // Emit game completion event
       io.to(userId.toString()).emit('game-completed', {
+        userId: userId.toString(),
         gameId,
         coinsEarned: coinsToAward,
         xpEarned,
@@ -1362,6 +1366,8 @@ export const completeUnifiedGame = async (req, res) => {
         streak: userProgress.streak,
         level: userProgress.level,
         totalXP: userProgress.xp,
+        weeklyXP: userProgress.weeklyXP || 0,
+        rank: userProgress.rank || 0,
         gameStreak: gameProgress.currentStreak,
         achievements: gameProgress.achievements,
         fullyCompleted: gameProgress.fullyCompleted,

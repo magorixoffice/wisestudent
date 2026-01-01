@@ -13,7 +13,9 @@ import {
   getLeaderboardSnippet,
   getAchievementTimeline,
   getDailyActionsStatus,
-  getMissingGames
+  getMissingGames,
+  trackRecommendationInteraction,
+  getRecommendationAnalytics
 } from "../controllers/statsController.js";
 
 const router = express.Router();
@@ -27,6 +29,8 @@ router.get("/engagement-minutes", requireAuth, getEngagementMinutes);
 router.get("/activity-heatmap", requireAuth, getActivityHeatmap);
 router.get("/mood-timeline", requireAuth, getMoodTimeline);
 router.get("/recommendations", requireAuth, getRecommendations);
+router.post("/recommendations/track", requireAuth, trackRecommendationInteraction);
+router.get("/recommendations/analytics", requireAuth, getRecommendationAnalytics);
 router.get("/leaderboard-snippet", requireAuth, getLeaderboardSnippet);
 router.get("/achievement-timeline", requireAuth, getAchievementTimeline);
 router.get("/daily-actions", requireAuth, getDailyActionsStatus);

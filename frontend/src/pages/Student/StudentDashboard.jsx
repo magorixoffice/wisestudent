@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 // eslint-disable-next-line no-unused-vars
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import {
     Smile,
@@ -51,6 +51,9 @@ import {
     EyeOff,
     MessageCircle,
     Inbox,
+    Loader,
+    RefreshCw,
+    X,
 } from "lucide-react";
 import { useAuth } from "../../hooks/useAuth";
 import { useWallet } from "../../context/WalletContext";
@@ -110,6 +113,9 @@ export default function StudentDashboard() {
     const [activityHeatmap, setActivityHeatmap] = useState(null);
     const [moodTimeline, setMoodTimeline] = useState(null);
     const [recommendations, setRecommendations] = useState(null);
+    const [recommendationsLoading, setRecommendationsLoading] = useState(false);
+    const [recommendationsLastUpdated, setRecommendationsLastUpdated] = useState(null);
+    const [dismissedRecommendations, setDismissedRecommendations] = useState(new Set()); // Track dismissed recommendation IDs
     const [leaderboardData, setLeaderboardData] = useState(null);
     const [achievementTimeline, setAchievementTimeline] = useState(null);
     const [dailyActions, setDailyActions] = useState(null);
@@ -377,12 +383,36 @@ export default function StudentDashboard() {
             setActivityHeatmap(heatmapData);
             setMoodTimeline(timelineData);
             setRecommendations(recommendationsData);
+            setRecommendationsLastUpdated(new Date());
             setAchievementTimeline(achievementsData);
             setDailyActions(dailyActionsData);
             
             // Note: Leaderboard rank is already set from loadDashboardData, no need to fetch again
         } catch (err) {
             console.error("❌ Failed to load analytics data", err);
+        }
+    }, []);
+
+    // Refresh recommendations function
+    const refreshRecommendations = React.useCallback(async () => {
+        try {
+            setRecommendationsLoading(true);
+            const recommendationsData = await fetchRecommendations();
+            setRecommendations(recommendationsData);
+            setRecommendationsLastUpdated(new Date());
+            toast.success("Recommendations updated!", {
+                duration: 2000,
+                position: "bottom-center",
+                icon: "✨"
+            });
+        } catch (err) {
+            console.error("❌ Failed to refresh recommendations", err);
+            toast.error("Failed to refresh recommendations", {
+                duration: 3000,
+                position: "bottom-center"
+            });
+        } finally {
+            setRecommendationsLoading(false);
         }
     }, []);
 
@@ -405,9 +435,33 @@ export default function StudentDashboard() {
     };
 
 
-    const handleNavigate = (path, featureTitle) => {
+    const handleNavigate = async (path, featureTitle, recommendationData = null) => {
         if (path && typeof path === "string") {
             console.log("Navigating to:", path);
+            
+            // Track recommendation interaction if this is from a recommendation
+            if (recommendationData) {
+                try {
+                    await api.post('/api/stats/recommendations/track', {
+                        recommendationId: recommendationData.recommendationId,
+                        recommendationType: recommendationData.type,
+                        recommendationTitle: recommendationData.title,
+                        recommendationPath: recommendationData.path,
+                        recommendationReason: recommendationData.reason,
+                        recommendationPriority: recommendationData.priority,
+                        recommendationScore: recommendationData.score,
+                        action: 'clicked',
+                        position: recommendationData.position,
+                        metadata: {
+                            recommendationGeneratedAt: recommendations?.generatedAt,
+                            pageUrl: window.location.pathname
+                        }
+                    });
+                } catch (error) {
+                    console.error('Failed to track recommendation interaction:', error);
+                    // Don't block navigation on tracking failure
+                }
+            }
             
             // Log feature usage activity
             logActivity({
@@ -417,7 +471,8 @@ export default function StudentDashboard() {
                     featurePath: path,
                     featureTitle: featureTitle,
                     fromPage: "dashboard",
-                    timestamp: new Date().toISOString()
+                    timestamp: new Date().toISOString(),
+                    isRecommendation: !!recommendationData
                 },
                 pageUrl: window.location.pathname
             });
@@ -429,6 +484,41 @@ export default function StudentDashboard() {
         }
     };
 
+    // Handle dismissing a recommendation
+    const handleDismissRecommendation = async (recommendationData, index) => {
+        try {
+            // Track dismissal
+            await api.post('/api/stats/recommendations/track', {
+                recommendationId: recommendationData.recommendationId,
+                recommendationType: recommendationData.type,
+                recommendationTitle: recommendationData.title,
+                recommendationPath: recommendationData.path,
+                recommendationReason: recommendationData.reason,
+                recommendationPriority: recommendationData.priority,
+                recommendationScore: recommendationData.score,
+                action: 'dismissed',
+                position: index + 1,
+                metadata: {
+                    recommendationGeneratedAt: recommendations?.generatedAt,
+                    pageUrl: window.location.pathname
+                }
+            });
+
+            // Add to dismissed set to hide it immediately
+            setDismissedRecommendations(prev => new Set([...prev, recommendationData.recommendationId]));
+
+            // Show subtle toast
+            toast.success("Recommendation dismissed", {
+                duration: 2000,
+                position: "bottom-center",
+                icon: "✓"
+            });
+        } catch (error) {
+            console.error('Failed to track recommendation dismissal:', error);
+            // Still hide it locally even if tracking fails
+            setDismissedRecommendations(prev => new Set([...prev, recommendationData.recommendationId]));
+        }
+    };
 
     // Check if profile needs to be completed (for Google users)
     useEffect(() => {
@@ -717,6 +807,11 @@ export default function StudentDashboard() {
                 rank: data.rank !== undefined ? data.rank : prev.rank
             }));
             
+            // Refresh recommendations when leveling up
+            setTimeout(() => {
+                refreshRecommendations();
+            }, 500);
+            
             // Refresh analytics for real-time updates
             setTimeout(() => {
                 loadAnalyticsData();
@@ -741,6 +836,11 @@ export default function StudentDashboard() {
                     ...(data.weeklyXP !== undefined && { weeklyXP: data.weeklyXP }),
                     ...(data.rank !== undefined && { rank: data.rank })
                 }));
+                
+                // Refresh recommendations when stats are updated
+                setTimeout(() => {
+                    refreshRecommendations();
+                }, 1000);
             }
         };
         
@@ -849,6 +949,13 @@ export default function StudentDashboard() {
             }
         };
         
+        // Handle mood logged event for recommendation updates
+        const handleMoodLogged = () => {
+            setTimeout(() => {
+                refreshRecommendations();
+            }, 1000);
+        };
+        
         socket.on('game-completed', handleGameCompleted);
         socket.on('wallet:updated', handleWalletUpdate);
         socket.on('level-up', handleLevelUp);
@@ -856,6 +963,8 @@ export default function StudentDashboard() {
         socket.on('stats:updated', handleStatsUpdate);
         socket.on('achievement:earned', handleAchievementUpdate);
         socket.on('student:achievements:timeline', handleAchievementTimeline);
+        socket.on('mood:logged', handleMoodLogged);
+        socket.on('activity:logged', handleMoodLogged); // Also refresh on activity logged
         
         // Subscribe to achievement updates when socket is connected
         const subscribeToAchievements = () => {
@@ -895,9 +1004,11 @@ export default function StudentDashboard() {
             socket.off('achievement:earned', handleAchievementUpdate);
             socket.off('student:achievements:timeline', handleAchievementTimeline);
             socket.off('user:profile:updated', handleProfileUpdate);
+            socket.off('mood:logged', handleMoodLogged);
+            socket.off('activity:logged', handleMoodLogged);
             socket.off('connect', subscribeToAchievements);
         };
-    }, [socket, stats.level, setWallet, refreshWallet, user, loadAnalyticsData, fetchUser, refreshSubscription]);
+    }, [socket, stats.level, setWallet, refreshWallet, user, loadAnalyticsData, fetchUser, refreshSubscription, refreshRecommendations]);
 
     const allCategories = [
         { key: "finance", label: "Financial Literacy" },
@@ -2338,22 +2449,83 @@ export default function StudentDashboard() {
                 )}
 
                 {/* 6. AI Recommendations */}
-                {recommendations && recommendations.recommendations && (
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.6, delay: 0.7 }}
-                        className="mb-8"
-                    >
-                        <h2 className="text-2xl font-black text-gray-800 mb-4 flex items-center gap-2">
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, delay: 0.7 }}
+                    className="mb-8"
+                >
+                    <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center gap-2">
                             <Sparkles className="w-7 h-7 text-yellow-500" />
-                            <span className="bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent">
-                                Recommended For You
-                            </span>
-                        </h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <h2 className="text-2xl font-black text-gray-800">
+                                <span className="bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent">
+                                    Recommended For You
+                                </span>
+                            </h2>
+                        </div>
+                        <div className="flex items-center gap-3">
+                            {recommendationsLastUpdated && (
+                                <span className="text-xs text-gray-500 font-medium">
+                                    Updated {recommendationsLastUpdated.toLocaleTimeString()}
+                                </span>
+                            )}
+                            <motion.button
+                                whileHover={{ scale: 1.05, rotate: 180 }}
+                                whileTap={{ scale: 0.95 }}
+                                onClick={refreshRecommendations}
+                                disabled={recommendationsLoading}
+                                className="p-2 rounded-lg bg-gradient-to-r from-yellow-400 to-orange-400 text-white shadow-md hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                title="Refresh recommendations"
+                            >
+                                {recommendationsLoading ? (
+                                    <Loader className="w-4 h-4 animate-spin" />
+                                ) : (
+                                    <RefreshCw className="w-4 h-4" />
+                                )}
+                            </motion.button>
+                        </div>
+                    </div>
+                    {recommendationsLoading && !recommendations && (
+                        <div className="mb-4 text-center py-8">
+                            <div className="inline-flex items-center gap-2 text-sm text-gray-600">
+                                <Loader className="w-5 h-5 animate-spin text-yellow-500" />
+                                <span className="font-medium">Loading recommendations...</span>
+                            </div>
+                        </div>
+                    )}
+                    {recommendations && recommendations.recommendations && recommendations.recommendations.length > 0 ? (
+                        <>
+                            {recommendationsLoading && (
+                                <div className="mb-4 text-center">
+                                    <div className="inline-flex items-center gap-2 text-sm text-gray-600">
+                                        <Loader className="w-4 h-4 animate-spin" />
+                                        <span>Updating recommendations...</span>
+                                    </div>
+                                </div>
+                            )}
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <AnimatePresence mode="popLayout">
                             {recommendations.recommendations
-                                .filter(rec => !(rec.title && rec.title.includes('Master') && rec.title.includes('UVLS') && rec.title.includes('Skills')))
+                                .filter(rec => {
+                                    // Filter out dismissed recommendations
+                                    if (dismissedRecommendations.has(rec.recommendationId)) {
+                                        return false;
+                                    }
+                                    // Filter out UVLS Master Skills
+                                    if (rec.title && rec.title.includes('Master') && rec.title.includes('UVLS') && rec.title.includes('Skills')) {
+                                        return false;
+                                    }
+                                    // Filter out Daily Challenge
+                                    if (rec.title && rec.title.includes('Daily Challenge')) {
+                                        return false;
+                                    }
+                                    // Filter out daily-challenges path
+                                    if (rec.path && rec.path.includes('daily-challenges')) {
+                                        return false;
+                                    }
+                                    return true;
+                                })
                                 .map((rec, index) => {
                                 const bgColors = [
                                     'from-violet-400 to-purple-500',
@@ -2364,48 +2536,95 @@ export default function StudentDashboard() {
 
                                 return (
                                     <motion.div
-                                        key={index}
+                                        key={rec.recommendationId || index}
                                         initial={{ y: 50, opacity: 0, rotate: -5 }}
                                         animate={{ y: 0, opacity: 1, rotate: 0 }}
+                                        exit={{ opacity: 0, scale: 0.9, y: -20 }}
                                         transition={{ delay: index * 0.15, type: "spring" }}
                                         whileHover={{ y: -10, rotate: 2, scale: 1.05 }}
-                                        onClick={() => handleNavigate(rec.path, rec.title)}
                                         className={`relative overflow-hidden bg-gradient-to-br ${bgGradient} rounded-3xl p-6 shadow-2xl cursor-pointer group`}
                                     >
-                                        {/* Animated background blob */}
-                                        <motion.div
-                                            className="absolute -top-10 -right-10 w-32 h-32 bg-white/20 rounded-full blur-2xl"
-                                            animate={{ 
-                                                scale: [1, 1.2, 1],
-                                                x: [0, 10, 0],
-                                                y: [0, -10, 0]
+                                        {/* Dismiss button */}
+                                        <motion.button
+                                            whileHover={{ scale: 1.2, rotate: 90 }}
+                                            whileTap={{ scale: 0.9 }}
+                                            onClick={(e) => {
+                                                e.stopPropagation(); // Prevent card click
+                                                handleDismissRecommendation(rec, index);
                                             }}
-                                            transition={{ duration: 4, repeat: Infinity }}
-                                        />
-                                        
-                                        <div className="relative z-10">
-                                            <div className="text-5xl mb-3">{rec.icon}</div>
-                                            <h3 className="text-white font-black text-xl mb-2">{rec.title}</h3>
-                                            <p className="text-white/90 text-sm mb-4">{rec.description}</p>
-                                            <div className="flex items-center justify-between">
-                                                <span className="text-xs bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-white font-semibold">
-                                                    {rec.reason}
-                                                </span>
-                                                <span className="text-white font-bold flex items-center gap-1">
-                                                    <Zap className="w-4 h-4" />
-                                                    +{rec.xpReward}
-                                                </span>
+                                            className="absolute top-3 right-3 z-20 p-1.5 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full transition-all opacity-0 group-hover:opacity-100"
+                                            title="Dismiss this recommendation"
+                                        >
+                                            <X className="w-4 h-4 text-white" />
+                                        </motion.button>
+
+                                        {/* Clickable card content */}
+                                        <div onClick={() => handleNavigate(rec.path, rec.title, { ...rec, position: index + 1 })}>
+                                            {/* Animated background blob */}
+                                            <motion.div
+                                                className="absolute -top-10 -right-10 w-32 h-32 bg-white/20 rounded-full blur-2xl"
+                                                animate={{ 
+                                                    scale: [1, 1.2, 1],
+                                                    x: [0, 10, 0],
+                                                    y: [0, -10, 0]
+                                                }}
+                                                transition={{ duration: 4, repeat: Infinity }}
+                                            />
+                                            
+                                            <div className="relative z-10">
+                                                <div className="text-5xl mb-3">{rec.icon}</div>
+                                                <h3 className="text-white font-black text-xl mb-2">{rec.title}</h3>
+                                                <p className="text-white/90 text-sm mb-4">{rec.description}</p>
+                                                <div className="flex items-center justify-between">
+                                                    <span className="text-xs bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-white font-semibold">
+                                                        {rec.reason}
+                                                    </span>
+                                                    <span className="text-white font-bold flex items-center gap-1">
+                                                        <Zap className="w-4 h-4" />
+                                                        +{rec.xpReward}
+                                                    </span>
+                                                </div>
                                             </div>
+                                            
+                                            {/* Corner accent */}
+                                            <div className="absolute top-0 right-0 w-16 h-16 bg-white/10 rounded-bl-full" />
                                         </div>
-                                        
-                                        {/* Corner accent */}
-                                        <div className="absolute top-0 right-0 w-16 h-16 bg-white/10 rounded-bl-full" />
                                     </motion.div>
                                 );
                             })}
-                        </div>
+                            </AnimatePresence>
+                            </div>
+                        </>
+                        ) : (
+                            !recommendationsLoading && (
+                                <div className="text-center py-12 bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl border-2 border-dashed border-yellow-200">
+                                    <motion.div
+                                        initial={{ scale: 0.8, opacity: 0 }}
+                                        animate={{ scale: 1, opacity: 1 }}
+                                        transition={{ delay: 0.2 }}
+                                        className="flex flex-col items-center gap-4"
+                                    >
+                                        <div className="w-20 h-20 rounded-full bg-gradient-to-br from-yellow-400 to-orange-400 flex items-center justify-center shadow-lg">
+                                            <Sparkles className="w-10 h-10 text-white" />
+                                        </div>
+                                        <div>
+                                            <p className="text-lg font-bold text-gray-700 mb-1">No recommendations yet</p>
+                                            <p className="text-sm text-gray-500 mb-4">Complete activities to get personalized recommendations</p>
+                                            <motion.button
+                                                whileHover={{ scale: 1.05 }}
+                                                whileTap={{ scale: 0.95 }}
+                                                onClick={refreshRecommendations}
+                                                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all"
+                                            >
+                                                <RefreshCw className="w-4 h-4" />
+                                                <span>Refresh</span>
+                                            </motion.button>
+                                        </div>
+                                    </motion.div>
+                                </div>
+                            )
+                        )}
                     </motion.div>
-                )}
 
                 {/* 7. Leaderboard Snippet + 8. Achievement Timeline - Side by Side */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">

@@ -6,6 +6,7 @@ import Wallet from "../models/Wallet.js";
 import UnifiedGameProgress from "../models/UnifiedGameProgress.js";
 import ActivityLog from "../models/ActivityLog.js";
 import Transaction from "../models/Transaction.js";
+import RecommendationInteraction from "../models/RecommendationInteraction.js";
 import { getPillarGameCount } from "../utils/gameCountUtils.js";
 
 
@@ -705,101 +706,34 @@ export const getMoodTimeline = async (req, res) => {
   }
 };
 
-// AI Recommendations - Personalized suggestions
+// AI Recommendations - Personalized suggestions using professional recommendation service
 export const getRecommendations = async (req, res) => {
   try {
     const userId = req.user._id;
 
-    // Get user's progress data
-    const userProgress = await UserProgress.findOne({ userId });
-    const gameProgress = await UnifiedGameProgress.find({ userId }).sort({ lastPlayedAt: -1 }).limit(5);
-    const moodLogs = await MoodLog.find({ userId }).sort({ date: -1 }).limit(3);
-
-    // Simple recommendation algorithm based on user data
-    const recommendations = [];
-
-    // Recommend based on level
-    if (userProgress && userProgress.level < 5) {
-      recommendations.push({
-        type: 'mission',
-        title: 'Welcome Quest',
-        description: 'Complete your first financial literacy mission',
-        icon: '🎯',
-        path: '/learn/financial-literacy',
-        reason: 'Perfect for beginners',
-        xpReward: 50
-      });
-    }
-
-    // Recommend based on recent games
-    if (gameProgress.length > 0) {
-      const recentGameType = gameProgress[0].gameType;
-      recommendations.push({
-        type: 'lesson',
-        title: `Master ${recentGameType.toUpperCase()} Skills`,
-        description: 'Continue your learning journey',
-        icon: '📚',
-        path: `/games/${recentGameType}`,
-        reason: 'Based on your activity',
-        xpReward: 30
-      });
-    }
-
-    // Recommend based on mood
-    if (moodLogs.length > 0) {
-      recommendations.push({
-        type: 'wellness',
-        title: 'Mindfulness Break',
-        description: 'Take a moment for yourself',
-        icon: '🧘',
-        path: '/student/mindfull-break',
-        reason: 'Boost your wellbeing',
-        xpReward: 20
-      });
-    }
-
-    // Fill up to 3 recommendations
-    while (recommendations.length < 3) {
-      const defaults = [
-        {
-          type: 'quiz',
-          title: 'Quick Financial Quiz',
-          description: 'Test your money knowledge',
-          icon: '💡',
-          path: '/games/financial-quiz',
-          reason: 'Popular choice',
-          xpReward: 25
-        },
-        {
-          type: 'mission',
-          title: 'Daily Challenge',
-          description: 'Complete today\'s special challenge',
-          icon: '⭐',
-          path: '/student/daily-challenges',
-          reason: 'Trending now',
-          xpReward: 40
-        },
-        {
-          type: 'game',
-          title: 'Brain Teaser',
-          description: 'Sharpen your cognitive skills',
-          icon: '🧠',
-          path: '/games/brain-teaser',
-          reason: 'Recommended for you',
-          xpReward: 35
-        }
-      ];
-
-      const randomRec = defaults[recommendations.length % defaults.length];
-      recommendations.push(randomRec);
-    }
+    // Use the new professional recommendation service
+    const { generateRecommendations } = await import('../services/recommendationService.js');
+    const result = await generateRecommendations(userId);
 
     res.status(200).json({
-      recommendations: recommendations.slice(0, 3)
+      recommendations: result.recommendations.slice(0, 5), // Return up to 5 recommendations
+      generatedAt: result.generatedAt,
+      totalCandidates: result.totalCandidates
     });
   } catch (err) {
     console.error("❌ Failed to get recommendations:", err);
-    res.status(500).json({ error: "Failed to fetch recommendations" });
+    // Return fallback recommendations on error
+    const { generateRecommendations } = await import('../services/recommendationService.js');
+    try {
+      const fallback = await generateRecommendations(req.user._id);
+      res.status(200).json({
+        recommendations: fallback.recommendations.slice(0, 3),
+        generatedAt: fallback.generatedAt,
+        error: "Using fallback recommendations"
+      });
+    } catch (fallbackErr) {
+      res.status(500).json({ error: "Failed to fetch recommendations" });
+    }
   }
 };
 
@@ -1149,5 +1083,134 @@ export const getDailyActionsStatus = async (req, res) => {
   } catch (err) {
     console.error("❌ Failed to get daily actions status:", err);
     res.status(500).json({ error: "Failed to fetch daily actions status" });
+  }
+};
+
+// Track Recommendation Interaction
+export const trackRecommendationInteraction = async (req, res) => {
+  try {
+    const userId = req.user._id;
+    const { 
+      recommendationId, 
+      recommendationType, 
+      recommendationTitle, 
+      recommendationPath,
+      recommendationReason,
+      recommendationPriority,
+      recommendationScore,
+      action = 'clicked',
+      position,
+      outcome,
+      engagementDuration,
+      metadata = {}
+    } = req.body;
+
+    if (!recommendationId || !recommendationTitle || !recommendationPath) {
+      return res.status(400).json({ error: "Missing required recommendation fields" });
+    }
+
+    // Generate a unique recommendation ID if not provided (hash of title + path)
+    const finalRecommendationId = recommendationId || 
+      Buffer.from(`${recommendationTitle}-${recommendationPath}`).toString('base64').substring(0, 32);
+
+    const interaction = await RecommendationInteraction.logInteraction({
+      userId,
+      recommendationId: finalRecommendationId,
+      recommendationType: recommendationType || 'default',
+      recommendationTitle,
+      recommendationPath,
+      recommendationReason,
+      recommendationPriority,
+      recommendationScore,
+      action,
+      position,
+      outcome,
+      engagementDuration,
+      metadata: {
+        ...metadata,
+        userAgent: req.headers['user-agent'],
+        ipAddress: req.ip
+      },
+      recommendationGeneratedAt: metadata.recommendationGeneratedAt ? new Date(metadata.recommendationGeneratedAt) : new Date(),
+      interactedAt: new Date()
+    });
+
+    res.status(201).json({
+      success: true,
+      message: "Recommendation interaction tracked",
+      interactionId: interaction?._id
+    });
+  } catch (err) {
+    console.error("❌ Failed to track recommendation interaction:", err);
+    res.status(500).json({ error: "Failed to track recommendation interaction" });
+  }
+};
+
+// Get Recommendation Performance Analytics
+export const getRecommendationAnalytics = async (req, res) => {
+  try {
+    const userId = req.user._id;
+    const { days = 30 } = req.query;
+
+    // Get user's interaction stats
+    const userStats = await RecommendationInteraction.getUserStats(userId, parseInt(days));
+
+    // Get most clicked recommendations
+    const mostClicked = await RecommendationInteraction.aggregate([
+      {
+        $match: {
+          userId: userId,
+          action: 'clicked',
+          interactedAt: { $gte: new Date(Date.now() - parseInt(days) * 24 * 60 * 60 * 1000) }
+        }
+      },
+      {
+        $group: {
+          _id: '$recommendationId',
+          title: { $first: '$recommendationTitle' },
+          path: { $first: '$recommendationPath' },
+          type: { $first: '$recommendationType' },
+          clickCount: { $sum: 1 },
+          avgPosition: { $avg: '$position' },
+          avgScore: { $avg: '$recommendationScore' }
+        }
+      },
+      { $sort: { clickCount: -1 } },
+      { $limit: 10 }
+    ]);
+
+    // Get interaction breakdown by type
+    const typeBreakdown = await RecommendationInteraction.aggregate([
+      {
+        $match: {
+          userId: userId,
+          interactedAt: { $gte: new Date(Date.now() - parseInt(days) * 24 * 60 * 60 * 1000) }
+        }
+      },
+      {
+        $group: {
+          _id: { type: '$recommendationType', action: '$action' },
+          count: { $sum: 1 }
+        }
+      }
+    ]);
+
+    res.status(200).json({
+      userStats: userStats.map(stat => ({
+        action: stat._id,
+        count: stat.count,
+        avgPosition: stat.avgPosition
+      })),
+      mostClicked,
+      typeBreakdown: typeBreakdown.map(item => ({
+        type: item._id.type,
+        action: item._id.action,
+        count: item.count
+      })),
+      period: `${days} days`
+    });
+  } catch (err) {
+    console.error("❌ Failed to get recommendation analytics:", err);
+    res.status(500).json({ error: "Failed to fetch recommendation analytics" });
   }
 };

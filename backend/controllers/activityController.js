@@ -75,6 +75,15 @@ export const logActivity = async (req, res, next) => {
           timestamp: new Date()
         });
       }
+      
+      // Emit activity:logged event to student's room for real-time recommendations update
+      io.to(userId.toString()).emit('activity:logged', {
+        userId: userId.toString(),
+        activityType,
+        description,
+        metadata,
+        timestamp: new Date()
+      });
     }
 
     res.status(201).json({

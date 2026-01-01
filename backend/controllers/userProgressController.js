@@ -73,10 +73,13 @@ export const addXP = async (userId, amount, source = 'System') => {
         const io = global.io || require('../server.js').io;
         if (io) {
           io.to(userId.toString()).emit('level-up', {
+            userId: userId.toString(),
             oldLevel,
             newLevel: progress.level,
             coinsEarned: levelUpCoins,
-            totalXP: progress.xp
+            totalXP: progress.xp,
+            weeklyXP: progress.weeklyXP || 0,
+            rank: progress.rank || 0
           });
 
           // Broadcast leaderboard update for all periods
