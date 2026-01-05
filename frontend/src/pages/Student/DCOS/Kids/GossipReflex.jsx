@@ -29,62 +29,63 @@ const GossipReflex = () => {
   const currentRoundRef = useRef(0);
 
   const questions = [
-    {
-      id: 1,
-      question: "Did you hear Riya failed her exam? - Is this gossip or safe chat?",
-      correctAnswer: "Gossip - Stop",
-      options: [
-        { text: "Gossip - Stop", isCorrect: true, emoji: "🚫" },
-        { text: "Safe Chat", isCorrect: false, emoji: "🛡️" },
-        { text: "Not Sure", isCorrect: false, emoji: "🤔" },
-        { text: "Maybe", isCorrect: false, emoji: "😐" }
-      ]
-    },
-    {
-      id: 2,
-      question: "Let's help Riya study next time! - Is this gossip or safe chat?",
-      correctAnswer: "Safe Chat",
-      options: [
-        { text: "Gossip - Stop", isCorrect: false, emoji: "🚫" },
-        { text: "Safe Chat", isCorrect: true, emoji: "🛡️" },
-        { text: "Not Sure", isCorrect: false, emoji: "🤔" },
-        { text: "Maybe", isCorrect: false, emoji: "😐" }
-      ]
-    },
-    {
-      id: 3,
-      question: "He looks so weird in that photo! - Is this gossip or safe chat?",
-      correctAnswer: "Gossip - Stop",
-      options: [
-        { text: "Gossip - Stop", isCorrect: true, emoji: "🚫" },
-        { text: "Safe Chat", isCorrect: false, emoji: "🛡️" },
-        { text: "Not Sure", isCorrect: false, emoji: "🤔" },
-        { text: "Maybe", isCorrect: false, emoji: "😐" }
-      ]
-    },
-    {
-      id: 4,
-      question: "Congrats to everyone who passed! - Is this gossip or safe chat?",
-      correctAnswer: "Safe Chat",
-      options: [
-        { text: "Gossip - Stop", isCorrect: false, emoji: "🚫" },
-        { text: "Safe Chat", isCorrect: true, emoji: "🛡️" },
-        { text: "Not Sure", isCorrect: false, emoji: "🤔" },
-        { text: "Maybe", isCorrect: false, emoji: "😐" }
-      ]
-    },
-    {
-      id: 5,
-      question: "She thinks she's better than us! - Is this gossip or safe chat?",
-      correctAnswer: "Gossip - Stop",
-      options: [
-        { text: "Gossip - Stop", isCorrect: true, emoji: "🚫" },
-        { text: "Safe Chat", isCorrect: false, emoji: "🛡️" },
-        { text: "Not Sure", isCorrect: false, emoji: "🤔" },
-        { text: "Maybe", isCorrect: false, emoji: "😐" }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    question: "Someone whispers, 'I heard Aarav was sent out of class today.' What kind of message is this?",
+    correctAnswer: "Personal rumor",
+    options: [
+      { text: "Helpful reminder", isCorrect: false, emoji: "📘" },
+      { text: "Friendly advice", isCorrect: false, emoji: "🎈" },
+      { text: "Personal rumor", isCorrect: true, emoji: "🧩" },
+      { text: "Team update", isCorrect: false, emoji: "🧭" }
+    ]
+  },
+  {
+    id: 2,
+    question: "A message says, 'Let’s all welcome the new student and be kind.' What type of chat is this?",
+    correctAnswer: "Positive sharing",
+    options: [
+      { text: "Positive sharing", isCorrect: true, emoji: "🌱" },
+      { text: "Private secret", isCorrect: false, emoji: "🔐" },
+      { text: "Teasing talk", isCorrect: false, emoji: "🪀" },
+      { text: "Confusing message", isCorrect: false, emoji: "🌀" }
+    ]
+  },
+  {
+    id: 3,
+    question: "You see a post saying, 'Nobody likes Meera anymore.' What should your reflex tell you?",
+    correctAnswer: "This can hurt someone",
+    options: [
+      { text: "Just for fun", isCorrect: false, emoji: "🎭" },
+      { text: "Normal chatting", isCorrect: false, emoji: "📎" },
+      { text: "School news", isCorrect: false, emoji: "🗓️" },
+      { text: "This can hurt someone", isCorrect: true, emoji: "🪨" },
+    ]
+  },
+  {
+    id: 4,
+    question: "A friend types, 'Our team did great today!' How should this be treated?",
+    correctAnswer: "Safe group message",
+    options: [
+      { text: "Hidden complaint", isCorrect: false, emoji: "🕳️" },
+      { text: "Gossip trail", isCorrect: false, emoji: "🧵" },
+      { text: "Safe group message", isCorrect: true, emoji: "🏁" },
+      { text: "Secret signal", isCorrect: false, emoji: "🔔" }
+    ]
+  },
+  {
+    id: 5,
+    question: "Someone writes, 'He always lies, don’t trust him.' What does your reflex say?",
+    correctAnswer: "Unfair talking",
+    options: [
+      { text: "Joke message", isCorrect: false, emoji: "🎲" },
+      { text: "Unfair talking", isCorrect: true, emoji: "⚖️" },
+      { text: "Helpful warning", isCorrect: false, emoji: "🪜" },
+      { text: "Game discussion", isCorrect: false, emoji: "🎮" }
+    ]
+  }
+];
+
 
   useEffect(() => {
     currentRoundRef.current = currentRound;

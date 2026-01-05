@@ -23,130 +23,131 @@ const DebateStage2 = () => {
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
   const questions = [
-    {
-      id: 1,
-      text: "Should hate speech be allowed online?",
-      options: [
-        { 
-          id: "yes-allowed", 
-          text: "free speech allows it", 
-          emoji: "🗣️", 
-          isCorrect: false
-        },
-        { 
-          id: "no-banned", 
-          text: "hate speech should be banned", 
-          emoji: "🔒", 
-          isCorrect: true
-        },
-        { 
-          id: "maybe", 
-          text: "depends on the context", 
-          emoji: "🤔", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 2,
-      text: "Is hate speech protected as free speech?",
-      options: [
-        { 
-          id: "yes-protected", 
-          text: "Yes - it's free speech", 
-          emoji: "🗣️", 
-          isCorrect: false
-        },
+  {
+    id: 1,
+    text: "During an online debate, a comment targets a group using stereotypes rather than arguments. What principle should guide the platform’s response?",
+    options: [
+      {
+        id: "a",
+        text: "Protect open discussion even if harm occurs",
+        emoji: "🧩",
+        isCorrect: false
+      },
+      
+      {
+        id: "c",
+        text: "Let users decide individually whether it is offensive",
+        emoji: "🧭",
+        isCorrect: false
+      },
+      {
+        id: "b",
+        text: "Limit speech that undermines dignity and safety",
+        emoji: "⚖️",
+        isCorrect: true
+      },
+    ]
+  },
+  {
+    id: 2,
+    text: "A post claims hate speech laws threaten freedom of expression. What is the strongest counter-argument in a debate?",
+    options: [
+      {
+        id: "a",
+        text: "All speech must be allowed without exception",
+        emoji: "📢",
+        isCorrect: false
+      },
+      {
+        id: "b",
+        text: "Restrictions exist to prevent measurable social harm",
+        emoji: "📊",
+        isCorrect: true
+      },
+      {
+        id: "c",
+        text: "Online platforms should avoid responsibility",
+        emoji: "🛰️",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 3,
+    text: "In a moderated forum, a user argues hate speech is only harmful if violence follows. How should this claim be challenged?",
+    options: [
+      {
+        id: "a",
+        text: "Emotional harm and normalization occur even without violence",
+        emoji: "🧠",
+        isCorrect: true
+      },
+      {
+        id: "b",
+        text: "Online words disappear quickly",
+        emoji: "🫥",
+        isCorrect: false
+      },
+      {
+        id: "c",
+        text: "Impact depends only on personal sensitivity",
+        emoji: "🎭",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 4,
+    text: "A debate panel discusses whether reporting hate speech discourages dialogue. What perspective best supports reporting?",
+    options: [
+      
+      {
+        id: "b",
+        text: "Reporting is mainly about punishment",
+        emoji: "🔗",
+        isCorrect: false
+      },
+      {
+        id: "c",
+        text: "Ignoring speech keeps debates neutral",
+        emoji: "🌫️",
+        isCorrect: false
+      },
+      {
+        id: "a",
+        text: "Reporting helps maintain fair participation for all voices",
+        emoji: "🏛️",
+        isCorrect: true
+      },
+    ]
+  },
+  {
+    id: 5,
+    text: "When hate speech is left unchallenged in online debates, what long-term effect is most likely?",
+    options: [
+      {
+        id: "b",
+        text: "Normalization of exclusionary attitudes",
+        emoji: "📉",
+        isCorrect: true
+      },
+      {
+        id: "a",
+        text: "Increased participation from diverse groups",
+        emoji: "🌍",
+        isCorrect: false
+      },
+      
+      {
+        id: "c",
+        text: "Stronger critical thinking skills",
+        emoji: "🧪",
+        isCorrect: false
+      }
+    ]
+  }
+];
 
-        { 
-          id: "sometimes", 
-          text: "Sometimes - if it's not too extreme", 
-          emoji: "🤷", 
-          isCorrect: false
-        },
-                { 
-          id: "no-harmful", 
-          text: "No - it causes real harm", 
-          emoji: "🚫", 
-          isCorrect: true
-        },
-      ]
-    },
-    {
-      id: 3,
-      text: "Should platforms allow hate speech?",
-      options: [
-        { 
-          id: "no-moderation", 
-          text: "No ", 
-          emoji: "🔒", 
-          isCorrect: true
-        },
-        { 
-          id: "yes-platforms", 
-          text: "Yes  ", 
-          emoji: "🌐", 
-          isCorrect: false
-        },
-        
-        { 
-          id: "maybe", 
-          text: "Maybe ", 
-          emoji: "🤔", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 4,
-      text: "Does hate speech have consequences?",
-      options: [
-        { 
-          id: "no-consequences", 
-          text: "it's just words", 
-          emoji: "💬", 
-          isCorrect: false
-        },
-        
-        { 
-          id: "maybe", 
-          text: "only for some people", 
-          emoji: "🤷", 
-          isCorrect: false
-        },
-        { 
-          id: "yes-serious", 
-          text: "it has serious consequences", 
-          emoji: "🔒", 
-          isCorrect: true
-        },
-      ]
-    },
-    {
-      id: 5,
-      text: "Should we report hate speech online?",
-      options: [
-        { 
-          id: "no-report", 
-          text: "just ignore it", 
-          emoji: "😐", 
-          isCorrect: false
-        },
-        { 
-          id: "yes-report", 
-          text: "always report hate speech", 
-          emoji: "🔒", 
-          isCorrect: true
-        },
-        { 
-          id: "sometimes", 
-          text: "only if it's directed at you", 
-          emoji: "🤔", 
-          isCorrect: false
-        }
-      ]
-    }
-  ];
 
   const handleChoice = (selectedChoice) => {
     const newChoices = [...choices, { 

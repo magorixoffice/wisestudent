@@ -36,132 +36,131 @@ const PhishingEmailQuiz = () => {
   const [answered, setAnswered] = useState(false);
 
   const questions = [
-    {
-      id: 1,
-      text: "An email says 'Click link to win lottery.' Is it safe?",
-      options: [
-        { 
-          id: "b", 
-          text: "it's a phishing scam", 
-          emoji: "🚫",
-          
-          isCorrect: true
-        },
-        { 
-          id: "a", 
-          text: "click the link", 
-          emoji: "🖱️",
-          isCorrect: false
-        },
-        
-        { 
-          id: "c", 
-          text: "check first", 
-          emoji: "🤔",
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 2,
-      text: "An email asks you to verify your account by clicking a link. Safe?",
-      options: [
-        { 
-          id: "a", 
-          text: "click to verify", 
-          emoji: "🔗",
-          isCorrect: false
-        },
-       
-        { 
-          id: "c", 
-          text: "Check the sender first", 
-          emoji: "📧",
-          isCorrect: false
-        },
-         { 
-          id: "b", 
-          text: "it's phishing, go to official site", 
-          emoji: "🌐",
-          isCorrect: true
-        },
-      ]
-    },
-    {
-      id: 3,
-      text: "An email claims you won a prize and asks for personal info. Safe?",
-      options: [
-        { 
-          id: "a", 
-          text: "provide the info", 
-          emoji: "🔒",
-          isCorrect: false
-        },
-        { 
-          id: "b", 
-          text: "it's a phishing scam", 
-          emoji: "⚠️",
-          isCorrect: true
-        },
-        { 
-          id: "c", 
-          text: "Ask for more details", 
-          emoji: "❓",
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 4,
-      text: "An email says 'Urgent: Update your password now!' Is it safe?",
-      options: [
-         { 
-          id: "b", 
-          text: "go to official website directly", 
-          emoji: "🌐",
-          isCorrect: true
-        },
-        { 
-          id: "a", 
-          text: "click and update", 
-          emoji: "🔐",
-          isCorrect: false
-        },
-       
-        { 
-          id: "c", 
-          text: "Check the email address first", 
-          emoji: "📧",
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 5,
-      text: "An email offers free gift cards if you click a link. Safe?",
-      options: [
-        { 
-          id: "a", 
-          text: "click for free gift", 
-          emoji: "🎁",
-          isCorrect: false
-        },
-       
-        { 
-          id: "c", 
-          text: "Forward to friends first", 
-          emoji: "📤",
-          isCorrect: false
-        },
-         { 
-          id: "b", 
-          text: "it's a phishing scam", 
-          emoji: "🚫",
-          isCorrect: true
-        },
-      ]
-    }
-  ];
+  {
+    id: 1,
+    text: "You receive an email from your school asking you to download an attached timetable file. The sender address looks unusual. What is the safest action?",
+    options: [
+      {
+        id: "a",
+        text: "Download the file to check if it is real",
+        emoji: "📄",
+        isCorrect: false
+      },
+      
+      {
+        id: "c",
+        text: "Reply to the email asking for confirmation",
+        emoji: "✉️",
+        isCorrect: false
+      },
+      {
+        id: "b",
+        text: "Confirm with the school through their official website or office",
+        emoji: "🔒",
+        isCorrect: true
+      },
+    ]
+  },
+  {
+    id: 2,
+    text: "An email from a gaming platform says your account will be suspended unless you act within 30 minutes. What does this message most likely indicate?",
+    options: [
+      {
+        id: "a",
+        text: "A real emergency that needs instant action",
+        emoji: "⏱️",
+        isCorrect: false
+      },
+      {
+        id: "b",
+        text: "A tactic to pressure users into making quick mistakes",
+        emoji: "🧠",
+        isCorrect: true
+      },
+      {
+        id: "c",
+        text: "A normal system reminder sent to all users",
+        emoji: "📢",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 3,
+    text: "You notice an email link that looks official but redirects to a shortened URL. Why can this be risky?",
+    options: [
+      {
+        id: "a",
+        text: "Short links can hide the real destination website",
+        emoji: "🔗",
+        isCorrect: true
+      },
+      {
+        id: "b",
+        text: "Short links always load slower",
+        emoji: "🐢",
+        isCorrect: false
+      },
+      {
+        id: "c",
+        text: "Short links are used only for advertisements",
+        emoji: "📣",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 4,
+    text: "An email uses your full name and recent activity details to look convincing. What phishing method is most likely being used?",
+    options: [
+      {
+        id: "a",
+        text: "Random mass emailing",
+        emoji: "📬",
+        isCorrect: false
+      },
+      
+      {
+        id: "c",
+        text: "System-generated notification",
+        emoji: "⚙️",
+        isCorrect: false
+      },
+      {
+        id: "b",
+        text: "Targeted phishing using personal information",
+        emoji: "🎯",
+        isCorrect: true
+      },
+    ]
+  },
+  {
+    id: 5,
+    text: "An email claims to be from a trusted service but has spelling mistakes and poor grammar. What should this signal to you?",
+    options: [
+      {
+        id: "b",
+        text: "The email may not be from a professional or official source",
+        emoji: "🔍",
+        isCorrect: true
+      },
+      {
+        id: "a",
+        text: "The service is updating its communication style",
+        emoji: "📝",
+        isCorrect: false
+      },
+      
+      {
+        id: "c",
+        text: "The message is informal but still trustworthy",
+        emoji: "💬",
+        isCorrect: false
+      }
+    ]
+  }
+];
+
 
   const handleChoice = (isCorrect) => {
     if (answered) return;

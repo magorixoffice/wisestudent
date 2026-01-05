@@ -30,12 +30,12 @@ const LoanTrapStory = () => {
       options: [
         { 
           id: "no-unsafe", 
-          text: "No - it's unsafe, don't share personal info", 
+          text: "it's unsafe, don't share personal info", 
           isCorrect: true
         },
         { 
           id: "yes-provide", 
-          text: "Yes - provide all information", 
+          text: "provide all information", 
           isCorrect: false
         },
         { 
@@ -72,7 +72,7 @@ const LoanTrapStory = () => {
       options: [
         { 
           id: "yes-normal", 
-          text: "Yes - it's normal", 
+          text: "it's normal", 
           isCorrect: false
         },
         { 
@@ -82,7 +82,7 @@ const LoanTrapStory = () => {
         },
         { 
           id: "no-cautious", 
-          text: "No - be cautious, verify the app first", 
+          text: "be cautious, verify the app first", 
           isCorrect: true
         }
       ]
@@ -114,7 +114,7 @@ const LoanTrapStory = () => {
       options: [
         { 
           id: "yes-grant", 
-          text: "Yes - grant access", 
+          text: "grant access", 
           isCorrect: false
         },
         { 
@@ -124,7 +124,7 @@ const LoanTrapStory = () => {
         },
         { 
           id: "no-unsafe-access", 
-          text: "No - it's unsafe, legitimate apps don't need this", 
+          text: "it's unsafe, legitimate apps don't need this", 
           isCorrect: true
         }
       ]

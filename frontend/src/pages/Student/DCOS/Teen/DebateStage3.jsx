@@ -53,19 +53,19 @@ const DebateStage3 = () => {
     options: [
       { 
         id: "yes-fun", 
-        text: "Yes — only for fun", 
+        text: "only for fun", 
         emoji: "🎮", 
         isCorrect: false
       },
       { 
         id: "no-balance", 
-        text: "No — balance fun and learning", 
+        text: "balance fun and learning", 
         emoji: "⛔", 
         isCorrect: true
       },
       { 
         id: "maybe", 
-        text: "Maybe — it depends on the device", 
+        text: "it depends on the device", 
         emoji: "🤔", 
         isCorrect: false
       }

@@ -36,158 +36,162 @@ const PositiveNegativeReflex = () => {
   const currentRoundRef = useRef(0);
 
   const questions = [
-    {
-      id: 1,
-      text: "Which word is positive?",
-      options: [
-        { 
-          id: "hope", 
-          text: "Hope", 
-          emoji: "🌟", 
-          
-          isCorrect: true
-        },
-        { 
-          id: "hopeless", 
-          text: "Hopeless", 
-          emoji: "😔", 
-          isCorrect: false
-        },
-        { 
-          id: "failure", 
-          text: "Failure", 
-          emoji: "😞", 
-          isCorrect: false
-        },
-        { 
-          id: "defeat", 
-          text: "Defeat", 
-          emoji: "😢", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 2,
-      text: "Which word is positive?",
-      options: [
-        { 
-          id: "angry", 
-          text: "Angry", 
-          emoji: "😠", 
-          isCorrect: false
-        },
-        { 
-          id: "grateful", 
-          text: "Grateful", 
-          emoji: "🙏", 
-          isCorrect: true
-        },
-        { 
-          id: "sad", 
-          text: "Sad", 
-          emoji: "😢", 
-          isCorrect: false
-        },
-        { 
-          id: "fear", 
-          text: "Fear", 
-          emoji: "😨", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 3,
-      text: "Which word is positive?",
-      options: [
-        { 
-          id: "worry", 
-          text: "Worry", 
-          emoji: "😰", 
-          isCorrect: false
-        },
-        { 
-          id: "doubt", 
-          text: "Doubt", 
-          emoji: "🤔", 
-          isCorrect: false
-        },
-        { 
-          id: "success", 
-          text: "Success", 
-          emoji: "🎉", 
-          isCorrect: true
-        },
-        { 
-          id: "regret", 
-          text: "Regret", 
-          emoji: "😞", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 4,
-      text: "Which word is positive?",
-      options: [
-        { 
-          id: "joy", 
-          text: "Joy", 
-          emoji: "😊", 
-          isCorrect: true
-        },
-        { 
-          id: "sorrow", 
-          text: "Sorrow", 
-          emoji: "😢", 
-          isCorrect: false
-        },
-        { 
-          id: "hate", 
-          text: "Hate", 
-          emoji: "😠", 
-          isCorrect: false
-        },
-        { 
-          id: "despair", 
-          text: "Despair", 
-          emoji: "😞", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 5,
-      text: "Which word is positive?",
-      options: [
-        { 
-          id: "pessimism", 
-          text: "Pessimism", 
-          emoji: "😞", 
-          isCorrect: false
-        },
-        { 
-          id: "envy", 
-          text: "Envy", 
-          emoji: "😒", 
-          isCorrect: false
-        },
-        { 
-          id: "resentment", 
-          text: "Resentment", 
-          emoji: "😠", 
-          isCorrect: false
-        },
-        { 
-          id: "optimism", 
-          text: "Optimism", 
-          emoji: "✨", 
-          isCorrect: true
-        }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    text: "You didn’t score well in a test, but you want to motivate yourself for the next one. Which thought helps most?",
+    options: [
+      
+      {
+        id: "b",
+        text: "I will always be bad at this subject",
+        emoji: "😔",
+        isCorrect: false
+      },
+      {
+        id: "c",
+        text: "There is no point in trying again",
+        emoji: "😞",
+        isCorrect: false
+      },
+      {
+        id: "d",
+        text: "Others are better, so I should stop",
+        emoji: "�",
+        isCorrect: false
+      },
+      {
+        id: "a",
+        text: "I can improve if I practice differently next time",
+        emoji: "😊",
+        isCorrect: true
+      },
+    ]
+  },
+  {
+    id: 2,
+    text: "A friend posts their success online. What kind of reaction reflects a healthy mindset?",
+    options: [
+      
+      {
+        id: "b",
+        text: "Feeling upset because they are ahead of you",
+        emoji: "😔",
+        isCorrect: false
+      },
+      {
+        id: "c",
+        text: "Thinking they don’t deserve the success",
+        emoji: "😕",
+        isCorrect: false
+      },
+      {
+        id: "a",
+        text: "Feeling inspired to work toward your own goals",
+        emoji: "🤔",
+        isCorrect: true
+      },
+      {
+        id: "d",
+        text: "Avoiding their posts completely",
+        emoji: "🔒",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 3,
+    text: "You make a small mistake while presenting in class. Which inner response is most constructive?",
+    options: [
+      
+      {
+        id: "b",
+        text: "Everyone must think I’m embarrassing",
+        emoji: "😔",
+        isCorrect: false
+      },
+      {
+        id: "a",
+        text: "Mistakes help me learn how to do better",
+        emoji: "😊",
+        isCorrect: true
+      },
+      {
+        id: "c",
+        text: "I should never speak in front of others again",
+        emoji: "😐",
+        isCorrect: false
+      },
+      {
+        id: "d",
+        text: "I always ruin things",
+        emoji: "🤨",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 4,
+    text: "Someone gives you helpful feedback on your online project. Which response shows a positive attitude?",
+    options: [
+      {
+        id: "a",
+        text: "Using the feedback to improve your work",
+        emoji: "🙂",
+        isCorrect: true
+      },
+      {
+        id: "b",
+        text: "Feeling offended and rejecting all advice",
+        emoji: "😕",
+        isCorrect: false
+      },
+      {
+        id: "c",
+        text: "Assuming they want to criticize you",
+        emoji: "🤔",
+        isCorrect: false
+      },
+      {
+        id: "d",
+        text: "Stopping the project completely",
+        emoji: "⛔",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 5,
+    text: "You are learning a new skill online and progress feels slow. Which thought supports emotional growth?",
+    options: [
+      
+      {
+        id: "b",
+        text: "If I’m not fast, I must be bad at it",
+        emoji: "😔",
+        isCorrect: false
+      },
+      {
+        id: "c",
+        text: "Others learn faster, so I should quit",
+        emoji: "🤨",
+        isCorrect: false
+      },
+      {
+        id: "a",
+        text: "Growth takes time and consistent effort",
+        emoji: "🤔",
+        isCorrect: true
+      },
+      {
+        id: "d",
+        text: "There’s no value in slow progress",
+        emoji: "😐",
+        isCorrect: false
+      }
+    ]
+  }
+];
+
 
   useEffect(() => {
     currentRoundRef.current = currentRound;

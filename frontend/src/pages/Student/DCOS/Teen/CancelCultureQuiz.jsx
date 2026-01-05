@@ -50,7 +50,7 @@ const CancelCultureQuiz = () => {
         { 
           id: "b", 
           text: "old posts can resurface and cause problems", 
-          emoji: "⚠️",
+          emoji: "📮",
           
           isCorrect: true
         },
@@ -67,17 +67,18 @@ const CancelCultureQuiz = () => {
       text: "A post you made years ago gets shared again. Is this risky?",
       options: [
         { 
+          id: "b", 
+          text: "old posts can damage your reputation", 
+          emoji: "🗑️",
+          isCorrect: true
+        },
+        { 
           id: "a", 
           text: "it's in the past", 
           emoji: "🕐",
           isCorrect: false
         },
-        { 
-          id: "b", 
-          text: "old posts can damage your reputation", 
-          emoji: "⚠️",
-          isCorrect: true
-        },
+        
         { 
           id: "c", 
           text: "Only if it's bad", 
@@ -106,7 +107,7 @@ const CancelCultureQuiz = () => {
          { 
           id: "b", 
           text: "can affect your opportunities", 
-          emoji: "⚠️",
+          emoji: "🔗",
           isCorrect: true
         },
       ]
@@ -124,7 +125,7 @@ const CancelCultureQuiz = () => {
         { 
           id: "b", 
           text: "deleted posts can still be found and shared", 
-          emoji: "⚠️",
+          emoji: "📦",
           isCorrect: true
         },
         { 

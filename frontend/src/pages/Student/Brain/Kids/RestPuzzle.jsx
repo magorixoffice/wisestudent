@@ -30,7 +30,7 @@ const RestPuzzle = () => {
 
   // Left side - rest activities
   const leftItems = [
-    { id: 1, name: "Nap", emoji: "😴",   },
+    { id: 1, name: "Nap", emoji: "🛌",   },
     { id: 2, name: "All-night TV", emoji: "📺",   },
     { id: 3, name: "Early Sleep", emoji: "🌙",   },
     { id: 4, name: "Late Gaming", emoji: "🎮",   },
@@ -39,11 +39,11 @@ const RestPuzzle = () => {
 
   // Right side - effects
   const rightItems = [
-    { id: 1, name: "Energy", emoji: "⚡",   },
-    { id: 2, name: "Tired", emoji: "😴",   },
+    { id: 1, name: "Energy", emoji: "🙂",   },
+    { id: 2, name: "Tired", emoji: "😢",   },
     { id: 3, name: "Restored", emoji: "😊",   },
     { id: 4, name: "Exhausted", emoji: "😞",   },
-    { id: 5, name: "Calm", emoji: "🧘",   }
+    { id: 5, name: "Calm", emoji: "😌",   }
   ];
 
   // Correct matches

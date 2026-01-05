@@ -23,128 +23,131 @@ const DebateStageTrolling = () => {
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
   const questions = [
-    {
-      id: 1,
-      text: "Is trolling funny?",
-      options: [
-        { 
-          id: "no-hurts", 
-          text: "No - it hurts people and causes harm", 
-          emoji: "💔", 
-          
-          isCorrect: true
-        },
-        { 
-          id: "yes-harmless", 
-          text: "Yes - it's just harmless fun", 
-          emoji: "😂", 
-          isCorrect: false
-        },
-        { 
-          id: "sometimes", 
-          text: "Sometimes - depends on the joke", 
-          emoji: "🤔", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 2,
-      text: "Should cyberbullying be taken seriously?",
-      options: [
-        { 
-          id: "no-just-online", 
-          text: "No - it's just online", 
-          emoji: "😐", 
-          isCorrect: false
-        },
-        { 
-          id: "yes-real-harm", 
-          text: "Yes - it causes real harm", 
-          emoji: "🛡️", 
-          isCorrect: true
-        },
-        { 
-          id: "maybe", 
-          text: "Maybe - depends on the situation", 
-          emoji: "🤷", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 3,
-      text: "Is spreading rumors okay?",
-      options: [
-        { 
-          id: "yes-gossip", 
-          text: "Yes - it's just gossip", 
-          emoji: "😏", 
-          isCorrect: false
-        },
-        { 
-          id: "sometimes", 
-          text: "Sometimes - if it's true", 
-          emoji: "🤔", 
-          isCorrect: false
-        },
-        { 
-          id: "no-destroys", 
-          text: "No - it destroys reputations", 
-          emoji: "🚫", 
-          isCorrect: true
-        }
-      ]
-    },
-    {
-      id: 4,
-      text: "Should we ignore online hate?",
-      options: [
-        { 
-          id: "yes-ignore", 
-          text: "Yes - just ignore it", 
-          emoji: "😑", 
-          isCorrect: false
-        },
-        { 
-          id: "no-report", 
-          text: "No - report and stand up", 
-          emoji: "💪", 
-          isCorrect: true
-        },
-        { 
-          id: "maybe", 
-          text: "Maybe - depends on the comment", 
-          emoji: "🤷", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 5,
-      text: "Is peer pressure to bully okay?",
-      options: [
-        { 
-          id: "yes-fit-in", 
-          text: "Yes - to fit in", 
-          emoji: "😞", 
-          isCorrect: false
-        },
-        { 
-          id: "no-stand-up", 
-          text: "No - stand up for what's right", 
-          emoji: "💪", 
-          isCorrect: true
-        },
-        { 
-          id: "sometimes", 
-          text: "Sometimes - if everyone is doing it", 
-          emoji: "👥", 
-          isCorrect: false
-        }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    text: "During an online debate, someone mocks a speaker’s accent instead of responding to their argument. What does this behavior represent?",
+    options: [
+      
+      {
+        id: "creative-humor",
+        text: "Using creativity to make debates engaging",
+        emoji: "🎨",
+        isCorrect: false
+      },
+      {
+        id: "strong-opinion",
+        text: "Showing a strong personal opinion",
+        emoji: "🧭",
+        isCorrect: false
+      },
+      {
+        id: "attack-style",
+        text: "Attacking the person instead of the idea",
+        emoji: "🧱",
+        isCorrect: true
+      },
+    ]
+  },
+  {
+    id: 2,
+    text: "In a comment section, a user keeps posting sarcastic remarks to provoke anger rather than discuss the topic. What is the main goal of such behavior?",
+    options: [
+      
+      {
+        id: "add-evidence",
+        text: "To strengthen the discussion with facts",
+        emoji: "📊",
+        isCorrect: false
+      },
+      {
+        id: "gain-attention",
+        text: "To trigger reactions and attention",
+        emoji: "🔔",
+        isCorrect: true
+      },
+      {
+        id: "clarify-views",
+        text: "To explain their viewpoint clearly",
+        emoji: "🧩",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 3,
+    text: "A debater shares a misleading meme to embarrass the opposing team instead of responding logically. What risk does this create?",
+    options: [
+      {
+        id: "damages-trust",
+        text: "It weakens trust in the discussion",
+        emoji: "⚖️",
+        isCorrect: true
+      },
+      {
+        id: "wins-argument",
+        text: "It guarantees winning the debate",
+        emoji: "🏆",
+        isCorrect: false
+      },
+      {
+        id: "adds-humor",
+        text: "It makes the debate more entertaining",
+        emoji: "🎭",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 4,
+    text: "While watching a live debate, the chat floods with personal jokes about a participant’s appearance. What is the healthiest role for a viewer?",
+    options: [
+      
+      {
+        id: "join-chat",
+        text: "Participate to stay included",
+        emoji: "🪢",
+        isCorrect: false
+      },
+      {
+        id: "support-rules",
+        text: "Encourage respectful discussion norms",
+        emoji: "🪜",
+        isCorrect: true
+      },
+      {
+        id: "amplify-jokes",
+        text: "Boost popular comments for visibility",
+        emoji: "📣",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 5,
+    text: "A student feels pressured to post a harsh reply during a debate because their friends expect it. What choice best supports digital integrity?",
+    options: [
+      {
+        id: "stay-values",
+        text: "Respond in line with personal values",
+        emoji: "🧠",
+        isCorrect: true
+      },
+      {
+        id: "match-tone",
+        text: "Mirror the group’s aggressive tone",
+        emoji: "🪞",
+        isCorrect: false
+      },
+      {
+        id: "seek-likes",
+        text: "Post what gains the most reactions",
+        emoji: "📈",
+        isCorrect: false
+      }
+    ]
+  }
+];
+
 
   const handleChoice = (selectedChoice) => {
     const newChoices = [...choices, { 

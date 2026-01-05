@@ -29,62 +29,58 @@ const FakeLinkReflex = () => {
   const currentRoundRef = useRef(0);
 
   const questions = [
-    {
-      id: 1,
-      question: "You see a pop-up saying 'Free iPhone if you click!' What should you do?",
-      correctAnswer: "Don't Click - Ignore",
-      options: [
-        { text: "Click to get free iPhone", isCorrect: false, emoji: "📱" },
-        { text: "Ask a friend first", isCorrect: false, emoji: "🤔" },
-        { text: "Don't Click - Ignore", isCorrect: true, emoji: "🚫" },
-        { text: "Share with others", isCorrect: false, emoji: "📤" }
-      ]
-    },
-    {
-      id: 2,
-      question: "A message says 'Your account is locked! Click here to fix it!' What should you do?",
-      correctAnswer: "Don't Click - Ignore",
-      options: [
-        { text: "Click to fix account", isCorrect: false, emoji: "🔒" },
-        { text: "Reply to the message", isCorrect: false, emoji: "💬" },
-        { text: "Forward to friends", isCorrect: false, emoji: "📤" },
-        { text: "Don't Click - Ignore", isCorrect: true, emoji: "🚫" }
-      ]
-    },
-    {
-      id: 3,
-      question: "You get a link promising free game coins! What should you do?",
-      correctAnswer: "Don't Click - Ignore",
-      options: [
-        { text: "Don't Click - Ignore", isCorrect: true, emoji: "🚫" },
-        { text: "Click for free coins", isCorrect: false, emoji: "💰" },
-        { text: "Check the link first", isCorrect: false, emoji: "🔍" },
-        { text: "Share with friends", isCorrect: false, emoji: "📤" }
-      ]
-    },
-    {
-      id: 4,
-      question: "Email says 'You won a lottery!' and has a link. What should you do?",
-      correctAnswer: "Don't Click - Ignore",
-      options: [
-        { text: "Click to claim prize", isCorrect: false, emoji: "🎁" },
-        { text: "Don't Click - Ignore", isCorrect: true, emoji: "🚫" },
-        { text: "Reply to email", isCorrect: false, emoji: "📧" },
-        { text: "Forward to family", isCorrect: false, emoji: "👨‍👩‍👧" }
-      ]
-    },
-    {
-      id: 5,
-      question: "Website link looks like www.go0gle.com. What should you do?",
-      correctAnswer: "Don't Click - Ignore",
-      options: [
-        { text: "Click it looks safe", isCorrect: false, emoji: "🌐" },
-        { text: "Check spelling first", isCorrect: false, emoji: "🔍" },
-        { text: "Ask someone to click", isCorrect: false, emoji: "👥" },
-        { text: "Don't Click - Ignore", isCorrect: true, emoji: "🚫" }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    question: "A game screen suddenly flashes a message saying you won something big and asks you to tap a link. What is the safest move?",
+    options: [
+      { text: "Tap fast before it disappears", isCorrect: false, emoji: "⚡" },
+      { text: "Send it to friends to check", isCorrect: false, emoji: "📬" },
+      { text: "Press the link to see details", isCorrect: false, emoji: "🖱️" },
+      { text: "Close the screen and tell an adult", isCorrect: true, emoji: "🧭" },
+    ]
+  },
+  {
+    id: 2,
+    question: "You receive a chat saying your game points will be deleted unless you open a link now. What should you do first?",
+    options: [
+      { text: "Click quickly to save points", isCorrect: false, emoji: "🎮" },
+      { text: "Reply asking who sent it", isCorrect: false, emoji: "🗨️" },
+      { text: "Stay calm and check with a trusted adult", isCorrect: true, emoji: "🪁" },
+      { text: "Copy the link and try later", isCorrect: false, emoji: "📋" }
+    ]
+  },
+  {
+    id: 3,
+    question: "A website link looks strange and has extra letters in the name. What does this usually mean?",
+    options: [
+      { text: "It loads faster than normal sites", isCorrect: false, emoji: "🚀" },
+      { text: "It may not be a real website", isCorrect: true, emoji: "🧩" },
+      { text: "It gives free rewards", isCorrect: false, emoji: "🎯" },
+      { text: "It is safe for kids", isCorrect: false, emoji: "🏖️" }
+    ]
+  },
+  {
+    id: 4,
+    question: "An email says you must update your password by clicking a link, even though you didn’t ask for it. What is the best response?",
+    options: [
+      { text: "Do not open the link and report it", isCorrect: true, emoji: "🛎️" },
+      { text: "Click and type your password", isCorrect: false, emoji: "⌨️" },
+      { text: "Forward it to classmates", isCorrect: false, emoji: "🎒" },
+      { text: "Save it for later", isCorrect: false, emoji: "📁" }
+    ]
+  },
+  {
+    id: 5,
+    question: "A video description promises a secret trick but asks you to visit another site first. What should you think?",
+    options: [
+      { text: "All tricks online are safe", isCorrect: false, emoji: "🎬" },
+      { text: "More clicks mean more fun", isCorrect: false, emoji: "🎈" },
+      { text: "Some links are made to trick users", isCorrect: true, emoji: "🧠" },
+      { text: "Links always help", isCorrect: false, emoji: "🔗" }
+    ]
+  }
+];
+
 
   useEffect(() => {
     currentRoundRef.current = currentRound;

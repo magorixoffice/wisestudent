@@ -36,128 +36,132 @@ const DataQuiz = () => {
   const [answered, setAnswered] = useState(false);
 
   const questions = [
-    {
-      id: 1,
-      text: "Which is private information?",
-      options: [
-        { 
-          id: "b", 
-          text: "Hobby", 
-          emoji: "🎨", 
-          
-          isCorrect: false
-        },
-        { 
-          id: "a", 
-          text: "Phone number", 
-          emoji: "📱", 
-          isCorrect: true
-        },
-        { 
-          id: "c", 
-          text: "Favorite color", 
-          emoji: "🌈", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 2,
-      text: "Which should you keep private?",
-      options: [
-        { 
-          id: "b", 
-          text: "Favorite food", 
-          emoji: "🍕", 
-          isCorrect: false
-        },
-        { 
-          id: "c", 
-          text: "Favorite movie", 
-          emoji: "🎬", 
-          isCorrect: false
-        },
-        { 
-          id: "a", 
-          text: "Home address", 
-          emoji: "🏠", 
-          isCorrect: true
-        }
-      ]
-    },
-    {
-      id: 3,
-      text: "Which is sensitive information?",
-      options: [
-        { 
-          id: "b", 
-          text: "Favorite sport", 
-          emoji: "⚽", 
-          isCorrect: false
-        },
-        { 
-          id: "a", 
-          text: "Bank account number", 
-          emoji: "🏦", 
-          isCorrect: true
-        },
-        { 
-          id: "c", 
-          text: "Favorite music", 
-          emoji: "🎵", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 4,
-      text: "Which should not be shared publicly?",
-      options: [
-        { 
-          id: "a", 
-          text: "Aadhaar number", 
-          emoji: "🆔", 
-          isCorrect: true
-        },
-        { 
-          id: "b", 
-          text: "Favorite book", 
-          emoji: "📚", 
-          isCorrect: false
-        },
-        { 
-          id: "c", 
-          text: "Favorite game", 
-          emoji: "🎮", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 5,
-      text: "Which is personal information?",
-      options: [
-        { 
-          id: "b", 
-          text: "Favorite subject", 
-          emoji: "📖", 
-          isCorrect: false
-        },
-        { 
-          id: "c", 
-          text: "Favorite animal", 
-          emoji: "🐱", 
-          isCorrect: false
-        },
-        { 
-          id: "a", 
-          text: "Email password", 
-          emoji: "🔐", 
-          isCorrect: true
-        }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    text: "You are signing up for a new social media app. Which detail should you think twice before entering?",
+    options: [
+      {
+        id: "a",
+        text: "Your school grade",
+        emoji: "📘",
+        isCorrect: false
+      },
+     
+      {
+        id: "c",
+        text: "Your favorite music genre",
+        emoji: "🎧",
+        isCorrect: false
+      },
+       {
+        id: "b",
+        text: "Your full date of birth",
+        emoji: "📅",
+        isCorrect: true
+      },
+    ]
+  },
+  {
+    id: 2,
+    text: "A website asks for information to personalize ads for you. Which data should NOT be shared?",
+    options: [
+      {
+        id: "a",
+        text: "General interests",
+        emoji: "🤔",
+        isCorrect: false
+      },
+      {
+        id: "c",
+        text: "Government-issued ID number",
+        emoji: "📑",
+        isCorrect: true
+      },
+      {
+        id: "b",
+        text: "Browsing preferences",
+        emoji: "🧭",
+        isCorrect: false
+      },
+      
+    ]
+  },
+  {
+    id: 3,
+    text: "You are chatting in an online gaming community. Which information could put your safety at risk if shared?",
+    options: [
+       {
+        id: "b",
+        text: "Your daily routine and location timings",
+        emoji: "🕒",
+        isCorrect: true
+      },
+      {
+        id: "a",
+        text: "Your gaming rank",
+        emoji: "🏅",
+        isCorrect: false
+      },
+     
+      {
+        id: "c",
+        text: "Your favorite game mode",
+        emoji: "🧠",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 4,
+    text: "An app requests access to your device data. Which permission should raise concern?",
+    options: [
+      {
+        id: "a",
+        text: "Access to device language settings",
+        emoji: "🌍",
+        isCorrect: false
+      },
+      
+      {
+        id: "c",
+        text: "Access to theme preferences",
+        emoji: "🎛️",
+        isCorrect: false
+      },
+      {
+        id: "b",
+        text: "Access to contact list and call history",
+        emoji: "📇",
+        isCorrect: true
+      },
+    ]
+  },
+  {
+    id: 5,
+    text: "You are asked to create security questions for an account. Which answer could be easiest for others to guess?",
+    options: [
+      {
+        id: "a",
+        text: "A random word only you know",
+        emoji: "🌀",
+        isCorrect: false
+      },
+      {
+        id: "b",
+        text: "A made-up nickname",
+        emoji: "🧪",
+        isCorrect: false
+      },
+      {
+        id: "c",
+        text: "Your pet’s name shared on social media",
+        emoji: "📸",
+        isCorrect: true
+      }
+    ]
+  }
+];
+
 
   const handleChoice = (isCorrect) => {
     if (answered) return;

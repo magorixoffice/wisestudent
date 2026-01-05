@@ -33,15 +33,15 @@ const PositiveWordsPuzzle = () => {
     { id: 2, name: "Gratitude", emoji: "🙏",  },
     { id: 3, name: "Optimism", emoji: "☀️",  },
     { id: 4, name: "Kindness", emoji: "❤️",  },
-    { id: 5, name: "Joy", emoji: "😊",  }
+    { id: 5, name: "Joy", emoji: "👏",  }
   ];
 
   // Right side - meanings/definitions
   const rightItems = [
-    { id: 1, name: "Future", emoji: "🔮",  },
-    { id: 2, name: "Thanks", emoji: "🙏",  },
-    { id: 3, name: "Bright Side", emoji: "☀️",  },
-    { id: 4, name: "Care", emoji: "💝",  },
+    { id: 1, name: "Future", emoji: "🤔",  },
+    { id: 2, name: "Thanks", emoji: "🤗",  },
+    { id: 3, name: "Bright Side", emoji: "😎",  },
+    { id: 4, name: "Care", emoji: "😌",  },
     { id: 5, name: "Happiness", emoji: "😊",  }
   ];
 

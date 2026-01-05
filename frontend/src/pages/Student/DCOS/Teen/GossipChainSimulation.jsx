@@ -23,138 +23,58 @@ const GossipChainSimulation = () => {
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
   const questions = [
-    {
-      id: 1,
-      text: "A rumor spreads: 'Alex failed the exam!' What should you do?",
-      options: [
-        { 
-          text: "Stop and don't share", 
-          emoji: "🛑", 
-          isCorrect: true
-        },
-        { 
-          text: "Forward to another group", 
-          emoji: "📤", 
-          isCorrect: false
-        },
-        { 
-          text: "Ask if it's true first", 
-          emoji: "❓", 
-          isCorrect: false
-        },
-        { 
-          text: "Share with your friends", 
-          emoji: "💬", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 2,
-      text: "Someone says 'Alex cheated on the exam.' What's your response?",
-      options: [
-        { 
-          text: "Share with more friends", 
-          emoji: "📤", 
-          isCorrect: false
-        },
-        { 
-          text: "Stop the rumor", 
-          emoji: "🛑", 
-          isCorrect: true
-        },
-        { 
-          text: "Add your own details", 
-          emoji: "➕", 
-          isCorrect: false
-        },
-        { 
-          text: "Tell other classmates", 
-          emoji: "🗣️", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 3,
-      text: "Everyone's saying 'Alex is a cheater.' What should you do?",
-      options: [
-        { 
-          text: "Spread it further", 
-          emoji: "📤", 
-          isCorrect: false
-        },
-        { 
-          text: "Stay silent", 
-          emoji: "😐", 
-          isCorrect: false
-        },
-        { 
-          text: "Defend Alex and stop rumor", 
-          emoji: "💪", 
-          isCorrect: true
-        },
-        { 
-          text: "Join in the discussion", 
-          emoji: "🗣️", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 4,
-      text: "You hear 'Alex got caught cheating!' What's the right action?",
-      options: [
-       
-        { 
-          text: "Forward the message", 
-          emoji: "📤", 
-          isCorrect: false
-        },
-        { 
-          text: "Add more details", 
-          emoji: "➕", 
-          isCorrect: false
-        },
-        { 
-          text: "Tell everyone you know", 
-          emoji: "📢", 
-          isCorrect: false
-        },
-         { 
-          text: "Stop and verify first", 
-          emoji: "🔍", 
-          isCorrect: true
-        },
-      ]
-    },
-    {
-      id: 5,
-      text: "The rumor says 'Alex is a known cheater now.' What do you do?",
-      options: [
-        { 
-          text: "Keep spreading", 
-          emoji: "📤", 
-          isCorrect: false
-        },
-        { 
-          text: "Defend and stop the rumor", 
-          emoji: "🛡️", 
-          isCorrect: true
-        },
-        { 
-          text: "Just watch", 
-          emoji: "👀", 
-          isCorrect: false
-        },
-        { 
-          text: "Ask for more details", 
-          emoji: "🔍", 
-          isCorrect: false
-        }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    text: "You see a message saying, 'Someone from our class was suspended today.' The name is not mentioned. What is the most responsible step?",
+    options: [
+      { text: "Screenshot it to keep proof", emoji: "📸", isCorrect: false },
+      { text: "Guess who it might be and discuss", emoji: "🧠", isCorrect: false },
+      { text: "Post a poll asking others", emoji: "📊", isCorrect: false },
+      { text: "Privately remind the sender to avoid sharing unverified claims", emoji: "🧭", isCorrect: true },
+    ]
+  },
+  {
+    id: 2,
+    text: "A class group chat suddenly fills with messages repeating the same rumor, each with slight changes. What should you do?",
+    options: [
+      { text: "Compare messages to see which sounds real", emoji: "🧪", isCorrect: false },
+      { text: "Add missing details to clarify", emoji: "🧩", isCorrect: false },
+      { text: "Point out how the story is changing and warn about misinformation", emoji: "🪞", isCorrect: true },
+      { text: "React with jokes to lighten the mood", emoji: "🎲", isCorrect: false }
+    ]
+  },
+  {
+    id: 3,
+    text: "A friend privately asks you to forward a rumor because they 'trust your judgment.' What is the best response?",
+    options: [
+      { text: "Forward only to close friends", emoji: "🪢", isCorrect: false },
+      { text: "Explain that trust means not spreading harmful content", emoji: "📘", isCorrect: true },
+      { text: "Rewrite it in softer words", emoji: "✏️", isCorrect: false },
+      { text: "Save it in case it becomes important", emoji: "🗂️", isCorrect: false }
+    ]
+  },
+  {
+    id: 4,
+    text: "You later find out the rumor caused real stress to someone involved. What action shows digital responsibility?",
+    options: [
+      { text: "Acknowledge the harm and support correcting the narrative", emoji: "🪴", isCorrect: true },
+      { text: "Delete old messages quietly", emoji: "🧹", isCorrect: false },
+      { text: "Publicly blame the original sender", emoji: "⚖️", isCorrect: false },
+      { text: "Leave the group to avoid drama", emoji: "🚪", isCorrect: false }
+    ]
+  },
+  {
+    id: 5,
+    text: "After the incident, you want to prevent similar gossip cycles in the future. What is the most effective approach?",
+    options: [
+      { text: "Mute all group chats permanently", emoji: "🔕", isCorrect: false },
+      { text: "Only talk in private messages", emoji: "📩", isCorrect: false },
+      { text: "Create awareness about how fast gossip spreads online", emoji: "🌐", isCorrect: true },
+      { text: "Avoid discussing classmates at all", emoji: "🧊", isCorrect: false }
+    ]
+  }
+];
+
 
   const handleChoice = (isCorrect) => {
     if (answered) return;

@@ -259,12 +259,7 @@ const SimulationDigitalSpend = () => {
                 {current.description}
               </p>
               
-              <div className="bg-white/5 rounded-lg p-4 mb-6">
-                <div className="text-center">
-                  <span className="text-white font-semibold text-lg">Amount: </span>
-                  <span className="text-green-400 font-bold text-2xl">₹{current.amount}</span>
-                </div>
-              </div>
+            
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {current.options.map((option) => (

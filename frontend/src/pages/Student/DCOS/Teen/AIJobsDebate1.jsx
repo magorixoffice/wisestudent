@@ -35,7 +35,7 @@ const AIJobsDebate1 = () => {
         },
         { 
           id: "both-fairness", 
-          text: "Both - fairness needed", 
+          text: "fairness needed", 
           emoji: "😇", 
           isCorrect: true
         },
@@ -59,14 +59,14 @@ const AIJobsDebate1 = () => {
         },
         { 
           id: "yes-worried", 
-          text: "Yes - AI will replace everyone", 
+          text: "AI will replace everyone", 
           emoji: "😰", 
           isCorrect: false
         },
         
         { 
           id: "no-worried", 
-          text: "No - nothing to worry about", 
+          text: "nothing to worry about", 
           emoji: "😊", 
           isCorrect: false
         }
@@ -127,20 +127,20 @@ const AIJobsDebate1 = () => {
       options: [
         { 
           id: "no-protection", 
-          text: "No - let AI replace workers", 
+          text: "let AI replace workers", 
           emoji: "🤖", 
           isCorrect: false
         },
         
         { 
           id: "maybe", 
-          text: "Maybe - depends on the job", 
+          text: "depends on the job", 
           emoji: "🤔", 
           isCorrect: false
         },
         { 
           id: "yes-fair-transition", 
-          text: "Yes - ensure fair transition", 
+          text: "ensure fair transition", 
           emoji: "⚧️", 
           isCorrect: true
         },

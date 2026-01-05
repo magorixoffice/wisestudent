@@ -35,62 +35,63 @@ const ReflexRecall = () => {
 
   // Questions with 4 options each - one correct answer
   const questions = [
-    {
-      id: 1,
-      question: "Which of these was shown in the initial list?",
-      correctAnswer: "Apple",
-      options: [
-        { text: "Apple", isCorrect: true, emoji: "🍎" },
-        { text: "Car", isCorrect: false, emoji: "🚗" },
-        { text: "Book", isCorrect: false, emoji: "📚" },
-        { text: "Tree", isCorrect: false, emoji: "🌳" }
-      ]
-    },
-    {
-      id: 2,
-      question: "Which of these was shown in the initial list?",
-      correctAnswer: "Banana",
-      options: [
-        { text: "Sun", isCorrect: false, emoji: "☀️" },
-        { text: "Banana", isCorrect: true, emoji: "🍌" },
-        { text: "Moon", isCorrect: false, emoji: "🌙" },
-        { text: "Grape", isCorrect: false, emoji: "🍇" }
-      ]
-    },
-    {
-      id: 3,
-      question: "Which of these was shown in the initial list?",
-      correctAnswer: "Orange",
-      options: [
-        { text: "Orange", isCorrect: true, emoji: "🍊" },
-        { text: "Mango", isCorrect: false, emoji: "🥭" },
-        { text: "Car", isCorrect: false, emoji: "🚗" },
-        { text: "Sun", isCorrect: false, emoji: "☀️" }
-      ]
-    },
-    {
-      id: 4,
-      question: "Which of these was NOT shown in the initial list?",
-      correctAnswer: "Book",
-      options: [
-        { text: "Apple", isCorrect: false, emoji: "🍎" },
-        { text: "Banana", isCorrect: false, emoji: "🍌" },
-        { text: "Book", isCorrect: true, emoji: "📚" },
-        { text: "Orange", isCorrect: false, emoji: "🍊" }
-      ]
-    },
-    {
-      id: 5,
-      question: "Which of these was NOT shown in the initial list?",
-      correctAnswer: "Moon",
-      options: [
-        { text: "Grape", isCorrect: false, emoji: "🍇" },
-        { text: "Moon", isCorrect: true, emoji: "🌙" },
-        { text: "Mango", isCorrect: false, emoji: "🥭" },
-        { text: "Tree", isCorrect: false, emoji: "🌳" }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    question: "Earlier, a screen showed several online actions. Which one appeared briefly?",
+    correctAnswer: "Updating privacy settings",
+    options: [
+      { text: "Joining a public chat room", isCorrect: false, emoji: "💬" },
+      { text: "Downloading unknown software", isCorrect: false, emoji: "⬇️" },
+      { text: "Posting personal photos", isCorrect: false, emoji: "🖼️" },
+      { text: "Updating privacy settings", isCorrect: true, emoji: "⚙️" },
+    ]
+  },
+  {
+    id: 2,
+    question: "From the quick list you saw, which activity was mentioned?",
+    correctAnswer: "Reporting a harmful message",
+    options: [
+      { text: "Ignoring warning messages", isCorrect: false, emoji: "🚫" },
+      { text: "Sharing passwords with friends", isCorrect: false, emoji: "🔑" },
+      { text: "Reporting a harmful message", isCorrect: true, emoji: "📢" },
+      { text: "Clicking pop-up rewards", isCorrect: false, emoji: "🎁" }
+    ]
+  },
+  {
+    id: 3,
+    question: "Think back to the symbols shown earlier. Which one was included?",
+    correctAnswer: "Verified website indicator",
+    options: [
+      { text: "Anonymous profile icon", isCorrect: false, emoji: "👤" },
+      { text: "Verified website indicator", isCorrect: true, emoji: "🛡️" },
+      { text: "Game score badge", isCorrect: false, emoji: "🏅" },
+      { text: "Live streaming button", isCorrect: false, emoji: "📡" }
+    ]
+  },
+  {
+    id: 4,
+    question: "Which item did NOT appear when safe online habits were shown?",
+    correctAnswer: "Posting location publicly",
+    options: [
+      { text: "Posting location publicly", isCorrect: true, emoji: "📍" },
+      { text: "Using strong passwords", isCorrect: false, emoji: "🔑" },
+      { text: "Checking website links", isCorrect: false, emoji: "🔍" },
+      { text: "Logging out on shared devices", isCorrect: false, emoji: "🚪" }
+    ]
+  },
+  {
+    id: 5,
+    question: "During the recall round, which digital behavior was missing?",
+    correctAnswer: "Replying to unknown messages",
+    options: [
+      { text: "Blocking suspicious users", isCorrect: false, emoji: "⛔" },
+      { text: "Using two-step verification", isCorrect: false, emoji: "🔐" },
+      { text: "Replying to unknown messages", isCorrect: true, emoji: "📨" },
+      { text: "Reviewing app permissions", isCorrect: false, emoji: "📋" }
+    ]
+  }
+];
+
 
   // Update ref when currentRound changes
   useEffect(() => {

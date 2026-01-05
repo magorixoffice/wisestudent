@@ -28,35 +28,34 @@ const PersonalInfoPuzzle = () => {
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
   // Personal information items (left side)
-  const leftItems = [
-    { id: 1, name: "Your full name", emoji: "👤",  },
-    { id: 2, name: "Your home address", emoji: "🏠",  },
-    { id: 3, name: "Your password", emoji: "🔐",  },
-    { id: 4, name: "Your favorite color", emoji: "🎨",  },
-    { id: 5, name: "Your phone number", emoji: "📱",  }
-  ];
+ const leftItems = [
+  { id: 1, name: "Your login password", emoji: "🔑" },
+  { id: 2, name: "Your phone number", emoji: "📱" },
+  { id: 3, name: "Your school name", emoji: "🏫" },
+  { id: 4, name: "Your favorite hobby", emoji: "⚽" },
+  { id: 5, name: "Your home address", emoji: "📍" }
+];
+
 
   // Privacy categories (right side) - varied and logical options for kids
-  const rightItems = [
-    { id: 1, name: "Never Share Online", emoji: "🔒",  },
-    { id: 2, name: "Safe to Share", emoji: "✅",  },
-    { id: 3, name: "Keep Private", emoji: "🛡️",  },
-    { id: 4, name: "Very Private", emoji: "🔐",  },
-    { id: 5, name: "Never Share Online", emoji: "🔒",  }
-  ];
+ const rightItems = [
+   { id: 2, name: "Share Only With Parents", emoji: "👨‍👩‍👧" },
+   { id: 3, name: "Ask Before Sharing", emoji: "❓" },
+   { id: 4, name: "Okay to Share With Friends", emoji: "😊" },
+   { id: 5, name: "Never Share on Internet", emoji: "🌐" },
+   { id: 1, name: "Only You Should Know", emoji: "🧠" },
+];
+
 
   // Correct matches - varied positions for correct answers (no shuffling logic)
-  // Logical matching: Most sensitive items (password) → Very Private, 
-  // Location info (address) → Never Share Online, 
-  // Identity info (name, phone) → Keep Private/Never Share,
-  // Preferences (favorite color) → Safe to Share
   const correctMatches = [
-    { leftId: 1, rightId: 3 }, // Your full name → Keep Private (position 3) - identity info
-    { leftId: 2, rightId: 1 }, // Your home address → Never Share Online (position 1) - location, very sensitive
-    { leftId: 3, rightId: 4 }, // Your password → Very Private (position 4) - most sensitive, needs strongest protection
-    { leftId: 4, rightId: 2 }, // Your favorite color → Safe to Share (position 2) - harmless preference
-    { leftId: 5, rightId: 5 }  // Your phone number → Never Share Online (position 5) - contact info, very sensitive
-  ];
+  { leftId: 1, rightId: 1 }, // Password → Only You Should Know
+  { leftId: 2, rightId: 2 }, // Phone number → Share Only With Parents
+  { leftId: 3, rightId: 3 }, // School name → Ask Before Sharing
+  { leftId: 4, rightId: 4 }, // Favorite hobby → Okay to Share With Friends
+  { leftId: 5, rightId: 5 }  // Home address → Never Share on Internet
+];
+
 
   const handleLeftSelect = (item) => {
     if (showResult) return;

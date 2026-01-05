@@ -23,140 +23,142 @@ const ProfilePictureSimulation = () => {
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
   const questions = [
-    {
-      id: 1,
-      text: "Which profile picture is safest for social media?",
-      options: [
-        { 
-          text: "Personal Photo", 
-          emoji: "📸", 
-          isCorrect: false
-        },
-        { 
-          text: "Cartoon/Avatar", 
-          emoji: "🎨", 
-          isCorrect: true
-        },
-        { 
-          text: "Full Body Photo", 
-          emoji: "🧍", 
-          isCorrect: false
-        },
-        { 
-          text: "Logo or Symbol", 
-          emoji: "🔷", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 2,
-      text: "What's the safest profile picture for gaming?",
-      options: [
-        { 
-          text: "Game Avatar", 
-          emoji: "🎮", 
-          isCorrect: true
-        },
-        { 
-          text: "Real Photo", 
-          emoji: "📷", 
-          isCorrect: false
-        },
-        
-        { 
-          text: "School Photo", 
-          emoji: "🎓", 
-          isCorrect: false
-        },
-        { 
-          text: "Nature Photo", 
-          emoji: "🌿", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 3,
-      text: "Which profile picture protects your identity?",
-      options: [
-        { 
-          text: "Selfie", 
-          emoji: "🤳", 
-          isCorrect: false
-        },
-        
-        { 
-          text: "Group Photo", 
-          emoji: "👥", 
-          isCorrect: false
-        },
-        { 
-          text: "Famous Person", 
-          emoji: "⭐", 
-          isCorrect: false
-        },
-        { 
-          text: "Cartoon Character", 
-          emoji: "🎭", 
-          isCorrect: true
-        },
-      ]
-    },
-    {
-      id: 4,
-      text: "What profile picture should you use for online forums?",
-      options: [
-        { 
-          text: "Personal Photo", 
-          emoji: "👤", 
-          isCorrect: false
-        },
-       
-        { 
-          text: "Pet Photo", 
-          emoji: "🐕", 
-          isCorrect: false
-        },
-         { 
-          text: "Avatar/Icon", 
-          emoji: "🎨", 
-          isCorrect: true
-        },
-        { 
-          text: "Landscape Photo", 
-          emoji: "🏞️", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 5,
-      text: "Which is the safest profile picture choice for video platforms?",
-      options: [
-        { 
-          text: "Real Photo", 
-          emoji: "📸", 
-          isCorrect: false
-        },
-        { 
-          text: "Animated Avatar", 
-          emoji: "🤖", 
-          isCorrect: true
-        },
-        { 
-          text: "Celebrity Photo", 
-          emoji: "⭐", 
-          isCorrect: false
-        },
-        { 
-          text: "Artwork", 
-          emoji: "🎨", 
-          isCorrect: false
-        }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    text: "You are joining a public study group where members are unknown. Which profile picture choice reduces personal risk?",
+    options: [
+      {
+        text: "A clear face photo taken at home",
+        emoji: "🏠",
+        isCorrect: false
+      },
+      
+      {
+        text: "A photo wearing school uniform",
+        emoji: "🎒",
+        isCorrect: false
+      },
+      {
+        text: "A group photo with friends",
+        emoji: "👫",
+        isCorrect: false
+      },
+      {
+        text: "An illustrated avatar with no personal details",
+        emoji: "🖌️",
+        isCorrect: true
+      },
+    ]
+  },
+  {
+    id: 2,
+    text: "You want to comment on a public debate page without drawing attention to your real identity. What profile image fits that goal?",
+    options: [
+      {
+        text: "A recent selfie",
+        emoji: "📷",
+        isCorrect: false
+      },
+      {
+        text: "A symbolic icon that represents an idea",
+        emoji: "🔶",
+        isCorrect: true
+      },
+      {
+        text: "A photo taken at a known landmark",
+        emoji: "🗼",
+        isCorrect: false
+      },
+      {
+        text: "A picture showing your face partially",
+        emoji: "🧢",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 3,
+    text: "A gaming platform allows anyone to message you. Which profile picture choice helps prevent unwanted attention?",
+    options: [
+      {
+        text: "A personal portrait",
+        emoji: "🖼️",
+        isCorrect: false
+      },
+      
+      {
+        text: "A real-life action photo",
+        emoji: "🏃",
+        isCorrect: false
+      },
+      {
+        text: "A character from the game world",
+        emoji: "🧩",
+        isCorrect: true
+      },
+      {
+        text: "A photo taken with teammates",
+        emoji: "🤝",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 4,
+    text: "You are applying to join an online creative forum that values ideas over identity. Which profile image supports that culture?",
+    options: [
+       {
+        text: "A digital illustration you created",
+        emoji: "🖍️",
+        isCorrect: true
+      },
+      {
+        text: "A close-up facial photo",
+        emoji: "👁️",
+        isCorrect: false
+      },
+     
+      {
+        text: "A family picture",
+        emoji: "🏡",
+        isCorrect: false
+      },
+      {
+        text: "A photo showing your location",
+        emoji: "📍",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 5,
+    text: "You notice strangers reposting profile pictures without permission. Which type of image lowers misuse risk?",
+    options: [
+      {
+        text: "A high-resolution personal photo",
+        emoji: "📸",
+        isCorrect: false
+      },
+      
+      {
+        text: "A fashionable portrait",
+        emoji: "👗",
+        isCorrect: false
+      },
+      {
+        text: "A recognizable background photo",
+        emoji: "🏙️",
+        isCorrect: false
+      },
+      {
+        text: "A non-human digital avatar",
+        emoji: "🌀",
+        isCorrect: true
+      },
+    ]
+  }
+];
+
 
   const handleChoice = (isCorrect) => {
     if (answered) return;

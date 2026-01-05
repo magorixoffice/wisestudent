@@ -29,62 +29,63 @@ const EmojiReflex = () => {
   const currentRoundRef = useRef(0);
 
   const questions = [
-    {
-      id: 1,
-      question: "😊 means happy! - Is this true or false?",
-      correctAnswer: "True",
-      options: [
-        { text: "False", isCorrect: false, emoji: "👎" },
-        { text: "Not Sure", isCorrect: false, emoji: "🤔" },
-        { text: "True", isCorrect: true, emoji: "👍" },
-        { text: "Maybe", isCorrect: false, emoji: "😐" }
-      ]
-    },
-    {
-      id: 2,
-      question: "😢 means laughing hard! - Is this true or false?",
-      correctAnswer: "False",
-      options: [
-        { text: "True", isCorrect: false, emoji: "👍" },
-        { text: "False", isCorrect: true, emoji: "👎" },
-        { text: "Not Sure", isCorrect: false, emoji: "🤔" },
-        { text: "Maybe", isCorrect: false, emoji: "😐" }
-      ]
-    },
-    {
-      id: 3,
-      question: "🔥 means something is cool! - Is this true or false?",
-      correctAnswer: "True",
-      options: [
-        { text: "True", isCorrect: true, emoji: "👍" },
-        { text: "False", isCorrect: false, emoji: "👎" },
-        { text: "Not Sure", isCorrect: false, emoji: "🤔" },
-        { text: "Maybe", isCorrect: false, emoji: "😐" }
-      ]
-    },
-    {
-      id: 4,
-      question: "🐶 means a cat! - Is this true or false?",
-      correctAnswer: "False",
-      options: [
-        { text: "True", isCorrect: false, emoji: "👍" },
-        { text: "Not Sure", isCorrect: false, emoji: "🤔" },
-        { text: "Maybe", isCorrect: false, emoji: "😐" },
-        { text: "False", isCorrect: true, emoji: "👎" },
-      ]
-    },
-    {
-      id: 5,
-      question: "🌞 means sunny day! - Is this true or false?",
-      correctAnswer: "True",
-      options: [
-        { text: "True", isCorrect: true, emoji: "👍" },
-        { text: "False", isCorrect: false, emoji: "👎" },
-        { text: "Not Sure", isCorrect: false, emoji: "🤔" },
-        { text: "Maybe", isCorrect: false, emoji: "😐" }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    question: "In a group chat, one emoji was used to show silent agreement without typing. Which one fits that role?",
+    correctAnswer: "Acknowledging without words",
+    options: [
+      { text: "Showing confusion", isCorrect: false, emoji: "🌀" },
+      { text: "Ending a conversation", isCorrect: false, emoji: "🚪" },
+      { text: "Asking for more details", isCorrect: false, emoji: "🤔" },
+      { text: "Acknowledging without words", isCorrect: true, emoji: "📍" },
+    ]
+  },
+  {
+    id: 2,
+    question: "An emoji appeared after someone shared good news online. What reaction did it most likely represent?",
+    correctAnswer: "Supportive excitement",
+    options: [
+      { text: "Warning others", isCorrect: false, emoji: "🚨" },
+      { text: "Showing boredom", isCorrect: false, emoji: "⏳" },
+      { text: "Supportive excitement", isCorrect: true, emoji: "🎯" },
+      { text: "Requesting proof", isCorrect: false, emoji: "📄" }
+    ]
+  },
+  {
+    id: 3,
+    question: "During an online discussion, one emoji hinted that a message should be taken lightly. Which meaning matches?",
+    correctAnswer: "Playful tone",
+    options: [
+      { text: "Serious warning", isCorrect: false, emoji: "⚖️" },
+      { text: "Playful tone", isCorrect: true, emoji: "🎭" },
+      { text: "Disagreement", isCorrect: false, emoji: "🧱" },
+      { text: "Ending the topic", isCorrect: false, emoji: "📦" }
+    ]
+  },
+  {
+    id: 4,
+    question: "An emoji was used after a long explanation to signal understanding. What did it communicate?",
+    correctAnswer: "Clear understanding",
+    options: [
+      { text: "Clear understanding", isCorrect: true, emoji: "🔎" },
+      { text: "Still confused", isCorrect: false, emoji: "🌫️" },
+      { text: "Changing subject", isCorrect: false, emoji: "🔀" },
+      { text: "Ignoring the message", isCorrect: false, emoji: "🧯" }
+    ]
+  },
+  {
+    id: 5,
+    question: "One emoji appeared when someone wanted to pause the conversation politely. What was the intent?",
+    correctAnswer: "Taking a short break",
+    options: [
+      { text: "Rejecting the idea", isCorrect: false, emoji: "🧱" },
+      { text: "Sharing excitement", isCorrect: false, emoji: "🎈" },
+      { text: "Taking a short break", isCorrect: true, emoji: "⛱️" },
+      { text: "Calling for help", isCorrect: false, emoji: "🆘" }
+    ]
+  }
+];
+
 
   useEffect(() => {
     currentRoundRef.current = currentRound;

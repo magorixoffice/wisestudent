@@ -29,75 +29,63 @@ const ReflexBankSymbols = () => {
   const currentRoundRef = useRef(0);
 
   const questions = [
-    {
-      id: 1,
-      question: "What is the symbol for Indian Rupee?",
-      correctAnswer: "₹",
-      options: [
-        { text: "₹", isCorrect: true },
-        { text: "$", isCorrect: false },
-        { text: "€", isCorrect: false },
-        { text: "£", isCorrect: false }
-      ]
-    },
-    {
-      id: 2,
-      question: "What symbol represents a bank?",
-      correctAnswer: "Bank",
-      options: [
-        { text: "Toy", isCorrect: false, emoji: "🧸" },
-        { text: "Bank", isCorrect: true, emoji: "🏦" },
-        { text: "Candy", isCorrect: false, emoji: "🍬" },
-        { text: "Game", isCorrect: false, emoji: "🎮" }
-      ]
-    },
-    {
-      id: 3,
-      question: "What symbol means saving money?",
-      correctAnswer: "Save",
-      options: [
-        { text: "Spend", isCorrect: false, emoji: "💸" },
-        { text: "Waste", isCorrect: false, emoji: "🗑️" },
-        { text: "Lose", isCorrect: false, emoji: "❌" },
-        { text: "Save", isCorrect: true, emoji: "💰" },
-      ]
-    },
-    {
-      id: 4,
-      question: "What symbol represents money?",
-      correctAnswer: "Coin",
-      options: [
-        { text: "Candy", isCorrect: false, emoji: "🍬" },
-        { text: "Coin", isCorrect: true, emoji: "🪙" },
-        { text: "Toy", isCorrect: false, emoji: "🧸" },
-        { text: "Ball", isCorrect: false, emoji: "⚽" }
-      ]
-    },
-    {
-      id: 5,
-      question: "What symbol represents a safe place to keep money?",
-      correctAnswer: "Vault",
-      options: [
-        { text: "Vault", isCorrect: true, emoji: "🔒" },
-        { text: "Box", isCorrect: false, emoji: "📦" },
-        { text: "Bag", isCorrect: false, emoji: "🎒" },
-        { text: "Basket", isCorrect: false, emoji: "🧺" }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    question: "Riya goes with her parents to deposit money. She sees a building symbol used on passbooks and ATM cards. What does this symbol tell her?",
+    options: [
+      { text: "A place to play games 🎮", isCorrect: false },
+      { text: "A sweet shop 🍭", isCorrect: false },
+      { text: "A place to keep and manage money safely 🏦", isCorrect: true },
+      { text: "A school building 🏫", isCorrect: false }
+    ]
+  },
+  {
+    id: 2,
+    question: "Aarav opens his piggy bank and wants to save his money in the future. Which symbol reminds him of saving money in a bank?",
+    options: [
+      { text: "Broken coin 🚫", isCorrect: false },
+      { text: "Flying money 💸", isCorrect: false },
+      { text: "Trash bin 🗑️", isCorrect: false },
+      { text: "Money with lock showing safety 🔐", isCorrect: true },
+    ]
+  },
+  {
+    id: 3,
+    question: "Meena sees the ₹ sign written before prices at the bank counter. What does this symbol help her understand?",
+    options: [
+      { text: "It is a math symbol ➕", isCorrect: false },
+      { text: "It shows India’s money value 💵", isCorrect: true },
+      { text: "It means free items 🎁", isCorrect: false },
+      { text: "It shows a phone signal 📶", isCorrect: false }
+    ]
+  },
+  {
+    id: 4,
+    question: "Kabir’s parents use an ATM card. Which symbol tells him that the card is connected to a bank?",
+    options: [
+      { text: "Bank building sign 🏦", isCorrect: true },
+      { text: "Shopping bag 🛍️", isCorrect: false },
+      { text: "Game controller 🎮", isCorrect: false },
+      { text: "Smiley face 🙂", isCorrect: false }
+    ]
+  },
+  {
+    id: 5,
+    question: "Anaya learns that banks protect people’s money. Which symbol best shows safety and protection in a bank?",
+    options: [
+      { text: "Open box 📦", isCorrect: false },
+      { text: "Paper bag 🛍️", isCorrect: false },
+      { text: "Strong lock 🔒", isCorrect: true },
+      { text: "Ball ⚽", isCorrect: false }
+    ]
+  }
+];
+
 
   // Update ref when currentRound changes
   useEffect(() => {
     currentRoundRef.current = currentRound;
   }, [currentRound]);
-
-  // Reset timer when round changes
-  useEffect(() => {
-    if (gameState === "playing" && currentRound > 0 && currentRound <= TOTAL_ROUNDS) {
-      setTimeLeft(ROUND_TIME);
-      setAnswered(false);
-    }
-  }, [currentRound, gameState]);
 
   // Handle time up - move to next question or show results
   const handleTimeUp = useCallback(() => {
@@ -113,21 +101,23 @@ const ReflexBankSymbols = () => {
         setCurrentRound((prev) => prev + 1);
       }
     }, 1000);
-  }, []);
+  }, [currentRound]);
 
-  // Timer effect - countdown from 5 seconds for each question
+  // Reset timer and answered state when round changes
   useEffect(() => {
-    if (gameState !== "playing") {
+    if (gameState === "playing" && currentRound > 0 && currentRound <= TOTAL_ROUNDS) {
+      setTimeLeft(ROUND_TIME);
+      setAnswered(false);
+    }
+  }, [currentRound, gameState]);
+
+  // Timer effect - countdown from 10 seconds for each question
+  useEffect(() => {
+    if (gameState !== "playing" || currentRound <= 0 || currentRound > TOTAL_ROUNDS || answered) {
       if (timerRef.current) {
         clearInterval(timerRef.current);
         timerRef.current = null;
       }
-      return;
-    }
-
-    // Check if game should be finished
-    if (currentRoundRef.current > TOTAL_ROUNDS) {
-      setGameState("finished");
       return;
     }
 
@@ -160,7 +150,7 @@ const ReflexBankSymbols = () => {
         timerRef.current = null;
       }
     };
-  }, [gameState, handleTimeUp]);
+  }, [gameState, currentRound, handleTimeUp, answered]);
 
   const startGame = () => {
     setGameState("playing");

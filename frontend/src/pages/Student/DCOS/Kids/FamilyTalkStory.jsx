@@ -84,18 +84,19 @@ const FamilyTalkStory = () => {
           emoji: "⚡", 
           isCorrect: false
         },
+        
+        { 
+          id: "c", 
+          text: "Ignore", 
+          emoji: "🤐", 
+          isCorrect: false
+        },
         { 
           id: "b", 
           text: "Warn Grandpa", 
           emoji: "🛡️", 
           isCorrect: true
         },
-        { 
-          id: "c", 
-          text: "Ignore", 
-          emoji: "🤐", 
-          isCorrect: false
-        }
       ]
     },
     {

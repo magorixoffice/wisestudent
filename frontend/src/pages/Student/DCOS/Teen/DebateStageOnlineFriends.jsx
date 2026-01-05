@@ -29,19 +29,19 @@ const DebateStageOnlineFriends = () => {
       options: [
         { 
           id: "no-dangerous", 
-          text: "No - it's dangerous and should be avoided", 
+          text: "it's dangerous and should be avoided", 
           emoji: "🤓", 
           isCorrect: true
         },
         { 
           id: "yes-safe", 
-          text: "Yes - it's safe if you're careful", 
+          text: "it's safe if you're careful", 
           emoji: "🙂", 
           isCorrect: false
         },
         { 
           id: "maybe", 
-          text: "Maybe - depends on the situation", 
+          text: "depends on the situation", 
           emoji: "🤔", 
           isCorrect: false
         }
@@ -53,19 +53,19 @@ const DebateStageOnlineFriends = () => {
       options: [
         { 
           id: "yes-trust", 
-          text: "Yes - if you trust them", 
+          text: "if you trust them", 
           emoji: "🤝", 
           isCorrect: false
         },
         { 
           id: "no-never", 
-          text: "No - never share personal info", 
+          text: "never share personal info", 
           emoji: "🔒", 
           isCorrect: true
         },
         { 
           id: "sometimes", 
-          text: "Sometimes - if they seem nice", 
+          text: "if they seem nice", 
           emoji: "😊", 
           isCorrect: false
         }
@@ -77,13 +77,13 @@ const DebateStageOnlineFriends = () => {
       options: [
         { 
           id: "yes-safe", 
-          text: "Yes - video calls are safe", 
+          text: "video calls are safe", 
           emoji: "🙂", 
           isCorrect: false
         },
         { 
           id: "always", 
-          text: "Always - it's fun", 
+          text: "it's fun", 
           emoji: "📹", 
           isCorrect: false
         },
@@ -101,19 +101,19 @@ const DebateStageOnlineFriends = () => {
       options: [
         { 
           id: "no-only-known", 
-          text: "No - only accept known people", 
+          text: "only accept known people", 
           emoji: "🤔", 
           isCorrect: true
         },
         { 
           id: "yes-nice", 
-          text: "Yes - if they seem nice", 
+          text: "if they seem nice", 
           emoji: "😊", 
           isCorrect: false
         },
         { 
           id: "maybe", 
-          text: "Maybe - check their profile first", 
+          text: "check their profile first", 
           emoji: "👀", 
           isCorrect: false
         }
@@ -125,13 +125,13 @@ const DebateStageOnlineFriends = () => {
       options: [
         { 
           id: "yes-real", 
-          text: "Yes - online friends are real friends", 
+          text: "online friends are real friends", 
           emoji: "❤️", 
           isCorrect: false
         },
         { 
           id: "be-cautious", 
-          text: "Be cautious - verify identity first", 
+          text: "verify identity first", 
           emoji: "😑", 
           isCorrect: true
         },

@@ -65,11 +65,7 @@ const BalanceBadge = () => {
           emoji: "📺", 
           isCorrect: false
         },
-        { 
-          text: "Take a screen break", 
-          emoji: "🕒", 
-          isCorrect: true
-        },
+       
         { 
           text: "Use screens even more", 
           emoji: "📱", 
@@ -79,7 +75,12 @@ const BalanceBadge = () => {
           text: "Never stop using screens", 
           emoji: "⏰", 
           isCorrect: false
-        }
+        },
+         { 
+          text: "Take a screen break", 
+          emoji: "🕒", 
+          isCorrect: true
+        },
       ]
     },
     {
@@ -92,15 +93,16 @@ const BalanceBadge = () => {
           emoji: "📱", 
           isCorrect: false
         },
-        { 
-          text: "Read a book instead of using phone", 
-          emoji: "📖", 
-          isCorrect: true
-        },
+        
         { 
           text: "Play games all day", 
           emoji: "🎮", 
           isCorrect: false
+        },
+        { 
+          text: "Read a book instead of using phone", 
+          emoji: "📖", 
+          isCorrect: true
         },
         { 
           text: "Watch TV all night", 
@@ -146,11 +148,7 @@ const BalanceBadge = () => {
           emoji: "📱", 
           isCorrect: false
         },
-        { 
-          text: "Spend time with family without screens", 
-          emoji: "👨‍👩‍👧‍👦", 
-          isCorrect: true
-        },
+        
         { 
           text: "Ignore family for screens", 
           emoji: "🚫", 
@@ -160,7 +158,12 @@ const BalanceBadge = () => {
           text: "Only use screens together", 
           emoji: "📺", 
           isCorrect: false
-        }
+        },
+        { 
+          text: "Spend time with family without screens", 
+          emoji: "👨‍👩‍👧‍👦", 
+          isCorrect: true
+        },
       ]
     }
   ];

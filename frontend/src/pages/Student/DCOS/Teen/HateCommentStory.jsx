@@ -24,134 +24,132 @@ const HateCommentStory = () => {
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
   const questions = [
-    {
-      id: 1,
-      text: "Someone posts 'Go back to your country!' on a classmate's post. What should you do?",
-      options: [
-        { 
-          id: "ignore", 
-          text: "don't get involved", 
-          emoji: "😐", 
-          
-          isCorrect: false
-        },
-       
-        { 
-          id: "reply", 
-          text: "Reply with an insult", 
-          emoji: "😡", 
-          
-          isCorrect: false
-        },
-         { 
-          id: "report", 
-          text: "Report the hate comment", 
-          emoji: "🚫", 
-          
-          isCorrect: true
-        },
-      ]
-    },
-    {
-      id: 2,
-      text: "You see a comment saying 'People like you don't belong here.' What's the right action?",
-      options: [
-        { 
-          id: "report-hate", 
-          text: "Report it as hate speech", 
-          emoji: "🚫", 
-          
-          isCorrect: true
-        },
-        { 
-          id: "scroll-past", 
-          text: "Scroll past it", 
-          emoji: "😐", 
-          isCorrect: false
-        },
-        
-        { 
-          id: "like", 
-          text: "Like it to show support", 
-          emoji: "👍", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 3,
-      text: "A comment says 'You're so stupid because of where you're from.' What should you do?",
-      options: [
-        { 
-          id: "ignore-comment", 
-          text: "it's just words", 
-          emoji: "😐", 
-          isCorrect: false
-        },
-        { 
-          id: "report-discrimination", 
-          text: "this is discrimination", 
-          emoji: "🚫", 
-          isCorrect: true
-        },
-        { 
-          id: "share", 
-          text: "Share it to expose them", 
-          emoji: "📤", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 4,
-      text: "You see a comment targeting someone's religion with hateful words. What's your response?",
-      options: [
-        { 
-          id: "not-my-business", 
-          text: "Not my business - stay out", 
-          emoji: "😐", 
-          isCorrect: false
-        },
-        { 
-          id: "report-religious-hate", 
-          text: "religious hate is wrong", 
-          emoji: "🚫", 
-          isCorrect: true
-        },
-        { 
-          id: "comment-back", 
-          text: "Comment back with anger", 
-          emoji: "😡", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 5,
-      text: "A comment says 'People from your background are all the same and bad.' What should you do?",
-      options: [
-        { 
-          id: "ignore-stereotype", 
-          text: "just a stereotype", 
-          emoji: "😐", 
-          isCorrect: false
-        },
-       
-        { 
-          id: "laugh", 
-          text: "Laugh it off", 
-          emoji: "😄", 
-          isCorrect: false
-        },
-         { 
-          id: "report-stereotype", 
-          text: "this is hateful stereotyping", 
-          emoji: "🚫", 
-          isCorrect: true
-        },
-      ]
-    }
-  ];
+  {
+    id: 1,
+    text: "A harsh comment targets a student during a live discussion thread. Other students are watching. What response best supports a healthy online space?",
+    options: [
+      
+      {
+        id: "b",
+        text: "Jump into the thread and argue with the commenter",
+        emoji: "🗣️",
+        isCorrect: false
+      },
+      {
+        id: "c",
+        text: "Wait to see if the situation fixes itself",
+        emoji: "⏳",
+        isCorrect: false
+      },
+      {
+        id: "a",
+        text: "Privately support the targeted person and flag the comment",
+        emoji: "💬",
+        isCorrect: true
+      },
+    ]
+  },
+  {
+    id: 2,
+    text: "A meme shared in a group chat uses hateful language disguised as humor. What is the most responsible action?",
+    options: [
+      
+      {
+        id: "b",
+        text: "React silently and leave the group later",
+        emoji: "🚪",
+        isCorrect: false
+      },
+      {
+        id: "a",
+        text: "Point out why the content is harmful and use reporting tools",
+        emoji: "📌",
+        isCorrect: true
+      },
+      {
+        id: "c",
+        text: "Reshare it so others can judge for themselves",
+        emoji: "🔁",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 3,
+    text: "Someone repeatedly posts hateful replies under different usernames. What does this behavior indicate?",
+    options: [
+      {
+        id: "a",
+        text: "An attempt to avoid accountability using anonymity",
+        emoji: "🛡️",
+        isCorrect: true
+      },
+      {
+        id: "b",
+        text: "Strong opinions being expressed creatively",
+        emoji: "📝",
+        isCorrect: false
+      },
+      {
+        id: "c",
+        text: "Normal disagreement in online debates",
+        emoji: "⚖️",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 4,
+    text: "After reading hateful comments, a friend feels anxious and stops posting online. What does this show?",
+    options: [
+     
+      {
+        id: "b",
+        text: "People should avoid social platforms entirely",
+        emoji: "🚫",
+        isCorrect: false
+      },
+       {
+        id: "a",
+        text: "Online words can seriously affect mental well-being",
+        emoji: "🧠",
+        isCorrect: true
+      },
+      {
+        id: "c",
+        text: "Only public figures face online pressure",
+        emoji: "👤",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 5,
+    text: "A hate comment remains online for months and keeps getting replies. What is the long-term concern?",
+    options: [
+      
+      {
+        id: "b",
+        text: "Older posts stop affecting anyone",
+        emoji: "📅",
+        isCorrect: false
+      },
+      {
+        id: "c",
+        text: "Time alone solves online harm",
+        emoji: "⌛",
+        isCorrect: false
+      },
+      {
+        id: "a",
+        text: "Harmful content can continue influencing attitudes over time",
+        emoji: "📉",
+        isCorrect: true
+      },
+    ]
+  }
+];
+
 
   const handleChoice = (selectedChoice) => {
     const newChoices = [...choices, { 

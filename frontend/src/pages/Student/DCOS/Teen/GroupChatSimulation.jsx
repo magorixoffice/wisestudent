@@ -23,138 +23,142 @@ const GroupChatSimulation = () => {
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
   const questions = [
-    {
-      id: 1,
-      text: "Group mocks classmate's religion. What should you do?",
-      options: [
-        { 
-          text: "Join in the mocking", 
-          emoji: "😞",
-          isCorrect: false
-        },
-        { 
-          text: "Exit the group chat", 
-          emoji: "🚪",
-          isCorrect: false
-        },
-        { 
-          text: "Defend the classmate", 
-          emoji: "✊",
-          isCorrect: true
-        },
-        { 
-          text: "Ignore it and stay silent", 
-          emoji: "😶",
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 2,
-      text: "Someone posts hateful comments about a religion. What's your response?",
-      options: [
-        { 
-          text: "Ignore it", 
-          emoji: "😐",
-          isCorrect: false
-        },
-        
-        { 
-          text: "Leave the chat", 
-          emoji: "🚪",
-          isCorrect: false
-        },
-        { 
-          text: "Laugh along", 
-          emoji: "😂",
-          isCorrect: false
-        },
-        { 
-          text: "Defend and report", 
-          emoji: "😄",
-          isCorrect: true
-        },
-      ]
-    },
-    {
-      id: 3,
-      text: "Group makes fun of someone's beliefs. What do you do?",
-      options: [
-        { 
-          text: "Stand up for them", 
-          emoji: "🤔",
-          isCorrect: true
-        },
-        { 
-          text: "Stay silent", 
-          emoji: "😶",
-          isCorrect: false
-        },
-        { 
-          text: "Exit the group", 
-          emoji: "🚪",
-          isCorrect: false
-        },
-        { 
-          text: "Join in the fun", 
-          emoji: "😜",
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 4,
-      text: "Religious discrimination happens in group chat. What's the right action?",
-      options: [
-        { 
-          text: "Just watch", 
-          emoji: "👀",
-          isCorrect: false
-        },
-        { 
-          text: "Defend and report discrimination", 
-          emoji: "�",
-          isCorrect: true
-        },
-        { 
-          text: "Leave the group", 
-          emoji: "🚪",
-          isCorrect: false
-        },
-        { 
-          text: "Share the post", 
-          emoji: "📤",
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 5,
-      text: "Hateful messages target someone's religion. What should you do?",
-      options: [
-        { 
-          text: "Do nothing", 
-          emoji: "😐",
-          isCorrect: false
-        },
-        { 
-          text: "Exit the group chat", 
-          emoji: "🚪",
-          isCorrect: false
-        },
-        { 
-          text: "Defend them and report", 
-          emoji: "💪",
-          isCorrect: true
-        },
-        { 
-          text: "React with a thumbs up", 
-          emoji: "👍",
-          isCorrect: false
-        }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    text: "In a group chat, a joke starts targeting one student’s cultural background and others react with laughing messages. What is the most responsible step?",
+    options: [
+     
+      {
+        text: "Post a laughing reply to avoid attention",
+        emoji: "😅",
+        isCorrect: false
+      },
+      {
+        text: "Screenshot it and share in another chat",
+        emoji: "📸",
+        isCorrect: false
+      },
+      {
+        text: "Mute the chat and continue reading silently",
+        emoji: "🔕",
+        isCorrect: false
+      },
+       {
+        text: "Message the group explaining why the joke is harmful",
+        emoji: "💬",
+        isCorrect: true
+      },
+    ]
+  },
+  {
+    id: 2,
+    text: "A group member forwards an unverified message blaming a community for a problem. What action best reduces harm?",
+    options: [
+     
+      {
+        text: "Forward it quickly so everyone stays informed",
+        emoji: "📨",
+        isCorrect: false
+      },
+      {
+        text: "Reply with sarcasm to embarrass the sender",
+        emoji: "😏",
+        isCorrect: false
+      },
+       {
+        text: "Ask for a reliable source before reacting",
+        emoji: "🔍",
+        isCorrect: true
+      },
+      {
+        text: "Change the topic with a random message",
+        emoji: "🎯",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 3,
+    text: "During a late-night group chat, personal insults begin escalating between two members. What is the healthiest response?",
+    options: [
+      {
+        text: "Suggest taking the conversation offline or pausing it",
+        emoji: "⏸️",
+        isCorrect: true
+      },
+      {
+        text: "Pick a side and support one person publicly",
+        emoji: "⚔️",
+        isCorrect: false
+      },
+      {
+        text: "Add memes to lighten the mood",
+        emoji: "🖼️",
+        isCorrect: false
+      },
+      {
+        text: "Record the chat for entertainment later",
+        emoji: "🎥",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 4,
+    text: "A private screenshot from the group chat is shared without permission. What does this situation mainly highlight?",
+    options: [
+      
+      {
+        text: "That group chats are never private anyway",
+        emoji: "📢",
+        isCorrect: false
+      },
+      {
+        text: "The importance of consent and digital trust",
+        emoji: "🔐",
+        isCorrect: true
+      },
+      {
+        text: "Why screenshots make conversations fun",
+        emoji: "🧩",
+        isCorrect: false
+      },
+      {
+        text: "That deleting messages solves everything",
+        emoji: "🗑️",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 5,
+    text: "A group chat slowly becomes negative, and new members feel uncomfortable participating. What long-term effect can this create?",
+    options: [
+     
+      {
+        text: "It helps people grow thicker skin",
+        emoji: "🧱",
+        isCorrect: false
+      },
+      {
+        text: "It only affects people who are sensitive",
+        emoji: "🧠",
+        isCorrect: false
+      },
+      {
+        text: "It improves honesty in conversations",
+        emoji: "🧭",
+        isCorrect: false
+      },
+       {
+        text: "It can silence voices and damage group trust",
+        emoji: "📉",
+        isCorrect: true
+      },
+    ]
+  }
+];
+
 
   const handleChoice = (isCorrect) => {
     if (answered) return;

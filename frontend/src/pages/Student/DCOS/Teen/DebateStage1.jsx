@@ -23,113 +23,116 @@ const DebateStage1 = () => {
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
   const questions = [
-    {
-      id: 1,
-      text: "Does online identity matter for success?",
-      options: [
-        { 
-          id: "no-matter", 
-          text: "it doesn't matter", 
-          isCorrect: false
-        },
-        { 
-          id: "yes-opportunities", 
-          text: "it affects opportunities", 
-          isCorrect: true
-        },
-        { 
-          id: "maybe", 
-          text: "only for some careers", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 2,
-      text: "Is your online presence important for your future?",
-      options: [
-        { 
-          id: "no-skills", 
-          text: "only skills matter", 
-          isCorrect: false
-        },
-        { 
-          id: "sometimes", 
-          text: "depends on the field", 
-          isCorrect: false
-        },
-        { 
-          id: "yes-check", 
-          text: "employers and colleges check", 
-          isCorrect: true
-        }
-      ]
-    },
-    {
-      id: 3,
-      text: "Can your digital footprint impact your career?",
-      options: [
-        { 
-          id: "no-separate", 
-          text: "online doesn't affect real life", 
-          isCorrect: false
-        },
-        { 
-          id: "yes-help-hurt", 
-          text: "it can help or hurt", 
-          isCorrect: true
-        },
-        { 
-          id: "maybe", 
-          text: "only if it's negative", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 4,
-      text: "Does your online reputation matter for success?",
-      options: [
-        { 
-          id: "yes-identity", 
-          text: "it's part of your identity", 
-          isCorrect: true
-        },
-        { 
-          id: "no-separate-success", 
-          text: "it's separate from success", 
-          isCorrect: false
-        },
-        
-        { 
-          id: "maybe", 
-          text: "only for public figures", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 5,
-      text: "Is building a positive online identity important?",
-      options: [
-        { 
-          id: "no-necessary", 
-          text: "not necessary", 
-          isCorrect: false
-        },
-        { 
-          id: "maybe", 
-          text: "only if you want to be famous", 
-          isCorrect: false
-        },
-        { 
-          id: "yes-doors", 
-          text: "it opens doors", 
-          isCorrect: true
-        }
-      ]
-    }
-  ];
+  {
+    id: 1,
+    text: "During a school debate, someone argues that deleting old posts fully removes them from the internet. Which position is strongest?",
+    options: [
+      
+      {
+        id: "b",
+        text: "Once deleted, content disappears permanently",
+        isCorrect: false
+      },
+      {
+        id: "c",
+        text: "Only famous people need to worry about old posts",
+        isCorrect: false
+      },
+      {
+        id: "a",
+        text: "Deleted content can still exist through screenshots or archives",
+        isCorrect: true
+      },
+    ]
+  },
+  {
+    id: 2,
+    text: "A debate topic asks whether anonymous accounts improve online discussions. What is the most reasonable stance?",
+    options: [
+      {
+        id: "a",
+        text: "They allow free speech without consequences",
+        isCorrect: false
+      },
+      {
+        id: "b",
+        text: "They can reduce accountability and increase misuse",
+        isCorrect: true
+      },
+      {
+        id: "c",
+        text: "They make online spaces completely fair",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 3,
+    text: "In a digital ethics debate, a student claims that reposting content means agreeing with it. Which counter-argument is strongest?",
+    options: [
+      {
+        id: "a",
+        text: "Reposting can spread ideas without understanding them",
+        isCorrect: true
+      },
+      {
+        id: "b",
+        text: "Reposts always show personal belief",
+        isCorrect: false
+      },
+      {
+        id: "c",
+        text: "Algorithms decide meaning, not users",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 4,
+    text: "A debate question asks whether online arguments affect real-world relationships. Which response is most accurate?",
+    options: [
+      
+      {
+        id: "b",
+        text: "Digital conflicts stay separate from real life",
+        isCorrect: false
+      },
+      {
+        id: "a",
+        text: "Online words can influence trust and perception offline",
+        isCorrect: true
+      },
+      {
+        id: "c",
+        text: "Only adults are affected by online arguments",
+        isCorrect: false
+      }
+    ]
+  },
+  {
+    id: 5,
+    text: "During a debate on influence, someone claims likes and followers equal credibility. What is the best rebuttal?",
+    options: [
+      
+      {
+        id: "b",
+        text: "Large audiences always indicate expertise",
+        isCorrect: false
+      },
+      {
+        id: "c",
+        text: "Only viral content should be trusted",
+        isCorrect: false
+      },
+      {
+        id: "a",
+        text: "Popularity does not guarantee accuracy or responsibility",
+        isCorrect: true
+      },
+    ]
+  }
+];
+
 
   const handleChoice = (selectedChoice) => {
     const newChoices = [...choices, { 

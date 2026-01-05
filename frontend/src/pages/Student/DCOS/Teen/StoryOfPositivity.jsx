@@ -72,6 +72,11 @@ const StoryOfPositivity = () => {
       text: "A teen celebrates their achievement in a positive way. Result?",
       options: [
         { 
+          id: "builds-identity", 
+          text: "Builds positive identity and respect", 
+          isCorrect: true
+        },
+        { 
           id: "just-post", 
           text: "Just another post", 
           isCorrect: false
@@ -82,11 +87,7 @@ const StoryOfPositivity = () => {
           text: "Gets some likes", 
           isCorrect: false
         },
-        { 
-          id: "builds-identity", 
-          text: "Builds positive identity and respect", 
-          isCorrect: true
-        },
+        
       ]
     },
     {

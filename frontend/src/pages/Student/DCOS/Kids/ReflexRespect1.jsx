@@ -168,7 +168,7 @@ const ReflexRespect1 = () => {
 
   return (
     <GameShell
-      title="Reflex Respect1"
+      title="Reflex Respect"
       subtitle={gameState === "playing" ? `Round ${currentRound}/${TOTAL_ROUNDS}: Test your respect reflexes!` : "Test your respect reflexes!"}
       currentLevel={currentRound}
       totalLevels={TOTAL_ROUNDS}

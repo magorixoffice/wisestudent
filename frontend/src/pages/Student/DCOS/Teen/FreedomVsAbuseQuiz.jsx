@@ -43,21 +43,21 @@ const FreedomVsAbuseQuiz = () => {
         { 
           id: "a", 
           text: "free speech allows it", 
-          emoji: "🗣️", 
+          emoji: "🤔", 
           
           isCorrect: false
         },
         { 
           id: "b", 
           text: "it's harassment and abuse", 
-          emoji: "🙅", 
+          emoji: "😕", 
           
           isCorrect: true
         },
         { 
           id: "c", 
           text: "depends on context", 
-          emoji: "🤔", 
+          emoji: "😐", 
           
           isCorrect: false
         }
@@ -70,7 +70,7 @@ const FreedomVsAbuseQuiz = () => {
         { 
           id: "a", 
           text: "you can say anything", 
-          emoji: "🗣️", 
+          emoji: "🤨", 
           isCorrect: false
         },
         
@@ -83,7 +83,7 @@ const FreedomVsAbuseQuiz = () => {
         { 
           id: "b", 
           text: "it's defamation and harmful", 
-          emoji: "🙅", 
+          emoji: "😐", 
           isCorrect: true
         },
       ]
@@ -119,13 +119,13 @@ const FreedomVsAbuseQuiz = () => {
          { 
           id: "b", 
           text: "it causes real harm", 
-          emoji: "🙅", 
+          emoji: "🤕", 
           isCorrect: true
         },
         { 
           id: "a", 
           text: "it's just online", 
-          emoji: "🗣️", 
+          emoji: "😕", 
           isCorrect: false
         },
        
@@ -144,19 +144,19 @@ const FreedomVsAbuseQuiz = () => {
         { 
           id: "a", 
           text: "free speech protects everything", 
-          emoji: "🗣️", 
+          emoji: "🙂", 
           isCorrect: false
         },
         { 
           id: "b", 
           text: "it causes harm and is not protected", 
-          emoji: "🙅", 
+          emoji: "😢", 
           isCorrect: true
         },
         { 
           id: "c", 
           text: "if it's your opinion", 
-          emoji: "🤔", 
+          emoji: "😏", 
           isCorrect: false
         }
       ]
