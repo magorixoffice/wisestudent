@@ -43,7 +43,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-1',
             title: 'Stranger Story',
-            description: 'You see an old woman carrying heavy bags. Should you help? → Yes. 🛍️',
             icon: <Heart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -57,7 +56,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-2',
             title: 'Quiz on Compassion',
-            description: 'What is compassion? (a) Caring for others, (b) Ignoring needs). Correct = Caring for others. ❤️',
             icon: <Users className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -70,7 +68,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-3',
             title: 'Reflex Teen Compassion',
-            description: 'Tap ❤️ for "Help Others," ❌ for "Ignore." → Tap ❤️. ⚡',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Hard',
             duration: '2 min',
@@ -83,7 +80,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-4',
             title: 'Puzzle: Kind Acts',
-            description: 'Match "Help Elderly → 🧓 Respect, Donate → 💝 Kindness, Volunteer → 🤝 Service." ✨',
             icon: <Puzzle className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -96,7 +92,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-5',
             title: 'Refugee Story',
-            description: 'Teen meets refugee classmate. Should she include or exclude? → Include. 🌍',
             icon: <Globe className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -109,7 +104,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-6',
             title: 'Debate: Kindness Wins?',
-            description: 'Is kindness weakness or strength? → Strength. 🏆',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Hard',
             duration: '6 min',
@@ -122,7 +116,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-7',
             title: 'Journal of Compassion',
-            description: 'Write: "One time I showed compassion was ___." ✍️',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -135,7 +128,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-8',
             title: 'Simulation: Hospital Visit',
-            description: 'Options: Bring cheer / Ignore patients. Correct = Bring cheer. 🏥',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -148,7 +140,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-9',
             title: 'Reflex: Global Empathy',
-            description: 'Tap 🤝 for "Global Care," ❌ for "Ignore World." → Tap 🤝. 🌎',
             icon: <Sparkles className="w-6 h-6" />,
             difficulty: 'Hard',
             duration: '2 min',
@@ -161,7 +152,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-10',
             title: 'Badge: Compassion Leader',
-            description: 'Complete 5 compassionate acts to earn your badge. 🏅',
             icon: <Award className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -176,7 +166,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-11',
             title: 'Cultural Story',
-            description: 'Teen meets friend from another religion. Should she mock or learn? → Learn and respect. 🕌',
             icon: <Handshake className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -189,7 +178,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-12',
             title: 'Quiz on Inclusion',
-            description: 'Inclusion means? (a) Leaving out people, (b) Including all fairly). Correct = Including all fairly. 🎯',
             icon: <School className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -202,7 +190,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-13',
             title: 'Reflex Teen Respect',
-            description: 'Tap 🙋‍♀️ for "Respect Women," ❌ for "Disrespect Women." → Tap 🙋‍♀️. ⚡',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Hard',
             duration: '2 min',
@@ -215,7 +202,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-14',
             title: 'Puzzle: Inclusion Acts',
-            description: 'Match "Invite → 🎒 New Student, Listen → 👥 Everyone, Share → 🤝 Team." ✨',
             icon: <Puzzle className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -228,7 +214,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-15',
             title: 'Religion Story',
-            description: 'A friend prays differently. Should you laugh or respect? → Respect. 🙏',
             icon: <Medal className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -241,7 +226,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-16',
             title: 'Debate: Equality for All?',
-            description: 'Should all students be treated equally? → Yes. 🏆',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Hard',
             duration: '6 min',
@@ -254,7 +238,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-17',
             title: 'Journal of Inclusion',
-            description: 'Write: "One time I included someone new was ___." ✍️',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -267,7 +250,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-18',
             title: 'Simulation: School Event',
-            description: 'Team excludes a new classmate. Options: Add her / Ignore / Laugh. Correct = Add her. 🎯',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -280,7 +262,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-19',
             title: 'Reflex Teen Inclusion',
-            description: 'Tap ⚖️ for "Equal Rights," ❌ for "Only Some Deserve." → Tap ⚖️. ⚡',
             icon: <Sparkles className="w-6 h-6" />,
             difficulty: 'Hard',
             duration: '2 min',
@@ -293,7 +274,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-20',
             title: 'Badge: Inclusion Leader',
-            description: 'Complete 5 inclusion actions to earn your badge. 🏅',
             icon: <Award className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -308,7 +288,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-21',
             title: 'Education Story',
-            description: 'Teen girl wants to study engineering. Should parents stop her? → No. 🎓',
             icon: <School className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -321,7 +300,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-22',
             title: 'Quiz on Teen Rights',
-            description: 'Which is a gender right? (a) Equal education, (b) Unequal pay). Correct = Equal education. 🎯',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -334,7 +312,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-23',
             title: 'Reflex Teen Rights',
-            description: 'Tap 💼 for "Equal Opportunities," ❌ for "Only Boys Allowed." → Tap 💼. ⚡',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Hard',
             duration: '2 min',
@@ -347,7 +324,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-24',
             title: 'Puzzle: Gender Barriers',
-            description: 'Match "Equal Pay → ✅ Fair, Girls Out of School → ❌ Wrong, Women Leaders → 👍 Positive." ✨',
             icon: <Puzzle className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -360,7 +336,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-25',
             title: 'Sports Story',
-            description: 'Teen girl wants to join football team. Should coach stop her? → No. ⚽',
             icon: <Medal className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -373,7 +348,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-26',
             title: 'Debate: Girls as Leaders?',
-            description: 'Should girls lead nations? → Yes, leadership has no gender. 🏆',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Hard',
             duration: '6 min',
@@ -386,7 +360,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-27',
             title: 'Journal of Teen Equality',
-            description: 'Write: "One gender stereotype I want to break is ___." ✍️',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -399,7 +372,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-28',
             title: 'Simulation: Teen Choices',
-            description: 'Teen is told, "Girls can\'t code." Options: Believe it / Prove them wrong. Correct = Prove them wrong. 💻',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -412,7 +384,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-29',
             title: 'Reflex Gender Alert',
-            description: 'Tap 🤝 for "Equal Respect," ❌ for "Unequal Treatment." → Tap 🤝. ⚡',
             icon: <Sparkles className="w-6 h-6" />,
             difficulty: 'Hard',
             duration: '2 min',
@@ -425,7 +396,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-30',
             title: 'Badge: Gender Rights Teen',
-            description: 'Show 5 gender rights actions to earn your badge. 🏅',
             icon: <Award className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -440,7 +410,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-31',
             title: 'Cyberbully Story',
-            description: 'Teen receives mean messages online. Should she ignore or report? → Report. 💻',
             icon: <Monitor className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -453,7 +422,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-32',
             title: 'Quiz on Cyberbullying',
-            description: 'What is cyberbullying? (a) Online teasing/abuse, (b) Sports). Correct = Online teasing/abuse. 🎯',
             icon: <MessageCircle className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -466,7 +434,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-33',
             title: 'Reflex Teen Bully Alert',
-            description: 'Tap 🚫 for "Block + Report," ❌ for "Reply Angrily." → Tap 🚫. ⚡',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Hard',
             duration: '2 min',
@@ -479,7 +446,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-34',
             title: 'Puzzle: Peer Support',
-            description: 'Match "Friend Sad → 🤗 Comfort, Cyberbully → 📱 Report, Bully Victim → 🛡️ Defend." ✨',
             icon: <Puzzle className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -492,7 +458,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-35',
             title: 'School Story',
-            description: 'A new girl is bullied for accent. Should you include or exclude? → Include. 🗣️',
             icon: <School className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -505,7 +470,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-36',
             title: 'Debate: Ignore or Report?',
-            description: 'Should bullying be ignored or reported? → Report. 🏆',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Hard',
             duration: '6 min',
@@ -518,7 +482,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-37',
             title: 'Journal of Peer Support',
-            description: 'Write: "I helped a bullied friend by ___." ✍️',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -531,7 +494,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-38',
             title: 'Simulation: Teen Bully Scene',
-            description: 'Bully teases classmate. Options: Join / Stay silent / Defend. Correct = Defend. 🛡️',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -544,7 +506,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-39',
             title: 'Reflex Teen Courage',
-            description: 'Tap 🗣️ for "Speak Against Bully," ❌ for "Be Silent." → Tap 🗣️. ⚡',
             icon: <Sparkles className="w-6 h-6" />,
             difficulty: 'Hard',
             duration: '2 min',
@@ -557,7 +518,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-40',
             title: 'Badge: Peer Protector Teen',
-            description: 'Support peers in 5 bullying cases to earn your badge. 🏅',
             icon: <Award className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -572,7 +532,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-41',
             title: 'Disagreement Story',
-            description: 'Teen friends fight over a project idea. Should they discuss calmly or fight? → Discuss calmly. 🗣️',
             icon: <MessageCircle className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -585,7 +544,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-42',
             title: 'Quiz on Conflict',
-            description: 'Best way to solve conflict? (a) Talk and listen, (b) Fight). Correct = Talk and listen. 🎯',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -598,7 +556,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-43',
             title: 'Reflex Conflict Check',
-            description: 'Tap 🤝 for "Solve by Dialogue," ❌ for "Solve by Fighting." → Tap 🤝. ⚡',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Hard',
             duration: '2 min',
@@ -611,7 +568,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-44',
             title: 'Puzzle: Conflict Solutions',
-            description: 'Match "Listen → 👂 Respect, Apologize → 🫂 Heal, Shout → 😠 Wrong." ✨',
             icon: <Puzzle className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -624,7 +580,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-45',
             title: 'Friendship Story',
-            description: 'Teen argues with best friend. Should she apologize or stay angry? → Apologize. 🙏',
             icon: <Heart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -637,7 +592,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-46',
             title: 'Debate: Apology = Weakness?',
-            description: 'Is saying sorry a weakness or strength? → Strength. 🏆',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Hard',
             duration: '6 min',
@@ -650,7 +604,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-47',
             title: 'Journal of Conflict',
-            description: 'Write: "One time I solved a conflict by ___." ✍️',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -663,7 +616,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-48',
             title: 'Simulation: Teen Fight',
-            description: 'Two classmates fight loudly. Options: Mediate / Join fight / Walk away. Correct = Mediate. 🕊️',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -676,7 +628,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-49',
             title: 'Reflex Teen Peace',
-            description: 'Tap 🧘 for "Stay Calm," ❌ for "Get Violent." → Tap 🧘. ⚡',
             icon: <Sparkles className="w-6 h-6" />,
             difficulty: 'Hard',
             duration: '2 min',
@@ -689,7 +640,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-50',
             title: 'Badge: Peace Maker Teen',
-            description: 'Solve 5 conflicts positively to earn your badge. 🏅',
             icon: <Award className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -704,7 +654,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-51',
             title: 'Blood Donation Camp Story',
-            description: 'Teen is too young to donate blood. How else can she help? → Assist in camp. 🩸',
             icon: <HeartPulse className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -717,7 +666,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-52',
             title: 'Quiz on Volunteering',
-            description: 'Which is volunteering? (a) Helping at beach clean-up, (b) Watching TV). Correct = Helping at clean-up. 🎯',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -730,7 +678,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-53',
             title: 'Reflex Teen Volunteer',
-            description: 'Tap 🌱 for "Plant Trees," ❌ for "Cut Trees." → Tap 🌱. ⚡',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Hard',
             duration: '2 min',
@@ -743,7 +690,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-54',
             title: 'Puzzle: Volunteer Areas',
-            description: 'Match "Hospital → 🏥 Support, School → 📚 Tutor, Nature → 🌳 Plant Trees." ✨',
             icon: <Puzzle className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -756,7 +702,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-55',
             title: 'Fundraising Story',
-            description: 'Teen organizes bake sale for charity. What is this? → Volunteering with impact. 🧁',
             icon: <Gift className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -769,7 +714,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-56',
             title: 'Debate: Service = Waste?',
-            description: 'Is community service a waste of time? → No, it builds society. 🏆',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Hard',
             duration: '6 min',
@@ -782,7 +726,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-57',
             title: 'Journal of Teen Service',
-            description: 'Write: "One volunteer activity I want to try is ___." ✍️',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -795,7 +738,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-58',
             title: 'Simulation: Clean-Up Drive',
-            description: 'Teen group sees garbage. Options: Organize clean-up / Walk away / Blame others. Correct = Organize clean-up. 🗑️',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -808,7 +750,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-59',
             title: 'Reflex Service Mindset',
-            description: 'Tap 🤲 for "Help Poor," ❌ for "Mock Poor." → Tap 🤲. ⚡',
             icon: <Sparkles className="w-6 h-6" />,
             difficulty: 'Hard',
             duration: '2 min',
@@ -821,7 +762,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-60',
             title: 'Badge: Volunteer Leader Teen',
-            description: 'Complete 5 teen volunteer challenges to earn your badge. 🏅',
             icon: <Award className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -836,7 +776,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-61',
             title: 'Education Story',
-            description: 'Teen girl forced to quit school for marriage. Is this right? → No. 📚',
             icon: <School className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -849,7 +788,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-62',
             title: 'Quiz on Social Justice',
-            description: 'Social justice means? (a) Fairness for all, (b) Favouritism). Correct = Fairness for all. 🎯',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -862,7 +800,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-63',
             title: 'Reflex Teen Justice',
-            description: 'Tap ⚖️ for "Equality," ❌ for "Discrimination." → Tap ⚖️. ⚡',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Hard',
             duration: '2 min',
@@ -875,7 +812,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-64',
             title: 'Puzzle: Justice Heroes',
-            description: 'Match "Mahatma Gandhi → 🕊️ Freedom, Martin Luther King → ✊ Equality, Malala → 📖 Education." ✨',
             icon: <Puzzle className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -888,7 +824,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-65',
             title: 'Wage Story',
-            description: 'Teen reads workers not paid equally. What is this? → Injustice. 💰',
             icon: <IndianRupee className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -901,7 +836,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-66',
             title: 'Debate: All Humans Equal?',
-            description: 'Should all humans have equal rights? → Yes. 🏆',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Hard',
             duration: '6 min',
@@ -914,7 +848,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-67',
             title: 'Journal of Justice',
-            description: 'Write: "One unfair thing I noticed is ___." ✍️',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -927,7 +860,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-68',
             title: 'Simulation: Teen Justice Act',
-            description: 'Teen hears slurs against classmate. Options: Speak up / Stay silent / Join. Correct = Speak up. 🗣️',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -940,7 +872,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-69',
             title: 'Reflex Teen Rights',
-            description: 'Tap 🌍 for "Justice for All," ❌ for "Justice for Few." → Tap 🌍. ⚡',
             icon: <Sparkles className="w-6 h-6" />,
             difficulty: 'Hard',
             duration: '2 min',
@@ -953,7 +884,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-70',
             title: 'Badge: Justice Teen',
-            description: 'Complete 5 social justice cases to earn your badge. 🏅',
             icon: <Award className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -968,7 +898,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-71',
             title: 'Constitution Story',
-            description: 'What is the book of rules for our country? → The Constitution. 📖',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -981,7 +910,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-72',
             title: 'Quiz on Rights & Duties',
-            description: 'Which is a duty? (a) Pay taxes, (b) Waste resources). Correct = Pay taxes. 🎯',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -994,7 +922,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-73',
             title: 'Reflex Teen Law',
-            description: 'Tap ⚖️ for "Obey Laws," ❌ for "Break Laws." → Tap ⚖️. ⚡',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Hard',
             duration: '2 min',
@@ -1007,7 +934,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-74',
             title: 'Puzzle: Match Civic Roles',
-            description: 'Match "Judge → ⚖️ Court, Police → 🚓 Safety, Voter → 🗳️ Democracy." ✨',
             icon: <Puzzle className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1020,7 +946,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-75',
             title: 'Voter Story',
-            description: 'At 18, what duty do you gain? → Right to vote. 🗳️',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1033,7 +958,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-76',
             title: 'Debate: Rights vs Duties',
-            description: 'Are rights more important than duties? → Both must balance. 🏆',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Hard',
             duration: '6 min',
@@ -1046,7 +970,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-77',
             title: 'Journal of Law Awareness',
-            description: 'Write: "One law that keeps me safe is ___." ✍️',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -1059,7 +982,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-78',
             title: 'Simulation: Teen Citizen',
-            description: 'Teen sees corruption. Options: Report / Join / Ignore. Correct = Report. 📢',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -1072,7 +994,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-79',
             title: 'Reflex Teen Duty',
-            description: 'Tap 🇮🇳 for "Respect Nation," ❌ for "Ignore Laws." → Tap 🇮🇳. ⚡',
             icon: <Sparkles className="w-6 h-6" />,
             difficulty: 'Hard',
             duration: '2 min',
@@ -1085,7 +1006,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-80',
             title: 'Badge: Responsible Citizen Teen',
-            description: 'Complete 5 law-awareness activities to earn your badge. 🏅',
             icon: <Award className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1100,7 +1020,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-81',
             title: 'Climate Story',
-            description: 'Floods affect kids in another country. Should you care? → Yes. 🌍',
             icon: <Globe className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1113,7 +1032,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-82',
             title: 'Quiz on Global Citizenship',
-            description: 'Global citizenship means? (a) Caring for whole world, (b) Only self). Correct = Caring for whole world. 🎯',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -1126,7 +1044,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-83',
             title: 'Reflex Teen Global',
-            description: 'Tap 🤝 for "Help Across Borders," ❌ for "Ignore Others." → Tap 🤝. ⚡',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Hard',
             duration: '2 min',
@@ -1139,7 +1056,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-84',
             title: 'Puzzle: Global Leaders',
-            description: 'Match "UNICEF → 👧 Children, WHO → 🩺 Health, UNESCO → 📚 Education." ✨',
             icon: <Puzzle className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1152,7 +1068,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-85',
             title: 'Teen Exchange Story',
-            description: 'Teen meets student from another country. Should she share cultures? → Yes. 🌐',
             icon: <Users className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1165,7 +1080,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-86',
             title: 'Debate: One World?',
-            description: 'Is the world one family? → Yes. 🏆',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Hard',
             duration: '6 min',
@@ -1178,7 +1092,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-87',
             title: 'Journal of Global Values',
-            description: 'Write: "One way I can act like a global citizen is ___." ✍️',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -1191,7 +1104,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-88',
             title: 'Simulation: Global Project',
-            description: 'Teens join online project. Options: Collaborate / Ignore / Mock. Correct = Collaborate. 💻',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -1204,7 +1116,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-89',
             title: 'Reflex Teen Awareness',
-            description: 'Tap 🌈 for "Cultural Respect," ❌ for "Cultural Hate." → Tap 🌈. ⚡',
             icon: <Sparkles className="w-6 h-6" />,
             difficulty: 'Hard',
             duration: '2 min',
@@ -1217,7 +1128,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-90',
             title: 'Badge: Global Teen',
-            description: 'Complete 5 global citizen acts to earn your badge. 🏅',
             icon: <Award className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1232,7 +1142,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-91',
             title: 'Student Council Story',
-            description: 'Teen elected as class rep. Should she serve all or only friends? → Serve all. 👥',
             icon: <Users className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1245,7 +1154,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-92',
             title: 'Quiz on Leadership',
-            description: 'A good leader is? (a) Fair, (b) Bossy). Correct = Fair. 🎯',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -1258,7 +1166,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-93',
             title: 'Reflex Teen Leader',
-            description: 'Tap 👂 for "Listen to Team," ❌ for "Ignore Team." → Tap 👂. ⚡',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Hard',
             duration: '2 min',
@@ -1271,7 +1178,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-94',
             title: 'Puzzle: Leader Traits',
-            description: 'Match "Honesty → 🤝 Trust, Courage -✨ Inspire, Respect → ❤️ Loyalty." ✨',
             icon: <Puzzle className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1284,7 +1190,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-95',
             title: 'Protest Story',
-            description: 'Students want safer roads. Should they protest violently or petition peacefully? → Petition peacefully. 🕊️',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1297,7 +1202,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-96',
             title: 'Debate: Youth Leaders?',
-            description: 'Can teens lead big change? → Yes. 🏆',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Hard',
             duration: '6 min',
@@ -1310,7 +1214,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-97',
             title: 'Journal of Leadership',
-            description: 'Write: "One leadership quality I have is ___." ✍️',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -1323,7 +1226,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-98',
             title: 'Simulation: Teen Civic Project',
-            description: 'Teen team runs campaign. Options: Plan + Act / Waste time / Quit. Correct = Plan + Act. 📋',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -1336,7 +1238,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-99',
             title: 'Reflex Teen Civic Duty',
-            description: 'Tap 🌟 for "Lead With Respect," ❌ for "Lead With Fear." → Tap 🌟. ⚡',
             icon: <Sparkles className="w-6 h-6" />,
             difficulty: 'Hard',
             duration: '2 min',
@@ -1349,7 +1250,6 @@ export const getCrgcTeensGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-teens-100',
             title: 'Badge: Civic Leader Teen',
-            description: 'Complete 5 civic leadership activities to earn your badge. 🏅',
             icon: <Award className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',

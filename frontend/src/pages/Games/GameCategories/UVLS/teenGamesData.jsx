@@ -58,8 +58,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-1",
           title: "Listen Deep",
-          description:
-            "Respond supportively to a peer sharing a personal problem",
           icon: <HandHeart className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6-8 min",
@@ -73,7 +71,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-2",
           title: "Empathy Quiz",
-          description: "Distinguish empathy vs sympathy in scenarios",
           icon: <Heart className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4-6 min",
@@ -87,7 +84,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-3",
           title: "Perspective Puzzle",
-          description: "Map responses to how they help others",
           icon: <Target className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -101,7 +97,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-4",
           title: "Walk in Shoes Simulation",
-          description: "Experience choices as a marginalized student",
           icon: <Users className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8-10 min",
@@ -115,7 +110,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-5",
           title: "Empathy Debate",
-          description: "Argue for school empathy curriculum",
           icon: <GraduationCap className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "20-30 min",
@@ -129,7 +123,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-6",
           title: "Reflective Journal",
-          description: "Write reflecting on understanding someone different",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "10-12 min",
@@ -143,7 +136,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-7",
           title: "Peer Support Roleplay",
-          description: "Practice a peer-support conversation",
           icon: <Heart className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "8-10 min",
@@ -157,7 +149,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-8",
           title: "Case-Response Puzzle",
-          description: "Choose best empathetic responses in a multi-part case",
           icon: <Target className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -171,7 +162,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-9",
           title: "Spot Distress Reflex",
-          description: "Rapidly detect subtle distress cues",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "3-5 min",
@@ -185,7 +175,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-10",
           title: "Empathy Champion Badge",
-          description: "Complete 5 teen empathy tasks",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "Cumulative",
@@ -199,8 +188,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-11",
           title: "Cultural Greeting",
-          description:
-            "Choose respectful greeting for different cultural contexts",
           icon: <HandHeart className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -214,7 +201,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-12",
           title: "Inclusion Quiz",
-          description: "Identify inclusive school actions/policies",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -228,7 +214,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-13",
           title: "Accessibility Puzzle",
-          description: "Match accommodations to student needs",
           icon: <Target className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "7 min",
@@ -242,7 +227,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-14",
           title: "Inclusive Class Simulation",
-          description: "Design an activity that allows participation for all",
           icon: <Users className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "10-12 min",
@@ -256,7 +240,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-15",
           title: "Respect Debate",
-          description: "Debate whether respect equals agreement",
           icon: <GraduationCap className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "20 min",
@@ -270,7 +253,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-16",
           title: "Inclusion Journal",
-          description: "Describe when you challenged exclusion & outcome",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "10 min",
@@ -284,7 +266,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-17",
           title: "Correcting Bias Roleplay",
-          description: "Practice calling out bias respectfully",
           icon: <Heart className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8-10 min",
@@ -298,7 +279,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-18",
           title: "Name Respect Reflex",
-          description: "Identify correct pronunciation & respond respectfully",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -312,7 +292,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-19",
           title: "Policy Case Puzzle",
-          description: "Recommend inclusive policy actions for a school case",
           icon: <Target className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "10 min",
@@ -326,7 +305,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-20",
           title: "Respect Leader Badge",
-          description: "Complete 5 inclusion leadership tasks",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "Variable",
@@ -340,8 +318,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-21",
           title: "Encourage Ambition",
-          description:
-            "Model supportive responses when peers state career ambitions.",
           icon: <Users className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -355,7 +331,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-22",
           title: "Rights & Law Quiz",
-          description: "Learn about gender equality laws and key policies.",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -369,7 +344,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-23",
           title: "Bias Spot Reflex",
-          description: "Tap when biased remarks appear in short clips.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -383,11 +357,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-24",
           title: "Workplace Puzzle",
-          description:
-            "Identify biased practices and match effective remedies.",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
-          duration: "8–10 min",
+          duration: "8â€“10 min",
           coins: 5,
           xp: 10,
           completed: gameCompletionStatus["uvls-teen-24"] || false,
@@ -398,10 +370,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-25",
           title: "Program Design Simulation",
-          description: "Draft a school program to increase girl participation.",
           icon: <MonitorPlay className="w-6 h-6" />,
           difficulty: "Hard",
-          duration: "12–15 min",
+          duration: "12â€“15 min",
           coins: 5,
           xp: 10,
           completed: gameCompletionStatus["uvls-teen-25"] || false,
@@ -412,7 +383,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-26",
           title: "Equality Debate",
-          description: "Debate policy vs culture in gender equality.",
           icon: <Megaphone className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "20 min",
@@ -426,8 +396,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-27",
           title: "Ally Journal",
-          description:
-            "Plan a concrete ally action to support gender equality.",
           icon: <PenLine className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "10 min",
@@ -441,10 +409,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-28",
           title: "Intervention Roleplay",
-          description: "Practice safely confronting discriminatory comments.",
           icon: <Theater className="w-6 h-6" />,
           difficulty: "Medium",
-          duration: "8–10 min",
+          duration: "8â€“10 min",
           coins: 10,
           xp: 20,
           completed: gameCompletionStatus["uvls-teen-28"] || false,
@@ -455,7 +422,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-29",
           title: "Rights Application Puzzle",
-          description: "Match legal steps to protect rights effectively.",
           icon: <Scale className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "8 min",
@@ -469,7 +435,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-30",
           title: "Gender Justice Leader Badge",
-          description: "Lead 5 equality initiatives to earn badge.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "Variable",
@@ -483,10 +448,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-31",
           title: "Online Harass Scenario",
-          description: "Choose safe responses to online harassment.",
           icon: <ShieldAlert className="w-6 h-6" />,
           difficulty: "Medium",
-          duration: "6–8 min",
+          duration: "6â€“8 min",
           coins: 10,
           xp: 20,
           completed: gameCompletionStatus["uvls-teen-31"] || false,
@@ -497,7 +461,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-32",
           title: "Reporting Quiz",
-          description: "Learn how to report bullying safely and correctly.",
           icon: <ClipboardCheck className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -511,7 +474,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-33",
           title: "Support Network Puzzle",
-          description: "Match support roles (teacher, parent) to actions.",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "7 min",
@@ -525,7 +487,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-34",
           title: "Intervention Simulation",
-          description: "Choose calm actions in a bully scenario simulation.",
           icon: <MonitorPlay className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "10 min",
@@ -539,7 +500,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-35",
           title: "Rehab vs Punish Debate",
-          description: "Argue best approach for dealing with bullies.",
           icon: <Megaphone className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "20 min",
@@ -553,8 +513,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-36",
           title: "Long-term Journal",
-          description:
-            "Create a step-by-step support plan for a bullied student.",
           icon: <PenLine className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "12 min",
@@ -568,10 +526,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-37",
           title: "Counselor Roleplay",
-          description: "Simulate a support conversation with a counselor.",
           icon: <Theater className="w-6 h-6" />,
           difficulty: "Medium",
-          duration: "8–10 min",
+          duration: "8â€“10 min",
           coins: 10,
           xp: 20,
           completed: gameCompletionStatus["uvls-teen-37"] || false,
@@ -582,10 +539,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-38",
           title: "Cyber Safety Reflex",
-          description: "Tap to report trolling or abusive online posts.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Easy",
-          duration: "4–6 min",
+          duration: "4â€“6 min",
           coins: 10,
           xp: 20,
           completed: gameCompletionStatus["uvls-teen-38"] || false,
@@ -596,10 +552,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-39",
           title: "Systemic Case Puzzle",
-          description: "Design a school-wide anti-bullying program.",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Hard",
-          duration: "12–15 min",
+          duration: "12â€“15 min",
           coins: 10,
           xp: 20,
           completed: gameCompletionStatus["uvls-teen-39"] || false,
@@ -610,8 +565,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-40",
           title: "Anti-Bullying Champion Badge",
-          description:
-            "Complete 5 sustained anti-bullying actions to earn this badge.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "Variable",
@@ -625,8 +578,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-41",
           title: "Emotional Check-in",
-          description:
-            "Identify and label emotions accurately using emotion wheel.",
           icon: <Heart className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -640,8 +591,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-42",
           title: "Trigger Quiz",
-          description:
-            "Recognize common personal and academic stress triggers.",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -655,10 +604,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-43",
           title: "Advanced Breathing Simulation",
-          description: "Practice guided breathing to regulate emotions.",
           icon: <Wind className="w-6 h-6" />,
           difficulty: "Medium",
-          duration: "5–8 min",
+          duration: "5â€“8 min",
           coins: 10,
           xp: 20,
           completed: gameCompletionStatus["uvls-teen-43"] || false,
@@ -669,7 +617,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-44",
           title: "Coping Strategy Puzzle",
-          description: "Match problem types to best coping strategies.",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "7 min",
@@ -683,10 +630,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-45",
           title: "De-escalation Roleplay",
-          description: "Choose calm words to defuse heated arguments.",
           icon: <Theater className="w-6 h-6" />,
           difficulty: "Medium",
-          duration: "8–10 min",
+          duration: "8â€“10 min",
           coins: 10,
           xp: 20,
           completed: gameCompletionStatus["uvls-teen-45"] || false,
@@ -697,10 +643,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-46",
           title: "Emotion Pattern Journal",
-          description: "Track moods and reflect on patterns over a week.",
           icon: <PenLine className="w-6 h-6" />,
           difficulty: "Medium",
-          duration: "15–20 min",
+          duration: "15â€“20 min",
           coins: 10,
           xp: 20,
           completed: gameCompletionStatus["uvls-teen-46"] || false,
@@ -711,11 +656,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-47",
           title: "Peer Support Simulation",
-          description:
-            "Plan a small group support session for a stressed peer.",
           icon: <Users className="w-6 h-6" />,
           difficulty: "Medium",
-          duration: "10–12 min",
+          duration: "10â€“12 min",
           coins: 10,
           xp: 20,
           completed: gameCompletionStatus["uvls-teen-47"] || false,
@@ -726,11 +669,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-48",
           title: "Self-check Reflex",
-          description:
-            "Tap when tension cues appear to practice self-awareness.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Easy",
-          duration: "4–6 min",
+          duration: "4â€“6 min",
           coins: 10,
           xp: 20,
           completed: gameCompletionStatus["uvls-teen-48"] || false,
@@ -741,10 +682,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-49",
           title: "Build Toolbox Puzzle",
-          description: "Assemble your personalized emotion regulation toolbox.",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
-          duration: "8–10 min",
+          duration: "8â€“10 min",
           coins: 10,
           xp: 20,
           completed: gameCompletionStatus["uvls-teen-49"] || false,
@@ -755,8 +695,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-50",
           title: "Emotional Responder Badge",
-          description:
-            "Demonstrate 5 emotion regulation strategies to earn badge.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "Cumulative",
@@ -770,10 +708,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-51",
           title: "Evidence Check",
-          description: "Evaluate a short claim using quick evidence checks.",
           icon: <CheckCircle className="w-6 h-6" />,
           difficulty: "Easy",
-          duration: "6–8 min",
+          duration: "6â€“8 min",
           coins: 15,
           xp: 30,
           completed: gameCompletionStatus["uvls-teen-51"] || false,
@@ -784,7 +721,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-52",
           title: "Fake News Quiz",
-          description: "Spot false headlines and explain why.",
           icon: <AlertCircle className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "6 min",
@@ -798,7 +734,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-53",
           title: "Trade-offs Puzzle",
-          description: "Compare pros/cons and pick best compromise.",
           icon: <Scale className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "8 min",
@@ -812,10 +747,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-54",
           title: "Scenario Simulation",
-          description: "Run simulated outcomes of different choices.",
           icon: <PlayCircle className="w-6 h-6" />,
           difficulty: "Medium",
-          duration: "10–12 min",
+          duration: "10â€“12 min",
           coins: 15,
           xp: 30,
           completed: gameCompletionStatus["uvls-teen-54"] || false,
@@ -826,11 +760,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-55",
           title: "Ethical Roleplay",
-          description:
-            "Negotiate honest vs convenient shortcut & justify choice.",
           icon: <Users className="w-6 h-6" />,
           difficulty: "Hard",
-          duration: "8–10 min",
+          duration: "8â€“10 min",
           coins: 15,
           xp: 30,
           completed: gameCompletionStatus["uvls-teen-55"] || false,
@@ -841,10 +773,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-56",
           title: "Bias Detection Reflex",
-          description: "Rapidly detect biased statements.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Easy",
-          duration: "4–6 min",
+          duration: "4â€“6 min",
           coins: 15,
           xp: 30,
           completed: gameCompletionStatus["uvls-teen-56"] || false,
@@ -855,7 +786,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-57",
           title: "Evidence Journal",
-          description: "Record evidence used in a recent personal decision.",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "10 min",
@@ -869,10 +799,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-58",
           title: "Timed Debate",
-          description: "Prepare and defend a stance in 60 seconds.",
           icon: <Mic className="w-6 h-6" />,
           difficulty: "Hard",
-          duration: "10–15 min",
+          duration: "10â€“15 min",
           coins: 15,
           xp: 30,
           completed: gameCompletionStatus["uvls-teen-58"] || false,
@@ -883,7 +812,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-59",
           title: "Policy Puzzle",
-          description: "Suggest practical improvements to a school policy.",
           icon: <FileText className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "12 min",
@@ -897,8 +825,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-60",
           title: "Decision Master Badge",
-          description:
-            "Complete 5 evidence-based decision tasks to earn badge.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "Cumulative",
@@ -912,7 +838,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-61",
           title: "Tough Conversation",
-          description: "Choose tone & phrasing for an honest talk with friend.",
           icon: <MessageCircle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "8 min",
@@ -926,7 +851,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-62",
           title: "Nonverbal Quiz",
-          description: "Match body language cues with intent.",
           icon: <Eye className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "6 min",
@@ -940,10 +864,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-63",
           title: "Clarify Reflex",
-          description: "Spot when a speaker needs clarification and prompt.",
           icon: <HelpCircle className="w-6 h-6" />,
           difficulty: "Easy",
-          duration: "4–6 min",
+          duration: "4â€“6 min",
           coins: 15,
           xp: 30,
           completed: gameCompletionStatus["uvls-teen-63"] || false,
@@ -954,10 +877,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-64",
           title: "Interview Simulation",
-          description: "Practice answers to common interview questions.",
           icon: <Briefcase className="w-6 h-6" />,
           difficulty: "Medium",
-          duration: "10–12 min",
+          duration: "10â€“12 min",
           coins: 15,
           xp: 30,
           completed: gameCompletionStatus["uvls-teen-64"] || false,
@@ -968,10 +890,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-65",
           title: "Feedback Roleplay",
-          description: "Give constructive feedback in a roleplay.",
           icon: <ThumbsUp className="w-6 h-6" />,
           difficulty: "Hard",
-          duration: "8–10 min",
+          duration: "8â€“10 min",
           coins: 15,
           xp: 30,
           completed: gameCompletionStatus["uvls-teen-65"] || false,
@@ -982,10 +903,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-66",
           title: "Persuasion Puzzle",
-          description: "Build a short persuasive sequence.",
           icon: <Target className="w-6 h-6" />,
           difficulty: "Medium",
-          duration: "7–8 min",
+          duration: "7â€“8 min",
           coins: 15,
           xp: 30,
           completed: gameCompletionStatus["uvls-teen-66"] || false,
@@ -996,7 +916,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-67",
           title: "Communication Journal",
-          description: "Set a communication improvement goal and action plan.",
           icon: <Edit3 className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "10 min",
@@ -1010,10 +929,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-68",
           title: "Public Speaking Prep",
-          description: "Draft a 60-second opening & get feedback.",
           icon: <Mic className="w-6 h-6" />,
           difficulty: "Medium",
-          duration: "8–10 min",
+          duration: "8â€“10 min",
           coins: 15,
           xp: 30,
           completed: gameCompletionStatus["uvls-teen-68"] || false,
@@ -1024,7 +942,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-69",
           title: "Listening vs Speaking Debate",
-          description: "Argue which is more important for leadership.",
           icon: <MessageSquare className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "20 min",
@@ -1038,7 +955,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-70",
           title: "Communication Pro Badge",
-          description: "Completion of 5 advanced communication tasks.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "Cumulative",
@@ -1052,10 +968,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-71",
           title: "Power Dynamics Scenario",
-          description: "Resolve a conflict where one party has more authority.",
           icon: <Shield className="w-6 h-6" />,
           difficulty: "Medium",
-          duration: "8–10 min",
+          duration: "8â€“10 min",
           coins: 15,
           xp: 30,
           completed: gameCompletionStatus["uvls-teen-71"] || false,
@@ -1066,7 +981,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-72",
           title: "Negotiation Tactics Quiz",
-          description: "Identify tactics like anchoring, trade-offs.",
           icon: <CheckSquare className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "6 min",
@@ -1080,10 +994,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-73",
           title: "Mediation Simulation",
-          description: "Facilitate a council dispute to consensus.",
           icon: <Handshake className="w-6 h-6" />,
           difficulty: "Hard",
-          duration: "12–15 min",
+          duration: "12â€“15 min",
           coins: 15,
           xp: 30,
           completed: gameCompletionStatus["uvls-teen-73"] || false,
@@ -1094,10 +1007,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-74",
           title: "BATNA Puzzle",
-          description: "Identify the Best Alternative to Negotiated Agreement.",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
-          duration: "6–8 min",
+          duration: "6â€“8 min",
           coins: 15,
           xp: 30,
           completed: gameCompletionStatus["uvls-teen-74"] || false,
@@ -1108,10 +1020,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-75",
           title: "Tough Bargain Roleplay",
-          description: "Negotiate resources with limited supply fairly.",
           icon: <Users className="w-6 h-6" />,
           difficulty: "Hard",
-          duration: "10–12 min",
+          duration: "10â€“12 min",
           coins: 15,
           xp: 30,
           completed: gameCompletionStatus["uvls-teen-75"] || false,
@@ -1122,7 +1033,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-76",
           title: "Ethics in Negotiation Debate",
-          description: "Debate when compromise becomes unethical.",
           icon: <Scale className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "20 min",
@@ -1136,7 +1046,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-77",
           title: "Negotiation Journal",
-          description: "Reflect on a negotiation you led and lessons learned.",
           icon: <Book className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "10 min",
@@ -1150,11 +1059,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-78",
           title: "Walk-away Reflex",
-          description:
-            "Rapidly spot situations where walking away is justified.",
           icon: <LogOut className="w-6 h-6" />,
           difficulty: "Easy",
-          duration: "4–6 min",
+          duration: "4â€“6 min",
           coins: 20,
           xp: 40,
           completed: gameCompletionStatus["uvls-teen-78"] || false,
@@ -1165,11 +1072,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-79",
           title: "Workplace Conflict Sim",
-          description:
-            "Resolve intern-team conflict with fair role assignments.",
           icon: <Briefcase className="w-6 h-6" />,
           difficulty: "Hard",
-          duration: "12–15 min",
+          duration: "12â€“15 min",
           coins: 20,
           xp: 40,
           completed: gameCompletionStatus["uvls-teen-79"] || false,
@@ -1180,7 +1085,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-80",
           title: "Conflict Solver Badge",
-          description: "Demonstrate multi-step resolutions in 5 cases.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "Cumulative",
@@ -1194,10 +1098,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-81",
           title: "Campaign Story",
-          description: "Plan an awareness campaign for a local issue.",
           icon: <Megaphone className="w-6 h-6" />,
           difficulty: "Medium",
-          duration: "12–15 min",
+          duration: "12â€“15 min",
           coins: 20,
           xp: 40,
           completed: gameCompletionStatus["uvls-teen-81"] || false,
@@ -1208,7 +1111,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-82",
           title: "SDG Quiz",
-          description: "Match local projects to relevant UN SDGs.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "6 min",
@@ -1222,7 +1124,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-83",
           title: "Volunteer Simulation",
-          description: "Run a volunteer event schedule (logistics).",
           icon: <Calendar className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "12 min",
@@ -1236,7 +1137,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-84",
           title: "Public Budget Puzzle",
-          description: "Allocate limited budget to competing school needs.",
           icon: <DollarSign className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "10 min",
@@ -1250,10 +1150,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-85",
           title: "Advocacy Roleplay",
-          description: "Argue before local council for safer crossing.",
           icon: <Speech className="w-6 h-6" />,
           difficulty: "Hard",
-          duration: "10–12 min",
+          duration: "10â€“12 min",
           coins: 20,
           xp: 40,
           completed: gameCompletionStatus["uvls-teen-85"] || false,
@@ -1264,10 +1163,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-86",
           title: "Impact Journal",
-          description: "Record measurable outcome of a community action.",
           icon: <BarChart3 className="w-6 h-6" />,
           difficulty: "Medium",
-          duration: "8–10 min",
+          duration: "8â€“10 min",
           coins: 20,
           xp: 40,
           completed: gameCompletionStatus["uvls-teen-86"] || false,
@@ -1278,7 +1176,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-87",
           title: "Service Design Puzzle",
-          description: "Design a low-cost service project for school.",
           icon: <Lightbulb className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "12 min",
@@ -1292,7 +1189,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-88",
           title: "Coalition Simulation",
-          description: "Form coalition of stakeholders for larger change.",
           icon: <Users className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "15 min",
@@ -1306,10 +1202,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-89",
           title: "Civic Reflex",
-          description: "Quickly flag urgent community needs in short prompts.",
           icon: <Bell className="w-6 h-6" />,
           difficulty: "Easy",
-          duration: "4–6 min",
+          duration: "4â€“6 min",
           coins: 20,
           xp: 40,
           completed: gameCompletionStatus["uvls-teen-89"] || false,
@@ -1320,7 +1215,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-90",
           title: "Citizen Leader Badge",
-          description: "Lead a small community initiative to completion.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "Variable",
@@ -1334,8 +1228,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-91",
           title: "Short vs Long Goals Debate",
-          description:
-            "Discuss priorities between short-term wins & long-term planning.",
           icon: <Clock className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "20 min",
@@ -1349,7 +1241,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-92",
           title: "Emergency Steps Quiz",
-          description: "Match emergencies to correct immediate actions.",
           icon: <Siren className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "6 min",
@@ -1363,7 +1254,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-93",
           title: "One-year Plan Journal",
-          description: "Write a 1-year learning goal and milestones.",
           icon: <Target className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "12 min",
@@ -1377,11 +1267,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-94",
           title: "Crisis Simulation",
-          description:
-            "Prioritise night-before-exam tasks to maximize study + sleep.",
           icon: <Timer className="w-6 h-6" />,
           difficulty: "Medium",
-          duration: "8–12 min",
+          duration: "8â€“12 min",
           coins: 20,
           xp: 40,
           completed: gameCompletionStatus["uvls-teen-94"] || false,
@@ -1392,10 +1280,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-95",
           title: "Request Extension Roleplay",
-          description: "Request an extension politely with reasons & plan.",
           icon: <Mail className="w-6 h-6" />,
           difficulty: "Hard",
-          duration: "8–10 min",
+          duration: "8â€“10 min",
           coins: 20,
           xp: 40,
           completed: gameCompletionStatus["uvls-teen-95"] || false,
@@ -1406,10 +1293,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-96",
           title: "Safety Offer Reflex",
-          description: "Rapidly refuse suspicious offers.",
           icon: <Shield className="w-6 h-6" />,
           difficulty: "Easy",
-          duration: "3–5 min",
+          duration: "3â€“5 min",
           coins: 20,
           xp: 40,
           completed: gameCompletionStatus["uvls-teen-96"] || false,
@@ -1420,11 +1306,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-97",
           title: "Habit Chain Puzzle",
-          description:
-            "Link small daily habits into a chain to produce big outcomes.",
           icon: <Link className="w-6 h-6" />,
           difficulty: "Medium",
-          duration: "8–10 min",
+          duration: "8â€“10 min",
           coins: 20,
           xp: 40,
           completed: gameCompletionStatus["uvls-teen-97"] || false,
@@ -1435,10 +1319,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-98",
           title: "Habit Change Journal",
-          description: "Describe one habit to change, plan steps & obstacles.",
           icon: <RefreshCw className="w-6 h-6" />,
           difficulty: "Medium",
-          duration: "10–12 min",
+          duration: "10â€“12 min",
           coins: 20,
           xp: 40,
           completed: gameCompletionStatus["uvls-teen-98"] || false,
@@ -1449,10 +1332,9 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-99",
           title: "Solo Trip Simulation",
-      description: "Plan a safe solo trip checklist.",
           icon: <MapPin className="w-6 h-6" />,
           difficulty: "Hard",
-          duration: "12–15 min",
+          duration: "12â€“15 min",
           coins: 20,
           xp: 40,
           completed: gameCompletionStatus["uvls-teen-99"] || false,
@@ -1463,8 +1345,6 @@ export const getUvlsTeenGames = (gameCompletionStatus)=> {
         {
           id: "uvls-teen-100",
           title: "Life Skills Champion Badge",
-          description:
-            "Demonstrate 5 advanced life-skill challenges & receive capstone badge.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "Cumulative",

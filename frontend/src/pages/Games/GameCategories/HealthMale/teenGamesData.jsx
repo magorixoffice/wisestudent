@@ -21,7 +21,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-1',
             title: 'Puberty Hygiene Story',
-            description: 'You sweat more during puberty. Use deodorant or ignore? Learn proper puberty hygiene!',
             icon: <Droplets className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -35,7 +34,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-2',
             title: 'Quiz on Hygiene Changes',
-            description: 'During puberty, which is correct? Bathe twice if needed or ignore sweat? Test your knowledge!',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -49,7 +47,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-3',
             title: 'Reflex Smart Hygiene',
-            description: 'Quick! Tap for "Shave Safely" or "Skip Hygiene" in fast reflex challenges!',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -63,7 +60,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-4',
             title: 'Puzzle: Hygiene Tools',
-            description: 'Match "Shaving Kit → Beard, Soap → Body, Face Wash → Acne" in hygiene tool puzzles!',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -77,7 +73,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-5',
             title: 'Sports Hygiene Story',
-            description: 'After football, do you shower or stay sweaty? Learn proper sports hygiene!',
             icon: <Activity className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -91,7 +86,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-6',
             title: 'Debate: Hygiene = Confidence?',
-            description: 'Does hygiene improve confidence in teens? Debate the connection between hygiene and self-esteem!',
             icon: <MessageCircle className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -105,7 +99,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-7',
             title: 'Journal of Self-Care',
-            description: 'Write: "One hygiene routine I started as a teen is ___." Reflect on personal hygiene growth!',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -119,7 +112,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-8',
             title: 'Simulation: Daily Routine',
-            description: 'Teen wakes up. Options: Brush + shower, Brush only, Skip both. Choose the healthy routine!',
             icon: <Smartphone className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '4 min',
@@ -133,7 +125,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-9',
             title: 'Reflex Hygiene Alert',
-            description: 'Quick! Tap for "Fresh Clothes" or "Dirty Clothes" in hygiene reflex challenges!',
             icon: <Shield className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -147,7 +138,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-10',
             title: 'Hygiene Pro Badge',
-            description: 'Complete 5 hygiene routines correctly to earn your Hygiene Pro Teen Badge!',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -161,7 +151,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-11',
             title: 'Balanced Diet Story',
-            description: 'Teen chooses only fast food or mix of dal, rice, veggies, fruit? Choose balanced nutrition!',
             icon: <Heart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -175,7 +164,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-12',
             title: 'Quiz on Nutrition',
-            description: 'Which helps muscles grow? (a) Protein, (b) Sugar). Test your nutrition knowledge!',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -189,7 +177,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-13',
             title: 'Reflex Diet Check',
-            description: 'Quick! Tap 🥗 for "Balanced Plate," 🍕 for "Pizza Every Day" in fast food decisions!',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -203,7 +190,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-14',
             title: 'Puzzle: Nutrient Match',
-            description: 'Match "Iron → Spinach, Protein → Eggs, Vitamin C → Orange" in nutrition puzzles!',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -217,7 +203,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-15',
             title: 'Sports Nutrition Story',
-            description: 'After football, should you drink cola or water? Learn proper sports nutrition!',
             icon: <Activity className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -231,7 +216,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-16',
             title: 'Debate: Junk Food in Moderation?',
-            description: 'Is junk food okay sometimes? Debate the balance between treats and healthy eating!',
             icon: <MessageCircle className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -245,7 +229,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-17',
             title: 'Journal of Diet Change',
-            description: 'Write: "One diet change I made as a teen is ___." Reflect on your nutrition journey!',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -259,7 +242,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-18',
             title: 'Simulation: Weekly Meals',
-            description: 'Teen plans meals. Options: (a) Only fast food, (b) Balanced menu, (c) Skip meals. Choose wisely!',
             icon: <Smartphone className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '4 min',
@@ -273,7 +255,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-19',
             title: 'Reflex Smart Drink',
-            description: 'Quick! Tap 💧 for "Water," 🥤 for "Sugary Cola" in hydration decisions!',
             icon: <Shield className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -287,7 +268,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-20',
             title: 'Badge: Nutrition Pro',
-            description: 'Complete 5 healthy food choices to earn your Nutrition Pro Teen Badge!',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -301,7 +281,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-21',
             title: 'Puberty Story',
-            description: 'Teen notices sweat + voice change + mood swings. What\'s happening? → Puberty.',
             icon: <Activity className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -315,7 +294,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-22',
             title: 'Quiz on Puberty',
-            description: 'Which is a sign of puberty? (a) Taller height, (b) Beard growth, (c) Both). Correct = Both.',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -329,7 +307,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-23',
             title: 'Reflex Puberty Check',
-            description: 'Tap ✅ for "Normal Changes," ❌ for "Embarrassment."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -343,7 +320,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-24',
             title: 'Puzzle: Puberty Signs',
-            description: 'Match "Voice Cracks → Puberty, Sweating More → Puberty, Acne → Puberty."',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -357,7 +333,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-25',
             title: 'Acne Story',
-            description: 'Teen gets pimples. Should he squeeze them or wash face gently? → Wash face gently.',
             icon: <Shield className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -371,7 +346,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-26',
             title: 'Debate: Puberty = Awkward?',
-            description: 'Is puberty embarrassing or natural? → Natural.',
             icon: <MessageCircle className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -385,7 +359,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-27',
             title: 'Journal of Growth',
-            description: 'Write: "One puberty change I learned to handle is ___."',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -399,7 +372,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-28',
             title: 'Simulation: Teen Routine',
-            description: 'Teen builds a routine: Shower + Exercise + Study. Which is correct? → Balanced routine.',
             icon: <Smartphone className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '4 min',
@@ -413,7 +385,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-29',
             title: 'Reflex Healthy',
-            description: 'Tap 🥗 for "Healthy Food + Sleep," ❌ for "Skipping Meals."',
             icon: <Shield className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -427,7 +398,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-30',
             title: 'Badge: Puberty Smart',
-            description: 'Handle 5 puberty scenarios responsibly to earn your badge.',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -441,7 +411,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-31',
             title: 'Puberty Health Story',
-            description: 'Teacher explains reproductive health as part of growing up. What should you do? → Listen calmly.',
             icon: <Activity className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -455,7 +424,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-32',
             title: 'Quiz on Puberty Health',
-            description: 'Test your knowledge on puberty health and hygiene!',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -469,7 +437,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-33',
             title: 'Reflex Puberty Health',
-            description: 'Quick! React to puberty health scenarios!',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -483,7 +450,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-34',
             title: 'Puzzle: Puberty Health',
-            description: 'Match health concepts with their meanings!',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -497,7 +463,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-35',
             title: 'Shaving Story',
-            description: 'Learn the basics of shaving safely!',
             icon: <Shield className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -511,7 +476,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-36',
             title: 'Debate: Shaving',
-            description: 'Debate common myths and facts about shaving!',
             icon: <MessageCircle className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -525,7 +489,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-37',
             title: 'Journal of Teen Hygiene',
-            description: 'Reflect on your personal hygiene habits.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -539,7 +502,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-38',
             title: 'Simulation: Teen Shaving',
-            description: 'Simulate the shaving process step-by-step!',
             icon: <Smartphone className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '4 min',
@@ -553,7 +515,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-39',
             title: 'Reflex Shaving',
-            description: 'Quick decisions for a safe shave!',
             icon: <Shield className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -567,7 +528,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-40',
             title: 'Badge: Shaving Pro',
-            description: 'Earn your badge by mastering shaving knowledge!',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -581,7 +541,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-41',
             title: 'Sweat Control Story',
-            description: 'Teen plays sports. Should he shower after? → Yes, always.',
             icon: <Activity className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -595,7 +554,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-42',
             title: 'Quiz on Hygiene',
-            description: 'Which helps reduce acne? (a) Gentle wash, (b) Squeezing pimples). Correct = Gentle wash.',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -609,7 +567,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-43',
             title: 'Reflex Smart Hygiene',
-            description: 'Tap 🚿 for "Daily Bath," ❌ for "Skip Hygiene."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -623,7 +580,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-44',
             title: 'Puzzle: Hygiene Tools',
-            description: 'Match "Shaving Kit → Beard, Soap → Body, Face Wash → Acne."',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -637,7 +593,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-45',
             title: 'Night Sweat Story',
-            description: 'Teen has night sweats. Should he ignore or shower? → Shower.',
             icon: <Activity className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -651,7 +606,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-46',
             title: 'Debate: Hygiene = Confidence?',
-            description: 'Does hygiene increase confidence in teens? → Yes.',
             icon: <MessageCircle className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -665,7 +619,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-47',
             title: 'Journal of Care',
-            description: 'Write: "One hygiene challenge I overcame is ___.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -679,7 +632,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-48',
             title: 'Simulation: Daily Routine',
-            description: 'Options: (a) Shower + Brush, (b) Only Brush, (c) Skip Both. Correct = Shower + Brush.',
             icon: <Smartphone className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '4 min',
@@ -693,7 +645,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-49',
             title: 'Reflex Hygiene Alert',
-            description: 'Tap 👕 for "Fresh Clothes," ❌ for "Repeat Dirty Clothes."',
             icon: <Shield className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -707,7 +658,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-50',
             title: 'Badge: Hygiene Pro',
-            description: 'Complete all hygiene mastery activities to earn your badge.',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -721,7 +671,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-51',
             title: 'Stress Story',
-            description: 'Exams coming. Should you take breaks or study nonstop? → Take breaks.',
             icon: <Activity className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -735,7 +684,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-52',
             title: 'Quiz on Stress Relief',
-            description: 'Which reduces stress? (a) Sleep + Exercise, (b) Worry More). Correct = Sleep + Exercise.',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -749,7 +697,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-53',
             title: 'Reflex Stress Check',
-            description: 'Tap 💬 for "Talk to Friend," 🤐 for "Bottle Emotions."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -763,7 +710,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-54',
             title: 'Puzzle: Mind-Body Match',
-            description: 'Match "Exercise → Energy, Sleep → Relax, Deep Breath → Calm."',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -777,7 +723,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-55',
             title: 'Body Image Story',
-            description: 'Teen feels short compared to peers. Should he feel worthless? → No.',
             icon: <Shield className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -791,7 +736,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-56',
             title: 'Debate: Boys Should Not Cry?',
-            description: 'Is crying weakness or natural? → Natural.',
             icon: <MessageCircle className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -805,7 +749,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-57',
             title: 'Journal of Stress',
-            description: 'Write: "One way I reduce stress is ___."',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -819,7 +762,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-58',
             title: 'Simulation: Teen Stress Day',
-            description: 'Teen has exams + sports. Choose: Relax + Plan or Panic. Correct = Relax + Plan.',
             icon: <Smartphone className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '4 min',
@@ -833,7 +775,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-59',
             title: 'Reflex Emotional Health',
-            description: 'Tap 👨‍🏫 for "Talk to Mentor," ❌ for "Hide Stress."',
             icon: <Shield className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -847,7 +788,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-60',
             title: 'Badge: Emotion Smart Teen',
-            description: 'Handle 5 emotional health scenarios to earn your badge.',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -861,7 +801,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-61',
             title: 'Masculinity Story',
-            description: 'Teen hears "Real men don\'t cry." Should he believe? → No, feelings are human.',
             icon: <HandHeart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -875,7 +814,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-62',
             title: 'Quiz on Masculinity Myths',
-            description: 'Which is true? (a) Men must fight, (b) Men can show emotions). Correct = Men can show emotions.',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -889,7 +827,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-63',
             title: 'Reflex Masculinity Check',
-            description: 'Tap 💪 for "Kind & Strong," ❌ for "Tough Only."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -903,7 +840,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-64',
             title: 'Puzzle: Masculinity Myths',
-            description: 'Match "Real Men Help → True, Men Can\'t Cry → False, Men Respect Women → True."',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -917,7 +853,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-65',
             title: 'Violence Story',
-            description: 'Peer says: "Be a man, fight him." Should you? → No.',
             icon: <Shield className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -931,7 +866,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-66',
             title: 'Debate: Emotions = Weakness?',
-            description: 'Is showing emotions weak or strong? → Strong.',
             icon: <MessageCircle className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -945,7 +879,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-67',
             title: 'Journal of Masculinity',
-            description: 'Write: "Being a good man means ___."',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -959,7 +892,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-68',
             title: 'Simulation: Respect Women',
-            description: 'Teen hears friends make rude jokes about girls. Should he join or stop? → Stop.',
             icon: <Smartphone className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '4 min',
@@ -973,7 +905,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-69',
             title: 'Reflex Respect Check',
-            description: 'Tap 🤝 for "Help Others," ❌ for "Mock Others."',
             icon: <Shield className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -987,7 +918,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-70',
             title: 'Badge: Healthy Man Teen',
-            description: 'Complete 5 masculinity myth-busting tasks to earn your badge.',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1001,7 +931,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-71',
             title: 'Checkup Story',
-            description: 'Teen feels weak often. Should he go for a health check? → Yes.',
             icon: <Activity className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1015,7 +944,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-72',
             title: 'Quiz on Preventive Health',
-            description: 'Which is preventive care? (a) Vaccines, (b) Ignoring fever). Correct = Vaccines.',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1029,7 +957,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-73',
             title: 'Reflex Preventive Health',
-            description: 'Tap 🏥 for "Regular Checkups," ❌ for "Avoid Doctor."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -1043,7 +970,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-74',
             title: 'Puzzle: Doctor Tools',
-            description: 'Match "Stethoscope → Heart, Thermometer → Fever, Vaccine → Protection."',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1057,7 +983,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-75',
             title: 'Specialist Story',
-            description: 'Teen has acne problem. Should he see dermatologist? → Yes.',
             icon: <Shield className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1071,7 +996,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-76',
             title: 'Debate: Doctor Fear',
-            description: 'Is visiting doctors scary or safe? → Safe.',
             icon: <MessageCircle className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1085,7 +1009,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-77',
             title: 'Journal of Doctor Visits',
-            description: 'Write: "One time I visited a doctor for ___."',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -1099,7 +1022,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-78',
             title: 'Simulation: Clinic Visit',
-            description: 'Teen books a doctor visit. Choose: Wait calmly, Panic, Leave. Correct = Wait calmly.',
             icon: <Smartphone className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '4 min',
@@ -1113,7 +1035,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-79',
             title: 'Reflex Teen Safety',
-            description: 'Tap 💊 for "Take Medicines Properly," ❌ for "Skip Doses."',
             icon: <Shield className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -1127,7 +1048,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-80',
             title: 'Badge: Preventive Health Teen',
-            description: 'Complete 5 preventive health activities to earn your badge.',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1141,7 +1061,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-81',
             title: 'Peer Pressure Story',
-            description: 'Friends say "Try smoking once." Should you? → No.',
             icon: <Activity className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1155,7 +1074,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-82',
             title: 'Quiz on Dangers',
-            description: 'Smoking causes? (a) Stronger lungs, (b) Cancer, (c) Healthy teeth). Correct = Cancer.',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1169,7 +1087,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-83',
             title: 'Reflex Teen Choice',
-            description: 'Tap ⚽ for "Sports," ❌ for "Alcohol."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -1183,7 +1100,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-84',
             title: 'Puzzle: Effects',
-            description: 'Match "Smoking → Lung Damage, Alcohol → Liver Damage, Drugs → Brain Damage."',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1197,7 +1113,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-85',
             title: 'Substance Story',
-            description: 'Teen at party sees drugs. Should he take them? → No.',
             icon: <Shield className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1211,7 +1126,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-86',
             title: 'Debate: Cool or Fool?',
-            description: 'Is smoking/drinking cool or harmful? → Harmful.',
             icon: <MessageCircle className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1225,7 +1139,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-87',
             title: 'Journal of Awareness',
-            description: 'Write: "Substance I will never try is ___."',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -1239,7 +1152,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-88',
             title: 'Simulation: Peer Pressure',
-            description: 'Teen is pressured at a party. Options: Say No, Walk Away, Join. Correct = Say No/Walk Away.',
             icon: <Smartphone className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '4 min',
@@ -1253,7 +1165,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-89',
             title: 'Reflex Safe Teen',
-            description: 'Tap 🩺 for "Doctor Advice," ❌ for "Drug Use."',
             icon: <Shield className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -1267,7 +1178,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-90',
             title: 'Badge: Drug-Free Teen',
-            description: 'Complete 5 refusal scenarios to earn your badge.',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1281,7 +1191,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-91',
             title: 'Routine Story',
-            description: 'Teen wakes up late every day. Should he fix his routine? → Yes.',
             icon: <Activity className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1295,7 +1204,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-92',
             title: 'Quiz on Teen Habits',
-            description: 'Which supports health? (a) Sleep + balanced diet, (b) Skipping meals). Correct = Sleep + balanced diet.',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1309,7 +1217,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-93',
             title: 'Reflex Teen Routine',
-            description: 'Tap ⏰ for "Discipline," ❌ for "Laziness."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -1323,7 +1230,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-94',
             title: 'Puzzle: Habit Builder',
-            description: 'Match "Water → Hydration, Sports → Fitness, Study → Focus."',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1337,7 +1243,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-95',
             title: 'Discipline Story',
-            description: 'Teen skips all chores. Should he change this? → Yes, chores build responsibility.',
             icon: <Shield className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1351,7 +1256,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-96',
             title: 'Debate: Discipline = Freedom?',
-            description: 'Does discipline give freedom or restrict life? → Gives freedom.',
             icon: <MessageCircle className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1365,7 +1269,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-97',
             title: 'Journal of Teen Habits',
-            description: 'Write: "One good habit I built as a teen is ___."',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -1379,7 +1282,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-98',
             title: 'Simulation: Time Management',
-            description: 'Teen has exams + sports. Options: Balance time / Waste time. Correct = Balance time.',
             icon: <Smartphone className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '4 min',
@@ -1393,7 +1295,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-99',
             title: 'Reflex Teen Alert',
-            description: 'Tap 🔄 for "Consistency," ❌ for "Skipping Habits."',
             icon: <Shield className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -1407,7 +1308,6 @@ export const getHealthMaleTeenGames = (gameCompletionStatus) => {
         {
             id: 'health-male-teen-100',
             title: 'Badge: Lifelong Healthy Man',
-            description: 'Complete all healthy habit challenges to earn your badge.',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',

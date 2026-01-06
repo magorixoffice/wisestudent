@@ -20,7 +20,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
         {
           id: "moral-kids-1",
           title: "Lost Pencil Story",
-          description: "Return what you find",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4-6 min",
@@ -34,7 +33,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
         {
           id: "moral-kids-2",
           title: "Homework Quiz",
-          description: "Lying about homework - is it honest?",
           icon: <GraduationCap className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -48,7 +46,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
         {
           id: "moral-kids-3",
           title: "Truth Reflex",
-          description: "Tap truth or lie words",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-4 min",
@@ -62,7 +59,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
         {
           id: "moral-kids-4",
           title: "Puzzle of Trust",
-          description: "Match Truth to Trust, Lie to Trouble",
           icon: <Target className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5-6 min",
@@ -76,7 +72,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
         {
           id: "moral-kids-5",
           title: "Cheating Story",
-          description: "Friend wants you to cheat",
           icon: <Shield className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5-7 min",
@@ -90,7 +85,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
         {
           id: "moral-kids-6",
           title: "Poster of Honesty",
-          description: "Create honesty is best poster",
           icon: <Palette className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "6-8 min",
@@ -104,7 +98,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
         {
           id: "moral-kids-7",
           title: "Journal of Truth",
-          description: "Write about telling the truth",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "6-8 min",
@@ -118,7 +111,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
         {
           id: "moral-kids-8",
           title: "Candy Shop Story",
-          description: "Return extra candy to shopkeeper",
           icon: <ShoppingCart className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5-7 min",
@@ -132,7 +124,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
         {
           id: "moral-kids-9",
           title: "Reflex Quick Choice",
-          description: "Fast truth or lie tapping",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-4 min",
@@ -146,7 +137,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
         {
           id: "moral-kids-10",
           title: "Badge: Truthful Kid",
-          description: "Complete 5 honesty acts",
           icon: <Award className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5-8 min",
@@ -160,7 +150,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
         {
           id: "moral-kids-11",
           title: "Respect Elders Story",
-          description: "Help grandpa right away",
           icon: <Users className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5-7 min",
@@ -174,7 +163,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
         {
           id: "moral-kids-12",
           title: "Polite Words Quiz",
-          description: "Identify polite language",
           icon: <MessageSquare className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -188,7 +176,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
         {
           id: "moral-kids-13",
           title: "Reflex Respect",
-          description: "Tap kind or rude words",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-4 min",
@@ -202,7 +189,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
         {
           id: "moral-kids-14",
           title: "Puzzle: Respect Match",
-          description: "Listen = Respect, Mock = Hurt",
           icon: <Target className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5-6 min",
@@ -216,7 +202,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
         {
           id: "moral-kids-15",
           title: "Teacher Greeting Story",
-          description: "Greet teacher when they enter",
           icon: <GraduationCap className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5-7 min",
@@ -230,7 +215,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
         {
           id: "moral-kids-16",
           title: "Gratitude Poster",
-          description: "Create a thank you poster",
           icon: <Palette className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "6-8 min",
@@ -244,7 +228,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
         {
           id: "moral-kids-17",
           title: "Journal of Gratitude",
-          description: "Today I thanked ___ for ___",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "6-8 min",
@@ -258,7 +241,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
         {
           id: "moral-kids-18",
           title: "Playground Respect Story",
-          description: "Include smaller child in game",
           icon: <Users className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5-7 min",
@@ -272,7 +254,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
         {
           id: "moral-kids-19",
           title: "Reflex Help",
-          description: "Tap help when needed",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -286,7 +267,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
         {
           id: "moral-kids-20",
           title: "Badge: Respect Kid",
-          description: "Complete 5 respect actions",
           icon: <Award className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "6-8 min",
@@ -300,7 +280,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
         {
           id: "moral-kids-21",
           title: "Sharing Story",
-          description: "You have 2 chocolates, friend has none. Do you share? → Yes.",
           icon: <Award className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5-7 min",
@@ -314,7 +293,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
         {
           id: "moral-kids-22",
           title: "Kind or Rude Quiz",
-          description: "Which is kind? (a) Helping (b) Pushing (c) Teasing). Correct = Helping.",
           icon: <Award className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -328,7 +306,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
         {
           id: "moral-kids-23",
           title: "Reflex Kindness",
-          description: "Tap when 'Help' appears, ignore 'Mock'.",
           icon: <Award className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4-6 min",
@@ -342,7 +319,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
         {
           id: "moral-kids-24",
           title: "Puzzle: Acts of Kindness",
-          description: "Match 'Sharing → Smile', 'Teasing → Tears'.",
           icon: <Award className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "6-8 min",
@@ -356,7 +332,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-25",
             title: "Animal Story",
-            description: "Puppy is thirsty. Do you give water? → Yes.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5-7 min",
@@ -370,7 +345,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-26",
             title: "Poster Task: Kindness",
-            description: "Create/select poster: 'Kindness is Cool.'",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Medium",
             duration: "10-15 min",
@@ -384,7 +358,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-27",
             title: "Journal of Kindness",
-            description: "Write: 'Today I was kind to ___.'",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5-7 min",
@@ -398,7 +371,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-28",
             title: "Lost Ball Story",
-            description: "You find classmate’s ball. Do you keep it or return? → Return.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5-7 min",
@@ -412,7 +384,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-29",
             title: "Reflex Help Fast",
-            description: "Tap for 'Help Elder' when icon flashes.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "4-6 min",
@@ -426,7 +397,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-30",
             title: "Badge: Kind Kid",
-            description: "Do 5 acts of kindness to unlock badge 'Kind Kid.'",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "N/A",
@@ -440,7 +410,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-31",
             title: "Homework Story",
-            description: "You promised to finish homework. Do you do it or play instead? → Finish homework.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5-7 min",
@@ -454,7 +423,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-32",
             title: "Quiz on Responsibility",
-            description: "Who is more responsible? (a) Child who cleans toys, (b) Child who throws toys). Correct = Cleans toys.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5 min",
@@ -468,7 +436,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-33",
             title: "Reflex Discipline",
-            description: "Tap for 'Wake up on time', ignore 'Sleep late for school'.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "4-6 min",
@@ -482,7 +449,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-34",
             title: "Puzzle of Duties",
-            description: "Match 'Homework → Student', 'Cleaning Room → Self', 'Feeding Dog → Owner'.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "6-8 min",
@@ -496,7 +462,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-35",
             title: "Chores Story",
-            description: "Mom asks to put plates away. Do you do it? → Yes.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5-7 min",
@@ -510,7 +475,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-36",
             title: "Poster Task: Discipline",
-            description: "Create/select poster: 'Discipline Builds Success.'",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Medium",
             duration: "10-15 min",
@@ -524,7 +488,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-37",
             title: "Journal of Duty",
-            description: "Write: 'One responsibility I do every day is ___.'",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5-7 min",
@@ -538,7 +501,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-38",
             title: "Playground Rules Story",
-            description: "Teacher says 'Line up.' Do you push or follow? → Follow.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5-7 min",
@@ -552,7 +514,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-39",
             title: "Reflex Daily Habits",
-            description: "Tap for 'Brush Teeth', ignore 'Skip Brushing'.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "4-6 min",
@@ -566,7 +527,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-40",
             title: "Badge: Responsible Kid",
-            description: "Complete 5 responsible actions to unlock badge 'Responsible Kid.'",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "N/A",
@@ -580,7 +540,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-41",
             title: "Playground Game Story",
-            description: "You win game but cheated. Should you still claim victory? → No.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5-7 min",
@@ -594,7 +553,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-42",
             title: "Fairness Quiz",
-            description: "Which is fair? (a) Sharing equal turns, (b) Skipping someone’s turn). Correct = Equal turns.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5 min",
@@ -608,7 +566,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-43",
             title: "Reflex Fair Play",
-            description: "Tap for 'Wait Turn', ignore 'Jump Line'.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "4-6 min",
@@ -622,7 +579,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-44",
             title: "Puzzle of Fairness",
-            description: "Match 'Sharing → Friends Happy', 'Cheating → Friends Angry'.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "6-8 min",
@@ -636,7 +592,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-45",
             title: "Lost Wallet Story",
-            description: "You find a wallet. Do you keep money or return it? → Return.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5-7 min",
@@ -650,7 +605,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-46",
             title: "Poster Task: Fairness",
-            description: "Create/select poster: 'Fair Play Always.'",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Medium",
             duration: "10-15 min",
@@ -664,7 +618,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-47",
             title: "Journal of Justice",
-            description: "Write: 'One fair thing I did this week was ___.'",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5-7 min",
@@ -678,7 +631,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-48",
             title: "Sharing Sweets Story",
-            description: "You get 4 sweets, friend gets 1. Do you share? → Yes.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5-7 min",
@@ -692,7 +644,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-49",
             title: "Reflex Equal Share",
-            description: "Tap when 'Equal Share' shows, ignore 'Grab All'.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "4-6 min",
@@ -706,7 +657,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-50",
             title: "Badge: Fair Kid",
-            description: "Do 5 fair actions to unlock badge 'Fair Kid.'",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "N/A",
@@ -720,7 +670,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-51",
             title: "Dark Room Story",
-            description: "You’re afraid to go get your toy in a dark room. Do you try? → Yes.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5-7 min",
@@ -734,7 +683,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-52",
             title: "Courage Quiz",
-            description: "Which is courage? (a) Running away, (b) Speaking truth, (c) Hiding). Correct = Speaking truth.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5 min",
@@ -748,7 +696,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-53",
             title: "Reflex Brave vs Scared",
-            description: "Tap for brave actions, ignore cowardly ones.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "4-6 min",
@@ -762,7 +709,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-54",
             title: "Puzzle of Courage",
-            description: "Match 'Helping friend → Brave', 'Teasing → Weak'.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "6-8 min",
@@ -776,7 +722,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-55",
             title: "Confess Story",
-            description: "You broke vase. Do you confess or hide? → Confess.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5-7 min",
@@ -790,7 +735,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-56",
             title: "Poster Task: Courage",
-            description: "Create/select poster: 'Courage is Doing Right.'",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Medium",
             duration: "10-15 min",
@@ -804,7 +748,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-57",
             title: "Journal of Courage",
-            description: "Write: 'One time I showed courage was ___.'",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5-7 min",
@@ -818,7 +761,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-58",
             title: "Bully Story",
-            description: "Friend is teased. Do you support or laugh? → Support.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5-7 min",
@@ -832,7 +774,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-59",
             title: "Reflex Brave Symbol",
-            description: "Tap when brave symbol appears, ignore other symbols.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "4-6 min",
@@ -846,7 +787,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-60",
             title: "Badge: Brave Kid",
-            description: "Do 5 brave actions to unlock badge 'Brave Kid.'",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "N/A",
@@ -860,7 +800,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-61",
             title: "Football Story",
-            description: "You hog the ball and don’t pass. Is that teamwork? → No.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5-7 min",
@@ -874,7 +813,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-62",
             title: "Quiz on Cooperation",
-            description: "Which is teamwork? (a) Sharing tasks, (b) Fighting, (c) Ignoring). Correct = Sharing tasks.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5 min",
@@ -888,7 +826,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-63",
             title: "Reflex Team Acts",
-            description: "Tap for 'Share Ideas', ignore 'Interrupt'.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "4-6 min",
@@ -902,7 +839,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-64",
             title: "Puzzle of Team Roles",
-            description: "Match 'Goalkeeper → Saves', 'Captain → Leads', 'Player → Supports'.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "6-8 min",
@@ -916,7 +852,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-65",
             title: "Classroom Story",
-            description: "Group project — do you contribute or let others do all? → Contribute.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5-7 min",
@@ -930,7 +865,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-66",
             title: "Poster: Team Spirit",
-            description: "Create/select poster: 'Together We Win.'",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Medium",
             duration: "10-15 min",
@@ -944,7 +878,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-67",
             title: "Journal of Teamwork",
-            description: "Write: 'Today I helped my team by ___.'",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5-7 min",
@@ -958,7 +891,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-68",
             title: "Playground Sharing Story",
-            description: "One ball, many kids. Do you share turns? → Yes.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5-7 min",
@@ -972,7 +904,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-69",
             title: "Reflex Cooperation",
-            description: "Tap for 'Help Team', ignore 'Selfish'.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "4-6 min",
@@ -986,7 +917,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-70",
             title: "Badge: Team Kid",
-            description: "Complete 5 teamwork actions to unlock badge 'Team Kid.'",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "N/A",
@@ -1000,7 +930,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-71",
             title: "Old Lady Story",
-            description: "You see an old lady carrying bags. Do you help? → Yes.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5-7 min",
@@ -1014,7 +943,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-72",
             title: "Quiz on Service",
-            description: "Which is service? (a) Helping poor, (b) Teasing poor, (c) Ignoring poor). Correct = Helping poor.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5 min",
@@ -1028,7 +956,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-73",
             title: "Reflex Service",
-            description: "Tap for 'Donate', ignore 'Waste'.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "4-6 min",
@@ -1042,7 +969,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-74",
             title: "Puzzle: Service Match",
-            description: "Match 'Volunteer → Help', 'Doctor → Care', 'Soldier → Protect'.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "6-8 min",
@@ -1056,7 +982,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-75",
             title: "School Clean-Up Story",
-            description: "Teacher asks to clean school garden. Do you join? → Yes.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5-7 min",
@@ -1070,7 +995,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-76",
             title: "Poster: Helping Hands",
-            description: "Create/select poster: 'Helping is Happiness.'",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Medium",
             duration: "10-15 min",
@@ -1084,7 +1008,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-77",
             title: "Journal of Service",
-            description: "Write: 'Today I helped someone by ___.'",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5-7 min",
@@ -1098,7 +1021,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-78",
             title: "Animal Care Story",
-            description: "Stray dog is hungry. Do you give food? → Yes.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5-7 min",
@@ -1112,7 +1034,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-79",
             title: "Reflex Quick Help",
-            description: "Tap when 'Help Elder' shows, ignore 'Ignore'.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "4-6 min",
@@ -1126,7 +1047,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-80",
             title: "Badge: Service Kid",
-            description: "Do 5 service actions to unlock badge 'Service Kid.'",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "N/A",
@@ -1140,7 +1060,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-81",
             title: "Playground Fight Story",
-            description: "Two friends fight over a ball. Do you calm them or join fight? → Calm them.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5-7 min",
@@ -1154,7 +1073,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-82",
             title: "Quiz on Peace",
-            description: "Which brings peace? (a) Sharing, (b) Fighting, (c) Shouting). Correct = Sharing.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5 min",
@@ -1168,7 +1086,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-83",
             title: "Reflex Peace Acts",
-            description: "Tap for 'Apologize', ignore 'Hit'.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "4-6 min",
@@ -1182,7 +1099,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-84",
             title: "Puzzle: Peace Match",
-            description: "Match 'Smile → Friendship', 'Angry Face → Fight'.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "6-8 min",
@@ -1196,7 +1112,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-85",
             title: "Broken Toy Story",
-            description: "Friend breaks your toy. Do you shout or forgive? → Forgive.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5-7 min",
@@ -1210,7 +1125,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-86",
             title: "Poster: Choose Peace",
-            description: "Create/select poster: 'Peace is Power.'",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Medium",
             duration: "10-15 min",
@@ -1224,7 +1138,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-87",
             title: "Journal of Peace",
-            description: "Write: 'One time I forgave someone was ___.'",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5-7 min",
@@ -1238,7 +1151,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-88",
             title: "Name Calling Story",
-            description: "Someone calls you names. Do you hit back or ignore? → Ignore.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5-7 min",
@@ -1252,7 +1164,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-89",
             title: "Reflex Stop Fight",
-            description: "Tap for 'Talk Calmly', ignore 'Push Back'.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "4-6 min",
@@ -1266,7 +1177,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-90",
             title: "Badge: Peace Kid",
-            description: "Do 5 peace actions to unlock badge 'Peace Kid.'",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "N/A",
@@ -1280,7 +1190,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-91",
             title: "Candy Dilemma Story",
-            description: "You find extra candy in your bag. Do you keep or return? → Return.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5-7 min",
@@ -1294,7 +1203,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-92",
             title: "Quiz on Right Choice",
-            description: "Which is right? (a) Taking without asking, (b) Asking permission). Correct = Asking permission.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5 min",
@@ -1308,7 +1216,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-93",
             title: "Reflex Choices",
-            description: "Tap for right actions, ignore wrong ones.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "4-6 min",
@@ -1322,7 +1229,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-94",
             title: "Puzzle of Dilemmas",
-            description: "Match 'Honesty → Good', 'Cheating → Wrong'.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "6-8 min",
@@ -1335,8 +1241,7 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             },
             {
             id: "moral-kids-95",
-            title: "Friend’s Secret Story",
-            description: "Friend tells a secret. Do you keep it or gossip? → Keep it.",
+            title: "Friendâ€™s Secret Story",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5-7 min",
@@ -1350,7 +1255,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-96",
             title: "Poster Task: Right Choice",
-            description: "Create/select poster: 'Always Choose Right.'",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Medium",
             duration: "10-15 min",
@@ -1364,7 +1268,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-97",
             title: "Journal of Decisions",
-            description: "Write: 'One right choice I made recently was ___.'",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5-7 min",
@@ -1378,7 +1281,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-98",
             title: "Cheating Offer Story",
-            description: "Friend offers answers in test. Do you accept? → No.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "5-7 min",
@@ -1392,7 +1294,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-99",
             title: "Reflex Honesty",
-            description: "Tap when 'Truth' flashes, ignore 'Lie'.",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "4-6 min",
@@ -1406,7 +1307,6 @@ export const getMoralKidsGames = (gameCompletionStatus)=> {
             {
             id: "moral-kids-100",
             title: "Badge: Right Choice Kid",
-            description: "Make 5 right choices to unlock badge 'Right Choice Kid.'",
             icon: <Award className="w-6 h-6" />,
             difficulty: "Easy",
             duration: "N/A",

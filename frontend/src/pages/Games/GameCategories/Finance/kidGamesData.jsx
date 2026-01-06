@@ -12,7 +12,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-1",
           title: "Money Bank Story",
-          description: "You get ₹10. Do you save ₹5 or spend all?",
           icon: <Wallet className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3 min",
@@ -26,8 +25,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-2",
           title: "Quiz on Saving",
-          description:
-            "Best saver? (a) Spends all, (b) Saves part, (c) Wastes money",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -41,7 +38,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-3",
           title: "Reflex Savings",
-          description: 'Tap quickly for "Save" words, avoid "Waste" words',
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -55,7 +51,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-4",
           title: "Puzzle: Save or Spend",
-          description: 'Match "Piggy Bank → Save, Ice Cream → Spend"',
           icon: <Target className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -69,7 +64,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-5",
           title: "Birthday Money Story",
-          description: "You get birthday gift money. Do you save some?",
           icon: <Heart className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -83,7 +77,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-6",
           title: "Poster: Saving Habit",
-          description: 'Create/select poster: "Save First, Spend Later"',
           icon: <GraduationCap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "7 min",
@@ -97,7 +90,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-7",
           title: "Journal of Saving",
-          description: 'Write: "One thing I saved money for is ___"',
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -111,7 +103,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-8",
           title: "Shop Story",
-          description: "You see candy. Do you buy or save for toy later?",
           icon: <ShoppingCart className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -125,7 +116,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-9",
           title: "Reflex Money Choice",
-          description: 'Tap for "Deposit," for "Throw Away"',
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "5 min",
@@ -139,7 +129,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-10",
           title: "Badge: Saver Kid",
-          description: "Save in 5 scenarios to earn your badge",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -153,7 +142,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-11",
           title: "Ice Cream Story",
-          description: "You have ₹10. Spend on ice cream now or save for toy?",
           icon: <ShoppingCart className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3 min",
@@ -167,8 +155,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-12",
           title: "Quiz on Spending",
-          description:
-            "Best spending habit? (a) Buy without thinking, (b) Compare and choose, (c) Borrow for fun",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -182,7 +168,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-13",
           title: "Reflex Spending",
-          description: 'Tap for "Plan Purchase," for "Impulse Buy"',
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -196,7 +181,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-14",
           title: "Puzzle: Smart vs Waste",
-          description: 'Match "Notebook → Need, Extra Candy → Waste"',
           icon: <Target className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -210,8 +194,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-15",
           title: "Shop Story 2",
-          description:
-            "You see two pens: one costly, one affordable. Which to buy wisely?",
           icon: <ShoppingCart className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -225,7 +207,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-16",
           title: "Poster: Smart Shopping",
-          description: 'Create/select poster: "Think Before You Spend"',
           icon: <GraduationCap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "7 min",
@@ -239,7 +220,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-17",
           title: "Journal of Smart Buy",
-          description: 'Write: "One smart thing I bought was ___"',
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -253,7 +233,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-18",
           title: "Candy Offer Story",
-          description: 'Offer says "Buy 1, Get 1 Free." Do you need it?',
           icon: <ShoppingCart className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -267,7 +246,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-19",
           title: "Reflex Needs First",
-          description: 'Tap for "Books," for "Unneeded Toys"',
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "5 min",
@@ -281,7 +259,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-20",
           title: "Badge: Smart Spender Kid",
-          description: "Make 5 wise spending decisions",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -295,7 +272,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-21",
           title: "Candy Story",
-          description: "You have ₹20. Spend all on candy or plan for 2 days?",
           icon: <Candy className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -309,7 +285,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-22",
           title: "Quiz on Budgeting",
-          description: "Test your money planning skills — What is a budget?",
           icon: <ClipboardList className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -323,8 +298,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-23",
           title: "Reflex Budget",
-          description:
-            "Tap quickly for “Plan Before Spending,” not “Spend Instantly.”",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3 min",
@@ -338,7 +311,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-24",
           title: "Puzzle: Budget Items",
-          description: "Match correctly: “Food → Need, Toys → Want.”",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -352,8 +324,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-25",
           title: "Birthday Money Story",
-          description:
-            "You get ₹100 — Spend all on toys or split for needs and wants?",
           icon: <Gift className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -367,8 +337,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-26",
           title: "Poster: Plan First",
-          description:
-            'Create or select a poster that promotes budgeting: "Budget Saves Money".',
           icon: <Paintbrush className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -382,7 +350,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-27",
           title: "Journal of Budgeting",
-          description: 'Write: "One time I planned money use was ___."',
           icon: <PenSquare className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -396,8 +363,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-28",
           title: "School Fair Story",
-          description:
-            "You get ₹50 for the fair. Spend all on toys or plan for food also? → Plan wisely.",
           icon: <PartyPopper className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -411,8 +376,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-29",
           title: "Reflex Money Plan",
-          description:
-            "Tap quickly: choose Plan to save money or avoid overspending.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -426,7 +389,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-30",
           title: "Badge: Budget Kid",
-          description: "Create 3 small budgets to earn the Budget Kid quiz badge.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -440,8 +402,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-31",
           title: "Ice Cream vs School Book Story",
-          description:
-            "You have ₹20. Do you buy ice cream or book for class? → Book.",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -455,8 +415,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-32",
           title: "Quiz on Needs",
-          description:
-            "Which is a need? (a) Food, (b) Fancy toy, (c) Chocolates). Correct = Food.",
           icon: <ClipboardList className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -470,7 +428,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-33",
           title: "Reflex Need vs Want",
-          description: "Tap for Shoes for school, for 10th toy car.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -484,7 +441,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-34",
           title: "Puzzle of Needs/Wants",
-          description: "Match Water → Need, Candy → Want.",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -498,8 +454,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-35",
           title: "Snack Story",
-          description:
-            "You want chips, but need lunch. Correct choice? → Lunch.",
           icon: <ShoppingCart className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -513,7 +467,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-36",
           title: "Poster: Needs First",
-          description: 'Create/select poster: "Put Needs Before Wants."',
           icon: <ClipboardList className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -527,7 +480,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-37",
           title: "Journal of Needs",
-          description: 'Write: "One need I always spend on is ___."',
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -541,8 +493,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-38",
           title: "Gift Money Story",
-          description:
-            "You get gift money. Should you spend on toy or save for shoes? → Shoes.",
           icon: <ShoppingCart className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -556,7 +506,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-39",
           title: "Reflex Smart Pick",
-          description: "Tap for Food, for Extra Ice Cream.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -570,8 +519,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-40",
           title: "Badge: Needs First Kid",
-          description:
-            "Choose needs correctly 5 times to earn the Needs First Kid quiz badge.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -585,8 +532,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-41",
           title: "Bank Visit Story",
-          description:
-            "Parents take you to bank. Do you watch and learn or play outside? → Watch and learn.",
           icon: <PiggyBank className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -600,8 +545,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-42",
           title: "Quiz on Banks",
-          description:
-            "What is a bank? (a) Toy shop, (b) Place to keep money safe, (c) Ice cream shop). Correct = Place to keep money safe.",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -615,7 +558,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-43",
           title: "Reflex Bank Basics",
-          description: "Tap for Deposit, for Steal.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -629,7 +571,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-44",
           title: "Puzzle: Bank Uses",
-          description: "Match Deposit → Safe, Loan → Borrow, ATM → Withdraw.",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -643,8 +584,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-45",
           title: "Savings Story",
-          description:
-            "You get gift money. Do you keep at home or put in bank? → Bank.",
           icon: <ShoppingCart className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -658,7 +597,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-46",
           title: "Poster: Banks Help",
-          description: "Create/select poster: Bank = Safe Money.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -672,7 +610,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-47",
           title: "Journal of First Bank Visit",
-          description: "Write: If I go to bank, I want to ___.",
           icon: <Book className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -686,8 +623,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-48",
           title: "ATM Story",
-          description:
-            "Parent shows ATM card. Do you learn or ignore? → Learn.",
           icon: <CreditCard className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -701,7 +636,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-49",
           title: "Reflex Banking Symbols",
-          description: "Tap when ₹ symbol flashes.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -715,7 +649,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-50",
           title: "Badge: Bank Explorer",
-          description: "Learn 5 bank basics to earn the Bank Explorer quiz badge.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -729,8 +662,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-51",
           title: "Pencil Story",
-          description:
-            "You borrow a pencil from a friend. Do you return it? → Yes.",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -744,8 +675,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-52",
           title: "Quiz on Borrowing",
-          description:
-            "What's borrowing? (a) Taking without asking, (b) Using and returning, (c) Stealing). Correct = Using and returning.",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -759,7 +688,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-53",
           title: "Reflex Borrow/Steal",
-          description: "Tap for Return Borrowed, for Keep Forever.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -773,7 +701,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-54",
           title: "Puzzle: Borrow Match",
-          description: 'Match Book Borrowed → Return, Toy Borrowed → Share.',
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -787,8 +714,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-55",
           title: "Lunch Box Story",
-          description:
-            "You borrow friend's lunch. Do you return/share next day? → Yes.",
           icon: <ShoppingCart className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -802,7 +727,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-56",
           title: "Poster: Return What You Borrow",
-          description: 'Create/select poster: "Always Return Borrowed."',
           icon: <Clipboard className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -816,7 +740,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-57",
           title: "Journal of Borrowing",
-          description: 'Write: "One thing I borrowed and returned was ___."',
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -830,7 +753,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-58",
           title: "Toy Story",
-          description: "Friend lends toy. Do you keep safe or break it?",
           icon: <ShoppingCart className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -844,7 +766,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-59",
           title: "Reflex Borrow Right",
-          description: 'Tap quickly: Ask Permission or Grab.',
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -858,7 +779,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-60",
           title: "Badge: Good Borrower",
-          description: "Return borrowed items 5 times to earn the badge.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -872,8 +792,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-61",
           title: "Tree Story",
-          description:
-            "You plant a seed; it grows into a tree. Money can grow the same way — Save or Waste? → Save.",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -887,8 +805,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-62",
           title: "Quiz on Growth",
-          description:
-            "What grows money? (a) Savings + Interest (b) Spending all (c) Wasting). Correct = Savings + Interest.",
           icon: <HelpCircle className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -902,8 +818,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-63",
           title: "Reflex Investment Basics",
-          description:
-          "Tap quickly: Save & Grow for right choice, avoid Spend All.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -917,7 +831,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-64",
           title: "Puzzle of Growth",
-          description: "Match Seed → Tree, Savings → Growth.", 
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -931,8 +844,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-65",
           title: "Bank vs Piggy Bank",
-          description:
-            "Compare piggy bank vs bank savings: which keeps money safe and helps it grow? → Bank account.",
           icon: <ShoppingCart className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -946,7 +857,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-66",
           title: "Poster: Grow Your Money",
-          description: "Create or select a poster showing Invest = Grow.",
           icon: <Brush className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "7 min",
@@ -960,7 +870,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-67",
           title: "Journal of Growth",
-          description: "Write: If I invest ₹100, I want it to grow into ___.",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -974,7 +883,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-68",
           title: "Toy vs Saving Story",
-          description: "Buy toy today or save to buy bicycle later? → Save.",
           icon: <ShoppingCart className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -988,7 +896,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-69",
           title: "Reflex Growth Check",
-          description: "Tap for Interest Earned, not Money Lost.",  
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -1002,8 +909,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-70",
           title: "Badge: Money Gardener",
-          description:
-            "Choose growth over spending 5 times to earn the Money Gardener quiz badge.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -1017,8 +922,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-71",
           title: "Lemonade Story",
-          description:
-            "You set up a lemonade stand. Earn ₹50. Smart or waste? → Smart.",
           icon: <ShoppingCart className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1032,8 +935,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-72",
           title: "Quiz on Earning",
-          description:
-            "How do you earn? (a) By working, (b) By wasting, (c) By sleeping). Correct = By working.",
           icon: <Clipboard className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -1047,7 +948,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-73",
           title: "Reflex Work vs Play",
-          description: 'Tap for Work → Earn, for Waste → Nothing.',
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -1061,8 +961,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-74",
           title: "Puzzle of Jobs",
-          description:
-          'Match Farmer → Crops, Teacher → Knowledge, Shopkeeper → Goods.',
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -1076,8 +974,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-75",
           title: "Helping Parents Story",
-          description:
-            "You help in family shop. Is this earning experience? → Yes.",
           icon: <ShoppingCart className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1091,7 +987,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-76",
           title: "Poster: Work to Earn",
-          description: 'Create/select poster: Hard Work = Money.',
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -1105,7 +1000,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-77",
           title: "Journal of Earning",
-     description: 'Write: One way I can earn money is ___.',
           icon: <ClipboardList className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1119,8 +1013,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-78",
           title: "Pet Sitting Story",
-          description:
-            "You care for neighbor's pet. Earn small money. Is it work? → Yes.",
           icon: <ShoppingCart className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1134,7 +1026,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-79",
           title: "Reflex Small Business",
-    description: 'Tap for Bake & Sell, for Buy & Waste.',
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -1148,7 +1039,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-80",
           title: "Badge: Young Earner",
-          description: "Show 5 ways of earning to earn this badge.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -1163,8 +1053,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-81",
           title: "Candy Shop Story",
-          description:
-            "Shopkeeper charges ₹20 instead of ₹10. Do you check bill? → Yes.",
           icon: <ShoppingCart className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1178,8 +1066,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-82",
           title: "Quiz on Honesty",
-          description:
-            "Who is honest? (a) Gives correct change, (b) Cheats customer, (c) Lies). Correct = Gives correct change.",
           icon: <ClipboardList className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -1193,7 +1079,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-83",
           title: "Reflex Scam Alert",
-    description: 'Tap for Check Bill, for Ignore.',
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -1207,7 +1092,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-84",
           title: "Puzzle: Honest vs Fraud",
-      description: 'Match Fair Shop → Trust, Cheat Shop → Loss.',
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -1221,8 +1105,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-85",
           title: "Stranger Story",
-          description:
-            "Stranger offers free toy for address. Correct action? → Refuse.",
           icon: <ShoppingCart className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1236,7 +1118,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-86",
           title: "Poster: Be Alert",
-          description: "Create/select poster: Stop Scams.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -1250,7 +1131,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-87",
           title: "Journal of Safety",
-          description: "Write: One way I can avoid being cheated is ___.",
           icon: <ClipboardList className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1264,8 +1144,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-88",
           title: "Toy Shop Story",
-          description:
-            "Seller says Hurry or lose toy! Do you check price first? → Yes.",
           icon: <ShoppingCart className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1279,7 +1157,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-89",
           title: "Reflex Check First",
-          description: 'Tap for Ask Price, for Trust Blindly.',
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -1293,7 +1170,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-90",
           title: "Badge: Scam Spotter Kid",
-          description: "Identify 5 scam tricks to earn the badge.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -1307,8 +1183,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-91",
           title: "Lost Coin Story",
-          description:
-            "You find ₹5 on floor in class. Do you keep or give teacher? → Give teacher.",
           icon: <Coins className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3 min",
@@ -1322,8 +1196,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-92",
           title: "Quiz on Money Honesty",
-          description:
-            "Which is honest? (a) Stealing, (b) Returning money, (c) Hiding). Correct = Returning money.",
           icon: <HelpCircle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -1337,7 +1209,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-93",
           title: "Reflex Ethics",
-      description: "Tap for Truth, for Cheat.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "3 min",
@@ -1351,7 +1222,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-94",
           title: "Puzzle of Honesty",
-          description: "Match \"Return Money → Good, Keep Secretly → Wrong.\"",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1365,7 +1235,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-95",
           title: "Friend's Money Story",
-          description: "Friend drops ₹10. Do you return? → Yes.",
           icon: <HeartHandshake className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3 min",
@@ -1379,7 +1248,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-96",
           title: "Poster: Honesty Pays",
-          description: "Create or select a poster saying \"Be Fair with Money.\"",
           icon: <Image className="w-6 h-6" />,
           difficulty: "Creative",
           duration: "6 min",
@@ -1393,7 +1261,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-97",
           title: "Journal of Ethics",
-        description: "Write: \"One time I used money honestly was ___.\"",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Reflective",
           duration: "4 min",
@@ -1407,7 +1274,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-98",
           title: "Shop Story",
-          description: "Shopkeeper gives extra change. Do you return? → Yes.",
           icon: <ShoppingBag className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -1421,7 +1287,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-99",
           title: "Reflex Money Truth",
-          description: "Tap for \"Be Fair,\" for \"Be Greedy.\"",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "3 min",
@@ -1435,8 +1300,6 @@ export const getFinanceKidsGames = (gameCompletionStatus)=> {
         {
           id: "finance-kids-100",
           title: "Badge: Honest Kid",
-          description:
-          "Handle 5 honest money cases to earn the \"Honest Kid\" quiz badge.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "7 min",

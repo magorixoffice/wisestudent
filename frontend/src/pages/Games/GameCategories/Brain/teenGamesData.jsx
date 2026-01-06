@@ -29,7 +29,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-1",
           title: "Exercise Story",
-          description: "Learn how daily exercise benefits brain health",
           icon: <Brain className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3 min",
@@ -43,7 +42,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-2",
           title: "Quiz on Habits",
-          description: "Test your knowledge of brain-healthy habits",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -57,7 +55,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-3",
           title: "Reflex Mind Check",
-          description: "Tap quickly for mind-boosting actions",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -71,7 +68,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-4",
           title: "Puzzle: Brain Fuel",
-          description: "Match brain fuels with their sources or benefits",
           icon: <Target className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -85,7 +81,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-5",
           title: "Junk Food Story",
-          description: "Learn how junk food affects brain function",
           icon: <Heart className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -99,7 +94,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-6",
           title: "Debate: Brain vs Body",
-          description: "Participate in a debate on brain vs body health",
           icon: <GraduationCap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "7 min",
@@ -113,7 +107,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-7",
           title: "Journal of Brain Fitness",
-          description: "Reflect on daily brain fitness habits",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -127,7 +120,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-8",
           title: "Simulation: Daily Routine",
-          description: "Choose the best daily routine for brain health",
           icon: <BarChart4 className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -141,7 +133,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-9",
           title: "Reflex Brain Boost",
-          description: "Tap for brain-boosting foods, avoid harmful ones",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -155,7 +146,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-10",
           title: "Badge: Brain Health Hero",
-          description: "Earn your badge for completing brain health practices",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -169,7 +159,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-11",
           title: "Exam Story",
-          description: "Learn how distractions affect exam performance",
           icon: <ShoppingCart className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3 min",
@@ -183,7 +172,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-12",
           title: "Quiz on Attention",
-          description: "Test your knowledge of attention boosters",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -197,7 +185,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-13",
           title: "Reflex Concentration",
-          description: "Practice concentration-boosting actions",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -211,7 +198,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-14",
           title: "Puzzle of Distractions",
-          description: "Match environments with their effects on focus",
           icon: <Target className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -225,7 +211,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-15",
           title: "Social Media Story",
-          description: "Learn how social media affects focus",
           icon: <ShoppingCart className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -239,7 +224,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-16",
           title: "Debate: Multitask vs Focus",
-          description: "Debate the effectiveness of multitasking",
           icon: <GraduationCap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "7 min",
@@ -253,7 +237,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-17",
           title: "Journal of Attention",
-          description: "Reflect on attention strategies",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -267,7 +250,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-18",
           title: "Simulation: Study Plan",
-          description: "Choose the best study environment",
           icon: <ShoppingCart className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -281,7 +263,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-19",
           title: "Reflex Distraction Alert",
-          description: "Practice focus-boosting actions",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -295,7 +276,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-20",
           title: "Badge: Focus Hero",
-          description: "Earn your badge for conquering distraction challenges",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -309,7 +289,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-21",
           title: "Exam Recall Story",
-          description: "Teen revises one night before. Memory strong? → No.",
           icon: <Activity className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -323,8 +302,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-22",
           title: "Quiz on Memory Hacks",
-          description:
-            "Which helps memory? (a) Mnemonics, (b) Ignoring, (c) Skipping sleep). Correct = Mnemonics.",
           icon: <HelpCircle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -338,7 +315,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-23",
           title: "Reflex Memory Boost",
-          description: "Tap for 'Revision,' avoid 'Forget.'",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "3 min",
@@ -352,7 +328,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-24",
           title: "Puzzle: Mnemonic Match",
-          description: "Match 'VIBGYOR → Rainbow' and 'BODMAS → Maths Order.'",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -366,7 +341,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-25",
           title: "Note-taking Story",
-          description: "Teen takes notes in class. Does memory improve? → Yes.",
           icon: <BookOpenCheck className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -380,8 +354,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-26",
           title: "Debate: Rote vs Understanding",
-          description:
-            "Is rote learning better than understanding? → No, understanding is better.",
           icon: <Mic className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "7 min",
@@ -395,7 +367,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-27",
           title: "Journal of Tricks",
-          description: "Write: 'One memory trick I use is ___.'",
           icon: <BookOpenCheck className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "6 min",
@@ -409,7 +380,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-28",
           title: "Simulation: Study Plan",
-          description: "Study 30 min daily or cram 3 hrs once? → Daily.",
           icon: <Cpu className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -423,7 +393,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-29",
           title: "Reflex Recall Quick",
-          description: "Tap for 'Repeat,' avoid 'Forget Fast.'",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "3 min",
@@ -437,8 +406,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-30",
           title: "Badge: Memory Hero",
-          description:
-            "Apply 5 memory boosters to earn your Memory Hero badge.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -452,8 +419,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-31",
           title: "Study Pressure Story",
-          description:
-            "Teen stressed before exam. Better choice? → Revise calmly.",
           icon: <Activity className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -467,8 +432,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-32",
           title: "Stress Quiz",
-          description:
-            "What is a healthy stress reliever? (a) Exercise, (b) Overeating, (c) Yelling). Correct = Exercise.",
           icon: <HelpCircle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -482,7 +445,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-33",
           title: "Reflex Stress Check",
-          description: "Tap for 'Meditate,' avoid 'Overthink.'",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "3 min",
@@ -496,8 +458,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-34",
           title: "Puzzle of Relief",
-          description:
-            "Match 'Talk to Friend → Support' and 'Sleep → Refresh.'",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -511,7 +471,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-35",
           title: "Failure Story",
-          description: "Teen fails test. Should they give up? → No, try again.",
           icon: <Activity className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -525,8 +484,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-36",
           title: "Debate: Stress Good or Bad?",
-          description:
-            "Can stress sometimes motivate us? → Yes, small stress helps, big stress harms.",
           icon: <Mic className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "7 min",
@@ -540,7 +497,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-37",
           title: "Journal of Stress Relief",
-          description: "Write: 'One way I reduce stress is ___.'",
           icon: <BookOpenCheck className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "6 min",
@@ -554,8 +510,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-38",
           title: "Simulation: Stress Day",
-          description:
-            "You feel stressed. Options: (a) Eat junk, (b) Sleep, (c) Walk & breathe. Correct = Walk & breathe.",
           icon: <Cpu className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -569,7 +523,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-39",
           title: "Reflex Healthy Calm",
-          description: "Tap for 'Exercise,' avoid 'Avoid Work.'",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "3 min",
@@ -583,8 +536,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-40",
           title: "Badge: Stress Manager",
-          description:
-            "Beat 5 stress challenges to earn your Stress Manager badge.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -598,8 +549,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-41",
           title: "Peer Pressure Story",
-          description:
-            "Teen feels anxious when friends tease. Best step? → Stay calm & talk.",
           icon: <Activity className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -613,8 +562,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-42",
           title: "Emotion Quiz",
-          description:
-            "What is empathy? (a) Feeling others' feelings, (b) Ignoring them). Correct = Feeling others' feelings.",
           icon: <HelpCircle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -628,7 +575,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-43",
           title: "Reflex Emotion Control",
-          description: "Tap for 'Talk Calmly,' avoid 'Shout.'",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "3 min",
@@ -642,8 +588,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-44",
           title: "Puzzle: Emotion Match",
-          description:
-            "Match 'Fear → Heart Racing' and 'Calm → Deep Breathing.'",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -657,8 +601,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-45",
           title: "Anger Story",
-          description:
-            "Teen argues with sibling. Best action? → Take break, then talk.",
           icon: <Activity className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -672,7 +614,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-46",
           title: "Debate: Show or Hide Emotions?",
-          description: "Should we always hide emotions? → No, express healthy.",
           icon: <Mic className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "7 min",
@@ -686,7 +627,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-47",
           title: "Journal of Emotional Moment",
-          description: "Write: 'A time I controlled anger was ___.'",
           icon: <BookOpenCheck className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "6 min",
@@ -700,8 +640,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-48",
           title: "Simulation: Stressful Day",
-          description:
-            "Options: (a) Bottle feelings, (b) Shout, (c) Journal/talk. Correct = Journal/talk.",
           icon: <Cpu className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -715,7 +653,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-49",
           title: "Reflex Positive Emotion",
-          description: "Tap for 'Empathy,' avoid 'Bullying.'",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "3 min",
@@ -729,8 +666,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-50",
           title: "Badge: Emotion Hero",
-          description:
-            "Handle 5 emotional scenarios positively to earn your Emotion Hero badge.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -744,8 +679,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-51",
           title: "Failure Story",
-          description:
-            "Teen fails in test. Best response? → Learn from mistakes.",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -759,8 +692,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-52",
           title: "Positivity Quiz",
-          description:
-            "Which is positive? (a) 'I'll try again,' (b) 'I'm useless.' Correct = 'I'll try again.'",
           icon: <HelpCircle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -774,7 +705,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-53",
           title: "Reflex Optimism",
-          description: "Tap for 'Gratitude,' for 'Jealousy.'",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -788,7 +718,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-54",
           title: "Puzzle: Positive Practices",
-          description: "Match 'Meditation → Calm, Affirmation → Confidence.'",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -802,8 +731,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-55",
           title: "Friend Betrayal Story",
-          description:
-            "Teen feels hurt. Positive action? → Forgive and move on.",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -817,8 +744,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-56",
           title: "Debate: Optimism vs Realism",
-          description:
-            "Is it better to be optimistic or realistic? → Balanced optimism.",
           icon: <Mic className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "7 min",
@@ -832,7 +757,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-57",
           title: "Journal of Gratitude",
-          description: "Write: 'Today I am thankful for ___.'",
           icon: <BookOpenCheck className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -846,8 +770,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-58",
           title: "Simulation: Negative Day",
-          description:
-            "Bad day at school. Choices: (a) Stay upset, (b) Think of positives, (c) Quit tasks. Correct = Think of positives.",
           icon: <PlayCircle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -861,7 +783,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-59",
           title: "Reflex Mindset Check",
-          description: "Tap for 'Growth,' for 'Give Up.'",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -875,8 +796,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-60",
           title: "Badge: Optimist Hero",
-          description:
-            "Show positive thinking in 5 cases to earn your Optimist Hero badge.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -890,8 +809,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-61",
           title: "Sleep Story",
-          description:
-            "Teen sleeps 5 hrs before exam, feels tired. Is this good? → No.",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -905,8 +822,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-62",
           title: "Sleep Quiz",
-          description:
-            "How many hours should teens sleep? (a) 5, (b) 6–8, (c) 12). Correct = 6–8.",
           icon: <HelpCircle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -920,7 +835,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-63",
           title: "Reflex Rest Habits",
-          description: "Tap for 'Consistent Sleep,' for 'All-nighter.'",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -934,7 +848,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-64",
           title: "Puzzle of Sleep Health",
-          description: "Match 'Screen Off → Good Sleep, Noise → Bad Sleep.'",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -948,8 +861,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-65",
           title: "Phone Story",
-          description:
-            "Teen uses phone till 2 AM, sleeps in class. Is this healthy? → No.",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -963,8 +874,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-66",
           title: "Debate: Sleep vs Study",
-          description:
-            "Is it better to sleep or study late? → Balanced, sleep first.",
           icon: <Mic className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "7 min",
@@ -978,7 +887,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-67",
           title: "Journal of Sleep Health",
-          description: "Write: 'One bedtime rule I follow is ___.'",
           icon: <BookOpenCheck className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -992,8 +900,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-68",
           title: "Simulation: Exam Prep",
-          description:
-            "Choices: (a) Study till 3 AM, (b) Sleep 8 hrs + study next day. Correct = Sleep + study.",
           icon: <PlayCircle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -1007,7 +913,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-69",
           title: "Reflex Smart Rest",
-          description: "Tap for 'Nap Break,' for 'Overwork.'",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1021,8 +926,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-70",
           title: "Badge: Rest Hero",
-          description:
-            "Manage 5 sleep challenges to earn your Rest Hero badge.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -1036,7 +939,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-71",
           title: "Midnight Story",
-          description: "Teen scrolls till 1 AM, tired next day. Smart? → No.",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -1050,8 +952,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-72",
           title: "Quiz on Digital Balance",
-          description:
-            "What is digital detox? (a) Time without gadgets, (b) More gadgets). Correct = Time without gadgets.",
           icon: <HelpCircle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1065,7 +965,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-73",
           title: "Reflex Tech Control",
-          description: "Tap for 'Switch Off at Night,' for 'Always On.'",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1079,7 +978,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-74",
           title: "Puzzle of Balance Habits",
-          description: "Match 'Sleep Early → Healthy, Midnight Phone → Tired.'",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -1093,8 +991,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-75",
           title: "Gaming Story",
-          description:
-            "Teen plays 6 hrs games daily, fails test. Healthy? → No.",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -1108,7 +1004,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-76",
           title: "Debate: Tech Good or Bad?",
-          description: "Is technology harmful? → No, harmful only if overused.",
           icon: <Mic className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "7 min",
@@ -1122,7 +1017,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-77",
           title: "Journal of Balance",
-          description: "Write: 'One way I control screen time is ___.'",
           icon: <BookOpenCheck className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -1136,8 +1030,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-78",
           title: "Simulation: Daily Routine",
-          description:
-            "4 hrs free. Choices: (a) All screen, (b) Sports + study + 1 hr screen. Correct = Balance.",
           icon: <PlayCircle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -1151,7 +1043,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-79",
           title: "Reflex Healthy Use",
-          description: "Tap for 'Digital Detox,' for 'Screen All Day.'",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1165,8 +1056,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-80",
           title: "Badge: Digital Hero",
-          description:
-            "Complete 5 digital balance challenges to earn your Digital Hero badge.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -1180,8 +1069,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-81",
           title: "Science Project Story",
-          description:
-            "Teen's project fails. What should they do? → Improve & retry.",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1195,8 +1082,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-82",
           title: "Quiz on Innovation",
-          description:
-            "Who is an innovator? (a) Creates new ideas, (b) Copies, (c) Quits). Correct = Creates new ideas.",
           icon: <HelpCircle className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3 min",
@@ -1210,7 +1095,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-83",
           title: "Reflex Solution Mode",
-          description: "Tap quickly for Find Solution not Complain.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "3 min",
@@ -1224,8 +1108,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-84",
           title: "Puzzle: Innovators",
-          description:
-            "Match: 'Wright Brothers → Plane,' 'Thomas Edison → Bulb.'",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1239,7 +1121,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-85",
           title: "Startup Idea Story",
-          description: "Teen designs eco-bag. Is that good innovation? → Yes.",
           icon: <Lightbulb className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1253,8 +1134,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-86",
           title: "Debate: Copy vs Create",
-          description:
-            "Is it better to copy success or create new? → Create new.",
           icon: <Mic className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -1268,7 +1147,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-87",
           title: "Journal of Creativity",
-          description: "Write: 'One creative idea I had was ___.'",
           icon: <Book className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -1282,8 +1160,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-88",
           title: "Simulation: School Fair",
-          description:
-            "Budget ₹500. Choose: (a) Copy poster, (b) Build model. Best = Build model.",
           icon: <PlayCircle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -1297,7 +1173,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-89",
           title: "Reflex Innovator's Choice",
-          description: "Tap for Original not Plagiarize.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "3 min",
@@ -1311,8 +1186,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-90",
           title: "Badge: Innovator Hero",
-          description:
-            "Complete 5 creative problem-solving challenges to earn your Innovator Hero badge.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -1326,8 +1199,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-91",
           title: "Exam Failure Story",
-          description:
-            "Teen fails exam. Best choice? → Learn mistakes, try again.",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1341,8 +1212,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-92",
           title: "Growth Mindset Quiz",
-          description:
-            "Which is growth mindset? (a) I can't do it, (b) I'll improve. Correct = I'll improve.",
           icon: <HelpCircle className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3 min",
@@ -1356,7 +1225,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-93",
           title: "Reflex Growth Attitude",
-          description: "Tap quickly for Practice More not Give Up.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "3 min",
@@ -1370,7 +1238,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-94",
           title: "Puzzle of Growth",
-          description: "Match: Effort → Success, Giving Up → Failure.",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1384,8 +1251,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-95",
           title: "Career Story",
-          description:
-            "Teen struggles in coding. Best path? → Practice until better.",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1399,8 +1264,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-96",
           title: "Debate: Talent vs Effort",
-          description:
-            "What matters more for success — talent or effort? → Effort.",
           icon: <Mic className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -1414,7 +1277,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-97",
           title: "Journal of Growth",
-          description: "Write: One skill I improved with practice was ___.",
           icon: <Book className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -1428,8 +1290,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-98",
           title: "Simulation: Life Choices",
-          description:
-            "Fail in sports selection. Options: (a) Quit, (b) Practice harder. Correct = Practice harder.",
           icon: <PlayCircle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -1443,7 +1303,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-99",
           title: "Reflex Never Quit",
-          description: "Tap for Keep Going not Stop Forever.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "3 min",
@@ -1457,8 +1316,6 @@ export const getBrainTeenGames = (gameCompletionStatus) => {
         {
           id: "brain-teens-100",
           title: "Badge: Growth Champion",
-          description:
-            "Pass 5 growth mindset scenarios to earn your Growth Champion badge.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",

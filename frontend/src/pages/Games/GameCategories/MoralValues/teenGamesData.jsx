@@ -30,7 +30,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
           id: "moral-teen-1",
           title: "Friend's Lie Story",
-          description: "Refuse to lie for friend",
           icon: <Shield className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6-8 min",
@@ -44,7 +43,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
           id: "moral-teen-2",
           title: "White Lie Quiz",
-          description: "Can small lies be harmless?",
           icon: <MessageSquare className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -58,7 +56,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
           id: "moral-teen-3",
           title: "Reflex: Spot Fake",
-          description: "Identify fake news quickly",
           icon: <Eye className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4-6 min",
@@ -72,7 +69,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
           id: "moral-teen-4",
           title: "Puzzle of Integrity",
-          description: "Integrity = Doing right when unseen",
           icon: <Target className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -86,7 +82,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
           id: "moral-teen-5",
           title: "Bribe Simulation",
-          description: "Refuse bribe and report it",
           icon: <Shield className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "7-9 min",
@@ -100,7 +95,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
           id: "moral-teen-6",
           title: "Debate: Lying for Friend",
-          description: "Is lying okay to protect a friend?",
           icon: <Target className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "15-20 min",
@@ -114,7 +108,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
           id: "moral-teen-7",
           title: "Integrity Journal",
-          description: "Write about telling a hard truth",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "8-10 min",
@@ -128,7 +121,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
           id: "moral-teen-8",
           title: "Exam Cheating Story",
-          description: "Resist temptation to cheat",
           icon: <GraduationCap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6-8 min",
@@ -142,7 +134,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
           id: "moral-teen-9",
           title: "Roleplay: Truthful Leader",
-          description: "Lead group with honesty",
           icon: <Users className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "8-10 min",
@@ -156,7 +147,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
           id: "moral-teen-10",
           title: "Badge: Integrity Hero",
-          description: "Complete 5 integrity dilemmas",
           icon: <Award className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6-8 min",
@@ -170,7 +160,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
           id: "moral-teen-11",
           title: "Debate: Obey or Question",
-          description: "Respect vs blind obedience",
           icon: <Target className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "15-20 min",
@@ -184,7 +173,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
           id: "moral-teen-12",
           title: "Gratitude Story",
-          description: "Thank friend for sharing notes",
           icon: <Heart className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -198,7 +186,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
           id: "moral-teen-13",
           title: "Reflex: Politeness",
-          description: "Tap polite vs rude phrases",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4-6 min",
@@ -212,7 +199,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
           id: "moral-teen-14",
           title: "Puzzle of Gratitude",
-          description: "Thanks → Smile, Ignore → Hurt",
           icon: <Target className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -226,7 +212,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
           id: "moral-teen-15",
           title: "Service Story",
-          description: "Return dropped money to conductor",
           icon: <Coins className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6-8 min",
@@ -240,7 +225,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
           id: "moral-teen-16",
           title: "Respect Journal",
-          description: "This week I showed respect by...",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "8-10 min",
@@ -254,7 +238,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
           id: "moral-teen-17",
           title: "Debate: Respect Teachers",
-          description: "Argue rudely with teachers?",
           icon: <Target className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "15-20 min",
@@ -268,7 +251,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
           id: "moral-teen-18",
           title: "Roleplay: Respect Leader",
-          description: "Lead by listening to everyone",
           icon: <Users className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "8-10 min",
@@ -282,7 +264,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
           id: "moral-teen-19",
           title: "Reflex: Gratitude",
-          description: "Spot thank you vs rude emojis",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4-6 min",
@@ -296,7 +277,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
           id: "moral-teen-20",
           title: "Badge: Gratitude Hero",
-          description: "Complete 5 gratitude acts",
           icon: <Award className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6-8 min",
@@ -310,7 +290,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-21",
         title: "Empathy Story",
-        description: "New student feels lonely. Do you invite them? → Yes.",
         icon: <BookOpen className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "5 min",
@@ -324,7 +303,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-22",
         title: "Quiz of Feelings",
-        description: "Classmate cries. What do you do? Correct = Comfort.",
         icon: <HelpCircle className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "4 min",
@@ -338,7 +316,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-23",
         title: "Reflex Empathy",
-        description: "Tap for ‘Understand,’ avoid ‘Ignore.’",
         icon: <Zap className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "3 min",
@@ -352,7 +329,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-24",
         title: "Puzzle: Feelings Match",
-        description: "Match ‘Smile → Happy, Tears → Sad, Frown → Angry.’",
         icon: <Puzzle className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "5 min",
@@ -366,7 +342,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-25",
         title: "Roleplay: Walk in Shoes",
-        description: "Pretend you are a new student. How would you feel? → Lonely.",
         icon: <Users className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "6 min",
@@ -380,7 +355,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-26",
         title: "Debate: Kindness or Strength",
-        description: "Is kindness weakness or strength? → Strength.",
         icon: <Mic className="w-6 h-6" />,
         difficulty: "Hard",
         duration: "7 min",
@@ -394,7 +368,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-27",
         title: "Journal of Empathy",
-        description: "Write: ‘One time I understood someone’s feelings was ___.’",
         icon: <Notebook className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "5 min",
@@ -408,7 +381,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-28",
         title: "Helping Hand Story",
-        description: "Classmate drops books. Do you help? → Yes.",
         icon: <HandHeart className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "4 min",
@@ -422,7 +394,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-29",
         title: "Reflex Comfort",
-        description: "Tap when ‘Comfort’ appears, avoid ‘Laugh at.’",
         icon: <Zap className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "3 min",
@@ -436,7 +407,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-30",
         title: "Badge: Empathy Hero",
-        description: "Complete 5 empathy actions to earn your badge.",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "6-8 min",
@@ -450,7 +420,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-31",
         title: "Responsibility Story",
-        description: "You’re leader of project. Do you divide work fairly or dump on others? → Divide fairly.",
         icon: <BookOpen className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "5 min",
@@ -464,7 +433,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-32",
         title: "Quiz of Discipline",
-        description: "Which is disciplined? Correct = Submitting early.",
         icon: <HelpCircle className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "4 min",
@@ -478,7 +446,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-33",
         title: "Reflex Time Management",
-        description: "Tap for ‘Plan Study,’ avoid ‘Last-minute Panic.’",
         icon: <Zap className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "3 min",
@@ -492,7 +459,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-34",
         title: "Puzzle of Self Control",
-        description: "Match ‘Discipline → Success, Laziness → Failure.’",
         icon: <Puzzle className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "5 min",
@@ -506,7 +472,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-35",
         title: "Late Night Party Story",
-        description: "Exam tomorrow, friends want party. Correct = Stay home.",
         icon: <Moon className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "5 min",
@@ -520,7 +485,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-36",
         title: "Debate: Rules vs Freedom",
-        description: "Do rules kill freedom or create order? → Create order.",
         icon: <Mic className="w-6 h-6" />,
         difficulty: "Hard",
         duration: "7 min",
@@ -534,7 +498,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-37",
         title: "Journal of Discipline",
-        description: "Write: ‘One self-discipline habit I’m proud of is ___.’",
         icon: <Notebook className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "5 min",
@@ -548,7 +511,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-38",
         title: "Roleplay: Group Leader",
-        description: "Play as leader ensuring team finishes tasks on time.",
         icon: <Users className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "6 min",
@@ -562,7 +524,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-39",
         title: "Reflex Duty Check",
-        description: "Tap for ‘Keep Promise,’ avoid ‘Break Promise.’",
         icon: <Zap className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "3 min",
@@ -576,7 +537,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-40",
         title: "Badge: Discipline Hero",
-        description: "Complete 5 discipline actions to earn your badge.",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "6-8 min",
@@ -590,7 +550,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-41",
         title: "Classroom Story",
-        description: "Teacher blames wrong student. Do you defend them? → Yes.",
         icon: <BookOpen className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "5 min",
@@ -604,7 +563,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-42",
         title: "Justice Quiz",
-        description: "Which is just? Correct = Punishing the guilty, not the innocent.",
         icon: <HelpCircle className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "4 min",
@@ -618,7 +576,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-43",
         title: "Reflex Justice Symbols",
-        description: "Tap for ⚖️ (justice) and avoid ❌ (injustice).",
         icon: <Zap className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "3 min",
@@ -632,7 +589,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-44",
         title: "Puzzle of Fairness",
-        description: "Match ‘Equality → Justice, Bullying → Injustice.’",
         icon: <Puzzle className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "5 min",
@@ -646,7 +602,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-45",
         title: "Bully Story",
-        description: "Friend is bullied. Do you stand with the victim? → Yes.",
         icon: <Users className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "5 min",
@@ -660,7 +615,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-46",
         title: "Debate: Equal vs Fair",
-        description: "Is ‘equal’ always fair? → Sometimes fair means need-based.",
         icon: <Mic className="w-6 h-6" />,
         difficulty: "Hard",
         duration: "7 min",
@@ -674,7 +628,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-47",
         title: "Journal of Fairness",
-        description: "Write: ‘One injustice I noticed and wanted to fix was ___.’",
         icon: <Notebook className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "5 min",
@@ -688,7 +641,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-48",
         title: "Roleplay: Justice Leader",
-        description: "Be class captain ensuring rules are fair for all.",
         icon: <Users className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "6 min",
@@ -702,7 +654,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-49",
         title: "Reflex Stand Up",
-        description: "Tap for ‘Stand for Truth,’ avoid ‘Stay Silent.’",
         icon: <Zap className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "3 min",
@@ -716,10 +667,9 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-50",
         title: "Badge: Justice Hero",
-        description: "Complete 5 justice actions to earn your badge.",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Medium",
-        duration: "6–8 min",
+        duration: "6â€“8 min",
         coins: 10,
         xp: 20,
         completed: gameCompletionStatus["moral-teen-50"] || false,
@@ -730,7 +680,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-51",
         title: "Witness Story",
-        description: "You see cheating in exam. Do you report or stay silent? → Report.",
         icon: <BookOpen className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "5 min",
@@ -744,7 +693,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-52",
         title: "Courage Quiz",
-        description: "Which is real courage? Correct = Protecting others.",
         icon: <HelpCircle className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "4 min",
@@ -758,7 +706,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-53",
         title: "Reflex Moral Courage",
-        description: "Tap for ‘Tell Truth,’ avoid ‘Hide Wrong.’",
         icon: <Zap className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "3 min",
@@ -772,7 +719,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-54",
         title: "Puzzle of Heroes",
-        description: "Match ‘Mahatma Gandhi → Non-violence, Malala → Education.’",
         icon: <Puzzle className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "5 min",
@@ -786,7 +732,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-55",
         title: "Group Pressure Story",
-        description: "Friends tease new student. Do you join or stop? → Stop.",
         icon: <Users className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "5 min",
@@ -800,7 +745,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-56",
         title: "Debate: Fear vs Courage",
-        description: "Is courage the absence of fear? → No, it’s acting despite fear.",
         icon: <Mic className="w-6 h-6" />,
         difficulty: "Hard",
         duration: "7 min",
@@ -814,7 +758,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-57",
         title: "Courage Journal",
-        description: "Write: ‘A time I stood up for someone was ___.’",
         icon: <Notebook className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "5 min",
@@ -828,7 +771,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-58",
         title: "Bravery Story",
-        description: "Class blames one student wrongly. Do you defend them? → Yes.",
         icon: <BookOpen className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "5 min",
@@ -842,7 +784,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-59",
         title: "Roleplay: Courageous Leader",
-        description: "Lead a group and stop unfair practice.",
         icon: <Users className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "6 min",
@@ -856,10 +797,9 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-60",
         title: "Badge: Courage Hero",
-        description: "Complete 5 courageous acts to earn your badge.",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Medium",
-        duration: "6–8 min",
+        duration: "6â€“8 min",
         coins: 15,
         xp: 30,
         completed: gameCompletionStatus["moral-teen-60"] || false,
@@ -870,7 +810,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-61",
         title: "Group Project Story",
-        description: "Leader ignores ideas. Is that cooperation? → No.",
         icon: <BookOpen className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "5 min",
@@ -884,7 +823,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-62",
         title: "Quiz on Team Skills",
-        description: "Best teamwork trait? (a) Listening, (b) Arguing, (c) Blaming). Correct = Listening.",
         icon: <HelpCircle className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "3 min",
@@ -898,7 +836,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-63",
         title: "Reflex Collaboration",
-        description: "Tap for “Encourage,” for “Mock.”",
         icon: <Zap className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "2 min",
@@ -912,7 +849,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-64",
         title: "Puzzle: Great Teams",
-        description: "Match “Wright Brothers → Airplane, Cricket Team → Victory.”",
         icon: <Puzzle className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "4 min",
@@ -926,7 +862,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-65",
         title: "Leadership Story",
-        description: "Captain takes credit for all work. Is this fair? → No.",
         icon: <BookOpen className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "5 min",
@@ -940,7 +875,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-66",
         title: "Debate: Team vs Individual",
-        description: "Which is better — working alone or in team? → Team.",
         icon: <Mic className="w-6 h-6" />,
         difficulty: "Hard",
         duration: "8 min",
@@ -954,7 +888,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-67",
         title: "Journal of Cooperation",
-        description: "Write: “One time my team achieved more than I could alone was ___.”",
         icon: <Edit3 className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "5 min",
@@ -968,7 +901,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-68",
         title: "Roleplay: Good Teammate",
-        description: "Act as teammate who listens and encourages.",
         icon: <Users className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "6 min",
@@ -982,7 +914,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-69",
         title: "Reflex Fair Share",
-        description: "Tap when “Share Credit” shows, for “Take All Credit.”",
         icon: <Zap className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "2 min",
@@ -996,7 +927,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-70",
         title: "Badge: Team Hero",
-        description: "Complete 5 cooperation actions to earn the Badge “Team Hero.”",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Hard",
         duration: "10 min",
@@ -1010,7 +940,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-71",
         title: "Leader Story",
-        description: "Leader eats first before team. Is this good leadership? → No.",
         icon: <BookOpen className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "5 min",
@@ -1024,7 +953,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-72",
         title: "Quiz on Leadership",
-        description: "Best leader is one who (a) Commands, (b) Serves, (c) Ignores). Correct = Serves.",
         icon: <HelpCircle className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "3 min",
@@ -1038,7 +966,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-73",
         title: "Reflex Leadership Traits",
-        description: "Tap for “Inspire,” for “Order Rudely.”",
         icon: <Zap className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "2 min",
@@ -1052,7 +979,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-74",
         title: "Puzzle of Leaders",
-        description: "Match “Gandhi → Non-violence, Mother Teresa → Service.”",
         icon: <Puzzle className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "4 min",
@@ -1066,7 +992,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-75",
         title: "Community Story",
-        description: "Local park is dirty. Do you lead friends to clean? → Yes.",
         icon: <BookOpen className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "5 min",
@@ -1080,7 +1005,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-76",
         title: "Debate: Boss vs Leader",
-        description: "Is a boss the same as a leader? → No, leader serves.",
         icon: <Mic className="w-6 h-6" />,
         difficulty: "Hard",
         duration: "8 min",
@@ -1094,7 +1018,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-77",
         title: "Journal of Leadership",
-        description: "Write: “One time I led others by example was ___.”",
         icon: <Edit3 className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "5 min",
@@ -1108,7 +1031,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-78",
         title: "Roleplay: True Leader",
-        description: "Act as leader who serves team first.",
         icon: <Users className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "6 min",
@@ -1122,7 +1044,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-79",
         title: "Reflex Team First",
-        description: "Tap when “Serve Others” shows, for “Me First.”",
         icon: <Zap className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "2 min",
@@ -1136,7 +1057,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-80",
         title: "Badge: Service Leader",
-        description: "Complete 5 leadership actions to earn the Badge “Service Leader.”",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Hard",
         duration: "10 min",
@@ -1150,7 +1070,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-81",
         title: "Class Argument Story",
-        description: "Two classmates argue loudly. Do you mediate? → Yes.",
         icon: <BookOpen className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "5 min",
@@ -1164,7 +1083,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-82",
         title: "Quiz on Conflict",
-        description: "Best way to solve conflict? (a) Listen, (b) Shout louder, (c) Ignore). Correct = Listen.",
         icon: <HelpCircle className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "3 min",
@@ -1178,7 +1096,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-83",
         title: "Reflex Peace Symbols",
-        description: "Tap for peace symbol, avoid conflict symbol.",
         icon: <Zap className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "2 min",
@@ -1192,7 +1109,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-84",
         title: "Puzzle of Resolution",
-        description: "Match “Talk → Solution, Violence → Problem.”",
         icon: <Puzzle className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "4 min",
@@ -1206,7 +1122,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-85",
         title: "Friend Group Story",
-        description: "Two friends argue over project credit. Do you split credit fairly? → Yes.",
         icon: <BookOpen className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "5 min",
@@ -1220,7 +1135,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-86",
         title: "Debate: Peace vs Revenge",
-        description: "Does revenge bring peace? → No.",
         icon: <Mic className="w-6 h-6" />,
         difficulty: "Hard",
         duration: "8 min",
@@ -1234,7 +1148,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-87",
         title: "Journal of Resolution",
-        description: "Write: “One time I resolved a conflict was ___.”",
         icon: <Edit3 className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "5 min",
@@ -1248,7 +1161,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-88",
         title: "Roleplay: Mediator",
-        description: "Act as mediator calming two fighting students.",
         icon: <Users className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "6 min",
@@ -1262,7 +1174,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-89",
         title: "Reflex Calm Action",
-        description: "Tap for “Take Deep Breath,” avoid “Shout Back.”",
         icon: <Zap className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "2 min",
@@ -1276,7 +1187,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-90",
         title: "Badge: Peace Hero",
-        description: "Complete 5 conflict resolutions to earn the Badge “Peace Hero.”",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Hard",
         duration: "10 min",
@@ -1290,7 +1200,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-91",
         title: "Money Found Story",
-        description: "You find money on the road. Keep or give to teacher? → Give to teacher.",
         icon: <BookOpen className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "3-4 min",
@@ -1304,7 +1213,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-92",
         title: "Ethical Quiz",
-        description: "Is it okay to copy small homework? → No.",
         icon: <HelpCircle className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "2-3 min",
@@ -1318,7 +1226,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-93",
         title: "Reflex: Right vs Easy",
-        description: "Tap for right actions, avoid shortcuts.",
         icon: <Zap className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "2-3 min",
@@ -1332,7 +1239,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-94",
         title: "Puzzle of Ethics",
-        description: "Match 'Fairness → Justice' and 'Stealing → Wrong'.",
         icon: <Puzzle className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "4-5 min",
@@ -1346,7 +1252,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-95",
         title: "Peer Pressure Story",
-        description: "Friends push you to break rule. Correct = Refuse.",
         icon: <Users className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "3-4 min",
@@ -1360,7 +1265,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-96",
         title: "Debate: Right vs Popular",
-        description: "Should you do what’s popular or what’s right? → What’s right.",
         icon: <Mic className="w-6 h-6" />,
         difficulty: "Hard",
         duration: "5-6 min",
@@ -1374,7 +1278,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-97",
         title: "Journal of Ethics",
-        description: "Write: 'One hard but right choice I made was ___.'",
         icon: <PenTool className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "4-5 min",
@@ -1388,7 +1291,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-98",
         title: "Roleplay: Ethical Leader",
-        description: "Act as leader choosing fair rules for all.",
         icon: <UserCheck className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "5-6 min",
@@ -1402,7 +1304,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-99",
         title: "Reflex: True Hero",
-        description: "Tap for 'Speak Truth', avoid 'Hide Wrong'.",
         icon: <Zap className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "2-3 min",
@@ -1416,7 +1317,6 @@ export const getMoralTeenGames = (gameCompletionStatus)=> {
         {
         id: "moral-teen-100",
         title: "Badge: Ethical Hero",
-        description: "Complete 5 ethical dilemmas.",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "6-8 min",

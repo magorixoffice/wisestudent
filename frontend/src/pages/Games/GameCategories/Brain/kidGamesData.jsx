@@ -11,7 +11,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-1",
           title: "Water Story",
-          description: "Learn why water is important for brain health",
           icon: <Brain className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3 min",
@@ -25,7 +24,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-2",
           title: "Quiz on Brain Food",
-          description: "Test your knowledge of brain-healthy foods",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -39,7 +37,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-3",
           title: "Reflex Brain Boost",
-          description: "Tap quickly for brain-boosting activities",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -53,7 +50,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-4",
           title: "Puzzle of Brain Care",
-          description: "Match brain care activities with their benefits",
           icon: <Target className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -67,7 +63,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-5",
           title: "Breakfast Story",
-          description: "Learn why breakfast is important for brain function",
           icon: <Heart className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -81,7 +76,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-6",
           title: "Poster: Brain Health",
-          description: "Create or select a brain health poster",
           icon: <GraduationCap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "7 min",
@@ -95,7 +89,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-7",
           title: "Journal of Habits",
-          description: "Reflect on brain-healthy habits",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -109,7 +102,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-8",
           title: "Sports Story",
-          description: "Learn how sports benefit brain health",
           icon: <ShoppingCart className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -123,7 +115,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-9",
           title: "Reflex Daily Habit",
-          description: "Practice identifying good daily habits",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "5 min",
@@ -137,7 +128,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-10",
           title: "Badge: Brain Care Kid",
-          description: "Earn your badge for completing brain health challenges",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -151,7 +141,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-11",
           title: "Classroom Story",
-          description: "Learn how to stay focused in class",
           icon: <ShoppingCart className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3 min",
@@ -165,7 +154,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-12",
           title: "Quiz on Focus",
-          description: "Test your knowledge of focus techniques",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -179,7 +167,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-13",
           title: "Reflex Attention",
-          description: "Practice attention-boosting actions",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -193,7 +180,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-14",
           title: "Puzzle of Focus",
-          description: "Match focus concepts with their effects",
           icon: <Target className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -207,7 +193,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-15",
           title: "Homework Story",
-          description: "Learn how to focus while doing homework",
           icon: <ShoppingCart className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -221,7 +206,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-16",
           title: "Poster: Focus Matters",
-          description: "Create or select a focus poster",
           icon: <GraduationCap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "7 min",
@@ -235,7 +219,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-17",
           title: "Journal of Focus",
-          description: "Reflect on focus strategies",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -249,7 +232,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-18",
           title: "Game Story",
-          description: "Learn to balance games and study time",
           icon: <ShoppingCart className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -263,7 +245,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-19",
           title: "Reflex Quick Attention",
-          description: "Test your quick attention reflexes",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "5 min",
@@ -277,7 +258,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-20",
           title: "Badge: Focus Kid",
-          description: "Earn your badge for completing focus challenges",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -291,8 +271,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-21",
           title: "Shopping List Story",
-          description:
-            "Mom gives 3 items to buy. You forget 2. Good memory? → No.",
           icon: <ShoppingCart className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3 min",
@@ -306,8 +284,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-22",
           title: "Quiz on Memory",
-          description:
-            "What helps memory? (a) Sleep, (b) Skipping food, (c) Stress). Correct = Sleep.",
           icon: <HelpCircle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -321,7 +297,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-23",
           title: "Reflex Recall",
-          description: "Tap for words seen before, skip new ones.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -335,7 +310,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-24",
           title: "Puzzle: Memory Match",
-          description: "Match fruits shown earlier to test your recall.",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "6 min",
@@ -349,7 +323,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-25",
           title: "Story of Repetition",
-          description: "Kid revises daily. Does memory improve? → Yes.",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3 min",
@@ -363,7 +336,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-26",
           title: "Poster: Strong Memory",
-          description: "Create/select poster: 'Practice = Memory.'",
           icon: <Image className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -377,8 +349,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-27",
           title: "Journal of Recall",
-          description:
-            "Write: 'One time I remembered something important was ___.'",
           icon: <FileText className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -392,8 +362,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-28",
           title: "Game Story",
-          description:
-            "You play a memory card game. Does it improve your brain? → Yes.",
           icon: <Gamepad2 className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -407,8 +375,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-29",
           title: "Reflex Sequence",
-          description:
-            "Tap if the shown order is correct to test your memory sequence.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "5 min",
@@ -422,7 +388,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-30",
           title: "Badge: Memory Kid",
-          description: "Win 5 memory mini-games to earn your Memory Kid badge.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -436,8 +401,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-31",
           title: "Homework Story",
-          description:
-            "Kid has lots of homework and feels stressed. Best action? → Do one step at a time.",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -451,8 +414,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-32",
           title: "Quiz on Calmness",
-          description:
-            "What reduces stress? (a) Deep breathing, (b) Shouting, (c) Worrying). Correct = Deep breathing.",
           icon: <HelpCircle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -466,7 +427,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-33",
           title: "Reflex Calm",
-          description: "Tap for 'Breathe Slow', skip for 'Panic'.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -480,8 +440,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-34",
           title: "Puzzle of Relaxing",
-          description:
-            "Match 'Yoga → Calm' and 'Music → Relax' to complete the puzzle.",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "6 min",
@@ -495,8 +453,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-35",
           title: "Exam Story",
-          description:
-            "Kid is nervous before test. What helps? → Practice + calm breathing.",
           icon: <BookOpenCheck className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3 min",
@@ -510,7 +466,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-36",
           title: "Poster: Stay Cool",
-          description: "Create/select poster: 'Stay Calm Under Pressure.'",
           icon: <Image className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -524,7 +479,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-37",
           title: "Journal of Calmness",
-          description: "Write: 'One thing that calms me down is ___.'",
           icon: <FileText className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -538,8 +492,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-38",
           title: "Sports Story",
-          description:
-            "Kid loses a game and feels angry. Right action? → Try again calmly.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -553,7 +505,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-39",
           title: "Reflex Quick Calm",
-          description: "Tap for 'Smile', skip for 'Yell'.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "5 min",
@@ -567,7 +518,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-40",
           title: "Badge: Calm Kid",
-          description: "Stay calm in 5 scenarios to earn your Calm Kid badge.",
           icon: <Award className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -581,8 +531,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-41",
           title: "Toy Broken Story",
-          description:
-            "Kid's toy breaks and they feel sad. Is this normal? → Yes.",
           icon: <ToyBrick className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3 min",
@@ -596,8 +544,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-42",
           title: "Quiz on Feelings",
-          description:
-            "Which is an emotion? (a) Happiness, (b) Shoes, (c) Pen). Correct = Happiness.",
           icon: <HelpCircle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -611,7 +557,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-43",
           title: "Reflex Emotions",
-          description: "Tap for 'Happy Face 😊', skip for 'Random Object'.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -625,7 +570,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-44",
           title: "Puzzle: Match Feelings",
-          description: "Match 'Smile → Happy' and 'Tears → Sad' correctly.",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "6 min",
@@ -639,7 +583,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-45",
           title: "Sharing Story",
-          description: "Kid feels angry. Best way? → Tell a teacher or parent.",
           icon: <MessageCircle className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3 min",
@@ -653,7 +596,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-46",
           title: "Poster: Feelings Matter",
-          description: "Create/select poster: 'It's Okay to Feel.'",
           icon: <Image className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -667,7 +609,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-47",
           title: "Journal of Feelings",
-          description: "Write: 'Today I felt ___ because ___.'",
           icon: <FileText className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -681,8 +622,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-48",
           title: "Lost Game Story",
-          description:
-            "Kid loses in cricket and feels jealous. What to do? → Congratulate others.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -696,7 +635,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-49",
           title: "Reflex Quick Emotion",
-          description: "Tap for 'Real Emotion Words', skip for 'Objects'.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "5 min",
@@ -710,8 +648,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-50",
           title: "Badge: Emotion Kid",
-          description:
-            "Identify 5 feelings correctly to earn your Emotion Kid badge.",
           icon: <Award className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -725,8 +661,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-51",
           title: "Rainy Day Story",
-          description:
-            "Picnic cancelled due to rain. Kid feels sad. Best thought? → 'We can play indoor games!'",
           icon: <CloudRain className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3 min",
@@ -740,8 +674,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-52",
           title: "Quiz on Positivity",
-          description:
-            "What is positive thinking? (a) Complaining, (b) Looking for good side, (c) Giving up). Correct = Looking for good side.",
           icon: <HelpCircle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -755,7 +687,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-53",
           title: "Reflex Happy Thoughts",
-          description: "Tap for 'Smile', skip for 'Complain'.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -769,8 +700,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-54",
           title: "Puzzle of Positive Words",
-          description:
-            "Match 'Hope → Future' and 'Gratitude → Thanks' correctly.",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "6 min",
@@ -784,7 +713,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-55",
           title: "Lost Match Story",
-          description:"Team loses a game. Best thought? → 'Next time we'll improve!'",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3 min",
@@ -798,7 +726,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-56",
           title: "Poster: Stay Positive",
-          description: "Create/select poster: 'Think Positive, Live Happy.'",
           icon: <Image className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -812,7 +739,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-57",
           title: "Journal of Good Things",
-          description: "Write: 'One good thing that happened today was ___.'",
           icon: <FileText className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -826,8 +752,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-58",
           title: "Homework Story",
-          description:
-            "Kid finds homework hard. Positive thought? → 'I can learn step by step.'",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -841,7 +765,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-59",
           title: "Reflex Positive/Negative",
-          description: "Tap for 'Hope', skip for 'Hopeless'.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "5 min",
@@ -855,8 +778,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-60",
           title: "Badge: Positive Kid",
-          description:
-            "Think positively in 5 cases to earn your Positive Kid badge.",
           icon: <Award className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -870,8 +791,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-61",
           title: "Bedtime Story",
-          description:
-            "Kid sleeps at 9 PM and wakes up fresh. Is this good? → Yes.",
           icon: <Moon className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -885,8 +804,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-62",
           title: "Quiz on Sleep",
-          description:
-            "How many hours should kids sleep? (a) 4, (b) 8–10, (c) 12+). Correct = 8–10.",
           icon: <HelpCircle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -900,7 +817,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-63",
           title: "Reflex Sleep Habits",
-          description: "Tap for 'Bedtime,' avoid 'Late Gaming.'",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "3 min",
@@ -914,7 +830,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-64",
           title: "Puzzle of Rest",
-          description: "Match 'Nap → Energy' and 'All-night TV → Tired.'",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -928,8 +843,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-65",
           title: "Exam Story",
-          description:
-            "Kid studies till midnight, sleepy in class. Smart? → No.",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -943,7 +856,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-66",
           title: "Poster: Sleep Well",
-          description: "Create/select poster: 'Sleep = Brain Fuel.'",
           icon: <Image className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "6 min",
@@ -957,7 +869,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-67",
           title: "Journal of Rest",
-          description: "Write: 'One way I relax is ___.'",
           icon: <FileText className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "6 min",
@@ -971,7 +882,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-68",
           title: "Holiday Story",
-          description: "Kid plays all night, tired next day. Good habit? → No.",
           icon: <Sun className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -985,7 +895,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-69",
           title: "Reflex Rest Alert",
-          description: "Tap for 'Sleep Early,' avoid 'Sleep Late.'",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "3 min",
@@ -999,8 +908,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-70",
           title: "Badge: Sleep Champ",
-          description:
-            "Follow 5 good sleep habits to earn your Sleep Champ badge.",
           icon: <Award className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -1014,8 +921,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-71",
           title: "Tablet Story",
-          description:
-            "Kid plays tablet for 5 hours and skips homework. Healthy? → No.",
           icon: <Tablet className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -1029,8 +934,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-72",
           title: "Quiz on Screens",
-          description:
-            "Too much screen time causes? (a) Eye strain, (b) More energy, (c) Superpowers). Correct = Eye strain.",
           icon: <HelpCircle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -1044,7 +947,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-73",
           title: "Reflex Digital Choice",
-          description: "Tap for 'Outdoor Play,' avoid 'Endless Screens.'",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "3 min",
@@ -1058,7 +960,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-74",
           title: "Puzzle of Balance",
-          description: "Match '1 hr Game → Fun' and '5 hrs → Harm.'",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1072,8 +973,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-75",
           title: "Homework Story",
-          description:
-            "Kid watches cartoon instead of homework. Best? → Do homework first.",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1087,7 +986,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-76",
           title: "Poster: Balance Tech",
-          description: "Create/select poster: 'Screens in Balance.'",
           icon: <Image className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "6 min",
@@ -1101,7 +999,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-77",
           title: "Journal of Screen Use",
-          description: "Write: 'I spend ___ hrs daily on screens.'",
           icon: <FileText className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "6 min",
@@ -1115,8 +1012,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-78",
           title: "Outdoor Story",
-          description:
-            "Friend asks to play football, but you're on phone. Best choice? → Play football.",
           icon: <Sun className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1130,7 +1025,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-79",
           title: "Reflex Screen Alert",
-          description: "Tap for 'Log Off,' avoid 'Keep Scrolling.'",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "3 min",
@@ -1144,8 +1038,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-80",
           title: "Badge: Balanced Kid",
-          description:
-            "Show 5 balanced digital uses to earn your Balanced Kid badge.",
           icon: <Award className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -1159,8 +1051,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-81",
           title: "Lost Key Story",
-          description:
-            "Kid loses classroom key. Best action? → Tell teacher & find solution.",
           icon: <Key className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -1174,8 +1064,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-82",
           title: "Quiz on Creativity",
-          description:
-            "Which is problem solving? (a) Crying, (b) Finding another way, (c) Giving up). Correct = Finding another way.",
           icon: <HelpCircle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -1189,7 +1077,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-83",
           title: "Reflex Problem Solver",
-          description: "Tap for 'Try Again,' avoid 'Quit.'",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "3 min",
@@ -1203,8 +1090,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-84",
           title: "Puzzle of Solutions",
-          description:
-            "Match 'Broken Pencil → Borrow' and 'Spilled Water → Clean.'",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1218,7 +1103,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-85",
           title: "Group Story",
-          description: "Group project fails. Next step? → Work together & fix.",
           icon: <Users className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1232,7 +1116,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-86",
           title: "Poster: Be Creative",
-          description: "Create/select poster: 'Think Out of the Box.'",
           icon: <Image className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "6 min",
@@ -1246,7 +1129,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-87",
           title: "Journal of Ideas",
-          description: "Write: 'One time I solved a problem was ___.'",
           icon: <FileText className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "6 min",
@@ -1260,7 +1142,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-88",
           title: "Art Story",
-          description: "Kid makes toy from waste. Is this creativity? → Yes.",
           icon: <Brush className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1274,7 +1155,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-89",
           title: "Reflex Creative Thinking",
-          description: "Tap for 'New Idea,' avoid 'Copy Always.'",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "3 min",
@@ -1288,8 +1168,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-90",
           title: "Badge: Creative Kid",
-          description:
-            "Solve 5 problems in creative ways to earn your Creative Kid badge.",
           icon: <Award className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -1303,8 +1181,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-91",
           title: "Fall Story",
-          description:
-            "Kid falls while cycling. Do they quit or try again? → Try again.",
           icon: <Activity className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -1318,8 +1194,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-92",
           title: "Quiz on Resilience",
-          description:
-            "What is resilience? (a) Giving up, (b) Bouncing back, (c) Complaining). Correct = Bouncing back.",
           icon: <HelpCircle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -1333,7 +1207,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-93",
           title: "Reflex Try Again",
-          description: "Tap for 'Retry,' avoid 'Quit.'",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "3 min",
@@ -1347,7 +1220,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-94",
           title: "Puzzle of Resilience",
-          description: "Match 'Fall → Rise' and 'Fail → Try Again.'",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1361,8 +1233,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-95",
           title: "Test Story",
-          description:
-            "Kid fails spelling test. Best response? → Study and try again.",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1376,7 +1246,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-96",
           title: "Poster: Don't Give Up",
-          description: "Create/select poster: 'Failure = Step to Success.'",
           icon: <Image className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "6 min",
@@ -1390,7 +1259,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-97",
           title: "Journal of Bounce Back",
-          description: "Write: 'One time I failed but tried again was ___.'",
           icon: <FileText className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "6 min",
@@ -1404,8 +1272,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-98",
           title: "Sports Story",
-          description:
-            "Team loses football match. Should they stop? → No, practice harder.",
           icon: <Activity className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1419,7 +1285,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-99",
           title: "Reflex Growth Thinking",
-          description: "Tap for 'Learn,' avoid 'Quit.'",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "3 min",
@@ -1433,8 +1298,6 @@ export const getBrainKidsGames = (gameCompletionStatus)=> {
         {
           id: "brain-kids-100",
           title: "Badge: Bounce Back Kid",
-          description:
-            "Overcome 5 failures to earn your Bounce Back Kid badge.",
           icon: <Award className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",

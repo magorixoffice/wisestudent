@@ -32,7 +32,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-1',
             title: 'Handwash Hero',
-            description: 'Answer 5 questions about proper handwashing. When should you wash? How long? Pass 3/5 to continue!',
             icon: <Hand className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -46,7 +45,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-2',
             title: 'Quiz on Cleanliness',
-            description: 'Answer 5 questions about daily hygiene habits. Bathing, brushing, nails, hair - pass 3/5 to continue!',
             icon: <Sparkles className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -60,7 +58,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-3',
             title: 'Reflex Hygiene',
-            description: 'Test your reflexes with 5 quick hygiene decisions. Choose healthy options fast - pass 3/5 to continue!',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '3 min',
@@ -74,7 +71,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-4',
             title: 'Hygiene Items Puzzle',
-            description: 'Match hygiene items one by one! Complete 5 sequential puzzles: Toothbrush → Teeth, Soap → Bath, etc.',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -88,7 +84,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-5',
             title: 'Bath Time Story',
-            description: 'Mom says "Take bath daily." Do you listen or skip? Make the right choice in 5 story scenarios!',
             icon: <Droplets className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -102,7 +97,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-6',
             title: 'Stay Fresh Poster',
-            description: 'Create a poster to spread the hygiene message! "Clean Body = Healthy Body"',
             icon: <Sun className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -116,7 +110,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-7',
             title: 'Journal of Hygiene',
-            description: 'Write about one habit that keeps you clean! Share your personal hygiene routine.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -130,7 +123,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-8',
             title: 'Dirty Shirt Story',
-            description: 'You wore sweaty shirt again. What happens? Learn about clean clothes and hygiene!',
             icon: <Shirt className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -144,7 +136,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-9',
             title: 'Germ Buster Reflex',
-            description: 'Quick! Fight germs in 5 different scenarios - playground, pet touch, after sneeze, bedtime, and final challenge!',
             icon: <Shield className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -158,7 +149,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-10',
             title: 'Clean Kid Badge',
-            description: 'Complete 5 hygiene tasks to earn your Clean Kid Badge! Show your hygiene mastery!',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -172,7 +162,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-11',
             title: 'Fruit vs Candy Story',
-            description: 'Make 5 healthy food choices in story scenarios. Apple vs candy, fruits vs junk food - choose wisely!',
             icon: <Apple className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -186,7 +175,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-12',
             title: 'Quiz on Food Groups',
-            description: 'Answer 5 questions about nutrition! Proteins, carbs, vitamins - pass 3/5 to continue!',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -200,7 +188,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-13',
             title: 'Reflex Healthy Choice',
-            description: 'Test reflexes with 5 quick food decisions! Choose vegetables over junk food - pass 3/5 to continue!',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '3 min',
@@ -214,7 +201,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-14',
             title: 'Food Match Puzzle',
-            description: 'Match foods to nutrients! Complete 5 sequential puzzles: Milk → Calcium, Dal → Protein, etc.',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -228,7 +214,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-15',
             title: 'Lunchbox Story',
-            description: 'Choose healthy lunch options in 5 different scenarios. Homemade meal vs fast food - make smart choices!',
             icon: <Heart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -242,7 +227,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-16',
             title: 'Healthy Plate Poster',
-            description: 'Create nutrition awareness poster! "Half Plate Fruits & Veggies" - design your healthy eating message!',
             icon: <Sun className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -256,7 +240,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-17',
             title: 'Journal of Food Habits',
-            description: 'Write about 5 healthy eating experiences! Share your favorite nutritious foods and meals.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -270,7 +253,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-18',
             title: 'Junk Food Story',
-            description: 'Navigate 5 peer pressure scenarios! Friends want junk food - choose healthy options to stay strong!',
             icon: <Shield className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -284,7 +266,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-19',
             title: 'Reflex Food Alert',
-            description: 'Quick hydration and nutrition decisions! Choose water over soda, fruits over candy - pass 3/5 to continue!',
             icon: <Droplets className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -298,7 +279,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-20',
             title: 'Healthy Kid Badge',
-            description: 'Complete 5 nutrition challenges to earn your Healthy Kid Badge! Master healthy eating habits!',
             icon: <Trophy className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -312,7 +292,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-21',
             title: 'Growing Taller Story',
-            description: 'Make 5 growth-related choices in story scenarios. Height changes, body growth - learn what\'s normal!',
             icon: <Activity className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -326,7 +305,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-22',
             title: 'Quiz on Growth',
-            description: 'Answer 5 questions about growing stronger! Exercise, nutrition, health - pass 3/5 to continue!',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -340,7 +318,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-23',
             title: 'Reflex Growth Basics',
-            description: 'Test reflexes with 5 quick growth decisions! Choose healthy habits over bad ones - pass 3/5 to continue!',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '3 min',
@@ -354,7 +331,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-24',
             title: 'Growth Helpers Puzzle',
-            description: 'Match growth activities to body parts! Complete 5 sequential puzzles: Milk → Bones, Exercise → Muscles, etc.',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -368,7 +344,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-25',
             title: 'Voice Change Story',
-            description: 'Navigate 5 puberty voice scenarios! Voice cracks, changes - learn what\'s normal and what to do!',
             icon: <Heart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -382,7 +357,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-26',
             title: 'Growing Up Poster',
-            description: 'Create growth awareness poster! "Every Boy Grows Differently" - design your puberty education message!',
             icon: <Sun className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -396,7 +370,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-27',
             title: 'Journal of Body Changes',
-            description: 'Write about 5 body growth experiences! Share your thoughts about height, voice, and other changes.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -410,7 +383,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-28',
             title: 'Hair Growth Story',
-            description: 'Make 5 decisions about body hair changes! Face hair, arm hair - understand what puberty means!',
             icon: <Shield className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -424,7 +396,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-29',
             title: 'Reflex Growth Alert',
-            description: 'Quick health decisions for growing bodies! Choose exercise over laziness, healthy food over junk - pass 3/5!',
             icon: <Droplets className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -438,7 +409,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-30',
             title: 'Growing Strong Badge',
-            description: 'Complete 5 growth challenges to earn your Growing Strong Badge! Master puberty knowledge!',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -452,7 +422,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-31',
             title: 'Body System Story',
-            description: 'Make 5 choices about body systems! Learn how organs work together and body differences.',
             icon: <Activity className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -466,7 +435,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-32',
             title: 'Quiz on Body Functions',
-            description: 'Answer 5 questions about body organs! Heart, lungs, brain - learn how body works!',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -480,7 +448,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-33',
             title: 'Reflex Body Basics',
-            description: 'Test reflexes with 5 quick body system decisions! Choose cooperation over isolation - pass 3/5!',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '3 min',
@@ -494,7 +461,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-34',
             title: 'Body Match Puzzle',
-            description: 'Match organs to their functions! Complete 5 sequential puzzles: Heart → Blood, Lungs → Oxygen, etc.',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -508,7 +474,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-35',
             title: 'Respect Story',
-            description: 'Navigate 5 scenarios about body respect! Learn why private parts need special care and respect.',
             icon: <Heart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -522,7 +487,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-36',
             title: 'My Body, My Respect Poster',
-            description: 'Create body respect awareness poster! "Every part of body deserves respect" - design your message!',
             icon: <Sun className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -536,7 +500,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-37',
             title: 'Journal: Learning About My Body',
-            description: 'Write about 5 body system discoveries! Share what you learned about organs and body functions.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -550,7 +513,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-38',
             title: 'Growth Story',
-            description: 'Make 5 choices about body differences! Boys vs girls development, changes - learn what\'s normal!',
             icon: <Shield className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -564,7 +526,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-39',
             title: 'Reflex Safe Body',
-            description: 'Quick body safety decisions! Choose protection over ignoring, respect over carelessness - pass 3/5!',
             icon: <Droplets className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -578,7 +539,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-40',
             title: 'Body Basics Badge',
-            description: 'Complete 5 body system challenges to earn your Body Basics Badge! Master anatomy knowledge!',
             icon: <Trophy className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -592,7 +552,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-41',
             title: 'Sweat Story',
-            description: 'Make 5 choices about sweating and body care! Learn when and how to manage sweat properly.',
             icon: <Activity className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -606,7 +565,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-42',
             title: 'Quiz on Hygiene',
-            description: 'Answer 5 hygiene questions! Body odor, fresh clothes, daily care - pass 3/5 to continue!',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -620,7 +578,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-43',
             title: 'Reflex Hygiene Check',
-            description: 'Test reflexes with 5 quick hygiene decisions! Choose clean habits over skipping - pass 3/5!',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '3 min',
@@ -634,7 +591,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-44',
             title: 'Hygiene Match Puzzle',
-            description: 'Match hygiene items to their uses! Complete 5 sequential puzzles: Soap → Bath, Deodorant → Smell, etc.',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -648,7 +604,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-45',
             title: 'Shaving Story',
-            description: 'Navigate 5 scenarios about facial hair! Learn safe shaving and when to start grooming.',
             icon: <Heart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -662,7 +617,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-46',
             title: 'Stay Fresh Poster',
-            description: 'Create hygiene awareness poster! "Clean Body = Confident Boy" - design your daily care message!',
             icon: <Sun className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -676,7 +630,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-47',
             title: 'Journal: Hygiene Habits',
-            description: 'Write about 5 hygiene experiences! Share your daily care routine and new healthy habits.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -690,7 +643,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-48',
             title: 'Acne Story',
-            description: 'Make 5 choices about skin care! Pimples, face washing, gentle care - learn proper acne management!',
             icon: <Shield className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -704,7 +656,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-49',
             title: 'Reflex Freshness',
-            description: 'Quick freshness decisions! Choose clean clothes over dirty, hygiene over skipping - pass 3/5!',
             icon: <Droplets className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -718,7 +669,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-50',
             title: 'Fresh Kid Badge',
-            description: 'Complete 5 advanced hygiene challenges to earn your Fresh Kid Badge! Master daily care!',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -732,7 +682,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-51',
             title: 'Feelings Story',
-            description: 'Make 5 choices about understanding emotions! Learn that all feelings are normal and okay to have.',
             icon: <Heart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -746,7 +695,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-52',
             title: 'Quiz on Emotions',
-            description: 'Answer 5 questions about emotions! Happy, sad, angry - pass 3/5 to continue!',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -760,7 +708,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-53',
             title: 'Reflex Emotion Check',
-            description: 'Test reflexes with 5 quick emotion decisions! Choose happy over sad, calm over angry - pass 3/5!',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '3 min',
@@ -774,7 +721,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-54',
             title: 'Emotion Match Puzzle',
-            description: 'Match feelings to expressions! Complete 5 sequential puzzles: Happy → Smile, Sad → Tears, etc.',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -788,7 +734,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-55',
             title: 'Sharing Story',
-            description: 'Make 5 choices about sharing feelings! Learn when and how to talk about emotions with others.',
             icon: <Heart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -802,7 +747,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-56',
             title: 'Feelings are Normal Poster',
-            description: 'Create emotions awareness poster! "It\'s Okay to Feel" - design your feelings acceptance message!',
             icon: <Sun className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -816,7 +760,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-57',
             title: 'Journal of Emotions',
-            description: 'Write about 5 emotional experiences! Share your feelings and learn about yourself.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -830,7 +773,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-58',
             title: 'Anger Story',
-            description: 'Navigate 5 anger scenarios! Learn healthy ways to handle mad feelings and solve problems.',
             icon: <Shield className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -844,7 +786,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-59',
             title: 'Reflex Emotion Alert',
-            description: 'Quick emotion management decisions! Choose talking over hiding, calm over yelling - pass 3/5!',
             icon: <Droplets className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -858,7 +799,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-60',
             title: 'Emotion Explorer Badge',
-            description: 'Complete 5 emotion challenges to earn your Emotion Explorer Badge! Master feelings knowledge!',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -872,7 +812,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-61',
             title: 'Friend\'s Dare Story',
-            description: 'Make 5 choices about handling friend dares! Learn when to say no and when to say yes responsibly.',
             icon: <Heart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -886,7 +825,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-62',
             title: 'Quiz on Peer Pressure',
-            description: 'Answer 5 questions about peer pressure! Friends, dares, influence - pass 3/5 to continue!',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -900,7 +838,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-63',
             title: 'Reflex Peer Check',
-            description: 'Test reflexes with 5 quick peer pressure decisions! Choose safe choices over risky dares - pass 3/5!',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '3 min',
@@ -914,7 +851,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-64',
             title: 'Peer Scenarios Puzzle',
-            description: 'Match pressure situations to responses! Complete 5 puzzles: Dares → No, Bullying → Tell, etc.',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -928,7 +864,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-65',
             title: 'Bully Story',
-            description: 'Navigate 5 bullying scenarios! Learn how to respond to pressure and threats safely.',
             icon: <Shield className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -942,7 +877,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-66',
             title: 'Power of No Poster',
-            description: 'Create anti-pressure poster! "Saying No Makes You Strong" - design your resistance message!',
             icon: <Sun className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -956,7 +890,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-67',
             title: 'Journal of Pressure',
-            description: 'Write about 5 pressure experiences! Share times you stood strong against peer pressure.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -970,7 +903,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-68',
             title: 'Gaming Pressure Story',
-            description: 'Make 5 choices about gaming pressure! Skip class? Stay up late? Learn healthy gaming balance.',
             icon: <Activity className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -984,7 +916,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-69',
             title: 'Reflex Respect',
-            description: 'Quick boundary decisions! Choose respect over following, personal space over pressure - pass 3/5!',
             icon: <HandHeart className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -998,7 +929,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-70',
             title: 'Peer Pressure Fighter Badge',
-            description: 'Complete 5 pressure challenges to earn your Peer Pressure Fighter Badge! Master resistance skills!',
             icon: <Trophy className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1012,7 +942,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-71',
             title: 'Vaccine Story',
-            description: 'Make 5 choices about vaccines! Learn why vaccines are important for protection and community health.',
             icon: <Shield className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1026,7 +955,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-72',
             title: 'Quiz on Safety',
-            description: 'Answer 5 questions about safety! Handwashing, street crossing, helmets - pass 3/5 to continue!',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1040,7 +968,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-73',
             title: 'Reflex Safety',
-            description: 'Test reflexes with 5 quick safety decisions! Choose safe actions over risky ones - pass 3/5!',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '3 min',
@@ -1054,7 +981,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-74',
             title: 'Safety Match Puzzle',
-            description: 'Match safety items to their uses! Complete 5 puzzles: Seatbelt → Car, Helmet → Bike, etc.',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1068,7 +994,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-75',
             title: 'Sickness Story',
-            description: 'Navigate 5 sickness scenarios! Learn when to tell adults and how to take care of yourself.',
             icon: <Thermometer className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1082,7 +1007,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-76',
             title: 'Prevention First Poster',
-            description: 'Create health prevention poster! "Prevention is Better Than Cure" - design your health message!',
             icon: <Sun className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -1096,7 +1020,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-77',
             title: 'Journal of Safety',
-            description: 'Write about 5 safety experiences! Share your safety habits and healthy choices.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -1110,7 +1033,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-78',
             title: 'Dentist Story',
-            description: 'Make 5 choices about dental health! Learn why regular dental check-ups and care are important.',
             icon: <Hospital className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1124,7 +1046,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-79',
             title: 'Reflex Healthy Steps',
-            description: 'Quick health decisions! Choose doctor visits over ignoring, prevention over waiting - pass 3/5!',
             icon: <Stethoscope className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -1138,7 +1059,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-80',
             title: 'Safety Smart Kid Badge',
-            description: 'Complete 5 safety activities to earn your Safety Smart Kid Badge! Master comprehensive health safety!',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1152,7 +1072,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-81',
             title: 'Smoking Story',
-            description: 'Navigate 5 smoking scenarios! Learn why saying no to cigarettes protects your health and future.',
             icon: <Shield className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1166,7 +1085,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-82',
             title: 'Quiz on Substances',
-            description: 'Answer 5 questions about harmful substances! Cigarettes, alcohol, drugs - pass 3/5 to continue!',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1180,7 +1098,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-83',
             title: 'Reflex Safe Choice',
-            description: 'Test reflexes with 5 quick substance decisions! Choose healthy options over harmful ones - pass 3/5!',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '3 min',
@@ -1194,7 +1111,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-84',
             title: 'Healthy vs Harmful Puzzle',
-            description: 'Match substances to categories! Complete 5 puzzles: Exercise → Healthy, Smoking → Harmful, etc.',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1208,7 +1124,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-85',
             title: 'Alcohol Story',
-            description: 'Make 5 choices about alcohol pressure! Learn why alcohol is dangerous for kids and young people.',
             icon: <Wine className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1222,7 +1137,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-86',
             title: 'Say No Poster',
-            description: 'Create anti-substance poster! "Say No to Smoking & Drinking" - design your resistance message!',
             icon: <Sun className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -1236,7 +1150,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-87',
             title: 'Journal of Refusal',
-            description: 'Write about 5 refusal experiences! Share times you said no to harmful substances and why.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -1250,7 +1163,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-88',
             title: 'Peer Story',
-            description: 'Navigate 5 peer pressure scenarios! Learn how to handle friends who pressure you to try substances.',
             icon: <Heart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1264,7 +1176,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-89',
             title: 'Reflex Danger Alert',
-            description: 'Quick substance danger decisions! Choose healthy activities over drugs, exercise over smoking - pass 3/5!',
             icon: <Droplets className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -1278,7 +1189,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-90',
             title: 'Safe Kid Badge',
-            description: 'Complete 5 anti-substance tasks to earn your Safe Kid Badge! Master substance abuse prevention!',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1292,7 +1202,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-91',
             title: 'Morning Routine Story',
-            description: 'Make 5 choices about morning habits! Learn why brushing, washing, and getting ready start your day right.',
             icon: <Sun className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1306,7 +1215,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-92',
             title: 'Quiz on Daily Habits',
-            description: 'Answer 5 questions about healthy routines! Sleep, breakfast, exercise - pass 3/5 to continue!',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1320,7 +1228,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-93',
             title: 'Reflex Habit Check',
-            description: 'Test reflexes with 5 quick habit decisions! Choose healthy routines over skipping - pass 3/5!',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '3 min',
@@ -1334,7 +1241,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-94',
             title: 'Daily Match Puzzle',
-            description: 'Match daily activities to benefits! Complete 5 puzzles: Sleep → Energy, Food → Strength, etc.',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1348,7 +1254,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-95',
             title: 'Sleep Story',
-            description: 'Navigate 5 sleep scenarios! Learn why early bedtime and good sleep habits are important.',
             icon: <Moon className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1362,7 +1267,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-96',
             title: 'Good Habits Win Poster',
-            description: 'Create habit awareness poster! "Good Habits Build Great Kids" - design your routine message!',
             icon: <Sun className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -1376,7 +1280,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-97',
             title: 'Journal of Habits',
-            description: 'Write about 5 habit goals! Share what you want to improve and why it matters.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -1390,7 +1293,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-98',
             title: 'Reading Story',
-            description: 'Make 5 choices about reading habits! Learn why daily reading improves knowledge and imagination.',
             icon: <Book className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1404,7 +1306,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-99',
             title: 'Reflex Habit Alert',
-            description: 'Quick routine decisions! Choose good habits over skipping, hygiene over rushing - pass 3/5!',
             icon: <Clock className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -1418,7 +1319,6 @@ export const getHealthMaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-male-kids-100',
             title: 'Healthy Routine Kid Badge',
-            description: 'Complete 5 routine tasks to earn your Healthy Routine Kid Badge! Master comprehensive daily health!',
             icon: <Trophy className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',

@@ -25,7 +25,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-1',
             title: 'Handwash Heroine',
-            description: 'Learn proper handwashing techniques and when to wash your hands to stay healthy and clean!',
             icon: <Hand className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -39,7 +38,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-2',
             title: 'Cleanliness Quiz',
-            description: 'Answer 5 questions about daily hygiene habits. Bathing, brushing, and staying clean!',
             icon: <Sparkles className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -53,7 +51,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-3',
             title: 'Reflex Hygiene Check',
-            description: 'Quick! Tap for clean habits, avoid the dirty ones. Test your reflexes!',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -67,7 +64,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-4',
             title: 'Hygiene Match',
-            description: 'Match hygiene items to their uses. Learn what each item is for!',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -81,7 +77,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-5',
             title: 'Bath Time Story',
-            description: 'Make the right choices in this interactive story about bath time!',
             icon: <Droplets className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -95,7 +90,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-6',
             title: 'Fresh & Neat Poster',
-            description: 'Create a poster to show what you\'ve learned about hygiene!',
             icon: <Sun className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -109,7 +103,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-7',
             title: 'Hygiene Journal',
-            description: 'Write about your favorite hygiene habit and why it\'s important!',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -123,7 +116,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-8',
             title: 'Hair Care Story',
-            description: 'Learn how to take care of your hair in this interactive story!',
             icon: <Shirt className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -137,7 +129,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-9',
             title: 'Dress Up Reflex',
-            description: 'Quick! Choose the clean clothes for different occasions!',
             icon: <Shield className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -151,7 +142,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-10',
             title: 'Vaccine Story',
-            description: 'Doctor says you need a vaccine shot. Should you take it? Learn about vaccines!',
             icon: <Activity className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -166,7 +156,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-11',
             title: 'Fruit vs Candy Story',
-            description: 'You have grapes and candy. Which is better for your body? Learn healthy food choices!',
             icon: <Apple className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -180,7 +169,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-12',
             title: 'Quiz on Food Groups',
-            description: 'Answer 5 questions about nutrition! Proteins, carbs, vitamins - pass 3/5 to continue!',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -194,7 +182,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-13',
             title: 'Reflex Healthy Food',
-            description: 'Test your reflexes with 5 quick food decisions! Choose vegetables over junk food - pass 3/5 to continue!',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '3 min',
@@ -208,7 +195,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-14',
             title: 'Puzzle: Nutrition Match',
-            description: 'Match foods to nutrients! Complete 5 sequential puzzles: Milk → Calcium, Rice → Carbs, Apple → Vitamins, etc.',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -222,7 +208,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-15',
             title: 'Lunchbox Story',
-            description: 'Make healthy lunch choices in 5 different scenarios. Homemade meal vs fast food - make smart choices!',
             icon: <Carrot className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -236,7 +221,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-16',
             title: 'Poster: My Healthy Plate',
-            description: 'Create/select poster: "Half Fruits & Veggies, Half Grains & Proteins."',
             icon: <Sun className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -250,7 +234,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-17',
             title: 'Journal of Healthy Food',
-            description: 'Write: "One healthy food I like is ___."',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -264,7 +247,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-18',
             title: 'Junk Food Story',
-            description: 'Friends buy chips daily. Should you? Learn to make healthy choices!',
             icon: <Shield className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -278,7 +260,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-19',
             title: 'Reflex Smart Drink',
-            description: 'Test your reflexes with 5 quick drink decisions! Choose water over soda - pass 3/5 to continue!',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '3 min',
@@ -292,7 +273,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-20',
             title: 'Badge: Nutrition Smart Kid',
-            description: 'Complete 5 nutrition challenges to earn your Nutrition Smart Kid Badge!',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -306,7 +286,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-21',
             title: 'Growing Taller Story',
-            description: 'You notice your height increasing. Is this normal? Learn about healthy growth!',
             icon: <Activity className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -320,7 +299,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-22',
             title: 'Quiz on Growth',
-            description: 'Answer 5 questions about growing stronger! Exercise, nutrition, health - pass 3/5 to continue!',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -334,7 +312,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-23',
             title: 'Reflex Growth Check',
-            description: 'Test your reflexes with 5 quick growth decisions! Choose healthy habits over bad ones - pass 3/5 to continue!',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '3 min',
@@ -348,7 +325,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-24',
             title: 'Puzzle: Growth Helpers',
-            description: 'Match growth activities to body parts! Complete 5 sequential puzzles: Milk → Bones, Fruits → Vitamins, etc.',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -362,7 +338,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-25',
             title: 'Hair Growth Story',
-            description: 'You see hair on arms and legs. Is it normal? Learn about body changes during growth!',
             icon: <Shirt className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -376,7 +351,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-26',
             title: 'Poster: Growing Up is Natural',
-            description: 'Create/select poster: "Every Girl Grows Differently."',
             icon: <Sun className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -390,7 +364,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-27',
             title: 'Journal of Body Changes',
-            description: 'Write: "One body change I noticed is ___."',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -404,7 +377,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-28',
             title: 'Mood Change Story',
-            description: 'You feel happy one moment and sad next. Is this part of growing? Learn about emotions!',
             icon: <Heart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -418,7 +390,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-29',
             title: 'Reflex Growth Alert',
-            description: 'Quick health decisions for growing bodies! Choose exercise over laziness, healthy food over junk - pass 3/5!',
             icon: <Droplets className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -432,7 +403,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-30',
             title: 'Badge: Growing Strong Girl',
-            description: 'Complete 5 growth challenges to earn your Growing Strong Girl Badge!',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -446,7 +416,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-31',
             title: 'Morning Routine Story',
-            description: 'Should you brush + wash face after waking up? Learn healthy morning habits!',
             icon: <Activity className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -460,7 +429,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-32',
             title: 'Quiz on Daily Habits',
-            description: 'Answer 5 questions about good daily habits! Sleep, nutrition, hygiene - pass 3/5 to continue!',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -474,7 +442,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-33',
             title: 'Reflex Habit Alert',
-            description: 'Test your reflexes with 5 quick healthy habit decisions! Choose healthy over harmful - pass 3/5!',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '3 min',
@@ -488,7 +455,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-34',
             title: 'Puzzle: Healthy Matches',
-            description: 'Match daily habits to their benefits! Complete 5 sequential puzzles!',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -502,7 +468,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-35',
             title: 'Screen-Time Story',
-            description: 'Should you use mobile all night or sleep early? Learn about healthy screen time!',
             icon: <Heart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -516,7 +481,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-36',
             title: 'Poster: Healthy Girls Win',
-            description: 'Create/select poster: "Good Habits Build Strong Girls."',
             icon: <Sun className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -530,7 +494,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-37',
             title: 'Journal of Habits',
-            description: 'Write: "One habit I want to improve is ___.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -544,7 +507,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-38',
             title: 'Reading Story',
-            description: 'Why read daily? Learn how reading improves knowledge and mind!',
             icon: <Activity className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -558,7 +520,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-39',
             title: 'Reflex Daily Check',
-            description: 'Quick daily hygiene decisions! Choose good habits over skipping - pass 3/5!',
             icon: <HandHeart className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -572,7 +533,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-40',
             title: 'Badge: Healthy Routine Kid',
-            description: 'Complete 5 daily habit challenges to earn your Healthy Routine Kid Badge!',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -587,7 +547,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-41',
             title: 'Sweat Story',
-            description: 'You start sweating more than before. What should you do? Learn about hygiene changes!',
             icon: <Droplets className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -601,7 +560,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-42',
             title: 'Quiz on Hygiene',
-            description: 'Answer 5 questions about body odor prevention! Bathing, fresh clothes, daily care - pass 3/5 to continue!',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -615,7 +573,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-43',
             title: 'Reflex Hygiene Alert',
-            description: 'Test your reflexes with 5 quick hygiene decisions! Choose clean habits over skipping - pass 3/5!',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '3 min',
@@ -629,7 +586,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-44',
             title: 'Puzzle: Hygiene Match',
-            description: 'Match hygiene items to their uses! Complete 5 sequential puzzles: Soap → Bath, Deodorant → Smell, etc.',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -643,7 +599,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-45',
             title: 'Dentist Visit Story',
-            description: 'Doctor says: Visit dentist twice a year. Should you? Learn about dental health!',
             icon: <Activity className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -657,7 +612,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-46',
             title: 'Poster: Stay Fresh Everyday',
-            description: 'Create/select poster: "Clean Girl, Confident Girl."',
             icon: <Sun className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -671,7 +625,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-47',
             title: 'Journal: Hygiene Habits',
-            description: 'Write: "One new hygiene habit I learned is ___.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -685,7 +638,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-48',
             title: 'Skin Care Story',
-            description: 'You notice pimples. Should you wash gently or pick them? Learn proper skin care!',
             icon: <Activity className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -699,7 +651,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-49',
             title: 'Reflex Cleanliness',
-            description: 'Quick cleanliness decisions! Choose fresh clothes over dirty, hygiene over skipping - pass 3/5!',
             icon: <Droplets className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -713,7 +664,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-50',
             title: 'Badge: Fresh Girl',
-            description: 'Complete 5 hygiene challenges to earn your Fresh Girl Badge!',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -727,7 +677,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-51',
             title: 'Feelings Story',
-            description: 'You feel sad when your doll breaks. Is this normal? Learn about emotions!',
             icon: <Heart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -741,7 +690,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-52',
             title: 'Quiz on Emotions',
-            description: 'Answer 5 questions about emotions! Happy, sad, angry - pass 3/5 to continue!',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -755,7 +703,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-53',
             title: 'Reflex Emotion Basics',
-            description: 'Test your reflexes wi th 5 quick emotion decisions! Choose happy over sad - pass 3/5!',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '3 min',
@@ -769,7 +716,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-54',
             title: 'Puzzle: Emotion Match',
-            description: 'Match emotions to expressions! Complete 5 sequential puzzles: Happy → Smile, Sad → Tears, etc.',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -783,7 +729,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-55',
             title: 'Sharing Story',
-            description: 'You feel scared. Should you hide it or tell your parents? Learn about sharing feelings!',
             icon: <Heart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -797,7 +742,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-56',
             title: 'Poster: All Feelings Are Okay',
-            description: 'Create/select poster: "It\'s Okay to Feel."',
             icon: <Sun className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -811,7 +755,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-57',
             title: 'Journal of Feelings',
-            description: 'Write: "Today I felt ___ because __."',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -825,7 +768,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-58',
             title: 'Anger Story',
-            description: 'Friend breaks your toy. Should you hit her? Learn to manage anger!',
             icon: <Shield className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -839,7 +781,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-59',
             title: 'Reflex Emotion Safety',
-            description: 'Quick emotion management decisions! Choose talking over hiding - pass 3/5!',
             icon: <Droplets className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -853,7 +794,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-60',
             title: 'Badge: Emotion Explorer',
-            description: 'Identify 5 emotions correctly to earn your Emotion Explorer Badge!',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -867,7 +807,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-61',
             title: 'Friend\'s Dare Story',
-            description: 'A friend dares you to skip homework. Do you follow? Learn to make good choices!',
             icon: <Heart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -881,7 +820,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-62',
             title: 'Quiz on Peer Pressure',
-            description: 'Answer 5 questions about peer pressure! Friends, dares, influence - pass 3/5 to continue!',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -895,7 +833,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-63',
             title: 'Reflex Peer Safety',
-            description: 'Test your reflexes with 5 quick peer pressure decisions! Choose safe choices over risky dares - pass 3/5!',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '3 min',
@@ -909,7 +846,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-64',
             title: 'Puzzle: Peer Choices',
-            description: 'Match peer pressure responses to outcomes! Complete 5 sequential puzzles: Say No → Safe, etc.',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -923,7 +859,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-65',
             title: 'Bully Story',
-            description: 'Older girl pressures you to steal candy. Do you? Learn to stand up to bullies!',
             icon: <Shield className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -937,7 +872,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-66',
             title: 'Poster: Power of No',
-            description: 'Create/select poster: "Saying No Makes Me Strong."',
             icon: <Sun className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -951,7 +885,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-67',
             title: 'Journal of Peer Choices',
-            description: 'Write: "One time I said no to pressure was ___.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -965,7 +898,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-68',
             title: 'Mobile Pressure Story',
-            description: 'Friends force you to use phone secretly. Do you? Learn to resist peer pressure!',
             icon: <Activity className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -979,7 +911,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-69',
             title: 'Reflex Respect Alert',
-            description: 'Quick respect decisions! Choose self-respect over following wrong crowd - pass 3/5!',
             icon: <HandHeart className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -993,7 +924,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-70',
             title: 'Badge: Peer Pressure Fighter',
-            description: 'Handle 5 peer pressure cases to earn your Peer Pressure Fighter Badge!',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1007,7 +937,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-71',
             title: 'Clean Girl Badge',
-            description: 'Complete all hygiene challenges to earn your Clean Girl Badge!',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '1 min',
@@ -1021,7 +950,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-72',
             title: 'Quiz on Prevention',
-            description: 'Answer 5 questions about disease prevention! Washing hands, vaccines, checkups - pass 3/5 to continue!',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1035,7 +963,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-73',
             title: 'Reflex Safety',
-            description: 'Test your reflexes with 5 quick safety decisions! Choose protection over risk - pass 3/5!',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '3 min',
@@ -1049,7 +976,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-74',
             title: 'Puzzle: Safety Tools',
-            description: 'Match safety tools to their uses! Complete 5 sequential puzzles: Helmet → Bike, etc.',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1063,7 +989,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-75',
             title: 'Sick Day Story',
-            description: 'You feel unwell. Should you hide or tell parents? Learn about illness management!',
             icon: <Heart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1077,7 +1002,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-76',
             title: 'Poster: Prevention First',
-            description: 'Create/select poster: "Prevention is Better Than Cure."',
             icon: <Sun className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -1091,7 +1015,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-77',
             title: 'Journal of Safety',
-            description: 'Write: "One safety habit I follow is ___.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -1105,7 +1028,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-78',
             title: 'Period Hygiene Story',
-            description: 'A girl doesn\'t change pad for many hours. What happens? Learn about period hygiene!',
             icon: <Shirt className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1120,7 +1042,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-79',
             title: 'Reflex Doctor Alert',
-            description: 'Quick health decisions! Choose seeing doctors over ignoring illness - pass 3/5!',
             icon: <HandHeart className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -1134,7 +1055,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-80',
             title: 'Badge: Safety Smart Girl',
-            description: 'Complete 5 prevention tasks to earn your Safety Smart Girl Badge!',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1148,7 +1068,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-81',
             title: 'Cigarette Story',
-            description: 'A friend offers you a cigarette. Should you try? Learn to make healthy choices!',
             icon: <Activity className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1162,7 +1081,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-82',
             title: 'Quiz on Harmful Things',
-            description: 'Answer 5 questions about harmful substances! Cigarettes, energy drinks, drugs - pass 3/5 to continue!',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1176,7 +1094,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-83',
             title: 'Reflex Safe Choice',
-            description: 'Test your reflexes with 5 quick healthy decisions! Choose nutritious over harmful - pass 3/5!',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '3 min',
@@ -1190,7 +1107,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-84',
             title: 'Puzzle: Healthy vs Harmful',
-            description: 'Match items to healthy or harmful categories! Complete 5 sequential puzzles!',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1204,7 +1120,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-85',
             title: 'Energy Drinks story',
-            description: 'An older girl offers energy drinks. Should you drink? Learn to resist peer pressure!',
             icon: <Heart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1218,7 +1133,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-86',
             title: 'Poster: Say No to Substances',
-            description: 'Create/select poster: "I Choose Health, Not Drugs."',
             icon: <Sun className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -1232,7 +1146,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-87',
             title: 'Journal of Refusal',
-            description: 'Write: "I will always say no to ___.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -1246,7 +1159,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-88',
             title: 'Peer Story',
-            description: 'A classmate says "Cool girls drink." Should you follow? Learn to resist peer pressure!',
             icon: <Activity className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1260,7 +1172,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-89',
             title: 'Reflex Danger Alert',
-            description: 'Quick healthy lifestyle decisions! Choose exercise over drugs - pass 3/5!',
             icon: <HandHeart className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -1274,7 +1185,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-90',
             title: 'Badge: Safe Girl',
-            description: 'Complete 5 refusal challenges to earn your Safe Girl Badge!',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1288,7 +1198,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-91',
             title: 'First Period Story',
-            description: 'A girl gets her first period at school. What should she do? Learn about periods!',
             icon: <Droplets className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1302,7 +1211,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-92',
             title: 'Quiz on Period Basics',
-            description: 'Answer 5 questions about periods! Normal body process vs sickness - pass 3/5 to continue!',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1316,7 +1224,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-93',
             title: 'Reflex Period Awareness',
-            description: 'Test your reflexes with 5 quick period decisions! Choose hygiene over shame - pass 3/5 to continue!',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '3 min',
@@ -1330,7 +1237,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-94',
             title: 'Puzzle: Period Tools',
-            description: 'Match period items to their uses! Complete 5 sequential puzzles: Pad → Absorb, Soap → Clean, etc.',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1344,7 +1250,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-95',
             title: 'Support Story',
-            description: 'A girl feels scared of periods. Should friends mock or comfort her? Learn about empathy!',
             icon: <Heart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1358,7 +1263,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-96',
             title: 'Poster: Periods Are Normal',
-            description: 'Create/select poster: "Periods = Strength, Not Shame."',
             icon: <Sun className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -1372,7 +1276,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-97',
             title: 'Journal of Period Awareness',
-            description: 'Write: "One thing I learned about periods is ___."',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -1386,7 +1289,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-98',
             title: 'Hygiene Story',
-            description: 'A girl doesn\'t change pad all day. What happens? Learn about hygiene risks!',
             icon: <Shield className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1400,7 +1302,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-99',
             title: 'Reflex Hygiene Alert',
-            description: 'Quick hygiene decisions for periods! Choose change pads over keeping same - pass 3/5!',
             icon: <Droplets className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -1414,7 +1315,6 @@ export const getHealthFemaleKidsGames = (gameCompletionStatus) => {
         {
             id: 'health-female-kids-100',
             title: 'Badge: Period Ready Kid',
-            description: 'Complete 5 period-awareness challenges to earn your Period Ready Kid Badge!',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',

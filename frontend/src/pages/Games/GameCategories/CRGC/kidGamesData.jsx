@@ -23,7 +23,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-1',
             title: 'Friend\'s Sad Story',
-            description: 'Your friend is crying because her toy broke. What should you do?',
             icon: <Heart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -37,7 +36,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-2',
             title: 'Quiz on Empathy',
-            description: 'Empathy means? (a) Feeling with others, (b) Ignoring.',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -51,7 +49,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-3',
             title: 'Reflex Kindness',
-            description: 'Tap ❤️ for "Sharing Snacks," ❌ for "Laughing at Friend."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -65,7 +62,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-4',
             title: 'Puzzle: Match Feelings',
-            description: 'Match "Happy → 😊 Smile, Sad → 😢 Cry, Angry → 😠 Frown."',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -79,7 +75,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-5',
             title: 'Animal Story',
-            description: 'You see a hungry 🐕 dog. Should you feed or kick it?',
             icon: <Sparkles className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -93,7 +88,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-6',
             title: 'Poster: Be Kind Always',
-            description: 'Create/select poster: "Kindness is My Superpower."',
             icon: <Award className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -107,7 +101,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-7',
             title: 'Journal of Empathy',
-            description: 'Write: "I showed kindness today by ___.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -121,7 +114,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-8',
             title: 'Bully Story',
-            description: 'A bully teases a classmate. Should you join or stop him?',
             icon: <School className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -135,7 +127,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-9',
             title: 'Reflex Help Alert',
-            description: 'Tap 🙋 for "Help a Friend," ❌ for "Ignore Pain."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -149,7 +140,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-10',
             title: 'Badge: Kind Kid',
-            description: 'Show empathy in 5 cases to earn your badge.',
             icon: <Medal className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -163,7 +153,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-11',
             title: 'Classroom Story',
-            description: 'A classmate speaks a different language. Should you tease or respect?',
             icon: <Users className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -177,7 +166,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-12',
             title: 'Quiz on Respect',
-            description: 'Respect means? (a) Treating all kindly, (b) Ignoring others.',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -191,7 +179,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-13',
             title: 'Reflex Respect',
-            description: 'Tap 👂 for "Listening," ❌ for "Interrupting."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -205,7 +192,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-14',
             title: 'Puzzle: Respect Match',
-            description: 'Match "Teacher → 👩‍🏫 Listen, Elder → 🧓 Help, Friend → 🤝 Share."',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -219,7 +205,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-15',
             title: 'Gender Story',
-            description: 'A boy says "Girls can\'t play football." What do you say?',
             icon: <UserCheck className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -233,7 +218,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-16',
             title: 'Poster: Respect All',
-            description: 'Create/select poster: "Every Voice Matters." 🗣️',
             icon: <Award className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -247,7 +231,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-17',
             title: 'Journal of Respect',
-            description: 'Write: "I showed respect today by ___.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -261,7 +244,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-18',
             title: 'Disability Story',
-            description: 'A girl in a wheelchair joins school. Should you leave her out or include?',
             icon: <UserCheck className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -275,7 +257,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-19',
             title: 'Reflex Inclusion',
-            description: 'Tap 🙌 for "Invite Everyone," ❌ for "Exclude Friends."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -289,7 +270,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-20',
             title: 'Badge: Respect Kid',
-            description: 'Respect 5 classmates in examples to earn your badge.',
             icon: <Medal className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -303,7 +283,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-21',
             title: 'Sports Story',
-            description: 'Teacher asks who can play cricket. Should only boys join?',
             icon: <Volleyball className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -317,7 +296,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-22',
             title: 'Quiz on Equality',
-            description: 'Boys and girls should get? (a) Equal chances, (b) Only boys\' chances.',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -331,7 +309,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-23',
             title: 'Reflex Equality',
-            description: 'Tap 📚 for "Girls Can Study," ❌ for "Girls Stay Home."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -345,7 +322,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-24',
             title: 'Puzzle: Match Roles',
-            description: 'Match "Doctor → 👩‍⚕️ Woman, Pilot → 👨‍✈️ Man, Teacher → 👩‍🏫 Both."',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -359,7 +335,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-25',
             title: 'Homework Story',
-            description: 'Mother asks only daughter to do chores. What is fair?',
             icon: <UserCheck className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -373,7 +348,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-26',
             title: 'Poster: Equal Rights',
-            description: 'Create/select poster: "Equal Rights = Strong World." 🌍',
             icon: <Award className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -387,7 +361,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-27',
             title: 'Journal of Equality',
-            description: 'Write: "One time I treated boys and girls equally was ___.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -401,7 +374,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-28',
             title: 'Classroom Story',
-            description: 'Teacher only asks boys for answers. What should she do?',
             icon: <School className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -415,7 +387,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-29',
             title: 'Reflex Rights',
-            description: 'Tap 👑 for "Girls Can Be Leaders," ❌ for "Girls Must Be Silent."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -429,7 +400,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-30',
             title: 'Badge: Equality Kid',
-            description: 'Show 5 equality actions to earn your badge.',
             icon: <Medal className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -443,7 +413,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-31',
             title: 'Playground Story',
-            description: 'A bigger kid pushes a smaller one. Should you laugh or help?',
             icon: <Users className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -457,7 +426,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-32',
             title: 'Quiz on Bullying',
-            description: 'Bullying means? (a) Hurting others on purpose, (b) Helping others.',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -471,7 +439,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-33',
             title: 'Reflex Bully Alert',
-            description: 'Tap 🛡️ for "Stand Against Bully," ❌ for "Join Bully."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -485,7 +452,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-34',
             title: 'Puzzle: Anti-Bullying Match',
-            description: 'Match "Speak Up → 🗣️ Courage, Support Friend -❤️ Care, Ignore Bully → ❌ Wrong."',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -499,7 +465,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-35',
             title: 'Lunch Story',
-            description: 'A classmate\'s lunch is stolen daily. Should you tell teacher?',
             icon: <School className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -513,7 +478,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-36',
             title: 'Poster: Stop Bullying',
-            description: 'Create/select poster: "Bullying is Never Cool."',
             icon: <Award className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -527,7 +491,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-37',
             title: 'Journal of Courage',
-            description: 'Write: "One time I stood up for someone was ___.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -541,7 +504,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-38',
             title: 'Name-Calling Story',
-            description: 'A boy is teased for glasses. Should you join or defend?',
             icon: <UserCheck className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -555,7 +517,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-39',
             title: 'Reflex Safety',
-            description: 'Tap 📢 for "Report Bully," ❌ for "Stay Silent."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -569,7 +530,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-40',
             title: 'Badge: Bully Stopper Kid',
-            description: 'Handle 5 bully-prevention cases to earn your badge.',
             icon: <Medal className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -583,7 +543,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-41',
             title: 'Anger Story',
-            description: 'Your friend is angry about something. How should you respond?',
             icon: <Heart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -597,7 +556,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-42',
             title: 'Quiz on Emotions',
-            description: 'Identify different emotions and how to manage them.',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -611,7 +569,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-43',
             title: 'Reflex Feelings',
-            description: 'Tap 💙 for "Calm Down," ❌ for "Get Angry."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -625,7 +582,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-44',
             title: 'Puzzle: Match Feelings',
-            description: 'Match emotions to appropriate responses.',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -639,7 +595,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-45',
             title: 'Sharing Story',
-            description: 'Two friends want to share a toy. How can they resolve this?',
             icon: <Users className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -653,7 +608,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-46',
             title: 'Poster: Feelings Matter',
-            description: 'Create/select poster: "All Feelings Are Important."',
             icon: <Award className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -667,7 +621,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-47',
             title: 'Journal of Feelings',
-            description: 'Write: "Today I managed my feelings by ___.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -681,7 +634,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-48',
             title: 'Fight Story',
-            description: 'Two friends are fighting. How can they make up?',
             icon: <Handshake className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -695,7 +647,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-49',
             title: 'Reflex Emotion Alert',
-            description: 'Tap 🤝 for "Make Up," ❌ for "Stay Angry."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -709,7 +660,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-50',
             title: 'Badge: Emotion Aware Kid',
-            description: 'Show emotional intelligence in 5 scenarios to earn your badge.',
             icon: <Medal className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -723,7 +673,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-51',
             title: 'Clean Park Story',
-            description: 'You see litter in the park. Should you pick it up or ignore?',
             icon: <Heart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -737,7 +686,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-52',
             title: 'Quiz on Service',
-            description: 'What does volunteering mean?',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -751,7 +699,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-53',
             title: 'Reflex Service Basics',
-            description: 'Tap 🤝 for "Help Others," ❌ for "Ignore Needs."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -765,7 +712,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-54',
             title: 'Puzzle: Community Helpers',
-            description: 'Match helpers to their roles in the community.',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -779,7 +725,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-55',
             title: 'Food Story',
-            description: 'You have extra lunch. Should you share with a hungry child?',
             icon: <Users className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -793,7 +738,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-56',
             title: 'Poster: Helping Hands',
-            description: 'Create/select poster: "Little Hands Can Help Big."',
             icon: <Award className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -807,7 +751,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-57',
             title: 'Journal of Service',
-            description: 'Write: "One way I helped in my community is ___.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -821,7 +764,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-58',
             title: 'Old Age Home Story',
-            description: 'Class visits old age home. Should you sing to elders or stay silent?',
             icon: <Handshake className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -835,7 +777,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-59',
             title: 'Reflex Service Alert',
-            description: 'Tap 🧹 for "Clean Area," ❌ for "Throw Trash."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -849,7 +790,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-60',
             title: 'Badge: Little Volunteer',
-            description: 'Do 5 volunteer actions to earn your badge.',
             icon: <Medal className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -863,7 +803,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-61',
             title: 'Playground Story',
-            description: 'Teacher lets only boys play football. Is this fair?',
             icon: <Heart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -877,7 +816,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-62',
             title: 'Quiz on Rights',
-            description: 'What is a human right?',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -891,7 +829,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-63',
             title: 'Reflex Rights Alert',
-            description: 'Tap 📚 for "Right to Education," ❌ for "No School for Girls."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -905,7 +842,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-64',
             title: 'Puzzle: Match Rights',
-            description: 'Match basic rights to their categories.',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -919,7 +855,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-65',
             title: 'Hunger Story',
-            description: 'A child is hungry. Which right is missing?',
             icon: <Users className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -933,7 +868,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-66',
             title: 'Poster: Rights for All',
-            description: 'Create/select poster: "Every Child Has Rights."',
             icon: <Award className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -947,7 +881,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-67',
             title: 'Journal of Fairness',
-            description: 'Write: "One right I am thankful for is ___.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -961,7 +894,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-68',
             title: 'Disabled Child Story',
-            description: 'A disabled child is not allowed in school. Is this fair?',
             icon: <Handshake className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -975,7 +907,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-69',
             title: 'Reflex Justice Check',
-            description: 'Tap ⚖️ for "Equal Treatment," ❌ for "Unfair Rules."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -989,7 +920,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-70',
             title: 'Badge: Rights Kid',
-            description: 'Identify 5 human rights cases to earn your badge.',
             icon: <Medal className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1003,7 +933,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-71',
             title: 'Traffic Story',
-            description: 'You see red light. Should you cross?',
             icon: <Heart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1017,7 +946,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-72',
             title: 'Quiz on Rules',
-            description: 'Why do we follow rules?',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1031,7 +959,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-73',
             title: 'Reflex Rule Alert',
-            description: 'Tap ✅ for "Follow Rules," ❌ for "Break Rules."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -1045,7 +972,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-74',
             title: 'Puzzle: Match Rules',
-            description: 'Match safety rules to their categories.',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1059,7 +985,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-75',
             title: 'School Rules Story',
-            description: 'Should you cheat in exams?',
             icon: <Users className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1073,7 +998,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-76',
             title: 'Poster: Rules Keep Us Safe',
-            description: 'Create/select poster: "My Duty = My Safety."',
             icon: <Award className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -1087,7 +1011,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-77',
             title: 'Journal of Duties',
-            description: 'Write: "One rule I follow daily is ___.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -1101,7 +1024,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-78',
             title: 'Neighbour Story',
-            description: 'You see someone litter. What\'s your duty?',
             icon: <Handshake className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1115,7 +1037,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-79',
             title: 'Reflex Civic Duty',
-            description: 'Tap 🇮🇳 for "Respect Rules," ❌ for "Ignore Duties."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -1129,7 +1050,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-80',
             title: 'Badge: Rule Follower Kid',
-            description: 'Follow 5 civic duties to earn your badge.',
             icon: <Medal className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1143,7 +1063,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-81',
             title: 'Food Story',
-            description: 'Your friend brings sushi. Should you laugh or taste respectfully?',
             icon: <Heart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1157,7 +1076,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-82',
             title: 'Quiz on Cultures',
-            description: 'Test your knowledge about different cultures and traditions.',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '3 min',
@@ -1171,7 +1089,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-83',
             title: 'Reflex Culture Basics',
-            description: 'Quick decisions about respecting cultural traditions.',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '2 min',
@@ -1185,7 +1102,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-84',
             title: 'Puzzle: Match Countries',
-            description: 'Match countries with their traditional foods.',
             icon: <Heart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1199,7 +1115,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-85',
             title: 'Greeting Story',
-            description: 'A friend bows (Japanese style). Should you laugh or bow back?',
             icon: <Heart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1213,7 +1128,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-86',
             title: 'Poster: World Cultures',
-            description: 'Create a poster about different but united cultures.',
             icon: <Star className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1227,7 +1141,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-87',
             title: 'Journal of Cultures',
-            description: 'Write about a cultural thing you learned.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -1241,7 +1154,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-88',
             title: 'New Classmate Story',
-            description: 'A refugee joins class. Should you exclude or include?',
             icon: <Heart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1255,7 +1167,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-89',
             title: 'Reflex Global Respect',
-            description: 'Quick decisions about learning from cultures.',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '2 min',
@@ -1269,7 +1180,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-90',
             title: 'Badge: Culture Friend Kid',
-            description: 'Respect 5 cultures to earn your badge.',
             icon: <Medal className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1283,7 +1193,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-91',
             title: 'School Cleanliness Story',
-            description: 'The classroom is dirty. Should you complain or clean together?',
             icon: <Heart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1297,7 +1206,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-92',
             title: 'Quiz on Civic Action',
-            description: 'Test your knowledge about civic action and community involvement.',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '3 min',
@@ -1311,7 +1219,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-93',
             title: 'Reflex Action',
-            description: 'Quick decisions about leading clean-up efforts.',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '2 min',
@@ -1325,7 +1232,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-94',
             title: 'Puzzle: Match Leaders',
-            description: 'Match leaders with their responsibilities.',
             icon: <Heart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1339,7 +1245,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-95',
             title: 'Planting Story',
-            description: 'Kids want a green schoolyard. Should you plant trees or wait?',
             icon: <Heart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1353,7 +1258,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-96',
             title: 'Poster: We Can Lead',
-            description: 'Create a poster about kids leading change.',
             icon: <Star className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1367,7 +1271,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-97',
             title: 'Journal of Action',
-            description: 'Write about a civic action you took.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -1381,7 +1284,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-98',
             title: 'Team Story',
-            description: 'Friends argue during project. Should you divide roles or fight?',
             icon: <Heart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1395,7 +1297,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-99',
             title: 'Reflex Leadership',
-            description: 'Quick decisions about taking responsibility.',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '2 min',
@@ -1409,7 +1310,6 @@ export const getCrgcKidsGames = (gameCompletionStatus) => {
         {
             id: 'civic-responsibility-kids-100',
             title: 'Badge: Young Leader Kid',
-            description: 'Do 5 civic leadership acts to earn your badge.',
             icon: <Medal className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',

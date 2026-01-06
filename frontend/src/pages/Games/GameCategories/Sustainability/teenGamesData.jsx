@@ -11,7 +11,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-1",
           title: "Climate Action Story",
-          description: "You learn about climate change. How do you take action?",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -25,7 +24,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-2",
           title: "Quiz on Carbon Footprint",
-          description: "What is a carbon footprint? (a) Shoe size, (b) Environmental impact, (c) Weather",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -39,7 +37,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-3",
           title: "Reflex Eco Choice",
-          description: 'Tap quickly for "Sustainable" actions, avoid "Wasteful" actions',
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -53,7 +50,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-4",
           title: "Puzzle: Sustainable Solutions",
-          description: "Match environmental problems with sustainable solutions",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "7 min",
@@ -67,7 +63,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-5",
           title: "Renewable Energy Story",
-          description: "Your school considers solar panels. What's your role?",
           icon: <Sun className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -81,7 +76,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-6",
           title: "Debate: Fossil Fuels vs Renewables",
-          description: "Participate in a debate on energy sources",
           icon: <Speech className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "8 min",
@@ -95,7 +89,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-7",
           title: "Journal of Green Living",
-          description: "Reflect on your daily environmental impact",
           icon: <PenSquare className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -109,7 +102,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-8",
           title: "Simulation: Eco-Friendly City",
-          description: "Design a sustainable city with green solutions",
           icon: <Building className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "10 min",
@@ -123,7 +115,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-9",
           title: "Reflex Green Habits",
-          description: "Quickly identify sustainable daily habits",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -137,7 +128,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-10",
           title: "Badge: Climate Activist",
-          description: "Earn your Climate Activist badge",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "7 min",
@@ -151,7 +141,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-11",
           title: "Waste Reduction Story",
-          description: "Your school wants to reduce waste. How do you help?",
           icon: <Trash2 className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -165,7 +154,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-12",
           title: "Quiz on Circular Economy",
-          description: "Test your knowledge on waste reduction and recycling",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -179,7 +167,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-13",
           title: "Reflex Zero Waste",
-          description: "Quickly identify zero-waste alternatives",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -193,7 +180,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-14",
           title: "Puzzle: Waste Hierarchy",
-          description: "Arrange waste management strategies in order of priority",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -207,7 +193,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-15",
           title: "Plastic Pollution Story",
-          description: "You see plastic pollution in your community. What's your response?",
           icon: <Recycle className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -221,7 +206,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-16",
           title: "Debate: Single-Use vs Reusable",
-          description: "Debate the impact of single-use plastics",
           icon: <Speech className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "8 min",
@@ -235,7 +219,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-17",
           title: "Journal of Waste Audit",
-          description: "Track and reflect on your waste generation",
           icon: <PenSquare className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -249,7 +232,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-18",
           title: "Simulation: Recycling Program",
-          description: "Design and implement a school recycling program",
           icon: <ClipboardCheck className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "10 min",
@@ -263,7 +245,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-19",
           title: "Reflex Compost Master",
-          description: "Quickly identify compostable vs non-compostable items",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -277,7 +258,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-20",
           title: "Badge: Zero Waste Champion",
-          description: "Earn your Zero Waste Champion badge",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "7 min",
@@ -291,7 +271,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-21",
           title: "Biodiversity Conservation Story",
-          description: "Your community plans to build on a forest. What's your stance?",
           icon: <TreePine className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -305,7 +284,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-22",
           title: "Quiz on Sustainable Agriculture",
-          description: "Test your knowledge on eco-friendly farming practices",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -319,7 +297,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-23",
           title: "Reflex Ocean Protector",
-          description: "Quickly identify actions that protect marine life",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "7 min",
@@ -333,7 +310,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-24",
           title: "Simulation: Green Community Project",
-          description: "Plan and execute a community sustainability initiative",
           icon: <Users className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "12 min",
@@ -347,7 +323,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-25",
           title: "Badge: Sustainability Leader",
-          description: "Master all sustainability challenges to become a leader",
           icon: <Trophy className="w-6 h-6" />, 
           difficulty: "Hard",
           duration: "10 min",
@@ -361,7 +336,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-26",
           title: "Fast Fashion Story",
-          description: "Your friend buys new clothes weekly. What's your advice?",
           icon: <ShoppingCart className="w-6 h-6" />, 
           difficulty: "Easy",
           duration: "4 min",
@@ -375,7 +349,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-27",
           title: "Quiz on Circular Economy",
-          description: "Test your knowledge on reducing, reusing, and recycling",
           icon: <BookOpen className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "6 min",
@@ -389,7 +362,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-28",
           title: "Reflex Conscious Consumer",
-          description: "Quickly identify sustainable shopping choices",
           icon: <Zap className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "6 min",
@@ -403,7 +375,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-29",
           title: "Puzzle: Product Lifecycle",
-          description: "Match products with their most sustainable disposal method",
           icon: <Puzzle className="w-6 h-6" />, 
           difficulty: "Hard",
           duration: "8 min",
@@ -417,7 +388,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-30",
           title: "Minimalism Story",
-          description: "You want to declutter. How do you do it sustainably?",
           icon: <Home className="w-6 h-6" />, 
           difficulty: "Easy",
           duration: "4 min",
@@ -431,7 +401,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-31",
           title: "Debate: Quality vs Quantity",
-          description: "Debate the impact of buying less but better quality",
           icon: <Speech className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "8 min",
@@ -445,7 +414,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-32",
           title: "Journal of Consumption",
-          description: "Reflect on your consumption habits and their impact",
           icon: <PenSquare className="w-6 h-6" />, 
           difficulty: "Easy",
           duration: "5 min",
@@ -459,7 +427,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-33",
           title: "Simulation: Sustainable Shopping",
-          description: "Plan a sustainable shopping trip with minimal waste",
           icon: <ClipboardCheck className="w-6 h-6" />, 
           difficulty: "Hard",
           duration: "10 min",
@@ -473,7 +440,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-34",
           title: "Reflex Ethical Buyer",
-          description: "Quickly identify ethical and sustainable brands",
           icon: <Zap className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "6 min",
@@ -487,7 +453,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-35",
           title: "Badge: Conscious Consumer",
-          description: "Earn your Conscious Consumer badge",
           icon: <Trophy className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "7 min",
@@ -501,7 +466,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-36",
           title: "Solar Panel Story",
-          description: "Your family considers solar panels. What's your research?",
           icon: <Sun className="w-6 h-6" />, 
           difficulty: "Easy",
           duration: "4 min",
@@ -515,7 +479,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-37",
           title: "Quiz on Energy Transition",
-          description: "Test your knowledge on renewable energy technologies",
           icon: <BookOpen className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "6 min",
@@ -529,7 +492,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-38",
           title: "Reflex Energy Innovator",
-          description: "Quickly identify innovative energy solutions",
           icon: <Zap className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "6 min",
@@ -543,7 +505,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-39",
           title: "Puzzle: Energy Systems",
-          description: "Match energy sources with their environmental impacts",
           icon: <Puzzle className="w-6 h-6" />, 
           difficulty: "Hard",
           duration: "8 min",
@@ -557,7 +518,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-40",
           title: "Wind Farm Story",
-          description: "A wind farm is proposed nearby. What's your stance?",
           icon: <Wind className="w-6 h-6" />, 
           difficulty: "Easy",
           duration: "4 min",
@@ -571,7 +531,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-41",
           title: "Debate: Nuclear vs Renewables",
-          description: "Debate different energy solutions for the future",
           icon: <Speech className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "8 min",
@@ -585,7 +544,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-42",
           title: "Journal of Energy Use",
-          description: "Track and analyze your personal energy consumption",
           icon: <PenSquare className="w-6 h-6" />, 
           difficulty: "Easy",
           duration: "5 min",
@@ -599,7 +557,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-43",
           title: "Simulation: Energy Audit",
-          description: "Conduct an energy audit for your home or school",
           icon: <Building className="w-6 h-6" />, 
           difficulty: "Hard",
           duration: "10 min",
@@ -613,7 +570,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-44",
           title: "Reflex Energy Tech",
-          description: "Quickly identify emerging green technologies",
           icon: <Zap className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "6 min",
@@ -627,7 +583,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-45",
           title: "Badge: Energy Innovator",
-          description: "Earn your Energy Innovator badge",
           icon: <Trophy className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "7 min",
@@ -641,7 +596,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-46",
           title: "Water Crisis Story",
-          description: "Your area faces water shortages. How do you respond?",
           icon: <Droplets className="w-6 h-6" />, 
           difficulty: "Easy",
           duration: "4 min",
@@ -655,7 +609,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-47",
           title: "Quiz on Water Systems",
-          description: "Test your knowledge on water conservation and management",
           icon: <BookOpen className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "6 min",
@@ -669,7 +622,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-48",
           title: "Reflex Water Manager",
-          description: "Quickly identify effective water conservation strategies",
           icon: <Zap className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "6 min",
@@ -683,7 +635,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-49",
           title: "Puzzle: Water Cycle",
-          description: "Match water sources with sustainable usage practices",
           icon: <Puzzle className="w-6 h-6" />, 
           difficulty: "Hard",
           duration: "8 min",
@@ -697,7 +648,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-50",
           title: "Rainwater Story",
-          description: "You want to collect rainwater. How do you start?",
           icon: <Cloud className="w-6 h-6" />, 
           difficulty: "Easy",
           duration: "4 min",
@@ -711,7 +661,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-51",
           title: "Debate: Water Rights",
-          description: "Debate access to clean water as a human right",
           icon: <Speech className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "8 min",
@@ -725,7 +674,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-52",
           title: "Journal of Water Footprint",
-          description: "Calculate and reflect on your water footprint",
           icon: <PenSquare className="w-6 h-6" />, 
           difficulty: "Easy",
           duration: "5 min",
@@ -739,7 +687,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-53",
           title: "Simulation: Water Conservation Plan",
-          description: "Design a water conservation program for your community",
           icon: <ClipboardCheck className="w-6 h-6" />, 
           difficulty: "Hard",
           duration: "10 min",
@@ -753,7 +700,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-54",
           title: "Reflex Water Solutions",
-          description: "Quickly identify innovative water-saving technologies",
           icon: <Zap className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "6 min",
@@ -767,7 +713,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-55",
           title: "Badge: Water Steward",
-          description: "Earn your Water Steward badge",
           icon: <Trophy className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "7 min",
@@ -781,7 +726,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-56",
           title: "Forest Conservation Story",
-          description: "Local forest is threatened by development. What's your action?",
           icon: <TreePine className="w-6 h-6" />, 
           difficulty: "Easy",
           duration: "4 min",
@@ -795,7 +739,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-57",
           title: "Quiz on Biodiversity",
-          description: "Test your knowledge on ecosystems and species protection",
           icon: <BookOpen className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "6 min",
@@ -809,7 +752,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-58",
           title: "Reflex Ecosystem Defender",
-          description: "Quickly identify actions that protect biodiversity",
           icon: <Zap className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "6 min",
@@ -823,7 +765,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-59",
           title: "Puzzle: Ecosystem Balance",
-          description: "Match species with their role in maintaining ecosystem health",
           icon: <Puzzle className="w-6 h-6" />, 
           difficulty: "Hard",
           duration: "8 min",
@@ -837,7 +778,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-60",
           title: "Marine Life Story",
-          description: "You learn about ocean pollution. How do you take action?",
           icon: <Droplets className="w-6 h-6" />, 
           difficulty: "Easy",
           duration: "4 min",
@@ -851,7 +791,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-61",
           title: "Debate: Conservation vs Development",
-          description: "Debate balancing economic development with conservation",
           icon: <Speech className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "8 min",
@@ -865,7 +804,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-62",
           title: "Journal of Nature Connection",
-          description: "Reflect on your relationship with nature and wildlife",
           icon: <PenSquare className="w-6 h-6" />, 
           difficulty: "Easy",
           duration: "5 min",
@@ -879,7 +817,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-63",
           title: "Simulation: Wildlife Conservation Project",
-          description: "Design a conservation initiative for endangered species",
           icon: <ClipboardCheck className="w-6 h-6" />, 
           difficulty: "Hard",
           duration: "10 min",
@@ -893,7 +830,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-64",
           title: "Reflex Habitat Protector",
-          description: "Quickly identify threats to biodiversity and solutions",
           icon: <Zap className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "6 min",
@@ -907,7 +843,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-65",
           title: "Badge: Biodiversity Champion",
-          description: "Earn your Biodiversity Champion badge",
           icon: <Trophy className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "7 min",
@@ -921,7 +856,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-66",
           title: "Climate March Story",
-          description: "A climate protest is organized. Do you participate?",
           icon: <Globe className="w-6 h-6" />, 
           difficulty: "Easy",
           duration: "5 min",
@@ -935,7 +869,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-67",
           title: "Quiz on Climate Science",
-          description: "Test your understanding of climate change causes and effects",
           icon: <BookOpen className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "6 min",
@@ -949,7 +882,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-68",
           title: "Reflex Climate Advocate",
-          description: "Quickly identify effective climate action strategies",
           icon: <Zap className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "6 min",
@@ -963,7 +895,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-69",
           title: "Puzzle: Climate Policies",
-          description: "Match policy solutions with climate challenges",
           icon: <Puzzle className="w-6 h-6" />, 
           difficulty: "Hard",
           duration: "8 min",
@@ -977,7 +908,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-70",
           title: "School Policy Story",
-          description: "Your school wants climate policies. What do you propose?",
           icon: <Building className="w-6 h-6" />, 
           difficulty: "Easy",
           duration: "5 min",
@@ -991,7 +921,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-71",
           title: "Debate: Individual vs Systemic Change",
-          description: "Debate the role of individual vs government action",
           icon: <Speech className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "8 min",
@@ -1005,7 +934,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-72",
           title: "Journal of Climate Action",
-          description: "Document your journey as a climate activist",
           icon: <PenSquare className="w-6 h-6" />, 
           difficulty: "Easy",
           duration: "5 min",
@@ -1019,7 +947,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-73",
           title: "Simulation: Climate Policy Proposal",
-          description: "Draft a climate action plan for your school or city",
           icon: <ClipboardCheck className="w-6 h-6" />, 
           difficulty: "Hard",
           duration: "10 min",
@@ -1033,7 +960,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-74",
           title: "Reflex Policy Solutions",
-          description: "Quickly identify effective climate policies",
           icon: <Zap className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "6 min",
@@ -1047,7 +973,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-75",
           title: "Badge: Climate Advocate",
-          description: "Earn your Climate Advocate badge",
           icon: <Trophy className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "7 min",
@@ -1062,7 +987,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-76",
           title: "Local Farm Story",
-          description: "You discover a local organic farm. How do you support it?",
           icon: <TreePine className="w-6 h-6" />, 
           difficulty: "Easy",
           duration: "4 min",
@@ -1076,7 +1000,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-77",
           title: "Quiz on Sustainable Agriculture",
-          description: "Test your knowledge on eco-friendly farming practices",
           icon: <BookOpen className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "6 min",
@@ -1090,7 +1013,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-78",
           title: "Reflex Food System Thinker",
-          description: "Quickly identify sustainable food choices",
           icon: <Zap className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "6 min",
@@ -1104,7 +1026,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-79",
           title: "Puzzle: Food Chain Impact",
-          description: "Match food choices with their environmental footprint",
           icon: <Puzzle className="w-6 h-6" />, 
           difficulty: "Hard",
           duration: "8 min",
@@ -1118,7 +1039,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-80",
           title: "Urban Garden Story",
-          description: "You want to start a community garden. How do you begin?",
           icon: <TreePine className="w-6 h-6" />, 
           difficulty: "Easy",
           duration: "4 min",
@@ -1132,7 +1052,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-81",
           title: "Debate: Organic vs Conventional",
-          description: "Debate different farming approaches and their impacts",
           icon: <Speech className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "8 min",
@@ -1146,7 +1065,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-82",
           title: "Journal of Food Ethics",
-          description: "Reflect on the ethics of your food choices",
           icon: <PenSquare className="w-6 h-6" />, 
           difficulty: "Easy",
           duration: "5 min",
@@ -1160,7 +1078,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-83",
           title: "Simulation: Farm-to-Table Project",
-          description: "Design a local food system initiative",
           icon: <ClipboardCheck className="w-6 h-6" />, 
           difficulty: "Hard",
           duration: "10 min",
@@ -1174,7 +1091,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-84",
           title: "Reflex Sustainable Food",
-          description: "Quickly identify sustainable and ethical food sources",
           icon: <Zap className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "6 min",
@@ -1188,7 +1104,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-85",
           title: "Badge: Food System Champion",
-          description: "Earn your Food System Champion badge",
           icon: <Trophy className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "7 min",
@@ -1202,7 +1117,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-86",
           title: "Eco-Innovation Story",
-          description: "You have an idea for green technology. How do you develop it?",
           icon: <Lightbulb className="w-6 h-6" />, 
           difficulty: "Easy",
           duration: "4 min",
@@ -1216,7 +1130,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-87",
           title: "Quiz on Green Tech",
-          description: "Test your knowledge on sustainable technology solutions",
           icon: <BookOpen className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "5 min",
@@ -1230,7 +1143,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-88",
           title: "Reflex Tech Innovator",
-          description: "Quickly identify green technology opportunities",
           icon: <Zap className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "6 min",
@@ -1244,7 +1156,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-89",
           title: "Puzzle: Technology Impact",
-          description: "Match technologies with their sustainability potential",
           icon: <Puzzle className="w-6 h-6" />, 
           difficulty: "Hard",
           duration: "7 min",
@@ -1258,7 +1169,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-90",
           title: "Startup Story",
-          description: "You want to start an eco-business. What's your plan?",
           icon: <Briefcase className="w-6 h-6" />, 
           difficulty: "Easy",
           duration: "4 min",
@@ -1272,7 +1182,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-91",
           title: "Debate: Tech Solution vs Behavior Change",
-          description: "Debate technology vs lifestyle changes for sustainability",
           icon: <Speech className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "8 min",
@@ -1286,7 +1195,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-92",
           title: "Journal of Innovation",
-          description: "Document your ideas for sustainable innovations",
           icon: <PenSquare className="w-6 h-6" />, 
           difficulty: "Easy",
           duration: "5 min",
@@ -1300,7 +1208,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-93",
           title: "Simulation: Green Startup Plan",
-          description: "Develop a business plan for a sustainable venture",
           icon: <ClipboardCheck className="w-6 h-6" />, 
           difficulty: "Hard",
           duration: "10 min",
@@ -1314,7 +1221,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-94",
           title: "Reflex Innovation Solutions",
-          description: "Quickly identify green technology solutions to problems",
           icon: <Zap className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "6 min",
@@ -1328,7 +1234,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-95",
           title: "Badge: Green Innovator",
-          description: "Earn your Green Innovator badge",
           icon: <Trophy className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "7 min",
@@ -1342,7 +1247,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-96",
           title: "Leadership Story",
-          description: "You're asked to lead a sustainability initiative. How do you inspire others?",
           icon: <Users className="w-6 h-6" />, 
           difficulty: "Easy",
           duration: "4 min",
@@ -1356,7 +1260,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-97",
           title: "Quiz on Sustainability Leadership",
-          description: "Test your knowledge on leading change for sustainability",
           icon: <BookOpen className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "5 min",
@@ -1370,7 +1273,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-98",
           title: "Reflex Change Leader",
-          description: "Quickly identify effective leadership strategies for sustainability",
           icon: <Zap className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "6 min",
@@ -1384,7 +1286,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-99",
           title: "Simulation: Community Sustainability Plan",
-          description: "Design a comprehensive sustainability plan for your community",
           icon: <ClipboardCheck className="w-6 h-6" />, 
           difficulty: "Hard",
           duration: "10 min",
@@ -1398,7 +1299,6 @@ export const getSustainabilityTeenGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-teens-100",
           title: "Badge: Master Sustainability Leader",
-          description: "Master all sustainability challenges to become a leader",
           icon: <Trophy className="w-6 h-6" />, 
           difficulty: "Hard",
           duration: "7 min",

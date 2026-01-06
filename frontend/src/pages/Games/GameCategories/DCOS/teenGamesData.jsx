@@ -31,7 +31,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
         {
           id: "dcos-teen-1",
           title: "Password Sharing Story",
-          description: "Never share your password with anyone",
           icon: <Lock className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6-8 min",
@@ -45,7 +44,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
         {
           id: "dcos-teen-2",
           title: "Privacy Settings Quiz",
-          description: "Should profiles be public or private?",
           icon: <Shield className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -59,7 +57,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
         {
           id: "dcos-teen-3",
           title: "OTP Fraud Reflex",
-          description: "Detect and block OTP scams",
           icon: <MessageSquare className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4-6 min",
@@ -73,7 +70,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
         {
           id: "dcos-teen-4",
           title: "Profile Picture Simulation",
-          description: "Choose safe profile picture - cartoon vs photo",
           icon: <Camera className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6-8 min",
@@ -87,7 +83,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
         {
           id: "dcos-teen-5",
           title: "Social Media Journal",
-          description: "What info is okay to share online?",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "8-10 min",
@@ -101,7 +96,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
         {
           id: "dcos-teen-6",
           title: "Data Consent Quiz",
-          description: "App permissions - what is safe to allow?",
           icon: <Smartphone className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -115,7 +109,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
         {
           id: "dcos-teen-7",
           title: "Fake Friend Story",
-          description: "Stranger claims to know your friend",
           icon: <UserX className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6-8 min",
@@ -129,7 +122,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
         {
           id: "dcos-teen-8",
           title: "Safety Reflex",
-          description: "Detect and report scam ads",
           icon: <Eye className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4-6 min",
@@ -143,7 +135,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
         {
           id: "dcos-teen-9",
           title: "Debate: Online Friends",
-          description: "Is it safe to meet online friends in real life?",
           icon: <Target className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "15-20 min",
@@ -157,7 +148,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
         {
           id: "dcos-teen-10",
           title: "Online Safety Badge",
-          description: "Complete 5 teen safety acts",
           icon: <Award className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6-8 min",
@@ -171,7 +161,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
         {
           id: "dcos-teen-11",
           title: "Cyberbully Reflex",
-          description: "Block and report hurtful comments",
           icon: <Shield className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -185,7 +174,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
         {
           id: "dcos-teen-12",
           title: "Peer Pressure Story",
-          description: "Friends want you to join trolling",
           icon: <Users className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6-8 min",
@@ -199,7 +187,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
         {
           id: "dcos-teen-13",
           title: "Gossip Chain Simulation",
-          description: "Rumor spreads across 3 chats - stop it",
           icon: <MessageSquare className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "8-10 min",
@@ -213,7 +200,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
         {
           id: "dcos-teen-14",
           title: "Debate: Trolling",
-          description: "Is trolling funny? Build your argument",
           icon: <Target className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "15-20 min",
@@ -227,7 +213,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
         {
           id: "dcos-teen-15",
           title: "Diversity Quiz",
-          description: "Defend friend mocked for their accent",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -241,7 +226,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
         {
           id: "dcos-teen-16",
           title: "Encourage Roleplay",
-          description: "Classmate cyberbullied - encourage & report",
           icon: <Heart className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "8-10 min",
@@ -255,7 +239,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
         {
           id: "dcos-teen-17",
           title: "Empathy Journal",
-          description: "How would I feel if trolled?",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "8-10 min",
@@ -269,7 +252,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
         {
           id: "dcos-teen-18",
           title: "Anti-Bully Reflex",
-          description: "Stand up when troll messages flash",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4-6 min",
@@ -283,7 +265,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
         {
           id: "dcos-teen-19",
           title: "Upstander Simulation",
-          description: "Group trolling victim - defend them",
           icon: <HandHeart className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6-8 min",
@@ -297,7 +278,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
         {
           id: "dcos-teen-20",
           title: "Courage Badge",
-          description: "Complete 5 anti-bullying acts",
           icon: <Award className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6-8 min",
@@ -311,7 +291,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
         {
   id: "dcos-teen-21",
   title: "Screen Log Story",
-  description: "Teen spends 6 hrs gaming. Correct solution = Limit time.",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "5-6 min",
@@ -325,7 +304,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-22",
   title: "Sleep Health Quiz",
-  description: "Using mobile at midnight affects sleep. Healthy? → No.",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Easy",
   duration: "3-4 min",
@@ -339,7 +317,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-23",
   title: "Dopamine Reflex",
-  description: "App sends ‘Like’ notifications. Tap ‘Ignore.’",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "4-5 min",
@@ -353,7 +330,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-24",
   title: "Digital Detox Simulation",
-  description: "Choose weekend plan: (a) Screen binge (b) Park (c) Book. Correct = Park/Book.",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "5-6 min",
@@ -367,7 +343,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-25",
   title: "Balance Journal",
-  description: "Write: “How many hrs I spent offline today.”",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Easy",
   duration: "4-5 min",
@@ -381,7 +356,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-26",
   title: "Productivity Puzzle",
-  description: "Match 'Study App = Productive, Endless Scroll = Waste.'",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "5-6 min",
@@ -395,7 +369,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-27",
   title: "Family Rule Debate",
-  description: "Topic: Are parents right to set screen limits? Correct = Yes.",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Hard",
   duration: "6-8 min",
@@ -409,7 +382,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-28",
   title: "Sleep Hygiene Reflex",
-  description: "Tap 'Phone Off' at 10 pm.",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Easy",
   duration: "3-4 min",
@@ -423,7 +395,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-29",
   title: "Success Story Simulation",
-  description: "Teen balances sports + studies + tech. Outcome = Success.",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "5-6 min",
@@ -437,7 +408,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-30",
   title: "Wellbeing Badge",
-  description: "Complete 5 wellbeing acts to earn badge 'Digital Wellbeing Hero.'",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Hard",
   duration: "6-8 min",
@@ -451,7 +421,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-31",
   title: "Viral Post Story",
-  description: "Viral message says 'Celebrity died.' Correct = Verify before sharing.",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "5-6 min",
@@ -465,7 +434,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-32",
   title: "Deepfake Video Quiz",
-  description: "Watch video. Real or Deepfake? → Deepfake.",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "5-6 min",
@@ -479,7 +447,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-33",
   title: "Forward Reflex",
-  description: "'Forward to 10 people or bad luck!' Tap 'Ignore.'",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Easy",
   duration: "3-4 min",
@@ -493,7 +460,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-34",
   title: "Fact-Check Simulation",
-  description: "3 websites shown. Pick the trusted one (official).",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "5-6 min",
@@ -507,7 +473,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-35",
   title: "Meme Truth Puzzle",
-  description: "Match 'Meme = Joke, News = Fact.'",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "4-6 min",
@@ -521,7 +486,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-36",
   title: "WhatsApp Debate",
-  description: "Topic: 'Should we trust all forwards?' Correct = No.",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Hard",
   duration: "6-8 min",
@@ -535,7 +499,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-37",
   title: "Fake Job Scam Story",
-  description: "Post says 'Pay ₹5000 for job.' Correct = Scam.",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "5-6 min",
@@ -549,7 +512,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-38",
   title: "Truth Journal",
-  description: "Write: 'One fake news I spotted recently was ___.'",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Easy",
   duration: "4-5 min",
@@ -563,7 +525,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-39",
   title: "News Reflex",
-  description: "Tap 'Verify' when suspicious headline flashes.",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Easy",
   duration: "3-4 min",
@@ -577,7 +538,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-40",
   title: "Fact-Check Badge",
-  description: "Complete 5 fact-checking acts to earn badge 'Fact-Check Hero.'",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Hard",
   duration: "6-8 min",
@@ -591,7 +551,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-41",
   title: "Fake Job Ad Story",
-  description: "Story: 'Pay ₹5000 for job.' Correct = Scam.",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "5-7 min",
@@ -605,7 +564,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-42",
   title: "Phishing Email Quiz",
-  description: "Story: Email says 'Click link to win lottery.' Safe? → No.",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "5-7 min",
@@ -619,7 +577,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-43",
   title: "OTP Scam Reflex",
-  description: "Story: Message says 'Share OTP to continue.' Tap Ignore.",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Easy",
   duration: "3-5 min",
@@ -633,7 +590,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-44",
   title: "Shopping Simulation",
-  description: "Story: Choose safe website: 'Official Amazon' vs 'FreeShop123.' Correct = Amazon.",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "6-8 min",
@@ -647,7 +603,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-45",
   title: "Loan Trap Story",
-  description: "Story: 'Quick loan app' asks personal info. Correct = Unsafe.",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "5-7 min",
@@ -661,7 +616,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-46",
   title: "Scam Debate",
-  description: "Topic: Are all online offers safe? → No.",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Hard",
   duration: "7-9 min",
@@ -675,7 +629,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-47",
   title: "Banking Safety Puzzle",
-  description: "Story: Match 'OTP = Private, Bank App = Safe, Fake Link = Scam.'",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "5-7 min",
@@ -689,7 +642,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-48",
   title: "Fraud Journal",
-  description: "Task: Write: 'A scam I saw online was ___.'",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Easy",
   duration: "5-6 min",
@@ -703,7 +655,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-49",
   title: "Reflex Ad Trap",
-  description: "Story: Pop-up 'You won lottery!' Tap Ignore.",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Easy",
   duration: "3-5 min",
@@ -717,7 +668,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-50",
   title: "Fraud Fighter Badge",
-  description: "Task: Complete 5 fraud-prevent actions.",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Hard",
   duration: "7-9 min",
@@ -731,7 +681,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-51",
   title: "Consent Story",
-  description: "Story: Friend posts your picture without asking. Correct = Ask to remove.",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "5-7 min",
@@ -745,7 +694,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-52",
   title: "Data Quiz",
-  description: "Story: Which is private info? (Phone number / Hobby / Favorite color). Correct = Phone number.",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Easy",
   duration: "4-6 min",
@@ -759,7 +707,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-53",
   title: "Fake App Reflex",
-  description: "Story: App asks for contacts & camera. Tap Ignore.",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Easy",
   duration: "3-5 min",
@@ -773,7 +720,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-54",
   title: "Sharing Rights Simulation",
-  description: "Story: Choose: Share homework online vs keep it private. Correct = Keep private.",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "5-7 min",
@@ -787,7 +733,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-55",
   title: "Privacy Laws Puzzle",
-  description: "Story: Match 'GDPR = Europe, IT Act = India, COPPA = Kids.'",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "6-8 min",
@@ -801,7 +746,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-56",
   title: "Debate Stage",
-  description: "Topic: Should schools teach privacy rights? Correct = Yes.",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Hard",
   duration: "7-9 min",
@@ -815,7 +759,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-57",
   title: "Digital Footprint Story",
-  description: "Story: Old photo posted again. Impact = Stays forever.",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "5-7 min",
@@ -829,7 +772,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-58",
   title: "Journal of Privacy",
-  description: "Task: Write: 'One time I protected my privacy was ___.'",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Easy",
   duration: "5-6 min",
@@ -843,7 +785,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-59",
   title: "Content Ownership Quiz",
-  description: "Story: Can you copy others' video and post as yours? → No.",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Easy",
   duration: "4-6 min",
@@ -857,7 +798,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-60",
   title: "Rights Defender Badge",
-  description: "Task: Complete 5 privacy rights acts.",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Hard",
   duration: "7-9 min",
@@ -871,7 +811,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-61",
   title: "Future Job Story",
-  description: "Story: Recruiter sees teen's rude post. Impact = Job lost.",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "5-7 min",
@@ -885,7 +824,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-62",
   title: "Cancel Culture Quiz",
-  description: "Story: Old offensive post resurfaces. Safe or Risky? → Risky.",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "6-8 min",
@@ -899,7 +837,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-63",
   title: "Reflex Positive Identity",
-  description: "Story: Tap on posts about achievements, avoid insults.",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Easy",
   duration: "4-6 min",
@@ -913,7 +850,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-64",
   title: "College Application Simulation",
-  description: "Story: College checks social media. Which profile is better? → Clean and respectful.",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "5-7 min",
@@ -927,7 +863,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-65",
   title: "Debate Stage 2",
-  description: "Topic: Does online identity matter for success? → Yes.",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Hard",
   duration: "7-9 min",
@@ -941,7 +876,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-66",
   title: "Digital Reputation Puzzle",
-  description: "Story: Match 'Positive Post = Good Reputation, Rumors = Bad Reputation.'",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "6-8 min",
@@ -955,7 +889,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-67",
   title: "Journal: My Identity",
-  description: "Task: Write: 'One way I want others to see me online is ___.'",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Easy",
   duration: "5-6 min",
@@ -969,7 +902,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-68",
   title: "Story of Positivity",
-  description: "Story: Teen posts encouraging message. Result = Respect.",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "5-7 min",
@@ -983,7 +915,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-69",
   title: "Reflex Recruiter",
-  description: "Story: Tap 'Reject' on negative post in a mock recruiter screen.",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Easy",
   duration: "4-6 min",
@@ -997,7 +928,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-70",
   title: "Identity Badge",
-  description: "Task: Complete 5 identity-protect acts to earn badge 'Positive Identity.'",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Hard",
   duration: "7-9 min",
@@ -1011,7 +941,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-71",
   title: "Bias Story",
-  description: "AI shows only male doctors. Is this biased? → Yes.",
   icon: <BookOpen className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "4-6 min",
@@ -1025,7 +954,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-72",
   title: "Deepfake Quiz",
-  description: "AI video shows politician saying false words. Real or Fake? → Fake.",
   icon: <HelpCircle className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "5-7 min",
@@ -1039,7 +967,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-73",
   title: "Reflex Fair AI",
-  description: "Tap for 'AI helps farmers,' avoid 'AI spreads fake news.'",
   icon: <Zap className="w-6 h-6" />,
   difficulty: "Easy",
   duration: "3-5 min",
@@ -1053,7 +980,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-74",
   title: "Simulation: AI in Exams",
-  description: "AI app suggests cheat answers. Correct choice = Reject.",
   icon: <Monitor className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "6-8 min",
@@ -1067,7 +993,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-75",
   title: "AI in Jobs Debate",
-  description: "Will AI take jobs or create new ones? → Both, fairness needed.",
   icon: <MessageSquare className="w-6 h-6" />,
   difficulty: "Hard",
   duration: "6-8 min",
@@ -1081,7 +1006,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-76",
   title: "Puzzle: AI Uses",
-  description: "Match: 'AI = Translate,' 'AI = Fake Video,' 'AI = Medical Help.'",
   icon: <Puzzle className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "5-7 min",
@@ -1095,7 +1019,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-77",
   title: "Journal: My AI Rule",
-  description: "Write: 'One ethical rule I follow when using AI is ___.'",
   icon: <PenTool className="w-6 h-6" />,
   difficulty: "Easy",
   duration: "4-6 min",
@@ -1109,7 +1032,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-78",
   title: "Copyright Story",
-  description: "Copying AI art as your own. Is this right? → No.",
   icon: <BookOpen className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "4-6 min",
@@ -1123,7 +1045,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-79",
   title: "Reflex AI Responsibility",
-  description: "Tap when AI is used for learning, avoid when used for harm.",
   icon: <Zap className="w-6 h-6" />,
   difficulty: "Easy",
   duration: "3-5 min",
@@ -1137,7 +1058,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-80",
   title: "AI Leader Badge",
-  description: "Complete 5 ethical AI actions to earn badge 'AI Ethics Teen.'",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Hard",
   duration: "6-8 min",
@@ -1151,7 +1071,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-81",
   title: "Hate Comment Story",
-  description: "Someone posts 'Go back to your country.' Correct = Report.",
   icon: <BookOpen className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "4-6 min",
@@ -1165,7 +1084,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-82",
   title: "Freedom vs Abuse Quiz",
-  description: "Is calling names freedom of speech? → No.",
   icon: <HelpCircle className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "5-7 min",
@@ -1179,7 +1097,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-83",
   title: "Reflex Support",
-  description: "Tap when positive reply shows, skip when hate reply shows.",
   icon: <Zap className="w-6 h-6" />,
   difficulty: "Easy",
   duration: "3-5 min",
@@ -1193,7 +1110,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-84",
   title: "Simulation: Group Chat",
-  description: "Group mocks classmate's religion. Correct = Defend or Exit.",
   icon: <Monitor className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "6-8 min",
@@ -1207,7 +1123,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-85",
   title: "Debate Stage 3",
-  description: "Should hate speech be allowed online? Correct = No.",
   icon: <MessageSquare className="w-6 h-6" />,
   difficulty: "Hard",
   duration: "6-8 min",
@@ -1221,7 +1136,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-86",
   title: "Puzzle: Respect vs Hate",
-  description: "Match: 'Respect → Inclusion,' 'Hate → Hurt.'",
   icon: <Puzzle className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "5-7 min",
@@ -1235,7 +1149,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-87",
   title: "Journal: My Online Respect",
-  description: "Write: 'One way I showed respect online this week was ___.'",
   icon: <PenTool className="w-6 h-6" />,
   difficulty: "Easy",
   duration: "4-6 min",
@@ -1249,7 +1162,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-88",
   title: "Roleplay: Calm Reply",
-  description: "Peer posts rude comment. Correct = Reply calm or ignore.",
   icon: <UserCheck className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "5-7 min",
@@ -1263,7 +1175,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-89",
   title: "Reflex Flag",
-  description: "Tap 'Flag' when hate comment appears.",
   icon: <Flag className="w-6 h-6" />,
   difficulty: "Easy",
   duration: "3-5 min",
@@ -1277,7 +1188,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-90",
   title: "Respect Champion Badge",
-  description: "Complete 5 respect-promoting acts to earn badge 'Respect Champion.'",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Hard",
   duration: "6-8 min",
@@ -1291,7 +1201,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-91",
   title: "Entrepreneur Story",
-  description: "Teen sells handmade crafts online safely. Correct = Smart.",
   icon: <BookOpen className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "5-7 min",
@@ -1305,7 +1214,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-92",
   title: "Reflex Productivity",
-  description: "Tap for 'Project Tool,' skip for 'Endless Scroll.'",
   icon: <Zap className="w-6 h-6" />,
   difficulty: "Easy",
   duration: "3-5 min",
@@ -1319,7 +1227,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-93",
   title: "Debate Stage 4",
-  description: "Is tech only for entertainment or also for growth? Correct = Growth too.",
   icon: <MessageSquare className="w-6 h-6" />,
   difficulty: "Hard",
   duration: "6-8 min",
@@ -1333,7 +1240,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-94",
   title: "Online Course Simulation",
-  description: "Choose to enroll in 'Coding Course' vs 'Random Video Binge.' Correct = Coding.",
   icon: <Monitor className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "6-8 min",
@@ -1347,7 +1253,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-95",
   title: "Career Puzzle",
-  description: "Match: 'Engineer = Coding,' 'Artist = Digital Design.'",
   icon: <Puzzle className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "5-7 min",
@@ -1361,7 +1266,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-96",
   title: "Journal of Future Use",
-  description: "Write: 'One way I will use tech in my career is ___.'",
   icon: <PenTool className="w-6 h-6" />,
   difficulty: "Easy",
   duration: "4-6 min",
@@ -1375,7 +1279,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-97",
   title: "Social Media Story",
-  description: "Teen uses Instagram to promote school project. Correct = Smart Use.",
   icon: <BookOpen className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "5-7 min",
@@ -1389,7 +1292,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-98",
   title: "Reflex Smart Screen",
-  description: "Tap for 'Skill Video,' skip for 'Hate Video.'",
   icon: <Zap className="w-6 h-6" />,
   difficulty: "Easy",
   duration: "3-5 min",
@@ -1403,7 +1305,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-99",
   title: "Role Model Task",
-  description: "Student shares blog helping peers with studies. Outcome = Positive impact.",
   icon: <UserCheck className="w-6 h-6" />,
   difficulty: "Medium",
   duration: "6-8 min",
@@ -1417,7 +1318,6 @@ export const getDcosTeenGames = (gameCompletionStatus)=> {
 {
   id: "dcos-teen-100",
   title: "Productivity Hero Badge",
-  description: "Complete 5 productive tech acts to earn badge 'Productivity Hero.'",
   icon: <Award className="w-6 h-6" />,
   difficulty: "Hard",
   duration: "6-8 min",

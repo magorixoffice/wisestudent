@@ -11,7 +11,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-1",
           title: "Eco Sort Story",
-          description: "You see trash on the ground. Do you pick it up or leave it?",
           icon: <Leaf className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3 min",
@@ -25,7 +24,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-2",
           title: "Quiz on Recycling",
-          description: "What goes in recycling? (a) Plastic bottle, (b) Banana peel, (c) Broken toy",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -39,7 +37,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-3",
           title: "Reflex Recycle",
-          description: "Tap quickly for 'Recycle' items, avoid 'Trash' items",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -53,7 +50,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-4",
           title: "Puzzle: Sort the Waste",
-          description: "Match 'Plastic Bottle → Recycle, Apple Core → Compost, Broken Toy → Trash'",
           icon: <Target className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -67,7 +63,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-5",
           title: "Litter Story",
-          description: "You finish a snack. Do you throw wrapper on ground or find a bin?",
           icon: <Heart className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -81,7 +76,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-6",
           title: "Poster: Reduce, Reuse, Recycle",
-          description: "Create/select poster: '3 Rs Save Our Planet'",
           icon: <GraduationCap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "7 min",
@@ -95,7 +89,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-7",
           title: "Journal of Recycling",
-          description: "Write: 'One thing I recycled today was ___'",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -109,7 +102,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-8",
           title: "Plastic Bag Story",
-          description: "Shop gives plastic bag. Do you take it or use your own bag?",
           icon: <ShoppingCart className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -123,7 +115,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-9",
           title: "Reflex Waste Choice",
-          description: "Tap for 'Reusable,' avoid 'Single-use'",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "5 min",
@@ -137,7 +128,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-10",
           title: "Badge: Eco Helper Kid",
-          description: "Sort waste correctly 5 times to earn your badge",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -151,7 +141,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-11",
           title: "Lights Off Story",
-          description: "You leave room. Do you turn off lights or leave them on?",
           icon: <Sun className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3 min",
@@ -165,7 +154,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-12",
           title: "Quiz on Saving Energy",
-          description: "What saves energy? (a) Turn off TV when not watching, (b) Leave all lights on, (c) Keep AC on all day",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -179,7 +167,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-13",
           title: "Reflex Energy Saver",
-          description: "Tap for 'Turn Off,' avoid 'Leave On'",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -193,7 +180,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-14",
           title: "Puzzle: Energy Sources",
-          description: "Match 'Sun → Solar Energy, Wind → Wind Energy, Coal → Dirty Energy'",
           icon: <Target className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -207,7 +193,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-15",
           title: "Water Tap Story",
-          description: "You see tap dripping. Do you tell an adult or ignore it?",
           icon: <Droplets className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -221,7 +206,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-16",
           title: "Poster: Save Water",
-          description: "Create/select poster: 'Every Drop Counts'",
           icon: <GraduationCap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "7 min",
@@ -235,7 +219,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-17",
           title: "Journal of Green Habits",
-          description: "Write: 'One green habit I practice is ___'",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -249,7 +232,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-18",
           title: "Tree Planting Story",
-          description: "School plants a tree. Do you help water it or ignore it?",
           icon: <TreePine className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -263,7 +245,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-19",
           title: "Reflex Nature Care",
-          description: "Tap for 'Protect Nature,' avoid 'Harm Nature'",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "5 min",
@@ -277,7 +258,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-20",
           title: "Badge: Planet Protector Kid",
-          description: "Complete 5 eco-friendly actions to earn your badge",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -291,7 +271,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-21",
           title: "Ocean Cleanup Story",
-          description: "You see plastic in the ocean. Do you help clean it or walk away?",
           icon: <Droplets className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -305,7 +284,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-22",
           title: "Quiz on Wildlife Protection",
-          description: "What helps protect animals? (a) Littering, (b) Protecting habitats, (c) Cutting trees",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -319,7 +297,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-23",
           title: "Reflex Clean Air",
-          description: "Tap for 'Clean Air' actions, avoid 'Pollution' actions",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -333,7 +310,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-24",
           title: "Puzzle: Green Transportation",
-          description: "Match 'Bike → Clean, Car → Pollutes, Walk → Healthy'",
           icon: <Target className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "7 min",
@@ -347,7 +323,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-25",
           title: "Badge: Earth Guardian",
-          description: "Complete all eco-challenges to become an Earth Guardian",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "10 min",
@@ -361,7 +336,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-26",
           title: "Water Bottle Story",
-          description: "You finish a water bottle. Do you reuse it or throw it away?",
           icon: <Droplets className="w-6 h-6" />, // Using droplets icon for water
           difficulty: "Easy",
           duration: "4 min",
@@ -375,7 +349,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-27",
           title: "Quiz on Water Conservation",
-          description: "What saves water? (a) Long showers, (b) Turn off tap, (c) Leave water running",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -389,7 +362,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-28",
           title: "Reflex Water Saver",
-          description: "Tap for 'Save Water,' avoid 'Waste Water'",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -403,7 +375,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-29",
           title: "Puzzle: Water Sources",
-          description: "Match 'Rain → Water, Ocean → Salty, Tap → Drinkable'",
           icon: <Target className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -417,7 +388,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-30",
           title: "Rain Story",
-          description: "It's raining. Do you collect rainwater or let it drain?",
           icon: <Cloud className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -431,7 +401,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-31",
           title: "Poster: Clean Air",
-          description: "Create/select poster: 'Breathe Clean Air'",
           icon: <GraduationCap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "7 min",
@@ -445,7 +414,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-32",
           title: "Journal of Water Habits",
-          description: "Write: 'One way I save water is ___'",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -459,7 +427,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-33",
           title: "Plant Story",
-          description: "You see a wilting plant. Do you water it or ignore it?",
           icon: <TreePine className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -473,7 +440,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-34",
           title: "Reflex Air Quality",
-          description: "Tap for 'Clean Air' actions, avoid 'Pollution' actions",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "5 min",
@@ -487,7 +453,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-35",
           title: "Badge: Water Warrior Kid",
-          description: "Complete 5 water-saving actions to earn your badge",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -501,7 +466,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-36",
           title: "Leftover Food Story",
-          description: "You have leftover food. Do you save it or throw it away?",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -515,7 +479,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-37",
           title: "Quiz on Food Waste",
-          description: "What reduces food waste? (a) Throw away half, (b) Eat what you take, (c) Buy extra)",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -529,7 +492,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-38",
           title: "Reflex Food Saver",
-          description: "Tap for 'Save Food,' avoid 'Waste Food'",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -543,7 +505,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-39",
           title: "Puzzle: Compost Items",
-          description: "Match 'Apple Core → Compost, Plastic → Trash, Paper → Recycle'",
           icon: <Target className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -557,7 +518,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-40",
           title: "Garden Story",
-          description: "You see a community garden. Do you help or walk away?",
           icon: <TreePine className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -571,7 +531,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-41",
           title: "Poster: Reduce Food Waste",
-          description: "Create/select poster: 'Eat All You Take'",
           icon: <GraduationCap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "7 min",
@@ -585,7 +544,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-42",
           title: "Journal of Food Habits",
-          description: "Write: 'One way I reduce food waste is ___'",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -599,7 +557,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-43",
           title: "Compost Story",
-          description: "You see food scraps. Do you compost them or trash them?",
           icon: <TreePine className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -613,7 +570,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-44",
           title: "Reflex Compost Helper",
-          description: "Tap for 'Compost,' avoid 'Trash'",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "5 min",
@@ -627,7 +583,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-45",
           title: "Badge: Food Saver Kid",
-          description: "Reduce food waste 5 times to earn your badge",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -641,7 +596,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-46",
           title: "Bike Story",
-          description: "You need to go nearby. Do you bike or ask for a car ride?",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -655,7 +609,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-47",
           title: "Quiz on Green Transport",
-          description: "What's better for Earth? (a) Walk, (b) Drive alone, (c) Bike",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -669,7 +622,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-48",
           title: "Reflex Transport Choice",
-          description: "Tap for 'Green Transport,' avoid 'Polluting Transport'",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -683,7 +635,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-49",
           title: "Puzzle: Energy Choices",
-          description: "Match 'Sun → Solar, Wind → Clean, Coal → Dirty'",
           icon: <Target className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -697,7 +648,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-50",
           title: "Unplug Story",
-          description: "You finish charging. Do you unplug or leave it plugged?",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -711,7 +661,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-51",
           title: "Poster: Save Energy",
-          description: "Create/select poster: 'Energy Smart, Earth Smart'",
           icon: <GraduationCap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "7 min",
@@ -725,7 +674,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-52",
           title: "Journal of Transport",
-          description: "Write: 'One green way I travel is ___'",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -739,7 +687,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-53",
           title: "Bus Story",
-          description: "Going to school. Do you take the bus or drive?",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -753,7 +700,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-54",
           title: "Reflex Energy Wise",
-          description: "Tap for 'Save Energy,' avoid 'Waste Energy'",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "5 min",
@@ -767,7 +713,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-55",
           title: "Badge: Green Traveler Kid",
-          description: "Use green transport 5 times to earn your badge",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -781,7 +726,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-56",
           title: "Animal Story",
-          description: "You see an injured bird. Do you help or ignore it?",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -795,7 +739,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-57",
           title: "Quiz on Wildlife",
-          description: "What helps animals? (a) Feed wildlife, (b) Protect habitats, (c) Pick flowers",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -809,7 +752,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-58",
           title: "Reflex Animal Care",
-          description: "Tap for 'Help Animals,' avoid 'Harm Animals'",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "5 min",
@@ -823,7 +765,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-59",
           title: "Puzzle: Animal Homes",
-          description: "Match 'Bird → Nest, Bee → Hive, Fish → Ocean'",
           icon: <Target className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -837,7 +778,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-60",
           title: "Forest Story",
-          description: "You see someone cutting trees. Do you tell an adult or ignore?",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -851,7 +791,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-61",
           title: "Poster: Protect Wildlife",
-          description: "Create/select poster: 'Animals Need Our Help'",
           icon: <Paintbrush className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -865,7 +804,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-62",
           title: "Journal of Nature Care",
-          description: "Write: 'One way I help nature is ___'",
           icon: <PenSquare className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -879,7 +817,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-63",
           title: "Bee Story",
-          description: "You see a bee. Do you leave it alone or swat it?",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -893,7 +830,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-64",
           title: "Reflex Habitat Helper",
-          description: "Tap for 'Protect Habitat,' avoid 'Destroy Habitat'",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "5 min",
@@ -907,7 +843,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-65",
           title: "Badge: Wildlife Friend Kid",
-          description: "Help wildlife 5 times to earn your badge",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -921,7 +856,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-66",
           title: "Paper Story",
-          description: "You finish using paper. Do you recycle or throw away?",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -935,7 +869,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-67",
           title: "Quiz on Upcycling",
-          description: "What is upcycling? (a) Throw away, (b) Make new from old, (c) Buy new",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -949,7 +882,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-68",
           title: "Reflex Upcycle Master",
-          description: "Tap for 'Reuse,' avoid 'Waste'",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "5 min",
@@ -963,7 +895,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-69",
           title: "Puzzle: Material Life",
-          description: "Match 'Bottle → Reuse, Box → Recycle, Crayon → Upcycle'",
           icon: <Target className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -977,7 +908,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-70",
           title: "Craft Story",
-          description: "You have an old box. Do you make art or throw it?",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -991,7 +921,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-71",
           title: "Poster: Upcycle Ideas",
-          description: "Create/select poster: 'Old Things, New Uses'",
           icon: <Paintbrush className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1005,7 +934,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-72",
           title: "Journal of Reuse",
-          description: "Write: 'One thing I reused was ___'",
           icon: <PenSquare className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -1019,7 +947,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-73",
           title: "Donation Story",
-          description: "You outgrow toys. Do you donate or throw away?",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -1033,7 +960,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-74",
           title: "Reflex Resource Saver",
-          description: "Tap for 'Reuse Resource,' avoid 'Waste Resource'",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "5 min",
@@ -1047,7 +973,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-75",
           title: "Badge: Upcycle Champion Kid",
-          description: "Upcycle 5 items to earn your badge",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -1061,7 +986,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-76",
           title: "Weather Story",
-          description: "It's very hot outside. Do you turn on AC full or use a fan?",
           icon: <Cloud className="w-6 h-6" />, 
           difficulty: "Easy",
           duration: "4 min",
@@ -1075,7 +999,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-77",
           title: "Quiz on Climate Change",
-          description: "What causes climate change? (a) Trees, (b) Too much pollution, (c) Rain",
           icon: <BookOpen className="w-6 h-6" />, 
           difficulty: "Easy",
           duration: "4 min",
@@ -1089,7 +1012,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-78",
           title: "Reflex Climate Helper",
-          description: "Tap for 'Fight Climate Change,' avoid 'Add to Problem'",
           icon: <Zap className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "5 min",
@@ -1103,7 +1025,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-79",
           title: "Puzzle: Climate Solutions",
-          description: "Match 'Trees → Cool Air, Cars → Pollution, Bikes → Clean'",
           icon: <Target className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "6 min",
@@ -1117,7 +1038,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-80",
           title: "Season Story",
-          description: "Seasons feel different. Do you learn why or ignore?",
           icon: <Cloud className="w-6 h-6" />, 
           difficulty: "Easy",
           duration: "4 min",
@@ -1131,7 +1051,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-81",
           title: "Poster: Climate Action",
-          description: "Create/select poster: 'We Can Help the Earth'",
           icon: <Paintbrush className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "7 min",
@@ -1145,7 +1064,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-82",
           title: "Journal of Green Choices",
-          description: "Write: 'One green choice I made is ___'",
           icon: <PenSquare className="w-6 h-6" />, 
           difficulty: "Easy",
           duration: "5 min",
@@ -1159,7 +1077,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-83",
           title: "Carbon Story",
-          description: "You learn about carbon. Do you reduce yours or ignore?",
           icon: <Cloud className="w-6 h-6" />, 
           difficulty: "Easy",
           duration: "4 min",
@@ -1173,7 +1090,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-84",
           title: "Reflex Green Future",
-          description: "Tap for 'Green Choice,' avoid 'Harmful Choice'",
           icon: <Zap className="w-6 h-6" />, 
           difficulty: "Hard",
           duration: "5 min",
@@ -1187,7 +1103,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-85",
           title: "Badge: Climate Helper Kid",
-          description: "Make 5 climate-friendly choices to earn your badge",
           icon: <Trophy className="w-6 h-6" />, 
           difficulty: "Hard",
           duration: "8 min",
@@ -1201,7 +1116,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-86",
           title: "Community Story",
-          description: "Your school starts a green club. Do you join or skip?",
           icon: <BookOpen className="w-6 h-6" />, 
           difficulty: "Easy",
           duration: "4 min",
@@ -1215,7 +1129,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-87",
           title: "Quiz on Sustainable Living",
-          description: "What is sustainable living? (a) Waste lots, (b) Use less, save more, (c) Buy everything",
           icon: <BookOpen className="w-6 h-6" />, 
           difficulty: "Easy",
           duration: "4 min",
@@ -1229,7 +1142,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-88",
           title: "Reflex Sustainable Life",
-          description: "Tap for 'Sustainable,' avoid 'Wasteful'",
           icon: <Zap className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "5 min",
@@ -1243,7 +1155,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-89",
           title: "Puzzle: Daily Habits",
-          description: "Match 'Turn Off → Save, Leave On → Waste, Reuse → Smart'",
           icon: <Target className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "6 min",
@@ -1257,7 +1168,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-90",
           title: "Neighbor Story",
-          description: "Neighbor asks for recycling help. Do you help or say no?",
           icon: <BookOpen className="w-6 h-6" />, 
           difficulty: "Easy",
           duration: "4 min",
@@ -1271,7 +1181,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-91",
           title: "Poster: Community Action",
-          description: "Create/select poster: 'Together We Can'",
           icon: <Paintbrush className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "7 min",
@@ -1285,7 +1194,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-92",
           title: "Journal of Community Help",
-          description: "Write: 'One way I helped my community is ___'",
           icon: <PenSquare className="w-6 h-6" />, 
           difficulty: "Easy",
           duration: "5 min",
@@ -1299,7 +1207,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-93",
           title: "Event Story",
-          description: "School has a cleanup day. Do you join or stay home?",
           icon: <BookOpen className="w-6 h-6" />, 
           difficulty: "Easy",
           duration: "4 min",
@@ -1313,7 +1220,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-94",
           title: "Reflex Community Care",
-          description: "Tap for 'Help Community,' avoid 'Ignore Community'",
           icon: <Zap className="w-6 h-6" />, 
           difficulty: "Hard",
           duration: "5 min",
@@ -1327,7 +1233,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-95",
           title: "Badge: Community Green Kid",
-          description: "Help community 5 times to earn your badge",
           icon: <Trophy className="w-6 h-6" />, 
           difficulty: "Hard",
           duration: "8 min",
@@ -1341,7 +1246,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-96",
           title: "Future Story",
-          description: "You think about Earth's future. Do you take action or wait?",
           icon: <BookOpen className="w-6 h-6" />, 
           difficulty: "Easy",
           duration: "4 min",
@@ -1355,7 +1259,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-97",
           title: "Quiz on Earth Care",
-          description: "How can kids help Earth? (a) Waste resources, (b) Save resources, (c) Ignore problems",
           icon: <BookOpen className="w-6 h-6" />, 
           difficulty: "Easy",
           duration: "4 min",
@@ -1369,7 +1272,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-98",
           title: "Reflex Earth Guardian",
-          description: "Tap for 'Protect Earth,' avoid 'Harm Earth'",
           icon: <Zap className="w-6 h-6" />, 
           difficulty: "Hard",
           duration: "5 min",
@@ -1383,7 +1285,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-99",
           title: "Puzzle: Earth Solutions",
-          description: "Match 'Recycle → Less Waste, Save Energy → Less Pollution, Plant Trees → More Oxygen'",
           icon: <Target className="w-6 h-6" />, 
           difficulty: "Medium",
           duration: "6 min",
@@ -1397,7 +1298,6 @@ export const getSustainabilityKidsGames = (gameCompletionStatus)=> {
         {
           id: "sustainability-kids-100",
           title: "Badge: Master Earth Guardian Kid",
-          description: "Complete all eco-challenges to become a Master Earth Guardian",
           icon: <Trophy className="w-6 h-6" />, 
           difficulty: "Hard",
           duration: "8 min",

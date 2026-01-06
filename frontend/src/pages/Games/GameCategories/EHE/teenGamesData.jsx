@@ -40,7 +40,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-1',
             title: 'Career Story',
-            description: 'Teen loves drawing. Which career fits? → Designer/Artist.',
             icon: <Lightbulb className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -54,7 +53,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-2',
             title: 'Quiz on Careers',
-            description: 'Which career needs coding? (a) Teacher, (b) Software Engineer, (c) Farmer). Correct = Software Engineer.',
             icon: <GraduationCap className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -68,7 +66,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-3',
             title: 'Reflex Teen Career',
-            description: 'Tap ⚖️ for "Lawyer = Court," ❌ for "Lawyer = Hospital."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -82,7 +79,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-4',
             title: 'Puzzle: Career Match',
-            description: 'Match "Scientist → Research, Chef → Food, Pilot → Airplane."',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -96,7 +92,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-5',
             title: 'Passion Story',
-            description: 'Teen loves helping people. Best career? → Social Worker/Doctor.',
             icon: <Lightbulb className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -110,7 +105,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-6',
             title: 'Debate: One Career or Many?',
-            description: 'Should teens pick one career early or explore many? → Explore first.',
             icon: <MessageCircle className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -124,7 +118,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-7',
             title: 'Journal of Career Choice',
-            description: 'Write: "A career I want to explore is ___.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -138,7 +131,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-8',
             title: 'Simulation: Career Fair',
-            description: 'Teen visits a career fair. Options: Ask questions / Stay silent / Leave early. Correct = Ask questions.',
             icon: <Smartphone className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '4 min',
@@ -152,7 +144,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-9',
             title: 'Reflex Future Check',
-            description: 'Tap 🏗️ for "Engineer = Build," ❌ for "Engineer = Cook."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -166,7 +157,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-10',
             title: 'Badge: Career Aware Teen',
-            description: 'Explore 5 careers responsibly to earn your badge.',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -181,7 +171,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-11',
             title: 'Opportunity Story',
-            description: 'Teen notices friends need healthy snacks. Should she start a snack stall? → Yes.',
             icon: <Lightbulb className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -195,7 +184,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-12',
             title: 'Quiz on Entrepreneur Traits',
-            description: 'Which is key? (a) Creativity, (b) Laziness, (c) Quitting). Correct = Creativity.',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -209,7 +197,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-13',
             title: 'Reflex Teen Skills',
-            description: 'Tap 👑 for "Leadership," ❌ for "Bullying."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -223,7 +210,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-14',
             title: 'Puzzle: Match Traits',
-            description: 'Match "Leader → Inspire, Risk-Taker → Try New, Innovator → Create."',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -237,7 +223,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-15',
             title: 'Failure Story',
-            description: 'Teen\'s first project fails. Should she give up? → No, try again.',
             icon: <TrendingUp className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -251,7 +236,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-16',
             title: 'Debate: Born or Made?',
-            description: 'Are entrepreneurs born or made? → Made, with skills.',
             icon: <MessageCircle className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -265,7 +249,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-17',
             title: 'Journal of Strengths',
-            description: 'Write: "One strength I have as a future entrepreneur is ___.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -279,7 +262,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-18',
             title: 'Simulation: Team Project',
-            description: 'Team disagrees. Options: Listen + solve / Shout / Quit. Correct = Listen + solve.',
             icon: <Users className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '4 min',
@@ -293,7 +275,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-19',
             title: 'Reflex Teen Innovator',
-            description: 'Tap 💡 for "Creative Ideas," ❌ for "Copy Others."',
             icon: <Hammer className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -307,7 +288,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-20',
             title: 'Badge: Future Entrepreneur',
-            description: 'Master 5 entrepreneur skills to earn your badge.',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -322,7 +302,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-21',
             title: 'Cost Story',
-            description: 'Teen sells sandwiches. Ingredients cost ₹100, selling ₹200. What is left? → Profit ₹100.',
             icon: <Wallet className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -336,7 +315,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-22',
             title: 'Quiz on Business Terms',
-            description: 'Profit means? (a) Extra money after costs, (b) Total sales). Correct = Extra money.',
             icon: <Calculator className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -350,7 +328,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-23',
             title: 'Reflex Teen Money',
-            description: 'Tap 💰 for "Profit = Good," ❌ for "Loss = Happy."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -364,7 +341,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-24',
             title: 'Puzzle: Match Business Terms',
-            description: 'Match "Cost → Raw Material, Profit → Extra, Loss → Overspend."',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -378,7 +354,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-25',
             title: 'Budget Story',
-            description: 'Teen earns ₹500. Should she spend all or make a budget? → Make a budget.',
             icon: <PiggyBank className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -392,7 +367,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-26',
             title: 'Debate: Save or Spend?',
-            description: 'Is saving more important than spending? → Balance is best.',
             icon: <MessageCircle className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -406,7 +380,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-27',
             title: 'Journal of Business Money',
-            description: 'Write: "I learned profit is ___.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -420,7 +393,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-28',
             title: 'Simulation: Teen Shop',
-            description: 'Teen opens shop. Options: Keep accounts / Spend blindly / Close shop. Correct = Keep accounts.',
             icon: <Briefcase className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '4 min',
@@ -434,7 +406,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-29',
             title: 'Reflex Business Alert',
-            description: 'Tap 📊 for "Budget Plan," ❌ for "Random Spend."',
             icon: <ChartLine className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -448,7 +419,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-30',
             title: 'Badge: Money Wise Teen',
-            description: 'Handle 5 business money cases to earn your badge.',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -463,7 +433,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-31',
             title: 'Empathy Story',
-            description: 'A friend struggles to carry books. What\'s first step in design thinking? → Understand problem (empathy).',
             icon: <Heart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -477,7 +446,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-32',
             title: 'Quiz on Design Thinking',
-            description: 'First stage of design thinking? (a) Empathy, (b) Random guessing). Correct = Empathy.',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -491,7 +459,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-33',
             title: 'Reflex Teen Innovator',
-            description: 'Tap 🛠️ for "Prototype," ❌ for "Ignore Ideas."',
             icon: <Wrench className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -505,7 +472,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-34',
             title: 'Puzzle: Process Match',
-            description: 'Match "Empathize → Understand, Ideate → Brainstorm, Prototype → Build."',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -519,7 +485,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-35',
             title: 'Idea Story',
-            description: 'Teen notices waste in canteen. What should she do? → Think of waste-reduction ideas.',
             icon: <Lightbulb className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -533,7 +498,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-36',
             title: 'Debate: Innovation = Only Tech?',
-            description: 'Is innovation only about gadgets? → No, any new idea counts.',
             icon: <MessageCircle className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -547,7 +511,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-37',
             title: 'Journal of Teen Innovation',
-            description: 'Write: "One problem I want to solve is ___.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -561,7 +524,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-38',
             title: 'Simulation: Prototype Test',
-            description: 'Teen designs app idea. Options: Test with friends / Hide / Give up. Correct = Test with friends.',
             icon: <Cpu className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '4 min',
@@ -575,7 +537,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-39',
             title: 'Reflex Teen Design Thinking',
-            description: 'Tap 🔄 for "Improve After Feedback," ❌ for "Never Change Idea."',
             icon: <RotateCcw className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -589,7 +550,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-40',
             title: 'Badge: Teen Innovator',
-            description: 'Complete 5 design thinking activities to earn your badge.',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -604,7 +564,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-41',
             title: 'App Builder Story',
-            description: 'A 15-year-old creates a mobile app. What did she do? → Innovated.',
             icon: <Smartphone className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -618,7 +577,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-42',
             title: 'Quiz on Teen Entrepreneurs',
-            description: 'Which quality do they show? (a) Risk-taking, (b) Doing nothing). Correct = Risk-taking.',
             icon: <Rocket className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -632,7 +590,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-43',
             title: 'Reflex Teen Entrepreneur',
-            description: 'Tap 🚀 for "Start Early," ❌ for "Wait Forever."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -646,7 +603,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-44',
             title: 'Puzzle: Famous Teens',
-            description: 'Match "Moziah Bridges → Tie Business, Cory Nieves → Cookies, Alina Morse → Candy."',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -660,7 +616,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-45',
             title: 'Fashion Story',
-            description: 'A 16-year-old starts a clothing brand. What did she show? → Creativity & Business Mind.',
             icon: <Shirt className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -674,7 +629,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-46',
             title: 'Debate: Too Young to Start?',
-            description: 'Can teens run businesses successfully? → Yes.',
             icon: <MessageCircle className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -688,7 +642,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-47',
             title: 'Journal of Role Models',
-            description: 'Write: "The teen entrepreneur who inspires me is ___.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -702,7 +655,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-48',
             title: 'Simulation: Teen Business',
-            description: 'Teen runs online store. Options: Deliver on time / Delay / Quit. Correct = Deliver on time.',
             icon: <ShoppingCart className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '4 min',
@@ -716,7 +668,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-49',
             title: 'Reflex Teen Boss',
-            description: 'Tap 📈 for "Learn & Grow," ❌ for "Stay Idle."',
             icon: <TrendingUp className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -730,7 +681,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-50',
             title: 'Badge: Teenpreneur',
-            description: 'Explore 5 teen entrepreneur stories to earn your badge.',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -745,7 +695,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-51',
             title: 'Higher Education Story',
-            description: 'Teen wants to be a doctor. What must she study? → Medicine in college.',
             icon: <GraduationCap className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -759,7 +708,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-52',
             title: 'Quiz on Teen Paths',
-            description: 'Which is a career path after school? (a) College, (b) Vocational training, (c) Both). Correct = Both.',
             icon: <Rocket className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -773,7 +721,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-53',
             title: 'Reflex Teen Career',
-            description: 'Tap 🎯 for "Choose Path," ❌ for "No Direction."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -787,7 +734,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-54',
             title: 'Puzzle: Pathway Match',
-            description: 'Match "Lawyer → Law School, Artist → Design College, Engineer → Tech College."',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -801,7 +747,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-55',
             title: 'Gap Year Story',
-            description: 'Teen takes gap year to learn coding. Is this useful? → Yes, if skills are built.',
             icon: <Calendar className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -815,7 +760,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-56',
             title: 'Debate: Degree or Skill?',
-            description: 'Which is more important—degree or skill? → Skills with degree are best.',
             icon: <MessageCircle className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -829,7 +773,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-57',
             title: 'Journal of Teen Paths',
-            description: 'Write: "One career path I want to explore is ___.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -843,7 +786,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-58',
             title: 'Simulation: Career Decision',
-            description: 'Teen has choices: Medicine / Engineering / Arts. Should she decide based on parents only or interests + research? → Interests + research.',
             icon: <Smartphone className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '4 min',
@@ -857,7 +799,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-59',
             title: 'Reflex Teen Direction',
-            description: 'Tap 🗺️ for "Career Planning," ❌ for "No Planning."',
             icon: <TrendingUp className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -871,7 +812,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-60',
             title: 'Badge: Career Path Finder',
-            description: 'Explore 5 teen pathways responsibly to earn your badge.',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -886,7 +826,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-61',
             title: 'Stream Choice Story',
-            description: 'Teen loves biology. Which higher education path suits her? → Medicine.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -900,7 +839,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-62',
             title: 'Quiz on Higher Studies',
-            description: 'Which is a higher education stream? (a) Arts, (b) Science, (c) Commerce, (d) All). Correct = All.',
             icon: <GraduationCap className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -914,7 +852,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-63',
             title: 'Reflex Teen Higher Ed',
-            description: 'Tap 🎓 for "Choose Based on Interests," ❌ for "Copy Friends."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -928,7 +865,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-64',
             title: 'Puzzle: Career Paths',
-            description: 'Match "Engineer → Tech College, Lawyer → Law College, Artist → Fine Arts College."',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -942,7 +878,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-65',
             title: 'Abroad Study Story',
-            description: 'Teen dreams of studying abroad. What is needed? → Preparation + exams + funds.',
             icon: <Globe className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -956,7 +891,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-66',
             title: 'Debate: Local vs Global',
-            description: 'Is studying abroad better than local? → Both have value.',
             icon: <MessageCircle className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -970,7 +904,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-67',
             title: 'Journal of Teen Goals',
-            description: 'Write: "One higher education goal I have is ___.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -984,7 +917,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-68',
             title: 'Simulation: Entrance Prep',
-            description: 'Teen has an exam. Options: Study regularly / Skip prep / Last-minute panic. Correct = Study regularly.',
             icon: <Smartphone className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '4 min',
@@ -998,7 +930,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-69',
             title: 'Reflex Teen Awareness',
-            description: 'Tap 💸 for "Scholarships Help," ❌ for "Give Up on Dreams."',
             icon: <TrendingUp className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -1012,7 +943,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-70',
             title: 'Badge: Higher Ed Ready Teen',
-            description: 'Complete 5 higher education challenges to earn your badge.',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1027,7 +957,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-71',
             title: 'Green Energy Story',
-            description: 'Teen sees solar panels. What career works here? → Renewable Energy Engineer.',
             icon: <Sun className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1041,7 +970,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-72',
             title: 'Quiz on Emerging Careers',
-            description: 'Which is an emerging field? (a) AI & Data Science, (b) Basket Weaving only). Correct = AI & Data Science.',
             icon: <Rocket className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1055,7 +983,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-73',
             title: 'Reflex Teen Future Check',
-            description: 'Tap 🛡️ for "Cybersecurity Jobs," ❌ for "Ghost Hunters."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -1069,7 +996,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-74',
             title: 'Puzzle: Match Careers',
-            description: 'Match "Space Scientist → Mars, Geneticist → DNA, Climate Scientist → Earth."',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1083,7 +1009,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-75',
             title: 'Freelance Story',
-            description: 'Teen learns coding and works online. What is this called? → Freelancing.',
             icon: <Laptop className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1097,7 +1022,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-76',
             title: 'Debate: Robots Take Jobs?',
-            description: 'Will robots take jobs or create new ones? → Create new ones too.',
             icon: <MessageCircle className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1111,7 +1035,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-77',
             title: 'Journal of Future Skills',
-            description: 'Write: "One skill I need for the future is ___.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -1125,7 +1048,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-78',
             title: 'Simulation: Teen Career Fair',
-            description: 'Teen explores AI, green jobs, gaming. Should she choose what excites her? → Yes.',
             icon: <Smartphone className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '4 min',
@@ -1139,7 +1061,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-79',
             title: 'Reflex Teen Alert',
-            description: 'Tap 🔄 for "Adapt to Change," ❌ for "Refuse Learning."',
             icon: <TrendingUp className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -1153,7 +1074,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-80',
             title: 'Badge: Future Ready Teen',
-            description: 'Complete 5 future job awareness activities to earn your badge.',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1168,7 +1088,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-81',
             title: 'Social Business Story',
-            description: 'Teen creates an app to connect farmers to buyers. What is this? → Social business.',
             icon: <Globe className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1182,7 +1101,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-82',
             title: 'Quiz on Changemakers',
-            description: 'Which is a social entrepreneur\'s goal? (a) Profit only, (b) Social impact + profit). Correct = Social impact + profit.',
             icon: <Rocket className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1196,7 +1114,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-83',
             title: 'Reflex Teen Changemaker',
-            description: 'Tap 🌍 for "Solve Problems," ❌ for "Ignore Society."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -1210,7 +1127,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-84',
             title: 'Puzzle: Social Leaders',
-            description: 'Match "Muhammad Yunus → Microfinance, Bunker Roy → Barefoot College, Kiran Mazumdar → Biotech."',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1224,7 +1140,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-85',
             title: 'Clean Water Story',
-            description: 'Teen designs filter for clean water in villages. What problem is solved? → Safe drinking water.',
             icon: <Droplets className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1238,7 +1153,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-86',
             title: 'Debate: Profit vs Purpose',
-            description: 'Which is more important? → Purpose with profit.',
             icon: <MessageCircle className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1252,7 +1166,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-87',
             title: 'Journal of Impact',
-            description: 'Write: "The social problem I care most about is ___.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -1266,7 +1179,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-88',
             title: 'Simulation: Teen Startup',
-            description: 'Teen must choose: Cheap harmful product / Safe eco-product. Correct = Safe eco-product.',
             icon: <Smartphone className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '4 min',
@@ -1280,7 +1192,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-89',
             title: 'Reflex Teen Responsibility',
-            description: 'Tap ♻️ for "Eco-Friendly Business," ❌ for "Polluting Business."',
             icon: <Recycle className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -1294,7 +1205,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-90',
             title: 'Badge: Teen Changemaker',
-            description: 'Complete 5 social entrepreneurship activities to earn your badge.',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1309,7 +1219,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-91',
             title: 'Skill Upgrade Story',
-            description: 'Teen wants a promotion. Should she learn new skills? → Yes.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1323,7 +1232,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-92',
             title: 'Quiz on Career Growth',
-            description: 'Which helps in career growth? (a) Continuous learning, (b) Doing nothing new). Correct = Continuous learning.',
             icon: <GraduationCap className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1337,7 +1245,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-93',
             title: 'Reflex Teen Growth',
-            description: 'Tap 📚 for "Skill Upgrade," ❌ for "No Learning."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -1351,7 +1258,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-94',
             title: 'Puzzle: Career Growth Steps',
-            description: 'Match "Courses → New Skills, Practice → Expertise, Feedback → Improvement."',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1365,7 +1271,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-95',
             title: 'Mentor Story',
-            description: 'Teen meets a mentor. Should she ask questions and learn? → Yes.',
             icon: <UserPlus className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1379,7 +1284,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-96',
             title: 'Debate: Learning Ends After College?',
-            description: 'Does learning stop after degree? → No, it continues.',
             icon: <MessageCircle className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1393,7 +1297,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-97',
             title: 'Journal of Growth Plans',
-            description: 'Write: "One way I will keep learning is ___.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -1407,7 +1310,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-98',
             title: 'Simulation: Career Upgrade',
-            description: 'Teen works at a company. Options: Take new course / Do same work / Quit. Correct = Take new course.',
             icon: <Briefcase className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '4 min',
@@ -1421,7 +1323,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-99',
             title: 'Reflex Career Alert',
-            description: 'Tap 🚀 for "Adapt & Learn," ❌ for "Stay Stuck."',
             icon: <TrendingUp className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -1435,7 +1336,6 @@ export const getEheTeenGames = (gameCompletionStatus)=> {
         {
             id: 'ehe-teen-100',
             title: 'Badge: Lifelong Learner Pro',
-            description: 'Master 5 career growth challenges to earn your badge.',
             icon: <Badge className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',

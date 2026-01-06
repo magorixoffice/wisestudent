@@ -12,8 +12,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-1",
           title: "Pocket Money Story",
-          description:
-            "You receive pocket money. Do you save a portion or spend it all?",
           icon: <Wallet className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3 min",
@@ -27,8 +25,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-2",
           title: "Quiz on Savings Rate",
-          description:
-            "What percentage of income should you save? (a) 0%, (b) 10%, (c) 20%+",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -42,7 +38,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-3",
           title: "Reflex Smart Saver",
-          description: 'Tap quickly for "Save" words, avoid "Waste" words',
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -56,7 +51,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-4",
           title: "Puzzle of Saving Goals",
-          description: "Match saving goals with timeframes",
           icon: <Target className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -70,8 +64,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-5",
           title: "Salary Story",
-          description:
-            "You get your first part-time job salary. How do you manage it?",
           icon: <Heart className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -85,7 +77,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-6",
           title: "Debate: Save vs Spend",
-          description: "Participate in a debate on saving vs spending",
           icon: <GraduationCap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "7 min",
@@ -99,7 +90,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-7",
           title: "Journal of Saving Goal",
-          description: "Write about your personal saving goals",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -113,7 +103,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-8",
           title: "Simulation: Monthly Money",
-          description: "Manage a monthly budget with income and expenses",
           icon: <BarChart4 className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -127,8 +116,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-9",
           title: "Reflex: Wise Use",
-          description:
-            "Tap for wise financial decisions, avoid impulsive choices",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -142,7 +129,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-10",
           title: "Badge: Smart Saver",
-          description: "Earn your badge for completing saving challenges",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -156,8 +142,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-11",
           title: "Savings Saga",
-          description:
-            "You get ₹500 monthly. Spend all on food or divide into needs/wants/savings? → Divide.",
           icon: <Wallet className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3 min",
@@ -171,7 +155,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-12",
           title: "Spending Quiz",
-          description: "Test your knowledge on smart spending habits",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4 min",
@@ -185,7 +168,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-13",
           title: "Reflex: Wise Choices",
-          description: "Make quick decisions between needs and wants",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -199,7 +181,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-14",
           title: "Puzzle: Smart Spending",
-          description: "Match spending concepts with their definitions",
           icon: <Target className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -213,7 +194,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-15",
           title: "Party Story",
-          description: "Plan a party within budget constraints",
           icon: <Users className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -227,7 +207,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-16",
           title: "Debate: Needs vs Wants",
-          description: "Debate the difference between needs and wants",
           icon: <GraduationCap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "7 min",
@@ -241,7 +220,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-17",
           title: "Journal of Spending",
-          description: "Reflect on your spending habits",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -255,8 +233,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-18",
           title: "Simulation: Shopping Mall",
-          description:
-            "Make purchasing decisions in a shopping mall simulation",
           icon: <ShoppingCart className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -270,7 +246,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-19",
           title: "Reflex: Control",
-          description: "Practice spending control with quick decisions",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -284,8 +259,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-20",
           title: "Badge: Smart Spender Teen",
-          description:
-            "Earn your badge for completing all teen finance challenges",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -299,8 +272,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-21",
           title: "Allowance Story",
-          description:
-            "You get ₹500 monthly. Spend wisely or divide into needs/wants/savings?",
           icon: <Wallet className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -314,8 +285,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-22",
           title: "Budget Quiz",
-          description:
-            "If you spend ₹300 and save ₹200 from ₹500, what % is saved?",
           icon: <Clipboard className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -329,8 +298,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-23",
           title: "Reflex Budget Check",
-          description:
-            "Tap quickly to track expenses and avoid forgetting to save",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -344,7 +311,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-24",
           title: "Puzzle of Priorities",
-          description: "Match Must vs Want expenses correctly",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -358,7 +324,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-25",
           title: "College Story",
-          description: "Smart spending choices as a student with pocket money",
           icon: <School className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -372,8 +337,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-26",
           title: "Debate: Budget Freedom",
-          description:
-            "Does budgeting give freedom or limit it? Participate in the debate.",
           icon: <MessageSquare className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -387,7 +350,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-27",
           title: "Journal of Planning",
-          description: "Write: 'One monthly budget I want to create is ___.'",
           icon: <FileText className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -401,8 +363,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-28",
           title: "Simulation: Monthly Allowance",
-          description:
-            "Allocate ₹1000: ₹400 food, ₹300 transport, ₹200 save, ₹100 fun. Correct = balanced budget.",
           icon: <Calculator className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -416,8 +376,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-29",
           title: "Reflex Budget Smarts",
-          description:
-            "Tap quickly: 'Plan Future' or 'Empty Wallet' to test reflex budget skills.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -431,8 +389,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-30",
           title: "Badge: Budget Hero",
-          description:
-            "Finish 5 budgeting scenarios to earn the 'Budget Hero' badge.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -446,8 +402,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-31",
           title: "Movie vs Bus Fare Story",
-          description:
-            "You have ₹100. Do you spend on a movie or keep for a bus pass? → Choose bus pass.",
           icon: <Video className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3 min",
@@ -461,8 +415,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-32",
           title: "Needs vs Wants Quiz",
-          description:
-            "Which is a want? (a) Medicine, (b) School clothes, (c) Luxury watch). Correct = Luxury watch.",
           icon: <HelpCircle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -476,8 +428,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-33",
           title: "Reflex Decision",
-          description:
-            "Tap quickly: 'Pay Fees' or 'Skip Fees for Gadgets.' Correct = Pay Fees.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -491,7 +441,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-34",
           title: "Puzzle: Real Priorities",
-          description: "Match items: Shelter → Need, Gaming Console → Want.",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -505,8 +454,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-35",
           title: "Exam Prep Story",
-          description:
-            "You have some money left — spend on tuition or snacks? Correct = Tuition.",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3 min",
@@ -520,7 +467,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-36",
           title: "Debate: Wants Matter Too?",
-          description: "Should we ignore wants completely? → No, balance both.",
           icon: <Mic className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "6 min",
@@ -534,7 +480,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-37",
           title: "Journal of Balance",
-          description: "Write: 'One want I sacrificed for a need was ___.'",
           icon: <PenTool className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -548,8 +493,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-38",
           title: "Simulation: Monthly Budget",
-          description:
-            "₹2000 allowance. Needs: ₹1200, Wants: ₹800. Correct balance = Pay needs first.",
           icon: <Calculator className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -563,8 +506,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-39",
           title: "Reflex Smart Spend",
-          description:
-            "Tap for 'Pay Rent' or 'Luxury Party.' Correct = Pay Rent.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -578,8 +519,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-40",
           title: "Badge: Wise Chooser",
-          description:
-            "Handle 5 needs vs wants dilemmas correctly to earn the 'Wise Chooser' badge.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -593,8 +532,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-41",
           title: "Online Payment Story",
-          description:
-            "You buy a book online. Pay with cash or UPI safely? → Choose UPI safely.",
           icon: <ShoppingCart className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3 min",
@@ -608,8 +545,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-42",
           title: "Quiz on Digital Money",
-          description:
-            "Which is safer? (a) Share PIN, (b) Keep PIN secret). Correct = Keep PIN secret.",
           icon: <HelpCircle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -623,8 +558,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-43",
           title: "Reflex Secure Use",
-          description:
-            "Tap for 'Strong Password' or '1234.' Correct = Strong Password.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -638,8 +571,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-44",
           title: "Puzzle of Digital Tools",
-          description:
-            "Match: UPI → PhonePe, Debit Card → ATM, OTP → Security.",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -653,7 +584,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-45",
           title: "Online Fraud Story",
-          description: "A stranger asks for your bank PIN. Do you share? → No.",
           icon: <AlertTriangle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -667,8 +597,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-46",
           title: "Debate: Cash vs Digital",
-          description:
-            "Which is better for the future — cash or digital money? → Digital with safety.",
           icon: <Mic className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "6 min",
@@ -682,7 +610,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-47",
           title: "Journal of Digital Use",
-          description: "Write: 'One safe way I used online money was ___.'",
           icon: <PenTool className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -696,8 +623,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-48",
           title: "Simulation: Digital Spend",
-          description:
-            "Balance ₹1000. Pay ₹200 for food, ₹300 for a book. Correct balance left = ₹500.",
           icon: <Calculator className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -711,8 +636,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-49",
           title: "Reflex Fraud Alert",
-          description:
-            "Tap for 'Ignore Scam Link' or 'Click Suspicious Link.' Correct = Ignore Scam Link.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -726,8 +649,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-50",
           title: "Badge: Digital Money Smart",
-          description:
-            "Safely use digital money in 5 cases to earn the 'Digital Money Smart' badge.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -741,8 +662,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-51",
           title: "Money Borrow Story",
-          description:
-            "Teen borrows ₹100 from a friend. Forgetting to repay? → Wrong.",
           icon: <CreditCard className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3 min",
@@ -756,8 +675,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-52",
           title: "Debt Quiz",
-          description:
-            "Borrow ₹100, repay ₹120. What is extra ₹20 called? → Interest.",
           icon: <HelpCircle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -771,8 +688,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-53",
           title: "Reflex Debt Dangers",
-          description:
-            "Tap for 'Repay Loan' or 'Ignore Loan.' Correct = Repay Loan.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -786,7 +701,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-54",
           title: "Puzzle: Loan Basics",
-          description: "Match: Principal → Original, Interest → Extra.",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -800,8 +714,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-55",
           title: "Borrowing Story",
-          description:
-            "Teen borrows for a new phone. Can't repay? Result → Debt.",
           icon: <CreditCard className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -815,8 +727,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-56",
           title: "Debate: Borrow Good or Bad?",
-          description:
-            "Is borrowing always bad? → No, good if planned & repaid.",
           icon: <Mic className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "6 min",
@@ -830,8 +740,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-57",
           title: "Journal of Borrowing",
-          description:
-            "Write: 'One time I borrowed money and handled it responsibly was ___.'",
           icon: <PenTool className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -845,7 +753,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-58",
           title: "Simulation: Loan Repayment",
-          description: "Borrow ₹1000. Repay ₹200/month. How many months? → 5.",
           icon: <Calculator className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -859,8 +766,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-59",
           title: "Reflex Debt Control",
-          description:
-            "Tap for 'Borrow Wisely' or 'Overspend + Debt.' Correct = Borrow Wisely.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -874,8 +779,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-60",
           title: "Badge: Debt Smart",
-          description:
-            "Handle 5 borrowing dilemmas responsibly to earn the 'Debt Smart' badge.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -889,8 +792,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-61",
           title: "Savings Account Story",
-          description:
-            "You deposit ₹1000. After a year, it becomes ₹1050. Why? → Interest.",
           icon: <CreditCard className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3 min",
@@ -904,8 +805,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-62",
           title: "Investment Quiz",
-          description:
-            "Which is riskier but higher return? (a) Fixed Deposit, (b) Stock Market). Correct = Stock Market.",
           icon: <HelpCircle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -919,8 +818,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-63",
           title: "Reflex Investor Smartness",
-          description:
-            "Tap for 'Diversify' or 'Put All in One.' Correct = Diversify.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -934,7 +831,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-64",
           title: "Puzzle of Investment Types",
-          description: "Match: FD → Safe, Stocks → Risky, Mutual Fund → Mixed.",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -948,8 +844,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-65",
           title: "Startup Story",
-          description:
-            "Friend invests ₹100 in a lemonade stand. Earns ₹150. Smart? → Yes.",
           icon: <TrendingUp className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -963,8 +857,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-66",
           title: "Debate: Save vs Invest",
-          description:
-            "Is saving enough or should we invest too? → Invest wisely.",
           icon: <Mic className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "6 min",
@@ -978,8 +870,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-67",
           title: "Journal of Future Investing",
-          description:
-            "Write: 'One investment I'd like to try when older is ___.'",
           icon: <PenTool className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -992,9 +882,7 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         },
         {
           id: "finance-teens-68",
-          title: "Simulation: ₹1000 Choice",
-          description:
-            "₹1000 → Options: (a) FD, (b) Stocks, (c) Spend. Best = Mix FD + Stocks.",
+          title: "Simulation: â‚¹1000 Choice",
           icon: <Calculator className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -1008,8 +896,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-69",
           title: "Reflex Smart Growth",
-          description:
-            "Tap for 'Long-term Invest' or 'Instant Spend.' Correct = Long-term Invest.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -1023,8 +909,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-70",
           title: "Badge: Smart Investor",
-          description:
-            "Handle 5 investment challenges to earn the 'Smart Investor' badge.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -1038,8 +922,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-71",
           title: "Startup Idea Story",
-          description:
-            "Teen sells handmade crafts online. Is this entrepreneurship? → Yes.",
           icon: <ShoppingBag className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3 min",
@@ -1053,8 +935,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-72",
           title: "Quiz on Entrepreneurship",
-          description:
-            "Who is an entrepreneur? (a) Creates new business, (b) Only spends, (c) Does nothing). Correct = Creates new business.",
           icon: <HelpCircle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -1068,8 +948,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-73",
           title: "Reflex Entrepreneur Traits",
-          description:
-            "Tap for 'Innovate' or 'Copy Always.' Correct = Innovate.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -1083,8 +961,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-74",
           title: "Puzzle of Entrepreneurs",
-          description:
-            "Match: Ratan Tata → Industry, Elon Musk → Innovation, Narayana Murthy → IT.",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1098,8 +974,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-75",
           title: "Business Risk Story",
-          description:
-            "You invest ₹200 in snacks to sell. Earn ₹300. Good? → Yes.",
           icon: <TrendingUp className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -1113,8 +987,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-76",
           title: "Debate: Job vs Business",
-          description:
-            "Is it better to do a job or start a business? → Depends, but business builds independence.",
           icon: <Mic className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "6 min",
@@ -1128,7 +1000,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-77",
           title: "Journal of Entrepreneur Dream",
-          description: "Write: 'One business I want to start is ___.'",
           icon: <PenTool className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1142,8 +1013,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-78",
           title: "Simulation: Mini Startup",
-          description:
-            "You have ₹500 to start a snack stall. Buy ingredients (₹300), profit ₹200. Smart? → Yes.",
           icon: <Calculator className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -1157,8 +1026,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-79",
           title: "Reflex Smart Entrepreneur",
-          description:
-            "Tap for 'Plan + Risk' or 'Spend All.' Correct = Plan + Risk.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -1172,8 +1039,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-80",
           title: "Badge: Young Entrepreneur",
-          description:
-            "Complete 5 business challenges to earn the 'Young Entrepreneur' badge.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -1187,8 +1052,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-81",
           title: "Fake Online Offer Story",
-          description:
-            "Website offers free phone if you pay ₹100. Correct = Refuse.",
           icon: <AlertTriangle className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3 min",
@@ -1202,8 +1065,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-82",
           title: "Consumer Quiz",
-          description:
-            "If shopkeeper cheats, where can you complain? (a) Consumer Court, (b) Playground). Correct = Consumer Court.",
           icon: <HelpCircle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -1217,8 +1078,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-83",
           title: "Reflex Fraud Safety",
-          description:
-            "Tap for 'Don't Share OTP' or 'Share OTP.' Correct = Don't Share OTP.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -1232,8 +1091,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-84",
           title: "Puzzle of Rights",
-          description:
-            "Match: Right to Safety → Safe Goods, Right to Information → Honest Label.",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1247,7 +1104,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-85",
           title: "Fake Call Story",
-          description: "Caller asks bank details. Do you share? → No.",
           icon: <AlertCircle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -1261,8 +1117,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-86",
           title: "Debate: Cash vs Online Safety",
-          description:
-            "Is online money more risky than cash? → Both need safety.",
           icon: <Mic className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "6 min",
@@ -1276,7 +1130,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-87",
           title: "Journal of Consumer Rights",
-          description: "Write: 'One right I know as a consumer is ___.'",
           icon: <PenTool className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1290,7 +1143,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-88",
           title: "Simulation: Fraud Alert",
-          description: "Message: 'Win ₹1 lakh, click link.' Correct = Delete.",
           icon: <Calculator className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -1304,8 +1156,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-89",
           title: "Reflex Scam Check",
-          description:
-            "Tap for 'Report Scam' or 'Ignore Fraud.' Correct = Report Scam.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -1319,8 +1169,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-90",
           title: "Badge: Consumer Protector",
-          description:
-            "Solve 5 fraud cases to earn the 'Consumer Protector' badge.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",
@@ -1334,8 +1182,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-91",
           title: "Scholarship Story",
-          description:
-            "Student lies to get extra scholarship. Correct action? → Be truthful.",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3 min",
@@ -1349,7 +1195,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-92",
           title: "Ethics Quiz",
-          description: "Is bribing for marks ethical? → No.",
           icon: <HelpCircle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -1363,7 +1208,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-93",
           title: "Reflex Ethical Choice",
-          description: "Tap for 'Fair Pay' or 'Cheat Pay.' Correct = Fair Pay.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -1377,7 +1221,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-94",
           title: "Puzzle: Right vs Wrong",
-          description: "Match: Donation → Good, Stealing → Bad.",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1391,7 +1234,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-95",
           title: "Bribery Story",
-          description: "Official asks for bribe. Correct = Refuse.",
           icon: <AlertTriangle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -1405,7 +1247,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-96",
           title: "Debate: Money & Morals",
-          description: "Does money test character? → Yes, ethics matter more.",
           icon: <Mic className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "6 min",
@@ -1419,7 +1260,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-97",
           title: "Journal of Responsibility",
-          description: "Write: 'One way I will use money responsibly is ___.'",
           icon: <PenTool className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5 min",
@@ -1433,8 +1273,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-98",
           title: "Simulation: Charity Choice",
-          description:
-            "You have ₹1000. Spend all on gadgets or donate ₹200 + save ₹300 + spend ₹500? → Balanced.",
           icon: <Calculator className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6 min",
@@ -1448,8 +1286,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-99",
           title: "Reflex Fairness",
-          description:
-            "Tap for 'Be Fair' or 'Cheat Others.' Correct = Be Fair.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4 min",
@@ -1463,8 +1299,6 @@ export const getFinanceTeenGames = (gameCompletionStatus)=> {
         {
           id: "finance-teens-100",
           title: "Badge: Ethical Financier",
-          description:
-            "Complete 5 ethical finance dilemmas to earn the 'Ethical Financier' badge.",
           icon: <Trophy className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "8 min",

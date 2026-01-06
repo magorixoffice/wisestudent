@@ -22,7 +22,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-1",
           title: "What is AI? Quiz",
-          description: "Define what AI stands for",
           icon: <Brain className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4-6 min",
@@ -36,7 +35,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-2",
           title: "Pattern Prediction Puzzle",
-          description: "Predict the next number in sequences",
           icon: <Target className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6-8 min",
@@ -50,7 +48,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-3",
           title: "Image Classifier Game",
-          description: "Sort images into categories",
           icon: <Eye className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5-7 min",
@@ -64,7 +61,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-4",
           title: "Human vs AI Quiz",
-          description: "Is Google Translate powered by AI?",
           icon: <Cpu className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4-6 min",
@@ -78,7 +74,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-5",
           title: "Predict the Next Word",
-          description: "Complete sentences like GPT does",
           icon: <MessageSquare className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6-8 min",
@@ -92,7 +87,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-6",
           title: "Self-Driving Car Reflex",
-          description: "React fast to traffic lights",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -106,7 +100,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-7",
           title: "Sorting Emotions Game",
-          description: "Classify emotions from emojis",
           icon: <Smile className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5-7 min",
@@ -120,7 +113,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-8",
           title: "True or False AI Quiz",
-          description: "Is a calculator AI?",
           icon: <Brain className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4-6 min",
@@ -134,7 +126,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-9",
           title: "Chatbot Simulation",
-          description: "Have a conversation with an AI bot",
           icon: <MessageSquare className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "8-10 min",
@@ -148,7 +139,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-10",
           title: "AI in Gaming Story",
-          description: "Who controls video game enemies?",
           icon: <Gamepad2 className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5-7 min",
@@ -162,7 +152,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-11",
           title: "Pattern Music Reflex",
-          description: "Repeat rhythm patterns",
           icon: <Target className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6-8 min",
@@ -176,7 +165,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-12",
           title: "Computer Vision Basics",
-          description: "Identify objects with AI eyes",
           icon: <Eye className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5-7 min",
@@ -190,7 +178,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-13",
           title: "AI in Smartphones Quiz",
-          description: "Does face unlock use AI?",
           icon: <Smartphone className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4-6 min",
@@ -204,7 +191,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-14",
           title: "Prediction Story",
-          description: "How AI forecasts weather",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6-8 min",
@@ -218,7 +204,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-15",
           title: "Machine vs Human Reflex",
-          description: "Identify Human or AI quickly",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -232,7 +217,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-16",
           title: "Language AI Quiz",
-          description: "Is Google Translate an AI?",
           icon: <MessageSquare className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4-6 min",
@@ -246,7 +230,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-17",
           title: "Simple Algorithm Puzzle",
-          description: "Arrange steps to solve a problem",
           icon: <Target className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6-8 min",
@@ -260,7 +243,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-18",
           title: "Smart Home Story",
-          description: "How AI controls smart homes",
           icon: <Home className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6-8 min",
@@ -274,7 +256,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-19",
           title: "Recommendation Simulation",
-          description: "How AI recommends content",
           icon: <Star className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "8-10 min",
@@ -288,7 +269,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-20",
           title: "AI Everywhere Quiz",
-          description: "Understand AI's reach in our world",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5-7 min",
@@ -302,7 +282,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-21",
           title: "Spam Filter Reflex",
-          description: "Identify spam vs real messages",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -316,7 +295,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-22",
           title: "Robot Vision Mistake",
-          description: "Correct robot mistakes like 'Cow = Dog'",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -330,7 +308,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-23",
           title: "AI vs Tools Quiz",
-          description: "Decide if everyday tools are AI or not",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -344,7 +321,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-24",
           title: "Future of AI Reflection",
-          description: "Write one thing AI can do in 2050",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5-7 min",
@@ -358,7 +334,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-25",
           title: "Ai Basics Badge",
-          description: "Complete 10 AI basics games to earn badge",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "10+ min",
@@ -372,7 +347,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-26",
           title: "Smart Maps Story",
-          description: "Use AI for fastest navigation",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -386,7 +360,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-27",
           title: "Voice Assistant Reflex",
-          description: "Click Siri/Alexa when instructed",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -400,7 +373,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-28",
           title: "Social Media Recommendation Game",
-          description: "AI suggests content based on likes",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4-6 min",
@@ -414,7 +386,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-29",
           title: "Face Unlock Simulation",
-          description: "Unlock phone with correct face",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -428,7 +399,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-30",
           title: "E-commerce AI Story",
-          description: "AI suggests products while shopping online",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -442,7 +412,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-31",
           title: "Ai Doctor Quizz",
-          description: "Decide if AI can detect diseases from X-rays",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -456,7 +425,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-32",
           title: "Music Playlist AI",
-          description: "Create a playlist based on teen's music preferences",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4-6 min",
@@ -470,7 +438,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-33",
           title: "Airport Security Story",
-          description: "AI helps detect dangerous items in luggage",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -484,7 +451,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-34",
           title: "AI Translator Reflex",
-          description: "Click correct translation when word appears",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -498,7 +464,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-35",
           title: "AI in Farming Story",
-          description: "AI forecasts help farmers decide when to water crops",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -512,7 +477,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-36",
           title: "AI in Banking Quiz",
-          description: "Decide if ATM fraud detection uses AI",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -526,7 +490,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-37",
           title: "News Recommendation Game",
-          description: "AI recommends news based on teen interests",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4-6 min",
@@ -540,7 +503,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-38",
           title: "Self-Driving Car Reflex 2",
-          description: "Click correct traffic signals for autonomous vehicle",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4-6 min",
@@ -554,7 +516,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-39",
           title: "Smartwatch Health Story",
-          description: "AI monitors heartbeat and alerts teen",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -568,7 +529,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-40",
           title: "Smart City Traffic Game",
-          description: "Follow AI traffic signals in urban simulation",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4-6 min",
@@ -582,7 +542,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-41",
           title: "AI Artist Simulation",
-          description: "Generate drawings using AI based on teen input",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -596,7 +555,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-42",
           title: "Online Safety Quiz",
-          description: "Decide if sharing password with AI is safe",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -610,7 +568,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-43",
           title: "AI in Games Story",
-          description: "See how AI controls video game enemies",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -624,7 +581,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-44",
           title: "Fraud Detector Reflex",
-          description: "Click 'Fraud' for suspicious messages",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -638,7 +594,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-45",
           title: "AI in Movies Quiz",
-          description: "Decide if Netflix uses AI to suggest films",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -652,7 +607,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-46",
           title: "Smart Farming Reflex",
-          description: "Click correct action based on weather for crops",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -666,7 +620,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-47",
           title: "AI Teacher Story",
-          description: "Online tutor adjusts difficulty using AI",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -680,7 +633,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-48",
           title: "Cybersecurity AI Quiz",
-          description: "Decide if AI can detect hackers",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -694,7 +646,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-49",
           title: "Smart Home Simulation",
-          description: "AI controls home lights; teen confirms action",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4-6 min",
@@ -708,7 +659,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-50",
           title: "AI Explorer Badge",
-          description: "Complete 10 daily AI games to earn badge",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "10+ min",
@@ -722,7 +672,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-51",
           title: "Data Labeling Game",
-          description: "Drag images to correct categories. Robot learns supervised basics.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4-6 min",
@@ -736,7 +685,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-52",
           title: "Bad Data Story",
-          description:"AI trained on wrong labels → learns incorrectly. Teen corrects it.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -750,7 +698,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-53",
           title: "Missing Data Puzzle",
-          description:"AI can't answer due to missing info. Teen adds correct data.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4-6 min",
@@ -764,7 +711,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-54",
           title: "Train with Sounds",
-          description:"Hear sound → click correct animal. Reinforces audio recognition.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4-6 min",
@@ -778,7 +724,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-55",
           title: "Overfitting Story",
-          description:"AI trained on limited data fails on new input. Teen learns variety helps.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -792,7 +737,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-56",
           title: "AI Mistake Reflex",
-          description: "Robot gives wrong answer. Teen clicks 'Correct it.'",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -806,7 +750,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-57",
           title: "Data Diversity Story",
-          description:"AI trained only on limited data → teen adds diversity to improve fairness.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -820,7 +763,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-58",
           title: "Training Accuracy Game",
-          description: "Each correct correction fills AI's 'accuracy bar'.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4-6 min",
@@ -834,7 +776,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-59",
           title: "Label Error Puzzle",
-          description: "Incorrect labeling → robot fails. Teen corrects it.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4-6 min",
@@ -848,7 +789,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-60",
           title: "AI Training Badge",
-          description: "Finish 5 training games to earn badge.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "10+ min",
@@ -862,7 +802,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-61",
           title: "Dataset Builder Simulation",
-          description: "Collect images, sounds, and words to build datasets.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-8 min",
@@ -876,7 +815,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-62",
           title: "Bias in Data Quiz",
-          description: "Will AI trained only on city photos work in villages?",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -890,7 +828,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-63",
           title: "Robot Confusion Story",
-          description:"AI mistakes lion for tiger. Teen corrects with better data.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -904,7 +841,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-64",
           title: "Feedback Loop Reflex",
-          description: "AI asks Correct/Incorrect? Teen clicks correct option each time.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -918,7 +854,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-65",
           title: "Small Data vs Big Data Story",
-          description: "Compare AI trained on few vs many examples; teen sees difference.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -932,7 +867,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-66",
           title: "Robot Exam Game",
-          description:"AI fails test with limited training; teen retrains with variety.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -946,7 +880,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-67",
           title: "Data Cleaning Reflex",
-          description: "Click Keep/Delete on clear vs blurry photos to teach preprocessing.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -960,7 +893,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-68",
           title: "AI Bias Roleplay",
-          description: "AI hiring only boys. Teen adjusts to include girls for fairness.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -974,7 +906,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-69",
           title: "Wrong Prediction Quiz",
-          description: "Can AI always be right? Teen learns AI has limits.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -988,7 +919,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-70",
           title: "Pattern vs Noise Game",
-          description:"Pick correct training data from noisy vs clean patterns.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4-6 min",
@@ -1002,7 +932,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-71",
           title: "Teach AI Emotions",
-          description: "Drag items into Happy or Sad. Robot learns emotions.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4-6 min",
@@ -1016,7 +945,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-72",
           title: "Training Feedback Story",
-          description:"Robot improves only after teacher feedback. Teen selects 'Give Feedback'.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -1030,7 +958,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-73",
           title: "Human vs AI Errors Quiz",
-          description: "Can humans make mistakes like AI? Teen learns yes.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -1044,7 +971,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-74",
           title: "Balanced Data Story",
-          description: "AI trained only on daylight photos fails at night. Teen adds night photos.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -1058,7 +984,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-75",
           title: "Training Hero Badge",
-          description:"Complete 10 training & bias games → badge 'AI Teacher'.",
           icon: <Star className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "10-12 min",
@@ -1072,7 +997,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-76",
           title: "Good AI vs Bad AI Quiz",
-          description:"AI used for helping hospitals = Good AI? Teen learns yes.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -1086,7 +1010,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-77",
           title: "Privacy Protection Story",
-          description: "AI asks for home address. Teen selects 'Keep private'.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -1100,7 +1023,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-78",
           title: "AI Bias Roleplay 2",
-          description:"AI gives jobs only to boys. Teen corrects to include all for fairness.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -1114,7 +1036,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-79",
           title: "Fake News Detector Game",
-          description:"Breaking News: Alien invasion today! Teen identifies as Fake.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -1128,7 +1049,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-80",
           title: "AI Safety Reflex",
-          description:"Robot flashes 'Help people' or 'Steal phone'. Teen clicks only 'Help'.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -1142,7 +1062,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-81",
           title: "Cyberbullying Story",
-          description: "Robot posts mean comments online. Teen must report.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -1156,7 +1075,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-82",
           title: "Ethics in AI Quiz",
-          description: "Should AI follow human laws? Teen learns Yes.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -1170,7 +1088,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-83",
           title: "Human + AI Story",
-          description:"AI diagnoses disease. Doctor gives final word. Teen observes human-in-loop.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -1184,7 +1101,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-84",
           title: "Dangerous Robot Story",
-          description: "Robot starts harming. Teen clicks 'Switch off' to stay safe.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Hard",
           duration: "6-8 min",
@@ -1198,7 +1114,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-85",
           title: "Good Data vs Bad Data Puzzle",
-          description:"Drag 'Clear photo = Good', 'Blurry photo = Bad'. Teen learns ethical dataset creation.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4-6 min",
@@ -1212,7 +1127,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-86",
           title: "AI & Jobs Debate",
-          description:"AI replaces some jobs. Teen chooses 'Learn new skills' to adapt.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -1226,7 +1140,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-87",
           title: "Sustainability Quiz",
-          description:"Can AI save electricity by turning off lights? Teen learns Yes.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -1240,7 +1153,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-88",
           title: "Robot Honesty Game",
-          description: "Robot says 'Cheat to win.' Teen clicks 'No'.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4-6 min",
@@ -1254,7 +1166,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-89",
           title: "AI for Good Story",
-          description:"AI helps blind person cross road. Teen clicks 'This is Good AI'.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -1268,7 +1179,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-90",
           title: "Future of AI Quiz",
-          description: "Will AI fly cars in 2050? Teen chooses 'Maybe'.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -1282,7 +1192,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-91",
           title: "Ethics Badge",
-          description:"Complete 5 ethics activities to earn recognition for ethical choices.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "N/A",
@@ -1296,7 +1205,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-92",
           title: "AI & Human Roles Story",
-          description: "Who should decide court judgment? Human judge or AI? Correct = Human.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -1310,7 +1218,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-93",
           title: "Cyber Safety Reflex",
-          description:"Messages flash: 'Click unknown link' vs 'Stay safe.' Teen clicks 'Stay safe.'",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -1324,7 +1231,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-94",
           title: "Global Fairness Quiz",
-          description: "Should boys and girls have equal digital rights? Correct = Yes.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -1338,7 +1244,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-95",
           title: "AI & Space Story",
-          description:"AI helps astronauts on Mars. Teen observes that humans control it.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -1352,7 +1257,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-96",
           title: "AI & Creativity Simulation",
-          description:"Teen types 'Write a poem.' AI generates poem. Teen reflects on creativity.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-7 min",
@@ -1366,7 +1270,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-97",
           title: "Empathy & AI Roleplay",
-          description:"AI says 'I am sad.' Teen clicks 'Comfort' to practice empathy.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -1380,7 +1283,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-98",
           title: "AI Career Quiz",
-          description: "Which jobs use AI? (A) Doctor, (B) Engineer, (C) Teacher, (D) All. Correct = D.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -1394,7 +1296,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-99",
           title: "Future Journal",
-          description: "Write 'One job I think AI will create in 2050.'",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5 min",
@@ -1408,7 +1309,6 @@ export const getAiTeenGames = (gameCompletionStatus)=> {
         {
           id: "ai-teen-100",
           title: "AI Explorer Hero Badge",
-          description:"Finish all 25 ethics/future games for full AI literacy recognition.",
           icon: <Globe className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "N/A",

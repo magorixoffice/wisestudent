@@ -32,7 +32,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-1",
           title: "Strong Password Reflex",
-          description: "Choose between weak and strong passwords",
           icon: <Lock className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "2-3 min",
@@ -46,7 +45,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-2",
           title: "Stranger Chat Story",
-          description: "Learn not to share personal info online",
           icon: <Shield className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4-5 min",
@@ -60,7 +58,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-3",
           title: "Photo Share Quiz",
-          description: "Should you post personal photos online?",
           icon: <Camera className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-4 min",
@@ -74,7 +71,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-4",
           title: "Personal Info Puzzle",
-          description: "Match items to Private or Okay to Share",
           icon: <Users className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5-6 min",
@@ -88,7 +84,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-5",
           title: "Game Invite Reflex",
-          description: "Accept from friends, decline from strangers",
           icon: <Gamepad2 className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-4 min",
@@ -102,7 +97,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-6",
           title: "Safety Poster Task",
-          description: "Create a safety message poster",
           icon: <Palette className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "6-8 min",
@@ -116,7 +110,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-7",
           title: "Family Rules Story",
-          description: "Follow family device rules",
           icon: <Home className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4-6 min",
@@ -130,7 +123,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-8",
           title: "Device Sharing Quiz",
-          description: "Is it safe to share your device with strangers?",
           icon: <Smartphone className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -144,7 +136,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-9",
           title: "Online Friend Reflex",
-          description: "Never meet someone you only know online",
           icon: <UserX className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5-7 min",
@@ -158,7 +149,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-10",
           title: "Safe User Badge",
-          description: "Complete 5 safety habits to earn badge",
           icon: <Award className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5-8 min",
@@ -172,7 +162,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-11",
           title: "Spot the Bully Quiz",
-          description: "Identify bullying behavior",
           icon: <Eye className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -186,7 +175,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-12",
           title: "Kind Words Reflex",
-          description: "Tap kind words, avoid rude ones",
           icon: <Heart className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "2-3 min",
@@ -200,7 +188,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-13",
           title: "Smile Story",
-          description: "Choose to be kind to others",
           icon: <Smile className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5-7 min",
@@ -214,7 +201,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-14",
           title: "Gossip Puzzle",
-          description: "Connect gossip to hurt feelings",
           icon: <MessageSquare className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5-6 min",
@@ -228,7 +214,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-15",
           title: "Playground Bystander",
-          description: "Help a child being bullied",
           icon: <HandHeart className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4-6 min",
@@ -242,7 +227,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-16",
           title: "Cyberbully Report",
-          description: "Report mean comments to adults",
           icon: <Flag className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5-7 min",
@@ -256,7 +240,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-17",
           title: "Role Swap Simulation",
-          description: "Experience how bullying feels",
           icon: <RefreshCw className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "8-10 min",
@@ -270,7 +253,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-18",
           title: "Journal of Kindness",
-          description: "Write about your kind act",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "6-8 min",
@@ -284,7 +266,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-19",
           title: "Friendship Reflex",
-          description: "Stand with your friend when needed",
           icon: <Users className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -298,7 +279,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-20",
           title: "Kind Friend Badge",
-          description: "Complete 5 kindness acts to earn badge",
           icon: <Award className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "5-8 min",
@@ -312,7 +292,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-21",
           title: "Screen Timer Reflex",
-          description: "Phone timer crosses 1 hr. Tap 'Switch Off.'",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "2-3 min",
@@ -326,7 +305,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-22",
           title: "Play vs Study Puzzle",
-          description: "Match 'Study = Homework, Play = Playground, Sleep = Bed.'",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4-5 min",
@@ -340,7 +318,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-23",
           title: "Family Rules Story 2",
-          description: "Parents say 'No phones at dinner.' Correct = Obey.",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-4 min",
@@ -354,7 +331,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-24",
           title: "Eye Strain Reflex",
-          description: "Eyes tired. Tap 'Rest' after 20 min.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "2-3 min",
@@ -368,7 +344,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-25",
           title: "Sleep Quiz",
-          description: "Playing game till 12 am. Is this healthy? → No.",
           icon: <HelpCircle className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "2-3 min",
@@ -382,7 +357,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-26",
           title: "Balance Poster Task",
-          description: "Create or select a poster: 'Study, Play, Sleep in Balance.'",
           icon: <PenTool className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-6 min",
@@ -396,7 +370,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-27",
           title: "Outdoor Fun Story",
-          description: "Friend invites you to park. Should you go instead of mobile games? → Yes.",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4-5 min",
@@ -410,7 +383,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-28",
           title: "Addiction Reflex",
-          description: "Tap 'Stop' when cartoon autoplay tries to continue endlessly.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "3-4 min",
@@ -424,7 +396,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-29",
           title: "Journal: My Balance",
-          description: "Write: 'Today I played offline for ___ minutes.'",
           icon: <PenTool className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4-5 min",
@@ -438,7 +409,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-30",
           title: "Balance Badge",
-          description: "Complete 5 balance activities.",
           icon: <Award className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6-8 min",
@@ -452,7 +422,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-31",
           title: "Spot the Truth Quiz",
-          description: "Headline says 'Dogs can fly.' Real or Fake? → Fake.",
           icon: <HelpCircle className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "2-3 min",
@@ -466,7 +435,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-32",
           title: "Cartoon News Reflex",
-          description: "Tap 'Fake' when silly cartoon news appears.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "2-3 min",
@@ -480,7 +448,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-33",
           title: "Forward Message Story",
-          description: "Friend forwards 'Magic medicine cures all.' Correct = Don't believe.",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "3-4 min",
@@ -494,7 +461,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-34",
           title: "Picture Puzzle",
-          description: "Match 'Edited Picture → Fake News, School Notice → Real News.'",
           icon: <Puzzle className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4-5 min",
@@ -508,7 +474,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-35",
           title: "Gossip Reflex",
-          description: "Tap 'Stop' when rumor spreads in class chat.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "2-3 min",
@@ -522,7 +487,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-36",
           title: "Family Talk Story",
-          description: "Grandpa forwards fake WhatsApp news. Correct = Tell him kindly.",
           icon: <BookOpen className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "3-4 min",
@@ -536,7 +500,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-37",
           title: "Fact-Check Poster Task",
-          description: "Create a poster: 'Check before you Share.'",
           icon: <PenTool className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "5-6 min",
@@ -550,7 +513,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-38",
           title: "Journal of Truth",
-          description: "Write: 'Today I fact-checked ___.'",
           icon: <PenTool className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "4-5 min",
@@ -564,7 +526,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-39",
           title: "Emoji Reflex",
-          description: "Tap 👍 when true, 👎 when false statements pop up.",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "2-3 min",
@@ -578,7 +539,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-40",
           title: "Truth Badge",
-          description: "Complete 5 truth-checking acts.",
           icon: <Award className="w-6 h-6" />,
           difficulty: "Medium",
           duration: "6-8 min",
@@ -592,7 +552,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-41",
           title: "Free Gift Story",
-          description: "Pop-up says 'Free iPhone if you click.' Correct = Don't click.",
           icon: <Award className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "4-6 min",
@@ -606,7 +565,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
         {
           id: "dcos-kids-42",
           title: "Fake Link Reflex",
-          description: "Tap on link 'www.freeprize.com.' Avoid the trap!",
           icon: <Zap className="w-6 h-6" />,
           difficulty: "Easy",
           duration: "3-5 min",
@@ -620,7 +578,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-43",
         title: "Game Coin Scam Quiz",
-        description: "App says 'Buy unlimited coins ₹100.' Safe? → No.",
         icon: <HelpCircle className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "4-6 min",
@@ -634,7 +591,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-44",
         title: "Stranger Gift Story",
-        description: "Online friend offers game code. Correct = Refuse.",
         icon: <BookOpen className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "5-7 min",
@@ -648,7 +604,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-45",
         title: "OTP Reflex",
-        description: "Message asks 'Share OTP.' Tap 'Stop.'",
         icon: <Zap className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "3-4 min",
@@ -662,7 +617,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-46",
         title: "Puzzle of Traps",
-        description: "Match 'Phishing Email → Scam, Official Bank → Safe.'",
         icon: <Puzzle className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "5-8 min",
@@ -676,7 +630,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-47",
         title: "Poster Task",
-        description: "Create/select poster: 'Don't Trust Free Offers.'",
         icon: <PenTool className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "6-8 min",
@@ -690,7 +643,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-48",
         title: "Chat Trick Story",
-        description: "Stranger says 'I'll gift you if you share details.' Correct = Refuse.",
         icon: <BookOpen className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "5-7 min",
@@ -704,7 +656,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-49",
         title: "Reflex Block Game",
-        description: "Tap 'Block' when spam call icon appears.",
         icon: <Zap className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "3-5 min",
@@ -718,7 +669,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-50",
         title: "Scam Aware Badge",
-        description: "Complete 5 scam-avoid acts to earn badge 'Scam Aware Kid.'",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "5-8 min",
@@ -732,7 +682,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-51",
         title: "Password Privacy Story",
-        description: "Friend asks for password. Correct = Never share.",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "5-7 min",
@@ -746,7 +695,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-52",
         title: "Profile Quiz",
-        description: "Should profile be public or private? Correct = Private.",
         icon: <HelpCircle className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "3-5 min",
@@ -760,7 +708,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-53",
         title: "Photo Consent Reflex",
-        description: "Friend takes photo. Tap 'Ask Permission' before posting.",
         icon: <Zap className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "3-4 min",
@@ -774,7 +721,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-54",
         title: "Puzzle: Public vs Private",
-        description: "Match 'Home Address = Private, Favorite Food = Public.'",
         icon: <Puzzle className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "5-8 min",
@@ -788,7 +734,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-55",
         title: "Stranger Request Story",
-        description: "Stranger asks for location. Correct = Refuse.",
         icon: <BookOpen className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "5-7 min",
@@ -802,7 +747,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-56",
         title: "Device Privacy Reflex",
-        description: "Pop-up says 'Allow camera?' Tap 'No' if not needed.",
         icon: <Zap className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "3-5 min",
@@ -816,7 +760,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-57",
         title: "Rights Poster Task",
-        description: "Select/create poster: 'Respect Privacy.'",
         icon: <PenTool className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "6-8 min",
@@ -830,7 +773,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-58",
         title: "Journal: My Private Info",
-        description: "Write: '3 things I should never share online are ___.'",
         icon: <BookOpen className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "5-7 min",
@@ -844,7 +786,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-59",
         title: "Safe Friend Quiz",
-        description: "Should you share homework answers online? → No.",
         icon: <HelpCircle className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "3-5 min",
@@ -858,7 +799,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-60",
         title: "Privacy Hero Badge",
-        description: "Complete 5 privacy acts to earn badge 'Privacy Hero Kid.'",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "6-8 min",
@@ -872,7 +812,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-61",
         title: "Digital Footprint Story",
-        description: "A student posts a meme. Teacher sees later. Lesson = Posts stay forever.",
         icon: <BookOpen className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "5-7 min",
@@ -886,7 +825,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-62",
         title: "Reflex Delete",
-        description: "Tap when silly photo pops up to avoid posting.",
         icon: <Zap className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "3-5 min",
@@ -900,7 +838,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-63",
         title: "Puzzle: Online Forever",
-        description: "Match 'Internet Post = Forever, Homework Notebook = Erasable.'",
         icon: <Puzzle className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "5-8 min",
@@ -914,7 +851,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-64",
         title: "Good vs Bad Post Quiz",
-        description: "'I love football' vs 'Teacher is stupid.' Which is safe? → Love football.",
         icon: <HelpCircle className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "3-5 min",
@@ -928,7 +864,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-65",
         title: "Emoji Reflex 2",
-        description: "Tap 👍 for positive posts, 👎 for rude posts.",
         icon: <Zap className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "3-5 min",
@@ -942,7 +877,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-66",
         title: "School Reputation Story",
-        description: "Student posts bad about school. Correct = Don't.",
         icon: <BookOpen className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "5-7 min",
@@ -956,7 +890,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-67",
         title: "Poster: Digital Footprint",
-        description: "Create/select poster: 'Think Before You Post.'",
         icon: <PenTool className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "6-8 min",
@@ -970,7 +903,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-68",
         title: "Journal of Posts",
-        description: "Write: 'One good thing I can share online is ___.'",
         icon: <BookOpen className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "5-7 min",
@@ -984,7 +916,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-69",
         title: "Reflex Share Safe",
-        description: "Tap 'Share' only on positive, safe posts.",
         icon: <Zap className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "3-5 min",
@@ -998,7 +929,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-70",
         title: "Footprint Badge",
-        description: "Complete 5 safe posting acts to earn badge 'Smart Poster.'",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "6-8 min",
@@ -1012,7 +942,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-71",
         title: "Smart Robot Story",
-        description: "Robot helps with homework. Should you copy blindly? → No.",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "5-6 min",
@@ -1027,7 +956,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-72",
         title: "Reflex AI Safety",
-        description: "Tap for 'AI draws a cat,' for 'AI spreads rumor.'",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "3-4 min",
@@ -1042,7 +970,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-73",
         title: "Puzzle: AI Good vs Bad",
-        description: "Match 'AI Translate = Good, AI Cheat = Bad.'",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "4-5 min",
@@ -1057,7 +984,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-74",
         title: "Fairness Quiz",
-        description: "Game AI always favors one player. Is this fair? → No.",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "3-4 min",
@@ -1072,7 +998,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-75",
         title: "AI Friend Story",
-        description: "AI chatbot says 'Share your address.' Correct = Refuse.",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Hard",
         duration: "6-7 min",
@@ -1087,7 +1012,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-76",
         title: "Reflex Deepfake Spotter",
-        description: "Tap when cartoon video shows fake celebrity.",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "3-4 min",
@@ -1102,7 +1026,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-77",
         title: "Poster Task 2",
-        description: "Create/select poster: 'Use AI Wisely.'",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "5-6 min",
@@ -1117,7 +1040,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-78",
         title: "AI Helper Journal",
-        description: "Write: 'One safe way I use AI is ___.'",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "5 min",
@@ -1132,7 +1054,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-79",
         title: "Classroom Story",
-        description: "AI app answers test questions. Correct = Don't use to cheat.",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "5-6 min",
@@ -1147,7 +1068,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-80",
         title: "AI Ethics Badge",
-        description: "Complete 5 safe AI acts to earn badge 'AI Ethics Kid.'",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Hard",
         duration: "6-8 min",
@@ -1161,7 +1081,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-81",
         title: "Kind vs Mean Words Quiz",
-        description: "Which word is kind? (a) Stupid (b) Friend (c) Ugly). Correct = Friend.",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "3-4 min",
@@ -1175,7 +1094,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-82",
         title: "Reflex Respect",
-        description: "Words appear. Tap for 'Thank you,' for 'Idiot.'",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "3-4 min",
@@ -1189,7 +1107,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-83",
         title: "Class Chat Story",
-        description: "A child calls classmate 'fat' in group. Correct = Stop.",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "4-5 min",
@@ -1203,7 +1120,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-84",
         title: "Puzzle: Respect Match",
-        description: "Match 'Listen = Respect, Mock = Hurt.'",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "4-5 min",
@@ -1217,7 +1133,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-85",
         title: "School Team Reflex",
-        description: "Tap 'Encourage' when team loses, on insults.",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "3-4 min",
@@ -1231,7 +1146,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-86",
         title: "Poster Task 3",
-        description: "Select/create poster: 'Words Can Hurt or Heal.'",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Creative",
         duration: "6-8 min",
@@ -1245,7 +1159,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-87",
         title: "Story of Difference",
-        description: "Friend speaks different language. Correct = Respect.",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "4-5 min",
@@ -1259,7 +1172,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-88",
         title: "Journal: My Words",
-        description: "Write: 'Today I said kind words to ___.'",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Creative",
         duration: "5-6 min",
@@ -1273,7 +1185,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-89",
         title: "Playground Reflex",
-        description: "Tap 'Help' when child is insulted.",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "3-4 min",
@@ -1287,7 +1198,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-90",
         title: "Respect Hero Badge",
-        description: "Complete 5 respect actions to earn badge 'Respect Hero.'",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Hard",
         duration: "6-8 min",
@@ -1301,7 +1211,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-91",
         title: "Study App Story",
-        description: "Use 'Math App' vs 'Random Ads Game.' Correct = Math App.",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "4-5 min",
@@ -1315,7 +1224,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-92",
         title: "Reflex Learning Tools",
-        description: "Tap for 'Dictionary App,' for 'Spam Game.'",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "3-4 min",
@@ -1329,7 +1237,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-93",
         title: "Puzzle: Good vs Waste Apps",
-        description: "Match 'Drawing App = Good, Fake Prize App = Waste.'",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "4-5 min",
@@ -1343,7 +1250,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-94",
         title: "Homework Story",
-        description: "Friend uses YouTube for homework tips. Correct = Useful.",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "4-5 min",
@@ -1357,7 +1263,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-95",
         title: "Reflex Offline Fun",
-        description: "Tap 'Play Outside' when cartoon autoplay continues.",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "3-4 min",
@@ -1371,7 +1276,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-96",
         title: "Poster Task 4",
-        description: "Select/create poster: 'Use Tech to Learn.'",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Creative",
         duration: "6-8 min",
@@ -1385,7 +1289,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-97",
         title: "Sharing Good Content Story",
-        description: "Child shares science experiment video instead of memes. Correct = Yes.",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Medium",
         duration: "4-5 min",
@@ -1399,7 +1302,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-98",
         title: "Journal of Smart Use",
-        description: "Write: 'Today I used tech to learn ___.'",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Creative",
         duration: "5-6 min",
@@ -1413,7 +1315,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-99",
         title: "Reflex Reading",
-        description: "Tap for 'Read e-book,' for 'Watch prank video.'",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Easy",
         duration: "3-4 min",
@@ -1427,7 +1328,6 @@ export const getDcosKidsGames = (gameCompletionStatus)=> {
       {
         id: "dcos-kids-100",
         title: "Smart User Badge",
-        description: "Complete 5 productive tech acts to earn badge 'Smart User.'",
         icon: <Award className="w-6 h-6" />,
         difficulty: "Hard",
         duration: "6-8 min",

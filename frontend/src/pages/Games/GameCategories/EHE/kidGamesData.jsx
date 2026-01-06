@@ -33,7 +33,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-1',
             title: 'Doctor Story',
-            description: 'Learn about the important job of a doctor and how they help people!',
             icon: <Stethoscope className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -47,7 +46,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-2',
             title: 'Quiz on Jobs',
-            description: 'Answer 5 questions about different jobs and what people do!',
             icon: <GraduationCap className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -61,7 +59,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-3',
             title: 'Reflex Job Match',
-            description: 'Quick! Match jobs to the right places - test your reflexes!',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -75,7 +72,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-4',
             title: 'Puzzle: Who Does What?',
-            description: 'Match workers to their jobs! Farmer → Crops, Pilot → Plane, Chef → Food.',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -89,7 +85,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-5',
             title: 'Dream Job Story',
-            description: 'Discover which job suits you based on your interests!',
             icon: <Sparkles className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -103,7 +98,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-6',
             title: 'Poster: My Dream Job',
-            description: 'Create/select poster: "I want to be a ___.',
             icon: <Award className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -117,7 +111,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-7',
             title: 'Journal of Jobs',
-            description: 'Write: "When I grow up, I want to be ___.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -131,7 +124,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-8',
             title: 'School Helper Story',
-            description: 'Learn about all the people who help keep school running!',
             icon: <School className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -145,7 +137,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-9',
             title: 'Reflex Career Check',
-            description: 'Quick career decisions! Choose correct job roles - pass 3/5!',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -159,7 +150,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-10',
             title: 'Badge: Career Explorer Kid',
-            description: 'Identify 5 jobs correctly to earn your Career Explorer Kid Badge!',
             icon: <Medal className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -173,7 +163,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-11',
             title: 'Idea Story',
-            description: 'You want to sell lemonade. What is your first step?',
             icon: <Lightbulb className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -187,7 +176,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-12',
             title: 'Quiz on Skills',
-            description: 'Which skill helps entrepreneurs?',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -201,7 +189,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-13',
             title: 'Reflex Skill Check',
-            description: 'Tap 💡 for "Creativity," ❌ for "Cheating."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -215,7 +202,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-14',
             title: 'Puzzle: Match Skills',
-            description: 'Match "Leader → Guide, Innovator → Invent, Team Player → Support."',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -229,7 +215,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-15',
             title: 'Teamwork Story',
-            description: 'You start a project. Should you work alone or with friends?',
             icon: <Users className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -243,7 +228,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-16',
             title: 'Poster: Skills for Success',
-            description: 'Create/select poster: "Dream + Work + Team = Success."',
             icon: <Award className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -257,7 +241,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-17',
             title: 'Journal of Skills',
-            description: 'Write: "One skill I want to improve is ___.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -271,7 +254,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-18',
             title: 'Risk Story',
-            description: 'You want to try a new school club. Should you?',
             icon: <TrendingUp className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -285,7 +267,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-19',
             title: 'Reflex Innovation',
-            description: 'Tap 🛠️ for "Solve Problems," ❌ for "Ignore Problems."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -299,7 +280,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-20',
             title: 'Badge: Young Innovator',
-            description: 'Show 5 entrepreneur skills to earn your badge.',
             icon: <Medal className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -313,7 +293,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-21',
             title: 'Lemonade Stand Story',
-            description: 'You sell 5 cups of lemonade. What do you get?',
             icon: <ShoppingCart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -327,7 +306,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-22',
             title: 'Quiz on Money Use',
-            description: 'What do we use money for?',
             icon: <IndianRupee className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -341,7 +319,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-23',
             title: 'Reflex Money Basics',
-            description: 'Tap 💰 for "Money = Value," ❌ for "Money = Toy."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -355,7 +332,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-24',
             title: 'Puzzle: Match Money Terms',
-            description: 'Match "Earning → Work, Spending → Shop, Saving → Piggy Bank."',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -369,7 +345,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-25',
             title: 'Saving Story',
-            description: 'You get pocket money. Should you spend all or save some?',
             icon: <PiggyBank className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -383,7 +358,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-26',
             title: 'Poster: Smart Money',
-            description: 'Create/select poster: "Earn, Save, Spend Wisely."',
             icon: <Award className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -397,7 +371,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-27',
             title: 'Journal of Pocket Money',
-            description: 'Write: "I saved ___ from my allowance."',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -411,7 +384,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-28',
             title: 'Shop Story',
-            description: 'You have ₹50. Ice cream = ₹40, Toy = ₹60. What can you buy?',
             icon: <ShoppingCart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -425,7 +397,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-29',
             title: 'Reflex Money Alert',
-            description: 'Tap 🏦 for "Save in Bank," ❌ for "Throw Away Money."',
             icon: <Banknote className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -439,7 +410,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-30',
             title: 'Badge: Money Smart Kid',
-            description: 'Complete 5 money basics to earn your badge.',
             icon: <Medal className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -453,7 +423,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-31',
             title: 'Problem Story',
-            description: 'School taps are leaking. What should you do?',
             icon: <Droplets className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -467,7 +436,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-32',
             title: 'Quiz on Creativity',
-            description: 'Which is innovation?',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -481,7 +449,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-33',
             title: 'Reflex Innovation Basics',
-            description: 'Tap 💡 for "New Idea," ❌ for "Copy Idea."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -495,7 +462,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-34',
             title: 'Puzzle: Match Innovators',
-            description: 'Match "Edison → Bulb, Wright Brothers → Plane, Jobs → iPhone."',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -509,7 +475,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-35',
             title: 'School Project Story',
-            description: 'You\'re asked to make a science model. Should you copy or create your own?',
             icon: <School className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -523,7 +488,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-36',
             title: 'Poster: Think Different',
-            description: 'Create/select poster: "Every Big Change Starts with a Small Idea."',
             icon: <Award className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -537,7 +501,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-37',
             title: 'Journal of Ideas',
-            description: 'Write: "One idea I have to solve a problem is ___.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -551,7 +514,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-38',
             title: 'Game Story',
-            description: 'Friends can\'t decide a game. Should you invent new rules?',
             icon: <Gamepad2 className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -565,7 +527,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-39',
             title: 'Reflex Design Thinking',
-            description: 'Tap 🔧 for "Test Ideas," ❌ for "Ignore Problems."',
             icon: <Wrench className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -579,7 +540,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-40',
             title: 'Badge: Little Innovator',
-            description: 'Complete 5 creative problem-solving cases to earn your badge.',
             icon: <Medal className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -593,7 +553,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-41',
             title: 'Ice Cream Kid Story',
-            description: 'A 10-year-old sells ice cream in summer. Why?',
             icon: <Droplets className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -607,7 +566,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-42',
             title: 'Quiz on Young Entrepreneurs',
-            description: 'What do young entrepreneurs show?',
             icon: <GraduationCap className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -621,7 +579,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-43',
             title: 'Reflex Entrepreneur Basics',
-            description: 'Tap 💪 for "Hard Work," ❌ for "Giving Up."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -635,7 +592,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-44',
             title: 'Puzzle: Match Stories',
-            description: 'Match "Girl Sells Crafts → Creativity, Boy Runs App → Tech, Teen Sells Cakes → Cooking."',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -649,7 +605,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-45',
             title: 'Craft Story',
-            description: 'A girl makes friendship bands to sell at school fair. What is she?',
             icon: <School className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -663,7 +618,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-46',
             title: 'Poster: Young Bosses',
-            description: 'Create/select poster: "Kids Can Be Entrepreneurs Too!"',
             icon: <Award className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -677,7 +631,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-47',
             title: 'Journal of Inspiration',
-            description: 'Write: "The young entrepreneur I admire is ___.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -691,7 +644,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-48',
             title: 'Toy Repair Story',
-            description: 'A boy repairs toys for friends. What skill is he using?',
             icon: <Wrench className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -705,7 +657,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-49',
             title: 'Reflex Story Learner',
-            description: 'Tap 📚 for "Learn From Failures," ❌ for "Quit Quickly."',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -719,7 +670,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-50',
             title: 'Badge: Young Business Explorer',
-            description: 'Understand 5 young entrepreneur stories to earn your badge.',
             icon: <Medal className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -733,7 +683,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-51',
             title: 'College Story',
-            description: 'After school, many students go to college. What do they study there?',
             icon: <GraduationCap className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -747,7 +696,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-52',
             title: 'Quiz on Pathways',
-            description: 'Which is a career path?',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -761,7 +709,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-53',
             title: 'Reflex Path Check',
-            description: 'Tap 🎓 for "Study After School," ❌ for "No Learning Forever."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -775,7 +722,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-54',
             title: 'Puzzle: Match Careers',
-            description: 'Match "Farmer → Agriculture School, Engineer → College, Chef → Culinary School."',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -789,7 +735,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-55',
             title: 'Vocational Story',
-            description: 'A student learns carpentry skills. What is this?',
             icon: <School className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -803,7 +748,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-56',
             title: 'Poster: Many Roads Ahead',
-            description: 'Create/select poster: "After School = Many Choices."',
             icon: <Award className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -817,7 +761,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-57',
             title: 'Journal of Dreams',
-            description: 'Write: "After school, I dream of becoming ___.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -831,7 +774,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-58',
             title: 'Apprenticeship Story',
-            description: 'A girl joins a tailoring apprenticeship. What is she doing?',
             icon: <Wrench className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -845,7 +787,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-59',
             title: 'Reflex Career Alert',
-            description: 'Tap 💼 for "Scholarship," ❌ for "Drop Out Too Early."',
             icon: <Briefcase className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -859,7 +800,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-60',
             title: 'Badge: Path Explorer Kid',
-            description: 'Explore 5 pathways after school to earn your badge.',
             icon: <Medal className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -873,7 +813,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-61',
             title: 'College Story',
-            description: 'After school, some students go to college. What is college for?',
             icon: <GraduationCap className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -887,7 +826,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-62',
             title: 'Quiz on College Basics',
-            description: 'What is a university? (a) Place for higher studies, (b) Playground).',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -901,7 +839,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-63',
             title: 'Reflex College Awareness',
-            description: 'Tap 🏫 for "Study in College," ❌ for "College = Shopping Mall."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -915,7 +852,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-64',
             title: 'Puzzle: Match Studies',
-            description: 'Match "Doctor → Medical College, Lawyer → Law College, Artist → Design College."',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -929,7 +865,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-65',
             title: 'Entrance Exam Story',
-            description: 'Some careers need entrance exams. Should you prepare?',
             icon: <School className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -943,7 +878,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-66',
             title: 'Poster: My College Dream',
-            description: 'Create/select poster: "One Day I Will Go to College."',
             icon: <Award className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -957,7 +891,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-67',
             title: 'Journal of College Dreams',
-            description: 'Write: "The college I dream of joining is ___.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -971,7 +904,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-68',
             title: 'Scholarship Story',
-            description: 'Student has no money for fees. What can help?',
             icon: <IndianRupee className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -985,7 +917,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-69',
             title: 'Reflex Higher Education',
-            description: 'Tap 📚 for "College = Learning," ❌ for "College = Party Only."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -999,7 +930,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-70',
             title: 'Badge: College Dreamer',
-            description: 'Complete 5 higher-education awareness cases to earn your badge.',
             icon: <Medal className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1013,7 +943,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-71',
             title: 'Robot Helper Story',
-            description: 'Robots help in factories. What career works with robots?',
             icon: <Wrench className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1027,7 +956,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-72',
             title: 'Quiz on Future Jobs',
-            description: 'Which is a new career? (a) AI Engineer, (b) Dinosaur Hunter).',
             icon: <Brain className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1041,7 +969,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-73',
             title: 'Reflex Career Basics',
-            description: 'Tap 🌱 for "Green Jobs," ❌ for "Jobs That Harm Earth."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -1055,7 +982,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-74',
             title: 'Puzzle: Match Future Jobs',
-            description: 'Match "Game Designer → Games, Drone Pilot → Flying Robots, Data Scientist → Numbers."',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1069,7 +995,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-75',
             title: 'E-Sports Story',
-            description: 'A kid loves gaming. Can this be a career?',
             icon: <Gamepad2 className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1083,7 +1008,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-76',
             title: 'Poster: Jobs of Tomorrow',
-            description: 'Create/select poster: "AI, Space, Green Energy Careers."',
             icon: <Award className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -1097,7 +1021,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-77',
             title: 'Journal of Dream Future Job',
-            description: 'Write: "One new career I want to explore is ___.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -1111,7 +1034,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-78',
             title: 'Online Career Story',
-            description: 'A girl posts videos and earns. What career is this?',
             icon: <Smartphone className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1125,7 +1047,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-79',
             title: 'Reflex Job Alert',
-            description: 'Tap 🚀 for "Space Careers," ❌ for "Time Travel Jobs."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -1139,7 +1060,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-80',
             title: 'Badge: Future Job Explorer',
-            description: 'Identify 5 emerging careers to earn your badge.',
             icon: <Medal className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1153,7 +1073,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-81',
             title: 'Food Waste Story',
-            description: 'A boy collects leftover food to give poor children. What is this?',
             icon: <ShoppingCart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1167,7 +1086,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-82',
             title: 'Quiz on Social Impact',
-            description: 'Social entrepreneurship means? (a) Helping society + business, (b) Only money).',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1181,7 +1099,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-83',
             title: 'Reflex Social Basics',
-            description: 'Tap 🤝 for "Help + Earn," ❌ for "Ignore Problems."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -1195,7 +1112,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-84',
             title: 'Puzzle: Social Examples',
-            description: 'Match "Solar Lamps → Villages, Clean Water → Rural Areas, Microloans → Poor Families."',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1209,7 +1125,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-85',
             title: 'Eco Bag Story',
-            description: 'A girl makes cloth bags to replace plastic. What is she solving?',
             icon: <ShoppingCart className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1223,7 +1138,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-86',
             title: 'Poster: Business for Good',
-            description: 'Create/select poster: "Change the World with Ideas."',
             icon: <Award className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -1237,7 +1151,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-87',
             title: 'Journal of Social Ideas',
-            description: 'Write: "One problem I want to solve is ___.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -1251,7 +1164,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-88',
             title: 'Village Solar Story',
-            description: 'A teen sets up solar lamps in a dark village. What is this?',
             icon: <Droplets className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1265,7 +1177,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-89',
             title: 'Reflex Social Alert',
-            description: 'Tap ⚖️ for "Fair Business," ❌ for "Cheating."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -1279,7 +1190,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-90',
             title: 'Badge: Social Helper Kid',
-            description: 'Learn 5 social entrepreneurship cases to earn your badge.',
             icon: <Medal className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1293,7 +1203,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-91',
             title: 'Book Story',
-            description: 'You finish one book. Should you stop reading forever or read more?',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1307,7 +1216,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-92',
             title: 'Quiz on Lifelong Learning',
-            description: 'Learning stops when? (a) After school, (b) Never).',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1321,7 +1229,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-93',
             title: 'Reflex Learning Basics',
-            description: 'Tap ❓ for "Ask Questions," ❌ for "Stop Curiosity."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -1335,7 +1242,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-94',
             title: 'Puzzle: Learning Tools',
-            description: 'Match "Books → Knowledge, Internet → Information, Practice → Skills."',
             icon: <Target className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
@@ -1349,7 +1255,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-95',
             title: 'Music Story',
-            description: 'A girl loves music. Should she stop after school?',
             icon: <Music className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1363,7 +1268,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-96',
             title: 'Poster: Keep Growing',
-            description: 'Create/select poster: "Learning = Growth for Life."',
             icon: <Award className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '6 min',
@@ -1377,7 +1281,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-97',
             title: 'Journal of Curiosity',
-            description: 'Write: "One new thing I want to learn is ___.',
             icon: <BookOpen className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '5 min',
@@ -1391,7 +1294,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-98',
             title: 'Cooking Story',
-            description: 'A boy learns cooking from his grandmother. Is this learning?',
             icon: <ChefHat className="w-6 h-6" />,
             difficulty: 'Easy',
             duration: '4 min',
@@ -1405,7 +1307,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-99',
             title: 'Reflex Growth Check',
-            description: 'Tap 🌱 for "Try New Skills," ❌ for "Stop Exploring."',
             icon: <Zap className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '3 min',
@@ -1419,7 +1320,6 @@ export const getEheKidsGames = (gameCompletionStatus) => {
         {
             id: 'ehe-kids-100',
             title: 'Badge: Lifelong Learner Kid',
-            description: 'Show 5 habits of lifelong learning to earn your badge.',
             icon: <Medal className="w-6 h-6" />,
             difficulty: 'Medium',
             duration: '5 min',
