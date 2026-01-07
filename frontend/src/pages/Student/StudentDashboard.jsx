@@ -155,6 +155,34 @@ export default function StudentDashboard() {
         
         return age;
     };
+
+    const getPillarNameFromType = (gameType) => {
+        const map = {
+            ai: "AI for All",
+            brain: "Brain Teasers",
+            finance: "Finance Literacy",
+            financial: "Finance Literacy",
+            mental: "Mental Health",
+            educational: "Educational",
+            uvls: "UVLS",
+            dcos: "Digital Citizenship & Online Safety",
+            moral: "Moral Values",
+            ehe: "Entrepreneurship & Higher Education",
+            crgc: "Civic Responsibility & Global Citizenship",
+            "civic-responsibility": "Civic Responsibility & Global Citizenship",
+            "health-male": "Health - Male",
+            "health-female": "Health - Female",
+            sustainability: "Sustainability"
+        };
+
+        return map[gameType] || "Unknown";
+    };
+
+    const getAgeGroupFromGameId = (gameId = "") => {
+        if (gameId.includes("kids")) return "Kids";
+        if (gameId.includes("teen")) return "Teen";
+        return "Unknown";
+    };
     
     // Check if user can access a specific game based on age and completion
     // eslint-disable-next-line no-unused-vars
@@ -865,24 +893,41 @@ export default function StudentDashboard() {
         // Handle real-time achievement updates with professional animations
         const handleAchievementUpdate = (data) => {
             if (data.userId === (user?._id || user?.id) && data.achievement) {
-                const achievement = data.achievement;
-                
+                const rawAchievement = data.achievement;
+                const achievement = {
+                    id: rawAchievement.id || `${rawAchievement.badgeName || rawAchievement.name}-${rawAchievement.earnedAt || rawAchievement.date || Date.now()}`,
+                    badgeName: rawAchievement.badgeName || rawAchievement.name || "Badge Earned",
+                    badgeImage: rawAchievement.badgeImage || rawAchievement.icon || null,
+                    earnedAt: rawAchievement.earnedAt || rawAchievement.date || new Date().toISOString(),
+                    gameId: rawAchievement.gameId || null,
+                    gameType: rawAchievement.gameType || null,
+                    ageGroup: rawAchievement.ageGroup || getAgeGroupFromGameId(rawAchievement.gameId || ""),
+                    pillarName: rawAchievement.pillarName || getPillarNameFromType(rawAchievement.gameType)
+                };
+
+                const subtitle = achievement.pillarName
+                    ? `${achievement.pillarName}${achievement.ageGroup ? ` (${achievement.ageGroup})` : ""}`
+                    : achievement.ageGroup || "Unknown";
+
                 // Show professional toast notification
                 toast.success(
                     (t) => (
                         <div className="flex items-center gap-3">
-                            <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${
-                                achievement.badge === 'gold' ? 'from-yellow-400 to-yellow-600' :
-                                achievement.badge === 'silver' ? 'from-gray-300 to-gray-500' :
-                                achievement.badge === 'platinum' ? 'from-cyan-400 to-blue-500' :
-                                achievement.badge === 'diamond' ? 'from-purple-400 to-pink-500' :
-                                'from-orange-400 to-orange-600'
-                            } flex items-center justify-center text-2xl shadow-lg`}>
-                                🏆
+                            <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center shadow-lg overflow-hidden">
+                                {achievement.badgeImage ? (
+                                    <img
+                                        src={achievement.badgeImage}
+                                        alt={achievement.badgeName}
+                                        className="w-full h-full object-cover"
+                                    />
+                                ) : (
+                                    <span className="text-white font-bold">B</span>
+                                )}
                             </div>
                             <div className="flex-1">
-                                <p className="font-bold text-white text-sm">Achievement Unlocked!</p>
-                                <p className="text-white/90 text-xs">{achievement.name}</p>
+                                <p className="font-bold text-white text-sm">Badge Earned!</p>
+                                <p className="text-white/90 text-xs">{achievement.badgeName}</p>
+                                <p className="text-white/70 text-[10px]">{subtitle}</p>
                             </div>
                         </div>
                     ),
@@ -895,14 +940,14 @@ export default function StudentDashboard() {
                             padding: '16px',
                             boxShadow: '0 10px 25px rgba(0,0,0,0.2)',
                         },
-                        icon: '🎉',
+                        icon: 'dYZ%',
                     }
                 );
-                
+
                 // Mark as new achievement
-                const achievementId = achievement.id || `${achievement.name}-${achievement.earnedAt}`;
+                const achievementId = achievement.id;
                 setNewAchievementIds((prev) => new Set([...prev, achievementId]));
-                
+
                 // Remove "new" indicator after 10 seconds
                 setTimeout(() => {
                     setNewAchievementIds((prev) => {
@@ -911,7 +956,7 @@ export default function StudentDashboard() {
                         return updated;
                     });
                 }, 10000);
-                
+
                 // Update achievement timeline in real-time
                 setAchievementTimeline((prev) => {
                     if (!prev) {
@@ -920,34 +965,33 @@ export default function StudentDashboard() {
                             totalAchievements: 1
                         };
                     }
-                    
+
                     // Check if achievement already exists (prevent duplicates)
                     const exists = prev.achievements.some(
-                        a => a.id === achievement.id || 
-                        (a.name === achievement.name && 
+                        a => a.id === achievement.id ||
+                        (a.badgeName === achievement.badgeName &&
                          new Date(a.earnedAt).getTime() === new Date(achievement.earnedAt).getTime())
                     );
-                    
+
                     if (exists) {
                         return prev;
                     }
-                    
+
                     // Add new achievement at the beginning and limit to 10
                     const updatedAchievements = [achievement, ...prev.achievements].slice(0, 10);
-                    
+
                     return {
                         achievements: updatedAchievements,
                         totalAchievements: prev.totalAchievements + 1
                     };
                 });
-                
+
                 // Also refresh analytics data in background for consistency
                 setTimeout(() => {
                     loadAnalyticsData();
                 }, 1000);
             }
         };
-        
         // Handle achievement timeline updates from subscription
         const handleAchievementTimeline = (data) => {
             if (data && data.achievements) {
@@ -1517,7 +1561,7 @@ export default function StudentDashboard() {
                                         </span>
                                     </div>
                                     <div className="text-xl font-black text-pink-700">
-                                        {achievementTimeline?.totalAchievements || achievements?.length || 0}
+                                        {achievements?.length || 0}
                                     </div>
                                     <div className="text-[10px] text-pink-600 font-medium mt-0.5">
                                         Earned
@@ -3054,37 +3098,19 @@ export default function StudentDashboard() {
                             <div className="space-y-3 max-h-[500px] overflow-y-auto pr-2 custom-scrollbar">
                                 {achievementTimeline.achievements.length > 0 ? (
                                     achievementTimeline.achievements.map((achievement, index) => {
-                                        const badgeColors = {
-                                            bronze: 'from-orange-400 to-orange-600',
-                                            silver: 'from-gray-300 to-gray-500',
-                                            gold: 'from-yellow-400 to-yellow-600',
-                                            platinum: 'from-cyan-400 to-blue-500',
-                                            diamond: 'from-purple-400 to-pink-500'
-                                        };
-                                        const badgeGradient = badgeColors[achievement.badge] || badgeColors.bronze;
-
-                                        // Get badge icon based on badge type
-                                        const getBadgeIcon = (badge) => {
-                                            switch(badge) {
-                                                case 'diamond': return '💎';
-                                                case 'platinum': return '⭐';
-                                                case 'gold': return '🥇';
-                                                case 'silver': return '🥈';
-                                                case 'bronze': return '🥉';
-                                                default: return '🏆';
-                                            }
-                                        };
-                                        
-                                        const achievementId = achievement.id || `${achievement.name}-${achievement.earnedAt}`;
+                                        const achievementId = achievement.id || `${achievement.badgeName}-${achievement.earnedAt}`;
                                         const isNew = newAchievementIds.has(achievementId);
+                                        const subtitle = achievement.pillarName
+                                            ? `${achievement.pillarName}${achievement.ageGroup ? ` (${achievement.ageGroup})` : ""}`
+                                            : achievement.ageGroup || "Unknown";
 
                                         return (
                                             <motion.div
                                                 key={achievementId}
                                                 initial={{ scale: 0.8, opacity: 0, x: -20 }}
                                                 animate={{ scale: 1, opacity: 1, x: 0 }}
-                                                transition={{ 
-                                                    delay: index * 0.05, 
+                                                transition={{
+                                                    delay: index * 0.05,
                                                     type: "spring",
                                                     stiffness: 100,
                                                     damping: 15
@@ -3094,51 +3120,21 @@ export default function StudentDashboard() {
                                                     isNew ? 'border-yellow-400 border-2 shadow-yellow-200' : 'border-white/50'
                                                 } group relative overflow-hidden`}
                                             >
-                                                {/* New Achievement Sparkle Effect */}
-                                                {isNew && (
-                                                    <motion.div
-                                                        className="absolute inset-0 pointer-events-none"
-                                                        initial={{ opacity: 0 }}
-                                                        animate={{ opacity: [0, 1, 0] }}
-                                                        transition={{ duration: 2, repeat: Infinity }}
-                                                    >
-                                                        <Sparkles className="absolute top-2 right-2 w-4 h-4 text-yellow-400" />
-                                                        <Sparkles className="absolute bottom-2 left-2 w-3 h-3 text-yellow-300" />
-                                                    </motion.div>
-                                                )}
-                                                
-                                                {/* Badge Icon with pulse animation */}
-                                                <motion.div 
-                                                    className={`w-14 h-14 rounded-full bg-gradient-to-br ${badgeGradient} flex items-center justify-center text-2xl shadow-lg flex-shrink-0 relative overflow-hidden ${
-                                                        isNew ? 'ring-2 ring-yellow-400 ring-offset-2' : ''
-                                                    }`}
-                                                    whileHover={{ rotate: [0, -10, 10, -10, 0] }}
-                                                    transition={{ duration: 0.5 }}
-                                                    animate={isNew ? {
-                                                        scale: [1, 1.1, 1],
-                                                        rotate: [0, 5, -5, 0]
-                                                    } : {}}
-                                                >
-                                                    <span className="relative z-10">{getBadgeIcon(achievement.badge)}</span>
-                                                    <motion.div
-                                                        className={`absolute inset-0 bg-gradient-to-br ${badgeGradient} opacity-0 group-hover:opacity-30`}
-                                                        animate={{
-                                                            scale: [1, 1.2, 1],
-                                                            opacity: [0, 0.3, 0]
-                                                        }}
-                                                        transition={{
-                                                            duration: 2,
-                                                            repeat: Infinity,
-                                                            ease: "easeInOut"
-                                                        }}
+                                                {achievement.badgeImage ? (
+                                                    <img
+                                                        src={achievement.badgeImage}
+                                                        alt={achievement.badgeName || "Badge"}
+                                                        className="w-14 h-14 rounded-xl object-cover shadow-lg bg-white flex-shrink-0"
                                                     />
-                                                </motion.div>
-                                                
-                                                {/* Achievement Info */}
+                                                ) : (
+                                                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-400 to-indigo-500 flex items-center justify-center text-white text-lg font-bold shadow-lg flex-shrink-0">
+                                                        B
+                                                    </div>
+                                                )}
                                                 <div className="flex-1 min-w-0 relative z-10">
                                                     <div className="flex items-center gap-2">
                                                         <h4 className="font-bold text-gray-800 truncate group-hover:text-purple-600 transition-colors">
-                                                            {achievement.name}
+                                                            {achievement.badgeName || "Badge Earned"}
                                                         </h4>
                                                         {isNew && (
                                                             <motion.span
@@ -3151,29 +3147,9 @@ export default function StudentDashboard() {
                                                         )}
                                                     </div>
                                                     <p className="text-xs text-gray-600 truncate mt-0.5">
-                                                        {achievement.description}
+                                                        {subtitle}
                                                     </p>
-                                                    <div className="flex items-center gap-2 mt-1.5">
-                                                        <Clock className="w-3 h-3 text-gray-400" />
-                                                        <p className="text-xs text-gray-500">
-                                                            {new Date(achievement.earnedAt).toLocaleDateString('en-US', {
-                                                                month: 'short',
-                                                                day: 'numeric',
-                                                                year: 'numeric',
-                                                                hour: '2-digit',
-                                                                minute: '2-digit'
-                                                            })}
-                                                        </p>
-                                                    </div>
                                                 </div>
-                                                
-                                                {/* Badge Label with shimmer effect */}
-                                                <motion.div 
-                                                    className={`px-3 py-1.5 rounded-full text-xs font-bold bg-gradient-to-r ${badgeGradient} text-white shadow-md flex-shrink-0 relative z-10`}
-                                                    whileHover={{ scale: 1.1 }}
-                                                >
-                                                    {achievement.badge.toUpperCase()}
-                                                </motion.div>
                                             </motion.div>
                                         );
                                     })
@@ -3183,8 +3159,8 @@ export default function StudentDashboard() {
                                         <p className="text-gray-500 font-medium">No achievements yet</p>
                                         <p className="text-sm text-gray-400">Start playing to earn badges!</p>
                                     </div>
-                                            )}
-                                        </div>
+                                )}
+                            </div>
                                         
                             {achievementTimeline.totalAchievements > 0 && (
                                 <div className="mt-4 text-center">
@@ -3375,3 +3351,6 @@ export default function StudentDashboard() {
         </div>
     );
 }
+
+
+

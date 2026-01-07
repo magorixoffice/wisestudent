@@ -40,7 +40,10 @@ class GameCompletionService {
         isFullCompletion = true,
         coinsPerLevel = null,
         totalCoins = null, // Total coins from game card for full completion
-        totalXp = null // Total XP from game card for full completion
+        totalXp = null, // Total XP from game card for full completion
+        badgeName = null,
+        badgeImage = null,
+        isBadgeGame = false
       } = gameData;
 
       // Validate required data
@@ -112,6 +115,9 @@ class GameCompletionService {
         coinsPerLevel,
         totalCoins, // Total coins from game card (should be 5)
         totalXp, // Total XP from game card (should be 10)
+        badgeName,
+        badgeImage,
+        isBadgeGame,
         previousProgress: currentProgress,
         isReplay: isReplayAttempt // Use the computed isReplayAttempt value, not gameData.isReplay
       });
@@ -162,6 +168,11 @@ class GameCompletionService {
         replayUnlocked: result.replayUnlocked !== undefined ? result.replayUnlocked : false,
         allAnswersCorrect: result.allAnswersCorrect !== undefined ? result.allAnswersCorrect : false,
         fullyCompleted: result.fullyCompleted !== undefined ? result.fullyCompleted : false,
+        badgeEarned: result.badgeEarned === true,
+        badgeAlreadyEarned: result.badgeAlreadyEarned === true,
+        badgeName: result.badgeName || badgeName || null,
+        badgeImage: result.badgeImage || badgeImage || null,
+        isBadgeGame: result.isBadgeGame === true || isBadgeGame === true,
         message: result.message || 'Game completed successfully!'
       };
 

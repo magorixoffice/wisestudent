@@ -1008,31 +1008,53 @@ export const getAchievementTimeline = async (req, res) => {
   try {
     const userId = req.user._id;
 
-    // Get achievements from game progress
-    const gameProgress = await UnifiedGameProgress.find({ userId });
+    const pillarNameMap = {
+      ai: "AI for All",
+      brain: "Brain Teasers",
+      finance: "Finance Literacy",
+      financial: "Finance Literacy",
+      mental: "Mental Health",
+      educational: "Educational",
+      uvls: "UVLS",
+      dcos: "Digital Citizenship & Online Safety",
+      moral: "Moral Values",
+      ehe: "Entrepreneurship & Higher Education",
+      crgc: "Civic Responsibility & Global Citizenship",
+      "civic-responsibility": "Civic Responsibility & Global Citizenship",
+      "health-male": "Health - Male",
+      "health-female": "Health - Female",
+      sustainability: "Sustainability"
+    };
 
-    const achievements = [];
-    gameProgress.forEach(game => {
-      if (game.achievements && game.achievements.length > 0) {
-        game.achievements.forEach(achievement => {
-          achievements.push({
-            id: achievement._id,
-            name: achievement.name,
-            description: achievement.description,
-            badge: achievement.badge,
-            earnedAt: achievement.earnedAt,
-            gameId: game.gameId,
-            gameType: game.gameType
-          });
-        });
-      }
+    const badgeProgress = await UnifiedGameProgress.find({
+      userId,
+      badgeAwarded: true
+    }).select("gameId gameType badgeName badgeImage updatedAt firstCompletedAt");
+
+    const achievements = badgeProgress.map((game) => {
+      const earnedAt = game.firstCompletedAt || game.updatedAt || new Date();
+      const gameId = game.gameId || "";
+      const ageGroup = gameId.includes("kids")
+        ? "Kids"
+        : gameId.includes("teen")
+          ? "Teen"
+          : "Unknown";
+      return {
+        id: game._id,
+        badgeName: game.badgeName || "Badge Earned",
+        badgeImage: game.badgeImage || null,
+        earnedAt,
+        gameId: game.gameId,
+        gameType: game.gameType,
+        ageGroup,
+        pillarName: pillarNameMap[game.gameType] || "Unknown"
+      };
     });
 
-    // Sort by date (most recent first)
     achievements.sort((a, b) => new Date(b.earnedAt) - new Date(a.earnedAt));
 
     res.status(200).json({
-      achievements: achievements.slice(0, 10), // Return last 10 achievements
+      achievements: achievements.slice(0, 10),
       totalAchievements: achievements.length
     });
   } catch (err) {

@@ -5,6 +5,7 @@ import Investment from '../models/Investment.js';
 import SavingsGoal from '../models/SavingsGoal.js';
 import QuizResult from '../models/QuizResult.js';
 import Expense from '../models/Expense.js';
+import UnifiedGameProgress from '../models/UnifiedGameProgress.js';
 
 // Get student features
 export const getStudentFeatures = async (req, res) => {
@@ -81,55 +82,30 @@ export const getStudentFeatures = async (req, res) => {
 export const getStudentAchievements = async (req, res) => {
   try {
     const userId = req.user._id;
-    
-    // In a real implementation, you would fetch achievements from a database
-    // For now, we'll return mock achievements
-    const achievements = [
-      {
-        id: 1,
-        title: "Budget Master",
-        description: "Created your first budget",
-        icon: "🏆",
-        date: "2023-05-15",
-        xp: 50,
+
+    const badgeProgress = await UnifiedGameProgress.find({
+      userId,
+      badgeAwarded: true
+    }).sort({ updatedAt: -1 });
+
+    const achievements = badgeProgress.map((game) => {
+      const earnedAt = game.firstCompletedAt || game.updatedAt || new Date();
+      return {
+        id: game._id,
+        title: game.badgeName || "Badge Earned",
+        description: game.gameId ? `Earned in ${game.gameId}` : "Badge earned",
+        icon: game.badgeImage || "badge",
+        date: earnedAt ? new Date(earnedAt).toISOString() : null,
         unlocked: true
-      },
-      {
-        id: 2,
-        title: "Savings Champion",
-        description: "Reached your first savings goal",
-        icon: "🌟",
-        date: "2023-06-20",
-        xp: 100,
-        unlocked: true
-      },
-      {
-        id: 3,
-        title: "Investment Guru",
-        description: "Made your first investment",
-        icon: "💎",
-        date: null,
-        xp: 150,
-        unlocked: false
-      },
-      {
-        id: 4,
-        title: "Financial Wizard",
-        description: "Completed all financial literacy modules",
-        icon: "🧙",
-        date: null,
-        xp: 200,
-        unlocked: false
-      }
-    ];
-    
+      };
+    });
+
     res.status(200).json(achievements);
   } catch (err) {
     console.error('Failed to fetch student achievements:', err);
     res.status(500).json({ error: 'Server error fetching achievements' });
   }
 };
-
 // Save budget data
 export const saveBudgetData = async (req, res) => {
   try {
@@ -573,3 +549,5 @@ export const deleteExpense = async (req, res) => {
     res.status(500).json({ error: 'Server error deleting expense' });
   }
 };
+
+

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback, useRef } from "react";
+﻿import React, { useState, useEffect, useMemo, useCallback, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import gameCompletionService from "../../../services/gameCompletionService";
 import { getGameDataById } from "../../../utils/getGameData";
@@ -199,10 +199,14 @@ export const FeedbackBubble = ({ message, type }) => (
 );
 
 /* --------------------- Game Over Modal --------------------- */
-export const GameOverModal = ({ score, gameId, gameType = 'ai', totalLevels = 1, maxScore = null, coinsPerLevel = null, totalCoins = null, totalXp = null, isReplay = false, onClose, nextGamePath = null, nextGameId = null }) => {
+export const GameOverModal = ({ score, gameId, gameType = 'ai', totalLevels = 1, maxScore = null, coinsPerLevel = null, totalCoins = null, totalXp = null, badgeName = null, badgeImage = null, isBadgeGame = false, isReplay = false, onClose, nextGamePath = null, nextGameId = null }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [coinsEarned, setCoinsEarned] = useState(0);
   const [xpEarned, setXpEarned] = useState(0);
+  const [badgeEarned, setBadgeEarned] = useState(false);
+  const [badgeAlreadyEarned, setBadgeAlreadyEarned] = useState(false);
+  const [resolvedBadgeName, setResolvedBadgeName] = useState(badgeName);
+  const [resolvedBadgeImage, setResolvedBadgeImage] = useState(badgeImage);
   const [submissionComplete, setSubmissionComplete] = useState(false);
   const [wasReplay, setWasReplay] = useState(false);
   const [allAnswersCorrect, setAllAnswersCorrect] = useState(false);
@@ -211,6 +215,7 @@ export const GameOverModal = ({ score, gameId, gameType = 'ai', totalLevels = 1,
   const questionCount = totalLevels || location.state?.totalLevels || 5; // default to 5 questions if not provided
   const displayTotal = questionCount;
   const isFullCompletion = true; // Game over modal always represents a full completion attempt
+  const isBadgeGameResolved = isBadgeGame === true || !!badgeName || !!badgeImage;
   const resolvedPointsPerCorrect =
     totalCoins && questionCount
       ? Math.max(1, Math.round(totalCoins / questionCount))
@@ -264,12 +269,19 @@ export const GameOverModal = ({ score, gameId, gameType = 'ai', totalLevels = 1,
           coinsPerLevel: coinsPerLevel, // Pass coins per question/level (for backward compatibility)
           totalCoins: totalCoins, // Total coins from game card
           totalXp: totalXp, // Total XP from game card
+          badgeName: resolvedBadgeName,
+          badgeImage: resolvedBadgeImage,
+          isBadgeGame: isBadgeGameResolved,
           isReplay: isReplayAttempt // Pass replay flag - this is important!
         });
 
         if (result.success) {
           setCoinsEarned(result.coinsEarned || 0);
           setXpEarned(result.xpEarned || 0);
+          setBadgeEarned(result.badgeEarned === true);
+          setBadgeAlreadyEarned(result.badgeAlreadyEarned === true);
+          setResolvedBadgeName(result.badgeName || resolvedBadgeName);
+          setResolvedBadgeImage(result.badgeImage || resolvedBadgeImage);
           setWasReplay(result.isReplay === true);
           // Check allAnswersCorrect from result, or calculate from coins performance vs totalCoins
           // score represents coins performance (number of correct answers/coins earned)
@@ -355,7 +367,9 @@ export const GameOverModal = ({ score, gameId, gameType = 'ai', totalLevels = 1,
     };
 
     submitGameCompletion();
-  }, [gameId, gameType, scoreAsCoins, normalizedCorrectCount, totalLevels, maxScore, coinsPerLevel, totalCoins, totalXp, isReplay, submissionComplete]);
+  }, [gameId, gameType, scoreAsCoins, normalizedCorrectCount, totalLevels, maxScore, coinsPerLevel, totalCoins, totalXp, isReplay, submissionComplete, isBadgeGameResolved, resolvedBadgeName, resolvedBadgeImage]);
+
+  const showBadgeReward = isBadgeGameResolved && (badgeEarned || badgeAlreadyEarned);
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
@@ -421,6 +435,27 @@ export const GameOverModal = ({ score, gameId, gameType = 'ai', totalLevels = 1,
                 <p className="text-3xl font-black text-gray-600">+{coinsEarned}</p>
                 <p className="text-sm text-yellow-600 mt-2">
                   No coins earned. Please try again or contact support if this persists.
+                </p>
+              </div>
+            )}
+            {showBadgeReward && (
+              <div className="bg-gradient-to-r from-purple-100 to-pink-100 rounded-2xl p-4 mb-4">
+                <h3 className="text-xl font-bold text-purple-700 mb-2">
+                  {badgeEarned ? "Badge Earned!" : "Badge Already Received"}
+                </h3>
+                {resolvedBadgeImage ? (
+                  <img
+                    src={resolvedBadgeImage}
+                    alt={resolvedBadgeName || "Badge"}
+                    className="w-20 h-20 mx-auto mb-2 object-contain"
+                  />
+                ) : (
+                  <div className="w-20 h-20 mx-auto mb-2 rounded-full bg-purple-200 flex items-center justify-center text-purple-700 font-bold">
+                    Badge
+                  </div>
+                )}
+                <p className="text-lg font-bold text-purple-600">
+                  {resolvedBadgeName || "Badge"}
                 </p>
               </div>
             )}
@@ -576,6 +611,9 @@ const GameShell = ({
   totalCoins = null, // Total coins from game card for full completion
   totalXp = null, // Total XP from game card for full completion
   maxScore = null, // Maximum score for the game
+  badgeName = null,
+  badgeImage = null,
+  isBadgeGame = false,
   // currentLevel = 1,
   showConfetti = false,
   flashPoints = null,
@@ -616,6 +654,29 @@ const GameShell = ({
     if (candidates.length === 0) return null;
     return Math.max(...candidates);
   })();
+  const resolvedBadgeName = (() => {
+    const candidates = [
+      badgeName,
+      location.state?.badgeName,
+      fallbackGameData?.badgeName,
+    ].filter(v => v !== null && v !== undefined);
+    return candidates.length > 0 ? candidates[0] : null;
+  })();
+  const resolvedBadgeImage = (() => {
+    const candidates = [
+      badgeImage,
+      location.state?.badgeImage,
+      fallbackGameData?.badgeImage,
+    ].filter(v => v !== null && v !== undefined);
+    return candidates.length > 0 ? candidates[0] : null;
+  })();
+  const resolvedIsBadgeGame = Boolean(
+    isBadgeGame === true ||
+    location.state?.isBadgeGame === true ||
+    fallbackGameData?.isBadgeGame === true ||
+    resolvedBadgeName ||
+    resolvedBadgeImage
+  );
   // Note: maxScore is kept for backward compatibility, but performance is now measured by coins
   // The score prop represents coins performance (number of correct answers/coins earned)
   const resolvedMaxScore = maxScore || location.state?.maxScore || resolvedTotalCoins || questionCount;
@@ -634,13 +695,6 @@ const GameShell = ({
       : rawScore;
 
   // Normalize raw score into correct-answer count and coin display
-  const correctCount =
-    pointsPerCorrect > 0 && questionCount
-      ? Math.min(
-          questionCount,
-          Math.max(0, Math.round(scoreAsCoins / pointsPerCorrect))
-        )
-      : rawScore;
   const displayCoins = Math.min(
     resolvedTotalCoins ?? Number.MAX_SAFE_INTEGER,
     scoreAsCoins
@@ -811,6 +865,9 @@ const GameShell = ({
           coinsPerLevel={coinsPerLevel}
           totalCoins={resolvedTotalCoins}
           totalXp={resolvedTotalXp}
+          badgeName={resolvedBadgeName}
+          badgeImage={resolvedBadgeImage}
+          isBadgeGame={resolvedIsBadgeGame}
           isReplay={location?.state?.isReplay || false}
           onClose={handleGameOverClose}
           nextGamePath={nextGamePathProp || location?.state?.nextGamePath || null}

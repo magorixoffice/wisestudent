@@ -966,6 +966,9 @@ export const completeUnifiedGame = async (req, res) => {
     coinsPerLevel = null,
     totalCoins = null, // Total coins from game card for full completion
     totalXp = null, // Total XP from game card for full completion
+    badgeName = null,
+    badgeImage = null,
+    isBadgeGame = false,
     previousProgress = {},
     isReplay = false
   } = req.body;
@@ -1025,6 +1028,8 @@ export const completeUnifiedGame = async (req, res) => {
       });
     }
 
+    const isBadgeGameRequest = isBadgeGame === true || !!badgeName || !!badgeImage;
+
     // Check if this is a replay attempt
     // A replay is when: isReplay flag is true OR game is fully completed AND replay is unlocked
     const isReplayAttempt = isReplay === true || (gameProgress.fullyCompleted && gameProgress.replayUnlocked === true);
@@ -1082,6 +1087,11 @@ export const completeUnifiedGame = async (req, res) => {
         fullyCompleted: gameProgress.fullyCompleted,
         isReplay: true,
         replayUnlocked: false, // Game is locked again
+        badgeEarned: false,
+        badgeAlreadyEarned: isBadgeGameRequest && gameProgress.badgeAwarded === true,
+        badgeName: gameProgress.badgeName || badgeName || null,
+        badgeImage: gameProgress.badgeImage || badgeImage || null,
+        isBadgeGame: isBadgeGameRequest,
         newBalance: (await Wallet.findOne({ userId }))?.balance || 0
       });
     }
@@ -1140,6 +1150,16 @@ export const completeUnifiedGame = async (req, res) => {
     const shouldAwardCoins = isFullCompletion && allAnswersCorrect && (
       !gameProgress.fullyCompleted || !hasEarnedFullCoins
     );
+
+    let badgeEarned = false;
+    const badgeAlreadyEarned = isBadgeGameRequest && gameProgress.badgeAwarded === true;
+
+    if (isBadgeGameRequest && isFullCompletion && allAnswersCorrect && !gameProgress.badgeAwarded) {
+      badgeEarned = true;
+      gameProgress.badgeAwarded = true;
+      gameProgress.badgeName = badgeName || gameProgress.badgeName;
+      gameProgress.badgeImage = badgeImage || gameProgress.badgeImage;
+    }
     
     console.log(`ðŸ’° shouldAwardCoins: ${shouldAwardCoins} (isFullCompletion: ${isFullCompletion}, allAnswersCorrect: ${allAnswersCorrect}, !fullyCompleted: ${!gameProgress.fullyCompleted}, !hasEarnedFullCoins: ${!hasEarnedFullCoins})`);
     
@@ -1364,6 +1384,10 @@ export const completeUnifiedGame = async (req, res) => {
 
     // Emit socket event for real-time updates
     const io = req.app.get('io');
+    if (io && badgeEarned) {
+      const { emitBadgeEarned } = await import('../socketHandlers/achievementSocket.js');
+      emitBadgeEarned(io, userId, gameProgress);
+    }
     
     // Emit achievement events for newly earned achievements
     if (io && newlyEarnedAchievements.length > 0) {
@@ -1443,6 +1467,11 @@ export const completeUnifiedGame = async (req, res) => {
       allAnswersCorrect: allAnswersCorrect, // Include in response for frontend
       isReplay: isReplayAttempt, // Include replay status
       replayUnlocked: gameProgress.replayUnlocked, // Include replay unlock status
+      badgeEarned,
+      badgeAlreadyEarned: isBadgeGameRequest && !badgeEarned && (badgeAlreadyEarned || gameProgress.badgeAwarded === true),
+      badgeName: gameProgress.badgeName || badgeName || null,
+      badgeImage: gameProgress.badgeImage || badgeImage || null,
+      isBadgeGame: isBadgeGameRequest,
       newBalance,
       streak: userProgress.streak,
       level: userProgress.level,

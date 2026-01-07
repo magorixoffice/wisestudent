@@ -83,6 +83,19 @@ const unifiedGameProgressSchema = new mongoose.Schema(
       },
       badge: String
     }],
+    // Badge rewards (for badge games)
+    badgeAwarded: {
+      type: Boolean,
+      default: false
+    },
+    badgeName: {
+      type: String,
+      default: null
+    },
+    badgeImage: {
+      type: String,
+      default: null
+    },
     // Streak tracking
     currentStreak: {
       type: Number,

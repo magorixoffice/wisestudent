@@ -139,6 +139,9 @@ export const getGameDataById = (gameId) => {
     return {
       coins: game.coins || 5, // Default to 5 if not specified
       xp: game.xp || 10, // Default to 10 if not specified
+      badgeName: game.badgeName || null,
+      badgeImage: game.badgeImage || null,
+      isBadgeGame: game.isBadgeGame || false,
       title: game.title,
       description: game.description,
       difficulty: game.difficulty,

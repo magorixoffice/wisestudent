@@ -1460,6 +1460,11 @@ const GameCategoryPage = () => {
             navigate(game.path, { 
               state: { 
                 coinsPerLevel: game.coins || null,
+                totalCoins: game.coins || 5,
+                totalXp: game.xp || 10,
+                badgeName: game.badgeName || null,
+                badgeImage: game.badgeImage || null,
+                isBadgeGame: game.isBadgeGame || false,
                 isReplay: true,
                 returnPath: location.pathname,
                 nextGamePath: nextGamePath, // Path to next game for Continue button
@@ -1503,6 +1508,9 @@ const GameCategoryPage = () => {
           coinsPerLevel: game.coins || null, // For backward compatibility
           totalCoins: game.coins || 5, // Total coins for full completion
           totalXp: game.xp || 10, // Total XP for full completion
+          badgeName: game.badgeName || null,
+          badgeImage: game.badgeImage || null,
+          isBadgeGame: game.isBadgeGame || false,
           isReplay: isReplay || false,
           returnPath: location.pathname,
           nextGamePath: nextGamePath, // Path to next game for Continue button
@@ -1640,6 +1648,9 @@ const GameCategoryPage = () => {
                 coinsPerLevel: game.coins || null,
                 totalCoins: game.coins || 5,
                 totalXp: game.xp || 10,
+                badgeName: game.badgeName || null,
+                badgeImage: game.badgeImage || null,
+                isBadgeGame: game.isBadgeGame || false,
                 isReplay: true, // Mark as replay since we just unlocked it
                 returnPath: location.pathname,
                 nextGamePath: nextGamePath,

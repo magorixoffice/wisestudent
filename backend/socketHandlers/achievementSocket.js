@@ -1,5 +1,44 @@
 import UnifiedGameProgress from '../models/UnifiedGameProgress.js';
 
+const pillarNameMap = {
+  ai: "AI for All",
+  brain: "Brain Teasers",
+  finance: "Finance Literacy",
+  financial: "Finance Literacy",
+  mental: "Mental Health",
+  educational: "Educational",
+  uvls: "UVLS",
+  dcos: "Digital Citizenship & Online Safety",
+  moral: "Moral Values",
+  ehe: "Entrepreneurship & Higher Education",
+  crgc: "Civic Responsibility & Global Citizenship",
+  "civic-responsibility": "Civic Responsibility & Global Citizenship",
+  "health-male": "Health - Male",
+  "health-female": "Health - Female",
+  sustainability: "Sustainability"
+};
+
+const buildBadgeAchievement = (game) => {
+  const earnedAt = game.firstCompletedAt || game.updatedAt || new Date();
+  const gameId = game.gameId || "";
+  const ageGroup = gameId.includes("kids")
+    ? "Kids"
+    : gameId.includes("teen")
+      ? "Teen"
+      : "Unknown";
+
+  return {
+    id: game._id,
+    badgeName: game.badgeName || "Badge Earned",
+    badgeImage: game.badgeImage || null,
+    earnedAt,
+    gameId: game.gameId,
+    gameType: game.gameType,
+    ageGroup,
+    pillarName: pillarNameMap[game.gameType] || "Unknown"
+  };
+};
+
 /**
  * Socket handler for achievement real-time interactions
  * Enables students to receive real-time achievement updates
@@ -19,25 +58,13 @@ export const setupAchievementSocket = (io, socket, user) => {
       // Join student-specific room for achievement updates
       socket.join(`student-achievements-${studentId}`);
       
-      // Send initial achievement timeline
-      const gameProgress = await UnifiedGameProgress.find({ userId: studentId });
+      // Send initial achievement timeline (badge awards)
+      const badgeProgress = await UnifiedGameProgress.find({
+        userId: studentId,
+        badgeAwarded: true
+      }).select("gameId gameType badgeName badgeImage updatedAt firstCompletedAt");
 
-      const achievements = [];
-      gameProgress.forEach(game => {
-        if (game.achievements && game.achievements.length > 0) {
-          game.achievements.forEach(achievement => {
-            achievements.push({
-              id: achievement._id,
-              name: achievement.name,
-              description: achievement.description,
-              badge: achievement.badge || 'bronze',
-              earnedAt: achievement.earnedAt || new Date(),
-              gameId: game.gameId,
-              gameType: game.gameType
-            });
-          });
-        }
-      });
+      const achievements = badgeProgress.map(buildBadgeAchievement);
 
       // Sort by date (most recent first)
       achievements.sort((a, b) => new Date(b.earnedAt) - new Date(a.earnedAt));
@@ -70,12 +97,11 @@ export const emitAchievementEarned = (io, userId, achievement, gameInfo = {}) =>
     userId: userId.toString(),
     achievement: {
       id: achievement._id || achievement.id,
-      name: achievement.name,
-      description: achievement.description,
-      badge: achievement.badge || 'bronze',
+      badgeName: achievement.badgeName || achievement.name || "Badge Earned",
+      badgeImage: achievement.badgeImage || achievement.icon || null,
       earnedAt: achievement.earnedAt || new Date(),
-      gameId: gameInfo.gameId || null,
-      gameType: gameInfo.gameType || null
+      gameId: gameInfo.gameId || achievement.gameId || null,
+      gameType: gameInfo.gameType || achievement.gameType || null
     },
     timestamp: new Date()
   };
@@ -86,6 +112,17 @@ export const emitAchievementEarned = (io, userId, achievement, gameInfo = {}) =>
   // Also emit to the user's general room for dashboard updates
   io.to(userId.toString()).emit('achievement:earned', achievementData);
   
-  console.log(`🎉 Achievement earned event emitted for user ${userId}: ${achievement.name}`);
+  console.log(`dYZ% Achievement earned event emitted for user ${userId}`);
 };
 
+export const emitBadgeEarned = (io, userId, gameProgress) => {
+  const achievement = buildBadgeAchievement(gameProgress);
+  const payload = {
+    userId: userId.toString(),
+    achievement,
+    timestamp: new Date()
+  };
+
+  io.to(`student-achievements-${userId}`).emit('achievement:earned', payload);
+  io.to(userId.toString()).emit('achievement:earned', payload);
+};
