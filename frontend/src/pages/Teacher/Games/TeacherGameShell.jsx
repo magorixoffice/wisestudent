@@ -67,7 +67,7 @@ export const TeacherGameOverModal = ({
     if (location.state?.returnPath) {
       return location.state.returnPath;
     }
-    return "/school-teacher/games/teacher-education";
+    return "/school-teacher/games/mental-health-emotional-regulation";
   }, [location.state]);
 
   const handleGameOverClose = async () => {
@@ -211,7 +211,7 @@ const TeacherGameShell = ({
     if (location.state?.returnPath) {
       return location.state.returnPath;
     }
-    return "/school-teacher/games/teacher-education";
+    return "/school-teacher/games/mental-health-emotional-regulation";
   }, [backPathProp, location.pathname, location.state]);
 
   const handleGameOverClose = async () => {

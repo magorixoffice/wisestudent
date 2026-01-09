@@ -9,7 +9,14 @@ const teacherGameCategories = {
   'teacher-education': {
     games: teacherEducationGames,
     getGame: getTeacherEducationGame,
-    title: 'Teacher Education',
+    title: 'Mental Health & Emotional Regulation',
+    icon: '📚',
+    color: 'from-purple-600 to-indigo-700'
+  },
+  'mental-health-emotional-regulation': {
+    games: teacherEducationGames,
+    getGame: getTeacherEducationGame,
+    title: 'Mental Health & Emotional Regulation',
     icon: '📚',
     color: 'from-purple-600 to-indigo-700'
   },

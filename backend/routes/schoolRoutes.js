@@ -188,6 +188,21 @@ import {
   getTeacherGameProgress,
   unlockTeacherGameReplay
 } from '../controllers/teacherGameController.js';
+import {
+  getSelfAwareTeacherBadgeStatus,
+  collectSelfAwareTeacherBadgeEndpoint,
+  getTeacherBadges,
+  getCalmTeacherBadgeStatus,
+  collectCalmTeacherBadgeEndpoint,
+  getCompassionBalanceBadgeStatus,
+  collectCompassionBalanceBadgeEndpoint,
+  checkBalancedLifeBadgeStatus,
+  collectBalancedLifeBadge,
+  checkMindfulMasteryBadgeStatus,
+  collectMindfulMasteryBadge,
+  getMindfulMasteryBadgeStatus,
+  collectMindfulMasteryBadgeEndpoint
+} from '../controllers/teacherBadgeController.js';
 import multer from 'multer';
 
 // Configure multer for CSV upload
@@ -444,5 +459,69 @@ router.get('/teacher/game/progress/:gameId', requireAuth, requireSchoolRole, get
 
 // POST /api/school/teacher/game/unlock-replay/:gameId - Unlock replay for teacher game
 router.post('/teacher/game/unlock-replay/:gameId', requireAuth, requireSchoolRole, unlockTeacherGameReplay);
+
+// Teacher Badge Routes
+// GET /api/school/teacher/badge/self-aware-teacher - Get Self-Aware Teacher Badge status
+router.get('/teacher/badge/self-aware-teacher', requireAuth, requireSchoolRole, getSelfAwareTeacherBadgeStatus);
+
+// POST /api/school/teacher/badge/self-aware-teacher/collect - Collect Self-Aware Teacher Badge
+router.post('/teacher/badge/self-aware-teacher/collect', requireAuth, requireSchoolRole, collectSelfAwareTeacherBadgeEndpoint);
+
+// GET /api/school/teacher/badge/calm-teacher - Get Calm Teacher Badge status
+router.get('/teacher/badge/calm-teacher', requireAuth, requireSchoolRole, getCalmTeacherBadgeStatus);
+
+// POST /api/school/teacher/badge/calm-teacher/collect - Collect Calm Teacher Badge
+router.post('/teacher/badge/calm-teacher/collect', requireAuth, requireSchoolRole, collectCalmTeacherBadgeEndpoint);
+
+// GET /api/school/teacher/badge/compassion-balance - Get Compassion Balance Badge status
+router.get('/teacher/badge/compassion-balance', requireAuth, requireSchoolRole, getCompassionBalanceBadgeStatus);
+
+// POST /api/school/teacher/badge/compassion-balance/collect - Collect Compassion Balance Badge
+router.post('/teacher/badge/compassion-balance/collect', requireAuth, requireSchoolRole, collectCompassionBalanceBadgeEndpoint);
+
+// GET /api/school/teacher/badge/balanced-life - Get Balanced Life Badge status
+router.get('/teacher/badge/balanced-life', requireAuth, requireSchoolRole, async (req, res) => {
+  try {
+    const userId = req.user._id;
+    const result = await checkBalancedLifeBadgeStatus(userId);
+    res.json({ success: true, ...result });
+  } catch (error) {
+    console.error('Error getting Balanced Life Badge status:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Failed to get badge status',
+      message: error.message
+    });
+  }
+});
+
+// POST /api/school/teacher/badge/balanced-life/collect - Collect Balanced Life Badge
+router.post('/teacher/badge/balanced-life/collect', requireAuth, requireSchoolRole, async (req, res) => {
+  try {
+    const userId = req.user._id;
+    const result = await collectBalancedLifeBadge(userId);
+    if (result.success) {
+      res.json({ success: true, ...result });
+    } else {
+      res.status(400).json({ success: false, ...result });
+    }
+  } catch (error) {
+    console.error('Error collecting Balanced Life Badge:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Failed to collect badge',
+      message: error.message
+    });
+  }
+});
+
+// GET /api/school/teacher/badge/mindful-mastery - Get Mindful Mastery Badge status
+router.get('/teacher/badge/mindful-mastery', requireAuth, requireSchoolRole, getMindfulMasteryBadgeStatus);
+
+// POST /api/school/teacher/badge/mindful-mastery/collect - Collect Mindful Mastery Badge
+router.post('/teacher/badge/mindful-mastery/collect', requireAuth, requireSchoolRole, collectMindfulMasteryBadgeEndpoint);
+
+// GET /api/school/teacher/badges - Get all teacher badges
+router.get('/teacher/badges', requireAuth, requireSchoolRole, getTeacherBadges);
 
 export default router;

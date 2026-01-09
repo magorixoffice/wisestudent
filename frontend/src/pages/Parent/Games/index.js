@@ -9,7 +9,14 @@ const parentGameCategories = {
   'parent-education': {
     games: parentEducationGames,
     getGame: getParentEducationGame,
-    title: 'Parent Education',
+    title: 'Mental Health & Emotional Regulation',
+    icon: '📚',
+    color: 'from-blue-600 to-indigo-700'
+  },
+  'mental-health-emotional-regulation': {
+    games: parentEducationGames,
+    getGame: getParentEducationGame,
+    title: 'Mental Health & Emotional Regulation',
     icon: '📚',
     color: 'from-blue-600 to-indigo-700'
   },

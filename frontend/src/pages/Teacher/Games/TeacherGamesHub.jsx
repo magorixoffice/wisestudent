@@ -12,7 +12,7 @@ const TeacherGamesHub = () => {
 
   const gameCategories = [
     {
-      id: 'teacher-education',
+      id: 'mental-health-emotional-regulation',
       title: 'Mental Health & Emotional Regulation',
       description: 'Core self-awareness and stress balance for teachers.',
       icon: <Brain className="w-8 h-8" />,
@@ -20,7 +20,7 @@ const TeacherGamesHub = () => {
       hoverGradient: 'from-indigo-500 via-purple-500 to-pink-500',
       bgGradient: 'from-indigo-50 via-purple-50 to-pink-50',
       borderColor: 'border-indigo-200',
-      gamesCount: 2,
+      gamesCount: 19,
       emoji: '🧠'
     },
     // Future categories can be added here
