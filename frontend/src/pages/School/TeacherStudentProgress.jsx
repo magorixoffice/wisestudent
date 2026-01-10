@@ -127,7 +127,7 @@ const TeacherStudentProgress = () => {
             animate={{ opacity: 1, y: 0 }}
             className="space-y-2"
           >
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent leading-tight">
               Student Progress Report
             </h1>
             <p className="text-slate-600 text-lg font-medium">
@@ -157,15 +157,19 @@ const TeacherStudentProgress = () => {
         </div>
 
         {/* Detailed Progress & Wallet */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-[7fr_3fr] gap-6 mb-8">
           <DetailedProgressReportCard progressReport={analytics?.detailedProgressReport} />
-          <WalletRewardsCard walletRewards={analytics?.walletRewards} />
+          <WalletRewardsCard
+            walletRewards={analytics?.walletRewards}
+            onViewDetails={() => navigate(`/school-teacher/student/${studentId}/wallet`)}
+          />
         </div>
 
         {/* Digital Twin Growth & Skills Distribution */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+        <div className="grid grid-cols-1 gap-6 mb-8">
           <DigitalTwinGrowthCard 
             digitalTwinData={analytics?.digitalTwinData} 
+            skillsDistribution={analytics?.skillsDistribution}
           />
           <SkillsDistributionCard 
             skillsDistribution={analytics?.skillsDistribution} 
@@ -175,12 +179,6 @@ const TeacherStudentProgress = () => {
         {/* Mood Summary with Conversation Prompts */}
         <div className="mb-8">
           <MoodWithPromptsCard moodSummary={analytics?.moodSummary} />
-        </div>
-
-        {/* Activity Timeline & Home Support Plan */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          <ActivityTimelineCard activityTimeline={analytics?.activityTimeline || []} />
-          <HomeSupportPlanCard supportPlan={analytics?.homeSupportPlan || []} />
         </div>
 
         {/* Messages/Notifications */}

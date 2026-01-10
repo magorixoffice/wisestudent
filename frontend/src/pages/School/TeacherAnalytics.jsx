@@ -24,7 +24,6 @@ import {
   Activity,
   ArrowRight,
   Plus,
-  Mail,
   RefreshCw,
   Loader2,
 } from "lucide-react";
@@ -46,6 +45,7 @@ const TeacherAnalytics = () => {
   const [leaderboard, setLeaderboard] = useState([]);
   const [selectedTimeRange, setSelectedTimeRange] = useState("week");
   const [selectedClass, setSelectedClass] = useState("all");
+  const [exportFormat, setExportFormat] = useState("pdf");
   const [classes, setClasses] = useState([]);
   const [showInviteStudents, setShowInviteStudents] = useState(false);
   const [showNewAssignment, setShowNewAssignment] = useState(false);
@@ -159,22 +159,43 @@ const TeacherAnalytics = () => {
       const params = {
         timeRange: selectedTimeRange,
         classId: selectedClass !== "all" ? selectedClass : undefined,
-        format: 'json'
+        format: exportFormat
       };
 
-      const response = await api.get("/api/school/teacher/analytics/export", { params });
+      if (exportFormat === "pdf") {
+        const response = await api.get("/api/school/teacher/analytics/export", {
+          params,
+          responseType: "blob",
+        });
 
-      // Convert JSON response to blob for download
-      const jsonStr = JSON.stringify(response.data, null, 2);
-      const blob = new Blob([jsonStr], { type: 'application/json' });
-      const url = window.URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.setAttribute('download', `analytics-report-${selectedTimeRange}-${new Date().toISOString().split('T')[0]}.json`);
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-      window.URL.revokeObjectURL(url);
+        const blob = new Blob([response.data], { type: "application/pdf" });
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute(
+          "download",
+          `analytics-report-${selectedTimeRange}-${new Date().toISOString().split("T")[0]}.pdf`
+        );
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        window.URL.revokeObjectURL(url);
+      } else {
+        const response = await api.get("/api/school/teacher/analytics/export", { params });
+        const jsonStr = JSON.stringify(response.data, null, 2);
+        const blob = new Blob([jsonStr], { type: "application/json" });
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute(
+          "download",
+          `analytics-report-${selectedTimeRange}-${new Date().toISOString().split("T")[0]}.json`
+        );
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        window.URL.revokeObjectURL(url);
+      }
 
       toast.success("Report exported successfully!", { id: 'export' });
     } catch (error) {
@@ -269,13 +290,6 @@ const TeacherAnalytics = () => {
                   <Plus className="w-4 h-4" />
                   Create Assignment
                 </button>
-                <button
-                  onClick={() => navigate("/school-teacher/messages")}
-                  className="px-4 py-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-lg text-white text-sm font-medium transition-all flex items-center gap-2 border border-white/20 hover:border-white/30"
-                >
-                  <Mail className="w-4 h-4" />
-                  View Messages
-                </button>
               </div>
             </div>
           </div>
@@ -318,16 +332,28 @@ const TeacherAnalytics = () => {
             </div>
           </div>
 
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={handleExportReport}
-            disabled={loading}
-            className="px-6 py-2 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-all flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            <Download className="w-5 h-5" />
-            Export Report
-          </motion.button>
+          <div className="flex items-center gap-3">
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={handleExportReport}
+              disabled={loading}
+              className="px-6 py-2 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-all flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              Export Report
+              <Download className="w-5 h-5" />
+              <select
+                value={exportFormat}
+                onChange={(e) => setExportFormat(e.target.value)}
+                onClick={(e) => e.stopPropagation()}
+                className="rounded-full bg-white/20 text-white text-xs px-3 py-1 border border-white/30 shadow-sm focus:outline-none focus:ring-2 focus:ring-white/40"
+                aria-label="Export format"
+              >
+                <option value="pdf" className="text-slate-900">PDF</option>
+                <option value="json" className="text-slate-900">JSON</option>
+              </select>
+            </motion.button>
+          </div>
         </motion.div>
 
         {/* Main Analytics Grid */}
@@ -438,21 +464,7 @@ const TeacherAnalytics = () => {
                   </div>
                 </div>
 
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-semibold text-slate-700 flex items-center gap-2">
-                      <BookOpen className="w-4 h-4 text-indigo-500" />
-                      Lessons
-                    </span>
-                    <span className="text-sm font-bold">{sessionEngagement.lessons || 0}%</span>
-                  </div>
-                  <div className="w-full bg-slate-200 rounded-full h-3">
-                    <div
-                      className="h-full rounded-full bg-indigo-600"
-                      style={{ width: `${sessionEngagement.lessons || 0}%` }}
-                    />
-                  </div>
-                </div>
+                
               </div>
             </div>
           </motion.div>
@@ -470,12 +482,6 @@ const TeacherAnalytics = () => {
               <AlertCircle className="w-5 h-5 text-indigo-600" />
               Students Requiring Attention
             </h2>
-            <button
-              onClick={() => navigate("/school-teacher/students")}
-              className="text-indigo-600 hover:text-indigo-700 font-medium flex items-center gap-1.5 text-sm"
-            >
-              View All <ArrowRight className="w-4 h-4" />
-            </button>
           </div>
 
           {studentsAtRisk.length === 0 ? (
@@ -575,10 +581,6 @@ const TeacherAnalytics = () => {
                     <div className="flex items-center gap-1 mb-1">
                       <Zap className="w-4 h-4 text-amber-500" />
                       <span className="font-bold text-amber-600">{student.healCoins}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <span className="text-orange-500">🔥</span>
-                      <span className="font-bold text-orange-600">{student.streak}</span>
                     </div>
                   </div>
                 </motion.div>

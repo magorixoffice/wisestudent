@@ -19,6 +19,7 @@ const ParentChildAnalytics = () => {
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [exporting, setExporting] = useState(false);
+  const [exportFormat, setExportFormat] = useState('pdf');
   const [dateRange, setDateRange] = useState({
     startDate: '',
     endDate: ''
@@ -54,11 +55,35 @@ const ParentChildAnalytics = () => {
   const handleExport = async () => {
     try {
       setExporting(true);
+      if (exportFormat === 'pdf') {
+        const response = await api.post(
+          `/api/parent/child/${childId}/report`,
+          {
+            format: 'pdf',
+            type: 'analytics',
+            analytics
+          },
+          { responseType: 'blob' }
+        );
+
+        const blob = new Blob([response.data], { type: 'application/pdf' });
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `analytics-report-${childId}-${new Date().toISOString().split('T')[0]}.pdf`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(url);
+        toast.success('Report downloaded successfully');
+        return;
+      }
+
       const response = await api.post(`/api/parent/child/${childId}/report`, {
         format: 'json',
         type: 'analytics'
       });
-      
+
       // Create a JSON report file with all analytics data
       const reportData = {
         ...response.data.reportData,
@@ -72,7 +97,7 @@ const ParentChildAnalytics = () => {
           homeSupportPlan: analytics?.homeSupportPlan
         }
       };
-      
+
       const jsonString = JSON.stringify(reportData, null, 2);
       const blob = new Blob([jsonString], { type: 'application/json' });
       const url = window.URL.createObjectURL(blob);
@@ -211,10 +236,21 @@ const ParentChildAnalytics = () => {
                 <button
                   onClick={handleExport}
                   disabled={exporting || loading}
-                  className="p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-colors disabled:opacity-50"
+                  className="px-4 py-2 text-sm font-medium text-white/90 hover:text-white bg-white/10 hover:bg-white/20 rounded-lg transition-colors flex items-center gap-2 disabled:opacity-50"
                   title="Export Report"
                 >
+                  Export Report
                   <Download className={`w-4 h-4 ${exporting ? 'animate-pulse' : ''}`} />
+                  <select
+                    value={exportFormat}
+                    onChange={(e) => setExportFormat(e.target.value)}
+                    onClick={(e) => e.stopPropagation()}
+                    className="rounded-full bg-white/20 text-white text-xs px-3 py-1 border border-white/30 shadow-sm focus:outline-none focus:ring-2 focus:ring-white/40"
+                    aria-label="Export format"
+                  >
+                    <option value="pdf" className="text-slate-900">PDF</option>
+                    <option value="json" className="text-slate-900">JSON</option>
+                  </select>
                 </button>
               </div>
             </div>

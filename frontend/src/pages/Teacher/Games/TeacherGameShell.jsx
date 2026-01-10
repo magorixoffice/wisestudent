@@ -94,7 +94,7 @@ export const TeacherGameOverModal = ({
         )}
         {!allAnswersCorrect && submissionComplete && (
           <p className="text-orange-600 font-semibold mb-4">
-            Answer all {totalLevels} questions correctly to earn CalmCoins! 💪
+            Answer all {totalLevels} questions correctly to earn Healcoins! 💪
           </p>
         )}
 
@@ -107,25 +107,25 @@ export const TeacherGameOverModal = ({
           <div className="mb-6">
             {calmCoinsEarned > 0 && (
               <div className="bg-gradient-to-r from-purple-100 to-indigo-100 rounded-2xl p-4 mb-4">
-                <h3 className="text-xl font-bold text-purple-700 mb-2">💰 CalmCoins Earned!</h3>
+                <h3 className="text-xl font-bold text-purple-700 mb-2">💰 Healcoins Earned!</h3>
                 <p className="text-3xl font-black text-purple-600">+{calmCoinsEarned}</p>
               </div>
             )}
             {calmCoinsEarned === 0 && submissionComplete && !allAnswersCorrect && (
               <div className="bg-gradient-to-r from-orange-100 to-yellow-100 rounded-2xl p-4 mb-4">
-                <h3 className="text-xl font-bold text-orange-700 mb-2">💰 CalmCoins Earned</h3>
+                <h3 className="text-xl font-bold text-orange-700 mb-2">💰 Healcoins Earned</h3>
                 <p className="text-3xl font-black text-orange-600">+{calmCoinsEarned}</p>
                 <p className="text-sm text-orange-700 mt-2 font-semibold">
-                  Answer all questions correctly to earn CalmCoins!
+                  Answer all questions correctly to earn Healcoins!
                 </p>
               </div>
             )}
             {calmCoinsEarned === 0 && submissionComplete && allAnswersCorrect && (
               <div className="bg-gradient-to-r from-gray-100 to-gray-200 rounded-2xl p-4 mb-4">
-                <h3 className="text-xl font-bold text-gray-700 mb-2">💰 CalmCoins Earned</h3>
+                <h3 className="text-xl font-bold text-gray-700 mb-2">💰 Healcoins Earned</h3>
                 <p className="text-3xl font-black text-gray-600">+{calmCoinsEarned}</p>
                 <p className="text-sm text-gray-600 mt-2">
-                  You've already earned all CalmCoins for this game.
+                  You've already earned all Healcoins for this game.
                 </p>
               </div>
             )}
@@ -239,7 +239,7 @@ const TeacherGameShell = ({
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2 bg-purple-50 backdrop-blur-md px-4 py-2 rounded-lg border border-purple-200">
             <span className="text-purple-700 font-semibold">
-              CalmCoins: {wallet?.balance || 0}
+              Healcoins: {wallet?.balance || 0}
             </span>
           </div>
         </div>

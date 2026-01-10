@@ -12,7 +12,7 @@ const StudentActionsMenu = ({
   onRemoveFromClass 
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [menuPosition, setMenuPosition] = useState({ top: 0, right: 0 });
+  const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0 });
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
 
@@ -29,10 +29,22 @@ const StudentActionsMenu = ({
       const updatePosition = () => {
         if (buttonRef.current) {
           const rect = buttonRef.current.getBoundingClientRect();
-          setMenuPosition({
-            top: rect.bottom + 8,
-            right: window.innerWidth - rect.right,
-          });
+          const menuWidth = 224;
+          const menuHeight = 36 + actions.length * 44 + 16;
+          const viewportPadding = 8;
+          const viewportWidth = window.innerWidth;
+          const viewportHeight = window.innerHeight;
+
+          let top = rect.bottom + viewportPadding;
+          if (top + menuHeight > viewportHeight - viewportPadding) {
+            top = rect.top - menuHeight - viewportPadding;
+          }
+          top = Math.max(viewportPadding, top);
+
+          let left = rect.right - menuWidth;
+          left = Math.min(viewportWidth - menuWidth - viewportPadding, Math.max(viewportPadding, left));
+
+          setMenuPosition({ top, left });
         }
       };
       updatePosition();
@@ -137,7 +149,7 @@ const StudentActionsMenu = ({
               style={{
                 width: '224px',
                 top: `${menuPosition.top}px`,
-                right: `${menuPosition.right}px`,
+                left: `${menuPosition.left}px`,
               }}
             >
               {/* Header */}

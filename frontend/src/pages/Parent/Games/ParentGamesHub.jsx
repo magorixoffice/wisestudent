@@ -4,11 +4,13 @@ import { BookOpen, ArrowRight, Gamepad2, Sparkles, Heart, Brain } from "lucide-r
 import { motion } from "framer-motion";
 import { useWallet } from "../../../context/WalletContext";
 import { useAuth } from "../../../hooks/useAuth";
+import { getAllParentEducationGames } from "./ParentEducation/data/gameData";
 
 const ParentGamesHub = () => {
   const navigate = useNavigate();
   const { wallet } = useWallet();
   const { user } = useAuth();
+  const parentEducationGames = getAllParentEducationGames();
 
   const gameCategories = [
     {
@@ -20,7 +22,7 @@ const ParentGamesHub = () => {
       hoverGradient: 'from-purple-400 via-pink-400 to-rose-400',
       bgGradient: 'from-purple-50 via-pink-50 to-rose-50',
       borderColor: 'border-purple-200',
-      gamesCount: 100,
+      gamesCount: parentEducationGames.length,
       emoji: '🧠'
     },
     // Future categories can be added here

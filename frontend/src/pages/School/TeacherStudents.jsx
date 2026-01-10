@@ -370,7 +370,7 @@ const TeacherStudents = () => {
               <Motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={() => setShowInviteStudents(true)}
+                onClick={handleInviteStudentsClick}
                 className="px-4 py-2 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-all flex items-center gap-2"
               >
                 <UserPlus className="w-4 h-4" />

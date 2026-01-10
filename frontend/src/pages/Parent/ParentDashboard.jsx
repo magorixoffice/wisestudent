@@ -1988,10 +1988,11 @@ export const DetailedProgressReportCard = ({ progressReport }) => {
 };
 
 // Wallet & Rewards Component
-export const WalletRewardsCard = ({ walletRewards }) => {
+export const WalletRewardsCard = ({ walletRewards, onViewDetails }) => {
   if (!walletRewards) return null;
 
   const { currentHealCoins, recentRedemptions, totalValueSaved } = walletRewards;
+  const hasViewDetails = typeof onViewDetails === 'function';
 
   return (
     <motion.div
@@ -1999,10 +2000,12 @@ export const WalletRewardsCard = ({ walletRewards }) => {
       animate={{ opacity: 1, y: 0 }}
       className="bg-white rounded-xl border border-slate-200 shadow-sm p-6"
     >
-      <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
-        <Award className="w-5 h-5 text-indigo-600" />
-        Wallet & Rewards
-      </h3>
+      <div className="flex items-center justify-between mb-4">
+        <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+          <Award className="w-5 h-5 text-indigo-600" />
+          Wallet & Rewards
+        </h3>
+      </div>
 
       {/* Current HealCoins */}
       <div className="mb-4">
@@ -2052,6 +2055,18 @@ export const WalletRewardsCard = ({ walletRewards }) => {
         <p className="flex justify-center text-2xl font-bold text-emerald-600 mb-1">₹{totalValueSaved}</p>
         <p className="flex justify-center text-xs font-medium text-emerald-700">Total Value Saved This Month</p>
       </motion.div>
+
+      {hasViewDetails && (
+        <motion.button
+          type="button"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          onClick={onViewDetails}
+          className="mt-4 w-full rounded-xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 py-3 text-sm font-bold text-white shadow-lg transition-all hover:shadow-xl"
+        >
+          View in Detail
+        </motion.button>
+      )}
     </motion.div>
   );
 };

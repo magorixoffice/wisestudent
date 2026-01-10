@@ -159,11 +159,11 @@ import SchoolParentDashboard from "./pages/School/SchoolParentDashboard";
 import TeacherOverview from "./pages/School/TeacherOverview";
 import TeacherStudents from "./pages/School/TeacherStudents";
 import TeacherAnalytics from "./pages/School/TeacherAnalytics";
-import TeacherMessages from "./pages/School/TeacherMessages";
 import TeacherTasks from "./pages/School/TeacherTasks";
 import TeacherChatContacts from "./pages/School/TeacherChatContacts";
 import TeacherSettings from "./pages/School/TeacherSettings";
 import TeacherStudentProgress from "./pages/School/TeacherStudentProgress";
+import TeacherStudentWalletRewards from "./pages/School/TeacherStudentWalletRewards";
 import TeacherParentChat from "./pages/School/TeacherParentChat";
 import TeacherStudentChat from "./pages/School/TeacherStudentChat";
 import SchoolStudentChat from "./pages/School/SchoolStudentChat";
@@ -302,13 +302,13 @@ const App = () => {
       if (pathname === "/school-teacher/dashboard") return "Teacher Dashboard";
       if (pathname === "/school-teacher/students") return "My Students";
       if (pathname === "/school-teacher/analytics") return "Teacher Analytics";
-      if (pathname === "/school-teacher/messages") return "Messages";
       if (pathname === "/school-teacher/chat-contacts") return "Chat Contacts";
       if (pathname === "/school-teacher/announcements") return "Announcements";
       if (pathname === "/school-teacher/tasks") return "Tasks";
       if (pathname === "/school-teacher/tracking") return "Assignment Tracking";
       if (pathname === "/school-teacher/settings") return "Teacher Settings";
       if (pathname === "/school_teacher/settings") return "Teacher Settings";
+      if (pathname.startsWith("/school-teacher/student/") && pathname.includes("/wallet")) return "Student Wallet";
       if (pathname.startsWith("/school-teacher/student/")) return "Student Progress";
       if (pathname.startsWith("/school-teacher/student-chat/")) return "Student Chat";
       if (pathname.startsWith("/school-teacher/student/") && pathname.includes("/parent-chat")) return "Parent Chat";
@@ -767,14 +767,6 @@ const App = () => {
             }
           />
           <Route
-            path="/school-teacher/messages"
-            element={
-              <TeacherProtectedRoute>
-                <TeacherMessages />
-              </TeacherProtectedRoute>
-            }
-          />
-          <Route
             path="/school-teacher/chat-contacts"
             element={
               <TeacherProtectedRoute>
@@ -827,6 +819,14 @@ const App = () => {
             element={
               <TeacherProtectedRoute>
                 <TeacherStudentProgress />
+              </TeacherProtectedRoute>
+            }
+          />
+          <Route
+            path="/school-teacher/student/:studentId/wallet"
+            element={
+              <TeacherProtectedRoute>
+                <TeacherStudentWalletRewards />
               </TeacherProtectedRoute>
             }
           />

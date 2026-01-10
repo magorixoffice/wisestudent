@@ -23,9 +23,7 @@ import {
   Target,
   Trophy,
   Activity,
-  Mail,
   Send,
-  MessageSquare,
   Grid,
   List,
   Flag,
@@ -102,7 +100,6 @@ const SchoolTeacherDashboard = () => {
   const [filterGrade, setFilterGrade] = useState("all");
   const [filterSection, setFilterSection] = useState("all");
   const [filterFlagged, setFilterFlagged] = useState(false);
-  const [messages, setMessages] = useState([]);
   const [classMissions, setClassMissions] = useState({});
   const [teacherProfile, setTeacherProfile] = useState(null);
 
@@ -179,7 +176,6 @@ const SchoolTeacherDashboard = () => {
         engagementRes,
         pendingRes,
         leaderboardRes,
-        messagesRes,
         missionsRes,
         profileRes,
       ] = await Promise.all([
@@ -192,9 +188,6 @@ const SchoolTeacherDashboard = () => {
         api.get("/api/school/teacher/session-engagement"),
         api.get("/api/school/teacher/pending-tasks"),
         api.get("/api/school/teacher/leaderboard"),
-        api
-          .get("/api/school/teacher/messages")
-          .catch(() => ({ data: { messages: [] } })),
         api
           .get("/api/school/teacher/class-missions")
           .catch(() => ({ data: {} })),
@@ -214,7 +207,6 @@ const SchoolTeacherDashboard = () => {
       setSessionEngagement(engagementRes.data);
       setPendingTasks(pendingRes.data.tasks || []);
       setLeaderboard(leaderboardRes.data.leaderboard || []);
-      setMessages(messagesRes.data.messages || []);
       setClassMissions(missionsRes.data);
       setTeacherProfile(profileRes.data);
     } catch (error) {
@@ -880,64 +872,6 @@ const SchoolTeacherDashboard = () => {
                   Create Mission
                 </span>
               </motion.button>
-            </div>
-          </motion.div>
-
-          {/* Inbox */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.1 }}
-            className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200"
-          >
-            <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <Mail className="w-5 h-5 text-purple-600" />
-              Inbox
-              {messages.length > 0 && (
-                <span className="px-2 py-0.5 bg-red-500 text-white text-xs font-bold rounded-full">
-                  {messages.length}
-                </span>
-              )}
-            </h3>
-            <div className="space-y-2 max-h-60 overflow-y-auto">
-              {messages.length === 0 ? (
-                <div className="text-center py-8 text-gray-400">
-                  <MessageSquare className="w-12 h-12 mx-auto mb-2" />
-                  <p className="text-sm">No new messages</p>
-                </div>
-              ) : (
-                messages.map((msg, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: idx * 0.05 }}
-                    whileHover={{ scale: 1.02 }}
-                    className="p-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg border border-purple-200 cursor-pointer"
-                  >
-                    <div className="flex items-start gap-2">
-                      <div
-                        className={`w-2 h-2 rounded-full mt-1.5 ${
-                          msg.read
-                            ? "bg-gray-300"
-                            : "bg-purple-500 animate-pulse"
-                        }`}
-                      />
-                      <div className="flex-1">
-                        <p className="font-semibold text-sm text-gray-900">
-                          {msg.subject || "Message"}
-                        </p>
-                        <p className="text-xs text-gray-600 line-clamp-2">
-                          {msg.message}
-                        </p>
-                        <p className="text-xs text-gray-400 mt-1">
-                          {msg.time || "Just now"}
-                        </p>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))
-              )}
             </div>
           </motion.div>
 

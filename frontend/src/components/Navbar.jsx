@@ -116,9 +116,8 @@ const Navbar = () => {
     ] : user?.role === "school_teacher" ? [
         { icon: <Users className="w-5 h-5" />, label: "Students", onClick: () => navigate("/school-teacher/students") },
         { icon: <BarChart3 className="w-5 h-5" />, label: "Analytics", onClick: () => navigate("/school-teacher/analytics") },
-        { icon: <Gamepad2 className="w-5 h-5" />, label: "Games", onClick: () => navigate("/school-teacher/games") },
+        { icon: <Gamepad2 className="w-5 h-5" />, label: "Module", onClick: () => navigate("/school-teacher/games") },
         { icon: <Bell className="w-5 h-5" />, label: "Announcements", onClick: () => navigate("/school-teacher/announcements") },
-        { icon: <Mail className="w-5 h-5" />, label: "Messages", onClick: () => navigate("/school-teacher/messages") },
         { icon: <CheckCircle className="w-5 h-5" />, label: "Tasks", onClick: () => navigate("/school-teacher/tasks") },
         
     ] : user?.role === "school_parent" ? [

@@ -235,7 +235,7 @@ const TeacherGameCategoryPage = () => {
     // Check if game needs replay unlock
     if (isFullyCompleted && !canReplay) {
       toast.error(
-        `This game is locked. Unlock replay for ${replayCost} CalmCoins to play again.`,
+        `This game is locked. Unlock replay for ${replayCost} Healcoins to play again.`,
         {
           duration: 4000,
           position: "bottom-center",
@@ -282,7 +282,7 @@ const TeacherGameCategoryPage = () => {
     // Check wallet balance before proceeding
     if (!wallet || wallet.balance < replayCost) {
       toast.error(
-        `Insufficient balance! You need ${replayCost} CalmCoins to unlock replay.`,
+        `Insufficient balance! You need ${replayCost} Healcoins to unlock replay.`,
         {
           duration: 4000,
           position: "bottom-center",
@@ -589,7 +589,7 @@ const TeacherGameCategoryPage = () => {
                   <div className="flex items-center gap-2">
                     <Sparkles className="w-5 h-5 text-white" />
                     <span className="text-white font-bold text-lg">
-                      {wallet?.balance || 0} CalmCoins
+                      {wallet?.balance || 0} Healcoins
                     </span>
                   </div>
                 </motion.div>
@@ -897,11 +897,11 @@ const TeacherGameCategoryPage = () => {
             <div className="bg-gray-50 rounded-xl p-4 mb-4 space-y-2">
               <div className="flex justify-between items-center">
                 <span className="text-gray-700 font-medium">Cost:</span>
-                <span className="text-purple-600 font-bold">{getReplayCostForGame(getGameIndexFromId(selectedGameForReplay.id))} CalmCoins</span>
+                <span className="text-purple-600 font-bold">{getReplayCostForGame(getGameIndexFromId(selectedGameForReplay.id))} Healcoins</span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-gray-700 font-medium">Your Balance:</span>
-                <span className="text-gray-900 font-bold">{wallet?.balance || 0} CalmCoins</span>
+                <span className="text-gray-900 font-bold">{wallet?.balance || 0} Healcoins</span>
               </div>
             </div>
 

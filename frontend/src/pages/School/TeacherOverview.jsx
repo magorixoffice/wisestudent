@@ -19,7 +19,6 @@ import {
   Loader2,
   TrendingDown,
   Target,
-  MessageSquare,
   RefreshCw,
 } from "lucide-react";
 import api from "../../utils/api";
@@ -37,7 +36,6 @@ const TeacherOverview = () => {
   const [studentsAtRisk, setStudentsAtRisk] = useState([]);
   const [leaderboard, setLeaderboard] = useState([]);
   const [pendingTasks, setPendingTasks] = useState([]);
-  const [messages, setMessages] = useState([]);
   const [teacherProfile, setTeacherProfile] = useState(null);
   const [classMastery, setClassMastery] = useState({});
   const [sessionEngagement, setSessionEngagement] = useState({});
@@ -280,7 +278,6 @@ const TeacherOverview = () => {
         atRiskRes,
         leaderboardRes,
         pendingRes,
-        messagesRes,
         profileRes,
         masteryRes,
         engagementRes,
@@ -305,7 +302,6 @@ const TeacherOverview = () => {
           console.error("Error fetching pending tasks:", err);
           return { data: { tasks: [] } };
         }),
-        api.get("/api/school/teacher/messages").catch(() => ({ data: { messages: [] } })),
         api.get("/api/user/profile").catch(() => ({ data: null })),
         api.get("/api/school/teacher/class-mastery").catch((err) => {
           console.error("Error fetching class mastery:", err);
@@ -323,7 +319,6 @@ const TeacherOverview = () => {
       setStudentsAtRisk(atRiskRes.data?.students || []);
       setLeaderboard(leaderboardRes.data?.leaderboard || []);
       setPendingTasks(pendingRes.data?.tasks || []);
-      setMessages(messagesRes.data?.messages || []);
       setTeacherProfile(profileRes.data);
       setClassMastery(masteryRes.data || {});
       setSessionEngagement(engagementRes.data || {
@@ -702,8 +697,8 @@ const TeacherOverview = () => {
               </div>
               <div className="p-6">
                 <div className="space-y-4">
-                  {Object.keys(classMastery).length > 0 ? (
-                    Object.entries(classMastery).slice(0, 6).map(([pillar, percentage], idx) => (
+                    {Object.keys(classMastery).length > 0 ? (
+                      Object.entries(classMastery).map(([pillar, percentage], idx) => (
                   <motion.div
                     key={pillar}
                     initial={{ opacity: 0, x: -20 }}
@@ -898,13 +893,6 @@ const TeacherOverview = () => {
               >
                 <span>Analytics Dashboard</span>
                     <BarChart3 className="w-5 h-5 text-indigo-600 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button
-                    onClick={() => navigate("/school-teacher/messages")}
-                    className="w-full px-4 py-3 bg-gradient-to-r from-indigo-50 to-purple-50 hover:from-indigo-100 hover:to-purple-100 border border-indigo-200 rounded-lg font-semibold text-slate-900 transition-all flex items-center justify-between group"
-              >
-                    <span>View Messages</span>
-                    <MessageSquare className="w-5 h-5 text-indigo-600 group-hover:translate-x-1 transition-transform" />
               </button>
                 </div>
             </div>

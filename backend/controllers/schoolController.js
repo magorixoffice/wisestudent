@@ -29,8 +29,11 @@ import NEPCompetency from '../models/NEPCompetency.js';
 import NEPCoverageLog from '../models/NEPCoverageLog.js';
 import SupportTicket from '../models/SupportTicket.js';
 import AnalyticsEvent from '../models/AnalyticsEvent.js';
+import PDFDocument from 'pdfkit';
 import { ErrorResponse } from '../utils/ErrorResponse.js';
 import assignUserSubscription from '../utils/subscriptionAssignments.js';
+import { sendEmail } from '../utils/sendMail.js';
+import { getAllPillarGameCounts } from '../utils/gameCountUtils.js';
 
 const BILLING_CYCLE_MONTHS = {
   yearly: 12
@@ -1748,6 +1751,8 @@ export const getAllStudentsForTeacher = async (req, res) => {
       .filter(Boolean);
 
     // Get additional data for each student (enriched like getClassStudents)
+    const pillarGameCounts = await getAllPillarGameCounts(UnifiedGameProgress);
+
     const enrichedStudents = await Promise.all(schoolStudents.map(async (schoolStudent, index) => {
       try {
         const student = schoolStudent.userId;
@@ -1764,32 +1769,89 @@ export const getAllStudentsForTeacher = async (req, res) => {
           ActivityLog.find({ userId: student._id, createdAt: { $gte: sevenDaysAgo } }).lean()
         ]);
 
-        // Calculate pillar mastery
-        const pillars = [
-          { key: 'finance', name: 'Financial Literacy', totalGames: 42 },
-          { key: 'mental', name: 'Mental Health', totalGames: 42 },
-          { key: 'ai', name: 'AI for All', totalGames: 42 },
-          { key: 'brain', name: 'Brain Health', totalGames: 42 },
-          { key: 'uvls', name: 'Life Skills & Values', totalGames: 42 },
-          { key: 'dcos', name: 'Digital Citizenship', totalGames: 42 },
-          { key: 'moral', name: 'Moral Values', totalGames: 42 },
-          { key: 'ehe', name: 'Entrepreneurship', totalGames: 42 },
-          { key: 'crgc', name: 'Global Citizenship', totalGames: 42 },
-          { key: 'educational', name: 'Education', totalGames: 42 }
+        const mapGameTypeToPillarKey = (gameType) => {
+          switch (gameType) {
+            case 'finance':
+            case 'financial':
+              return 'finance';
+            case 'brain':
+            case 'mental':
+              return 'brain';
+            case 'uvls':
+              return 'uvls';
+            case 'dcos':
+              return 'dcos';
+            case 'moral':
+              return 'moral';
+            case 'ai':
+              return 'ai';
+            case 'health-male':
+              return 'health-male';
+            case 'health-female':
+              return 'health-female';
+            case 'ehe':
+              return 'ehe';
+            case 'crgc':
+            case 'civic-responsibility':
+              return 'crgc';
+            case 'sustainability':
+              return 'sustainability';
+            case 'educational':
+              return 'educational';
+            default:
+              return 'general';
+          }
+        };
+
+        const normalizeGender = (value) => {
+          const normalized = String(value || '').trim().toLowerCase();
+          if (!normalized) return '';
+          if (normalized.startsWith('m')) return 'male';
+          if (normalized.startsWith('f')) return 'female';
+          return normalized;
+        };
+
+        const childGender = normalizeGender(
+          schoolStudent?.personalInfo?.gender ||
+          student?.gender ||
+          ''
+        );
+
+        const basePillarKeys = [
+          'finance',
+          'brain',
+          'uvls',
+          'dcos',
+          'moral',
+          'ai',
+          'ehe',
+          'crgc',
+          'sustainability'
         ];
 
-        const pillarMasteryData = pillars.map(pillar => {
-          const pillarGames = gameProgress.filter(game => game.gameType === pillar.key);
-          if (pillarGames.length === 0) {
-            return { pillar: pillar.name, mastery: 0, gamesCompleted: 0, totalGames: pillar.totalGames };
-          }
-          const gamesCompleted = pillarGames.filter(g => g.fullyCompleted).length;
-          const mastery = Math.round((gamesCompleted / pillar.totalGames) * 100);
-          return { pillar: pillar.name, mastery, gamesCompleted, totalGames: pillar.totalGames };
-        });
+        const pillarKeys = [...basePillarKeys];
+        if (childGender === 'male') {
+          pillarKeys.push('health-male');
+        } else if (childGender === 'female') {
+          pillarKeys.push('health-female');
+        }
 
-        const pillarMastery = pillarMasteryData.length > 0
-          ? Math.round(pillarMasteryData.reduce((sum, p) => sum + p.mastery, 0) / pillarMasteryData.length)
+        const totalPossibleGames = pillarKeys.reduce((sum, key) => {
+          return sum + (pillarGameCounts[key] || 0);
+        }, 0);
+
+        const completedGames = (gameProgress || []).filter((game) => {
+          const pillarKey = mapGameTypeToPillarKey(game.gameType);
+          if (!pillarKeys.includes(pillarKey)) return false;
+          return Boolean(
+            game?.fullyCompleted ||
+            (game?.totalLevels && game.levelsCompleted >= game.totalLevels) ||
+            game?.badgeAwarded
+          );
+        }).length;
+
+        const pillarMastery = totalPossibleGames > 0
+          ? Math.round((completedGames / totalPossibleGames) * 100)
           : 0;
 
         // Get recent mood
@@ -1939,7 +2001,7 @@ export const getStudentAnalyticsForTeacher = async (req, res) => {
     }
 
     // Fetch student data with parent information
-    const student = await User.findById(studentId).select('name email role tenantId createdAt dob avatar academic institution linkedIds').lean();
+    const student = await User.findById(studentId).select('name email role tenantId createdAt dob avatar academic institution linkedIds gender').lean();
 
     if (!student) {
       return res.status(404).json({ message: 'Student not found' });
@@ -1952,11 +2014,13 @@ export const getStudentAnalyticsForTeacher = async (req, res) => {
 
     // Fetch school name from SchoolStudent or Organization
     let schoolName = student.institution || 'Not specified';
+    let schoolStudentRecord = null;
     try {
       const schoolStudent = await SchoolStudent.findOne({ userId: studentId, tenantId })
         .populate('orgId', 'name')
         .lean();
-      
+
+      schoolStudentRecord = schoolStudent;
       if (schoolStudent?.orgId?.name) {
         schoolName = schoolStudent.orgId.name;
       } else if (tenantId) {
@@ -1970,6 +2034,20 @@ export const getStudentAnalyticsForTeacher = async (req, res) => {
       console.error('Error fetching school name:', error);
       // Keep default value
     }
+
+    const normalizeGender = (value) => {
+      const normalized = String(value || '').trim().toLowerCase();
+      if (!normalized) return '';
+      if (normalized.startsWith('m')) return 'male';
+      if (normalized.startsWith('f')) return 'female';
+      return normalized;
+    };
+
+    const childGender = normalizeGender(
+      schoolStudentRecord?.personalInfo?.gender ||
+      student.gender ||
+      ''
+    );
 
     // Fetch parent information
     let parentInfo = null;
@@ -2025,22 +2103,85 @@ export const getStudentAnalyticsForTeacher = async (req, res) => {
       }).sort({ createdAt: -1 }).limit(10)
     ]);
 
+    const mapGameTypeToPillar = (gameType) => {
+      switch (gameType) {
+        case 'finance':
+        case 'financial':
+          return 'Financial Literacy';
+        case 'brain':
+        case 'mental':
+          return 'Brain Health';
+        case 'uvls':
+          return 'UVLS';
+        case 'dcos':
+          return 'Digital Citizenship & Online Safety';
+        case 'moral':
+          return 'Moral Values';
+        case 'ai':
+          return 'AI for All';
+        case 'health-male':
+          return 'Health - Male';
+        case 'health-female':
+          return 'Health - Female';
+        case 'ehe':
+          return 'Entrepreneurship & Higher Education';
+        case 'crgc':
+        case 'civic-responsibility':
+        case 'sustainability':
+          return 'Civic Responsibility & Global Citizenship';
+        case 'educational':
+          return 'General Education';
+        default:
+          return 'General Education';
+      }
+    };
+
+    const getProgressPercent = (game) => {
+      if (game?.fullyCompleted) return 100;
+      if (game?.totalLevels > 0) {
+        return Math.round(((game.levelsCompleted || 0) / game.totalLevels) * 100);
+      }
+      if (game?.maxScore > 0) {
+        return Math.round(((game.highestScore || 0) / game.maxScore) * 100);
+      }
+      return 0;
+    };
+
     // 1. Calculate Overall Mastery % & Trend (SAME AS PARENT)
-    const pillarsData = {};
     const pillarNames = [
-      'Financial Literacy', 'Brain Health', 'UVLS', 
-      'Digital Citizenship', 'Moral Values', 'AI for All',
-      'Health - Male', 'Health - Female', 'Entrepreneurship', 
-      'Civic Responsibility'
+      'Financial Literacy',
+      'Brain Health',
+      'UVLS',
+      'Digital Citizenship & Online Safety',
+      'Moral Values',
+      'AI for All',
+      'Health - Male',
+      'Health - Female',
+      'Entrepreneurship & Higher Education',
+      'Civic Responsibility & Global Citizenship',
+      'General Education'
     ];
 
-    pillarNames.forEach(pillar => {
-      const pillarGames = gameProgress.filter(g => g.category === pillar);
-      if (pillarGames.length > 0) {
-        const totalProgress = pillarGames.reduce((sum, g) => sum + (g.progress || 0), 0);
-        pillarsData[pillar] = Math.round(totalProgress / pillarGames.length);
+    const pillarTotals = pillarNames.reduce((acc, pillar) => {
+      acc[pillar] = { total: 0, count: 0 };
+      return acc;
+    }, {});
+
+    (gameProgress || []).forEach((game) => {
+      const pillar = mapGameTypeToPillar(game.gameType);
+      const progress = getProgressPercent(game);
+      if (!pillarTotals[pillar]) {
+        pillarTotals[pillar] = { total: 0, count: 0 };
       }
+      pillarTotals[pillar].total += progress;
+      pillarTotals[pillar].count += 1;
     });
+
+    const pillarsData = pillarNames.reduce((acc, pillar) => {
+      const data = pillarTotals[pillar];
+      acc[pillar] = data && data.count > 0 ? Math.round(data.total / data.count) : 0;
+      return acc;
+    }, {});
 
     const overallMastery = Object.keys(pillarsData).length > 0
       ? Math.round(Object.values(pillarsData).reduce((a, b) => a + b, 0) / Object.keys(pillarsData).length)
@@ -2129,21 +2270,55 @@ export const getStudentAnalyticsForTeacher = async (req, res) => {
       }))
     };
 
-    // 6. Calculate coins (SAME AS PARENT)
-    const weeklyCoins = (transactions || [])
-      .filter(t => t.type === 'earned' && new Date(t.createdAt) >= sevenDaysAgo)
+    // 6. Calculate coins (align with parent logic)
+    const coinEarnTypes = new Set(['earned', 'earn', 'credit']);
+    const weeklyCoinsFromTransactions = (transactions || [])
+      .filter(t => coinEarnTypes.has(t.type) && new Date(t.createdAt) >= sevenDaysAgo)
       .reduce((sum, t) => sum + (t.amount || 0), 0);
 
-    const monthlyCoins = (transactions || [])
-      .filter(t => t.type === 'earned' && new Date(t.createdAt) >= thirtyDaysAgo)
+    const monthlyCoinsFromTransactions = (transactions || [])
+      .filter(t => coinEarnTypes.has(t.type) && new Date(t.createdAt) >= thirtyDaysAgo)
       .reduce((sum, t) => sum + (t.amount || 0), 0);
+
+    const weeklyCoinsFromProgress = (gameProgress || []).reduce((sum, game) => {
+      if (!game?.coinsEarnedHistory?.length) return sum;
+      const earned = game.coinsEarnedHistory
+        .filter((entry) => entry?.earnedAt && new Date(entry.earnedAt) >= sevenDaysAgo)
+        .reduce((entrySum, entry) => entrySum + (entry.amount || 0), 0);
+      return sum + earned;
+    }, 0);
+
+    const monthlyCoinsFromProgress = (gameProgress || []).reduce((sum, game) => {
+      if (!game?.coinsEarnedHistory?.length) return sum;
+      const earned = game.coinsEarnedHistory
+        .filter((entry) => entry?.earnedAt && new Date(entry.earnedAt) >= thirtyDaysAgo)
+        .reduce((entrySum, entry) => entrySum + (entry.amount || 0), 0);
+      return sum + earned;
+    }, 0);
+
+    const weeklyCoins = weeklyCoinsFromTransactions || weeklyCoinsFromProgress;
+    const monthlyCoins = monthlyCoinsFromTransactions || monthlyCoinsFromProgress;
+
+    const totalTimeMinutes = Math.round(
+      (gameProgress || []).reduce((sum, game) => sum + (game.totalTimePlayed || 0), 0) / 60
+    ) || weeklyEngagement.totalMinutes;
 
     // 7. Games completed per pillar (SAME AS PARENT)
     const gamesPerPillar = {};
-    pillarNames.forEach(pillar => {
-      gamesPerPillar[pillar] = (gameProgress || []).filter(g => 
-        g.completed && g.category === pillar
-      ).length;
+    pillarNames.forEach((pillar) => {
+      gamesPerPillar[pillar] = 0;
+    });
+
+    (gameProgress || []).forEach((game) => {
+      const pillar = mapGameTypeToPillar(game.gameType);
+      const isCompleted = Boolean(
+        game?.fullyCompleted ||
+        (game?.totalLevels && game.levelsCompleted >= game.totalLevels) ||
+        game?.badgeAwarded
+      );
+      if (isCompleted) {
+        gamesPerPillar[pillar] = (gamesPerPillar[pillar] || 0) + 1;
+      }
     });
 
     // Build home support plan
@@ -2339,11 +2514,12 @@ export const getStudentAnalyticsForTeacher = async (req, res) => {
     const detailedProgressReport = {
       weeklyCoins,
       monthlyCoins,
-      totalTimeMinutes: weeklyEngagement.totalMinutes,
+      totalTimeMinutes,
       dayStreak: userProgress?.streak || 0,
       gamesPerPillar,
       strengths,
-      needsSupport
+      needsSupport,
+      childGender
     };
 
     // 13. Wallet & Rewards Data (SAME AS PARENT)
@@ -2402,23 +2578,107 @@ export const getStudentAnalyticsForTeacher = async (req, res) => {
       aiSkills: calculateWeeklyProgress(gameProgress, 'AI Skills')
     };
 
-    // 15. Skills Distribution Data (SAME AS PARENT)
-    const totalGames = (gameProgress || []).length;
-    const categoryCounts = {};
-    
-    (gameProgress || []).forEach(game => {
-      if (game.completed) {
-        categoryCounts[game.category] = (categoryCounts[game.category] || 0) + 1;
+    const mapGameTypeToPillarKey = (gameType) => {
+      switch (gameType) {
+        case 'finance':
+        case 'financial':
+          return 'finance';
+        case 'brain':
+        case 'mental':
+          return 'brain';
+        case 'uvls':
+          return 'uvls';
+        case 'dcos':
+          return 'dcos';
+        case 'moral':
+          return 'moral';
+        case 'ai':
+          return 'ai';
+        case 'health-male':
+          return 'health-male';
+        case 'health-female':
+          return 'health-female';
+        case 'ehe':
+          return 'ehe';
+        case 'crgc':
+        case 'civic-responsibility':
+          return 'crgc';
+        case 'sustainability':
+          return 'sustainability';
+        case 'educational':
+          return 'educational';
+        default:
+          return 'general';
       }
+    };
+
+    const mapPillarKeyToLabel = (pillarKey) => {
+      switch (pillarKey) {
+        case 'finance':
+          return 'Financial Literacy';
+        case 'brain':
+          return 'Brain Health';
+        case 'uvls':
+          return 'UVLS';
+        case 'dcos':
+          return 'Digital Citizenship & Online Safety';
+        case 'moral':
+          return 'Moral Values';
+        case 'ai':
+          return 'AI for All';
+        case 'health-male':
+          return 'Health - Male';
+        case 'health-female':
+          return 'Health - Female';
+        case 'ehe':
+          return 'Entrepreneurship & Higher Education';
+        case 'crgc':
+          return 'Civic Responsibility & Global Citizenship';
+        case 'sustainability':
+          return 'Sustainability';
+        case 'educational':
+          return 'General Education';
+        default:
+          return 'General Education';
+      }
+    };
+
+    const pillarGameCounts = await getAllPillarGameCounts(UnifiedGameProgress);
+    const playedGamesByPillar = {};
+    const addPlayedGame = (pillarKey, gameId) => {
+      if (!pillarKey || !gameId) return;
+      if (!playedGamesByPillar[pillarKey]) {
+        playedGamesByPillar[pillarKey] = new Set();
+      }
+      playedGamesByPillar[pillarKey].add(String(gameId));
+    };
+
+    (gameProgress || []).forEach((game) => {
+      addPlayedGame(mapGameTypeToPillarKey(game.gameType), game.gameId);
     });
 
-    const totalCompleted = Object.values(categoryCounts).reduce((sum, count) => sum + count, 0);
-    
+    const pillarPlayedPercentages = Object.keys(pillarGameCounts).reduce((acc, pillarKey) => {
+      const totalGames = pillarGameCounts[pillarKey] || 0;
+      const playedCount = playedGamesByPillar[pillarKey]?.size || 0;
+      const percent = totalGames > 0 ? Math.round((playedCount / totalGames) * 100) : 0;
+      acc[mapPillarKeyToLabel(pillarKey)] = percent;
+      return acc;
+    }, {});
+
+    const skillsDistributionByPillar = Object.entries(pillarPlayedPercentages)
+      .filter(([pillar]) => {
+        if (childGender === 'male') return pillar !== 'Health - Female';
+        if (childGender === 'female') return pillar !== 'Health - Male';
+        return true;
+      })
+      .reduce((acc, [pillar, percent]) => {
+        acc[pillar] = percent;
+        return acc;
+      }, {});
+
     const skillsDistribution = {
-      finance: totalCompleted > 0 ? Math.round((categoryCounts['Finance'] || 0) / totalCompleted * 100) : 32,
-      mentalWellness: totalCompleted > 0 ? Math.round((categoryCounts['Mental Wellness'] || 0) / totalCompleted * 100) : 28,
-      values: totalCompleted > 0 ? Math.round((categoryCounts['Values'] || 0) / totalCompleted * 100) : 22,
-      aiSkills: totalCompleted > 0 ? Math.round((categoryCounts['AI Skills'] || 0) / totalCompleted * 100) : 18
+      byPillar: skillsDistributionByPillar,
+      childGender
     };
 
     // 16. Child Card Info with Parent Information
@@ -2443,8 +2703,14 @@ export const getStudentAnalyticsForTeacher = async (req, res) => {
     };
 
     // 17. Snapshot KPIs (SAME AS PARENT)
+    const totalGamesCompleted = (gameProgress || []).filter((game) => (
+      game.fullyCompleted ||
+      (game.totalLevels && game.levelsCompleted >= game.totalLevels) ||
+      game.badgeAwarded
+    )).length;
+
     const snapshotKPIs = {
-      totalGamesCompleted: (gameProgress || []).filter(g => g.completed).length,
+      totalGamesCompleted,
       totalTimeSpent: weeklyEngagement.totalMinutes,
       averageDailyEngagement: Math.round(weeklyEngagement.totalMinutes / 7),
       achievementsUnlocked: recentAchievements.length,
@@ -2510,6 +2776,85 @@ export const getStudentAnalyticsForTeacher = async (req, res) => {
   } catch (error) {
     console.error('Error fetching student analytics:', error);
     res.status(500).json({ message: 'Server error', error: error.message });
+  }
+};
+
+// Get student wallet transactions for teacher
+export const getStudentTransactionsForTeacher = async (req, res) => {
+  try {
+    const { studentId } = req.params;
+    const { tenantId, user: teacher } = req;
+    const page = parseInt(req.query.page, 10) || 1;
+    const limit = parseInt(req.query.limit, 10) || 20;
+    const skip = (page - 1) * limit;
+    const type = req.query.type;
+    const startDate = req.query.startDate ? new Date(req.query.startDate) : null;
+    const endDate = req.query.endDate ? new Date(req.query.endDate) : null;
+
+    if (!studentId) {
+      return res.status(400).json({ message: 'Student ID is required' });
+    }
+
+    const schoolStudent = await SchoolStudent.findOne({ userId: studentId, tenantId })
+      .select('classId')
+      .lean();
+
+    if (!schoolStudent?.classId) {
+      return res.status(404).json({ message: 'Student not found' });
+    }
+
+    const classAccess = await SchoolClass.findOne({
+      _id: schoolStudent.classId,
+      tenantId,
+      $or: [
+        { 'sections.classTeacher': teacher._id },
+        { 'subjects.teachers': teacher._id }
+      ]
+    }).select('_id').lean();
+
+    if (!classAccess) {
+      return res.status(403).json({ message: 'Access denied to this student' });
+    }
+
+    const query = { userId: studentId };
+    if (type && (type === 'credit' || type === 'debit')) {
+      query.type = type;
+    }
+
+    if (startDate || endDate) {
+      query.createdAt = {};
+      if (startDate) query.createdAt.$gte = startDate;
+      if (endDate) {
+        endDate.setHours(23, 59, 59, 999);
+        query.createdAt.$lte = endDate;
+      }
+    }
+
+    const totalCount = await Transaction.countDocuments(query);
+    const transactions = await Transaction.find(query)
+      .sort({ createdAt: -1 })
+      .skip(skip)
+      .limit(limit)
+      .lean();
+
+    const totalPages = Math.ceil(totalCount / limit);
+    const hasNextPage = page < totalPages;
+    const hasPrevPage = page > 1;
+
+    res.json({
+      transactions,
+      pagination: {
+        currentPage: page,
+        totalPages,
+        totalCount,
+        limit,
+        hasNextPage,
+        hasPrevPage
+      }
+    });
+  } catch (error) {
+    console.error('Error fetching student transactions:', error);
+    res.status(500).json({ message: 'Failed to fetch transactions' });
   }
 };
 
@@ -2595,27 +2940,88 @@ export const getClassMasteryByPillar = async (req, res) => {
     }
 
     // Get game progress for all students within time range
-    const gameProgress = await UnifiedGameProgress.find({ 
+    const gameProgress = await UnifiedGameProgress.find({
       userId: { $in: studentIds },
       updatedAt: { $gte: startDate }
     }).lean();
 
-    // Calculate mastery by pillar
+    const mapGameTypeToPillar = (gameType) => {
+      switch (gameType) {
+        case 'finance':
+        case 'financial':
+          return 'Financial Literacy';
+        case 'brain':
+        case 'mental':
+          return 'Brain Health';
+        case 'uvls':
+          return 'UVLS';
+        case 'dcos':
+          return 'Digital Citizenship & Online Safety';
+        case 'moral':
+          return 'Moral Values';
+        case 'ai':
+          return 'AI for All';
+        case 'health-male':
+          return 'Health - Male';
+        case 'health-female':
+          return 'Health - Female';
+        case 'ehe':
+          return 'Entrepreneurship & Higher Education';
+        case 'crgc':
+        case 'civic-responsibility':
+        case 'sustainability':
+          return 'Civic Responsibility & Global Citizenship';
+        default:
+          return 'General Education';
+      }
+    };
+
+    const getProgressPercent = (game) => {
+      if (game?.fullyCompleted) return 100;
+      if (game?.totalLevels > 0) {
+        return Math.round(((game.levelsCompleted || 0) / game.totalLevels) * 100);
+      }
+      if (game?.maxScore > 0) {
+        return Math.round(((game.highestScore || 0) / game.maxScore) * 100);
+      }
+      return 0;
+    };
+
+    // Calculate mastery by pillar from actual progress data
     const pillarNames = [
-      'Financial Literacy', 'Brain Health', 'UVLS', 
-      'Digital Citizenship', 'Moral Values', 'AI for All'
+      'Financial Literacy',
+      'Brain Health',
+      'UVLS',
+      'Digital Citizenship & Online Safety',
+      'Moral Values',
+      'AI for All',
+      'Health - Male',
+      'Health - Female',
+      'Entrepreneurship & Higher Education',
+      'Civic Responsibility & Global Citizenship',
+      'Sustainability'
     ];
 
-    const classMastery = {};
-    pillarNames.forEach(pillar => {
-      const pillarGames = gameProgress.filter(g => g?.category === pillar);
-      if (pillarGames.length > 0) {
-        const avgProgress = pillarGames.reduce((sum, g) => sum + (g?.progress || 0), 0) / pillarGames.length;
-        classMastery[pillar] = Math.round(avgProgress);
-      } else {
-        classMastery[pillar] = 0;
+    const pillarTotals = pillarNames.reduce((acc, pillar) => {
+      acc[pillar] = { total: 0, count: 0 };
+      return acc;
+    }, {});
+
+    (gameProgress || []).forEach((game) => {
+      const pillar = mapGameTypeToPillar(game.gameType);
+      const progress = getProgressPercent(game);
+      if (!pillarTotals[pillar]) {
+        pillarTotals[pillar] = { total: 0, count: 0 };
       }
+      pillarTotals[pillar].total += progress;
+      pillarTotals[pillar].count += 1;
     });
+
+    const classMastery = pillarNames.reduce((acc, pillar) => {
+      const data = pillarTotals[pillar];
+      acc[pillar] = data && data.count > 0 ? Math.round(data.total / data.count) : 0;
+      return acc;
+    }, {});
 
     res.json(classMastery);
   } catch (error) {
@@ -2809,23 +3215,20 @@ export const getSessionEngagement = async (req, res) => {
       });
     }
 
-    // Get activity logs
-    const activityLogs = await ActivityLog.find({
+    const activeGameUsers = await UnifiedGameProgress.distinct('userId', {
       userId: { $in: studentIds },
-      createdAt: { $gte: startDate }
-    }).lean();
+      lastPlayedAt: { $gte: startDate }
+    });
 
-    // Calculate engagement percentages
-    const totalSessions = activityLogs.length;
-    const gameSessions = activityLogs.filter(log => 
-      log && (log.activityType === 'game' || log.action?.includes('game'))
-    ).length;
-    const lessonSessions = totalSessions - gameSessions;
+    const totalStudents = studentIds.length;
+    const gamesPercent = totalStudents > 0
+      ? Math.round((activeGameUsers.length / totalStudents) * 100)
+      : 0;
 
     const engagement = {
-      games: totalSessions > 0 ? Math.round((gameSessions / totalSessions) * 100) : 0,
-      lessons: totalSessions > 0 ? Math.round((lessonSessions / totalSessions) * 100) : 0,
-      overall: totalSessions > 0 ? Math.round(((gameSessions + lessonSessions) / totalSessions) * 100) : 0
+      games: gamesPercent,
+      lessons: 0,
+      overall: gamesPercent
     };
 
     res.json(engagement);
@@ -2985,9 +3388,295 @@ export const getLeaderboard = async (req, res) => {
     console.error('Error fetching leaderboard:', error);
     res.status(500).json({ message: 'Server error', error: error.message });
   }
+  };
+  
+const buildTeacherAnalyticsPdf = (reportData, options = {}) => {
+  return new Promise((resolve, reject) => {
+    try {
+      const doc = new PDFDocument({
+        size: 'A4',
+        margins: { top: 40, bottom: 40, left: 40, right: 40 }
+      });
+
+      const buffers = [];
+      doc.on('data', buffers.push.bind(buffers));
+      doc.on('end', () => resolve(Buffer.concat(buffers)));
+
+      const colors = {
+        primary: '#4F46E5',
+        accent: '#EC4899',
+        deep: '#312E81',
+        text: '#0F172A',
+        subText: '#475569',
+        muted: '#E2E8F0',
+        light: '#F8FAFC',
+        border: '#CBD5F5'
+      };
+
+      const pageWidth = doc.page.width;
+      const pageHeight = doc.page.height;
+      const marginX = 40;
+      const marginBottom = 40;
+
+      let y = 40;
+
+      const hexToRgb = (hex) => {
+        const clean = hex.replace('#', '');
+        const num = parseInt(clean, 16);
+        return {
+          r: (num >> 16) & 255,
+          g: (num >> 8) & 255,
+          b: num & 255
+        };
+      };
+
+      const mixColor = (startHex, endHex, ratio) => {
+        const start = hexToRgb(startHex);
+        const end = hexToRgb(endHex);
+        const mix = (a, b) => Math.round(a + (b - a) * ratio);
+        const r = mix(start.r, end.r);
+        const g = mix(start.g, end.g);
+        const b = mix(start.b, end.b);
+        return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
+      };
+
+      const drawGradientBand = (startY, height, startColor, endColor) => {
+        const steps = 8;
+        const stepHeight = height / steps;
+        for (let i = 0; i < steps; i += 1) {
+          const color = mixColor(startColor, endColor, i / (steps - 1));
+          doc.rect(0, startY + i * stepHeight, pageWidth, stepHeight).fill(color);
+        }
+      };
+
+      const addPageHeader = () => {
+        doc.rect(0, 0, pageWidth, 30).fill(colors.light);
+        doc.rect(0, 30, pageWidth, 2).fill(colors.muted);
+        doc.fillColor(colors.subText).font('Helvetica-Bold').fontSize(9).text('Class Analytics Report', marginX, 10);
+      };
+
+      const ensureSpace = (needed) => {
+        if (y + needed > pageHeight - marginBottom) {
+          doc.addPage();
+          y = 40;
+          addPageHeader();
+          y = 50;
+        }
+      };
+
+      const addSectionHeader = (title) => {
+        y += 16;
+        ensureSpace(48);
+        doc.fillColor(colors.text).font('Helvetica-Bold').fontSize(14).text(title, marginX, y);
+        doc.rect(marginX, y + 18, 48, 3).fill(colors.accent);
+        y += 42;
+      };
+
+      const drawHeader = () => {
+        drawGradientBand(0, 110, colors.primary, colors.accent);
+        doc.rect(0, 110, pageWidth, 8).fill(colors.deep);
+        doc.fillColor('white').font('Helvetica-Bold').fontSize(20).text('Class Analytics Report', marginX, 30);
+        const subtitle = `${options.teacherName || 'Teacher'} | ${reportData.timeRange} | ${new Date(reportData.generatedAt).toLocaleDateString()}`;
+        doc.font('Helvetica').fontSize(11).text(subtitle, marginX, 58);
+        doc.fillColor('white').font('Helvetica').fontSize(9).text('Generated by WiseStudent Analytics', marginX, 78);
+        y = 130;
+      };
+
+      const drawSummaryCards = () => {
+        const cards = [
+          { label: 'Total Classes', value: reportData.summary.totalClasses },
+          { label: 'Total Students', value: reportData.summary.totalStudents },
+          { label: 'Average Mastery', value: `${reportData.summary.averageMastery}%` },
+          { label: 'Engagement Rate', value: `${reportData.summary.engagementRate}%` },
+          { label: 'Students At Risk', value: reportData.summary.studentsAtRiskCount }
+        ];
+
+        const cardWidth = (pageWidth - (marginX * 2) - 20) / 2;
+        const cardHeight = 64;
+        const rowGap = 12;
+        const colGap = 20;
+        const rows = Math.ceil(cards.length / 2);
+
+        ensureSpace(rows * (cardHeight + rowGap));
+
+        cards.forEach((card, index) => {
+          const col = index % 2;
+          const row = Math.floor(index / 2);
+          const x = marginX + col * (cardWidth + colGap);
+          const yCard = y + row * (cardHeight + rowGap);
+
+          doc.roundedRect(x, yCard, cardWidth, cardHeight, 10).fill(colors.light).stroke(colors.border);
+          doc.rect(x, yCard, 6, cardHeight).fill(colors.accent);
+          doc.fillColor(colors.subText).font('Helvetica-Bold').fontSize(10).text(card.label, x + 16, yCard + 12);
+          doc.fillColor(colors.text).font('Helvetica-Bold').fontSize(18).text(String(card.value), x + 16, yCard + 32);
+        });
+
+        y += rows * (cardHeight + rowGap);
+      };
+
+      const pillarStyles = {
+        'Financial Literacy': { short: 'FL', color: '#2563EB' },
+        'Brain Health': { short: 'BH', color: '#16A34A' },
+        'UVLS': { short: 'UV', color: '#F97316' },
+        'Digital Citizenship': { short: 'DC', color: '#0EA5E9' },
+        'Moral Values': { short: 'MV', color: '#8B5CF6' },
+        'AI for All': { short: 'AI', color: '#EC4899' },
+        'Health - Male': { short: 'HM', color: '#14B8A6' },
+        'Health - Female': { short: 'HF', color: '#F43F5E' },
+        'Entrepreneurship & Higher Education': { short: 'EH', color: '#6366F1' },
+        'Civic Responsibility & Global Citizenship': { short: 'CG', color: '#22C55E' },
+        'Sustainability': { short: 'SU', color: '#84CC16' },
+        'Games': { short: 'GM', color: '#F59E0B' }
+      };
+
+      const drawPillarRow = (label, value) => {
+        ensureSpace(40);
+        const style = pillarStyles[label] || { short: label.slice(0, 2).toUpperCase(), color: colors.primary };
+        const iconX = marginX;
+        const iconY = y + 6;
+        doc.circle(iconX + 10, iconY + 10, 10).fill(style.color);
+        doc.fillColor('white').font('Helvetica-Bold').fontSize(8).text(style.short, iconX + 3, iconY + 6);
+        doc.fillColor(colors.text).font('Helvetica-Bold').fontSize(10).text(label, iconX + 28, y + 4);
+        doc.fillColor(colors.subText).font('Helvetica').fontSize(9).text(`${value}%`, pageWidth - marginX - 28, y + 4, { align: 'right' });
+        const barY = y + 20;
+        const barX = iconX + 28;
+        const barWidth = pageWidth - marginX - barX;
+        doc.roundedRect(barX, barY, barWidth, 10, 5).fill(colors.muted);
+        const fillWidth = Math.max(0, Math.min(100, value)) / 100 * barWidth;
+        const fillColor = value >= 75 ? '#16A34A' : value >= 50 ? colors.primary : '#D97706';
+        doc.roundedRect(barX, barY, fillWidth, 10, 5).fill(fillColor);
+        y += 36;
+      };
+
+      const drawClasses = () => {
+        const classes = reportData.classes || [];
+        if (classes.length === 0) {
+          ensureSpace(18);
+          doc.fillColor(colors.subText).font('Helvetica').fontSize(9).text('No class filter applied.', marginX, y);
+          y += 14;
+          return;
+        }
+
+        let x = marginX;
+        const maxWidth = pageWidth - marginX * 2;
+        const gap = 8;
+        ensureSpace(18);
+        classes.forEach((cls) => {
+          const label = cls.name || `Class ${cls.classNumber || ''}`.trim();
+          doc.font('Helvetica-Bold').fontSize(8);
+          const width = doc.widthOfString(label) + 16;
+          if (x + width > marginX + maxWidth) {
+            x = marginX;
+            y += 18;
+            ensureSpace(18);
+          }
+          doc.roundedRect(x, y, width, 14, 7).fill(colors.light).stroke(colors.muted);
+          doc.fillColor(colors.subText).text(label, x + 8, y + 3);
+          x += width + gap;
+        });
+        y += 22;
+      };
+
+      const drawTable = (headers, rows, columnWidths) => {
+        ensureSpace(24);
+        const headerHeight = 18;
+        const rowHeight = 18;
+        let x = marginX;
+        doc.rect(marginX, y, pageWidth - marginX * 2, headerHeight).fill(colors.light).stroke(colors.muted);
+        headers.forEach((header, index) => {
+          doc.fillColor(colors.subText).font('Helvetica-Bold').fontSize(9).text(header, x + 6, y + 5);
+          x += columnWidths[index];
+        });
+        y += headerHeight;
+
+        rows.forEach((row, index) => {
+          ensureSpace(rowHeight + 6);
+          const rowColor = index % 2 === 0 ? '#FFFFFF' : colors.light;
+          doc.rect(marginX, y, pageWidth - marginX * 2, rowHeight).fill(rowColor).stroke(colors.muted);
+          let cellX = marginX;
+          row.forEach((cell, colIndex) => {
+            doc.fillColor(colors.text).font('Helvetica').fontSize(9).text(String(cell), cellX + 6, y + 5, {
+              width: columnWidths[colIndex] - 8,
+              ellipsis: true
+            });
+            cellX += columnWidths[colIndex];
+          });
+          y += rowHeight;
+        });
+        y += 10;
+      };
+
+      drawHeader();
+
+      addSectionHeader('Summary');
+      drawSummaryCards();
+
+      addSectionHeader('Classes Covered');
+      drawClasses();
+
+      addSectionHeader('Pillar Mastery');
+      Object.entries(reportData.mastery || {}).forEach(([pillar, percentage]) => {
+        drawPillarRow(pillar, percentage || 0);
+      });
+
+      addSectionHeader('Engagement');
+      drawPillarRow('Games', reportData.engagement?.games || 0);
+
+      addSectionHeader('Students Requiring Attention');
+      const riskRows = (reportData.studentsAtRisk || []).slice(0, 8).map((student) => {
+        return [
+          student.name,
+          student.reason,
+          student.riskLevel,
+          student.metric || ''
+        ];
+      });
+      if (riskRows.length === 0) {
+        ensureSpace(18);
+        doc.fillColor(colors.subText).font('Helvetica').fontSize(9).text('No students currently at risk.', marginX, y);
+        y += 16;
+      } else {
+        drawTable(
+          ['Student', 'Reason', 'Risk', 'Metric'],
+          riskRows,
+          [160, 160, 80, 110]
+        );
+      }
+
+      addSectionHeader('Class Leaderboard');
+      const leaderboardRows = (reportData.leaderboard || []).map((student, index) => {
+        return [
+          `${index + 1}`,
+          student.name,
+          `L${student.level}`,
+          `${student.totalXP} XP`,
+          `${student.healCoins} Coins`
+        ];
+      });
+      if (leaderboardRows.length === 0) {
+        ensureSpace(18);
+        doc.fillColor(colors.subText).font('Helvetica').fontSize(9).text('No leaderboard data available.', marginX, y);
+        y += 16;
+      } else {
+        drawTable(
+          ['#', 'Student', 'Level', 'XP', 'Coins'],
+          leaderboardRows,
+          [24, 200, 60, 80, 90]
+        );
+      }
+
+      const footerY = pageHeight - marginBottom - 12;
+      doc.fillColor(colors.subText).font('Helvetica').fontSize(8).text('Confidential - WiseStudent Teacher Analytics', marginX, footerY);
+      doc.text(`Generated ${new Date(reportData.generatedAt).toLocaleString()}`, marginX, footerY, { align: 'right' });
+
+      doc.end();
+    } catch (error) {
+      reject(error);
+    }
+  });
 };
 
-// Export teacher analytics report
+  // Export teacher analytics report
 export const exportTeacherAnalytics = async (req, res) => {
   try {
     const { tenantId } = req;
@@ -3046,14 +3735,83 @@ export const exportTeacherAnalytics = async (req, res) => {
       updatedAt: { $gte: startDate }
     }).lean() : [];
 
-    const pillarNames = ['Financial Literacy', 'Brain Health', 'UVLS', 'Digital Citizenship', 'Moral Values', 'AI for All'];
-    const masteryData = {};
-    pillarNames.forEach(pillar => {
-      const pillarGames = gameProgress.filter(g => g?.category === pillar);
-      masteryData[pillar] = pillarGames.length > 0
-        ? Math.round(pillarGames.reduce((sum, g) => sum + (g?.progress || 0), 0) / pillarGames.length)
-        : 0;
+    const mapGameTypeToPillar = (gameType) => {
+      switch (gameType) {
+        case 'finance':
+        case 'financial':
+          return 'Financial Literacy';
+        case 'brain':
+        case 'mental':
+          return 'Brain Health';
+        case 'uvls':
+          return 'UVLS';
+        case 'dcos':
+          return 'Digital Citizenship & Online Safety';
+        case 'moral':
+          return 'Moral Values';
+        case 'ai':
+          return 'AI for All';
+        case 'health-male':
+          return 'Health - Male';
+        case 'health-female':
+          return 'Health - Female';
+        case 'ehe':
+          return 'Entrepreneurship & Higher Education';
+        case 'crgc':
+        case 'civic-responsibility':
+          return 'Civic Responsibility & Global Citizenship';
+        case 'sustainability':
+          return 'Sustainability';
+        default:
+          return 'General Education';
+      }
+    };
+
+    const getProgressPercent = (game) => {
+      if (game?.fullyCompleted) return 100;
+      if (game?.totalLevels > 0) {
+        return Math.round(((game.levelsCompleted || 0) / game.totalLevels) * 100);
+      }
+      if (game?.maxScore > 0) {
+        return Math.round(((game.highestScore || 0) / game.maxScore) * 100);
+      }
+      return 0;
+    };
+
+    const pillarNames = [
+      'Financial Literacy',
+      'Brain Health',
+      'UVLS',
+      'Digital Citizenship & Online Safety',
+      'Moral Values',
+      'AI for All',
+      'Health - Male',
+      'Health - Female',
+      'Entrepreneurship & Higher Education',
+      'Civic Responsibility & Global Citizenship',
+      'Sustainability'
+    ];
+
+    const pillarTotals = pillarNames.reduce((acc, pillar) => {
+      acc[pillar] = { total: 0, count: 0 };
+      return acc;
+    }, {});
+
+    (gameProgress || []).forEach((game) => {
+      const pillar = mapGameTypeToPillar(game.gameType);
+      const progress = getProgressPercent(game);
+      if (!pillarTotals[pillar]) {
+        pillarTotals[pillar] = { total: 0, count: 0 };
+      }
+      pillarTotals[pillar].total += progress;
+      pillarTotals[pillar].count += 1;
     });
+
+    const masteryData = pillarNames.reduce((acc, pillar) => {
+      const data = pillarTotals[pillar];
+      acc[pillar] = data && data.count > 0 ? Math.round(data.total / data.count) : 0;
+      return acc;
+    }, {});
 
     // Get students at risk
     const schoolStudents = classIds.length > 0 ? await SchoolStudent.find({
@@ -3098,18 +3856,20 @@ export const exportTeacherAnalytics = async (req, res) => {
     }
 
     // Get engagement data
-    const activityLogs = studentIds.length > 0 ? await ActivityLog.find({
+    const activeGameUsers = studentIds.length > 0 ? await UnifiedGameProgress.distinct('userId', {
       userId: { $in: studentIds },
-      createdAt: { $gte: startDate }
-    }).lean() : [];
+      lastPlayedAt: { $gte: startDate }
+    }) : [];
 
-    const totalSessions = activityLogs.length;
-    const gameSessions = activityLogs.filter(log => log && (log.activityType === 'game' || log.action?.includes('game'))).length;
-    const lessonSessions = totalSessions - gameSessions;
+    const totalStudents = studentIds.length;
+    const gamesPercent = totalStudents > 0
+      ? Math.round((activeGameUsers.length / totalStudents) * 100)
+      : 0;
+
     const engagementData = {
-      games: totalSessions > 0 ? Math.round((gameSessions / totalSessions) * 100) : 0,
-      lessons: totalSessions > 0 ? Math.round((lessonSessions / totalSessions) * 100) : 0,
-      overall: totalSessions > 0 ? Math.round(((gameSessions + lessonSessions) / totalSessions) * 100) : 0
+      games: gamesPercent,
+      lessons: 0,
+      overall: gamesPercent
     };
 
     // Get leaderboard
@@ -3161,9 +3921,21 @@ export const exportTeacherAnalytics = async (req, res) => {
       }
     };
 
+    const fileDate = new Date().toISOString().split('T')[0];
+
+    if (format === 'pdf') {
+      const pdfBuffer = await buildTeacherAnalyticsPdf(reportData, {
+        teacherName: req.user?.name || 'Teacher'
+      });
+
+      res.setHeader('Content-Type', 'application/pdf');
+      res.setHeader('Content-Disposition', `attachment; filename=analytics-report-${timeRange}-${fileDate}.pdf`);
+      return res.send(pdfBuffer);
+    }
+
     if (format === 'json') {
       res.setHeader('Content-Type', 'application/json');
-      res.setHeader('Content-Disposition', `attachment; filename=analytics-report-${timeRange}-${new Date().toISOString().split('T')[0]}.json`);
+      res.setHeader('Content-Disposition', `attachment; filename=analytics-report-${timeRange}-${fileDate}.json`);
       return res.status(200).json(reportData);
     } else {
       // CSV format
@@ -3192,7 +3964,7 @@ ${reportData.leaderboard.map((s, idx) => `${idx + 1},${s.name},${s.level},${s.to
 `;
 
       res.setHeader('Content-Type', 'text/csv');
-      res.setHeader('Content-Disposition', `attachment; filename=analytics-report-${timeRange}-${new Date().toISOString().split('T')[0]}.csv`);
+      res.setHeader('Content-Disposition', `attachment; filename=analytics-report-${timeRange}-${fileDate}.csv`);
       return res.send(csv);
     }
   } catch (error) {
@@ -3228,6 +4000,8 @@ export const getClassStudents = async (req, res) => {
 
     // Extract user data from populated SchoolStudent records
     // Enrich with progress data
+    const pillarGameCounts = await getAllPillarGameCounts(UnifiedGameProgress);
+
     const enrichedStudents = await Promise.all(
       validSchoolStudents.map(async (schoolStudent, index) => {
         const student = schoolStudent.userId;
@@ -3248,48 +4022,89 @@ export const getClassStudents = async (req, res) => {
           ActivityLog.find({ userId: student._id, createdAt: { $gte: sevenDaysAgo } }).lean()
         ]);
 
-         // Calculate pillar mastery using the same logic as student dashboard
-         const pillars = [
-           { key: 'finance', name: 'Financial Literacy', totalGames: 42 },
-           { key: 'mental', name: 'Mental Health', totalGames: 42 },
-           { key: 'ai', name: 'AI for All', totalGames: 42 },
-           { key: 'brain', name: 'Brain Health', totalGames: 42 },
-           { key: 'uvls', name: 'Life Skills & Values', totalGames: 42 },
-           { key: 'dcos', name: 'Digital Citizenship', totalGames: 42 },
-           { key: 'moral', name: 'Moral Values', totalGames: 42 },
-           { key: 'ehe', name: 'Entrepreneurship', totalGames: 42 },
-           { key: 'crgc', name: 'Global Citizenship', totalGames: 42 },
-           { key: 'educational', name: 'Education', totalGames: 42 }
+         const mapGameTypeToPillarKey = (gameType) => {
+           switch (gameType) {
+             case 'finance':
+             case 'financial':
+               return 'finance';
+             case 'brain':
+             case 'mental':
+               return 'brain';
+             case 'uvls':
+               return 'uvls';
+             case 'dcos':
+               return 'dcos';
+             case 'moral':
+               return 'moral';
+             case 'ai':
+               return 'ai';
+             case 'health-male':
+               return 'health-male';
+             case 'health-female':
+               return 'health-female';
+             case 'ehe':
+               return 'ehe';
+             case 'crgc':
+             case 'civic-responsibility':
+               return 'crgc';
+             case 'sustainability':
+               return 'sustainability';
+             case 'educational':
+               return 'educational';
+             default:
+               return 'general';
+           }
+         };
+
+         const normalizeGender = (value) => {
+           const normalized = String(value || '').trim().toLowerCase();
+           if (!normalized) return '';
+           if (normalized.startsWith('m')) return 'male';
+           if (normalized.startsWith('f')) return 'female';
+           return normalized;
+         };
+
+         const childGender = normalizeGender(
+           schoolStudent?.personalInfo?.gender ||
+           student?.gender ||
+           ''
+         );
+
+         const basePillarKeys = [
+           'finance',
+           'brain',
+           'uvls',
+           'dcos',
+           'moral',
+           'ai',
+           'ehe',
+           'crgc',
+           'sustainability'
          ];
 
-         // Calculate mastery for each pillar
-         const pillarMasteryData = pillars.map(pillar => {
-           const pillarGames = gameProgress.filter(game => game.gameType === pillar.key);
-           
-           if (pillarGames.length === 0) {
-             return {
-               pillar: pillar.name,
-               mastery: 0,
-               gamesCompleted: 0,
-               totalGames: pillar.totalGames
-             };
-           }
+         const pillarKeys = [...basePillarKeys];
+         if (childGender === 'male') {
+           pillarKeys.push('health-male');
+         } else if (childGender === 'female') {
+           pillarKeys.push('health-female');
+         }
 
-           // Calculate mastery based on games completed vs total games
-           const gamesCompleted = pillarGames.filter(g => g.fullyCompleted).length;
-           const mastery = Math.round((gamesCompleted / pillar.totalGames) * 100);
+         const totalPossibleGames = pillarKeys.reduce((sum, key) => {
+           return sum + (pillarGameCounts[key] || 0);
+         }, 0);
 
-           return {
-             pillar: pillar.name,
-             mastery: mastery,
-             gamesCompleted,
-             totalGames: pillar.totalGames
-           };
-         });
+         const completedGames = (gameProgress || []).filter((game) => {
+           const pillarKey = mapGameTypeToPillarKey(game.gameType);
+           if (!pillarKeys.includes(pillarKey)) return false;
+           return Boolean(
+             game?.fullyCompleted ||
+             (game?.totalLevels && game.levelsCompleted >= game.totalLevels) ||
+             game?.badgeAwarded
+           );
+         }).length;
 
-         // Calculate overall mastery
-         const pillarMastery = pillarMasteryData.length > 0
-           ? Math.round(pillarMasteryData.reduce((sum, p) => sum + p.mastery, 0) / pillarMasteryData.length)
+         const pillarMastery = totalPossibleGames > 0
+           ? Math.round((completedGames / totalPossibleGames) * 100)
            : 0;
 
         // Get recent mood
@@ -3361,69 +4176,6 @@ export const getClassStudents = async (req, res) => {
   }
 };
 
-// Get teacher messages/inbox
-export const getTeacherMessages = async (req, res) => {
-  try {
-    const { tenantId, user: teacherId } = req;
-
-    // Get notifications addressed to teacher
-    const notifications = await Notification.find({
-      userId: teacherId._id,
-      type: { $in: ['message', 'announcement', 'alert'] }
-    })
-      .sort({ createdAt: -1 })
-      .limit(20)
-      .lean();
-
-    // Get announcements for teachers
-    const announcements = await Announcement.find({
-      tenantId,
-      targetAudience: { $in: ['all', 'teachers'] },
-      isActive: true,
-      publishDate: { $lte: new Date() },
-      $or: [
-        { expiryDate: { $exists: false } },
-        { expiryDate: { $gte: new Date() } }
-      ]
-    })
-      .sort({ isPinned: -1, publishDate: -1 })
-      .limit(10)
-      .lean();
-
-    // Combine and format messages
-    const messages = [
-      ...notifications.map(n => ({
-        _id: n._id,
-        subject: n.title || 'New Message',
-        message: n.message,
-        sender: n.metadata?.senderName || 'System',
-        time: formatTimeAgo(n.createdAt),
-        read: n.read || false,
-        type: 'notification'
-      })),
-      ...announcements.map(a => ({
-        _id: a._id,
-        subject: a.title,
-        message: a.message,
-        sender: a.createdByName || 'Administration',
-        time: formatTimeAgo(a.publishDate),
-        read: a.readBy?.some(r => r.userId.toString() === teacherId._id.toString()) || false,
-        type: 'announcement',
-        priority: a.priority,
-        isPinned: a.isPinned
-      }))
-    ].sort((a, b) => {
-      if (a.isPinned && !b.isPinned) return -1;
-      if (!a.isPinned && b.isPinned) return 1;
-      return 0;
-    });
-
-    res.json({ messages });
-  } catch (error) {
-    console.error('Error fetching messages:', error);
-    res.status(500).json({ message: 'Server error', error: error.message });
-  }
-};
 
 // Get class missions analytics
 export const getClassMissions = async (req, res) => {
@@ -3899,55 +4651,6 @@ export const getAssignmentById = async (req, res) => {
   }
 };
 
-// Mark message as read
-export const markMessageAsRead = async (req, res) => {
-  try {
-    const { user } = req;
-    const { messageId } = req.params;
-    const { type } = req.body; // 'notification' or 'announcement'
-
-    if (type === 'announcement') {
-      const announcement = await Announcement.findByIdAndUpdate(
-        messageId,
-        { $addToSet: { readBy: { userId: user._id, readAt: new Date() } } },
-        { new: true }
-      );
-      
-      // Emit real-time update via Socket.IO
-      const io = req.app?.get('io');
-      if (io && announcement) {
-        io.to(user._id.toString()).emit('message:read', {
-          messageId,
-          type: 'announcement',
-          read: true
-        });
-      }
-      
-      return res.json({ success: true, announcement });
-    } else {
-      const notification = await Notification.findByIdAndUpdate(
-        messageId,
-        { read: true },
-        { new: true }
-      );
-      
-      // Emit real-time update via Socket.IO
-      const io = req.app?.get('io');
-      if (io && notification) {
-        io.to(user._id.toString()).emit('message:read', {
-          messageId,
-          type: 'notification',
-          read: true
-        });
-      }
-      
-      return res.json({ success: true, notification });
-    }
-  } catch (error) {
-    console.error('Error marking message as read:', error);
-    res.status(500).json({ message: 'Server error', error: error.message });
-  }
-};
 
 // Create sample data for testing
 export const createSampleData = async (req, res) => {
@@ -4459,29 +5162,107 @@ export const generateInviteLink = async (req, res) => {
 export const sendEmailInvites = async (req, res) => {
   try {
     const { emails, inviteLink, className } = req.body;
-    const teacherName = req.user.name;
+    const teacherName = req.user?.name || 'Your teacher';
+    const classLabel = className || 'your class';
 
-    // In a real application, you would use an email service like SendGrid, Mailgun, etc.
-    // For now, we'll just simulate sending emails
-    
-    // Here's where you would integrate with your email service:
-    // await emailService.sendBulkInvites({
-    //   emails,
-    //   inviteLink,
-    //   teacherName,
-    //   className
-    // });
+    if (!Array.isArray(emails) || emails.length === 0) {
+      return res.status(400).json({ message: 'At least one email is required' });
+    }
 
-    console.log(`Sending invites to: ${emails.join(', ')}`);
-    console.log(`Invite link: ${inviteLink}`);
-    console.log(`Class: ${className}`);
-    console.log(`Teacher: ${teacherName}`);
+    if (!inviteLink) {
+      return res.status(400).json({ message: 'Invite link is required' });
+    }
 
-    // For demo purposes, we'll just return success
+    const normalizedEmails = [...new Set(
+      emails
+        .map((email) => String(email || '').trim())
+        .filter(Boolean)
+    )];
+
+    if (normalizedEmails.length === 0) {
+      return res.status(400).json({ message: 'No valid email addresses provided' });
+    }
+
+    const subject = `You're invited to join ${classLabel} on Wise Student`;
+    const buildInviteHtml = (recipient) => `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      </head>
+      <body style="margin:0;padding:0;font-family:Arial, sans-serif;background-color:#f5f5f5;">
+        <table role="presentation" style="width:100%;border-collapse:collapse;background-color:#f5f5f5;">
+          <tr>
+            <td align="center" style="padding:32px 16px;">
+              <table role="presentation" style="max-width:600px;width:100%;border-collapse:collapse;background-color:#ffffff;border-radius:10px;overflow:hidden;box-shadow:0 4px 14px rgba(15, 23, 42, 0.1);">
+                <tr>
+                  <td style="padding:28px 32px;background:linear-gradient(135deg,#4f46e5,#9333ea);color:#ffffff;">
+                    <h1 style="margin:0;font-size:22px;font-weight:700;">Wise Student</h1>
+                    <p style="margin:6px 0 0;font-size:13px;opacity:0.9;">Class registration invitation</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:28px 32px;color:#0f172a;">
+                    <p style="margin:0 0 14px;font-size:16px;">Hi${recipient ? ` ${recipient}` : ''},</p>
+                    <p style="margin:0 0 18px;font-size:15px;line-height:1.6;color:#334155;">
+                      ${teacherName} invited you to join <strong>${classLabel}</strong> on Wise Student.
+                      Use the button below to complete registration.
+                    </p>
+                    <div style="text-align:center;margin:24px 0;">
+                      <a href="${inviteLink}" style="display:inline-block;padding:12px 24px;border-radius:999px;background:#4f46e5;color:#ffffff;text-decoration:none;font-weight:600;font-size:14px;">
+                        Complete Registration
+                      </a>
+                    </div>
+                    <p style="margin:0 0 10px;font-size:13px;color:#475569;">
+                      Or copy and paste this link into your browser:
+                    </p>
+                    <p style="margin:0;font-size:12px;color:#64748b;word-break:break-all;">${inviteLink}</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:20px 32px;background-color:#f8fafc;color:#64748b;font-size:12px;text-align:center;">
+                    If you did not expect this invitation, you can safely ignore this email.
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </body>
+      </html>
+    `;
+
+    const sendResults = await Promise.allSettled(
+      normalizedEmails.map((email) =>
+        sendEmail({
+          to: email,
+          subject,
+          html: buildInviteHtml(''),
+        })
+      )
+    );
+
+    const failures = sendResults
+      .map((result, index) => ({
+        email: normalizedEmails[index],
+        error: result.status === 'rejected' ? result.reason?.message || 'Failed to send' : null,
+      }))
+      .filter((result) => result.error);
+
+    const successCount = normalizedEmails.length - failures.length;
+
+    if (failures.length > 0) {
+      console.error('Invite email failures:', failures);
+    }
+
     res.json({
-      success: true,
-      message: `Invites sent to ${emails.length} email(s)`,
-      emailsSent: emails.length
+      success: failures.length === 0,
+      message: failures.length === 0
+        ? `Invites sent to ${successCount} email(s)`
+        : `Invites sent to ${successCount} email(s), ${failures.length} failed`,
+      emailsSent: successCount,
+      failures,
     });
   } catch (error) {
     console.error('Error sending email invites:', error);

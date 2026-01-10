@@ -34,11 +34,11 @@ import {
   getClassMasteryByPillar,
   getStudentsAtRisk,
   getSessionEngagement,
+  getStudentTransactionsForTeacher,
   getPendingTasks,
   getLeaderboard,
   exportTeacherAnalytics,
   getClassStudents,
-  getTeacherMessages,
   getClassMissions,
   getStudentStats,
   getStudentAssignments,
@@ -59,7 +59,6 @@ import {
   deleteAssignmentForEveryone,
   deleteAssignmentForStudent,
   getAssignmentById,
-  markMessageAsRead,
   createSampleData,
   getTeacherSettings,
   updateTeacherSettings,
@@ -373,6 +372,7 @@ router.get('/teacher/assignment-type-stats', requireAuth, requireSchoolRole, get
 router.get('/teacher/timetable', requireAuth, requireSchoolRole, getTeacherTimetable);
 router.get('/teacher/all-students', requireAuth, requireSchoolRole, getAllStudentsForTeacher);
 router.get('/teacher/student/:studentId/analytics', requireAuth, requireSchoolRole, getStudentAnalyticsForTeacher);
+router.get('/teacher/student/:studentId/transactions', requireAuth, requireSchoolRole, getStudentTransactionsForTeacher);
 router.get('/student/:studentId/parent', requireAuth, requireSchoolRole, getStudentParent);
 router.get('/teacher/class-mastery', requireAuth, requireSchoolRole, getClassMasteryByPillar);
 router.get('/teacher/students-at-risk', requireAuth, requireSchoolRole, getStudentsAtRisk);
@@ -380,7 +380,6 @@ router.get('/teacher/session-engagement', requireAuth, requireSchoolRole, getSes
 router.get('/teacher/pending-tasks', requireAuth, requireSchoolRole, getPendingTasks);
 router.get('/teacher/leaderboard', requireAuth, requireSchoolRole, getLeaderboard);
 router.get('/teacher/class/:classId/students', requireAuth, requireSchoolRole, getClassStudents);
-router.get('/teacher/messages', requireAuth, requireSchoolRole, getTeacherMessages);
 router.get('/teacher/class-missions', requireAuth, requireSchoolRole, getClassMissions);
 router.get('/teacher/analytics/export', requireAuth, requireSchoolRole, exportTeacherAnalytics);
 
@@ -394,7 +393,6 @@ router.delete('/teacher/assignments/:assignmentId/for-everyone', requireAuth, re
 router.delete('/student/assignments/:assignmentId/for-me', requireAuth, requireSchoolRole, deleteAssignmentForStudent);
 
 // Message operations
-router.put('/teacher/messages/:messageId/read', requireAuth, requireSchoolRole, markMessageAsRead);
 
 // Sample data creation (for testing)
 router.post('/teacher/create-sample-data', requireAuth, requireSchoolRole, createSampleData);
