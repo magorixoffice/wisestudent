@@ -18,7 +18,6 @@ export const setupWalletSocket = (io, socket, user) => {
         return;
       }
 
-      console.log(`💰 Student ${studentId} subscribed to wallet updates`);
       
       // Join student-specific room for wallet updates
       socket.join(`student-wallet-${studentId}`);

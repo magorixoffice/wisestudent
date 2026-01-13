@@ -2,8 +2,6 @@ import Chat from '../models/Chat.js';
 import Message from '../models/Message.js';
 
 export const setupChatSocket = (io, socket, user) => {
-  console.log('💬 Chat socket setup for user:', user._id);
-  
   // Join chat room
   socket.on('join-chat', async (chatId) => {
     try {
@@ -18,7 +16,6 @@ export const setupChatSocket = (io, socket, user) => {
         // Request other users in the room to announce their presence
         socket.to(chatId).emit('request-online-status', { chatId, requestingUserId: user._id });
         
-        console.log(`👤 User ${user._id} joined chat: ${chatId}`);
       }
     } catch (error) {
       console.error('Error joining chat:', error);
@@ -32,7 +29,6 @@ export const setupChatSocket = (io, socket, user) => {
     socket.to(chatId).emit('user-offline', { chatId, userId: user._id });
     socket.leave(chatId);
     socket.emit('left-chat', { chatId });
-    console.log(`👤 User ${user._id} left chat: ${chatId}`);
   });
 
   // Typing indicator
@@ -91,7 +87,6 @@ export const setupChatSocket = (io, socket, user) => {
         seenAt: new Date()
       });
 
-      console.log(`✅ Messages marked as seen in chat ${chatId} by user ${user._id}`);
     } catch (error) {
       console.error('Error marking messages as seen:', error);
       socket.emit('error', { message: 'Failed to mark messages as seen' });
@@ -119,7 +114,6 @@ export const setupChatSocket = (io, socket, user) => {
 
   // Handle disconnect
   socket.on('disconnect', () => {
-    console.log(`User ${user._id} disconnected from chat`);
     // Note: When socket disconnects, it automatically leaves all rooms
     // We broadcast offline status, but without chatId since we can't access rooms after disconnect
     socket.broadcast.emit('user-offline', { userId: user._id });

@@ -20,7 +20,6 @@ export const setupGameSocket = (io, socket, user) => {
         return;
       }
 
-      console.log(`🎮 Student ${studentId} subscribed to missions for level ${level}`);
       
       // Join student-specific room for missions
       socket.join(`student-missions-${studentId}`);
@@ -195,7 +194,6 @@ export const setupGameSocket = (io, socket, user) => {
         }
       });
 
-      console.log(`🏆 User ${user._id} subscribed to ${period} leaderboard`);
       socket.join(`leaderboard-${period}`);
 
       // Import leaderboard cache for position change tracking

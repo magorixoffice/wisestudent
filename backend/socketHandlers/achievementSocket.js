@@ -53,7 +53,6 @@ export const setupAchievementSocket = (io, socket, user) => {
         return;
       }
 
-      console.log(`🏆 Student ${studentId} subscribed to achievement updates`);
       
       // Join student-specific room for achievement updates
       socket.join(`student-achievements-${studentId}`);
@@ -112,7 +111,6 @@ export const emitAchievementEarned = (io, userId, achievement, gameInfo = {}) =>
   // Also emit to the user's general room for dashboard updates
   io.to(userId.toString()).emit('achievement:earned', achievementData);
   
-  console.log(`dYZ% Achievement earned event emitted for user ${userId}`);
 };
 
 export const emitBadgeEarned = (io, userId, gameProgress) => {

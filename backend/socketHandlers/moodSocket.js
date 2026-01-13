@@ -16,7 +16,6 @@ export const setupMoodSocket = (io, socket, user) => {
         return;
       }
 
-      console.log(`💚 Student ${studentId} subscribed to mood updates`);
       
       // Join student-specific room for mood updates
       socket.join(`student-mood-${studentId}`);
@@ -169,7 +168,6 @@ export const emitMoodLogged = async (io, userId, moodData) => {
     // Also emit to the user's general room for dashboard updates
     io.to(userId.toString()).emit('mood:logged', moodEventData);
     
-    console.log(`💚 Mood logged event emitted for user ${userId}`);
   } catch (err) {
     console.error('Error emitting mood logged event:', err);
   }

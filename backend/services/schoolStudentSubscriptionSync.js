@@ -64,7 +64,6 @@ export const syncSchoolTeacherAccess = async (orgId, tenantId, isActive, endDate
     }).select('_id email name orgId tenantId');
 
     if (!teachers || teachers.length === 0) {
-      console.log(`No teachers found for orgId: ${orgId}, tenantId: ${tenantId}`);
       return {
         success: true,
         teachersProcessed: 0,
@@ -101,7 +100,6 @@ export const syncSchoolTeacherAccess = async (orgId, tenantId, isActive, endDate
       }
     }
 
-    console.log(`Notified ${teachersNotified} teachers for orgId: ${orgId}, tenantId: ${tenantId}, active: ${subscriptionActive}`);
 
     return {
       success: true,
@@ -168,10 +166,8 @@ export const syncSchoolStudentSubscriptions = async (orgId, tenantId, isActive, 
     
     const students = await User.find(studentQuery).select('_id email name orgId tenantId role');
     
-    console.log(`Found ${students.length} students for orgId: ${orgId}, tenantId: ${tenantId} (${studentIdsFromSchoolStudent.length} via SchoolStudent model)`);
 
     if (!students || students.length === 0) {
-      console.log(`No students found for orgId: ${orgId}, tenantId: ${tenantId}`);
       return {
         success: true,
         studentsProcessed: 0,
@@ -237,7 +233,6 @@ export const syncSchoolStudentSubscriptions = async (orgId, tenantId, isActive, 
           // Deactivate all active premium subscriptions
           for (const activeSub of activePremiumSubscriptions) {
             if (activeSub._id.toString() !== userSubscription?._id.toString()) {
-              console.log(`  ⚠️  Deactivating active premium subscription ${activeSub._id} for student ${student.email}`);
               activeSub.status = 'expired';
               activeSub.endDate = now;
               await activeSub.save();
@@ -248,13 +243,11 @@ export const syncSchoolStudentSubscriptions = async (orgId, tenantId, isActive, 
           if (activePremiumSubscriptions.length > 0) {
             const activeSub = activePremiumSubscriptions[0];
             if (!userSubscription || activeSub._id.toString() !== userSubscription._id.toString()) {
-              console.log(`  ⚠️  Student ${student.email} has an active premium subscription that needs to be expired. Updating that instead.`);
               userSubscription = activeSub;
             }
           }
         }
 
-        console.log(`  📋 Student ${student.email}: Found subscription? ${!!userSubscription}, Plan: ${userSubscription?.planType}, Status: ${userSubscription?.status}, FullAccess: ${userSubscription?.features?.fullAccess}`);
 
         // Check if subscription needs update
         // Also check if features.fullAccess matches the target (critical for game access)
@@ -290,7 +283,6 @@ export const syncSchoolStudentSubscriptions = async (orgId, tenantId, isActive, 
           isNotLinkedToSchool || // Always update if not properly linked to school
           hasActivePremiumButSchoolExpired; // Force update if active premium but school expired
 
-        console.log(`  🔍 Needs update? ${needsUpdate} (planType: ${userSubscription?.planType} !== ${targetPlanType}, status: ${userSubscription?.status} !== ${targetStatus}, fullAccess: ${currentFullAccess} !== ${targetFullAccess}, linked: ${!isNotLinkedToSchool}, hasActivePremiumButSchoolExpired: ${hasActivePremiumButSchoolExpired})`);
 
         if (needsUpdate) {
           if (!userSubscription) {
@@ -380,7 +372,6 @@ export const syncSchoolStudentSubscriptions = async (orgId, tenantId, isActive, 
             });
 
             await userSubscription.save();
-            console.log(`  ✅ Updated subscription for student ${student.email}: planType=${targetPlanType}, status=${targetStatus}, fullAccess=${targetFeatures.fullAccess}`);
           }
 
           if (needsUpdate) {
@@ -403,7 +394,6 @@ export const syncSchoolStudentSubscriptions = async (orgId, tenantId, isActive, 
             reason: subscriptionActive ? 'school_subscription_renewed' : 'school_subscription_expired',
             timestamp: now,
           });
-          console.log(`  📡 Emitted subscription update event to student ${student.email} (planType: ${targetPlanType}, fullAccess: ${targetFeatures.fullAccess})`);
         }
       } catch (error) {
         console.error(`Error updating subscription for student ${student._id}:`, error);
@@ -411,7 +401,6 @@ export const syncSchoolStudentSubscriptions = async (orgId, tenantId, isActive, 
       }
     }
 
-    console.log(`Synced ${studentsUpdated} student subscriptions for orgId: ${orgId}, tenantId: ${tenantId}, active: ${subscriptionActive}`);
 
     return {
       success: true,
@@ -463,7 +452,6 @@ export const syncExpiredSchoolSubscriptions = async (io = null) => {
         const isActuallyExpired = expiryDate <= now;
         
         if (!isActuallyExpired) {
-          console.log(`⏭️  Skipping subscription ${subscription._id} - endDate is in the future`);
           continue;
         }
 
@@ -471,10 +459,8 @@ export const syncExpiredSchoolSubscriptions = async (io = null) => {
         if (subscription.status !== 'expired') {
           subscription.status = 'expired';
           await subscription.save();
-          console.log(`📝 Updated subscription ${subscription._id} status to expired`);
         }
 
-        console.log(`🔄 Syncing students for expired subscription: orgId=${subscription.orgId}, tenantId=${subscription.tenantId}`);
 
         // Sync student subscriptions (downgrade to freemium)
         const syncResult = await syncSchoolStudentSubscriptions(
@@ -485,7 +471,6 @@ export const syncExpiredSchoolSubscriptions = async (io = null) => {
           io
         );
         
-        console.log(`✅ Synced ${syncResult.studentsUpdated} students for expired subscription ${subscription._id}`);
 
         // Sync teacher access
         const teacherSyncResult = await syncSchoolTeacherAccess(

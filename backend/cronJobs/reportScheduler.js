@@ -18,7 +18,6 @@ const generateWeeklyReports = async () => {
         },
       });
 
-      console.log(`✅ Weekly report created for ${student.name}`);
     }
   } catch (err) {
     console.error("❌ Failed to generate reports:", err.message);
@@ -28,7 +27,6 @@ const generateWeeklyReports = async () => {
 // Schedule every Monday at 8:00 AM
 export const scheduleWeeklyReports = () => {
   cron.schedule("0 8 * * 1", async () => {
-    console.log("🕒 Running scheduled weekly report generation...");
     await generateWeeklyReports();
   });
 };

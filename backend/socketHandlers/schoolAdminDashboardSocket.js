@@ -2,13 +2,11 @@ export const setupSchoolAdminDashboardSocket = (io, socket, user) => {
   // Only setup for school_admin role
   if (user.role !== 'school_admin') return;
 
-  console.log(`🔗 Setting up School Admin Dashboard socket for user ${user._id}`);
 
   // Join school admin dashboard room
   const tenantId = user.tenantId || user.organizationId;
   if (tenantId) {
     socket.join(`school-admin-dashboard:${tenantId}`);
-    console.log(`📊 School admin ${user._id} joined dashboard room for tenant ${tenantId}`);
   }
 
   // Debounce timer to prevent too many rapid requests
@@ -41,7 +39,6 @@ export const setupSchoolAdminDashboardSocket = (io, socket, user) => {
 
   // Handle disconnect
   socket.on('disconnect', () => {
-    console.log(`🔴 School admin ${user._id} disconnected from dashboard`);
   });
 };
 

@@ -84,12 +84,7 @@ app.use(
         }
       } catch (e) {
         // If URL parsing fails, continue to check against allowed origins
-        console.warn('⚠️ Failed to parse origin URL:', origin);
       }
-      
-      // Log the blocked origin for debugging
-      console.warn('❌ CORS blocked origin:', origin);
-      console.log('Allowed origins:', allowedOrigins);
       
       return callback(new Error("Not allowed by CORS: " + origin), false);
     },
@@ -200,7 +195,6 @@ import { setupPresentationSocket } from "./socketHandlers/presentationSocket.js"
 
 // Socket.IO Authentication and Events
 io.on("connection", async (socket) => {
-  console.log("🟢 New socket connected:", socket.id);
 
   try {
     const token = socket.handshake.auth?.token;
@@ -231,8 +225,6 @@ io.on("connection", async (socket) => {
 
 
     socket.join(user._id.toString());
-
-    console.log(`👤 User ${user._id} (${user.role}) joined their room`);
 
     setupWalletSocket(io, socket, user);
     setupFeedbackSocket(io, socket, user);
@@ -267,7 +259,7 @@ io.on("connection", async (socket) => {
   }
 
   socket.on("disconnect", () => {
-    console.log("🔴 Socket disconnected:", socket.id);
+    // Socket disconnected
   });
 });
 

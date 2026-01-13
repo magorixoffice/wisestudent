@@ -22,8 +22,6 @@ export const checkAndTriggerAlerts = async (io = null) => {
       ]
     }).populate('notificationSettings.recipients');
 
-    console.log(`🔔 Checking ${rulesToCheck.length} alert rules...`);
-
     const results = {
       checked: 0,
       triggered: 0,
@@ -101,7 +99,6 @@ export const checkAndTriggerAlerts = async (io = null) => {
       }
     }
 
-    console.log(`✅ Alert check completed: ${results.checked} checked, ${results.triggered} triggered, ${results.errors} errors`);
     return results;
   } catch (error) {
     console.error('Error in checkAndTriggerAlerts:', error);

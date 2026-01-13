@@ -16,7 +16,6 @@ export const setupJournalSocket = (io, socket, user) => {
         return;
       }
 
-      console.log(`📔 Student ${studentId} subscribed to journal entries`);
       
       // Join student-specific room for journal updates
       socket.join(`student-journal-${studentId}`);

@@ -40,7 +40,6 @@ export const setupPresentationSocket = (io, socket, user) => {
         sessionId: presentation.presentationSessionId
       });
 
-      console.log(`User ${user._id} joined presentation ${presentationId}`);
     } catch (error) {
       console.error('Error joining presentation:', error);
       socket.emit('presentation:error', { message: 'Error joining presentation' });
@@ -55,7 +54,6 @@ export const setupPresentationSocket = (io, socket, user) => {
       userName: user.name,
       presentationId
     });
-    console.log(`User ${user._id} left presentation ${presentationId}`);
   });
 
   // Change slide (only presenter can do this)
@@ -93,7 +91,6 @@ export const setupPresentationSocket = (io, socket, user) => {
         changedBy: user._id.toString()
       });
 
-      console.log(`Slide changed to ${slideNumber} for presentation ${presentationId}`);
     } catch (error) {
       console.error('Error changing slide:', error);
       socket.emit('presentation:error', { message: 'Error changing slide' });
@@ -132,7 +129,6 @@ export const setupPresentationSocket = (io, socket, user) => {
         currentSlide: 0
       });
 
-      console.log(`Presentation ${presentationId} started by user ${user._id}`);
     } catch (error) {
       console.error('Error starting presentation:', error);
       socket.emit('presentation:error', { message: 'Error starting presentation' });
@@ -166,7 +162,6 @@ export const setupPresentationSocket = (io, socket, user) => {
         presentationId
       });
 
-      console.log(`Presentation ${presentationId} stopped by user ${user._id}`);
     } catch (error) {
       console.error('Error stopping presentation:', error);
       socket.emit('presentation:error', { message: 'Error stopping presentation' });

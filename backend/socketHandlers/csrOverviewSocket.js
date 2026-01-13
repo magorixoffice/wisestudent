@@ -1,7 +1,6 @@
 import csrOverviewController from '../controllers/csrOverviewController.js';
 
 export const setupCSROverviewSocket = (io, socket, user) => {
-  console.log(`🔗 Setting up CSR Overview socket for user ${user._id}`);
 
   // Join CSR overview room and user's personal room
   const organizationId = user.orgId ? user.orgId.toString() : user._id.toString();
@@ -12,7 +11,6 @@ export const setupCSROverviewSocket = (io, socket, user) => {
   // Handle real-time data requests
   socket.on('request-csr-overview-data', async (data) => {
     try {
-      console.log('📊 CSR Overview data requested:', data);
       
       // Create a mock request object with user info
       const mockReq = {
@@ -231,7 +229,6 @@ export const setupCSROverviewSocket = (io, socket, user) => {
 
   // Cleanup on disconnect
   socket.on('disconnect', () => {
-    console.log(`🔌 CSR Overview socket disconnected for user ${user._id}`);
   });
 };
 

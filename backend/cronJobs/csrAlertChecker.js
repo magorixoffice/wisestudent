@@ -14,13 +14,11 @@ export const scheduleCSRAlertChecker = (io) => {
   // Run every 15 minutes
   cron.schedule('*/15 * * * *', async () => {
     if (isRunning) {
-      console.log('⏭️  CSR Alert checker already running, skipping...');
       return;
     }
     
     try {
       isRunning = true;
-      console.log('🔔 Starting CSR alert check...');
       await checkAndTriggerAlerts(ioInstance);
     } catch (error) {
       console.error('❌ Error in CSR alert checker:', error);
@@ -29,12 +27,9 @@ export const scheduleCSRAlertChecker = (io) => {
     }
   });
   
-  console.log('✅ CSR Alert checker scheduled (runs every 15 minutes)');
-  
   // Run immediately on startup (after a short delay to let server initialize)
   setTimeout(async () => {
     try {
-      console.log('🔔 Running initial CSR alert check...');
       await checkAndTriggerAlerts(ioInstance);
     } catch (error) {
       console.error('❌ Error in initial CSR alert check:', error);
