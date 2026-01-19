@@ -216,6 +216,12 @@ const AdminDashboard = () => {
             color="from-indigo-500 to-purple-600"
             onClick={() => navigate('/admin/platform')}
           />
+          <QuickActionButton
+            label="Admin Panel"
+            icon={Target}
+            color="from-rose-500 to-pink-600"
+            onClick={() => navigate('/admin/panel')}
+          />
         </motion.div>
 
         {/* Key Metrics */}

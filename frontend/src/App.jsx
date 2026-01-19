@@ -88,6 +88,7 @@ import OperationalTools from "./pages/Admin/OperationalTools";
 import PredictiveModels from "./pages/Admin/PredictiveModels";
 import APIControlPlane from "./pages/Admin/APIControlPlane";
 import AdminPlatform from "./pages/Admin/AdminPlatform";
+import GoodieOrders from "./pages/Admin/GoodieOrders";
 
 // Parent Pages
 import ParentDashboard from "./pages/Parent/ParentDashboard";
@@ -171,6 +172,7 @@ import SchoolStudentChat from "./pages/School/SchoolStudentChat";
 import ParentChat from "./pages/Parent/ParentChat";
 import AssignmentTracking from "./pages/School/AssignmentTracking";
 import LandingPage from "./pages/LandingPage";
+import PlatformDetails from "./pages/PlatformDetails";
 import IndividualAccountSelection from "./pages/IndividualAccountSelection";
 // Multi-tenant registration pages
 import InstitutionTypeSelection from "./pages/MultiTenant/InstitutionTypeSelection";
@@ -516,6 +518,7 @@ const App = () => {
 
   // Hide navbar on CSR pages (they use sidebar instead)
   const isCSRPage = location.pathname.startsWith("/csr");
+  const isPlatformDetailsPage = location.pathname === "/platform-details";
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -525,6 +528,7 @@ const App = () => {
         !isPublicPage &&
         !isPresentationPage &&
         !isCSRPage &&
+        !isPlatformDetailsPage &&
         location.pathname !== "/" &&
         location.pathname !== "/school-registration" &&
         location.pathname !== "/institution-type" &&
@@ -540,6 +544,7 @@ const App = () => {
       <ErrorBoundary>
         <Routes>
           <Route path="/" element={user ? <RootRedirect /> : <LandingPage />} />
+          <Route path="/platform-details" element={<PlatformDetails />} />
           <Route
             path="/individual-account"
             element={<IndividualAccountSelection />}
@@ -1271,6 +1276,14 @@ const App = () => {
             element={
               <ProtectedRoute roles={["admin"]}>
                 <AdminRedemptions />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/goodie-orders"
+            element={
+              <ProtectedRoute roles={["admin"]}>
+                <GoodieOrders />
               </ProtectedRoute>
             }
           />

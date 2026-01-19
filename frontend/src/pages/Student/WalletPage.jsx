@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo } from "react";
+import React, { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import api from "../../utils/api";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -29,6 +29,40 @@ import {
 } from "lucide-react";
 import { useSocket } from '../../context/SocketContext';
 import { toast } from 'react-hot-toast';
+import { createPortal } from "react-dom";
+import { useAuth } from "../../hooks/useAuth";
+
+const HealCoinIcon = ({ className = "w-5 h-5" }) => (
+    <img
+        src="/healcoin.png"
+        alt="HealCoin"
+        className={`inline-block ${className}`}
+        loading="lazy"
+    />
+);
+
+const HEALCOIN_TO_RUPEE_RATE = 0.01;
+
+const formatRupee = (value) => {
+    const normalizedValue = typeof value === "number" ? value : Number(value) || 0;
+    return new Intl.NumberFormat("en-IN", {
+        style: "currency",
+        currency: "INR",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    }).format(normalizedValue);
+};
+
+const INITIAL_ADDRESS_FORM = {
+    name: "",
+    contactNumber: "",
+    addressLine1: "",
+    addressLine2: "",
+    city: "",
+    state: "",
+    pincode: "",
+    instructions: ""
+};
 
 const WalletPage = () => {
     const [wallet, setWallet] = useState({
@@ -49,17 +83,25 @@ const WalletPage = () => {
         hasPrevPage: false
     });
     const [currentPage, setCurrentPage] = useState(1);
-    const [loading, setLoading] = useState(false);
     const [fetching, setFetching] = useState(false);
     const [search, setSearch] = useState("");
     const [typeFilter, setTypeFilter] = useState("all");
     const [sortBy, setSortBy] = useState("newest");
-    const [amount, setAmount] = useState("");
-    const [upiId, setUpiId] = useState("");
     const [statusMsg, setStatusMsg] = useState("");
+    const [selectedGoodie, setSelectedGoodie] = useState(null);
+    const [showAddressModal, setShowAddressModal] = useState(false);
+    const [addressForm, setAddressForm] = useState(INITIAL_ADDRESS_FORM);
+    const [addressErrors, setAddressErrors] = useState({});
+    const [isSubmittingGoodie, setIsSubmittingGoodie] = useState(false);
+    const [goodies, setGoodies] = useState([]);
+    const [goodiesLoading, setGoodiesLoading] = useState(true);
+    const bodyOverflowRef = useRef("");
+
     const [errorMsg, setErrorMsg] = useState("");
     const [showBalance, setShowBalance] = useState(true);
     const [activeTab, setActiveTab] = useState("overview");
+
+    const { user } = useAuth();
     
     const fetchTransactions = useCallback(async (page = 1) => {
         try {
@@ -147,9 +189,109 @@ const WalletPage = () => {
         }
     }, [currentPage, fetchTransactions]);
 
+    const loadGoodies = useCallback(async () => {
+        try {
+            setGoodiesLoading(true);
+            const response = await api.get('/api/goodies');
+            const items = Array.isArray(response.data?.goodies) ? response.data.goodies : [];
+            setGoodies(items);
+        } catch (error) {
+            console.error('Failed to load goodies:', error);
+            toast.error('Failed to load goodies');
+        } finally {
+            setGoodiesLoading(false);
+        }
+    }, []);
+
+    const openGoodieModal = (goodie) => {
+        if (!goodie) return;
+        if ((wallet?.balance || 0) < goodie.coins) {
+            toast.error(`You need ${goodie.coins.toLocaleString()} HealCoins to request ${goodie.title}.`);
+            return;
+        }
+        setSelectedGoodie(goodie);
+        setAddressForm({
+            ...INITIAL_ADDRESS_FORM,
+            name: user?.name || "",
+            contactNumber: user?.contactNumber || user?.phone || ""
+        });
+        setAddressErrors({});
+        setShowAddressModal(true);
+    };
+
+    const closeGoodieModal = () => {
+        setShowAddressModal(false);
+        setSelectedGoodie(null);
+        setAddressErrors({});
+        setAddressForm(INITIAL_ADDRESS_FORM);
+    };
+
+    const handleAddressChange = (field, value) => {
+        setAddressForm(prev => ({
+            ...prev,
+            [field]: value
+        }));
+    };
+
+    const submitGoodieRequest = async () => {
+        if (!selectedGoodie) return;
+        const errors = {};
+        if (!addressForm.name.trim()) errors.name = "Full name is required";
+        if (!addressForm.contactNumber.trim()) errors.contactNumber = "Contact number is required";
+        if (!addressForm.addressLine1.trim()) errors.addressLine1 = "Address line 1 is required";
+        if (!addressForm.city.trim()) errors.city = "City is required";
+        if (!addressForm.state.trim()) errors.state = "State is required";
+        if (!addressForm.pincode.trim()) errors.pincode = "Pincode is required";
+
+        if (Object.keys(errors).length) {
+            setAddressErrors(errors);
+            return;
+        }
+
+        setIsSubmittingGoodie(true);
+        try {
+            const response = await api.post('/api/goodies/request', {
+                goodieTitle: selectedGoodie.title,
+                coins: selectedGoodie.coins,
+                description: selectedGoodie.description || "",
+                address: {
+                    contactNumber: addressForm.contactNumber,
+                    addressLine1: addressForm.addressLine1,
+                    addressLine2: addressForm.addressLine2,
+                    city: addressForm.city,
+                    state: addressForm.state,
+                    pincode: addressForm.pincode,
+                    instructions: addressForm.instructions
+                }
+            });
+
+            const newBalance = response.data.walletBalance ?? Math.max(0, (wallet.balance || 0) - selectedGoodie.coins);
+            setWallet(prev => ({
+                ...prev,
+                balance: newBalance,
+                lastUpdated: new Date().toISOString()
+            }));
+
+            setStatusMsg(`Thanks! ${selectedGoodie.title} request submitted (ID ${response.data.order?._id || 'pending'}).`);
+            toast.success("Goodie request submitted! We'll deliver soon.");
+            closeGoodieModal();
+            setTimeout(() => setStatusMsg(""), 6000);
+        } catch (error) {
+            console.error("Goodie request failed:", error);
+            const message = error.response?.data?.error || 'Failed to submit goodie request';
+            toast.error(message);
+        } finally {
+            setIsSubmittingGoodie(false);
+        }
+    };
+
     useEffect(() => {
         fetchWalletData();
     }, [fetchWalletData]);
+    
+    useEffect(() => {
+        loadGoodies();
+    }, [loadGoodies]);
     
     // Fetch transactions when page changes
     useEffect(() => {
@@ -188,13 +330,23 @@ const WalletPage = () => {
                 setTimeout(() => fetchWalletData(), 300);
             }
         };
+        const handleNewGoodieCatalog = (goodie) => {
+            setGoodies((prev) => {
+                if (prev.some((item) => item._id === goodie._id)) {
+                    return prev;
+                }
+                return [goodie, ...prev];
+            });
+        };
         socket.on('game-completed', handleGameCompleted);
         socket.on('challenge-completed', handleChallengeCompleted);
         socket.on('wallet:updated', handleWalletUpdate);
+        socket.on('goodie:catalog:new', handleNewGoodieCatalog);
         return () => {
             socket.off('game-completed', handleGameCompleted);
             socket.off('challenge-completed', handleChallengeCompleted);
             socket.off('wallet:updated', handleWalletUpdate);
+            socket.off('goodie:catalog:new', handleNewGoodieCatalog);
         };
     }, [socket, fetchWalletData]);
     
@@ -209,6 +361,21 @@ const WalletPage = () => {
         
         return () => clearInterval(interval);
     }, [fetching, fetchWalletData]);
+
+    useEffect(() => {
+        if (typeof document === "undefined") return;
+
+        if (showAddressModal) {
+            bodyOverflowRef.current = document.body.style.overflow;
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = bodyOverflowRef.current || "";
+        }
+
+        return () => {
+            document.body.style.overflow = bodyOverflowRef.current || "";
+        };
+    }, [showAddressModal]);
 
     // Animation variants
     const pulseVariants = {
@@ -247,70 +414,6 @@ const WalletPage = () => {
                     : dateA - dateB;
             });
     }, [transactions, search, typeFilter, sortBy]);
-
-    const handleRedeem = async () => {
-        setErrorMsg("");
-        setStatusMsg("");
-        
-        // Validation
-        if (!amount || !upiId) {
-            setErrorMsg("Please enter both amount and UPI ID");
-            return;
-        }
-        
-        const redeemAmount = parseInt(amount);
-        if (isNaN(redeemAmount) || redeemAmount <= 0) {
-            setErrorMsg("Please enter a valid amount");
-            return;
-        }
-        
-        if (redeemAmount > (wallet?.balance || 0)) {
-            setErrorMsg("Insufficient balance");
-            return;
-        }
-
-        // UPI ID validation (basic)
-        const upiPattern = /^[\w.-]+@[\w]+$/;
-        if (!upiPattern.test(upiId.trim())) {
-            setErrorMsg("Please enter a valid UPI ID (e.g., user@upi)");
-            return;
-        }
-
-        setLoading(true);
-        try {
-            const response = await api.post('/api/wallet/redeem', {
-                amount: redeemAmount,
-                upiId: upiId.trim()
-            });
-            
-            // Update wallet balance
-            setWallet(prev => ({ 
-                ...prev, 
-                balance: response.data.wallet?.balance || (prev?.balance || 0) - redeemAmount,
-                lastUpdated: new Date().toISOString()
-            }));
-            
-            // Refresh transactions to show the new redemption
-            await fetchTransactions(currentPage);
-            
-            setStatusMsg("✅ Redemption request submitted successfully!");
-            setAmount("");
-            setUpiId("");
-            toast.success("Redemption request submitted successfully!");
-            
-            // Refresh wallet data to ensure consistency
-            await fetchWalletData();
-            
-            setTimeout(() => setStatusMsg(""), 5000);
-        } catch (error) {
-            console.error('Error redeeming coins:', error);
-            const errorMessage = error.response?.data?.message || error.response?.data?.error || error.message || 'Failed to process redemption';
-            setErrorMsg(errorMessage);
-            toast.error(errorMessage);
-        } finally {
-            setLoading(false);
-        }
-    };
 
     const getTransactionIcon = (type) => {
         switch (type) {
@@ -359,6 +462,8 @@ const WalletPage = () => {
     const progressToMilestone = wallet?.balance && wallet?.nextMilestone && wallet.nextMilestone > 0
         ? Math.min(((wallet.balance / wallet.nextMilestone) * 100), 100)
         : 0;
+
+    const rupeesForBalance = (wallet.balance || 0) * HEALCOIN_TO_RUPEE_RATE;
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 relative overflow-hidden px-4 sm:px-6 md:px-8">
@@ -512,7 +617,14 @@ const WalletPage = () => {
                                     <Crown className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-500" />
                                 </div>
                                 <div className="text-2xl sm:text-3xl md:text-4xl font-black text-green-600 mb-1 sm:mb-2">
-                                    {showBalance ? `🪙${wallet.balance?.toLocaleString() || '0'}` : "••••"}
+                                    {showBalance ? (
+                                        <span className="inline-flex items-center gap-2">
+                                            <HealCoinIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+                                            {wallet.balance?.toLocaleString() || '0'}
+                                        </span>
+                                    ) : (
+                                        "••••"
+                                    )}
                                 </div>
                                 <div className="text-xs sm:text-sm text-green-600 font-medium">Available Balance</div>
                             </motion.div>
@@ -548,7 +660,10 @@ const WalletPage = () => {
                                     <Star className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-500" />
                                 </div>
                                 <div className="text-2xl sm:text-3xl md:text-4xl font-black text-purple-600 mb-1 sm:mb-2">
-                                    🪙{wallet.nextMilestone?.toLocaleString() || '100'}
+                                    <span className="inline-flex items-center gap-2">
+                                        <HealCoinIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+                                        {wallet.nextMilestone?.toLocaleString() || '100'}
+                                    </span>
                                 </div>
                                 <div className="w-full bg-purple-200 rounded-full h-1.5 sm:h-2 mb-1 sm:mb-2">
                                     <motion.div
@@ -635,7 +750,12 @@ const WalletPage = () => {
                                         <Calendar className="w-6 h-6 sm:w-8 sm:h-8" />
                                         <h3 className="text-lg sm:text-xl font-bold">This Month</h3>
                                     </div>
-                                    <div className="text-2xl sm:text-3xl font-black">🪙{Math.floor((wallet.balance || 0) * 0.3).toLocaleString()}</div>
+                                    <div className="text-2xl sm:text-3xl font-black">
+                                        <span className="inline-flex items-center gap-2">
+                                            <HealCoinIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+                                            {Math.floor((wallet.balance || 0) * 0.3).toLocaleString()}
+                                        </span>
+                                    </div>
                                     <p className="text-purple-100 text-xs sm:text-sm">Earned in {new Date().toLocaleDateString('en-US', { month: 'long' })}</p>
                                 </div>
                             </div>
@@ -730,7 +850,11 @@ const WalletPage = () => {
                                                                 (txn.type === 'credit' || txn.type === 'earn') ? 'text-green-600' :
                                                                 (txn.type === 'debit' || txn.type === 'spend') ? 'text-red-600' : 'text-blue-600'
                                                             }`}>
-                                                                {(txn.type === 'credit' || txn.type === 'earn') ? '+' : '-'}🪙{txn.amount?.toLocaleString() || 0}
+                                                                <span className="inline-flex items-center gap-2">
+                                                                    {(txn.type === 'credit' || txn.type === 'earn') ? '+' : '-'}
+                                                                    <HealCoinIcon className="w-4 h-4 sm:w-5 sm:h-5" />
+                                                                    {txn.amount?.toLocaleString() || 0}
+                                                                </span>
                                                             </div>
                                                             <span className={`text-xs px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full font-medium ${getStatusColor(txn.status || 'completed')}`}>
                                                                 {txn.status || 'completed'}
@@ -823,43 +947,236 @@ const WalletPage = () => {
                             exit={{ opacity: 0, x: -20 }}
                             transition={{ duration: 0.3 }}
                         >
-                            <div className="bg-white/95 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-8 sm:p-10 md:p-12 shadow-xl sm:shadow-2xl border border-white/50">
-                                <div className="text-center">
-                                    <motion.div
-                                        animate={{
-                                            scale: [1, 1.1, 1],
-                                            rotate: [0, 5, -5, 0]
-                                        }}
-                                        transition={{
-                                            duration: 2,
-                                            repeat: Infinity,
-                                            ease: "easeInOut"
-                                        }}
-                                        className="text-6xl sm:text-7xl md:text-8xl mb-4 sm:mb-6"
-                                    >
-                                        🚧
-                                    </motion.div>
-                                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-gray-800">
-                                        Coming Soon!
-                                    </h3>
-                                    <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 max-w-md mx-auto">
-                                        We're working hard to bring you the ability to redeem your HealCoins. Stay tuned for updates!
-                                    </p>
-                                    <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-indigo-100 max-w-md mx-auto">
-                                        <div className="flex items-center justify-center gap-2 sm:gap-3 mb-2 sm:mb-3">
-                                            <Gift className="w-5 h-5 sm:w-6 sm:h-6 text-indigo-600" />
-                                            <span className="text-sm sm:text-base font-semibold text-indigo-700">Your Current Balance</span>
+                            <div className="bg-white/95 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl sm:shadow-2xl border border-white/50">
+                                <div className="grid gap-6 lg:grid-cols-[1.15fr,0.85fr]">
+                                    <div className="rounded-3xl border border-gray-100 bg-gradient-to-br from-white to-slate-50 p-6 shadow-inner">
+                                        <div className="flex items-start justify-between gap-4">
+                                            <div>
+                                                <h3 className="text-2xl font-bold text-gray-900 mb-2">Redeem HealCoins</h3>
+                                                <p className="text-sm text-gray-500 max-w-xl">
+                                                    1,000 HealCoins = ₹10 credited to your wallet.
+                                                    That's ₹0.01 for every HealCoin you earn.
+                                                </p>
+                                            </div>
+                                            <Sparkles className="w-6 h-6 text-amber-500" />
                                         </div>
-                                        <div className="text-3xl sm:text-4xl md:text-5xl font-black text-indigo-600 mb-1 sm:mb-2">
-                                            🪙{wallet.balance?.toLocaleString() || '0'}
+
+                                        <div className="mt-6 space-y-4">
+                                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                                <div className="bg-gradient-to-br from-green-100 via-emerald-100 to-lime-50 border border-green-200 rounded-2xl p-4 shadow-inner flex flex-col">
+                                                    <span className="text-xs font-semibold uppercase tracking-wide text-green-600 mb-2">Current HealCoins</span>
+                                                    <div className="flex items-center gap-2 text-2xl font-black text-gray-900">
+                                                        <HealCoinIcon className="w-6 h-6" />
+                                                        {wallet.balance?.toLocaleString() || '0'}
+                                                    </div>
+                                                    <p className="text-xs text-gray-500 mt-1">Your accumulated wellness currency</p>
+                                                </div>
+                                                <div className="bg-gradient-to-br from-indigo-100 via-slate-100 to-white border border-indigo-200 rounded-2xl p-4 shadow-inner flex flex-col">
+                                                    <span className="text-xs font-semibold uppercase tracking-wide text-indigo-600 mb-2">Equivalent INR</span>
+                                                    <div className="text-2xl font-black text-indigo-700">
+                                                        {formatRupee(rupeesForBalance)}
+                                                    </div>
+                                                    <p className="text-xs text-gray-500 mt-1">Instant cash value of your HealCoins</p>
+                                                </div>
+                                            </div>
+                                            <div className="rounded-2xl bg-white/80 border border-dashed border-purple-200 p-4 text-xs text-purple-700">
+                                                You can redeem this value in the form of goodies and perks.
+                                            </div>
                                         </div>
-                                        <p className="text-xs sm:text-sm text-indigo-500">HealCoins ready to redeem</p>
+                                    </div>
+
+                                    <div className="rounded-3xl border border-gray-100 bg-white p-6 shadow-lg space-y-5">
+                                        <div className="flex items-center gap-2 text-sm text-gray-500">
+                                            <Gift className="w-5 h-5 text-indigo-500" />
+                                            <div>
+                                                <p className="font-semibold text-gray-700">Goodie Catalog</p>
+                                                <p className="text-xs text-gray-400">Spend HealCoins to unlock wellness goodies delivered to you.</p>
+                                            </div>
+                                        </div>
+
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            {goodiesLoading ? (
+                                                <div className="col-span-2 rounded-2xl border border-dashed border-indigo-200 p-6 text-center text-gray-500">
+                                                    Loading goodies…
+                                                </div>
+                                            ) : goodies.length === 0 ? (
+                                                <div className="col-span-2 rounded-2xl border border-dashed border-gray-200 p-6 text-center text-gray-500">
+                                                    No goodies have been created yet. Check back once the catalog is live.
+                                                </div>
+                                            ) : (
+                                                goodies.map((goodie) => {
+                                                    const canPurchase = (wallet.balance || 0) >= goodie.coins;
+                                                    return (
+                                                        <div
+                                                            key={goodie._id}
+                                                            className="flex flex-col rounded-2xl border border-gray-100 bg-indigo-50/40 p-4 shadow-sm transition hover:shadow-md"
+                                                        >
+                                                            <div className="flex items-start justify-between gap-4">
+                                                                <div>
+                                                                    <p className="text-sm font-semibold text-gray-900">{goodie.title}</p>
+                                                                    <p className="text-xs text-gray-500 mt-1">{goodie.description || "No description available"}</p>
+                                                                </div>
+                                                                <div className="flex flex-col items-end gap-1 text-right">
+                                                                    <span className="text-xs uppercase tracking-wide text-indigo-600 font-semibold">Cost</span>
+                                                                    <div className="text-lg font-black text-indigo-700 flex items-center gap-1">
+                                                                        <HealCoinIcon className="w-4 h-4" />
+                                                                        {(goodie.coins || 0).toLocaleString()}
+                                                                    </div>
+                                                                    <span className="text-xs text-gray-500">{formatRupee((goodie.coins || 0) * HEALCOIN_TO_RUPEE_RATE)}</span>
+                                                                </div>
+                                                            </div>
+                                                            <button
+                                                                onClick={() => openGoodieModal(goodie)}
+                                                                disabled={!canPurchase}
+                                                                className={`mt-4 w-full rounded-full px-4 py-2 text-sm font-semibold transition ${
+                                                                    canPurchase
+                                                                        ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg hover:from-indigo-500 hover:to-purple-500"
+                                                                        : "bg-gray-200 text-gray-500 cursor-not-allowed"
+                                                                }`}
+                                                            >
+                                                                {canPurchase ? "Request Goodie" : "Need more HealCoins"}
+                                                            </button>
+                                                        </div>
+                                                    );
+                                                })
+                                            )}
+                                        </div>
+
+                                        {statusMsg && (
+                                            <p className="text-sm text-green-600 font-semibold">{statusMsg}</p>
+                                        )}
                                     </div>
                                 </div>
                             </div>
                         </motion.div>
                     )}
                 </AnimatePresence>
+
+                {showAddressModal && selectedGoodie && typeof document !== "undefined" && createPortal(
+                    <div className="fixed inset-0 z-[1300] flex items-center justify-center bg-black/50 p-4">
+                        <div className="relative w-full max-w-2xl rounded-3xl bg-white p-6 shadow-2xl z-[1350]">
+                            <button
+                                onClick={closeGoodieModal}
+                                className="absolute right-3 top-3 text-gray-400 hover:text-gray-600"
+                                aria-label="Close address modal"
+                            >
+                                &times;
+                            </button>
+                            <div className="mb-4">
+                                <p className="text-xs uppercase tracking-wider text-indigo-600 font-bold">Goodie Delivery</p>
+                                <h3 className="text-xl font-bold text-gray-900">Shipping details for {selectedGoodie.title}</h3>
+                                <p className="text-sm text-gray-500 mt-1">
+                                    Provide your delivery address so we can ship the goodie. We’ll notify you once it’s on the way.
+                                </p>
+                            </div>
+                            <div className="grid gap-4 sm:grid-cols-2">
+                                <div className="space-y-1">
+                                    <label className="text-xs font-semibold text-gray-600 uppercase">Full Name</label>
+                                    <input
+                                        type="text"
+                                        value={addressForm.name}
+                                        onChange={(e) => handleAddressChange("name", e.target.value)}
+                                        className={`w-full rounded-2xl border px-3 py-2 text-sm transition ${
+                                            addressErrors.name ? "border-red-400" : "border-gray-200"
+                                        }`}
+                                    />
+                                    {addressErrors.name && <p className="text-xs text-red-500">{addressErrors.name}</p>}
+                                </div>
+                                <div className="space-y-1">
+                                    <label className="text-xs font-semibold text-gray-600 uppercase">Contact Number</label>
+                                    <input
+                                        type="text"
+                                        value={addressForm.contactNumber}
+                                        onChange={(e) => handleAddressChange("contactNumber", e.target.value)}
+                                        className={`w-full rounded-2xl border px-3 py-2 text-sm transition ${
+                                            addressErrors.contactNumber ? "border-red-400" : "border-gray-200"
+                                        }`}
+                                    />
+                                    {addressErrors.contactNumber && <p className="text-xs text-red-500">{addressErrors.contactNumber}</p>}
+                                </div>
+                                <div className="sm:col-span-2 space-y-1">
+                                    <label className="text-xs font-semibold text-gray-600 uppercase">Address Line 1</label>
+                                    <input
+                                        type="text"
+                                        value={addressForm.addressLine1}
+                                        onChange={(e) => handleAddressChange("addressLine1", e.target.value)}
+                                        className={`w-full rounded-2xl border px-3 py-2 text-sm transition ${
+                                            addressErrors.addressLine1 ? "border-red-400" : "border-gray-200"
+                                        }`}
+                                    />
+                                    {addressErrors.addressLine1 && <p className="text-xs text-red-500">{addressErrors.addressLine1}</p>}
+                                </div>
+                                <div className="sm:col-span-2 space-y-1">
+                                    <label className="text-xs font-semibold text-gray-600 uppercase">Address Line 2 (Optional)</label>
+                                    <input
+                                        type="text"
+                                        value={addressForm.addressLine2}
+                                        onChange={(e) => handleAddressChange("addressLine2", e.target.value)}
+                                        className="w-full rounded-2xl border border-gray-200 px-3 py-2 text-sm transition"
+                                    />
+                                </div>
+                                <div className="space-y-1">
+                                    <label className="text-xs font-semibold text-gray-600 uppercase">City</label>
+                                    <input
+                                        type="text"
+                                        value={addressForm.city}
+                                        onChange={(e) => handleAddressChange("city", e.target.value)}
+                                        className={`w-full rounded-2xl border px-3 py-2 text-sm transition ${
+                                            addressErrors.city ? "border-red-400" : "border-gray-200"
+                                        }`}
+                                    />
+                                    {addressErrors.city && <p className="text-xs text-red-500">{addressErrors.city}</p>}
+                                </div>
+                                <div className="space-y-1">
+                                    <label className="text-xs font-semibold text-gray-600 uppercase">State</label>
+                                    <input
+                                        type="text"
+                                        value={addressForm.state}
+                                        onChange={(e) => handleAddressChange("state", e.target.value)}
+                                        className={`w-full rounded-2xl border px-3 py-2 text-sm transition ${
+                                            addressErrors.state ? "border-red-400" : "border-gray-200"
+                                        }`}
+                                    />
+                                    {addressErrors.state && <p className="text-xs text-red-500">{addressErrors.state}</p>}
+                                </div>
+                                <div className="space-y-1">
+                                    <label className="text-xs font-semibold text-gray-600 uppercase">Pincode</label>
+                                    <input
+                                        type="text"
+                                        value={addressForm.pincode}
+                                        onChange={(e) => handleAddressChange("pincode", e.target.value)}
+                                        className={`w-full rounded-2xl border px-3 py-2 text-sm transition ${
+                                            addressErrors.pincode ? "border-red-400" : "border-gray-200"
+                                        }`}
+                                    />
+                                    {addressErrors.pincode && <p className="text-xs text-red-500">{addressErrors.pincode}</p>}
+                                </div>
+                                <div className="sm:col-span-2 space-y-1">
+                                    <label className="text-xs font-semibold text-gray-600 uppercase">Special Instructions (Optional)</label>
+                                    <textarea
+                                        rows={2}
+                                        value={addressForm.instructions}
+                                        onChange={(e) => handleAddressChange("instructions", e.target.value)}
+                                        className="w-full rounded-2xl border border-gray-200 px-3 py-2 text-sm transition resize-none"
+                                    />
+                                </div>
+                            </div>
+                            <div className="mt-6 flex flex-col gap-3 text-sm">
+                                <p className="text-xs text-gray-500">
+                                    By submitting, you acknowledge that we will debit {selectedGoodie.coins.toLocaleString()} HealCoins from your wallet.
+                                </p>
+                                <button
+                                    onClick={submitGoodieRequest}
+                                    disabled={isSubmittingGoodie}
+                                    className="w-full rounded-2xl bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-lg transition hover:shadow-2xl disabled:opacity-50"
+                                >
+                                    {isSubmittingGoodie ? "Sending request..." : `Confirm & Deduct ${selectedGoodie.coins.toLocaleString()} HealCoins`}
+                                </button>
+                            </div>
+                        </div>
+                    </div>,
+                    document.body
+                )}
             </div>
         </div>
     );

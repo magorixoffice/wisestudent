@@ -653,6 +653,10 @@ const LandingPage = () => {
     }
   };
 
+  const handleSeeHowItWorks = () => {
+    navigate("/platform-details");
+  };
+
   // Add this function for pricing scroll
   const handlePricingClick = () => {
     if (pricingRef.current) {
@@ -963,6 +967,17 @@ const LandingPage = () => {
               >
                 Get Started
                 <ArrowRight className="w-5 h-5" />
+              </motion.button>
+
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={handleSeeHowItWorks}
+                className="border-2 border-gray-200 bg-transparent px-8 py-3 rounded-2xl font-semibold text-lg transition-all duration-300 flex items-center justify-center shadow hover:shadow-md cursor-pointer"
+              >
+                <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                  See how it works
+                </span>
               </motion.button>
 
             </motion.div>
