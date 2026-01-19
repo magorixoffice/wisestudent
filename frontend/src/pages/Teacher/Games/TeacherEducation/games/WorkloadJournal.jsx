@@ -14,31 +14,78 @@ const WorkloadJournal = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 1;
+  const totalLevels = gameData?.totalQuestions || 5;
   
-  const [timeSpentReflection, setTimeSpentReflection] = useState("");
-  const [delegationReflection, setDelegationReflection] = useState("");
+  const [reflections, setReflections] = useState(Array(5).fill(""));
   const [showSummary, setShowSummary] = useState(false);
   const [showGameOver, setShowGameOver] = useState(false);
   const [score, setScore] = useState(0);
 
   const handleSubmit = () => {
-    if (timeSpentReflection.trim().length < 10 || delegationReflection.trim().length < 10) {
-      alert("Please fill in both reflection boxes with at least 10 characters each.");
+    // Check if all 5 reflections have at least 10 characters
+    const allFilled = reflections.every(reflection => reflection.trim().length >= 10);
+    
+    if (!allFilled) {
+      alert("Please fill in all reflection boxes with at least 10 characters each.");
       return;
     }
+    
     setShowSummary(true);
-    setScore(1);
+    // Set score to 5 since there are 5 questions
+    setScore(5);
   };
 
   const handleComplete = () => {
     setShowGameOver(true);
   };
 
-  // Analyze stress zones from reflections
+  // Helper function to handle reflection changes
+  const handleReflectionChange = (index, value) => {
+    const newReflections = [...reflections];
+    newReflections[index] = value;
+    setReflections(newReflections);
+  };
+
+  // Helper function to get reflection titles
+  const getReflectionTitle = (index) => {
+    const titles = [
+      'Time Spent',
+      'Delegation Opportunities',
+      'Energy Levels',
+      'Priority Tasks',
+      'Support Needs'
+    ];
+    return titles[index] || `Reflection ${index + 1}`;
+  };
+
+  // Helper function to get reflection prompts
+  const getReflectionPrompt = (index) => {
+    const prompts = [
+      "Today I spent most time on…",
+      "Could someone assist with…",
+      "Today I felt most energized when…",
+      "My top priority tasks for improvement are…",
+      "Areas where I need more support…"
+    ];
+    return prompts[index] || `Reflection prompt ${index + 1}`;
+  };
+
+  // Helper function to get reflection placeholders
+  const getReflectionPlaceholder = (index) => {
+    const placeholders = [
+      "For example: 'Today I spent most time on grading papers, responding to parent emails, and preparing lesson plans for next week. The grading took up about 3 hours...'",
+      "For example: 'Could someone assist with routine data entry, organizing classroom materials, or preparing handouts? These tasks don't require my specific expertise...'",
+      "For example: 'I felt most energized when working directly with students during group activities, but drained after administrative tasks...'",
+      "For example: 'My priority tasks include streamlining lesson planning process, improving parent communication system, and organizing classroom resources...'",
+      "For example: 'I need more support with technology integration, behavior management strategies, and finding resources for differentiated instruction...'"
+    ];
+    return placeholders[index] || `Reflection placeholder for question ${index + 1}`;
+  };
+
+  // Analyze stress zones from all reflections
   const analyzeStressZones = () => {
-    const timeText = timeSpentReflection.toLowerCase();
-    const delegationText = delegationReflection.toLowerCase();
+    // Combine all reflections to analyze for stress zones
+    const allText = reflections.join(' ').toLowerCase();
     
     const stressZones = [];
     const keywords = {
@@ -53,7 +100,7 @@ const WorkloadJournal = () => {
     // Find stress zones based on keywords
     Object.keys(keywords).forEach(zone => {
       const matches = keywords[zone].filter(keyword => 
-        timeText.includes(keyword) || delegationText.includes(keyword)
+        allText.includes(keyword)
       );
       if (matches.length > 0) {
         stressZones.push({
@@ -142,7 +189,7 @@ const WorkloadJournal = () => {
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={1}
+      currentQuestion={reflections.some(r => r.trim().length > 0) ? Math.min(reflections.filter(r => r.trim().length > 0).length, totalLevels) : 0}
     >
       <div className="w-full max-w-5xl mx-auto px-4">
         {!showSummary ? (
@@ -157,67 +204,38 @@ const WorkloadJournal = () => {
               </p>
             </div>
 
-            {/* First Reflection Box */}
-            <div className="mb-8">
-              <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-6 border-2 border-blue-200 mb-4">
-                <div className="flex items-center gap-3 mb-3">
-                  <FileText className="w-6 h-6 text-blue-600" />
-                  <h3 className="text-xl font-bold text-gray-800">
-                    Reflection 1: Time Spent
-                  </h3>
-                </div>
-                <p className="text-gray-700 mb-4 font-semibold">
-                  "Today I spent most time on…"
-                </p>
-                <textarea
-                  value={timeSpentReflection}
-                  onChange={(e) => setTimeSpentReflection(e.target.value)}
-                  placeholder="For example: 'Today I spent most time on grading papers, responding to parent emails, and preparing lesson plans for next week. The grading took up about 3 hours...'"
-                  className="w-full px-4 py-3 rounded-lg border-2 border-blue-300 focus:border-blue-500 focus:outline-none text-gray-800 min-h-[150px] resize-none"
-                />
-                <div className="mt-2 flex justify-between items-center">
-                  <p className="text-xs text-gray-500">
-                    {timeSpentReflection.length} characters (minimum 10)
+            {/* Render 5 reflection boxes */}
+            {reflections.map((reflection, index) => (
+              <div key={index} className="mb-8">
+                <div className={`bg-gradient-to-br ${index % 2 === 0 ? 'from-blue-50 to-cyan-50' : 'from-purple-50 to-pink-50'} rounded-xl p-6 border-2 ${index % 2 === 0 ? 'border-blue-200' : 'border-purple-200'} mb-4`}>
+                  <div className="flex items-center gap-3 mb-3">
+                    {index % 2 === 0 ? <FileText className="w-6 h-6 text-blue-600" /> : <Users className="w-6 h-6 text-purple-600" />}
+                    <h3 className="text-xl font-bold text-gray-800">
+                      Reflection {index + 1}: {getReflectionTitle(index)}
+                    </h3>
+                  </div>
+                  <p className="text-gray-700 mb-4 font-semibold">
+                    "{getReflectionPrompt(index)}"
                   </p>
-                  {timeSpentReflection.trim().length < 10 && (
-                    <p className="text-xs text-orange-600">
-                      Please write at least 10 characters
+                  <textarea
+                    value={reflection}
+                    onChange={(e) => handleReflectionChange(index, e.target.value)}
+                    placeholder={getReflectionPlaceholder(index)}
+                    className={`w-full px-4 py-3 rounded-lg border-2 ${index % 2 === 0 ? 'border-blue-300' : 'border-purple-300'} focus:border-blue-500 focus:outline-none text-gray-800 min-h-[150px] resize-none`}
+                  />
+                  <div className="mt-2 flex justify-between items-center">
+                    <p className="text-xs text-gray-500">
+                      {reflection.length} characters (minimum 10)
                     </p>
-                  )}
+                    {reflection.trim().length < 10 && (
+                      <p className="text-xs text-orange-600">
+                        Please write at least 10 characters
+                      </p>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-
-            {/* Second Reflection Box */}
-            <div className="mb-8">
-              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 border-2 border-purple-200 mb-4">
-                <div className="flex items-center gap-3 mb-3">
-                  <Users className="w-6 h-6 text-purple-600" />
-                  <h3 className="text-xl font-bold text-gray-800">
-                    Reflection 2: Delegation Opportunities
-                  </h3>
-                </div>
-                <p className="text-gray-700 mb-4 font-semibold">
-                  "Could someone assist with…"
-                </p>
-                <textarea
-                  value={delegationReflection}
-                  onChange={(e) => setDelegationReflection(e.target.value)}
-                  placeholder="For example: 'Could someone assist with routine data entry, organizing classroom materials, or preparing handouts? These tasks don't require my specific expertise...'"
-                  className="w-full px-4 py-3 rounded-lg border-2 border-purple-300 focus:border-purple-500 focus:outline-none text-gray-800 min-h-[150px] resize-none"
-                />
-                <div className="mt-2 flex justify-between items-center">
-                  <p className="text-xs text-gray-500">
-                    {delegationReflection.length} characters (minimum 10)
-                  </p>
-                  {delegationReflection.trim().length < 10 && (
-                    <p className="text-xs text-orange-600">
-                      Please write at least 10 characters
-                    </p>
-                  )}
-                </div>
-              </div>
-            </div>
+            ))}
 
             {/* Submit Button */}
             <div className="flex justify-center">
@@ -225,7 +243,7 @@ const WorkloadJournal = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleSubmit}
-                disabled={timeSpentReflection.trim().length < 10 || delegationReflection.trim().length < 10}
+                disabled={!reflections.every(r => r.trim().length >= 10)}
                 className="bg-gradient-to-r from-green-600 to-emerald-600 text-white px-8 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
               >
                 <TrendingUp className="w-5 h-5" />

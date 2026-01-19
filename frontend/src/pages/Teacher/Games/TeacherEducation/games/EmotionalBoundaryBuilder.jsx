@@ -30,16 +30,7 @@ const EmotionalBoundaryBuilder = () => {
       title: "Parent Venting",
       situation: "A parent comes to you after school, visibly upset and frustrated. They're venting about their child's struggles, their own stress, and blaming the school system. They're raising their voice and seem to be unloading a lot of emotional weight on you. You can see they're overwhelmed, but you're also feeling the weight of their emotions.",
       boundaryPhrases: [
-        {
-          id: 'healthy-1',
-          phrase: "I understand how you feel; let's plan next steps.",
-          isCorrect: true,
-          outcome: {
-            title: "You Stayed Caring Yet Protected",
-            description: "The parent calmed down. They felt heard and understood, and you were able to redirect the conversation toward constructive solutions. You maintained your emotional balance while still being supportive.",
-            feedback: "This phrase acknowledges their feelings while setting a boundary. You're showing empathy ('I understand') while redirecting toward action ('let's plan next steps'). This keeps you from absorbing their emotional weight while still being helpful."
-          }
-        },
+        
         {
           id: 'unhealthy-1',
           phrase: "I'm so sorry you're going through this. Tell me everything.",
@@ -69,7 +60,17 @@ const EmotionalBoundaryBuilder = () => {
             description: "The conversation became about your own experiences, and boundaries blurred. You both got caught in an emotional spiral, and neither of you felt better. You lost your professional boundary.",
             feedback: "While sharing can be helpful, this phrase merges your experiences with theirs, which can blur boundaries. You can be empathetic without making it about you."
           }
-        }
+        },
+        {
+          id: 'healthy-1',
+          phrase: "I understand how you feel; let's plan next steps.",
+          isCorrect: true,
+          outcome: {
+            title: "You Stayed Caring Yet Protected",
+            description: "The parent calmed down. They felt heard and understood, and you were able to redirect the conversation toward constructive solutions. You maintained your emotional balance while still being supportive.",
+            feedback: "This phrase acknowledges their feelings while setting a boundary. You're showing empathy ('I understand') while redirecting toward action ('let's plan next steps'). This keeps you from absorbing their emotional weight while still being helpful."
+          }
+        },
       ]
     },
     {
@@ -78,16 +79,7 @@ const EmotionalBoundaryBuilder = () => {
       title: "Crying Student",
       situation: "A student comes to you during lunch break, crying and upset. They're sharing personal problems and seem overwhelmed. They're looking to you for comfort and support, and you can see they're carrying a lot of emotional weight. You want to help, but you also need to maintain your emotional balance.",
       boundaryPhrases: [
-        {
-          id: 'healthy-2',
-          phrase: "I understand how you feel; let's plan next steps.",
-          isCorrect: true,
-          outcome: {
-            title: "You Stayed Caring Yet Protected",
-            description: "The student felt heard and supported. You were able to comfort them while also connecting them with appropriate resources (counselor, support services). You maintained your emotional balance while being helpful.",
-            feedback: "This phrase shows empathy while setting boundaries. You acknowledge their feelings ('I understand') while moving toward solutions ('let's plan next steps'). This keeps you from absorbing their emotional burden while still being supportive."
-          }
-        },
+       
         {
           id: 'unhealthy-4',
           phrase: "Oh, you poor thing. I'm here for you, and I'll take care of everything.",
@@ -108,6 +100,16 @@ const EmotionalBoundaryBuilder = () => {
             feedback: "This phrase minimizes their feelings and creates distance. While you might think you're helping by telling them not to worry, this dismisses their experience. You can acknowledge their feelings while maintaining boundaries."
           }
         },
+         {
+          id: 'healthy-2',
+          phrase: "I understand how you feel; let's plan next steps.",
+          isCorrect: true,
+          outcome: {
+            title: "You Stayed Caring Yet Protected",
+            description: "The student felt heard and supported. You were able to comfort them while also connecting them with appropriate resources (counselor, support services). You maintained your emotional balance while being helpful.",
+            feedback: "This phrase shows empathy while setting boundaries. You acknowledge their feelings ('I understand') while moving toward solutions ('let's plan next steps'). This keeps you from absorbing their emotional burden while still being supportive."
+          }
+        },
         {
           id: 'unhealthy-6',
           phrase: "I know exactly how you feel because I went through something similar.",
@@ -126,16 +128,7 @@ const EmotionalBoundaryBuilder = () => {
       title: "Colleague Stress",
       situation: "A colleague comes to you during a break, visibly stressed and overwhelmed. They're venting about their workload, personal problems, and feeling unsupported. They're unloading a lot of emotional weight and seem to expect you to carry it with them. You want to be supportive, but you also need to protect your own emotional space.",
       boundaryPhrases: [
-        {
-          id: 'healthy-3',
-          phrase: "I understand how you feel; let's plan next steps.",
-          isCorrect: true,
-          outcome: {
-            title: "You Stayed Caring Yet Protected",
-            description: "Your colleague felt heard and supported. You were able to offer help while also maintaining boundaries. You suggested resources and support while protecting your own emotional space. You both felt better.",
-            feedback: "This phrase shows empathy while setting boundaries. You acknowledge their feelings ('I understand') while redirecting toward action ('let's plan next steps'). This keeps you from absorbing their stress while still being supportive."
-          }
-        },
+       
         {
           id: 'unhealthy-7',
           phrase: "I'm here for you. Tell me everything, and I'll help you through this.",
@@ -144,6 +137,16 @@ const EmotionalBoundaryBuilder = () => {
             title: "You Absorbed Their Stress",
             description: "You absorbed all their stress and took on their emotional burden. You left feeling drained and overwhelmed. You took on responsibility for their wellbeing, which affected your own capacity.",
             feedback: "This phrase invites them to unload everything and takes on too much responsibility. While it shows care, it doesn't set boundaries. You can be supportive without absorbing all their emotional weight."
+          }
+        },
+         {
+          id: 'healthy-3',
+          phrase: "I understand how you feel; let's plan next steps.",
+          isCorrect: true,
+          outcome: {
+            title: "You Stayed Caring Yet Protected",
+            description: "Your colleague felt heard and supported. You were able to offer help while also maintaining boundaries. You suggested resources and support while protecting your own emotional space. You both felt better.",
+            feedback: "This phrase shows empathy while setting boundaries. You acknowledge their feelings ('I understand') while redirecting toward action ('let's plan next steps'). This keeps you from absorbing their stress while still being supportive."
           }
         },
         {
@@ -222,16 +225,7 @@ const EmotionalBoundaryBuilder = () => {
       title: "Crying Student (Part 2)",
       situation: "A student approaches you after class, crying and sharing that they're being bullied. They're scared, overwhelmed, and looking to you for protection and support. They're carrying a lot of fear and emotional weight. You want to help and protect them, but you also need to maintain your emotional balance.",
       boundaryPhrases: [
-        {
-          id: 'healthy-5',
-          phrase: "I understand how you feel; let's plan next steps.",
-          isCorrect: true,
-          outcome: {
-            title: "You Stayed Caring Yet Protected",
-            description: "The student felt heard and protected. You were able to comfort them while also taking appropriate action (reporting, connecting with counselor, creating safety plan). You maintained your emotional balance while being supportive and taking action.",
-            feedback: "This phrase shows empathy while setting boundaries and moving toward action. You acknowledge their feelings ('I understand') while planning solutions ('let's plan next steps'). This keeps you from absorbing their fear while still being protective and supportive."
-          }
-        },
+        
         {
           id: 'unhealthy-13',
           phrase: "Oh, you poor thing. I'll make sure this never happens again, and I'll take care of everything.",
@@ -250,6 +244,16 @@ const EmotionalBoundaryBuilder = () => {
             title: "You Minimized Their Experience",
             description: "The student felt dismissed and unprotected. They didn't feel like you took their concerns seriously, and you missed an opportunity to help. You avoided the emotional weight but didn't provide real support or protection.",
             feedback: "This phrase minimizes their experience and creates distance. While you might think you're helping by telling them to ignore it, this dismisses their fear and doesn't address the situation. You can acknowledge their feelings while taking appropriate action."
+          }
+        },
+        {
+          id: 'healthy-5',
+          phrase: "I understand how you feel; let's plan next steps.",
+          isCorrect: true,
+          outcome: {
+            title: "You Stayed Caring Yet Protected",
+            description: "The student felt heard and protected. You were able to comfort them while also taking appropriate action (reporting, connecting with counselor, creating safety plan). You maintained your emotional balance while being supportive and taking action.",
+            feedback: "This phrase shows empathy while setting boundaries and moving toward action. You acknowledge their feelings ('I understand') while planning solutions ('let's plan next steps'). This keeps you from absorbing their fear while still being protective and supportive."
           }
         },
         {
@@ -357,7 +361,7 @@ const EmotionalBoundaryBuilder = () => {
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={currentScenario + 1}
+      currentQuestion={currentScenario + 0}
     >
       <div className="w-full max-w-4xl mx-auto px-4">
         {!showGameOver ? (
@@ -409,18 +413,10 @@ const EmotionalBoundaryBuilder = () => {
                       whileTap={{ scale: 0.98 }}
                       onClick={() => handlePhraseSelect(phrase.id)}
                       disabled={!!selected}
-                      className={`w-full p-5 rounded-xl border-2 text-left transition-all disabled:opacity-50 disabled:cursor-not-allowed ${
-                        phrase.isCorrect
-                          ? 'border-indigo-300 bg-gradient-to-r from-indigo-50 to-purple-50 hover:from-indigo-100 hover:to-purple-100'
-                          : 'border-gray-300 bg-gradient-to-r from-gray-50 to-slate-50 hover:from-gray-100 hover:to-slate-100'
-                      }`}
+                      className={`w-full p-5 rounded-xl border-2 text-left transition-all disabled:opacity-50 disabled:cursor-not-allowed border-gray-300 bg-gradient-to-r from-gray-50 to-slate-50 hover:from-gray-100 hover:to-slate-100`}
                     >
                       <div className="flex items-center gap-4">
-                        <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 ${
-                          phrase.isCorrect
-                            ? 'bg-gradient-to-r from-indigo-500 to-purple-500'
-                            : 'bg-gradient-to-r from-gray-400 to-slate-400'
-                        }`}>
+                        <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 bg-gradient-to-r from-gray-400 to-slate-400">
                           <Icon className="w-5 h-5 text-white" />
                         </div>
                         <div className="flex-1">

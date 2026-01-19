@@ -14,7 +14,7 @@ const PresentMomentAwareness = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 6;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [currentScenario, setCurrentScenario] = useState(0);
   const [showDrift, setShowDrift] = useState(false);
@@ -70,15 +70,6 @@ const PresentMomentAwareness = () => {
       returnPrompt: "Return to Now",
       reflectionPrompt: "What happened when you noticed your mind had drifted and returned your attention to the student's presentation? How did presence affect your ability to be fully engaged?",
       teacherTip: "Notice when your attention splits between tasks. Returning to now helps you fully engage with what's actually happening."
-    },
-    {
-      id: 6,
-      title: "Grading Papers - Focus Needed",
-      presentMoment: "You're grading student essays during your planning period. You're reading a student's thoughtful response to a literature question, and they've clearly put effort into their work.",
-      thoughtInterruption: "Your mind drifts: 'I have so many papers to grade. This is going to take forever. I should be lesson planning instead. And I need to respond to those emails. I'm never going to catch up. I feel so overwhelmed...'",
-      returnPrompt: "Return to Now",
-      reflectionPrompt: "How did returning to the present moment help you focus on grading one paper at a time? What changed when you let go of worries about the stack of papers?",
-      teacherTip: "When tasks feel overwhelming, use 'Return to Now' to focus on just one task in this moment. Presence reduces the feeling of being overwhelmed."
     }
   ];
 
@@ -153,7 +144,7 @@ const PresentMomentAwareness = () => {
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={currentScenario + 1}
+      currentQuestion={currentScenario + 0}
     >
       <div className="w-full max-w-5xl mx-auto px-4">
         {!showGameOver && (

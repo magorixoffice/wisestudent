@@ -14,57 +14,73 @@ const AfterSchoolReset = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 1;
+  const totalLevels = gameData?.totalQuestions || 5;
   
-  const [phase, setPhase] = useState('ready'); // ready, close, breathe, thank, reflect, complete
-  const [breathPhase, setBreathPhase] = useState('idle'); // idle, inhale, hold, exhale
-  const [timeRemaining, setTimeRemaining] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [breathCycle, setBreathCycle] = useState(0);
-  const [lightBrightness, setLightBrightness] = useState(100); // 100% = bright, 0% = dark
-  const [reflection, setReflection] = useState('');
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [showFeedback, setShowFeedback] = useState(false);
   const [showGameOver, setShowGameOver] = useState(false);
   const [score, setScore] = useState(0);
+  const [answers, setAnswers] = useState([]);
   
   const timerRef = useRef(null);
-  const fadeIntervalRef = useRef(null);
   const speechSynthRef = useRef(null);
 
-  // Breathing timings (4-4-4 pattern)
-  const breathingTimings = {
-    inhale: 4,
-    hold: 4,
-    exhale: 4
-  };
-
-  // Reset steps configuration
-  const resetSteps = [
+  // Define 5 unique questions for After School Reset
+  const questions = [
     {
-      id: 'close',
-      title: 'Close',
-      instruction: 'Visualize closing your classroom. See the lights gradually fading as you mentally transition from work to rest.',
-      duration: 10, // 10 seconds for closing/fading
-      color: 'from-indigo-500 via-purple-500 to-pink-500',
-      icon: '🌆',
-      emoji: '🌙'
+      id: 1,
+      question: "How can you mentally separate work stress from personal time when leaving school?",
+      options: [
+       
+        { id: 'b', text: "Think about tomorrow's lesson plans on the drive home", isCorrect: false, explanation: "Continuing to think about work keeps your mind engaged with work tasks. This prevents proper mental separation and can lead to burnout." },
+        { id: 'c', text: "Check emails immediately when you get home", isCorrect: false, explanation: "Checking work communications at home blurs boundaries between work and personal time. This prevents you from fully engaging in your personal life." },
+        { id: 'd', text: "Bring all school materials home for the weekend", isCorrect: false, explanation: "Consistently bringing work home prevents rest and recovery. Healthy boundaries include designated work-free time." },
+         { id: 'a', text: "Create a physical ritual like changing clothes or washing hands", isCorrect: true, explanation: "Creating a physical ritual helps signal the brain that work time is ending. This is a proven technique to establish clear boundaries between work and personal life." },
+      ]
     },
     {
-      id: 'breathe',
-      title: 'Breathe',
-      instruction: 'Take 3 calming breaths to release the day. Inhale peace, exhale the day\'s tensions.',
-      duration: 36, // 3 cycles × 12 seconds each
-      color: 'from-blue-500 via-cyan-500 to-teal-500',
-      icon: '🌬️',
-      emoji: '💨'
+      id: 2,
+      question: "What is an effective way to decompress after a challenging day with students?",
+      options: [
+        
+        { id: 'b', text: "Spend the evening planning for tomorrow to feel more prepared", isCorrect: false, explanation: "Planning for tomorrow keeps you mentally engaged with work. It's important to have dedicated decompression time before engaging in work planning." },
+        { id: 'a', text: "Engage in a brief physical activity like walking or stretching", isCorrect: true, explanation: "Physical activity helps release stress hormones and clears the mind. It's an active way to transition from work stress to personal time." },
+        { id: 'c', text: "Talk to family members about all the day's challenges", isCorrect: false, explanation: "While communication is important, overwhelming family with work details can strain relationships. Find appropriate outlets for processing work stress." },
+        { id: 'd', text: "Stay up late grading papers to get ahead", isCorrect: false, explanation: "Staying up late prevents adequate rest and recovery. Proper sleep is essential for resilience and effectiveness as a teacher." }
+      ]
     },
     {
-      id: 'thank',
-      title: 'Thank the Day',
-      instruction: 'Take a moment to acknowledge one thing from today that you\'re grateful for. This gratitude helps create closure.',
-      duration: 15, // 15 seconds for gratitude
-      color: 'from-amber-500 via-yellow-500 to-orange-500',
-      icon: '🙏',
-      emoji: '✨'
+      id: 3,
+      question: "How should you handle parent communications after school hours?",
+      options: [
+        
+        { id: 'b', text: "Respond immediately to any parent message, even at night", isCorrect: false, explanation: "Immediate responses at all hours blur work-life boundaries. Parents can wait for reasonable response times during school hours." },
+        { id: 'c', text: "Answer all messages within 15 minutes to appear responsive", isCorrect: false, explanation: "Expecting immediate responses creates unnecessary pressure and stress. Setting expectations for response times is healthier for all parties." },
+        { id: 'a', text: "Set specific times for checking and responding to parent messages", isCorrect: true, explanation: "Setting boundaries around communication protects personal time and prevents work from bleeding into personal life. This is crucial for maintaining work-life balance." },
+        { id: 'd', text: "Check messages during family dinners and bedtime routines", isCorrect: false, explanation: "Checking work communications during family time divides attention and prevents full engagement with loved ones." }
+      ]
+    },
+    {
+      id: 4,
+      question: "What is the best approach to handling work thoughts during personal time?",
+      options: [
+       
+        { id: 'b', text: "Immediately start working on the idea or problem", isCorrect: false, explanation: "Starting work during personal time erodes boundaries. Personal time should be protected for rest and recovery." },
+        { id: 'c', text: "Ignore the thoughts completely and suppress them", isCorrect: false, explanation: "Suppressing thoughts often makes them stronger. Acknowledging and redirecting is a healthier approach than suppression." },
+        { id: 'd', text: "Write down all work thoughts to remember them later", isCorrect: false, explanation: "Writing down work thoughts can perpetuate rumination. It's better to acknowledge and redirect rather than document work concerns during personal time." },
+         { id: 'a', text: "Acknowledge the thought and consciously redirect to present moment", isCorrect: true, explanation: "Mindful redirection acknowledges work concerns without letting them dominate personal time. This maintains boundaries while addressing legitimate concerns." },
+      ]
+    },
+    {
+      id: 5,
+      question: "How can you maintain energy for both professional and personal responsibilities?",
+      options: [
+        { id: 'a', text: "Ensure dedicated personal time for activities you enjoy", isCorrect: true, explanation: "Engaging in enjoyable activities restores energy and prevents burnout. Self-care is essential for sustaining effectiveness in all areas of life." },
+        { id: 'b', text: "Use weekends to prepare extensively for the coming week", isCorrect: false, explanation: "Using all weekend time for work prevents rest and recovery. Downtime is essential for recharging and preventing long-term burnout." },
+        { id: 'c', text: "Sacrifice personal hobbies to focus more on teaching duties", isCorrect: false, explanation: "Sacrificing personal interests leads to an imbalanced life and eventual burnout. Personal fulfillment is necessary for sustained professional effectiveness." },
+        { id: 'd', text: "Work through lunch breaks to free up time later", isCorrect: false, explanation: "Skipping breaks leads to exhaustion and decreased effectiveness. Regular breaks are essential for maintaining energy throughout the day." }
+      ]
     }
   ];
 
@@ -85,183 +101,54 @@ const AfterSchoolReset = () => {
     speechSynthRef.current.speak(utterance);
   };
 
-  const startReset = () => {
-    setPhase('close');
-    setIsPlaying(true);
-    startClosePhase();
-  };
-
-  const startClosePhase = () => {
-    // Gradually fade lights from 100% to 30%
-    setLightBrightness(100);
-    let currentBrightness = 100;
+  const handleAnswerSelect = (optionId) => {
+    if (selectedAnswer !== null) return; // Prevent changing answer
     
-    // Clear any existing interval
-    if (fadeIntervalRef.current) {
-      clearInterval(fadeIntervalRef.current);
+    const currentQ = questions[currentQuestion];
+    const selectedOption = currentQ.options.find(opt => opt.id === optionId);
+    const isCorrect = selectedOption.isCorrect;
+    
+    setSelectedAnswer(optionId);
+    setShowFeedback(true);
+    
+    // Update score if correct
+    if (isCorrect) {
+      setScore(prev => prev + 1);
     }
     
-    fadeIntervalRef.current = setInterval(() => {
-      currentBrightness -= 7; // Fade over ~10 seconds
-      if (currentBrightness <= 30) {
-        clearInterval(fadeIntervalRef.current);
-        fadeIntervalRef.current = null;
-        setLightBrightness(30);
-        speakText('You have closed your classroom. The day\'s work is behind you.');
-        setTimeout(() => {
-          setPhase('breathe');
-          startBreathingPhase();
-        }, 2000);
+    // Record the answer
+    setAnswers(prev => [...prev, {
+      questionId: currentQ.id,
+      question: currentQ.question,
+      selectedOption: optionId,
+      correct: isCorrect,
+      correctOption: currentQ.options.find(opt => opt.isCorrect).id,
+      explanation: selectedOption.explanation
+    }]);
+    
+    // Move to next question after delay
+    setTimeout(() => {
+      if (currentQuestion < questions.length - 1) {
+        setCurrentQuestion(prev => prev + 1);
+        setSelectedAnswer(null);
+        setShowFeedback(false);
       } else {
-        setLightBrightness(currentBrightness);
-      }
-    }, 700);
-  };
-
-  const startBreathingPhase = () => {
-    setIsPlaying(true);
-    setBreathPhase('inhale');
-    setTimeRemaining(breathingTimings.inhale);
-    setBreathCycle(0);
-  };
-
-  const startThankPhase = () => {
-    setPhase('thank');
-    setIsPlaying(true);
-    setTimeRemaining(15);
-    speakText('Take a moment to acknowledge one thing from today that you are grateful for. This gratitude helps create closure.');
-    
-    timerRef.current = setInterval(() => {
-      setTimeRemaining((prev) => {
-        if (prev <= 1) {
-          clearInterval(timerRef.current);
-          setIsPlaying(false);
-          setPhase('reflect');
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
-  };
-
-  // Handle breathing cycle
-  useEffect(() => {
-    if (!isPlaying || phase !== 'breathe') return;
-
-    if (timeRemaining > 0) {
-      timerRef.current = setTimeout(() => {
-        setTimeRemaining(timeRemaining - 1);
-      }, 1000);
-    } else {
-      // Move to next phase
-      if (breathPhase === 'inhale') {
-        setBreathPhase('hold');
-        setTimeRemaining(breathingTimings.hold);
-      } else if (breathPhase === 'hold') {
-        setBreathPhase('exhale');
-        setTimeRemaining(breathingTimings.exhale);
-      } else if (breathPhase === 'exhale') {
-        const newCycle = breathCycle + 1;
-        setBreathCycle(newCycle);
-        
-        if (newCycle < 3) {
-          // Continue with next breath cycle
-          setBreathPhase('inhale');
-          setTimeRemaining(breathingTimings.inhale);
-        } else {
-          // Completed 3 cycles, move to thank phase
-          setIsPlaying(false);
-          setBreathPhase('idle');
-          setTimeout(() => {
-            startThankPhase();
-          }, 1000);
-        }
-      }
-    }
-
-    return () => {
-      if (timerRef.current) {
-        clearTimeout(timerRef.current);
-      }
-    };
-  }, [isPlaying, phase, breathPhase, timeRemaining, breathCycle]);
-
-  const togglePause = () => {
-    setIsPlaying(!isPlaying);
-    if (speechSynthRef.current) {
-      if (!isPlaying) {
-        speechSynthRef.current.pause();
-      } else {
-        speechSynthRef.current.resume();
-      }
-    }
-  };
-
-  const resetExercise = () => {
-    setIsPlaying(false);
-    setPhase('ready');
-    setBreathPhase('idle');
-    setTimeRemaining(0);
-    setBreathCycle(0);
-    setLightBrightness(100);
-    setReflection('');
-    if (timerRef.current) {
-      clearTimeout(timerRef.current);
-      clearInterval(timerRef.current);
-      timerRef.current = null;
-    }
-    if (fadeIntervalRef.current) {
-      clearInterval(fadeIntervalRef.current);
-      fadeIntervalRef.current = null;
-    }
-    if (speechSynthRef.current) {
-      speechSynthRef.current.cancel();
-    }
-  };
-
-  const handleReflectionSubmit = () => {
-    if (reflection.trim()) {
-      setScore(1);
-      setTimeout(() => {
         setShowGameOver(true);
-      }, 1000);
-    }
-  };
-
-  // Calculate orb size based on breath phase
-  const getOrbSize = () => {
-    if (phase === 'breathe') {
-      if (breathPhase === 'inhale') {
-        const progress = 1 - (timeRemaining / breathingTimings.inhale);
-        return 150 + (progress * 200); // Grows from 150px to 350px
-      } else if (breathPhase === 'hold') {
-        return 350; // Maintains full size
-      } else if (breathPhase === 'exhale') {
-        const progress = 1 - (timeRemaining / breathingTimings.exhale);
-        return 350 - (progress * 200); // Shrinks from 350px to 150px
       }
-      return 250;
-    }
-    return 250;
+    }, 4000); // Show feedback for 4 seconds
   };
 
-  // Get phase instruction
-  const getPhaseInstruction = () => {
-    if (phase === 'close') {
-      return 'Visualize the classroom lights gradually fading...';
-    } else if (phase === 'breathe') {
-      if (breathPhase === 'inhale') return 'Breathe in peace and calm';
-      if (breathPhase === 'hold') return 'Hold gently';
-      if (breathPhase === 'exhale') return 'Release the day\'s tensions';
-      return 'Ready to breathe';
-    } else if (phase === 'thank') {
-      return 'Take a moment to acknowledge something you\'re grateful for from today...';
-    }
-    return '';
+  const handleRestart = () => {
+    setCurrentQuestion(0);
+    setSelectedAnswer(null);
+    setShowFeedback(false);
+    setShowGameOver(false);
+    setScore(0);
+    setAnswers([]);
   };
 
-  const currentStep = resetSteps.find(s => s.id === phase);
-  const progressPercentage = phase === 'ready' ? 0 : phase === 'close' ? 33 : phase === 'breathe' ? 66 : phase === 'thank' ? 90 : 100;
+  const currentQuestionData = questions[currentQuestion];
+  const progress = ((currentQuestion + 1) / questions.length) * 100;
 
   return (
     <TeacherGameShell
@@ -273,295 +160,179 @@ const AfterSchoolReset = () => {
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={1}
+      currentQuestion={showGameOver ? totalLevels : currentQuestion + 1}
     >
       <div className="w-full max-w-5xl mx-auto px-4">
-        {phase === 'ready' && (
-          <div className="bg-white rounded-2xl shadow-lg p-8 text-center">
-            <div className="text-6xl mb-6">🌆</div>
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">
-              After-School Reset
-            </h2>
-            <p className="text-gray-600 mb-6 text-lg leading-relaxed max-w-2xl mx-auto">
-              Practice end-of-day mental separation techniques with this 3-step reset ritual. 
-              Close your classroom mentally, breathe away the day's tensions, and thank the day before transitioning home.
-            </p>
-            <div className="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 rounded-xl p-6 border-2 border-indigo-200 mb-6 max-w-2xl mx-auto">
-              <h3 className="font-semibold text-gray-800 mb-3">The 3 Steps:</h3>
-              <ul className="text-left text-gray-700 space-y-2">
-                <li>• <strong>Close:</strong> Visualize classroom lights fading as you transition from work</li>
-                <li>• <strong>Breathe:</strong> Take 3 calming breaths to release the day's tensions</li>
-                <li>• <strong>Thank the Day:</strong> Acknowledge one thing you're grateful for from today</li>
-              </ul>
-            </div>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={startReset}
-              className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-8 py-4 rounded-xl text-xl font-semibold shadow-lg hover:shadow-xl transition-all flex items-center gap-2 mx-auto"
-            >
-              <Play className="w-6 h-6" />
-              Begin Reset
-            </motion.button>
-          </div>
-        )}
-
-        {(phase === 'close' || phase === 'breathe' || phase === 'thank') && (
+        {!showGameOver ? (
           <div className="bg-white rounded-2xl shadow-lg p-8">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold text-gray-800 mb-4">
+                After-School Reset
+              </h2>
+              <p className="text-lg text-gray-600 mb-2">
+                Learn effective techniques for separating work and personal life as a teacher
+              </p>
+              <p className="text-sm text-gray-500 italic">
+                Choose the best approach for each scenario
+              </p>
+            </div>
+
             {/* Progress */}
             <div className="mb-6">
               <div className="flex justify-between text-sm text-gray-600 mb-2">
-                <span>
-                  {phase === 'close' && 'Step 1: Close'}
-                  {phase === 'breathe' && 'Step 2: Breathe'}
-                  {phase === 'thank' && 'Step 3: Thank the Day'}
-                </span>
-                <span>{Math.round(progressPercentage)}% Complete</span>
+                <span>Question {currentQuestion + 1} of {questions.length}</span>
+                <span className="font-semibold">Score: {score}</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2">
                 <motion.div
                   initial={{ width: 0 }}
-                  animate={{ width: `${progressPercentage}%` }}
-                  className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 h-2 rounded-full"
+                  animate={{ width: `${progress}%` }}
+                  className="bg-gradient-to-r from-indigo-500 to-purple-500 h-2 rounded-full"
                 />
               </div>
             </div>
 
-            {/* Classroom Visualization with Fading Lights */}
-            <div className="relative mb-8 min-h-[400px] flex items-center justify-center">
-              {/* Classroom background with adjustable brightness */}
-              <motion.div
-                animate={{ 
-                  opacity: lightBrightness / 100,
-                  filter: `brightness(${lightBrightness / 100})`
-                }}
-                className="absolute inset-0 bg-gradient-to-br from-yellow-100 via-amber-50 to-orange-50 rounded-xl border-2 border-amber-200"
-              >
-                {/* Classroom elements */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  {/* Lights */}
-                  {[...Array(4)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      className="absolute top-8"
-                      style={{ left: `${20 + i * 25}%` }}
-                      animate={{
-                        opacity: lightBrightness / 100,
-                        scale: lightBrightness / 100
-                      }}
-                    >
-                      <Lightbulb className={`w-8 h-8 ${lightBrightness > 50 ? 'text-yellow-400 fill-yellow-400' : 'text-gray-400'}`} />
-                    </motion.div>
-                  ))}
-                  
-                  {/* Classroom desk/board */}
-                  <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2">
-                    <div className="bg-gradient-to-b from-gray-300 to-gray-400 rounded-lg p-6 w-64 h-32 flex items-center justify-center">
-                      <span className="text-4xl">📚</span>
+            {/* Current Question */}
+            <div className="mb-8">
+              <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6 border-2 border-indigo-200">
+                <h3 className="text-xl font-bold text-gray-800">
+                  {currentQuestionData.question}
+                </h3>
+              </div>
+            </div>
+
+            {/* Options */}
+            <div className="space-y-4 mb-6">
+              {currentQuestionData.options.map((option) => (
+                <motion.button
+                  key={option.id}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => handleAnswerSelect(option.id)}
+                  disabled={selectedAnswer !== null}
+                  className={`w-full p-5 rounded-xl border-2 text-left transition-all ${
+                    selectedAnswer === option.id
+                      ? option.isCorrect
+                        ? 'border-green-500 bg-green-50 shadow-lg'
+                        : 'border-red-500 bg-red-50 shadow-lg'
+                      : 'border-gray-300 bg-white hover:border-indigo-300 hover:shadow-md'
+                  } ${selectedAnswer !== null ? 'opacity-75 cursor-not-allowed' : 'cursor-pointer'}`}
+                >
+                  <div className="flex items-start gap-4">
+                    <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 ${
+                      selectedAnswer === option.id
+                        ? option.isCorrect
+                          ? 'bg-green-500 text-white'
+                          : 'bg-red-500 text-white'
+                        : 'bg-gray-200 text-gray-600'
+                    }`}>
+                      {option.id.toUpperCase()}
                     </div>
+                    <p className="text-gray-800 font-medium">
+                      {option.text}
+                    </p>
+                  </div>
+                </motion.button>
+              ))}
+            </div>
+
+            {/* Feedback */}
+            {showFeedback && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className={`p-6 rounded-xl border-2 ${
+                  answers[answers.length - 1]?.correct
+                    ? 'bg-green-50 border-green-400'
+                    : 'bg-red-50 border-red-400'
+                }`}
+              >
+                <div className="flex items-start gap-4">
+                  <div className={`text-3xl ${answers[answers.length - 1]?.correct ? 'text-green-600' : 'text-red-600'}`}>
+                    {answers[answers.length - 1]?.correct ? '✅' : '❌'}
+                  </div>
+                  <div>
+                    <h4 className={`text-lg font-bold ${answers[answers.length - 1]?.correct ? 'text-green-800' : 'text-red-800'}`}>
+                      {answers[answers.length - 1]?.correct ? 'Correct!' : 'Not quite'}
+                    </h4>
+                    <p className="text-gray-700 mt-2">
+                      {answers[answers.length - 1]?.explanation}
+                    </p>
+                    <p className="text-gray-600 mt-3 italic">
+                      
+                    </p>
                   </div>
                 </div>
               </motion.div>
-
-              {/* Overlay for breathe phase - breathing orb */}
-              {phase === 'breathe' && (
-                <motion.div
-                  className="absolute rounded-full bg-gradient-to-br from-blue-400 via-cyan-400 to-teal-400 shadow-2xl flex items-center justify-center"
-                  animate={{
-                    width: getOrbSize(),
-                    height: getOrbSize(),
-                  }}
-                  transition={{
-                    duration: breathPhase === 'hold' ? 0.3 : 4,
-                    ease: breathPhase === 'exhale' ? "easeIn" : "easeOut"
-                  }}
-                  style={{
-                    width: getOrbSize(),
-                    height: getOrbSize(),
-                  }}
-                >
-                  <div className="text-6xl">
-                    {breathPhase === 'inhale' ? '🌬️' : breathPhase === 'hold' ? '✨' : '💨'}
-                  </div>
-                </motion.div>
-              )}
-
-              {/* Overlay for thank phase - gratitude visualization */}
-              {phase === 'thank' && (
-                <motion.div
-                  initial={{ scale: 0, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  className="absolute"
-                >
-                  <div className="w-64 h-64 rounded-full bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 shadow-2xl flex items-center justify-center">
-                    <div className="text-8xl">✨</div>
-                  </div>
-                </motion.div>
-              )}
-
-              {/* Calm soundscape visualization - ripple effects */}
-              {isPlaying && (phase === 'breathe' || phase === 'thank') && (
-                <>
-                  {[...Array(3)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      className="absolute inset-0 rounded-full border-2 border-blue-300/30 mx-auto"
-                      style={{ width: '400px', height: '400px', left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }}
-                      animate={{
-                        scale: [1, 1.5, 2],
-                        opacity: [0.3, 0.1, 0],
-                      }}
-                      transition={{
-                        duration: 3,
-                        repeat: Infinity,
-                        delay: i * 0.5,
-                        ease: "easeOut"
-                      }}
-                    />
-                  ))}
-                </>
-              )}
-            </div>
-
-            {/* Instruction */}
-            {currentStep && (
-              <div className={`bg-gradient-to-br ${currentStep.color} bg-opacity-20 rounded-xl p-6 border-2 border-indigo-300 mb-6 text-center`}>
-                <div className="text-4xl mb-3">{currentStep.emoji}</div>
-                <p className="text-xl font-bold text-gray-800 mb-2">
-                  {currentStep.instruction}
-                </p>
-                {phase === 'breathe' && timeRemaining > 0 && (
-                  <p className="text-3xl font-bold text-blue-600 mt-2">
-                    {timeRemaining}
-                  </p>
-                )}
-                {phase === 'breathe' && (
-                  <p className="text-gray-600 mt-2">
-                    Cycle {breathCycle + 1} of 3
-                  </p>
-                )}
-                {phase === 'thank' && timeRemaining > 0 && (
-                  <p className="text-2xl font-bold text-amber-600 mt-2">
-                    {timeRemaining} seconds
-                  </p>
-                )}
-              </div>
-            )}
-
-            {/* Controls */}
-            {(phase === 'breathe' || phase === 'thank') && (
-              <div className="flex justify-center gap-4">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={togglePause}
-                  className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all flex items-center gap-2"
-                >
-                  {isPlaying ? (
-                    <>
-                      <Pause className="w-5 h-5" />
-                      Pause
-                    </>
-                  ) : (
-                    <>
-                      <Play className="w-5 h-5" />
-                      Resume
-                    </>
-                  )}
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={resetExercise}
-                  className="bg-gray-500 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all flex items-center gap-2"
-                >
-                  <RotateCcw className="w-5 h-5" />
-                  Reset
-                </motion.button>
-              </div>
             )}
           </div>
-        )}
-
-        {phase === 'reflect' && (
+        ) : (
+          /* Game Over Screen */
           <div className="bg-white rounded-2xl shadow-lg p-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-            >
-              <div className="text-center mb-6">
-                <div className="text-6xl mb-4">✨</div>
-                <h2 className="text-3xl font-bold text-gray-800 mb-4">
-                  Brief Reflection
-                </h2>
-                <p className="text-gray-600 text-lg">
-                  Take a moment to reflect on how you feel after this reset. What did you notice?
-                </p>
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold text-gray-800 mb-4">
+                Reset Complete
+              </h2>
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-6 py-3 rounded-xl mb-4">
+                <Moon className="w-6 h-6" />
+                <span className="text-2xl font-bold">Score: {score}/{questions.length}</span>
               </div>
-
-              <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6 border-2 border-indigo-200 mb-6">
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Reflection (optional):
-                </label>
-                <textarea
-                  value={reflection}
-                  onChange={(e) => setReflection(e.target.value)}
-                  placeholder="How do you feel after the reset? What did you notice? What are you grateful for from today?"
-                  className="w-full h-32 p-4 rounded-lg border-2 border-indigo-300 focus:border-indigo-500 focus:outline-none resize-none"
-                />
-              </div>
-
-              <div className="text-center">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={handleReflectionSubmit}
-                  className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-8 py-4 rounded-xl text-xl font-semibold shadow-lg hover:shadow-xl transition-all"
-                >
-                  Complete Reset
-                </motion.button>
-              </div>
-            </motion.div>
-          </div>
-        )}
-
-        {showGameOver && (
-          <div className="bg-white rounded-2xl shadow-lg p-8 text-center">
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ type: "spring", stiffness: 200, damping: 10 }}
-              className="text-6xl mb-6"
-            >
-              🌙
-            </motion.div>
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">
-              Reset Complete
-            </h2>
-            <div className="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 rounded-xl p-6 border-2 border-indigo-200 mb-6">
-              <p className="text-gray-700 text-lg leading-relaxed">
-                You've successfully completed the After-School Reset ritual. The classroom is closed, 
-                tensions are released, and gratitude has been acknowledged. You're ready to transition 
-                from work to rest, bringing clarity and calm to your personal time.
+              <p className="text-lg text-gray-600">
+                {score >= 4
+                  ? 'Excellent! You have a strong understanding of work-life boundaries.'
+                  : score >= 3
+                  ? 'Good job! You are developing awareness of healthy work-life balance.'
+                  : 'Nice effort! Continue learning about effective work-life separation.'}
               </p>
             </div>
 
-            {/* Teacher Tip */}
-            <div className="bg-amber-50 rounded-xl p-6 border-2 border-amber-200">
-              <div className="flex items-start gap-3">
-                <Moon className="w-6 h-6 text-amber-600 flex-shrink-0 mt-1" />
-                <div className="text-left">
-                  <p className="text-sm font-semibold text-amber-900 mb-2">
-                    💡 Teacher Tip:
-                  </p>
-                  <p className="text-sm text-amber-800 leading-relaxed">
-                    Make this the official closure ritual before leaving school. The After-School Reset is most effective when it becomes a consistent ritual. Practice this reset at the end of every school day, right before you leave. Make it a non-negotiable part of your routine—just like locking the classroom door. This creates a clear mental separation between work and personal time, preventing work thoughts from following you home. Share this ritual with colleagues and encourage each other to practice it. When multiple teachers adopt this ritual, it helps shift the school culture toward healthier work-life boundaries. The reset takes only 2-3 minutes but significantly impacts your ability to truly rest and recharge.
-                  </p>
+            {/* Summary of Answers */}
+            <div className="space-y-4 mb-8">
+              {answers.map((answer, index) => (
+                <div 
+                  key={index}
+                  className={`p-4 rounded-xl border-2 ${answer.correct ? 'bg-green-50 border-green-300' : 'bg-red-50 border-red-300'}`}
+                >
+                  <div className="flex items-start gap-3">
+                    <div className={`text-2xl ${answer.correct ? 'text-green-600' : 'text-red-600'}`}>
+                      {answer.correct ? '✅' : '❌'}
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-bold text-gray-800 mb-2">
+                        Q{index + 1}: {answer.question}
+                      </h4>
+                      <p className="text-sm text-gray-700 mb-2">
+                        <span className="font-semibold">Your answer:</span> {questions[index].options.find(opt => opt.id === answer.selectedOption)?.text}
+                      </p>
+                      {!answer.correct && (
+                        <p className="text-sm text-gray-700 mb-2">
+                          <span className="font-semibold">Better approach:</span> {questions[index].options.find(opt => opt.id === answer.correctOption)?.text}
+                        </p>
+                      )}
+                      <p className="text-xs text-gray-600">
+                        {answer.explanation}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              ))}
+            </div>
+
+            {/* Restart Button */}
+            <div className="text-center">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={handleRestart}
+                className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-8 py-4 rounded-xl text-xl font-semibold shadow-lg hover:shadow-xl transition-all"
+              >
+                Restart Quiz
+              </motion.button>
             </div>
           </div>
         )}
+
+
       </div>
     </TeacherGameShell>
   );

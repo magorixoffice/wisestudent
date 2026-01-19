@@ -14,9 +14,9 @@ const GratitudeInTheMoment = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 1;
+  const totalLevels = gameData?.totalQuestions || 5;
   
-  const [gratitudes, setGratitudes] = useState(["", "", ""]);
+  const [gratitudes, setGratitudes] = useState(["", "", "", "", ""]);
   const [calmScore, setCalmScore] = useState(0);
   const [showGameOver, setShowGameOver] = useState(false);
   const [score, setScore] = useState(0);
@@ -28,8 +28,8 @@ const GratitudeInTheMoment = () => {
 
     // Calculate calm score based on completed gratitudes
     const completedCount = newGratitudes.filter(g => g.trim().length > 0).length;
-    // Calm score rises: 0 -> 33 -> 66 -> 100 (for 0, 1, 2, 3 gratitudes)
-    const newCalmScore = Math.round((completedCount / 3) * 100);
+    // Calm score rises: 0 -> 20 -> 40 -> 60 -> 80 -> 100 (for 0, 1, 2, 3, 4, 5 gratitudes)
+    const newCalmScore = Math.round((completedCount / 5) * 100);
     setCalmScore(newCalmScore);
   };
 
@@ -41,18 +41,18 @@ const GratitudeInTheMoment = () => {
       return;
     }
 
-    if (completedCount < 3) {
+    if (completedCount < 5) {
       if (!confirm(`You've written ${completedCount} gratitude${completedCount !== 1 ? 's' : ''}. Would you like to add more, or complete with what you have?`)) {
         return;
       }
     }
 
-    setScore(1);
+    setScore(completedCount); // Award 1 point per gratitude completed, up to 5 points
     setShowGameOver(true);
   };
 
   const completedCount = gratitudes.filter(g => g.trim().length > 0).length;
-  const allCompleted = completedCount === 3;
+  const allCompleted = completedCount === 5;
 
   return (
     <TeacherGameShell
@@ -64,7 +64,7 @@ const GratitudeInTheMoment = () => {
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={1}
+      currentQuestion={0}
     >
       <div className="w-full max-w-4xl mx-auto px-4">
         {!showGameOver && (
@@ -76,7 +76,7 @@ const GratitudeInTheMoment = () => {
                 What Went Right Today?
               </h2>
               <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-                Shift your attention from pressure to appreciation. Write 3 small things you're grateful for and watch your calm score rise.
+                Shift your attention from pressure to appreciation. Write 5 small things you're grateful for and watch your calm score rise.
               </p>
             </div>
 
@@ -85,8 +85,8 @@ const GratitudeInTheMoment = () => {
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
                   <div className={`w-16 h-16 rounded-full bg-gradient-to-r ${
-                    calmScore >= 66 ? 'from-green-400 to-emerald-500' :
-                    calmScore >= 33 ? 'from-blue-400 to-cyan-500' :
+                    calmScore >= 80 ? 'from-green-400 to-emerald-500' :
+                    calmScore >= 40 ? 'from-blue-400 to-cyan-500' :
                     'from-gray-300 to-gray-400'
                   } flex items-center justify-center text-2xl font-bold text-white shadow-lg`}>
                     {calmScore}
@@ -98,7 +98,7 @@ const GratitudeInTheMoment = () => {
                 </div>
                 <div className="text-right">
                   <p className="text-sm text-gray-600 mb-1">Gratitudes Written</p>
-                  <p className="text-3xl font-bold text-indigo-600">{completedCount} / 3</p>
+                  <p className="text-3xl font-bold text-indigo-600">{completedCount} / 5</p>
                 </div>
               </div>
               
@@ -109,8 +109,8 @@ const GratitudeInTheMoment = () => {
                   animate={{ width: `${calmScore}%` }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
                   className={`h-4 rounded-full ${
-                    calmScore >= 66 ? 'bg-gradient-to-r from-green-400 to-emerald-500' :
-                    calmScore >= 33 ? 'bg-gradient-to-r from-blue-400 to-cyan-500' :
+                    calmScore >= 80 ? 'bg-gradient-to-r from-green-400 to-emerald-500' :
+                    calmScore >= 40 ? 'bg-gradient-to-r from-blue-400 to-cyan-500' :
                     'bg-gradient-to-r from-gray-300 to-gray-400'
                   } shadow-md`}
                 />
@@ -119,16 +119,16 @@ const GratitudeInTheMoment = () => {
               {/* Calm Score Message */}
               <p className="text-sm text-center text-gray-600 mt-2">
                 {calmScore === 0 && "Start writing to see your calm score rise..."}
-                {calmScore > 0 && calmScore < 33 && "Great start! Keep writing..."}
-                {calmScore >= 33 && calmScore < 66 && "You're shifting your focus! Continue..."}
-                {calmScore >= 66 && calmScore < 100 && "Wonderful! Almost there..."}
+                {calmScore > 0 && calmScore < 40 && "Great start! Keep writing..."}
+                {calmScore >= 40 && calmScore < 80 && "You're shifting your focus! Continue..."}
+                {calmScore >= 80 && calmScore < 100 && "Wonderful! Almost there..."}
                 {calmScore === 100 && "Perfect! You've shifted from pressure to appreciation."}
               </p>
             </div>
 
             {/* Gratitude Input Boxes */}
             <div className="space-y-6 mb-8">
-              {[0, 1, 2].map((index) => {
+              {[0, 1, 2, 3, 4].map((index) => {
                 const isCompleted = gratitudes[index].trim().length > 0;
                 return (
                   <motion.div
@@ -160,7 +160,11 @@ const GratitudeInTheMoment = () => {
                             Gratitude {index + 1}
                           </label>
                           <p className="text-xs text-gray-500">
-                            What went right today? (e.g., "A student smiled", "Coffee was good", "Had time to breathe")
+                            {index === 0 ? 'What went right today? (e.g., "A student smiled", "Coffee was good", "Had time to breathe")' : 
+                             index === 1 ? 'What brought you a moment of peace? (e.g., "Quiet hallway moment", "A colleague\'s support", "Finished grading early")' : 
+                             index === 2 ? 'What interaction brightened your day? (e.g., "Student\'s progress", "Parent\'s gratitude", "Colleague\'s kindness")' : 
+                             index === 3 ? 'What achievement made you proud? (e.g., "Lesson went smoothly", "Problem solved", "Goal reached")' : 
+                             'What simple pleasure did you notice? (e.g., "Warm cup of tea", "Sunshine in the classroom", "Laughter in hallways")'}
                           </p>
                         </div>
                         {isCompleted && (
@@ -233,7 +237,7 @@ const GratitudeInTheMoment = () => {
               transition={{ type: "spring", stiffness: 200, damping: 10 }}
               className="text-6xl mb-6"
             >
-              {calmScore === 100 ? '✨' : calmScore >= 66 ? '💚' : '🌟'}
+              {calmScore === 100 ? '✨' : calmScore >= 80 ? '💚' : '🌟'}
             </motion.div>
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
               Gratitude Complete!
@@ -243,8 +247,8 @@ const GratitudeInTheMoment = () => {
             <div className="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 rounded-xl p-6 border-2 border-indigo-200 mb-6">
               <p className="text-gray-700 text-lg leading-relaxed mb-4">
                 {calmScore === 100 
-                  ? "Perfect! You've written 3 gratitudes and shifted your attention from pressure to appreciation. Your calm score reached 100%."
-                  : calmScore >= 66
+                  ? "Perfect! You've written 5 gratitudes and shifted your attention from pressure to appreciation. Your calm score reached 100%."
+                  : calmScore >= 80
                   ? `Well done! You've written ${completedCount} gratitude${completedCount !== 1 ? 's' : ''} and significantly shifted your focus. Your calm score is ${calmScore}%.`
                   : `Great start! You've written ${completedCount} gratitude${completedCount !== 1 ? 's' : ''} and begun the shift from pressure to appreciation. Your calm score is ${calmScore}%.`}
               </p>
@@ -252,8 +256,8 @@ const GratitudeInTheMoment = () => {
               <div className="bg-white/60 rounded-lg p-4 mb-4">
                 <div className="flex items-center justify-center gap-4 mb-2">
                   <div className={`w-20 h-20 rounded-full bg-gradient-to-r ${
-                    calmScore >= 66 ? 'from-green-400 to-emerald-500' :
-                    calmScore >= 33 ? 'from-blue-400 to-cyan-500' :
+                    calmScore >= 80 ? 'from-green-400 to-emerald-500' :
+                    calmScore >= 40 ? 'from-blue-400 to-cyan-500' :
                     'from-gray-300 to-gray-400'
                   } flex items-center justify-center text-3xl font-bold text-white shadow-lg`}>
                     {calmScore}

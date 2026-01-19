@@ -12,9 +12,20 @@ const EmotionReflex = () => {
   const gameId = "teacher-education-9";
   const gameData = getTeacherEducationGameById(gameId);
   
+  // 5 flash cards with emotions
+  const flashCards = [
+    { id: 1, type: 'phrase', content: "My shoulders are so tight", emotion: 'Tense', options: [ 'Relaxed', 'Comfortable', 'Loose','Tense',], correct: 3 },
+   
+    { id: 2, type: 'phrase', content: "What if I mess this up?", emotion: 'Anxious', options: ['Anxious', 'Calm', 'Excited', 'Bored'], correct: 0 },
+    { id: 3, type: 'phrase', content: "I'm so grateful right now", emotion: 'Grateful', options: [ 'Resentful', 'Neutral', 'Grateful','Frustrated'], correct: 2 },
+    { id: 4, type: 'phrase', content: "This is too much pressure", emotion: 'Stressed', options: [ 'Relaxed','Stressed', 'Motivated', 'Content'], correct: 1 },
+    { id: 5, type: 'phrase', content: "I feel completely drained", emotion: 'Exhausted', options: ['Exhausted', 'Energetic', 'Focused', 'Alert'], correct: 0 },
+    
+  ];
+
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 20;
+  const totalLevels = gameData?.totalLevels || flashCards.length; // Use gameData totalLevels or fallback to flashCards.length
   
   const [gameState, setGameState] = useState("ready"); // ready, playing, finished
   const [currentCard, setCurrentCard] = useState(0);
@@ -25,30 +36,6 @@ const EmotionReflex = () => {
   const [showGameOver, setShowGameOver] = useState(false);
   const [answeredCards, setAnsweredCards] = useState([]);
   const timerRef = useRef(null);
-
-  // 20 flash cards with emotions
-  const flashCards = [
-    { id: 1, type: 'emoji', content: '😊', emotion: 'Happy', options: ['Happy', 'Sad', 'Angry', 'Tired'], correct: 0 },
-    { id: 2, type: 'emoji', content: '😰', emotion: 'Anxious', options: ['Anxious', 'Calm', 'Excited', 'Bored'], correct: 0 },
-    { id: 3, type: 'emoji', content: '😴', emotion: 'Tired', options: ['Tired', 'Energetic', 'Focused', 'Confused'], correct: 0 },
-    { id: 4, type: 'emoji', content: '😡', emotion: 'Angry', options: ['Angry', 'Happy', 'Sad', 'Neutral'], correct: 0 },
-    { id: 5, type: 'emoji', content: '😌', emotion: 'Calm', options: ['Calm', 'Stressed', 'Excited', 'Worried'], correct: 0 },
-    { id: 6, type: 'emoji', content: '😟', emotion: 'Worried', options: ['Worried', 'Confident', 'Relaxed', 'Joyful'], correct: 0 },
-    { id: 7, type: 'emoji', content: '😎', emotion: 'Confident', options: ['Confident', 'Insecure', 'Tired', 'Anxious'], correct: 0 },
-    { id: 8, type: 'emoji', content: '😔', emotion: 'Sad', options: ['Sad', 'Happy', 'Angry', 'Excited'], correct: 0 },
-    { id: 9, type: 'emoji', content: '🤗', emotion: 'Grateful', options: ['Grateful', 'Resentful', 'Neutral', 'Frustrated'], correct: 0 },
-    { id: 10, type: 'emoji', content: '😤', emotion: 'Frustrated', options: ['Frustrated', 'Patient', 'Calm', 'Content'], correct: 0 },
-    { id: 11, type: 'phrase', content: "I can't handle this anymore", emotion: 'Overwhelmed', options: ['Overwhelmed', 'Confident', 'Excited', 'Calm'], correct: 0 },
-    { id: 12, type: 'phrase', content: "Everything feels great today", emotion: 'Happy', options: ['Happy', 'Sad', 'Anxious', 'Tired'], correct: 0 },
-    { id: 13, type: 'phrase', content: "I'm running on empty", emotion: 'Tired', options: ['Tired', 'Energetic', 'Focused', 'Motivated'], correct: 0 },
-    { id: 14, type: 'phrase', content: "My shoulders are so tight", emotion: 'Tense', options: ['Tense', 'Relaxed', 'Comfortable', 'Loose'], correct: 0 },
-    { id: 15, type: 'phrase', content: "I feel ready for anything", emotion: 'Confident', options: ['Confident', 'Anxious', 'Uncertain', 'Worried'], correct: 0 },
-    { id: 16, type: 'phrase', content: "What if I mess this up?", emotion: 'Anxious', options: ['Anxious', 'Calm', 'Excited', 'Bored'], correct: 0 },
-    { id: 17, type: 'phrase', content: "I'm so grateful right now", emotion: 'Grateful', options: ['Grateful', 'Resentful', 'Neutral', 'Frustrated'], correct: 0 },
-    { id: 18, type: 'phrase', content: "This is too much pressure", emotion: 'Stressed', options: ['Stressed', 'Relaxed', 'Motivated', 'Content'], correct: 0 },
-    { id: 19, type: 'phrase', content: "I feel completely drained", emotion: 'Exhausted', options: ['Exhausted', 'Energetic', 'Focused', 'Alert'], correct: 0 },
-    { id: 20, type: 'phrase', content: "I'm at peace with this", emotion: 'Calm', options: ['Calm', 'Stressed', 'Excited', 'Worried'], correct: 0 }
-  ];
 
   // Timer effect - 2 seconds per card
   useEffect(() => {
@@ -72,7 +59,7 @@ const EmotionReflex = () => {
     }
 
     // Reset timer for new card
-    setTimeLeft(2);
+    setTimeLeft(5);
     setSelectedAnswer(null);
     setShowFeedback(false);
 
@@ -202,8 +189,8 @@ const EmotionReflex = () => {
             <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-4 mb-6">
               <p className="text-gray-700 mb-2"><strong>How to play:</strong></p>
               <ul className="text-left text-gray-600 space-y-1 max-w-md mx-auto">
-                <li>• You'll see 20 flash cards with emotions</li>
-                <li>• Each card shows for 2 seconds</li>
+                <li>• You'll see {flashCards.length} flash cards with emotions</li>
+                <li>• Each card shows for 5 seconds</li>
                 <li>• Tap the correct emotion quickly!</li>
                 <li>• Get instant feedback on your answer</li>
               </ul>

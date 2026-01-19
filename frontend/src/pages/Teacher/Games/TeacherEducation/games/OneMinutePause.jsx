@@ -14,7 +14,7 @@ const OneMinutePause = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 1;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [isPlaying, setIsPlaying] = useState(false);
   const [timeRemaining, setTimeRemaining] = useState(60);
@@ -24,18 +24,63 @@ const OneMinutePause = () => {
   const [focusRating, setFocusRating] = useState(null);
   const [showGameOver, setShowGameOver] = useState(false);
   const [score, setScore] = useState(0);
+  const [currentActivity, setCurrentActivity] = useState(0);
+  const [completedActivities, setCompletedActivities] = useState([]);
+  
+  // Track if each activity has been completed
+  const completedActivitiesRef = useRef([]);
   
   const timerRef = useRef(null);
   const breathTimerRef = useRef(null);
 
-  // Breathing rhythm: Inhale (4s) - Pause (2s) - Exhale (4s) = 10 seconds per cycle
-  const breathingTimings = {
-    inhale: 4,
-    pause: 2,
-    exhale: 4
-  };
+  // Define 5 different breathing activities for teachers
+  const breathingActivities = [
+    {
+      id: 1,
+      title: "Classroom Reset Breath",
+      description: "Quick reset between classes",
+      timings: { inhale: 4, pause: 2, exhale: 4 },
+      instruction: "Inhale (4s) → Pause (2s) → Exhale (4s)",
+      tip: "Use this between classes to reset your energy and prepare for the next group of students."
+    },
+    {
+      id: 2,
+      title: "Meeting Focus Breath",
+      description: "Center yourself before important meetings",
+      timings: { inhale: 4, pause: 0, exhale: 6 },
+      instruction: "Inhale (4s) → Exhale (6s)",
+      tip: "Use this before staff meetings or parent conferences to center yourself and approach the situation calmly."
+    },
+    {
+      id: 3,
+      title: "Stress Relief Breath",
+      description: "Release tension during challenging moments",
+      timings: { inhale: 3, pause: 0, exhale: 7 },
+      instruction: "Inhale (3s) → Exhale (7s)",
+      tip: "Use this during lunch break or planning period when you feel overwhelmed to release built-up stress."
+    },
+    {
+      id: 4,
+      title: "Pre-Class Preparation Breath",
+      description: "Ground yourself before starting class",
+      timings: { inhale: 5, pause: 2, exhale: 5 },
+      instruction: "Inhale (5s) → Pause (2s) → Exhale (5s)",
+      tip: "Use this right before class starts to ground yourself and enter the classroom with intention."
+    },
+    {
+      id: 5,
+      title: "End-of-Day Release Breath",
+      description: "Release the day's stress",
+      timings: { inhale: 4, pause: 4, exhale: 8 },
+      instruction: "Inhale (4s) → Pause (4s) → Exhale (8s)",
+      tip: "Use this at the end of the school day to release the day's stress and transition to your personal time."
+    }
+  ];
 
-  const cycleDuration = breathingTimings.inhale + breathingTimings.pause + breathingTimings.exhale; // 10 seconds
+  const currentActivityData = breathingActivities[currentActivity];
+  const breathingTimings = currentActivityData.timings;
+  
+  const cycleDuration = breathingTimings.inhale + (breathingTimings.pause || 0) + breathingTimings.exhale;
 
   // Start the 60-second exercise
   const startExercise = () => {
@@ -77,11 +122,14 @@ const OneMinutePause = () => {
         setTimeRemaining(timeRemaining - 1);
       }, 1000);
     } else {
-      // 60 seconds complete
+      // 60 seconds complete for current activity
       setIsPlaying(false);
       setBreathPhase('idle');
       setBreathCycleTime(0);
+      
+      // Show rating screen - score will be incremented when user rates focus
       setShowRating(true);
+      
       if (timerRef.current) {
         clearTimeout(timerRef.current);
       }
@@ -97,7 +145,7 @@ const OneMinutePause = () => {
     };
   }, [isPlaying, timeRemaining]);
 
-  // Breathing cycle (repeats every 10 seconds during the 60-second period)
+  // Breathing cycle (repeats during the 60-second period)
   useEffect(() => {
     if (!isPlaying || timeRemaining <= 0) return;
 
@@ -106,10 +154,17 @@ const OneMinutePause = () => {
         setBreathCycleTime(breathCycleTime - 1);
       }, 1000);
     } else {
-      // Move to next breath phase
+      // Move to next breath phase based on current activity
       if (breathPhase === 'inhale') {
-        setBreathPhase('pause');
-        setBreathCycleTime(breathingTimings.pause);
+        if (breathingTimings.pause > 0) {
+          // If there's a pause phase, go to pause
+          setBreathPhase('pause');
+          setBreathCycleTime(breathingTimings.pause);
+        } else {
+          // If no pause phase, go directly to exhale
+          setBreathPhase('exhale');
+          setBreathCycleTime(breathingTimings.exhale);
+        }
       } else if (breathPhase === 'pause') {
         setBreathPhase('exhale');
         setBreathCycleTime(breathingTimings.exhale);
@@ -125,7 +180,7 @@ const OneMinutePause = () => {
         clearTimeout(breathTimerRef.current);
       }
     };
-  }, [isPlaying, breathPhase, breathCycleTime, timeRemaining]);
+  }, [isPlaying, breathPhase, breathCycleTime, timeRemaining, breathingTimings]);
 
   // Calculate orb size based on breath phase
   const getOrbSize = () => {
@@ -156,7 +211,13 @@ const OneMinutePause = () => {
   // Get phase instruction
   const getPhaseInstruction = () => {
     if (breathPhase === 'inhale') return 'Breathe in slowly';
-    if (breathPhase === 'pause') return 'Pause gently';
+    if (breathPhase === 'pause') {
+      if (breathingTimings.pause > 0) {
+        return 'Pause gently';
+      } else {
+        return 'Ready to exhale';
+      }
+    }
     if (breathPhase === 'exhale') return 'Release slowly';
     return 'Ready to begin';
   };
@@ -164,7 +225,13 @@ const OneMinutePause = () => {
   // Get phase emoji
   const getPhaseEmoji = () => {
     if (breathPhase === 'inhale') return '🌬️';
-    if (breathPhase === 'pause') return '✨';
+    if (breathPhase === 'pause') {
+      if (breathingTimings.pause > 0) {
+        return '✨';
+      } else {
+        return '💨';
+      }
+    }
     if (breathPhase === 'exhale') return '💨';
     return '🧘';
   };
@@ -172,11 +239,24 @@ const OneMinutePause = () => {
   // Handle focus rating
   const handleRateFocus = (rating) => {
     setFocusRating(rating);
-    setScore(1); // Mark as completed
     
-    setTimeout(() => {
-      setShowGameOver(true);
-    }, 2000);
+    // Always increment score when rating is given (this ensures each completed activity counts)
+    setScore(prev => prev + 1);
+    
+    if (currentActivity < breathingActivities.length - 1) {
+      // Move to next activity
+      setTimeout(() => {
+        setCurrentActivity(prev => prev + 1);
+        setShowRating(false);
+        setFocusRating(null);
+        resetExercise(); // Reset for next activity
+      }, 2000);
+    } else {
+      // All activities completed - show game over
+      setTimeout(() => {
+        setShowGameOver(true);
+      }, 2000);
+    }
   };
 
   // Calculate progress percentage for timer ring
@@ -194,36 +274,30 @@ const OneMinutePause = () => {
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={1}
+      currentQuestion={currentActivity + 0}
     >
       <div className="w-full max-w-5xl mx-auto px-4">
         {!showRating && (
           <div className="bg-white rounded-2xl shadow-lg p-8">
-            {/* Instructions */}
+            {/* Activity Instructions */}
             <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                One-Minute Pause
+              <h2 className="text-2xl font-bold text-gray-800 mb-2">
+                {currentActivityData.title}
               </h2>
+              <p className="text-gray-600 mb-2 text-lg">
+                {currentActivityData.description}
+              </p>
               <p className="text-gray-600 mb-6 text-lg">
-                Follow the breathing rhythm for 60 seconds: Inhale (4s) → Pause (2s) → Exhale (4s)
+                Follow the breathing rhythm for 60 seconds: {currentActivityData.instruction}
               </p>
               <div className="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 rounded-xl p-6 border-2 border-indigo-200 max-w-2xl mx-auto">
-                <div className="grid grid-cols-3 gap-4 text-center">
-                  <div>
-                    <div className="text-3xl mb-2">🌬️</div>
-                    <div className="font-semibold text-gray-800">Inhale</div>
-                    <div className="text-sm text-gray-600">4 seconds</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl mb-2">✨</div>
-                    <div className="font-semibold text-gray-800">Pause</div>
-                    <div className="text-sm text-gray-600">2 seconds</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl mb-2">💨</div>
-                    <div className="font-semibold text-gray-800">Exhale</div>
-                    <div className="text-sm text-gray-600">4 seconds</div>
-                  </div>
+                <div className="text-center mb-4">
+                  <div className="text-3xl mb-2">🧘‍♀️</div>
+                  <div className="font-semibold text-gray-800">{currentActivityData.instruction}</div>
+                  <div className="text-sm text-gray-600">Complete 60 seconds of focused breathing</div>
+                </div>
+                <div className="text-sm text-gray-600 italic mt-3">
+                  Tip: {currentActivityData.tip}
                 </div>
               </div>
             </div>
@@ -451,14 +525,14 @@ const OneMinutePause = () => {
               {focusRating >= 7 ? '🌟' : focusRating >= 5 ? '✨' : '🧘'}
             </motion.div>
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
-              Micro-Meditation Complete!
+              All Breathing Activities Complete!
             </h2>
             <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6 border-2 border-indigo-200 mb-6">
               <p className="text-gray-700 text-lg leading-relaxed mb-4">
-                You completed a one-minute pause and rated your focus as {focusRating}/10.
+                You completed all {breathingActivities.length} breathing activities and earned {score} points.
               </p>
               <p className="text-gray-600">
-                Micro-meditation is a powerful tool for immediate mental reset. Even one minute of focused breathing can help you feel more present and ready for your next task.
+                These breathing exercises are powerful tools for immediate mental reset. Each technique serves a specific purpose for teachers: classroom transitions, meeting preparation, stress relief, pre-class grounding, and end-of-day release. Regular practice will enhance your resilience and wellbeing.
               </p>
             </div>
 
@@ -467,7 +541,7 @@ const OneMinutePause = () => {
               <div className="flex items-center justify-center gap-4 mb-4">
                 <Target className="w-6 h-6 text-indigo-600" />
                 <h3 className="text-xl font-semibold text-gray-800">
-                  Your Focus Level: {focusRating}/10
+                  Total Score: {score}/{breathingActivities.length}
                 </h3>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-4 max-w-md mx-auto">
@@ -495,7 +569,7 @@ const OneMinutePause = () => {
                     💡 Teacher Tip:
                   </p>
                   <p className="text-sm text-amber-800 leading-relaxed">
-                    Encourage one-minute pause between class transitions. Use this micro-meditation during the brief moments between classes—after students leave, before the next class arrives, or during your planning period. Simply start the timer, follow the breathing rhythm (inhale-pause-exhale), and let the 60 seconds reset your mental state. This practice helps you transition from one class to the next with clarity and presence. You can also use it before important meetings, after difficult conversations, or anytime you need a quick mental reset. The one-minute pause is small enough to fit into a busy teaching day but powerful enough to make a real difference in your focus and wellbeing. Share this practice with colleagues and consider starting staff meetings with a one-minute pause to help everyone arrive present and focused.
+                    Each breathing technique serves a specific purpose in your teaching day. Use the Classroom Reset Breath between classes, the Meeting Focus Breath before important discussions, the Stress Relief Breath during overwhelming moments, the Pre-Class Preparation Breath before lessons begin, and the End-of-Day Release Breath to transition from work to personal time. These micro-meditations are small enough to fit into a busy teaching schedule but powerful enough to make a real difference in your focus and wellbeing. Practice these regularly to build your emotional resilience and maintain your energy throughout the school day.
                   </p>
                 </div>
               </div>

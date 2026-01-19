@@ -14,7 +14,7 @@ const StressThermometer = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 8;
+  const totalLevels = 5; // Updated to 5 questions
   
   const [currentCueIndex, setCurrentCueIndex] = useState(0);
   const [ratings, setRatings] = useState({});
@@ -52,24 +52,6 @@ const StressThermometer = () => {
       title: "Last-Minute Request",
       description: "Administration asks you to prepare a report or attend a meeting with short notice",
       icon: "📞"
-    },
-    {
-      id: 6,
-      title: "Technology Failure",
-      description: "Computer or projector stops working during an important lesson",
-      icon: "💻"
-    },
-    {
-      id: 7,
-      title: "Work-Life Balance",
-      description: "Realizing you've been bringing work home every night this week",
-      icon: "⚖️"
-    },
-    {
-      id: 8,
-      title: "Performance Review",
-      description: "Upcoming evaluation or observation that makes you feel anxious",
-      icon: "📊"
     }
   ];
 
@@ -89,7 +71,7 @@ const StressThermometer = () => {
     } else {
       // All cues rated, show summary
       setShowSummary(true);
-      setScore(1); // Mark as completed
+      setScore(stressCues.length); // All questions completed
     }
   };
 
@@ -213,7 +195,7 @@ const StressThermometer = () => {
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={currentCueIndex + 1}
+      currentQuestion={showSummary ? totalLevels : currentCueIndex + 0}
     >
       <div className="w-full max-w-5xl mx-auto px-4">
         {!showSummary ? (

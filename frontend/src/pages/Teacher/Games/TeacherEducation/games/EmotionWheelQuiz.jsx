@@ -29,8 +29,10 @@ const EmotionWheelQuiz = () => {
       emotionPair: {
         primary: "Anger",
         secondary: "Irritation",
+        tertiary: "Frustration",
         primaryDescription: "A strong, intense feeling of displeasure or hostility",
-        secondaryDescription: "A mild feeling of annoyance or impatience"
+        secondaryDescription: "A mild feeling of annoyance or impatience",
+        tertiaryDescription: "Feeling upset due to inability to change or achieve something"
       },
       situation: "In this moment, which emotion feels stronger?",
       correct: 1, // Irritation (secondary) - more appropriate for this situation
@@ -44,8 +46,10 @@ const EmotionWheelQuiz = () => {
       emotionPair: {
         primary: "Anger",
         secondary: "Frustration",
+        tertiary: "Disappointment",
         primaryDescription: "A strong, intense feeling of displeasure or hostility",
-        secondaryDescription: "A feeling of being upset or annoyed due to inability to change something"
+        secondaryDescription: "A feeling of being upset or annoyed due to inability to change something",
+        tertiaryDescription: "Sadness or displeasure caused by failure to fulfill expectations"
       },
       situation: "In this moment, which emotion feels stronger?",
       correct: 0, // Anger (primary) - more intense in this situation
@@ -59,8 +63,10 @@ const EmotionWheelQuiz = () => {
       emotionPair: {
         primary: "Anxiety",
         secondary: "Worry",
+        tertiary: "Stress",
         primaryDescription: "Intense, persistent worry or fear about future events",
-        secondaryDescription: "Mild concern or unease about something"
+        secondaryDescription: "Mild concern or unease about something",
+        tertiaryDescription: "State of mental or emotional strain resulting from adverse or demanding circumstances"
       },
       situation: "In this moment, which emotion feels stronger?",
       correct: 0, // Anxiety (primary) - more intense
@@ -72,13 +78,15 @@ const EmotionWheelQuiz = () => {
       title: "Student Success Moment",
       description: "A student who has been struggling with reading suddenly reads a complete paragraph independently. Their face lights up with pride, and the whole class celebrates. You feel a warm sensation in your chest.",
       emotionPair: {
-        primary: "Joy",
+        primary: "Contentment",
         secondary: "Happiness",
-        primaryDescription: "Intense feeling of great pleasure and delight",
-        secondaryDescription: "A pleasant feeling of contentment and satisfaction"
+        tertiary: "Joy",
+        primaryDescription: "A state of peaceful happiness and satisfaction",
+        secondaryDescription: "A pleasant feeling of contentment and satisfaction",
+        tertiaryDescription: " Intense feeling of great pleasure and delight"
       },
       situation: "In this moment, which emotion feels stronger?",
-      correct: 0, // Joy (primary) - more intense positive emotion
+      correct: 2, // Joy (primary) - more intense positive emotion
       explanation: "In this moment, 'Joy' is the stronger emotion. The breakthrough moment and the student's visible pride create an intense feeling of delight. Recognizing joy helps you savor these meaningful teaching moments and reinforces positive classroom culture.",
       teacherTip: "Naming positive emotions like joy helps you celebrate student successes authentically. When you can identify and express joy, you model emotional awareness for students and create more positive classroom experiences."
     },
@@ -89,8 +97,10 @@ const EmotionWheelQuiz = () => {
       emotionPair: {
         primary: "Anger",
         secondary: "Hurt",
+        tertiary: "Embarrassment",
         primaryDescription: "A strong, intense feeling of displeasure or hostility",
-        secondaryDescription: "A feeling of emotional pain or distress"
+        secondaryDescription: "A feeling of emotional pain or distress",
+        tertiaryDescription: "Consciousness of shame or foolishness"
       },
       situation: "In this moment, which emotion feels stronger?",
       correct: 1, // Hurt (secondary) - more accurate for this situation
@@ -121,7 +131,7 @@ const EmotionWheelQuiz = () => {
         // All questions answered
         setShowGameOver(true);
       }
-    }, 2500); // 2.5 second delay to show explanation
+    }, 8000); // 8 second delay to show explanation
   };
 
   const getOptionStyle = (questionIndex, optionIndex) => {
@@ -167,7 +177,7 @@ const EmotionWheelQuiz = () => {
   return (
     <TeacherGameShell
       title={gameData?.title || "Emotion Wheel Quiz"}
-      subtitle={gameData?.description || "Learn to differentiate between primary and secondary emotions"}
+      subtitle={gameData?.description || "Learn to differentiate between primary, secondary, and tertiary emotions"}
       showGameOver={showGameOver}
       score={score}
       gameId={gameId}
@@ -227,26 +237,33 @@ const EmotionWheelQuiz = () => {
                 </svg>
               </motion.div>
 
-              {/* Current Emotion Pair Display */}
+              {/* Current Emotion Trio Display */}
               <div className="flex-1">
                 <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl p-6 border-2 border-purple-200">
                   <h3 className="text-lg font-bold text-purple-900 mb-4 text-center">
-                    Emotion Pair
+                    Emotion Trio
                   </h3>
                   <div className="space-y-3">
                     <div className="bg-white rounded-lg p-4 border-2 border-red-300">
                       <div className="flex items-center justify-between mb-2">
                         <span className="font-bold text-red-700">Primary: {questions[currentQuestion].emotionPair.primary}</span>
-                        <span className="text-xs text-red-600 bg-red-100 px-2 py-1 rounded">Stronger</span>
+                        <span className="text-xs text-red-600 bg-red-100 px-2 py-1 rounded">Strongest</span>
                       </div>
                       <p className="text-xs text-gray-600">{questions[currentQuestion].emotionPair.primaryDescription}</p>
                     </div>
                     <div className="bg-white rounded-lg p-4 border-2 border-blue-300">
                       <div className="flex items-center justify-between mb-2">
                         <span className="font-bold text-blue-700">Secondary: {questions[currentQuestion].emotionPair.secondary}</span>
-                        <span className="text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded">Milder</span>
+                        <span className="text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded">Moderate</span>
                       </div>
                       <p className="text-xs text-gray-600">{questions[currentQuestion].emotionPair.secondaryDescription}</p>
+                    </div>
+                    <div className="bg-white rounded-lg p-4 border-2 border-green-300">
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="font-bold text-green-700">Tertiary: {questions[currentQuestion].emotionPair.tertiary}</span>
+                        <span className="text-xs text-green-600 bg-green-100 px-2 py-1 rounded">Milder</span>
+                      </div>
+                      <p className="text-xs text-gray-600">{questions[currentQuestion].emotionPair.tertiaryDescription}</p>
                     </div>
                   </div>
                 </div>
@@ -272,7 +289,8 @@ const EmotionWheelQuiz = () => {
             <div className="space-y-4 mb-6">
               {[
                 questions[currentQuestion].emotionPair.primary,
-                questions[currentQuestion].emotionPair.secondary
+                questions[currentQuestion].emotionPair.secondary,
+                questions[currentQuestion].emotionPair.tertiary
               ].map((emotion, optionIndex) => {
                 const isSelected = selectedAnswers[currentQuestion] === optionIndex;
                 const isCorrect = optionIndex === questions[currentQuestion].correct;
@@ -293,7 +311,7 @@ const EmotionWheelQuiz = () => {
                       <div>
                         <span className="font-bold text-lg">{emotion}</span>
                         <span className="ml-2 text-xs text-gray-500">
-                          ({optionIndex === 0 ? 'Primary' : 'Secondary'} Emotion)
+                          ({optionIndex === 0 ? 'Primary' : optionIndex === 1 ? 'Secondary' : 'Tertiary'} Emotion)
                         </span>
                       </div>
                       {showFeedback && (

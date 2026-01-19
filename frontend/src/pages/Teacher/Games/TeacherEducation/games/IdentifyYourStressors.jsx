@@ -13,102 +13,226 @@ const IdentifyYourStressors = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 1;
+  const totalLevels = 5; // Updated to 5 questions
   
-  const [selectedStressors, setSelectedStressors] = useState([]);
-  const [showClusters, setShowClusters] = useState(false);
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [selectedStressors, setSelectedStressors] = useState(Array(totalLevels).fill(null));
+  const [showResults, setShowResults] = useState(false);
   const [reflection, setReflection] = useState("");
   const [showGameOver, setShowGameOver] = useState(false);
   const [score, setScore] = useState(0);
 
-  const allStressScenarios = [
+  // Define 5 questions with 4 stressors each
+  const stressorQuestions = [
     {
       id: 1,
-      title: "Grading Load",
-      description: "Piles of assignments and tests waiting to be graded, with deadlines approaching",
-      category: "Workload",
-      icon: "📚"
+      title: "Question 1",
+      prompt: "Which of the following causes you the most stress during a typical week?",
+      stressors: [
+        {
+          id: "q1-s1",
+          title: "Grading Load",
+          description: "Piles of assignments and tests waiting to be graded, with deadlines approaching",
+          category: "Workload",
+          icon: "📚"
+        },
+        {
+          id: "q1-s2",
+          title: "Admin Calls",
+          description: "Frequent calls from administration requesting immediate attention or reports",
+          category: "People",
+          icon: "📞"
+        },
+        {
+          id: "q1-s3",
+          title: "Student Behavior",
+          description: "Challenging student behaviors disrupting class flow and requiring constant management",
+          category: "People",
+          icon: "👥"
+        },
+        {
+          id: "q1-s4",
+          title: "Time Shortage",
+          description: "Not enough time to complete all tasks, prepare lessons, and meet expectations",
+          category: "Workload",
+          icon: "⏰"
+        }
+      ]
     },
     {
       id: 2,
-      title: "Admin Calls",
-      description: "Frequent calls from administration requesting immediate attention or reports",
-      category: "People",
-      icon: "📞"
+      title: "Question 2",
+      prompt: "Which situation creates the greatest challenge for you in your work environment?",
+      stressors: [
+        {
+          id: "q2-s1",
+          title: "Parent Meetings",
+          description: "Scheduled or unscheduled meetings with parents, often during prep time",
+          category: "People",
+          icon: "🤝"
+        },
+        {
+          id: "q2-s2",
+          title: "Classroom Environment",
+          description: "Noisy, cramped, or poorly equipped classroom space affecting teaching",
+          category: "Environment",
+          icon: "🏫"
+        },
+        {
+          id: "q2-s3",
+          title: "Lesson Planning",
+          description: "Creating engaging lesson plans while meeting curriculum standards and deadlines",
+          category: "Workload",
+          icon: "📝"
+        },
+        {
+          id: "q2-s4",
+          title: "Staff Dynamics",
+          description: "Tension or conflicts with colleagues affecting collaboration and support",
+          category: "People",
+          icon: "💼"
+        }
+      ]
     },
     {
       id: 3,
-      title: "Student Behavior",
-      description: "Challenging student behaviors disrupting class flow and requiring constant management",
-      category: "People",
-      icon: "👥"
+      title: "Question 3",
+      prompt: "Which stressor impacts your daily teaching routine the most?",
+      stressors: [
+        {
+          id: "q3-s1",
+          title: "Resource Limitations",
+          description: "Lack of materials, technology, or supplies needed for effective teaching",
+          category: "Environment",
+          icon: "📦"
+        },
+        {
+          id: "q3-s2",
+          title: "Work-Life Balance",
+          description: "Difficulty separating work from personal time, bringing work home regularly",
+          category: "Workload",
+          icon: "⚖️"
+        },
+        {
+          id: "q3-s3",
+          title: "Meeting Deadlines",
+          description: "Constant pressure to meet various educational and administrative deadlines",
+          category: "Workload",
+          icon: "📅"
+        },
+        {
+          id: "q3-s4",
+          title: "Technology Issues",
+          description: "Dealing with malfunctioning equipment and software problems during class",
+          category: "Environment",
+          icon: "💻"
+        }
+      ]
     },
     {
       id: 4,
-      title: "Time Shortage",
-      description: "Not enough time to complete all tasks, prepare lessons, and meet expectations",
-      category: "Workload",
-      icon: "⏰"
+      title: "Question 4",
+      prompt: "Which factor most significantly affects your work satisfaction?",
+      stressors: [
+        {
+          id: "q4-s1",
+          title: "Student Performance",
+          description: "Concerns about students' academic progress and standardized test scores",
+          category: "Workload",
+          icon: "📊"
+        },
+        {
+          id: "q4-s2",
+          title: "Professional Development",
+          description: "Keeping up with mandatory training and evolving educational standards",
+          category: "Workload",
+          icon: "🎓"
+        },
+        {
+          id: "q4-s3",
+          title: "Behavior Management",
+          description: "Addressing disciplinary issues and maintaining classroom order",
+          category: "People",
+          icon: "📏"
+        },
+        {
+          id: "q4-s4",
+          title: "Colleague Relations",
+          description: "Navigating difficult relationships with fellow teachers or staff",
+          category: "People",
+          icon: "👥"
+        }
+      ]
     },
     {
       id: 5,
-      title: "Parent Meetings",
-      description: "Scheduled or unscheduled meetings with parents, often during prep time",
-      category: "People",
-      icon: "🤝"
-    },
-    {
-      id: 6,
-      title: "Classroom Environment",
-      description: "Noisy, cramped, or poorly equipped classroom space affecting teaching",
-      category: "Environment",
-      icon: "🏫"
-    },
-    {
-      id: 7,
-      title: "Lesson Planning",
-      description: "Creating engaging lesson plans while meeting curriculum standards and deadlines",
-      category: "Workload",
-      icon: "📝"
-    },
-    {
-      id: 8,
-      title: "Staff Dynamics",
-      description: "Tension or conflicts with colleagues affecting collaboration and support",
-      category: "People",
-      icon: "💼"
-    },
-    {
-      id: 9,
-      title: "Resource Limitations",
-      description: "Lack of materials, technology, or supplies needed for effective teaching",
-      category: "Environment",
-      icon: "📦"
-    },
-    {
-      id: 10,
-      title: "Work-Life Balance",
-      description: "Difficulty separating work from personal time, bringing work home regularly",
-      category: "Workload",
-      icon: "⚖️"
+      title: "Question 5",
+      prompt: "Which challenge most affects your overall well-being at work?",
+      stressors: [
+        {
+          id: "q5-s1",
+          title: "Evaluation Pressure",
+          description: "Anxiety about formal evaluations and performance reviews",
+          category: "People",
+          icon: "📋"
+        },
+        {
+          id: "q5-s2",
+          title: "Budget Constraints",
+          description: "Limited funding affecting program implementation and resource availability",
+          category: "Environment",
+          icon: "💰"
+        },
+        {
+          id: "q5-s3",
+          title: "Safety Concerns",
+          description: "Worrying about student and personal safety in the school environment",
+          category: "Environment",
+          icon: "🚨"
+        },
+        {
+          id: "q5-s4",
+          title: "Communication Overload",
+          description: "Managing excessive emails, messages, and communication channels",
+          category: "Workload",
+          icon: "💬"
+        }
+      ]
     }
   ];
 
-  const handleStressorSelect = (stressorId) => {
-    if (selectedStressors.includes(stressorId)) {
-      // Deselect if already selected
-      setSelectedStressors(selectedStressors.filter(id => id !== stressorId));
-    } else if (selectedStressors.length < 3) {
-      // Select if less than 3 selected
-      setSelectedStressors([...selectedStressors, stressorId]);
+  const handleStressorSelect = (questionIndex, stressorId) => {
+    const newSelections = [...selectedStressors];
+    newSelections[questionIndex] = stressorId;
+    setSelectedStressors(newSelections);
+  };
+
+  const isQuestionComplete = (questionIndex) => {
+    return selectedStressors[questionIndex] !== null;
+  };
+
+  const goToNextQuestion = () => {
+    if (currentQuestion < totalLevels - 1) {
+      setCurrentQuestion(currentQuestion + 1);
     }
   };
 
-  const handleShowClusters = () => {
-    if (selectedStressors.length === 3) {
-      setShowClusters(true);
-      setScore(1); // Mark as completed
+  const goToPreviousQuestion = () => {
+    if (currentQuestion > 0) {
+      setCurrentQuestion(currentQuestion - 1);
     }
+  };
+
+  const calculateScore = () => {
+    // Return the number of correctly answered questions (each question is worth 1 point)
+    const answeredQuestions = selectedStressors.filter(selection => selection !== null).length;
+    return answeredQuestions; // Actual number of questions answered
+  };
+
+  const handleSubmitAll = () => {
+    const finalScore = calculateScore();
+    setScore(finalScore);
+    setShowResults(true);
   };
 
   const handleComplete = () => {
@@ -117,124 +241,97 @@ const IdentifyYourStressors = () => {
     }
   };
 
-  const getSelectedStressors = () => {
-    return allStressScenarios.filter(scenario => selectedStressors.includes(scenario.id));
+  const getSelectedStressorForQuestion = (questionIndex) => {
+    const selectedId = selectedStressors[questionIndex];
+    if (selectedId) {
+      const question = stressorQuestions[questionIndex];
+      return question.stressors.find(stressor => stressor.id === selectedId);
+    }
+    return null;
   };
 
-  const clusterStressors = () => {
-    const selected = getSelectedStressors();
-    const clusters = {
-      Workload: [],
-      People: [],
-      Environment: []
-    };
-    
-    selected.forEach(stressor => {
-      clusters[stressor.category].push(stressor);
-    });
-
-    // Find dominant cluster
-    const clusterCounts = {
-      Workload: clusters.Workload.length,
-      People: clusters.People.length,
-      Environment: clusters.Environment.length
-    };
-
-    const dominantCluster = Object.keys(clusterCounts).reduce((a, b) => 
-      clusterCounts[a] > clusterCounts[b] ? a : b
-    );
-
-    const insights = {
-      Workload: "Your stressors are primarily related to workload and time management. This suggests you may benefit from better prioritization strategies, delegation opportunities, or time-blocking techniques. Consider discussing workload distribution with your administration.",
-      People: "Your stressors are mainly connected to interpersonal relationships and interactions. This indicates you might benefit from improved communication strategies, boundary-setting, or conflict resolution skills. Building stronger relationships with students, parents, and colleagues could help.",
-      Environment: "Your stressors are largely environmental factors beyond your immediate control. This suggests focusing on what you can influence within your environment and advocating for needed resources or changes. Sometimes small adjustments to your physical space can make a big difference."
-    };
-
-    return {
-      clusters,
-      dominantCluster,
-      insight: insights[dominantCluster] || "Your stressors span multiple categories, showing a balanced view of challenges in your teaching environment.",
-      clusterCounts
-    };
-  };
-
-  const clusterData = showClusters ? clusterStressors() : null;
-
-  const getClusterColor = (cluster) => {
-    const colors = {
-      Workload: "from-blue-500 to-cyan-500",
-      People: "from-purple-500 to-pink-500",
-      Environment: "from-green-500 to-emerald-500"
-    };
-    return colors[cluster] || "from-gray-500 to-gray-600";
-  };
-
-  const getClusterBgColor = (cluster) => {
-    const colors = {
-      Workload: "bg-blue-50 border-blue-200",
-      People: "bg-purple-50 border-purple-200",
-      Environment: "bg-green-50 border-green-200"
-    };
-    return colors[cluster] || "bg-gray-50 border-gray-200";
+  const getSelectedStressorsSummary = () => {
+    return selectedStressors.map((selection, index) => {
+      if (selection) {
+        const question = stressorQuestions[index];
+        const stressor = question.stressors.find(s => s.id === selection);
+        return { question: question.title, stressor };
+      }
+      return null;
+    }).filter(item => item !== null);
   };
 
   return (
     <TeacherGameShell
       title={gameData?.title || "Identify Your Stressors"}
-      subtitle={gameData?.description || "Recognize the top three sources of stress in a school week"}
+      subtitle={gameData?.description || "Recognize the sources of stress in a school week"}
       showGameOver={showGameOver}
       score={score}
       gameId={gameId}
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={showClusters ? 1 : 0}
+      currentQuestion={showResults ? totalLevels : currentQuestion + 0}
     >
       <div className="w-full max-w-5xl mx-auto px-4">
-        {!showClusters ? (
+        {!showResults ? (
           <div className="bg-white rounded-2xl shadow-lg p-8 mb-6">
             <div className="mb-6">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                Identify Your Top 3 Stressors
+              <h2 className="text-2xl font-bold text-gray-800 mb-2">
+                {stressorQuestions[currentQuestion].title}: {stressorQuestions[currentQuestion].prompt}
               </h2>
-              <p className="text-gray-600 mb-2">
-                Review the scenarios below and select the <strong>3 most stressful</strong> situations you face in a typical school week.
-              </p>
-              <div className="bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-lg">
-                <p className="text-sm text-orange-800">
-                  <strong>Selected:</strong> {selectedStressors.length} of 3 stressors
+              <div className="flex justify-between items-center mb-4">
+                <p className="text-gray-600">
+                  Question <strong>{currentQuestion + 1}</strong> of <strong>{totalLevels}</strong>
+                </p>
+                <div className="flex space-x-2">
+                  <button 
+                    onClick={goToPreviousQuestion}
+                    disabled={currentQuestion === 0}
+                    className="px-4 py-2 bg-gray-200 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    ← Prev
+                  </button>
+                  <button 
+                    onClick={goToNextQuestion}
+                    disabled={!isQuestionComplete(currentQuestion) || currentQuestion === totalLevels - 1}
+                    className="px-4 py-2 bg-orange-500 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    Next →
+                  </button>
+                </div>
+              </div>
+              <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg mb-6">
+                <p className="text-sm text-blue-800">
+                  <strong>Status:</strong> {selectedStressors.filter(s => s !== null).length} of {totalLevels} answered
                 </p>
               </div>
             </div>
 
-            {/* Stressor Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
-              {allStressScenarios.map((scenario) => {
-                const isSelected = selectedStressors.includes(scenario.id);
-                const canSelect = selectedStressors.length < 3 || isSelected;
+            {/* Stressor Cards Grid - 4 options per question */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+              {stressorQuestions[currentQuestion].stressors.map((stressor) => {
+                const isSelected = selectedStressors[currentQuestion] === stressor.id;
 
                 return (
                   <motion.button
-                    key={scenario.id}
-                    whileHover={canSelect ? { scale: 1.02 } : {}}
-                    whileTap={canSelect ? { scale: 0.98 } : {}}
-                    onClick={() => handleStressorSelect(scenario.id)}
-                    disabled={!canSelect}
+                    key={stressor.id}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => handleStressorSelect(currentQuestion, stressor.id)}
                     className={`p-4 rounded-xl border-2 text-left transition-all ${
                       isSelected
                         ? 'bg-orange-50 border-orange-500 shadow-md'
-                        : canSelect
-                        ? 'bg-white border-gray-300 hover:border-orange-400 hover:bg-orange-50'
-                        : 'bg-gray-100 border-gray-200 opacity-60 cursor-not-allowed'
+                        : 'bg-white border-gray-300 hover:border-orange-400 hover:bg-orange-50'
                     }`}
                   >
                     <div className="flex items-start justify-between mb-2">
                       <div className="flex items-center gap-2">
-                        <span className="text-2xl">{scenario.icon}</span>
+                        <span className="text-2xl">{stressor.icon}</span>
                         <h3 className={`font-bold text-sm ${
                           isSelected ? 'text-orange-800' : 'text-gray-800'
                         }`}>
-                          {scenario.title}
+                          {stressor.title}
                         </h3>
                       </div>
                       {isSelected && (
@@ -242,15 +339,15 @@ const IdentifyYourStressors = () => {
                       )}
                     </div>
                     <p className="text-xs text-gray-600 mb-2 leading-relaxed">
-                      {scenario.description}
+                      {stressor.description}
                     </p>
                     <div className="flex items-center gap-2">
                       <span className={`text-xs px-2 py-1 rounded text-white font-semibold bg-gradient-to-r ${
-                        scenario.category === 'Workload' ? 'from-blue-500 to-cyan-500' :
-                        scenario.category === 'People' ? 'from-purple-500 to-pink-500' :
+                        stressor.category === 'Workload' ? 'from-blue-500 to-cyan-500' :
+                        stressor.category === 'People' ? 'from-purple-500 to-pink-500' :
                         'from-green-500 to-emerald-500'
                       }`}>
-                        {scenario.category}
+                        {stressor.category}
                       </span>
                     </div>
                   </motion.button>
@@ -258,56 +355,62 @@ const IdentifyYourStressors = () => {
               })}
             </div>
 
-            {/* Continue Button */}
-            {selectedStressors.length === 3 && (
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="flex justify-center"
+            {/* Navigation and Submit buttons */}
+            <div className="flex justify-between items-center">
+              <button 
+                onClick={goToPreviousQuestion}
+                disabled={currentQuestion === 0}
+                className="px-6 py-3 bg-gray-200 rounded-xl font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
               >
+                ← Previous Question
+              </button>
+              
+              {currentQuestion === totalLevels - 1 && isQuestionComplete(currentQuestion) && (
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={handleShowClusters}
+                  onClick={handleSubmitAll}
                   className="bg-gradient-to-r from-orange-600 to-red-600 text-white px-8 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all"
                 >
-                  View Clusters →
+                  Submit All Answers →
                 </motion.button>
-              </motion.div>
-            )}
+              )}
+              
+              <div></div> {/* Spacer to maintain alignment */}
+            </div>
           </div>
         ) : (
           <div className="space-y-6">
-            {/* Clusters Section */}
+            {/* Results Section */}
             <div className="bg-white rounded-2xl shadow-lg p-8">
               <h2 className="text-2xl font-bold text-gray-800 mb-6">
-                Your Stressor Clusters
+                Your Stressor Analysis
               </h2>
 
               {/* Selected Stressors Summary */}
               <div className="mb-6">
                 <h3 className="text-lg font-semibold text-gray-700 mb-3">
-                  Your Top 3 Stressors:
+                  Your Selected Stressors:
                 </h3>
-                <div className="space-y-2">
-                  {getSelectedStressors().map((stressor, index) => (
+                <div className="space-y-3">
+                  {getSelectedStressorsSummary().map(({ question, stressor }, index) => (
                     <div
-                      key={stressor.id}
-                      className={`${getClusterBgColor(stressor.category)} border-l-4 p-3 rounded-r-lg`}
+                      key={`${question}-${stressor.id}`}
+                      className={`bg-gradient-to-r from-orange-50 to-red-50 border-l-4 border-orange-500 p-4 rounded-r-lg`}
                     >
                       <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-3">
                           <span className="text-xl">{stressor.icon}</span>
                           <div>
                             <span className="font-bold text-gray-800">
-                              {index + 1}. {stressor.title}
+                              {question}: {stressor.title}
                             </span>
                             <p className="text-sm text-gray-600 mt-1">
                               {stressor.description}
                             </p>
                           </div>
                         </div>
-                        <span className={`text-xs px-2 py-1 rounded text-white font-semibold bg-gradient-to-r ${getClusterColor(stressor.category)}`}>
+                        <span className="text-xs px-2 py-1 rounded text-white font-semibold bg-gradient-to-r from-purple-500 to-pink-500">
                           {stressor.category}
                         </span>
                       </div>
@@ -316,60 +419,13 @@ const IdentifyYourStressors = () => {
                 </div>
               </div>
 
-              {/* Cluster Analysis */}
-              <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-xl p-6 border-2 border-orange-200 mb-6">
-                <h3 className="text-lg font-bold text-orange-900 mb-4">
-                  Cluster Analysis
-                </h3>
-                
-                {/* Cluster Breakdown */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-                  {Object.keys(clusterData.clusters).map((cluster) => {
-                    const count = clusterData.clusterCounts[cluster];
-                    const isDominant = cluster === clusterData.dominantCluster;
-                    
-                    return (
-                      <div
-                        key={cluster}
-                        className={`${getClusterBgColor(cluster)} rounded-lg p-4 border-2 ${
-                          isDominant ? 'ring-2 ring-offset-2 ring-orange-400' : ''
-                        }`}
-                      >
-                        <div className="flex items-center justify-between mb-2">
-                          <h4 className="font-bold text-gray-800">{cluster}</h4>
-                          {isDominant && (
-                            <span className="text-xs bg-orange-500 text-white px-2 py-1 rounded-full font-semibold">
-                              Dominant
-                            </span>
-                          )}
-                        </div>
-                        <p className="text-2xl font-bold text-gray-700">{count}</p>
-                        <p className="text-xs text-gray-600 mt-1">
-                          {count === 1 ? 'stressor' : 'stressors'}
-                        </p>
-                      </div>
-                    );
-                  })}
-                </div>
-
-                {/* Insight */}
-                <div className="bg-white/60 rounded-lg p-4 border border-orange-200">
-                  <p className="text-sm font-semibold text-orange-800 mb-2">
-                    💡 Insight:
-                  </p>
-                  <p className="text-sm text-gray-700 leading-relaxed">
-                    {clusterData.insight}
-                  </p>
-                </div>
-              </div>
-
               {/* Reflection Section */}
-              <div className="bg-white rounded-xl p-6 border-2 border-gray-200">
+              <div className="bg-white rounded-xl p-6 border-2 border-gray-200 mb-6">
                 <h3 className="text-lg font-bold text-gray-800 mb-3">
                   Add Your Reflection
                 </h3>
                 <p className="text-sm text-gray-600 mb-4">
-                  Take a moment to reflect on your stressors. What patterns do you notice? How might you address these challenges? (Minimum 10 characters)
+                  Take a moment to reflect on your selected stressors. What patterns do you notice? How might you address these challenges? (Minimum 10 characters)
                 </p>
                 <textarea
                   value={reflection}

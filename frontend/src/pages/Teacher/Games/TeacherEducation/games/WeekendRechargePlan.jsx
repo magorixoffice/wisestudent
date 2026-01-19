@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import TeacherGameShell from "../../TeacherGameShell";
 import { getTeacherEducationGameById } from "../data/gameData";
-import { Moon, Heart, TreePine, Calendar, Bell, CheckCircle, Download, Share2, AlertCircle } from "lucide-react";
+import { Moon, Heart, TreePine, Users, Dumbbell, Calendar, Bell, CheckCircle, Download, Share2, AlertCircle } from "lucide-react";
 
 const WeekendRechargePlan = () => {
   const location = useLocation();
@@ -14,13 +14,15 @@ const WeekendRechargePlan = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 1;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [step, setStep] = useState('select'); // 'select', 'calendar', 'complete'
   const [selectedActivities, setSelectedActivities] = useState({
     rest: null,
     joy: null,
-    nature: null
+    nature: null,
+    connection: null,
+    movement: null
   });
   const [reminderSet, setReminderSet] = useState(false);
   const [showGameOver, setShowGameOver] = useState(false);
@@ -58,6 +60,26 @@ const WeekendRechargePlan = () => {
       { id: 6, name: 'Outdoor reading', icon: '📚', description: 'Read a book outside in nature' },
       { id: 7, name: 'Sunrise/sunset', icon: '🌅', description: 'Watch sunrise or sunset' },
       { id: 8, name: 'Bird watching', icon: '🦅', description: 'Observe birds and wildlife' }
+    ],
+    connection: [
+      { id: 1, name: 'Family dinner', icon: '🍽️', description: 'Share a meal with family members without distractions' },
+      { id: 2, name: 'Video call with friends', icon: '📱', description: 'Connect with distant friends or relatives' },
+      { id: 3, name: 'Community event', icon: '👥', description: 'Attend a local community gathering or event' },
+      { id: 4, name: 'Game night', icon: '🎲', description: 'Host or join a fun game night with loved ones' },
+      { id: 5, name: 'Coffee date', icon: '☕', description: 'Meet someone special for quality time together' },
+      { id: 6, name: 'Volunteer work', icon: '🤝', description: 'Give back to community and meet like-minded people' },
+      { id: 7, name: 'Support group', icon: '🤗', description: 'Join a group focused on shared interests or challenges' },
+      { id: 8, name: 'Neighborhood walk', icon: '🚶‍♂️', description: 'Take a walk and greet neighbors in your area' }
+    ],
+    movement: [
+      { id: 1, name: 'Brisk walk', icon: '🚶‍♂️', description: 'Take a purposeful walk to get your blood flowing' },
+      { id: 2, name: 'Bike ride', icon: '🚴', description: 'Enjoy the outdoors while getting exercise' },
+      { id: 3, name: 'Dancing', icon: '💃', description: 'Move to music for fun and fitness' },
+      { id: 4, name: 'Swimming', icon: '🏊', description: 'Enjoy a full-body workout in the water' },
+      { id: 5, name: 'Sports activity', icon: '⚽', description: 'Play a sport you enjoy with friends' },
+      { id: 6, name: 'Stretching routine', icon: '🤸', description: 'Improve flexibility and reduce tension' },
+      { id: 7, name: 'Stairs workout', icon: '🏃', description: 'Use stairs for a quick cardio session' },
+      { id: 8, name: 'Gym session', icon: '💪', description: 'Hit the gym for strength or cardio training' }
     ]
   };
 
@@ -88,6 +110,24 @@ const WeekendRechargePlan = () => {
       bgColor: 'bg-green-50',
       borderColor: 'border-green-300',
       description: 'Activities that connect you with the natural world'
+    },
+    { 
+      id: 'connection', 
+      label: 'Connection', 
+      icon: Users, 
+      color: 'from-blue-500 to-cyan-500',
+      bgColor: 'bg-blue-50',
+      borderColor: 'border-blue-300',
+      description: 'Activities that strengthen relationships and social bonds'
+    },
+    { 
+      id: 'movement', 
+      label: 'Movement', 
+      icon: Dumbbell, 
+      color: 'from-orange-500 to-red-500',
+      bgColor: 'bg-orange-50',
+      borderColor: 'border-orange-300',
+      description: 'Activities that get your body moving and energized'
     }
   ];
 
@@ -99,8 +139,8 @@ const WeekendRechargePlan = () => {
   };
 
   const handleContinueToCalendar = () => {
-    if (!selectedActivities.rest || !selectedActivities.joy || !selectedActivities.nature) {
-      alert('Please select one activity from each category (Rest, Joy, Nature) to continue.');
+    if (!selectedActivities.rest || !selectedActivities.joy || !selectedActivities.nature || !selectedActivities.connection || !selectedActivities.movement) {
+      alert('Please select one activity from each category (Rest, Joy, Nature, Connection, Movement) to continue.');
       return;
     }
     setStep('calendar');
@@ -109,7 +149,15 @@ const WeekendRechargePlan = () => {
   const handleSaveToCalendar = () => {
     setShowCalendarModal(true);
     setReminderSet(true);
-    setScore(1);
+    
+    // Calculate score based on number of categories selected (1 point per category, max 5)
+    let calculatedScore = 0;
+    if (selectedActivities.rest) calculatedScore++;
+    if (selectedActivities.joy) calculatedScore++;
+    if (selectedActivities.nature) calculatedScore++;
+    if (selectedActivities.connection) calculatedScore++;
+    if (selectedActivities.movement) calculatedScore++;
+    setScore(calculatedScore);
     
     // Simulate calendar save and reminder set
     setTimeout(() => {
@@ -126,7 +174,9 @@ const WeekendRechargePlan = () => {
     const planText = `Weekend Recharge Plan\n\n` +
       `REST: ${selectedActivities.rest?.name} - ${selectedActivities.rest?.description}\n` +
       `JOY: ${selectedActivities.joy?.name} - ${selectedActivities.joy?.description}\n` +
-      `NATURE: ${selectedActivities.nature?.name} - ${selectedActivities.nature?.description}\n\n` +
+      `NATURE: ${selectedActivities.nature?.name} - ${selectedActivities.nature?.description}\n` +
+      `CONNECTION: ${selectedActivities.connection?.name} - ${selectedActivities.connection?.description}\n` +
+      `MOVEMENT: ${selectedActivities.movement?.name} - ${selectedActivities.movement?.description}\n\n` +
       `This plan is designed to help you recharge over the weekend. Make time for each activity!`;
     
     const blob = new Blob([planText], { type: 'text/plain' });
@@ -140,7 +190,7 @@ const WeekendRechargePlan = () => {
     URL.revokeObjectURL(url);
   };
 
-  const allCategoriesSelected = selectedActivities.rest && selectedActivities.joy && selectedActivities.nature;
+  const allCategoriesSelected = selectedActivities.rest && selectedActivities.joy && selectedActivities.nature && selectedActivities.connection && selectedActivities.movement;
 
   return (
     <TeacherGameShell
@@ -152,7 +202,7 @@ const WeekendRechargePlan = () => {
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={1}
+      currentQuestion={0}
     >
       <div className="w-full max-w-6xl mx-auto px-4">
         {step === 'select' && (
@@ -161,7 +211,7 @@ const WeekendRechargePlan = () => {
               Weekend Recharge Plan
             </h2>
             <p className="text-gray-600 mb-6 text-center text-lg">
-              Choose 1 activity from each category to create your personal recharge plan
+              Choose 1 activity from each of the 5 categories to create your personal recharge plan
             </p>
 
             {/* Selected Activities Summary */}
@@ -441,7 +491,9 @@ const WeekendRechargePlan = () => {
                   const planText = `My Weekend Recharge Plan:\n\n` +
                     `REST: ${selectedActivities.rest?.name}\n` +
                     `JOY: ${selectedActivities.joy?.name}\n` +
-                    `NATURE: ${selectedActivities.nature?.name}\n\n` +
+                    `NATURE: ${selectedActivities.nature?.name}\n` +
+                    `CONNECTION: ${selectedActivities.connection?.name}\n` +
+                    `MOVEMENT: ${selectedActivities.movement?.name}\n\n` +
                     `Share your recharge plan with colleagues to inspire balance culture!`;
                   navigator.clipboard?.writeText(planText);
                   alert('Plan copied to clipboard! Share it with your colleagues.');
@@ -479,7 +531,7 @@ const WeekendRechargePlan = () => {
             </h2>
             <div className="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 rounded-xl p-6 border-2 border-indigo-200 mb-6">
               <p className="text-gray-700 text-lg leading-relaxed">
-                You've successfully created your weekend recharge plan! You've selected one activity from each category (Rest, Joy, Nature) to help you recharge and restore your energy. Your plan has been saved to your calendar with reminders set. Remember to actually follow through with these activities—planning is the first step, but taking action is what creates real recharge.
+                You've successfully created your weekend recharge plan! You've selected one activity from each category (Rest, Joy, Nature, Connection, Movement) to help you recharge and restore your energy. Your plan has been saved to your calendar with reminders set. Remember to actually follow through with these activities—planning is the first step, but taking action is what creates real recharge.
               </p>
             </div>
 

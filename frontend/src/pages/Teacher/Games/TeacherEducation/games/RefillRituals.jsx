@@ -14,10 +14,11 @@ const RefillRituals = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 1;
+  const totalLevels = gameData?.totalQuestions || 5; // Updated to 5 questions
   
   const [step, setStep] = useState('select'); // 'select', 'schedule', 'card'
-  const [selectedRituals, setSelectedRituals] = useState([]);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0); // Track current question
+  const [selectedRituals, setSelectedRituals] = useState(Array(5).fill(null)); // Store selections for 5 questions
   const [weeklySchedule, setWeeklySchedule] = useState({});
   const [showGameOver, setShowGameOver] = useState(false);
   const [score, setScore] = useState(0);
@@ -27,23 +28,38 @@ const RefillRituals = () => {
   const [selectedRitual, setSelectedRitual] = useState(null);
   const routineCardRef = useRef(null);
 
-  // 15 ritual icons
-  const rituals = [
-    { id: 'music', name: 'Music', icon: Music, emoji: '🎵', color: 'from-purple-500 to-pink-500', description: 'Listen to calming or energizing music' },
-    { id: 'journaling', name: 'Journaling', icon: BookOpen, emoji: '📝', color: 'from-blue-500 to-cyan-500', description: 'Write down thoughts and feelings' },
-    { id: 'nature', name: 'Nature Walk', icon: Trees, emoji: '🌳', color: 'from-green-500 to-emerald-500', description: 'Spend time in nature or outdoors' },
-    { id: 'silence', name: 'Silence', icon: Moon, emoji: '🔇', color: 'from-indigo-500 to-purple-500', description: 'Enjoy quiet, peaceful moments' },
-    { id: 'coffee', name: 'Mindful Coffee', icon: Coffee, emoji: '☕', color: 'from-amber-500 to-orange-500', description: 'Savor a cup mindfully' },
-    { id: 'meditation', name: 'Meditation', icon: Sparkles, emoji: '🧘', color: 'from-pink-500 to-rose-500', description: 'Practice mindfulness or meditation' },
-    { id: 'gratitude', name: 'Gratitude Practice', icon: Heart, emoji: '💚', color: 'from-red-500 to-pink-500', description: 'Reflect on things you\'re grateful for' },
-    { id: 'sunlight', name: 'Sunlight', icon: Sun, emoji: '☀️', color: 'from-yellow-500 to-amber-500', description: 'Get natural light and fresh air' },
-    { id: 'breathing', name: 'Breathing Exercise', icon: Waves, emoji: '🌊', color: 'from-cyan-500 to-blue-500', description: 'Practice deep breathing techniques' },
-    { id: 'reading', name: 'Reading', icon: BookOpen, emoji: '📖', color: 'from-violet-500 to-purple-500', description: 'Read something inspiring or relaxing' },
-    { id: 'stretching', name: 'Stretching', icon: Feather, emoji: '🧘‍♀️', color: 'from-teal-500 to-green-500', description: 'Gentle stretching or yoga' },
-    { id: 'tea', name: 'Herbal Tea', icon: Coffee, emoji: '🍵', color: 'from-green-500 to-emerald-500', description: 'Enjoy a warm, calming tea' },
-    { id: 'art', name: 'Creative Expression', icon: Sparkles, emoji: '🎨', color: 'from-pink-500 to-purple-500', description: 'Draw, paint, or create something' },
-    { id: 'bath', name: 'Relaxing Bath', icon: Waves, emoji: '🛁', color: 'from-blue-500 to-indigo-500', description: 'Take a warm, relaxing bath' },
-    { id: 'connection', name: 'Social Connection', icon: Heart, emoji: '🤝', color: 'from-rose-500 to-red-500', description: 'Connect with loved ones or friends' }
+  // Define 5 different sets of 3 ritual icons for each question with diverse learning themes
+  const ritualSets = [
+    // Set 1 - Stress Management & Mindfulness
+    [
+      { id: 'meditation', name: 'Meditation', icon: Sparkles, emoji: '🧘', color: 'from-pink-500 to-rose-500', description: 'Practice mindfulness or meditation' },
+      { id: 'breathing', name: 'Breathing Exercise', icon: Waves, emoji: '🌊', color: 'from-cyan-500 to-blue-500', description: 'Practice deep breathing techniques' },
+      { id: 'silence', name: 'Quiet Time', icon: Moon, emoji: '🔇', color: 'from-indigo-500 to-purple-500', description: 'Enjoy quiet, peaceful moments' }
+    ],
+    // Set 2 - Physical Well-being & Energy
+    [
+      { id: 'stretching', name: 'Stretching', icon: Feather, emoji: '🧘‍♀️', color: 'from-teal-500 to-green-500', description: 'Gentle stretching or yoga' },
+      { id: 'nature', name: 'Nature Walk', icon: Trees, emoji: '🌳', color: 'from-green-500 to-emerald-500', description: 'Spend time in nature or outdoors' },
+      { id: 'sunlight', name: 'Sunlight', icon: Sun, emoji: '☀️', color: 'from-yellow-500 to-amber-500', description: 'Get natural light and fresh air' }
+    ],
+    // Set 3 - Emotional Processing & Expression
+    [
+      { id: 'journaling', name: 'Journaling', icon: BookOpen, emoji: '📝', color: 'from-blue-500 to-cyan-500', description: 'Write down thoughts and feelings' },
+      { id: 'gratitude', name: 'Gratitude Practice', icon: Heart, emoji: '💚', color: 'from-red-500 to-pink-500', description: 'Reflect on things you\'re grateful for' },
+      { id: 'art', name: 'Creative Expression', icon: Sparkles, emoji: '🎨', color: 'from-pink-500 to-purple-500', description: 'Draw, paint, or create something' }
+    ],
+    // Set 4 - Social Connection & Support
+    [
+      { id: 'connection', name: 'Social Connection', icon: Heart, emoji: '🤝', color: 'from-rose-500 to-red-500', description: 'Connect with loved ones or friends' },
+      { id: 'music', name: 'Music', icon: Music, emoji: '🎵', color: 'from-purple-500 to-pink-500', description: 'Listen to calming or energizing music' },
+      { id: 'tea', name: 'Tea Time', icon: Coffee, emoji: '🍵', color: 'from-green-500 to-emerald-500', description: 'Share a warm drink with someone' }
+    ],
+    // Set 5 - Rest & Recovery
+    [
+      { id: 'bath', name: 'Relaxing Bath', icon: Waves, emoji: '🛁', color: 'from-blue-500 to-indigo-500', description: 'Take a warm, relaxing bath' },
+      { id: 'reading', name: 'Reading', icon: BookOpen, emoji: '📖', color: 'from-violet-500 to-purple-500', description: 'Read something inspiring or relaxing' },
+      { id: 'coffee', name: 'Mindful Coffee', icon: Coffee, emoji: '☕', color: 'from-amber-500 to-orange-500', description: 'Savor a cup mindfully' }
+    ]
   ];
 
   const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
@@ -54,23 +70,17 @@ const RefillRituals = () => {
   ];
 
   const handleRitualSelect = (ritual) => {
-    if (selectedRituals.length >= 3 && !selectedRituals.find(r => r.id === ritual.id)) {
-      alert("You can select up to 3 rituals. Remove one to select another.");
-      return;
-    }
-
-    if (selectedRituals.find(r => r.id === ritual.id)) {
-      // Deselect
-      setSelectedRituals(selectedRituals.filter(r => r.id !== ritual.id));
-    } else {
-      // Select
-      setSelectedRituals([...selectedRituals, ritual]);
-    }
+    // Update the selected ritual for the current question
+    const newSelectedRituals = [...selectedRituals];
+    newSelectedRituals[currentQuestionIndex] = ritual;
+    setSelectedRituals(newSelectedRituals);
   };
 
   const handleContinueToSchedule = () => {
-    if (selectedRituals.length !== 3) {
-      alert("Please select exactly 3 rituals to continue.");
+    // Check if all 5 questions have been answered
+    const allAnswered = selectedRituals.every(ritual => ritual !== null);
+    if (!allAnswered) {
+      alert("Please answer all 5 questions to continue.");
       return;
     }
     setStep('schedule');
@@ -118,12 +128,15 @@ const RefillRituals = () => {
 
   const handleContinueToCard = () => {
     const totalScheduled = Object.values(weeklySchedule).reduce((sum, daySchedule) => sum + (daySchedule || []).length, 0);
-    if (totalScheduled === 0) {
-      alert("Please schedule at least one ritual to continue.");
+    // We still need to check if all questions are answered
+    const allAnswered = selectedRituals.every(ritual => ritual !== null);
+    if (!allAnswered) {
+      alert("Please answer all 5 questions to continue.");
       return;
     }
     setStep('card');
-    setScore(1);
+    // Calculate score based on number of questions answered (all 5)
+    setScore(5);
   };
 
   const handleSaveRoutine = () => {
@@ -163,27 +176,41 @@ const RefillRituals = () => {
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={1}
+      currentQuestion={step === 'select' ? currentQuestionIndex + 1 : totalLevels}
     >
       <div className="w-full max-w-6xl mx-auto px-4">
         {step === 'select' && (
           <div className="bg-white rounded-2xl shadow-lg p-8">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4 text-center">
-              Select Your Refill Rituals
+            <h2 className="text-3xl font-bold text-gray-800 mb-2 text-center">
+              Refill Rituals Question {currentQuestionIndex + 1}/5
             </h2>
             <p className="text-gray-600 mb-6 text-center text-lg">
-              Choose 3 self-care rituals that restore your empathy reserves
+              Choose the best self-care ritual for this scenario
             </p>
 
+            {/* Progress indicator */}
+            <div className="mb-6">
+              <div className="flex justify-between text-sm font-medium text-gray-700 mb-1">
+                <span>Progress</span>
+                <span>{selectedRituals.filter(r => r !== null).length}/5 answered</span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-2">
+                <div 
+                  className="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full transition-all duration-300" 
+                  style={{ width: `${(selectedRituals.filter(r => r !== null).length / 5) * 100}%` }}
+                ></div>
+              </div>
+            </div>
+
             {/* Selected Rituals Counter */}
-            {selectedRituals.length > 0 && (
+            {selectedRituals.some(r => r !== null) && (
               <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-4 mb-6 border-2 border-purple-200">
                 <p className="text-center font-semibold text-purple-800">
-                  Selected: {selectedRituals.length} / 3 rituals
+                  Selected: {selectedRituals.filter(r => r !== null).length} / 5 rituals
                 </p>
                 <div className="flex flex-wrap justify-center gap-2 mt-3">
-                  {selectedRituals.map(ritual => (
-                    <span key={ritual.id} className="bg-white px-3 py-1 rounded-full text-sm font-medium text-purple-700 border border-purple-300">
+                  {selectedRituals.filter(r => r !== null).map((ritual, idx) => (
+                    <span key={`${ritual.id}-${idx}`} className="bg-white px-3 py-1 rounded-full text-sm font-medium text-purple-700 border border-purple-300">
                       {ritual.emoji} {ritual.name}
                     </span>
                   ))}
@@ -191,16 +218,16 @@ const RefillRituals = () => {
               </div>
             )}
 
-            {/* Ritual Selection Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-6">
-              {rituals.map((ritual) => {
-                const isSelected = selectedRituals.find(r => r.id === ritual.id);
+            {/* Question-specific Ritual Selection Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              {ritualSets[currentQuestionIndex].map((ritual) => {
+                const isSelected = selectedRituals[currentQuestionIndex]?.id === ritual.id;
                 const Icon = ritual.icon;
                 return (
                   <motion.button
                     key={ritual.id}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.98 }}
                     onClick={() => handleRitualSelect(ritual)}
                     className={`p-6 rounded-xl border-2 transition-all ${
                       isSelected
@@ -215,7 +242,7 @@ const RefillRituals = () => {
                       <h3 className={`font-bold text-lg mb-2 ${isSelected ? 'text-white' : 'text-gray-800'}`}>
                         {ritual.name}
                       </h3>
-                      <p className={`text-xs ${isSelected ? 'text-white/90' : 'text-gray-600'}`}>
+                      <p className={`text-sm ${isSelected ? 'text-white/90' : 'text-gray-600'}`}>
                         {ritual.description}
                       </p>
                       {isSelected && (
@@ -229,17 +256,44 @@ const RefillRituals = () => {
               })}
             </div>
 
-            {/* Continue Button */}
-            <div className="flex justify-center">
+            {/* Navigation buttons */}
+            <div className="flex justify-between">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={handleContinueToSchedule}
-                disabled={selectedRituals.length !== 3}
-                className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                onClick={() => currentQuestionIndex > 0 && setCurrentQuestionIndex(currentQuestionIndex - 1)}
+                disabled={currentQuestionIndex === 0}
+                className="bg-gray-500 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Continue to Schedule
+                Previous
               </motion.button>
+              
+              {currentQuestionIndex < 4 ? (
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => {
+                    if (selectedRituals[currentQuestionIndex]) {
+                      setCurrentQuestionIndex(currentQuestionIndex + 1);
+                    } else {
+                      alert('Please select a ritual for this question before continuing.');
+                    }
+                  }}
+                  className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all"
+                >
+                  Next
+                </motion.button>
+              ) : (
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={handleContinueToSchedule}
+                  disabled={selectedRituals.some(r => r === null)}
+                  className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  Continue to Schedule
+                </motion.button>
+              )}
             </div>
           </div>
         )}
@@ -250,17 +304,19 @@ const RefillRituals = () => {
               Plan Your Weekly Schedule
             </h2>
             <p className="text-gray-600 mb-6 text-center text-lg">
-              Schedule your 3 selected rituals throughout the week
+              Schedule your 5 selected rituals throughout the week
             </p>
 
             {/* Selected Rituals Reminder */}
             <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-4 mb-6 border-2 border-purple-200">
               <p className="font-semibold text-purple-800 mb-2">Your Selected Rituals:</p>
               <div className="flex flex-wrap gap-2">
-                {selectedRituals.map(ritual => (
-                  <span key={ritual.id} className="bg-white px-3 py-1 rounded-full text-sm font-medium text-purple-700 border border-purple-300">
-                    {ritual.emoji} {ritual.name}
-                  </span>
+                {selectedRituals.map((ritual, idx) => (
+                  ritual && (
+                    <span key={`${ritual.id}-${idx}`} className="bg-white px-3 py-1 rounded-full text-sm font-medium text-purple-700 border border-purple-300">
+                      {ritual.emoji} {ritual.name}
+                    </span>
+                  )
                 ))}
               </div>
             </div>
@@ -367,18 +423,19 @@ const RefillRituals = () => {
 
               {/* Selected Rituals */}
               <div className="mb-8">
-                <h4 className="text-2xl font-bold text-gray-800 mb-4">My 3 Rituals:</h4>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {selectedRituals.map((ritual) => {
+                <h4 className="text-2xl font-bold text-gray-800 mb-4">My 5 Rituals:</h4>
+                <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+                  {selectedRituals.map((ritual, idx) => {
+                    if (!ritual) return null;
                     const Icon = ritual.icon;
                     return (
-                      <div key={ritual.id} className={`bg-white rounded-xl p-6 border-2 border-purple-200 text-center`}>
+                      <div key={`${ritual.id}-${idx}`} className={`bg-white rounded-xl p-6 border-2 border-purple-200 text-center`}>
                         <div className="text-6xl mb-3">{ritual.emoji}</div>
                         <h5 className="font-bold text-lg text-gray-800 mb-2">{ritual.name}</h5>
                         <p className="text-sm text-gray-600">{ritual.description}</p>
                       </div>
                     );
-                  })}
+                  }).filter(Boolean)}
                 </div>
               </div>
 
@@ -489,11 +546,12 @@ const RefillRituals = () => {
               <div className="mb-6">
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Select Ritual:</label>
                 <div className="space-y-2 max-h-48 overflow-y-auto">
-                  {selectedRituals.map((ritual) => {
+                  {selectedRituals.map((ritual, idx) => {
+                    if (!ritual) return null;
                     const Icon = ritual.icon;
                     return (
                       <button
-                        key={ritual.id}
+                        key={`${ritual.id}-${idx}`}
                         onClick={() => setSelectedRitual(ritual)}
                         className={`w-full p-3 rounded-lg border-2 text-left transition-all ${
                           selectedRitual?.id === ritual.id
@@ -507,7 +565,7 @@ const RefillRituals = () => {
                         </div>
                       </button>
                     );
-                  })}
+                  }).filter(Boolean)}
                 </div>
               </div>
 

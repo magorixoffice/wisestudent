@@ -14,7 +14,7 @@ const BoundariesQuiz = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 8;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState({});
@@ -104,36 +104,6 @@ const BoundariesQuiz = () => {
         unhealthy: "Actually, this is a healthy boundary. Saying 'no' when overwhelmed protects your capacity and prevents burnout. Healthy boundaries include recognizing your limits and prioritizing your wellbeing.",
         neutral: "This is actually a healthy boundary, not neutral. Saying 'no' when overwhelmed is an important self-care practice that protects your capacity and prevents burnout."
       }
-    },
-    {
-      id: 6,
-      scenario: "Checking work email during family dinner",
-      correctAnswer: 'unhealthy',
-      rationale: {
-        healthy: "While staying connected might feel necessary, checking work email during family dinner is an unhealthy boundary. It disrupts personal time, sends a message that work is more important than family, and prevents full presence in personal relationships.",
-        unhealthy: "Correct! Checking work email during family dinner is an unhealthy boundary. It disrupts personal time, sends a message that work takes priority over family, and prevents you from being fully present. Healthy boundaries include designated work-free times.",
-        neutral: "This is actually an unhealthy boundary, not neutral. Checking work email during personal time disrupts relationships and prevents rest. Healthy boundaries include being fully present during personal time."
-      }
-    },
-    {
-      id: 7,
-      scenario: "Taking a mental health day when feeling burned out",
-      correctAnswer: 'healthy',
-      rationale: {
-        healthy: "Correct! Taking a mental health day when feeling burned out is a healthy boundary. It recognizes your needs, allows for rest and recovery, and prevents more serious health issues. Self-care is essential for sustainable teaching.",
-        unhealthy: "Actually, this is a healthy boundary. Taking mental health days when needed is an important self-care practice. Recognizing when you need rest and taking it prevents more serious burnout and health issues.",
-        neutral: "This is actually a healthy boundary, not neutral. Taking mental health days when needed is an important self-care practice that prevents burnout and supports sustainable teaching."
-      }
-    },
-    {
-      id: 8,
-      scenario: "Staying at school until 8 PM every day to finish work",
-      correctAnswer: 'unhealthy',
-      rationale: {
-        healthy: "While dedication is admirable, staying at school until 8 PM every day is an unhealthy boundary. It prevents rest, recovery, and personal time. Sustainable teaching requires balance and designated work hours.",
-        unhealthy: "Correct! Staying at school until 8 PM every day is an unhealthy boundary. While occasional late nights happen, making it a daily habit prevents rest, recovery, and personal time. Healthy boundaries include designated work hours and leaving work at work.",
-        neutral: "This is actually an unhealthy boundary, not neutral. Consistently working until 8 PM prevents rest and personal time, leading to burnout. Healthy boundaries include designated work hours."
-      }
     }
   ];
 
@@ -177,7 +147,7 @@ const BoundariesQuiz = () => {
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={currentQuestion + 1}
+      currentQuestion={currentQuestion + 0}
     >
       <div className="w-full max-w-4xl mx-auto px-4">
         {!showGameOver && (
@@ -309,7 +279,7 @@ const BoundariesQuiz = () => {
               transition={{ type: "spring", stiffness: 200, damping: 10 }}
               className="text-6xl mb-6"
             >
-              {score >= 6 ? '🎯' : score >= 4 ? '✨' : '💪'}
+              {score >= 5 ? '🎯' : score >= 3 ? '✨' : '💪'}
             </motion.div>
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
               Quiz Complete!
@@ -319,9 +289,9 @@ const BoundariesQuiz = () => {
                 Final Score: {score} / {scenarios.length}
               </p>
               <p className="text-lg text-gray-700">
-                {score >= 6
+                {score >= 5
                   ? "Excellent! You have a strong understanding of healthy work boundaries. Keep maintaining these boundaries to prevent burnout."
-                  : score >= 4
+                  : score >= 3
                   ? "Good job! You're developing awareness of work boundaries. Continue learning and practicing healthy boundary-setting."
                   : "Nice effort! Boundary awareness takes practice. Review the feedback and continue learning about healthy work boundaries."}
               </p>

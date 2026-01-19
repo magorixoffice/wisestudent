@@ -14,7 +14,7 @@ const DigitalShutdownSimulation = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 8;
+  const totalLevels = 5;
   
   const [digitalItems, setDigitalItems] = useState([]);
   const [decisions, setDecisions] = useState({});
@@ -91,45 +91,6 @@ const DigitalShutdownSimulation = () => {
         stressImpact: 1,
         icon: MessageSquare,
         color: 'from-green-500 to-emerald-500'
-      },
-      {
-        id: 6,
-        type: 'notification',
-        from: 'Email Client',
-        subject: '3 new emails in your inbox',
-        time: '9:15 PM',
-        urgency: 'low',
-        canDelegate: false,
-        canPostpone: true,
-        stressImpact: 1,
-        icon: Bell,
-        color: 'from-orange-500 to-amber-500'
-      },
-      {
-        id: 7,
-        type: 'email',
-        from: 'Administration',
-        subject: 'FYI: Policy update for next semester',
-        time: '9:20 PM',
-        urgency: 'low',
-        canDelegate: false,
-        canPostpone: true,
-        stressImpact: 1,
-        icon: Mail,
-        color: 'from-blue-500 to-cyan-500'
-      },
-      {
-        id: 8,
-        type: 'message',
-        from: 'Parent - Mr. Williams',
-        subject: 'Thanks for everything!',
-        time: '9:25 PM',
-        urgency: 'low',
-        canDelegate: false,
-        canPostpone: true,
-        stressImpact: 0, // Positive message - can wait
-        icon: MessageSquare,
-        color: 'from-green-500 to-emerald-500'
       }
     ];
     
@@ -187,15 +148,8 @@ const DigitalShutdownSimulation = () => {
     }
     setShowResults(true);
     
-    // Calculate score based on stress reduction
-    const stressReduction = initialStress - currentStress;
-    if (stressReduction >= 4) {
-      setScore(1);
-    } else if (stressReduction >= 2) {
-      setScore(1);
-    } else {
-      setScore(1); // Still give points for participation
-    }
+    // Award 1 point for each completed item
+    setScore(digitalItems.length);
   };
 
   const getDecisionButtonStyle = (itemId, decision) => {
@@ -253,7 +207,7 @@ const DigitalShutdownSimulation = () => {
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={Object.keys(decisions).length + 1}
+      currentQuestion={Object.keys(decisions).length + 0}
     >
       <div className="w-full max-w-6xl mx-auto px-4">
         {!showResults && !showGameOver && (
@@ -578,7 +532,7 @@ const DigitalShutdownSimulation = () => {
               transition={{ type: "spring", stiffness: 200, damping: 10 }}
               className="text-6xl mb-6"
             >
-              {stressReduction >= 4 ? '🌟' : stressReduction >= 2 ? '✨' : '📱'}
+              🏆
             </motion.div>
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
               Simulation Complete!

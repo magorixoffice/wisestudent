@@ -14,8 +14,9 @@ const BreatheWithRhythm = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 1;
+  const totalLevels = gameData?.totalQuestions || 5;
   
+  const [currentActivity, setCurrentActivity] = useState(0);
   const [breathPhase, setBreathPhase] = useState('idle'); // idle, inhale, hold, exhale
   const [timeRemaining, setTimeRemaining] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -23,26 +24,59 @@ const BreatheWithRhythm = () => {
   const [calmRating, setCalmRating] = useState(null);
   const [showRating, setShowRating] = useState(false);
   const [showGameOver, setShowGameOver] = useState(false);
-  const [score, setScore] = useState(0);
+  const [scores, setScores] = useState(Array(5).fill(0)); // Track scores for each activity
+  const [completedActivities, setCompletedActivities] = useState(0);
   
   const timerRef = useRef(null);
   const cycleCountRef = useRef(0);
 
-  // Breathing phases timing (4-4-4 pattern for simplicity)
-  const breathingTimings = {
-    inhale: 4,   // 4 seconds
-    hold: 4,     // 4 seconds
-    exhale: 4    // 4 seconds
-  };
+  // Different breathing patterns for each activity
+  const breathingPatterns = [
+    // Activity 1: Box Breathing (Equal timing)
+    {
+      name: "Box Breathing",
+      description: "Equal timing for all phases - promotes balance and calm",
+      timings: { inhale: 4, hold: 4, exhale: 4, postHold: 4 },
+      benefits: ["Reduces anxiety", "Improves focus", "Balances nervous system"]
+    },
+    // Activity 2: 4-7-8 Breathing (Relaxation)
+    {
+      name: "4-7-8 Relaxation",
+      description: "Extended exhale for deep relaxation and sleep preparation",
+      timings: { inhale: 4, hold: 7, exhale: 8, postHold: 0 },
+      benefits: ["Promotes relaxation", "Better sleep quality", "Reduces racing thoughts"]
+    },
+    // Activity 3: Energizing Breath (Short cycles)
+    {
+      name: "Energizing Breath",
+      description: "Quick cycles to boost energy and alertness",
+      timings: { inhale: 3, hold: 2, exhale: 3, postHold: 0 },
+      benefits: ["Increases energy", "Improves alertness", "Boosts circulation"]
+    },
+    // Activity 4: Deep Belly Breathing
+    {
+      name: "Deep Belly Breathing",
+      description: "Focus on diaphragmatic breathing for stress relief",
+      timings: { inhale: 5, hold: 2, exhale: 6, postHold: 0 },
+      benefits: ["Activates parasympathetic nervous system", "Reduces cortisol", "Improves digestion"]
+    },
+    // Activity 5: Alternate Nostril (Simplified)
+    {
+      name: "Balanced Breathing",
+      description: "Equal breathing pattern for mental clarity and emotional balance",
+      timings: { inhale: 4, hold: 0, exhale: 4, postHold: 0 },
+      benefits: ["Enhances mental clarity", "Balances emotions", "Improves concentration"]
+    }
+  ];
 
-  // Total time for one complete breath cycle
-  const cycleDuration = breathingTimings.inhale + breathingTimings.hold + breathingTimings.exhale;
+  // Get current pattern
+  const currentPattern = breathingPatterns[currentActivity] || breathingPatterns[0];
 
-  // Start breathing exercise
+  // Start breathing exercise for current activity
   const startBreathing = () => {
     setIsPlaying(true);
     setBreathPhase('inhale');
-    setTimeRemaining(breathingTimings.inhale);
+    setTimeRemaining(currentPattern.timings.inhale);
     cycleCountRef.current = 0;
     setCycleCount(0);
     setCalmRating(null);
@@ -68,6 +102,15 @@ const BreatheWithRhythm = () => {
     }
   };
 
+  // Reset entire game
+  const resetGame = () => {
+    setCurrentActivity(0);
+    setScores(Array(5).fill(0));
+    setCompletedActivities(0);
+    resetBreathing();
+    setShowGameOver(false);
+  };
+
   // Handle breathing cycle
   useEffect(() => {
     if (!isPlaying) return;
@@ -80,10 +123,10 @@ const BreatheWithRhythm = () => {
       // Move to next phase
       if (breathPhase === 'inhale') {
         setBreathPhase('hold');
-        setTimeRemaining(breathingTimings.hold);
+        setTimeRemaining(currentPattern.timings.hold);
       } else if (breathPhase === 'hold') {
         setBreathPhase('exhale');
-        setTimeRemaining(breathingTimings.exhale);
+        setTimeRemaining(currentPattern.timings.exhale);
       } else if (breathPhase === 'exhale') {
         cycleCountRef.current += 1;
         setCycleCount(cycleCountRef.current);
@@ -91,7 +134,7 @@ const BreatheWithRhythm = () => {
         // Complete 3 breath cycles
         if (cycleCountRef.current < 3) {
           setBreathPhase('inhale');
-          setTimeRemaining(breathingTimings.inhale);
+          setTimeRemaining(currentPattern.timings.inhale);
         } else {
           // Completed 3 cycles, show rating
           setIsPlaying(false);
@@ -111,23 +154,37 @@ const BreatheWithRhythm = () => {
   // Handle calm level rating
   const handleRateCalm = (rating) => {
     setCalmRating(rating);
-    setScore(1); // Mark as completed
     
-    // Show completion after a moment
+    // Update scores array
+    const newScores = [...scores];
+    newScores[currentActivity] = 1;
+    setScores(newScores);
+    
+    // Move to next activity or finish
     setTimeout(() => {
-      setShowGameOver(true);
+      if (currentActivity < 4) {
+        // Move to next activity
+        setCurrentActivity(currentActivity + 1);
+        setCompletedActivities(completedActivities + 1);
+        resetBreathing();
+        setShowRating(false);
+      } else {
+        // All activities completed
+        setCompletedActivities(5);
+        setShowGameOver(true);
+      }
     }, 2000);
   };
 
   // Calculate orb size based on breath phase
   const getOrbSize = () => {
     if (breathPhase === 'inhale') {
-      const progress = 1 - (timeRemaining / breathingTimings.inhale);
+      const progress = 1 - (timeRemaining / currentPattern.timings.inhale);
       return 120 + (progress * 180); // Grows from 120px to 300px
     } else if (breathPhase === 'hold') {
       return 300; // Maintains full size
     } else if (breathPhase === 'exhale') {
-      const progress = 1 - (timeRemaining / breathingTimings.exhale);
+      const progress = 1 - (timeRemaining / currentPattern.timings.exhale);
       return 300 - (progress * 180); // Shrinks from 300px to 120px
     }
     return 200; // Default/resting size
@@ -164,43 +221,89 @@ const BreatheWithRhythm = () => {
   return (
     <TeacherGameShell
       title={gameData?.title || "Breathe with Rhythm"}
-      subtitle={gameData?.description || "Master a 3-step breathing cycle to reduce physical tension"}
+      subtitle={gameData?.description || "Complete 5 breathing activities to master rhythmic breathing techniques"}
       showGameOver={showGameOver}
-      score={score}
+      score={scores.reduce((a, b) => a + b, 0)}
       gameId={gameId}
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={1}
+      currentQuestion={currentActivity + 0}
     >
       <div className="w-full max-w-5xl mx-auto px-4">
+        {/* Activity Progress */}
+        <div className="mb-6">
+          <div className="bg-white rounded-xl shadow-lg p-4">
+            <div className="flex justify-between items-center mb-3">
+              <h3 className="text-lg font-semibold text-gray-800">Breathing Activities</h3>
+              <span className="text-sm font-medium text-gray-600">
+                {completedActivities} of 5 completed
+              </span>
+            </div>
+            <div className="flex gap-2">
+              {Array(5).fill(0).map((_, index) => (
+                <div
+                  key={index}
+                  className={`flex-1 h-3 rounded-full ${
+                    index < completedActivities 
+                      ? 'bg-green-500' 
+                      : index === currentActivity 
+                        ? 'bg-blue-500' 
+                        : 'bg-gray-200'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+        
         {!showRating ? (
           <div className="bg-white rounded-2xl shadow-lg p-8 mb-6">
             {/* Instructions */}
             <div className="text-center mb-8">
               <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                Follow the 3-Step Breathing Pattern
+                Activity {currentActivity + 1}: {currentPattern.name}
               </h2>
-              <p className="text-gray-600 mb-6">
-                Complete 3 full cycles: Inhale (4s) → Hold (4s) → Exhale (4s)
+              <p className="text-gray-600 mb-4">
+                {currentPattern.description}
               </p>
+              <div className="bg-blue-50 rounded-lg p-4 mb-4 border border-blue-200">
+                <h4 className="font-semibold text-blue-800 mb-2">Benefits:</h4>
+                <ul className="text-sm text-blue-700 space-y-1">
+                  {currentPattern.benefits.map((benefit, index) => (
+                    <li key={index} className="flex items-center gap-2">
+                      <span className="text-blue-500">•</span>
+                      {benefit}
+                    </li>
+                  ))}
+                </ul>
+              </div>
               <div className="bg-gradient-to-br from-blue-50 via-cyan-50 to-teal-50 rounded-xl p-6 border-2 border-blue-200 max-w-2xl mx-auto">
-                <div className="grid grid-cols-3 gap-4 text-center">
+                <div className="grid grid-cols-4 gap-4 text-center">
                   <div>
                     <div className="text-3xl mb-2">🌬️</div>
                     <div className="font-semibold text-gray-800">Inhale</div>
-                    <div className="text-sm text-gray-600">4 seconds</div>
+                    <div className="text-sm text-gray-600">{currentPattern.timings.inhale}s</div>
                   </div>
-                  <div>
-                    <div className="text-3xl mb-2">✨</div>
-                    <div className="font-semibold text-gray-800">Hold</div>
-                    <div className="text-sm text-gray-600">4 seconds</div>
-                  </div>
+                  {currentPattern.timings.hold > 0 && (
+                    <div>
+                      <div className="text-3xl mb-2">✨</div>
+                      <div className="font-semibold text-gray-800">Hold</div>
+                      <div className="text-sm text-gray-600">{currentPattern.timings.hold}s</div>
+                    </div>
+                  )}
                   <div>
                     <div className="text-3xl mb-2">💨</div>
                     <div className="font-semibold text-gray-800">Exhale</div>
-                    <div className="text-sm text-gray-600">4 seconds</div>
+                    <div className="text-sm text-gray-600">{currentPattern.timings.exhale}s</div>
                   </div>
+                  {currentPattern.timings.postHold > 0 && (
+                    <div>
+                      <div className="text-3xl mb-2">🧘</div>
+                      <div className="font-semibold text-gray-800">Rest</div>
+                      <div className="text-sm text-gray-600">{currentPattern.timings.postHold}s</div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -253,9 +356,9 @@ const BreatheWithRhythm = () => {
                           scale: getOrbSize() / 200,
                         }}
                         transition={{
-                          duration: breathPhase === 'inhale' ? breathingTimings.inhale : 
-                                   breathPhase === 'hold' ? breathingTimings.hold : 
-                                   breathingTimings.exhale,
+                          duration: breathPhase === 'inhale' ? currentPattern.timings.inhale : 
+                                   breathPhase === 'hold' ? currentPattern.timings.hold : 
+                                   currentPattern.timings.exhale,
                           ease: breathPhase === 'exhale' ? "easeIn" : "easeOut"
                         }}
                         className={`w-64 h-64 rounded-full bg-gradient-to-br ${getOrbColor()} shadow-2xl flex items-center justify-center relative`}
@@ -308,7 +411,7 @@ const BreatheWithRhythm = () => {
                   <div className="text-center">
                     <div className="bg-blue-50 rounded-full px-6 py-2 border-2 border-blue-200">
                       <span className="text-sm font-semibold text-blue-800">
-                        Cycle {cycleCount} of 3
+                        Cycle {cycleCount + 1} of 3 • {currentPattern.name}
                       </span>
                     </div>
                   </div>
@@ -352,11 +455,24 @@ const BreatheWithRhythm = () => {
             <div className="mb-8">
               <div className="text-6xl mb-4">🎉</div>
               <h2 className="text-3xl font-bold text-gray-800 mb-2">
-                Great Job!
+                {currentActivity < 4 
+                  ? `Great Job on ${currentPattern.name}!` 
+                  : 'Congratulations! All Activities Completed!'}
               </h2>
-              <p className="text-gray-600 text-lg">
-                You've completed 3 breathing cycles. How do you feel now?
+              <p className="text-gray-600 text-lg mb-4">
+                {currentActivity < 4 
+                  ? `You've completed 3 cycles of ${currentPattern.name}. How do you feel now?`
+                  : 'You\'ve completed all 5 diverse breathing techniques! How do you feel overall?'
+                }
               </p>
+              {currentActivity < 4 && (
+                <div className="bg-green-50 rounded-lg p-4 border border-green-200 max-w-2xl mx-auto">
+                  <h4 className="font-semibold text-green-800 mb-2">Preview: Next Activity</h4>
+                  <p className="text-green-700">
+                    <strong>{breathingPatterns[(currentActivity + 1) % 5].name}:</strong> {breathingPatterns[(currentActivity + 1) % 5].description}
+                  </p>
+                </div>
+              )}
             </div>
 
             {/* Calm Rating */}

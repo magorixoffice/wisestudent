@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import TeacherGameShell from "../../TeacherGameShell";
 import { getTeacherEducationGameById } from "../data/gameData";
-import { Play, Pause, RotateCcw, Clock, Target, Eye, Volume2, Hand, AlertCircle, CheckCircle, Sparkles } from "lucide-react";
+import { Play, Pause, RotateCcw, Clock, Target, Eye, Volume2, Hand, AlertCircle, CheckCircle, Sparkles, AirVent, HeartPulse } from "lucide-react";
 
 const FocusAnchorExercise = () => {
   const location = useLocation();
@@ -14,7 +14,7 @@ const FocusAnchorExercise = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 1;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [selectedAnchor, setSelectedAnchor] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -23,12 +23,17 @@ const FocusAnchorExercise = () => {
   const [showResults, setShowResults] = useState(false);
   const [showGameOver, setShowGameOver] = useState(false);
   const [score, setScore] = useState(0);
+  const [currentExercise, setCurrentExercise] = useState(0);
+  const [completedExercises, setCompletedExercises] = useState([]);
   
   const timerRef = useRef(null);
 
-  const anchorOptions = [
+  const focusExercises = [
     {
-      id: 'sound',
+      id: 1,
+      title: 'Sound Anchor Focus',
+      duration: 120, // 2 minutes
+      anchorType: 'sound',
       name: 'Sound Anchor',
       icon: Volume2,
       emoji: '🎵',
@@ -40,7 +45,10 @@ const FocusAnchorExercise = () => {
       tip: 'Listen deeply to the sound, noticing its qualities: pitch, rhythm, volume. Let it anchor your attention in the present moment.'
     },
     {
-      id: 'sight',
+      id: 2,
+      title: 'Visual Anchor Focus',
+      duration: 120, // 2 minutes
+      anchorType: 'sight',
       name: 'Sight Anchor',
       icon: Eye,
       emoji: '👁️',
@@ -52,7 +60,10 @@ const FocusAnchorExercise = () => {
       tip: 'Notice the details of your visual anchor: its shape, color, texture. Let your eyes rest gently without straining. This anchors you in the present.'
     },
     {
-      id: 'touch',
+      id: 3,
+      title: 'Tactile Anchor Focus',
+      duration: 120, // 2 minutes
+      anchorType: 'touch',
       name: 'Touch Anchor',
       icon: Hand,
       emoji: '👋',
@@ -62,17 +73,46 @@ const FocusAnchorExercise = () => {
       bgColor: 'bg-green-50',
       borderColor: 'border-green-300',
       tip: 'Feel the sensation fully. Notice if it changes or stays constant. This physical anchor grounds you in your body and the present moment.'
+    },
+    {
+      id: 4,
+      title: 'Breath Anchor Focus',
+      duration: 120, // 2 minutes
+      anchorType: 'breath',
+      name: 'Breath Anchor',
+      icon: AirVent,
+      emoji: '💨',
+      description: 'Focus on your natural breath rhythm',
+      instruction: 'Bring your attention to your breath. Notice the sensation of air entering and leaving your nostrils, or the rise and fall of your chest or abdomen. When thoughts arise, gently return to your breath.',
+      color: 'from-teal-500 to-emerald-500',
+      bgColor: 'bg-teal-50',
+      borderColor: 'border-teal-300',
+      tip: 'Don\'t control your breath, just observe it naturally. This creates a stable anchor for your attention in the present moment.'
+    },
+    {
+      id: 5,
+      title: 'Body Scan Anchor Focus',
+      duration: 120, // 2 minutes
+      anchorType: 'body',
+      name: 'Body Scan Anchor',
+      icon: HeartPulse,
+      emoji: '🦴',
+      description: 'Focus on different parts of your body sequentially',
+      instruction: 'Slowly scan your body from head to toe. Notice any sensations in each part. When your mind wanders, gently return to the body scan.',
+      color: 'from-orange-500 to-amber-500',
+      bgColor: 'bg-orange-50',
+      borderColor: 'border-orange-300',
+      tip: 'Move slowly from one body part to the next. This creates embodied awareness and grounds you in the present moment.'
     }
   ];
+  
+  const currentExerciseData = focusExercises[currentExercise];
+  const IconComponent = currentExerciseData?.icon;
 
-  // Start the 2-minute focus exercise
+  // Start the focus exercise
   const startExercise = () => {
-    if (!selectedAnchor) {
-      alert('Please select a focus anchor first.');
-      return;
-    }
     setIsPlaying(true);
-    setTimeRemaining(120);
+    setTimeRemaining(currentExerciseData.duration);
     setDistractionCount(0);
     setShowResults(false);
   };
@@ -85,7 +125,7 @@ const FocusAnchorExercise = () => {
   // Reset exercise
   const resetExercise = () => {
     setIsPlaying(false);
-    setTimeRemaining(120);
+    setTimeRemaining(currentExerciseData.duration);
     setDistractionCount(0);
     setShowResults(false);
     if (timerRef.current) {
@@ -99,7 +139,7 @@ const FocusAnchorExercise = () => {
     setDistractionCount(prev => prev + 1);
   };
 
-  // Main 2-minute timer
+  // Main timer
   useEffect(() => {
     if (!isPlaying) return;
 
@@ -108,10 +148,17 @@ const FocusAnchorExercise = () => {
         setTimeRemaining(timeRemaining - 1);
       }, 1000);
     } else {
-      // 2 minutes complete
+      // Exercise complete
       setIsPlaying(false);
       setShowResults(true);
-      setScore(1); // Mark as completed
+      
+      // Mark current exercise as completed if not already marked
+      if (!completedExercises.includes(currentExercise)) {
+        const newCompleted = [...completedExercises, currentExercise];
+        setCompletedExercises(newCompleted);
+        setScore(newCompleted.length); // Set score to number of completed exercises
+      }
+      
       if (timerRef.current) {
         clearTimeout(timerRef.current);
       }
@@ -122,15 +169,14 @@ const FocusAnchorExercise = () => {
         clearTimeout(timerRef.current);
       }
     };
-  }, [isPlaying, timeRemaining]);
+  }, [isPlaying, timeRemaining, completedExercises, currentExercise, focusExercises.length]);
 
   // Calculate progress percentage
-  const progressPercentage = ((120 - timeRemaining) / 120) * 100;
+  const progressPercentage = ((currentExerciseData.duration - timeRemaining) / currentExerciseData.duration) * 100;
   const circumference = 2 * Math.PI * 100; // radius = 100
   const strokeDashoffset = circumference - (progressPercentage / 100) * circumference;
 
-  const selectedAnchorData = anchorOptions.find(a => a.id === selectedAnchor);
-  const IconComponent = selectedAnchorData?.icon;
+
 
   return (
     <TeacherGameShell
@@ -142,79 +188,29 @@ const FocusAnchorExercise = () => {
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={1}
+      currentQuestion={currentExercise + 0}
     >
       <div className="w-full max-w-5xl mx-auto px-4">
         {!showResults && !showGameOver && (
           <div className="bg-white rounded-2xl shadow-lg p-8">
-            {!selectedAnchor && (
+            {!isPlaying && (
               <>
-                {/* Anchor Selection */}
-                <div className="text-center mb-8">
-                  <h2 className="text-3xl font-bold text-gray-800 mb-4">
-                    Choose Your Focus Anchor
-                  </h2>
-                  <p className="text-gray-600 text-lg mb-6">
-                    Select a sensory anchor to ground your attention during the 2-minute focus exercise
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                  {anchorOptions.map((anchor, index) => {
-                    const AnchorIcon = anchor.icon;
-                    return (
-                      <motion.button
-                        key={anchor.id}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.1 }}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        onClick={() => setSelectedAnchor(anchor.id)}
-                        className={`${anchor.bgColor} ${anchor.borderColor} border-2 rounded-xl p-6 text-left transition-all hover:shadow-lg`}
-                      >
-                        <div className="flex items-center gap-4 mb-4">
-                          <div className={`w-16 h-16 rounded-full bg-gradient-to-r ${anchor.color} flex items-center justify-center text-3xl flex-shrink-0`}>
-                            {anchor.emoji}
-                          </div>
-                          <div className="flex-1">
-                            <h3 className="font-bold text-gray-800 text-lg mb-1">
-                              {anchor.name}
-                            </h3>
-                            <p className="text-sm text-gray-600">
-                              {anchor.description}
-                            </p>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-2 text-sm font-semibold text-gray-700">
-                          <Target className="w-4 h-4" />
-                          <span>Select this anchor</span>
-                        </div>
-                      </motion.button>
-                    );
-                  })}
-                </div>
-              </>
-            )}
-
-            {selectedAnchor && !isPlaying && (
-              <>
-                {/* Anchor Instructions */}
-                <div className={`${selectedAnchorData.bgColor} ${selectedAnchorData.borderColor} border-2 rounded-xl p-6 mb-6`}>
+                {/* Exercise Instructions */}
+                <div className={`${currentExerciseData.bgColor} ${currentExerciseData.borderColor} border-2 rounded-xl p-6 mb-6`}>
                   <div className="flex items-start gap-4 mb-4">
-                    <div className={`w-16 h-16 rounded-full bg-gradient-to-r ${selectedAnchorData.color} flex items-center justify-center text-3xl flex-shrink-0`}>
-                      {selectedAnchorData.emoji}
+                    <div className={`w-16 h-16 rounded-full bg-gradient-to-r ${currentExerciseData.color} flex items-center justify-center text-3xl flex-shrink-0`}>
+                      {currentExerciseData.emoji}
                     </div>
                     <div className="flex-1">
                       <h3 className="font-bold text-gray-800 text-xl mb-2">
-                        {selectedAnchorData.name}
+                        {currentExerciseData.title}
                       </h3>
                       <p className="text-gray-700 mb-3 leading-relaxed">
-                        {selectedAnchorData.instruction}
+                        {currentExerciseData.instruction}
                       </p>
                       <div className="bg-white/60 rounded-lg p-3 border border-gray-200">
                         <p className="text-sm text-gray-700 italic">
-                          💡 {selectedAnchorData.tip}
+                          💡 {currentExerciseData.tip}
                         </p>
                       </div>
                     </div>
@@ -227,17 +223,11 @@ const FocusAnchorExercise = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={startExercise}
-                    className={`bg-gradient-to-r ${selectedAnchorData.color} text-white px-8 py-4 rounded-xl text-xl font-semibold shadow-lg hover:shadow-xl transition-all flex items-center gap-3 mx-auto`}
+                    className={`bg-gradient-to-r ${currentExerciseData.color} text-white px-8 py-4 rounded-xl text-xl font-semibold shadow-lg hover:shadow-xl transition-all flex items-center gap-3 mx-auto`}
                   >
                     <Play className="w-6 h-6" />
-                    Start 2-Minute Focus Exercise
+                    Start {currentExerciseData.duration/60}-Minute Focus Exercise
                   </motion.button>
-                  <button
-                    onClick={() => setSelectedAnchor(null)}
-                    className="mt-4 text-gray-500 hover:text-gray-700 text-sm underline"
-                  >
-                    Choose different anchor
-                  </button>
                 </div>
               </>
             )}
@@ -247,7 +237,7 @@ const FocusAnchorExercise = () => {
                 {/* Exercise in Progress */}
                 <div className="text-center mb-8">
                   <h2 className="text-2xl font-bold text-gray-800 mb-2">
-                    Focus on Your {selectedAnchorData.name}
+                    Focus on Your {currentExerciseData.name}
                   </h2>
                   <p className="text-gray-600">
                     When you notice your mind has wandered, click "I Got Distracted"
@@ -310,7 +300,7 @@ const FocusAnchorExercise = () => {
                       repeat: Infinity,
                       ease: "easeInOut"
                     }}
-                    className={`w-32 h-32 rounded-full bg-gradient-to-br ${selectedAnchorData.color} shadow-2xl flex items-center justify-center mb-6`}
+                    className={`w-32 h-32 rounded-full bg-gradient-to-br ${currentExerciseData.color} shadow-2xl flex items-center justify-center mb-6`}
                   >
                     {IconComponent && <IconComponent className="w-16 h-16 text-white" />}
                   </motion.div>
@@ -370,7 +360,7 @@ const FocusAnchorExercise = () => {
                   <div className="mt-6 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-lg p-4 border-2 border-indigo-200 max-w-md">
                     <p className="text-sm text-gray-700 text-center">
                       <Target className="w-4 h-4 inline mr-1" />
-                      Keep returning your attention to your {selectedAnchorData.name.toLowerCase()}
+                      Keep returning your attention to your {currentExerciseData.name.toLowerCase()}
                     </p>
                   </div>
                 </div>
@@ -388,27 +378,27 @@ const FocusAnchorExercise = () => {
             <div className="text-center mb-8">
               <div className="text-6xl mb-4">✨</div>
               <h2 className="text-3xl font-bold text-gray-800 mb-2">
-                2-Minute Focus Complete!
+                {currentExerciseData.duration/60}-Minute Focus Complete!
               </h2>
               <p className="text-gray-600 text-lg">
-                You focused on your {selectedAnchorData.name}
+                You focused on your {currentExerciseData.name}
               </p>
             </div>
 
             {/* Results Summary */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               {/* Anchor Used */}
-              <div className={`${selectedAnchorData.bgColor} ${selectedAnchorData.borderColor} border-2 rounded-xl p-6`}>
+              <div className={`${currentExerciseData.bgColor} ${currentExerciseData.borderColor} border-2 rounded-xl p-6`}>
                 <div className="flex items-center gap-3 mb-3">
-                  <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${selectedAnchorData.color} flex items-center justify-center text-2xl`}>
-                    {selectedAnchorData.emoji}
+                  <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${currentExerciseData.color} flex items-center justify-center text-2xl`}>
+                    {currentExerciseData.emoji}
                   </div>
                   <h3 className="font-bold text-gray-800 text-lg">
                     Anchor Used
                   </h3>
                 </div>
                 <p className="text-gray-700 font-semibold">
-                  {selectedAnchorData.name}
+                  {currentExerciseData.name}
                 </p>
               </div>
 
@@ -462,16 +452,35 @@ const FocusAnchorExercise = () => {
               </div>
             </div>
 
-            {/* Complete Button */}
+            {/* Continue or Complete Button */}
             <div className="text-center">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setShowGameOver(true)}
-                className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-8 py-4 rounded-xl text-xl font-semibold shadow-lg hover:shadow-xl transition-all"
-              >
-                Complete
-              </motion.button>
+              {currentExercise < focusExercises.length - 1 ? (
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => {
+                    setCurrentExercise(prev => prev + 1);
+                    setShowResults(false);
+                    setTimeRemaining(focusExercises[currentExercise + 1]?.duration || 120);
+                    setDistractionCount(0);
+                  }}
+                  className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-8 py-4 rounded-xl text-xl font-semibold shadow-lg hover:shadow-xl transition-all"
+                >
+                  Next Exercise →
+                </motion.button>
+              ) : (
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => {
+                    setScore(focusExercises.length); // Ensure score is set to total exercises
+                    setShowGameOver(true);
+                  }}
+                  className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-8 py-4 rounded-xl text-xl font-semibold shadow-lg hover:shadow-xl transition-all"
+                >
+                  Complete All Exercises
+                </motion.button>
+              )}
             </div>
           </motion.div>
         )}
@@ -487,31 +496,27 @@ const FocusAnchorExercise = () => {
               {distractionCount === 0 ? '🌟' : distractionCount <= 3 ? '✨' : '🎯'}
             </motion.div>
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
-              Exercise Complete!
+              All Focus Anchor Exercises Complete!
             </h2>
             <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6 border-2 border-indigo-200 mb-6">
-              <p className="text-gray-700 text-lg leading-relaxed">
-                You completed a 2-minute focus anchor exercise using your <strong>{selectedAnchorData.name}</strong>.
-                {distractionCount > 0 && ` You noticed ${distractionCount} distraction${distractionCount !== 1 ? 's' : ''} and returned to your anchor each time.`}
+              <p className="text-gray-700 text-lg leading-relaxed mb-4">
+                You completed all {focusExercises.length} focus anchor exercises and earned {score} points.
+              </p>
+              <p className="text-gray-600">
+                These focus anchor exercises strengthen your ability to ground attention in the present moment using different sensory anchors. Regular practice will enhance your focus and mindfulness.
               </p>
             </div>
 
             {/* Final Stats */}
             <div className="bg-gray-50 rounded-xl p-6 border-2 border-gray-200 mb-6">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
                 <div>
-                  <div className="text-2xl font-bold text-indigo-600 mb-1">2:00</div>
-                  <div className="text-sm text-gray-600">Minutes Focused</div>
+                  <div className="text-2xl font-bold text-indigo-600 mb-1">{score}</div>
+                  <div className="text-sm text-gray-600">Exercises Completed</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-orange-600 mb-1">{distractionCount}</div>
-                  <div className="text-sm text-gray-600">Distractions Noticed</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-green-600 mb-1">
-                    {distractionCount > 0 ? distractionCount : '∞'}
-                  </div>
-                  <div className="text-sm text-gray-600">Returns to Anchor</div>
+                  <div className="text-2xl font-bold text-green-600 mb-1">{focusExercises.length}</div>
+                  <div className="text-sm text-gray-600">Total Exercises</div>
                 </div>
               </div>
             </div>
@@ -525,7 +530,7 @@ const FocusAnchorExercise = () => {
                     💡 Teacher Tip:
                   </p>
                   <p className="text-sm text-amber-800 leading-relaxed">
-                    Try "focus anchor" before correcting papers or during planning. Use this exercise when you need to settle your mind for focused work. Before grading papers, choose a focus anchor (sound, sight, or touch) and practice for 2 minutes. This helps you enter a state of focused attention, making your grading more efficient and less overwhelming. During planning periods, a 2-minute focus anchor exercise can help clear mental clutter and allow you to plan with clarity. You can use the same anchor consistently to build a habit, or switch anchors based on what's available in your environment. The key is regular practice—even 2 minutes helps train your mind to stay present and focused. Share this technique with students who struggle with attention, modeling that focus is a skill that can be developed.
+                    Use these focus anchor techniques throughout your teaching day. The Sound Anchor works well before meetings or during transitions. The Visual Anchor is helpful when you need a quick reset. The Tactile Anchor grounds you physically during stressful moments. The Breath Anchor is always available for immediate centering. The Body Scan Anchor helps release physical tension. Practice different anchors in different situations to develop your ability to return to present-moment awareness. These techniques help you stay calm, focused, and responsive rather than reactive. Regular practice builds your capacity to remain centered regardless of classroom chaos.
                   </p>
                 </div>
               </div>

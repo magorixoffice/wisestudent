@@ -14,15 +14,16 @@ const InnerRechargeVisualization = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 1;
+  const totalLevels = gameData?.totalQuestions || 5;
   
+  const [currentQuestion, setCurrentQuestion] = useState(0);
   const [phase, setPhase] = useState('ready'); // ready, breathing, visualization, rating, complete
   const [breathPhase, setBreathPhase] = useState('idle'); // idle, inhale, hold, exhale
   const [timeRemaining, setTimeRemaining] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [breathCycle, setBreathCycle] = useState(0);
   const [visualizationProgress, setVisualizationProgress] = useState(0);
-  const [calmRating, setCalmRating] = useState(null);
+  const [calmRatings, setCalmRatings] = useState(Array(5).fill(null)); // Track ratings for all 5 questions
   const [showGameOver, setShowGameOver] = useState(false);
   const [score, setScore] = useState(0);
   
@@ -37,31 +38,157 @@ const InnerRechargeVisualization = () => {
     exhale: 4
   };
 
-  // Visualization steps with guided instructions
-  const visualizationSteps = [
+  // 5 different visualization themes for 5 questions
+  const visualizationThemes = [
     {
       id: 1,
-      instruction: "Imagine a warm, golden light gathering above you",
-      duration: 5,
-      color: "from-yellow-400 via-amber-400 to-orange-400"
+      title: "Golden Light Recharge",
+      steps: [
+        {
+          id: 1,
+          instruction: "Imagine a warm, golden light gathering above you",
+          duration: 5,
+          color: "from-yellow-400 via-amber-400 to-orange-400"
+        },
+        {
+          id: 2,
+          instruction: "Feel this warm light gently flowing down into your heart center",
+          duration: 5,
+          color: "from-orange-400 via-pink-400 to-rose-400"
+        },
+        {
+          id: 3,
+          instruction: "Visualize this light filling your compassion center, recharging your empathy reserves",
+          duration: 6,
+          color: "from-rose-400 via-purple-400 to-indigo-400"
+        },
+        {
+          id: 4,
+          instruction: "Feel the warmth spreading through your body, restoring your energy",
+          duration: 4,
+          color: "from-indigo-400 via-blue-400 to-cyan-400"
+        }
+      ]
     },
     {
       id: 2,
-      instruction: "Feel this warm light gently flowing down into your heart center",
-      duration: 5,
-      color: "from-orange-400 via-pink-400 to-rose-400"
+      title: "Ocean Wave Calm",
+      steps: [
+        {
+          id: 1,
+          instruction: "Picture gentle ocean waves washing over your stress and tension",
+          duration: 5,
+          color: "from-blue-400 via-cyan-400 to-teal-400"
+        },
+        {
+          id: 2,
+          instruction: "Feel the rhythmic waves bringing peace and tranquility to your mind",
+          duration: 5,
+          color: "from-teal-400 via-emerald-400 to-green-400"
+        },
+        {
+          id: 3,
+          instruction: "Visualize the waves clearing away mental fog and emotional fatigue",
+          duration: 6,
+          color: "from-green-400 via-emerald-400 to-teal-400"
+        },
+        {
+          id: 4,
+          instruction: "Experience the calm, clear waters of renewed focus and clarity",
+          duration: 4,
+          color: "from-teal-400 via-blue-400 to-indigo-400"
+        }
+      ]
     },
     {
       id: 3,
-      instruction: "Visualize this light filling your compassion center, recharging your empathy reserves",
-      duration: 6,
-      color: "from-rose-400 via-purple-400 to-indigo-400"
+      title: "Forest Sanctuary",
+      steps: [
+        {
+          id: 1,
+          instruction: "Envision yourself standing in a peaceful forest clearing",
+          duration: 5,
+          color: "from-green-400 via-emerald-400 to-teal-400"
+        },
+        {
+          id: 2,
+          instruction: "Feel the fresh air and dappled sunlight restoring your inner balance",
+          duration: 5,
+          color: "from-teal-400 via-blue-400 to-indigo-400"
+        },
+        {
+          id: 3,
+          instruction: "Visualize tree roots grounding your energy and clearing your mind",
+          duration: 6,
+          color: "from-indigo-400 via-purple-400 to-pink-400"
+        },
+        {
+          id: 4,
+          instruction: "Experience the forest's healing energy flowing through your entire being",
+          duration: 4,
+          color: "from-pink-400 via-rose-400 to-orange-400"
+        }
+      ]
     },
     {
       id: 4,
-      instruction: "Feel the warmth spreading through your body, restoring your energy",
-      duration: 4,
-      color: "from-indigo-400 via-blue-400 to-cyan-400"
+      title: "Mountain Strength",
+      steps: [
+        {
+          id: 1,
+          instruction: "Picture yourself standing tall and steady like a mountain peak",
+          duration: 5,
+          color: "from-gray-400 via-slate-400 to-stone-400"
+        },
+        {
+          id: 2,
+          instruction: "Feel the solid foundation beneath you supporting your resilience",
+          duration: 5,
+          color: "from-stone-400 via-gray-400 to-slate-400"
+        },
+        {
+          id: 3,
+          instruction: "Visualize drawing strength and stability from the earth below",
+          duration: 6,
+          color: "from-slate-400 via-blue-400 to-cyan-400"
+        },
+        {
+          id: 4,
+          instruction: "Experience unwavering confidence and grounded energy flowing through you",
+          duration: 4,
+          color: "from-cyan-400 via-teal-400 to-green-400"
+        }
+      ]
+    },
+    {
+      id: 5,
+      title: "Starlight Clarity",
+      steps: [
+        {
+          id: 1,
+          instruction: "Imagine gazing up at a star-filled night sky above you",
+          duration: 5,
+          color: "from-indigo-400 via-purple-400 to-pink-400"
+        },
+        {
+          id: 2,
+          instruction: "Feel the vastness of space putting your challenges in perspective",
+          duration: 5,
+          color: "from-pink-400 via-rose-400 to-orange-400"
+        },
+        {
+          id: 3,
+          instruction: "Visualize starlight illuminating your thoughts and clearing mental clutter",
+          duration: 6,
+          color: "from-orange-400 via-amber-400 to-yellow-400"
+        },
+        {
+          id: 4,
+          instruction: "Experience cosmic wisdom and renewed mental clarity flowing through you",
+          duration: 4,
+          color: "from-yellow-400 via-amber-400 to-orange-400"
+        }
+      ]
     }
   ];
 
@@ -109,7 +236,7 @@ const InnerRechargeVisualization = () => {
     setTimeRemaining(0);
     setBreathCycle(0);
     setVisualizationProgress(0);
-    setCalmRating(null);
+    // Don't reset calmRatings as they're tracked across questions
     if (timerRef.current) {
       clearTimeout(timerRef.current);
     }
@@ -170,7 +297,10 @@ const InnerRechargeVisualization = () => {
   useEffect(() => {
     if (phase !== 'visualization' || !isPlaying) return;
 
-    const currentStep = visualizationSteps[visualizationProgress];
+    const currentTheme = visualizationThemes[currentQuestion];
+    if (!currentTheme) return;
+    
+    const currentStep = currentTheme.steps[visualizationProgress];
     
     if (!currentStep) {
       // All steps complete
@@ -187,7 +317,7 @@ const InnerRechargeVisualization = () => {
 
     // Move to next step after duration
     visualizationTimerRef.current = setTimeout(() => {
-      if (visualizationProgress < visualizationSteps.length - 1) {
+      if (visualizationProgress < currentTheme.steps.length - 1) {
         setVisualizationProgress(prev => prev + 1);
       } else {
         // All steps complete
@@ -204,13 +334,27 @@ const InnerRechargeVisualization = () => {
         clearTimeout(visualizationTimerRef.current);
       }
     };
-  }, [phase, isPlaying, visualizationProgress]);
+  }, [phase, isPlaying, visualizationProgress, currentQuestion]);
 
   const handleRateCalm = (rating) => {
-    setCalmRating(rating);
-    setScore(1);
+    const newRatings = [...calmRatings];
+    newRatings[currentQuestion] = rating;
+    setCalmRatings(newRatings);
+    
+    // Calculate score based on completed questions
+    const completedQuestions = newRatings.filter(r => r !== null).length;
+    setScore(completedQuestions);
+    
     setTimeout(() => {
-      setShowGameOver(true);
+      if (currentQuestion < 4) {
+        // Move to next question
+        setCurrentQuestion(prev => prev + 1);
+        setPhase('ready');
+        setVisualizationProgress(0);
+      } else {
+        // All questions complete
+        setShowGameOver(true);
+      }
     }, 2000);
   };
 
@@ -229,7 +373,8 @@ const InnerRechargeVisualization = () => {
       return 250;
     } else if (phase === 'visualization') {
       // Growing energy visualization
-      const progress = (visualizationProgress + 1) / visualizationSteps.length;
+      const currentTheme = visualizationThemes[currentQuestion];
+      const progress = (visualizationProgress + 1) / (currentTheme?.steps.length || 4);
       return 200 + (progress * 250); // Grows during visualization
     }
     return 250;
@@ -247,7 +392,8 @@ const InnerRechargeVisualization = () => {
       }
       return 'from-indigo-400 via-purple-400 to-pink-400';
     } else if (phase === 'visualization') {
-      const step = visualizationSteps[visualizationProgress];
+      const currentTheme = visualizationThemes[currentQuestion];
+      const step = currentTheme?.steps[visualizationProgress];
       return step ? step.color : 'from-yellow-400 via-amber-400 to-orange-400';
     }
     return 'from-indigo-400 via-purple-400 to-pink-400';
@@ -261,13 +407,14 @@ const InnerRechargeVisualization = () => {
       if (breathPhase === 'exhale') return 'Release slowly and completely';
       return 'Ready to begin breathing';
     } else if (phase === 'visualization') {
-      const step = visualizationSteps[visualizationProgress];
+      const currentTheme = visualizationThemes[currentQuestion];
+      const step = currentTheme?.steps[visualizationProgress];
       return step ? step.instruction : 'Visualizing...';
     }
     return '';
   };
 
-  const currentVisualizationStep = visualizationSteps[visualizationProgress];
+  const currentVisualizationStep = visualizationThemes[currentQuestion]?.steps[visualizationProgress];
 
   return (
     <TeacherGameShell
@@ -279,18 +426,24 @@ const InnerRechargeVisualization = () => {
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={1}
+      currentQuestion={showGameOver ? 5 : currentQuestion + 0}
     >
       <div className="w-full max-w-5xl mx-auto px-4">
         {phase === 'ready' && (
           <div className="bg-white rounded-2xl shadow-lg p-8 text-center">
             <div className="text-6xl mb-6">✨</div>
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">
+            <h2 className="text-3xl font-bold text-gray-800 mb-2">
               Inner Recharge Visualization
             </h2>
+            <p className="text-gray-600 mb-2">
+              Question {currentQuestion + 1} of 5
+            </p>
+            <h3 className="text-2xl font-bold text-purple-600 mb-4">
+              {visualizationThemes[currentQuestion]?.title || 'Visualization Theme'}
+            </h3>
             <p className="text-gray-600 mb-6 text-lg leading-relaxed max-w-2xl mx-auto">
               This guided visualization will help you recharge your empathy reserves. 
-              We'll start with calming breaths, then visualize warm light refilling your compassion center.
+              We'll start with calming breaths, then visualize {visualizationThemes[currentQuestion]?.title.toLowerCase() || 'a peaceful scene'} to restore your energy.
             </p>
             <div className="bg-gradient-to-br from-yellow-50 via-amber-50 to-orange-50 rounded-xl p-6 border-2 border-yellow-200 mb-6 max-w-2xl mx-auto">
               <h3 className="font-semibold text-gray-800 mb-3">What to expect:</h3>
@@ -399,10 +552,13 @@ const InnerRechargeVisualization = () => {
           <div className="bg-white rounded-2xl shadow-lg p-8">
             <div className="text-center mb-6">
               <h2 className="text-2xl font-bold text-gray-800 mb-2">
-                Guided Visualization
+                {visualizationThemes[currentQuestion]?.title || 'Guided Visualization'}
               </h2>
               <p className="text-gray-600">
-                Step {visualizationProgress + 1} of {visualizationSteps.length}
+                Question {currentQuestion + 1} of 5
+              </p>
+              <p className="text-gray-600">
+                Step {visualizationProgress + 1} of {visualizationThemes[currentQuestion]?.steps.length || 4}
               </p>
             </div>
 
@@ -469,7 +625,7 @@ const InnerRechargeVisualization = () => {
               <div className="w-full bg-gray-200 rounded-full h-3">
                 <motion.div
                   initial={{ width: 0 }}
-                  animate={{ width: `${((visualizationProgress + 1) / visualizationSteps.length) * 100}%` }}
+                  animate={{ width: `${((visualizationProgress + 1) / (visualizationThemes[currentQuestion]?.steps.length || 4)) * 100}%` }}
                   className={`bg-gradient-to-r ${currentVisualizationStep?.color || 'from-yellow-400 to-orange-400'} h-3 rounded-full`}
                 />
               </div>
@@ -493,9 +649,12 @@ const InnerRechargeVisualization = () => {
         {phase === 'rating' && (
           <div className="bg-white rounded-2xl shadow-lg p-8 text-center">
             <div className="text-6xl mb-6">💫</div>
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">
-              Visualization Complete
+            <h2 className="text-3xl font-bold text-gray-800 mb-2">
+              {visualizationThemes[currentQuestion]?.title || 'Visualization'} Complete
             </h2>
+            <p className="text-gray-600 mb-2">
+              Question {currentQuestion + 1} of 5
+            </p>
             <p className="text-gray-600 mb-8 text-lg">
               How calm and recharged do you feel now?
             </p>
@@ -509,7 +668,7 @@ const InnerRechargeVisualization = () => {
                   whileTap={{ scale: 0.95 }}
                   onClick={() => handleRateCalm(rating)}
                   className={`p-6 rounded-xl border-2 transition-all ${
-                    calmRating === rating
+                    calmRatings[currentQuestion] === rating
                       ? 'border-purple-500 bg-gradient-to-br from-purple-100 to-pink-100 shadow-lg'
                       : 'border-gray-300 bg-white hover:border-purple-300 hover:shadow-md'
                   }`}
@@ -518,7 +677,7 @@ const InnerRechargeVisualization = () => {
                     {rating === 1 ? '😟' : rating === 2 ? '😐' : rating === 3 ? '🙂' : rating === 4 ? '😊' : '😌'}
                   </div>
                   <div className={`font-bold text-lg ${
-                    calmRating === rating ? 'text-purple-700' : 'text-gray-700'
+                    calmRatings[currentQuestion] === rating ? 'text-purple-700' : 'text-gray-700'
                   }`}>
                     {rating}
                   </div>
@@ -529,16 +688,16 @@ const InnerRechargeVisualization = () => {
               ))}
             </div>
 
-            {calmRating && (
+            {calmRatings[currentQuestion] && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border-2 border-green-200"
               >
                 <p className="text-lg text-green-800 font-semibold">
-                  {calmRating >= 4
+                  {calmRatings[currentQuestion] >= 4
                     ? "Wonderful! You've successfully recharged your empathy reserves. You're feeling calm and restored."
-                    : calmRating >= 3
+                    : calmRatings[currentQuestion] >= 3
                     ? "Good! You're feeling more balanced. Regular practice will help you recharge more deeply."
                     : "That's okay. Visualization takes practice. Try again when you have a quiet moment."}
                 </p>
@@ -555,16 +714,16 @@ const InnerRechargeVisualization = () => {
               transition={{ type: "spring", stiffness: 200, damping: 10 }}
               className="text-6xl mb-6"
             >
-              {calmRating >= 4 ? '✨' : calmRating >= 3 ? '💫' : '🌟'}
+              {calmRatings[4] >= 4 ? '✨' : calmRatings[4] >= 3 ? '💫' : '🌟'}
             </motion.div>
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
               Recharge Complete!
             </h2>
             <div className="bg-gradient-to-br from-yellow-50 via-amber-50 to-orange-50 rounded-xl p-6 border-2 border-yellow-200 mb-6">
               <p className="text-gray-700 text-lg leading-relaxed">
-                {calmRating >= 4
+                {calmRatings[4] >= 4
                   ? "Excellent! You've successfully visualized recharging your empathy reserves. The warm light has filled your compassion center, restoring your capacity to care. You're ready to engage with compassion while maintaining your energy."
-                  : calmRating >= 3
+                  : calmRatings[4] >= 3
                   ? "Good work! You've practiced the visualization and started to recharge. With regular practice, this technique will become more effective at restoring your empathy reserves. Keep practicing!"
                   : "You've completed the visualization practice. Like any skill, visualization improves with regular practice. Try this exercise again when you have a quiet moment, and you'll find it becomes more effective over time."}
               </p>

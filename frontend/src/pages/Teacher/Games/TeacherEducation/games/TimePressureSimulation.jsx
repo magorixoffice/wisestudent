@@ -14,54 +14,194 @@ const TimePressureSimulation = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 1;
+  const totalLevels = gameData?.totalQuestions || 5;
   
+  const [currentQuestion, setCurrentQuestion] = useState(0);
   const [taskOrder, setTaskOrder] = useState([]);
   const [showOutcome, setShowOutcome] = useState(false);
   const [outcomeType, setOutcomeType] = useState(null); // 'calm' or 'chaos'
-  const [reflection, setReflection] = useState("");
+  const [reflection, setReflection] = useState("[]");
   const [showGameOver, setShowGameOver] = useState(false);
   const [score, setScore] = useState(0);
+  const [completedQuestions, setCompletedQuestions] = useState(0);
+  const [questionScores, setQuestionScores] = useState(Array(5).fill(0)); // Track score for each question
 
-  const tasks = [
-    {
-      id: 'report',
-      title: 'Class Report Due',
-      description: 'Quarterly class performance report needs to be submitted by end of day',
-      urgency: 'high',
-      importance: 'high',
-      icon: '📊',
-      idealOrder: 2, // Second priority
-      color: 'from-blue-500 to-cyan-500'
-    },
-    {
-      id: 'child',
-      title: 'Child Sick',
-      description: 'Your child is unwell and needs immediate attention - call from school',
-      urgency: 'critical',
-      importance: 'critical',
-      icon: '🏥',
-      idealOrder: 1, // First priority
-      color: 'from-red-500 to-pink-500'
-    },
-    {
-      id: 'meeting',
-      title: 'Meeting Now',
-      description: 'Staff meeting starting in 5 minutes - your presence is expected',
-      urgency: 'high',
-      importance: 'medium',
-      icon: '🤝',
-      idealOrder: 3, // Third priority
-      color: 'from-purple-500 to-indigo-500'
-    }
+  const allScenarios = [
+    // Scenario 1: Time Pressure with Personal Emergency
+    [
+      {
+        id: 'report',
+        title: 'Class Report Due',
+        description: 'Quarterly class performance report needs to be submitted by end of day',
+        urgency: 'high',
+        importance: 'high',
+        icon: '📊',
+        idealOrder: 2, // Second priority
+        color: 'from-blue-500 to-cyan-500'
+      },
+      {
+        id: 'child',
+        title: 'Child Sick',
+        description: 'Your child is unwell and needs immediate attention - call from school',
+        urgency: 'critical',
+        importance: 'critical',
+        icon: '🏥',
+        idealOrder: 1, // First priority
+        color: 'from-red-500 to-pink-500'
+      },
+      {
+        id: 'meeting',
+        title: 'Meeting Now',
+        description: 'Staff meeting starting in 5 minutes - your presence is expected',
+        urgency: 'high',
+        importance: 'medium',
+        icon: '🤝',
+        idealOrder: 3, // Third priority
+        color: 'from-purple-500 to-indigo-500'
+      }
+    ],
+    // Scenario 2: Parent Meeting Conflict
+    [
+      {
+        id: 'parent-meeting',
+        title: 'Parent Meeting',
+        description: 'Important parent meeting scheduled for today - concerns about student behavior',
+        urgency: 'high',
+        importance: 'high',
+        icon: '👥',
+        idealOrder: 1, // First priority
+        color: 'from-blue-500 to-cyan-500'
+      },
+      {
+        id: 'admin-task',
+        title: 'Admin Deadline',
+        description: 'Curriculum documentation due to administration today',
+        urgency: 'high',
+        importance: 'medium',
+        icon: '📋',
+        idealOrder: 2, // Second priority
+        color: 'from-purple-500 to-indigo-500'
+      },
+      {
+        id: 'lesson-plan',
+        title: 'Lesson Planning',
+        description: 'Tomorrow\'s lesson plans need finalizing',
+        urgency: 'medium',
+        importance: 'high',
+        icon: '📝',
+        idealOrder: 3, // Third priority
+        color: 'from-green-500 to-emerald-500'
+      }
+    ],
+    // Scenario 3: Student Crisis
+    [
+      {
+        id: 'student-crisis',
+        title: 'Student Crisis',
+        description: 'Student having emotional breakdown during class',
+        urgency: 'critical',
+        importance: 'critical',
+        icon: '😰',
+        idealOrder: 1, // First priority
+        color: 'from-red-500 to-pink-500'
+      },
+      {
+        id: 'grade-submission',
+        title: 'Grade Submission',
+        description: 'Quarterly grades due to office within the hour',
+        urgency: 'high',
+        importance: 'high',
+        icon: '📈',
+        idealOrder: 2, // Second priority
+        color: 'from-blue-500 to-cyan-500'
+      },
+      {
+        id: 'supply-order',
+        title: 'Supply Order',
+        description: 'Urgent supplies needed for tomorrow\'s activity',
+        urgency: 'medium',
+        importance: 'medium',
+        icon: '📦',
+        idealOrder: 3, // Third priority
+        color: 'from-yellow-500 to-orange-500'
+      }
+    ],
+    // Scenario 4: Substitute Teacher Issues
+    [
+      {
+        id: 'substitute',
+        title: 'Substitute Issues',
+        description: 'Substitute teacher reports major classroom disruptions',
+        urgency: 'high',
+        importance: 'high',
+        icon: '🏫',
+        idealOrder: 1, // First priority
+        color: 'from-orange-500 to-red-500'
+      },
+      {
+        id: 'conference',
+        title: 'Conference Prep',
+        description: 'Parent-teacher conferences tomorrow - materials need preparation',
+        urgency: 'medium',
+        importance: 'high',
+        icon: '📅',
+        idealOrder: 2, // Second priority
+        color: 'from-purple-500 to-indigo-500'
+      },
+      {
+        id: 'grading',
+        title: 'Grading Papers',
+        description: 'Essays need grading for tomorrow\'s class discussion',
+        urgency: 'low',
+        importance: 'medium',
+        icon: '✏️',
+        idealOrder: 3, // Third priority
+        color: 'from-green-500 to-teal-500'
+      }
+    ],
+    // Scenario 5: Tech Problems & Safety
+    [
+      {
+        id: 'tech-problem',
+        title: 'Tech Problem',
+        description: 'School-wide technology failure affecting online assessments',
+        urgency: 'critical',
+        importance: 'high',
+        icon: '💻',
+        idealOrder: 1, // First priority
+        color: 'from-red-500 to-pink-500'
+      },
+      {
+        id: 'safety-issue',
+        title: 'Safety Issue',
+        description: 'Potential safety concern reported in hallway',
+        urgency: 'critical',
+        importance: 'critical',
+        icon: '🚨',
+        idealOrder: 2, // Second priority
+        color: 'from-orange-500 to-red-500'
+      },
+      {
+        id: 'budget',
+        title: 'Budget Deadline',
+        description: 'Department budget proposal due today for next year',
+        urgency: 'high',
+        importance: 'medium',
+        icon: '💰',
+        idealOrder: 3, // Third priority
+        color: 'from-yellow-500 to-amber-500'
+      }
+    ]
   ];
+  
+  const tasks = allScenarios[currentQuestion] || allScenarios[0];
 
   // Initialize task order
   React.useEffect(() => {
     if (taskOrder.length === 0) {
       setTaskOrder([...tasks].sort(() => Math.random() - 0.5));
     }
-  }, []);
+  }, [currentQuestion]);
 
   const handleTaskReorder = (index, direction) => {
     if (showOutcome) return;
@@ -89,13 +229,15 @@ const TimePressureSimulation = () => {
       }
     });
 
-    // Determine outcome
-    if (matchScore === 3) {
-      return 'calm'; // Perfect order
-    } else if (matchScore === 2) {
-      return 'calm'; // Good order (child first is most important)
-    } else if (taskOrder[0].id === 'child') {
-      return 'calm'; // Child first is key
+    // Determine outcome based on scenario-specific criteria
+    // For each scenario, prioritize the highest-idealOrder item (most critical) first
+    const highestPriorityFirst = taskOrder[0].idealOrder === 1;
+    
+    // Standard scoring - if at least 2 tasks are in correct position OR most critical task is first
+    if (matchScore >= 2) {
+      return 'calm'; // Good prioritization
+    } else if (highestPriorityFirst) { // Highest priority task first
+      return 'calm'; // Key priority handled first
     } else {
       return 'chaos'; // Poor prioritization
     }
@@ -107,14 +249,34 @@ const TimePressureSimulation = () => {
     const outcome = calculateOutcome();
     setOutcomeType(outcome);
     setShowOutcome(true);
-    if (outcome === 'calm') {
-      setScore(1);
-    }
+    
+    // Update question score
+    const newQuestionScores = [...questionScores];
+    newQuestionScores[currentQuestion] = (outcome === 'calm') ? 1 : 0;
+    setQuestionScores(newQuestionScores);
+    
+    // Update total score
+    const totalScore = newQuestionScores.reduce((sum, val) => sum + val, 0);
+    setScore(totalScore);
   };
 
   const handleComplete = () => {
-    if (reflection.trim().length >= 10) {
+    // Store reflection for current question
+    const reflections = JSON.parse(reflection || "[]");
+    reflections[currentQuestion] = reflections[currentQuestion] || "";
+    
+    if (reflections.filter(r => r && r.trim().length >= 10).length === allScenarios.length) {
+      // All questions completed
       setShowGameOver(true);
+    } else {
+      // Move to next question
+      if (currentQuestion < allScenarios.length - 1) {
+        setCurrentQuestion(currentQuestion + 1);
+        setTaskOrder([...allScenarios[currentQuestion + 1]].sort(() => Math.random() - 0.5));
+        setShowOutcome(false);
+        setReflection(JSON.stringify(reflections));
+        setCompletedQuestions(completedQuestions + 1);
+      }
     }
   };
 
@@ -150,7 +312,7 @@ const TimePressureSimulation = () => {
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={1}
+      currentQuestion={currentQuestion + 0}
     >
       <div className="w-full max-w-5xl mx-auto px-4">
         {!showOutcome ? (
@@ -165,7 +327,7 @@ const TimePressureSimulation = () => {
                   </h2>
                 </div>
                 <p className="text-gray-700 text-lg mb-4">
-                  You're facing multiple urgent demands right now. How will you prioritize?
+                  Scenario {currentQuestion + 1}: You're facing multiple urgent demands right now. How will you prioritize?
                 </p>
                 <div className="bg-white/60 rounded-lg p-4 border border-orange-200">
                   <p className="text-sm text-gray-700">
@@ -353,16 +515,20 @@ const TimePressureSimulation = () => {
                 How might you apply this in real situations? (Minimum 10 characters)
               </p>
               <textarea
-                value={reflection}
-                onChange={(e) => setReflection(e.target.value)}
+                value={JSON.parse(reflection)[currentQuestion] || ""}
+                onChange={(e) => {
+                  const reflections = JSON.parse(reflection || "[]");
+                  reflections[currentQuestion] = e.target.value;
+                  setReflection(JSON.stringify(reflections));
+                }}
                 placeholder="For example: 'I learned that personal emergencies should take priority, even when work feels urgent. This helps me stay calm and make better decisions...'"
                 className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-purple-500 focus:outline-none text-gray-800 min-h-[120px] resize-none"
               />
               <div className="mt-2 flex justify-between items-center">
                 <p className="text-xs text-gray-500">
-                  {reflection.length} characters (minimum 10)
+                  {(JSON.parse(reflection)[currentQuestion] || "").length} characters (minimum 10)
                 </p>
-                {reflection.trim().length < 10 && (
+                {(JSON.parse(reflection)[currentQuestion] || "").trim().length < 10 && (
                   <p className="text-xs text-orange-600">
                     Please write at least 10 characters
                   </p>
@@ -375,10 +541,10 @@ const TimePressureSimulation = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={handleComplete}
-                  disabled={reflection.trim().length < 10}
+                  disabled={(JSON.parse(reflection)[currentQuestion] || "").trim().length < 10}
                   className="bg-gradient-to-r from-green-600 to-emerald-600 text-white px-8 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Complete Simulation
+                  {currentQuestion < allScenarios.length - 1 ? 'Continue to Next Scenario' : 'Complete Simulation'}
                 </motion.button>
               </div>
 

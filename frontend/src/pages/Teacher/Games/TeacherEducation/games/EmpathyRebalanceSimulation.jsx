@@ -14,10 +14,9 @@ const EmpathyRebalanceSimulation = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 3;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [currentDay, setCurrentDay] = useState(0);
-  const [currentIncident, setCurrentIncident] = useState(0);
   const [emotionalEnergy, setEmotionalEnergy] = useState(100); // Start at 100%
   const [selectedActions, setSelectedActions] = useState({}); // { "day-incident": action }
   const [daySummary, setDaySummary] = useState(false);
@@ -25,7 +24,7 @@ const EmpathyRebalanceSimulation = () => {
   const [score, setScore] = useState(0);
   const [dayResults, setDayResults] = useState([]);
 
-  // 3 simulated days with incidents
+  // 5 simulated days with incidents
   const days = [
     {
       id: 1,
@@ -60,9 +59,15 @@ const EmpathyRebalanceSimulation = () => {
               feedback: "Perfect! You listened and supported while recognizing when to refer. This is the healthy empathy model: listen–support–refer. You maintained boundaries while still being helpful."
             }
           }
-        },
+        }
+      ]
+    },
+    {
+      id: 2,
+      day: "Day 2: Wednesday Afternoon",
+      incidents: [
         {
-          id: '1-2',
+          id: '2-1',
           title: "Colleague Overwhelmed",
           description: "During lunch break, a colleague comes to you visibly stressed. They're venting about their workload and personal problems, unloading a lot of emotional weight. They seem to expect you to carry it with them.",
           type: 'colleague',
@@ -94,11 +99,11 @@ const EmpathyRebalanceSimulation = () => {
       ]
     },
     {
-      id: 2,
-      day: "Day 2: Wednesday Afternoon",
+      id: 3,
+      day: "Day 3: Friday End of Week",
       incidents: [
         {
-          id: '2-1',
+          id: '3-1',
           title: "Multiple Students in Distress",
           description: "During your planning period, three different students approach you with problems: one is struggling academically and crying, one has family issues and needs to talk, and one is being bullied. You have limited time before your next class.",
           type: 'student',
@@ -126,21 +131,20 @@ const EmpathyRebalanceSimulation = () => {
               feedback: "Perfect! You followed the healthy empathy model: listen–support–refer. You showed care to each student while recognizing your role and limits. This maintains your energy while ensuring students get appropriate support."
             }
           }
-        },
+        }
+      ]
+    },
+    {
+      id: 4,
+      day: "Day 4: Tuesday Midweek Challenge",
+      incidents: [
         {
-          id: '2-2',
+          id: '4-1',
           title: "Parent Emotional Call",
           description: "A parent calls you after school, very upset and venting about their child's struggles. They're raising their voice, and you can hear the emotional weight in their voice. They seem to expect you to fix everything.",
           type: 'parent',
           correctAction: 'pause', // Best to pause, listen, then redirect
           actions: {
-            stepIn: {
-              label: "Step In",
-              description: "Take on full responsibility and promise to fix everything",
-              energyChange: -28,
-              outcome: "You take on full responsibility for solving their child's problems and promise to fix everything. You hang up feeling overwhelmed and responsible for outcomes you can't control. Your energy drops significantly.",
-              feedback: "Taking on full responsibility drains your energy and sets unrealistic expectations. You can't control or fix everything, and this approach leads to burnout."
-            },
             pause: {
               label: "Pause & Redirect",
               description: "Listen, acknowledge their concerns, then redirect toward collaborative solutions",
@@ -148,6 +152,14 @@ const EmpathyRebalanceSimulation = () => {
               outcome: "You listen attentively, acknowledge their concerns, and then redirect: 'I understand you're concerned. Let's work together to support your child. Let's schedule a meeting to create a plan together.' You maintain boundaries while being supportive.",
               feedback: "Excellent! You paused, listened, and redirected. This shows empathy while maintaining boundaries. You're part of a support system, not the only support. This preserves your energy."
             },
+            stepIn: {
+              label: "Step In",
+              description: "Take on full responsibility and promise to fix everything",
+              energyChange: -28,
+              outcome: "You take on full responsibility for solving their child's problems and promise to fix everything. You hang up feeling overwhelmed and responsible for outcomes you can't control. Your energy drops significantly.",
+              feedback: "Taking on full responsibility drains your energy and sets unrealistic expectations. You can't control or fix everything, and this approach leads to burnout."
+            },
+            
             refer: {
               label: "Refer Immediately",
               description: "Quickly transfer them to the principal without listening",
@@ -160,11 +172,11 @@ const EmpathyRebalanceSimulation = () => {
       ]
     },
     {
-      id: 3,
-      day: "Day 3: Friday End of Week",
+      id: 5,
+      day: "Day 5: Friday Finals Week",
       incidents: [
         {
-          id: '3-1',
+          id: '5-1',
           title: "Student Breaking Down",
           description: "A student breaks down in tears in your classroom during a test. They're overwhelmed by academic pressure and personal stress. Other students are watching, and you need to manage the situation while the test continues.",
           type: 'student',
@@ -192,98 +204,33 @@ const EmpathyRebalanceSimulation = () => {
               feedback: "While referring is important, completely skipping the listen step makes students feel dismissed. The healthy model is listen–support–refer, showing empathy before referring."
             }
           }
-        },
-        {
-          id: '3-2',
-          title: "Colleague Crisis",
-          description: "A colleague comes to you at the end of the day, sharing that they're considering quitting teaching. They're overwhelmed, burned out, and looking to you for support. They're unloading a lot of emotional weight.",
-          type: 'colleague',
-          correctAction: 'pause', // Best to pause, listen, support, then refer
-          actions: {
-            stepIn: {
-              label: "Step In",
-              description: "Take on their crisis and try to solve everything for them",
-              energyChange: -35,
-              outcome: "You take on their entire crisis, trying to solve everything. You leave work feeling their weight and responsibility. Your emotional energy drops dramatically, and you're now carrying their burden too.",
-              feedback: "Taking on someone else's entire crisis drains your energy and isn't sustainable. You can't solve their burnout or make their decisions. Better to listen, support, and refer to professional resources."
-            },
-            pause: {
-              label: "Pause & Support",
-              description: "Listen with empathy, validate their feelings, and offer support while maintaining boundaries",
-              energyChange: -12,
-              outcome: "You listen with empathy, validate their feelings, and offer support: 'I understand this is really hard. Have you considered talking to a counselor or using employee assistance? I'm here to listen, and professional support might help too.' You maintain your boundaries while being supportive.",
-              feedback: "Excellent! You paused, listened, and supported while maintaining boundaries. This is the healthy empathy model. You showed care without taking on their entire crisis. This preserves your energy while being helpful."
-            },
-            refer: {
-              label: "Refer Immediately",
-              description: "Quickly suggest they talk to someone else without listening",
-              energyChange: -5,
-              outcome: "You immediately suggest they talk to someone else. They feel dismissed and unsupported. While you preserved energy, you didn't show empathy when they needed it most.",
-              feedback: "While referring is important, completely skipping the listen step when someone is in crisis can feel dismissive. The healthy model is listen–support–refer, showing empathy first."
-            }
-          }
-        },
-        {
-          id: '3-3',
-          title: "Student Success Moment",
-          description: "A student who has been struggling comes to you excited about finally understanding a difficult concept. They're beaming with pride and want to share their success with you. This is a positive emotional moment.",
-          type: 'student',
-          correctAction: 'stepIn', // This is a positive moment, step in to celebrate!
-          actions: {
-            stepIn: {
-              label: "Step In & Celebrate",
-              description: "Celebrate their success enthusiastically and share in their joy",
-              energyChange: +15,
-              outcome: "You celebrate their success enthusiastically! You share in their joy, and this positive interaction actually boosts your emotional energy. These moments are what fuel sustainable empathy. Your energy increases!",
-              feedback: "Perfect! Positive emotional moments like celebrating student success actually refill your empathy reserves. These are the moments that fuel sustainable compassion. Stepping in here is not draining—it's energizing!"
-            },
-            pause: {
-              label: "Pause Briefly",
-              description: "Acknowledge their success briefly and move on",
-              energyChange: +5,
-              outcome: "You acknowledge their success briefly. While appropriate, you missed an opportunity to fully celebrate with them, which could have boosted both your energies.",
-              feedback: "While it's good to acknowledge, fully celebrating student successes actually refills your empathy reserves. These positive moments are opportunities to fuel sustainable compassion."
-            },
-            refer: {
-              label: "Refer to Someone Else",
-              description: "Tell them to share their success with someone else",
-              energyChange: -5,
-              outcome: "You redirect them to share with someone else. They feel disappointed, and you missed an opportunity to share in a positive moment that could have energized you.",
-              feedback: "This was a positive moment that could have refilled your energy! Celebrating student successes is not draining—it's energizing. These moments fuel sustainable empathy."
-            }
-          }
         }
       ]
     }
   ];
 
   const currentDayData = days[currentDay];
-  const currentIncidentData = currentDayData?.incidents[currentIncident];
+  const currentIncidentData = currentDayData?.incidents[0]; // Always get the first (and only) incident
   const allDaysComplete = currentDay >= days.length;
-  const currentDayComplete = currentIncident >= currentDayData?.incidents.length;
+  const currentDayComplete = true; // Since there's only one incident per day, it's always complete
 
   const handleActionSelect = (action) => {
     const key = `${currentDayData.id}-${currentIncidentData.id}`;
     if (selectedActions[key]) return; // Already answered
-
+  
     const actionData = currentIncidentData.actions[action];
     const newEnergy = Math.max(0, Math.min(100, emotionalEnergy + actionData.energyChange));
-    
+      
     setSelectedActions(prev => ({
       ...prev,
       [key]: action
     }));
-
+  
     setEmotionalEnergy(newEnergy);
-
-    // Move to next incident or day
+  
+    // Since there's only one incident per day, move directly to day summary
     setTimeout(() => {
-      if (currentIncident < currentDayData.incidents.length - 1) {
-        setCurrentIncident(prev => prev + 1);
-      } else {
-        // Day complete
-        setDaySummary(true);
-      }
+      setDaySummary(true);
     }, 2000);
   };
 
@@ -292,28 +239,29 @@ const EmpathyRebalanceSimulation = () => {
     const dayResult = {
       day: currentDayData.day,
       finalEnergy: emotionalEnergy,
-      incidents: currentDayData.incidents.length,
-      actions: currentDayData.incidents.map(incident => {
-        const key = `${currentDayData.id}-${incident.id}`;
-        return {
-          incident: incident.title,
-          action: selectedActions[key] || 'none'
-        };
-      })
+      incidents: 1, // Only 1 incident per day now
+      actions: [{
+        incident: currentIncidentData.title,
+        action: selectedActions[`${currentDayData.id}-${currentIncidentData.id}`] || 'none'
+      }]
     };
     setDayResults([...dayResults, dayResult]);
 
     setDaySummary(false);
     if (currentDay < days.length - 1) {
       setCurrentDay(prev => prev + 1);
-      setCurrentIncident(0);
+      // No need to reset currentIncident since there's only one incident per day
       // Reset energy slightly between days (but carry over most)
       setEmotionalEnergy(prev => Math.min(100, prev + 10)); // Small recovery between days
     } else {
       // All days complete
       setShowGameOver(true);
       // Calculate score based on final energy
-      if (emotionalEnergy >= 60) {
+      if (emotionalEnergy >= 70) {
+        setScore(5);
+      } else if (emotionalEnergy >= 60) {
+        setScore(4);
+      } else if (emotionalEnergy >= 50) {
         setScore(3);
       } else if (emotionalEnergy >= 40) {
         setScore(2);
@@ -348,7 +296,7 @@ const EmpathyRebalanceSimulation = () => {
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={currentDay + 1}
+      currentQuestion={showGameOver ? totalLevels : currentDay + 0}
     >
       <div className="w-full max-w-5xl mx-auto px-4">
         {!allDaysComplete && !daySummary && (
@@ -359,7 +307,7 @@ const EmpathyRebalanceSimulation = () => {
                 {currentDayData.day}
               </h2>
               <p className="text-gray-600">
-                Incident {currentIncident + 1} of {currentDayData.incidents.length}
+                Incident 1 of 1
               </p>
             </div>
 
@@ -586,7 +534,7 @@ const EmpathyRebalanceSimulation = () => {
               transition={{ type: "spring", stiffness: 200, damping: 10 }}
               className="text-6xl mb-6"
             >
-              {emotionalEnergy >= 60 ? '🎉' : emotionalEnergy >= 40 ? '✨' : '💪'}
+              {emotionalEnergy >= 70 ? '🎉' : emotionalEnergy >= 50 ? '✨' : '💪'}
             </motion.div>
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
               Simulation Complete!
@@ -605,10 +553,14 @@ const EmpathyRebalanceSimulation = () => {
                 />
               </div>
               <p className="text-gray-700 text-lg">
-                {emotionalEnergy >= 60
+                {emotionalEnergy >= 70
                   ? "Excellent! You've successfully managed your compassion while maintaining your emotional energy. You're practicing sustainable empathy!"
-                  : emotionalEnergy >= 40
+                  : emotionalEnergy >= 60
+                  ? "Great job! You maintained good energy throughout the simulation. Keep practicing the listen–support–refer model to preserve your capacity."
+                  : emotionalEnergy >= 50
                   ? "Good effort! You maintained moderate energy throughout the simulation. Keep practicing the listen–support–refer model to preserve your capacity."
+                  : emotionalEnergy >= 40
+                  ? "Fair effort. Your energy dropped during the simulation. Practice the listen–support–refer model to better preserve your capacity."
                   : "You completed the simulation! Your energy is low, which shows the importance of the listen–support–refer model. Remember: you can be caring while maintaining boundaries."}
               </p>
             </div>
@@ -622,8 +574,8 @@ const EmpathyRebalanceSimulation = () => {
                     <div className="flex justify-between items-center mb-2">
                       <h4 className="font-semibold text-gray-800">{result.day}</h4>
                       <span className={`font-bold ${
-                        result.finalEnergy >= 60 ? 'text-green-600' : 
-                        result.finalEnergy >= 40 ? 'text-yellow-600' : 'text-red-600'
+                        result.finalEnergy >= 70 ? 'text-green-600' : 
+                        result.finalEnergy >= 50 ? 'text-yellow-600' : 'text-red-600'
                       }`}>
                         {Math.round(result.finalEnergy)}% Energy
                       </span>

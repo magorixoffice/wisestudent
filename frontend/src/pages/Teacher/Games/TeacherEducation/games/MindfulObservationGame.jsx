@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import TeacherGameShell from "../../TeacherGameShell";
 import { getTeacherEducationGameById } from "../data/gameData";
-import { Eye, CheckCircle, Circle, Target, Sparkles, GraduationCap } from "lucide-react";
+import { Eye, CheckCircle, AlertCircle, Target, Sparkles, GraduationCap } from "lucide-react";
 
 const MindfulObservationGame = () => {
   const location = useLocation();
@@ -14,77 +14,176 @@ const MindfulObservationGame = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 1;
+  const totalLevels = gameData?.totalQuestions || 5;
   
-  const [foundDifferences, setFoundDifferences] = useState([]);
-  const [selectedReflection, setSelectedReflection] = useState(null);
-  const [showReflection, setShowReflection] = useState(false);
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [selectedAnswers, setSelectedAnswers] = useState({});
+  const [showFeedback, setShowFeedback] = useState(false);
   const [score, setScore] = useState(0);
   const [showGameOver, setShowGameOver] = useState(false);
 
-  // Define 8 differences in the classroom (positions are relative percentages)
-  const differences = [
-    { id: 1, x: 20, y: 15, description: "Whiteboard text changed", found: false },
-    { id: 2, x: 75, y: 20, description: "Poster on bulletin board", found: false },
-    { id: 3, x: 45, y: 35, description: "Student artwork added", found: false },
-    { id: 4, x: 15, y: 55, description: "Desk arrangement shifted", found: false },
-    { id: 5, x: 80, y: 60, description: "Window blinds position", found: false },
-    { id: 6, x: 50, y: 70, description: "Book on teacher's desk", found: false },
-    { id: 7, x: 30, y: 80, description: "Calendar date changed", found: false },
-    { id: 8, x: 85, y: 85, description: "Plant position moved", found: false }
+  // Quiz questions with 3 options each
+  const questions = [
+    {
+      id: 1,
+      title: "Mindful Classroom Observation",
+      question: "You notice a student frequently looking out the window during lessons. What is the most mindful observation approach?",
+      options: [
+        
+        {
+          id: 'b',
+          text: "Immediately redirect the student and scold them for distraction",
+          explanation: "This reactive approach doesn't involve mindful observation. It's more about immediate correction than understanding."
+        },
+        {
+          id: 'c',
+          text: "Ignore it completely to avoid micromanaging",
+          explanation: "Avoiding observation altogether doesn't help you understand your students' needs or improve your teaching environment."
+        },
+        {
+          id: 'a',
+          text: "Observe without judgment, noting patterns in timing and frequency",
+          explanation: "Correct! Mindful observation involves noticing patterns without jumping to conclusions. This helps you understand the student's behavior in context."
+        },
+      ],
+      correctAnswer: 'a'
+    },
+    {
+      id: 2,
+      title: "Environmental Awareness",
+      question: "You enter your classroom and notice the lighting seems dimmer than usual. Your mindful response is?",
+      options: [
+       
+        {
+          id: 'b',
+          text: "Change the lighting immediately without considering why it's different",
+          explanation: "Acting without mindfulness may not address the root cause or consider student needs."
+        },
+         {
+          id: 'a',
+          text: "Notice the change without immediate action, considering its impact on students",
+          explanation: "Excellent! Mindful awareness means noticing changes and considering their effects without rushing to fix everything."
+        },
+        {
+          id: 'c',
+          text: "Blame the facilities team without further thought",
+          explanation: "This reaction lacks mindful observation and jumps to assigning blame instead of understanding."
+        }
+      ],
+      correctAnswer: 'a'
+    },
+    {
+      id: 3,
+      title: "Student Interaction Patterns",
+      question: "You observe that two students consistently sit together and seem to support each other academically. What does mindful observation suggest?",
+      options: [
+        {
+          id: 'a',
+          text: "Acknowledge the positive peer support and consider how to foster it",
+          explanation: "Great! Mindful observation recognizes beneficial patterns and considers how to enhance positive dynamics."
+        },
+        {
+          id: 'b',
+          text: "Separate them immediately to prevent cheating",
+          explanation: "This reactive approach assumes negative intent without mindful consideration of the actual situation."
+        },
+        {
+          id: 'c',
+          text: "Don't pay attention to seating arrangements",
+          explanation: "Ignoring classroom dynamics means missing opportunities to support positive student interactions."
+        }
+      ],
+      correctAnswer: 'a'
+    },
+    {
+      id: 4,
+      title: "Emotional Climate Awareness",
+      question: "During a lesson, you notice several students appear restless and disengaged. Your mindful observation focuses on?",
+      options: [
+        
+        {
+          id: 'b',
+          text: "Increasing the pace to capture their attention",
+          explanation: "This reaction doesn't involve mindful observation of the situation before responding."
+        },
+        {
+          id: 'c',
+          text: "Assigning more work to keep them busy",
+          explanation: "Adding work without understanding the cause doesn't involve mindful observation of student needs."
+        },
+        {
+          id: 'a',
+          text: "Noticing the emotional climate while reflecting on possible causes",
+          explanation: "Perfect! Mindful observation includes awareness of emotional dynamics and reflection on contributing factors."
+        },
+      ],
+      correctAnswer: 'a'
+    },
+    {
+      id: 5,
+      title: "Self-Awareness During Teaching",
+      question: "While teaching, you realize you're feeling impatient with slower students. What does mindful observation suggest?",
+      options: [
+        {
+          id: 'a',
+          text: "Notice your impatience without judgment and adjust your approach",
+          explanation: "Excellent! Mindful self-observation involves recognizing your emotional state and consciously adjusting your response."
+        },
+        {
+          id: 'b',
+          text: "Push through the lesson as planned regardless of your feelings",
+          explanation: "Ignoring your emotional state doesn't involve mindful awareness of how it might affect your teaching."
+        },
+        {
+          id: 'c',
+          text: "Show your impatience so students know you expect more",
+          explanation: "Expressing impatience doesn't demonstrate mindful self-awareness or professional emotional regulation."
+        }
+      ],
+      correctAnswer: 'a'
+    }
   ];
 
-  const allFound = foundDifferences.length >= 8;
+  // Response options styling
+  const responseOptions = [
+    { id: 'a', label: 'Option A', icon: GraduationCap, color: 'from-blue-500 to-cyan-500', bgColor: 'from-blue-50 to-cyan-50', borderColor: 'border-blue-300', textColor: 'text-blue-800' },
+    { id: 'b', label: 'Option B', icon: Target, color: 'from-orange-500 to-red-500', bgColor: 'from-orange-50 to-red-50', borderColor: 'border-orange-300', textColor: 'text-orange-800' },
+    { id: 'c', label: 'Option C', icon: Eye, color: 'from-gray-500 to-slate-500', bgColor: 'from-gray-50 to-slate-50', borderColor: 'border-gray-300', textColor: 'text-gray-800' }
+  ];
 
-  // Handle clicking on a difference area
-  const handleDifferenceClick = (differenceId) => {
-    // Check if already found
-    const alreadyFound = foundDifferences.some(d => d.id === differenceId);
-    if (alreadyFound) return;
+  const handleAnswerSelect = (answerId) => {
+    if (selectedAnswers[currentQuestion]) return; // Already answered
 
-    // Mark as found
-    const newFound = {
-      id: differenceId,
-      timestamp: Date.now()
-    };
-    setFoundDifferences(prev => [...prev, newFound]);
-    setScore(prev => prev + 1);
+    const currentQ = questions[currentQuestion];
+    const isCorrect = answerId === currentQ.correctAnswer;
+    
+    setSelectedAnswers(prev => ({
+      ...prev,
+      [currentQuestion]: answerId
+    }));
 
-    // If all 8 found, show reflection after a delay
-    if (foundDifferences.length === 7) {
-      setTimeout(() => {
-        setShowReflection(true);
-      }, 1000);
+    if (isCorrect) {
+      setScore(prev => prev + 1);
     }
+
+    setShowFeedback(true);
   };
 
-  // Handle reflection selection
-  const handleReflectionSelect = (reflectionId) => {
-    setSelectedReflection(reflectionId);
-    setTimeout(() => {
+  const handleNext = () => {
+    setShowFeedback(false);
+    if (currentQuestion < totalLevels - 1) {
+      setCurrentQuestion(prev => prev + 1);
+    } else {
       setShowGameOver(true);
-    }, 2000);
+    }
   };
 
-  const attentionReflections = [
-    {
-      id: 'strong',
-      text: "I maintained calm, focused attention throughout. My mind stayed present and observant, noticing details mindfully.",
-      insight: "Excellent! You demonstrated strong mindful awareness. This focused observation strengthens your ability to notice subtle details in your classroom and with your students."
-    },
-    {
-      id: 'moderate',
-      text: "I found most differences but noticed my attention wavering at times. Some moments were more focused than others.",
-      insight: "Good practice! You noticed when your attention shifted. This awareness is valuable—recognizing when focus wavers and returning to observation is exactly the skill being strengthened."
-    },
-    {
-      id: 'distracted',
-      text: "I found the differences but felt distracted and rushed. I wasn't fully present during the observation.",
-      insight: "You still found the differences, which shows your observation skills work even when you're not fully present. With practice, you can develop greater ease in maintaining mindful attention."
-    }
-  ];
-
-  const selectedReflectionData = attentionReflections.find(r => r.id === selectedReflection);
+  const currentQ = questions[currentQuestion];
+  const selected = selectedAnswers[currentQuestion];
+  const progress = ((currentQuestion + 1) / totalLevels) * 100;
+  const isCorrect = selected === currentQ.correctAnswer;
+  const feedback = selected ? currentQ.options.find(opt => opt.id === selected) : null;
+  const selectedOption = responseOptions.find(opt => opt.id === selected);
 
   return (
     <TeacherGameShell
@@ -96,296 +195,132 @@ const MindfulObservationGame = () => {
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={1}
+      currentQuestion={currentQuestion + 0}
     >
-      <div className="w-full max-w-6xl mx-auto px-4">
+      <div className="w-full max-w-4xl mx-auto px-4">
         {!showGameOver && (
           <div className="bg-white rounded-2xl shadow-lg p-8">
-            {/* Instructions */}
+            {/* Progress Bar */}
             <div className="mb-6">
-              <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6 border-2 border-indigo-200 mb-4">
-                <div className="flex items-center gap-3 mb-3">
-                  <Eye className="w-8 h-8 text-indigo-600" />
-                  <h2 className="text-2xl font-bold text-gray-800">
-                    Classroom Observation Challenge
-                  </h2>
-                </div>
-                <p className="text-gray-700 mb-2">
-                  Compare two classroom scenes. Find 8 subtle differences by observing mindfully and calmly.
-                </p>
-                <p className="text-sm text-gray-600 italic">
-                  Take your time. Notice details. Practice "slow looking" to strengthen your awareness.
-                </p>
+              <div className="flex justify-between text-sm text-gray-600 mb-2">
+                <span>Question {currentQuestion + 1} of {totalLevels}</span>
+                <span>{Math.round(progress)}% Complete</span>
               </div>
-
-              {/* Progress */}
-              <div className="mb-6">
-                <div className="flex justify-between text-sm text-gray-600 mb-2">
-                  <span>Differences Found: {foundDifferences.length} / 8</span>
-                  <span className="font-semibold">
-                    {foundDifferences.length >= 8 ? 'Complete!' : 'Keep Observing'}
-                  </span>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-3">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    animate={{ width: `${(foundDifferences.length / 8) * 100}%` }}
-                    className="bg-gradient-to-r from-indigo-500 to-purple-500 h-3 rounded-full"
-                  />
-                </div>
+              <div className="w-full bg-gray-200 rounded-full h-3">
+                <motion.div
+                  initial={{ width: 0 }}
+                  animate={{ width: `${progress}%` }}
+                  className="bg-gradient-to-r from-indigo-500 to-purple-500 h-3 rounded-full"
+                />
               </div>
             </div>
 
-            {!allFound && !showReflection && (
-              <>
-                {/* Instruction Banner */}
-                <div className="bg-amber-50 border-2 border-amber-200 rounded-lg p-4 mb-6">
-                  <p className="text-sm text-amber-800 flex items-center gap-2">
-                    <Target className="w-5 h-5" />
-                    <span><strong>Instructions:</strong> Compare the two classroom scenes side-by-side. Click on areas where you notice differences. Observe mindfully and take your time. Notice the small details.</span>
-                  </p>
-                </div>
+            {/* Question */}
+            <div className="mb-6">
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">{currentQ.title}</h2>
+              <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6 border-2 border-indigo-200">
+                <p className="text-gray-700 leading-relaxed text-lg">
+                  {currentQ.question}
+                </p>
+              </div>
+            </div>
 
-                {/* Two side-by-side classroom scenes */}
-                <div className="grid md:grid-cols-2 gap-6 mb-6">
-                  {/* Classroom Scene A */}
-                  <div className="relative bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-4 border-2 border-blue-200">
-                    <h4 className="text-center font-semibold text-gray-700 mb-4 flex items-center justify-center gap-2">
-                      <GraduationCap className="w-5 h-5" />
-                      Classroom A
-                    </h4>
-                    <div className="relative bg-white rounded-lg h-96 border-2 border-gray-300 overflow-hidden">
-                      {/* Visual representation of a classroom using CSS */}
-                      <div className="relative w-full h-full bg-gradient-to-b from-sky-100 to-white">
-                        {/* Whiteboard (top center) */}
-                        <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-3/4 h-16 bg-green-100 border-2 border-green-400 rounded">
-                          <div className="absolute top-2 left-4 w-20 h-2 bg-gray-600 rounded"></div>
-                          <div className="absolute top-4 left-4 w-16 h-2 bg-gray-400 rounded"></div>
+            {!showFeedback ? (
+              /* Answer Options */
+              <div className="space-y-4 mb-6">
+                {responseOptions.map((option) => {
+                  const questionOption = currentQ.options.find(opt => opt.id === option.id);
+                  const Icon = option.icon;
+                  return (
+                    <motion.button
+                      key={option.id}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      onClick={() => handleAnswerSelect(option.id)}
+                      disabled={!!selected}
+                      className={`w-full p-5 rounded-xl border-2 ${option.borderColor} bg-gradient-to-r ${option.bgColor} hover:shadow-md transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed`}
+                    >
+                      <div className="flex items-center gap-4">
+                        <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${option.color} flex items-center justify-center flex-shrink-0`}>
+                          <Icon className="w-6 h-6 text-white" />
                         </div>
-                        
-                        {/* Bulletin Board (top right) */}
-                        <div className="absolute top-6 right-6 w-20 h-24 bg-yellow-50 border-2 border-yellow-300 rounded">
-                          <div className="absolute top-2 left-2 w-12 h-8 bg-blue-100 border border-blue-300 rounded"></div>
+                        <div>
+                          <h3 className={`text-xl font-bold mb-1 ${option.textColor}`}>
+                            {option.label}
+                          </h3>
+                          <p className={`text-sm ${option.textColor} opacity-80`}>
+                            {questionOption?.text}
+                          </p>
                         </div>
-                        
-                        {/* Student Artwork (center right) */}
-                        <div className="absolute top-32 right-8 w-16 h-20 bg-white border border-gray-400 rounded shadow"></div>
-                        
-                        {/* Desk (center left) */}
-                        <div className="absolute top-40 left-8 w-12 h-8 bg-brown-300 border border-brown-500 rounded"></div>
-                        
-                        {/* Window (right side) */}
-                        <div className="absolute top-20 right-4 w-16 h-24 bg-blue-200 border-2 border-blue-400 rounded">
-                          <div className="absolute top-2 left-2 w-12 h-2 bg-blue-300 rounded"></div>
-                          <div className="absolute top-4 left-2 w-12 h-2 bg-blue-300 rounded"></div>
-                        </div>
-                        <div className="absolute top-24 right-8 w-2 h-20 bg-gray-500"></div>
-                        
-                        {/* Teacher's Desk (bottom left) */}
-                        <div className="absolute bottom-16 left-6 w-20 h-12 bg-brown-400 border border-brown-600 rounded"></div>
-                        
-                        {/* Calendar (bottom left corner) */}
-                        <div className="absolute bottom-12 left-10 w-10 h-12 bg-white border border-gray-400 rounded shadow">
-                          <div className="absolute top-1 left-1/2 transform -translate-x-1/2 w-6 h-1 bg-red-300 rounded"></div>
-                          <div className="absolute top-3 left-2 w-6 h-4 bg-gray-100 rounded text-xs">15</div>
-                        </div>
-                        
-                        {/* Plant (bottom right) */}
-                        <div className="absolute bottom-8 right-12 w-6 h-8 bg-green-400 rounded-full"></div>
+                      </div>
+                    </motion.button>
+                  );
+                })}
+              </div>
+            ) : (
+              /* Feedback */
+              <AnimatePresence>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  className={`mb-6 rounded-xl p-6 border-2 ${
+                    isCorrect
+                      ? 'bg-gradient-to-br from-green-50 to-emerald-50 border-green-300'
+                      : 'bg-gradient-to-br from-orange-50 to-red-50 border-orange-300'
+                  }`}
+                >
+                  <div className="flex items-start gap-4 mb-4">
+                    {isCorrect ? (
+                      <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
+                    ) : (
+                      <AlertCircle className="w-8 h-8 text-orange-600 flex-shrink-0 mt-1" />
+                    )}
+                    <div className="flex-1">
+                      <div className="flex items-center gap-3 mb-3">
+                        <h3 className={`text-2xl font-bold ${
+                          isCorrect ? 'text-green-800' : 'text-orange-800'
+                        }`}>
+                          {feedback?.text}
+                        </h3>
+                        {selectedOption && (
+                          <div className={`w-8 h-8 rounded-full bg-gradient-to-r ${selectedOption.color} flex items-center justify-center`}>
+                            {React.createElement(selectedOption.icon, { className: "w-5 h-5 text-white" })}
+                          </div>
+                        )}
+                      </div>
+                      <div className={`bg-white rounded-lg p-4 border-l-4 ${
+                        isCorrect ? 'border-green-500' : 'border-orange-500'
+                      }`}>
+                        <p className={`font-semibold mb-2 ${
+                          isCorrect ? 'text-green-800' : 'text-orange-800'
+                        }`}>
+                          💡 Explanation:
+                        </p>
+                        <p className={`${
+                          isCorrect ? 'text-green-700' : 'text-orange-700'
+                        }`}>
+                          {feedback?.explanation}
+                        </p>
                       </div>
                     </div>
                   </div>
+                </motion.div>
 
-                  {/* Classroom Scene B (with differences) */}
-                  <div className="relative bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-4 border-2 border-purple-200">
-                    <h4 className="text-center font-semibold text-gray-700 mb-4 flex items-center justify-center gap-2">
-                      <GraduationCap className="w-5 h-5" />
-                      Classroom B
-                    </h4>
-                    <div className="relative bg-white rounded-lg h-96 border-2 border-gray-300 overflow-hidden">
-                      {/* Visual representation with subtle differences */}
-                      <div className="relative w-full h-full bg-gradient-to-b from-sky-100 to-white">
-                        {/* Whiteboard - DIFFERENCE 1: Different text (longer line) */}
-                        <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-3/4 h-16 bg-green-100 border-2 border-green-400 rounded">
-                          <div className="absolute top-2 left-4 w-28 h-2 bg-gray-600 rounded"></div>
-                          <div className="absolute top-4 left-4 w-20 h-2 bg-gray-400 rounded"></div>
-                        </div>
-                        
-                        {/* Bulletin Board - DIFFERENCE 2: Poster added (extra element) */}
-                        <div className="absolute top-6 right-6 w-20 h-24 bg-yellow-50 border-2 border-yellow-300 rounded">
-                          <div className="absolute top-2 left-2 w-12 h-8 bg-blue-100 border border-blue-300 rounded"></div>
-                          <div className="absolute top-12 left-2 w-10 h-6 bg-red-100 border border-red-300 rounded"></div>
-                        </div>
-                        
-                        {/* Student Artwork - DIFFERENCE 3: Additional artwork (taller) */}
-                        <div className="absolute top-32 right-8 w-16 h-24 bg-white border border-gray-400 rounded shadow"></div>
-                        
-                        {/* Desk - DIFFERENCE 4: Different arrangement (moved right) */}
-                        <div className="absolute top-40 left-12 w-12 h-8 bg-brown-300 border border-brown-500 rounded"></div>
-                        
-                        {/* Window - DIFFERENCE 5: Blinds position changed (higher) */}
-                        <div className="absolute top-16 right-4 w-16 h-24 bg-blue-200 border-2 border-blue-400 rounded">
-                          <div className="absolute top-1 left-2 w-12 h-2 bg-blue-300 rounded"></div>
-                          <div className="absolute top-3 left-2 w-12 h-2 bg-blue-300 rounded"></div>
-                        </div>
-                        <div className="absolute top-20 right-8 w-2 h-20 bg-gray-500"></div>
-                        
-                        {/* Teacher's Desk - DIFFERENCE 6: Book added */}
-                        <div className="absolute bottom-16 left-6 w-20 h-12 bg-brown-400 border border-brown-600 rounded">
-                          <div className="absolute top-2 left-2 w-6 h-8 bg-blue-200 border border-blue-400 rounded"></div>
-                        </div>
-                        
-                        {/* Calendar - DIFFERENCE 7: Date changed (different number) */}
-                        <div className="absolute bottom-12 left-10 w-10 h-12 bg-white border border-gray-400 rounded shadow">
-                          <div className="absolute top-1 left-1/2 transform -translate-x-1/2 w-6 h-1 bg-red-300 rounded"></div>
-                          <div className="absolute top-3 left-2 w-6 h-4 bg-gray-100 rounded text-xs">22</div>
-                        </div>
-                        
-                        {/* Plant - DIFFERENCE 8: Position moved (different location) */}
-                        <div className="absolute bottom-12 right-8 w-6 h-8 bg-green-400 rounded-full"></div>
-                      </div>
-
-                      {/* Clickable difference areas */}
-                      {differences.map((diff) => {
-                        const isFound = foundDifferences.some(d => d.id === diff.id);
-                        return (
-                          <motion.button
-                            key={diff.id}
-                            whileHover={!isFound ? { scale: 1.2 } : {}}
-                            whileTap={!isFound ? { scale: 0.9 } : {}}
-                            onClick={() => !isFound && handleDifferenceClick(diff.id)}
-                            disabled={isFound}
-                            className={`absolute rounded-full border-2 transition-all flex items-center justify-center ${
-                              isFound
-                                ? 'bg-green-500 border-green-600 opacity-70 cursor-not-allowed'
-                                : 'bg-red-500 border-red-600 opacity-0 hover:opacity-40 cursor-pointer'
-                            }`}
-                            style={{
-                              left: `${diff.x}%`,
-                              top: `${diff.y}%`,
-                              width: '32px',
-                              height: '32px',
-                              transform: 'translate(-50%, -50%)'
-                            }}
-                            title={isFound ? `Found: ${diff.description}` : `Click if you see a difference here`}
-                          >
-                            {isFound ? (
-                              <CheckCircle className="w-6 h-6 text-white" />
-                            ) : (
-                              <Circle className="w-4 h-4 text-white opacity-0" />
-                            )}
-                          </motion.button>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Found differences list */}
-                {foundDifferences.length > 0 && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200 rounded-lg p-4 mb-6"
+                {/* Next Button */}
+                <div className="flex justify-end">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={handleNext}
+                    className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-8 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all"
                   >
-                    <h4 className="font-semibold text-green-800 mb-3 flex items-center gap-2">
-                      <CheckCircle className="w-5 h-5" />
-                      Differences Found ({foundDifferences.length} / 8):
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {foundDifferences.map((found) => {
-                        const diff = differences.find(d => d.id === found.id);
-                        return (
-                          <span key={found.id} className="bg-green-200 text-green-800 px-3 py-1 rounded-full text-sm flex items-center gap-1 font-medium">
-                            <CheckCircle className="w-4 h-4" />
-                            {diff?.description}
-                          </span>
-                        );
-                      })}
-                    </div>
-                  </motion.div>
-                )}
-
-                {/* Hint for remaining differences */}
-                {foundDifferences.length > 0 && foundDifferences.length < 8 && (
-                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 text-center">
-                    <p className="text-sm text-blue-800">
-                      💡 {8 - foundDifferences.length} difference{8 - foundDifferences.length !== 1 ? 's' : ''} remaining. Take your time and observe mindfully.
-                    </p>
-                  </div>
-                )}
-              </>
-            )}
-
-            {allFound && !showReflection && (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-8 border-2 border-green-300 text-center mb-6"
-              >
-                <div className="text-6xl mb-4">🎉</div>
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">All 8 Differences Found!</h3>
-                <p className="text-gray-700 mb-2">
-                  Excellent mindful observation! You noticed subtle details by staying present and attentive.
-                </p>
-                <p className="text-sm text-gray-600">
-                  Now let's reflect on your attention and awareness during this exercise.
-                </p>
-              </motion.div>
-            )}
-
-            {showReflection && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="space-y-6"
-              >
-                <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6 border-2 border-indigo-200">
-                  <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
-                    <Sparkles className="w-6 h-6 text-indigo-600" />
-                    Reflection on Your Attention
-                  </h3>
-                  <p className="text-gray-700 mb-6">
-                    How would you describe your attention and awareness while finding the differences? Consider your focus, presence, and how mindfully you observed.
-                  </p>
-                  <div className="space-y-3">
-                    {attentionReflections.map((reflection, index) => (
-                      <motion.button
-                        key={reflection.id}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: index * 0.1 }}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        onClick={() => handleReflectionSelect(reflection.id)}
-                        className={`w-full text-left p-4 rounded-xl border-2 transition-all ${
-                          selectedReflection === reflection.id
-                            ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white border-indigo-600 shadow-lg'
-                            : 'bg-white border-gray-300 text-gray-700 hover:border-indigo-400 hover:shadow-md'
-                        }`}
-                      >
-                        <p className="font-medium">{reflection.text}</p>
-                      </motion.button>
-                    ))}
-                  </div>
+                    {currentQuestion < totalLevels - 1 ? 'Next Question' : 'Finish Game'}
+                  </motion.button>
                 </div>
-
-                {selectedReflection && selectedReflectionData && (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-lg p-4"
-                  >
-                    <p className="text-sm text-blue-800 font-medium mb-2">
-                      💡 Insight:
-                    </p>
-                    <p className="text-sm text-blue-900">
-                      {selectedReflectionData.insight}
-                    </p>
-                  </motion.div>
-                )}
-              </motion.div>
+              </AnimatePresence>
             )}
+
           </div>
         )}
 
@@ -397,71 +332,40 @@ const MindfulObservationGame = () => {
               transition={{ type: "spring", stiffness: 200, damping: 10 }}
               className="text-6xl mb-6"
             >
-              👁️
+              {score === totalLevels ? '🎉' : score >= Math.ceil(totalLevels * 0.8) ? '✨' : score >= Math.ceil(totalLevels * 0.6) ? '💪' : '📚'}
             </motion.div>
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
-              Observation Complete!
+              Mindful Observation Complete!
             </h2>
+            <p className="text-xl text-gray-600 mb-6">
+              You scored {score} out of {totalLevels} correctly
+            </p>
             <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6 border-2 border-indigo-200 mb-6">
-              <p className="text-gray-700 text-lg leading-relaxed mb-4">
-                You found all {foundDifferences.length} differences through mindful observation!
-              </p>
-              <p className="text-gray-600">
-                By practicing careful, present-moment observation, you've strengthened your ability to notice subtle details in your environment. This awareness skill enhances your teaching practice.
+              <p className="text-gray-700 text-lg leading-relaxed">
+                {score === totalLevels
+                  ? "Perfect! You have a strong understanding of mindful observation techniques. Your awareness of classroom dynamics and student needs is excellent."
+                  : score >= Math.ceil(totalLevels * 0.8)
+                  ? "Excellent! You're developing strong mindful observation skills. Keep practicing these awareness techniques to enhance your teaching effectiveness."
+                  : score >= Math.ceil(totalLevels * 0.6)
+                  ? "Good effort! Mindful observation takes practice. Continue to develop your awareness of classroom environments and student behaviors."
+                  : "Keep learning! Mindful observation is a valuable skill that helps you better understand your classroom environment and student needs. Practice will strengthen these abilities."}
               </p>
             </div>
 
-            {/* Summary */}
+            {/* Score Summary */}
             <div className="bg-gray-50 rounded-xl p-6 border-2 border-gray-200 mb-6">
               <h3 className="text-xl font-semibold text-gray-800 mb-4">
-                Your Observation Summary:
+                Your Performance:
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left max-w-2xl mx-auto">
                 <div className="bg-white rounded-lg p-4 border border-gray-300">
-                  <p className="text-sm text-gray-600 mb-1">Differences Found</p>
-                  <p className="text-2xl font-bold text-indigo-600">{foundDifferences.length} / 8</p>
+                  <p className="text-sm text-gray-600 mb-1">Questions Answered</p>
+                  <p className="text-2xl font-bold text-indigo-600">{totalLevels}</p>
                 </div>
                 <div className="bg-white rounded-lg p-4 border border-gray-300">
-                  <p className="text-sm text-gray-600 mb-1">Attention Level</p>
-                  <p className="text-lg font-semibold text-gray-800">
-                    {selectedReflection === 'strong' ? 'Strong & Present' :
-                     selectedReflection === 'moderate' ? 'Moderate' :
-                     selectedReflection === 'distracted' ? 'Learning to Focus' : '—'}
-                  </p>
+                  <p className="text-sm text-gray-600 mb-1">Correct Answers</p>
+                  <p className="text-2xl font-bold text-green-600">{score}</p>
                 </div>
-              </div>
-            </div>
-
-            {/* Found Differences List */}
-            <div className="bg-white rounded-xl p-6 border-2 border-gray-200 mb-6 text-left">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4 text-center">
-                All Differences You Found:
-              </h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                {differences.map((diff) => {
-                  const isFound = foundDifferences.some(d => d.id === diff.id);
-                  return (
-                    <div
-                      key={diff.id}
-                      className={`p-3 rounded-lg border-2 flex items-center gap-2 ${
-                        isFound
-                          ? 'bg-green-50 border-green-300'
-                          : 'bg-gray-50 border-gray-300 opacity-50'
-                      }`}
-                    >
-                      {isFound ? (
-                        <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
-                      ) : (
-                        <Circle className="w-4 h-4 text-gray-400 flex-shrink-0" />
-                      )}
-                      <span className={`text-xs font-medium ${
-                        isFound ? 'text-green-800' : 'text-gray-500'
-                      }`}>
-                        {diff.description}
-                      </span>
-                    </div>
-                  );
-                })}
               </div>
             </div>
 
@@ -474,7 +378,7 @@ const MindfulObservationGame = () => {
                     💡 Teacher Tip:
                   </p>
                   <p className="text-sm text-amber-800 leading-relaxed">
-                    Use "slow looking" as classroom mindfulness practice too. "Slow looking" is the practice of taking extended time to observe something carefully, noticing details, patterns, and subtle changes. You can incorporate this into your classroom as a mindfulness exercise. Try "Slow Looking Monday" where students spend 5 minutes observing a natural object, artwork, or photograph and share what they notice. Or use it as a transition activity—before starting a lesson, have students spend 30 seconds mindfully observing something in the classroom. This practice builds students' attention skills, reduces stress, and creates a calmer classroom atmosphere. You can also use slow looking yourself during planning periods—spending a few minutes observing your classroom environment mindfully can help you notice what's working, what needs adjustment, and how students are experiencing the space. The skill of mindful observation strengthens your ability to notice student needs, classroom dynamics, and subtle cues that inform effective teaching.
+                    Practice "slow looking" as a daily classroom mindfulness routine. Spend 30 seconds each morning observing your classroom environment mindfully before students arrive. Notice the lighting, temperature, arrangement, and your own emotional state. This practice strengthens your observational skills and helps you be more present with your students. You can also incorporate brief mindful observation moments during transitions—have students spend 30 seconds observing a plant, picture, or interesting object to develop their attention skills. Regular mindful observation practice enhances everyone's ability to notice details, regulate attention, and create a calmer learning environment.
                   </p>
                 </div>
               </div>

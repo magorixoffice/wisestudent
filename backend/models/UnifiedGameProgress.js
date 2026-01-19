@@ -13,12 +13,12 @@ const unifiedGameProgressSchema = new mongoose.Schema(
     },
     gameType: {
       type: String,
-      enum: ['ai', 'brain', 'finance', 'mental', 'financial', 'educational', 'uvls', 'dcos', 'moral', 'ehe', 'crgc', 'civic-responsibility', 'health-male', 'health-female', 'sustainability', 'parent-education'],
+      enum: ['ai', 'brain', 'finance', 'mental', 'financial', 'educational', 'uvls', 'dcos', 'moral', 'ehe', 'crgc', 'civic-responsibility', 'health-male', 'health-female', 'sustainability', 'parent-education', 'teacher-education'],
       required: true
     },
     userRole: {
       type: String,
-      enum: ['student', 'parent'],
+      enum: ['student', 'parent', 'school_teacher'],
       default: 'student' // Default to student for backward compatibility
     },
     // Progress tracking

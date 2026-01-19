@@ -14,18 +14,53 @@ const MirrorMomentSimulation = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 1;
+  const totalLevels = gameData?.totalQuestions || 5;
   
-  const [currentSession, setCurrentSession] = useState(0);
+  const [currentQuestion, setCurrentQuestion] = useState(0);
   const [userMessage, setUserMessage] = useState("");
-  const [conversation, setConversation] = useState([]);
+  const [conversations, setConversations] = useState(Array(5).fill().map(() => []));
   const [isProcessing, setIsProcessing] = useState(false);
   const [showSelfCare, setShowSelfCare] = useState(false);
   const [selectedSelfCare, setSelectedSelfCare] = useState(null);
   const [score, setScore] = useState(0);
+  const [completedScenarios, setCompletedScenarios] = useState(new Set());
   const [showGameOver, setShowGameOver] = useState(false);
   const [speechSynth, setSpeechSynth] = useState(null);
   const [isListening, setIsListening] = useState(false);
+
+  // Define 5 different scenarios for mirror conversations
+  const scenarios = [
+    {
+      id: 1,
+      title: "After a Challenging Class",
+      description: "Reflect on a difficult lesson or classroom management situation",
+      prompt: "How did you feel after that challenging class? What went through your mind?"
+    },
+    {
+      id: 2,
+      title: "Following a Parent Conference",
+      description: "Process emotions after a difficult parent conversation",
+      prompt: "How did that parent meeting make you feel? What do you need to process?"
+    },
+    {
+      id: 3,
+      title: "End of a Long Week",
+      description: "Acknowledge the cumulative stress of the week",
+      prompt: "What has this week brought up for you? How are you feeling right now?"
+    },
+    {
+      id: 4,
+      title: "After a Lesson That Didn't Go Well",
+      description: "Work through disappointment about your teaching",
+      prompt: "How did that lesson make you feel? What do you want to say to yourself about it?"
+    },
+    {
+      id: 5,
+      title: "Dealing with Administrative Pressure",
+      description: "Process stress from school administration or policy changes",
+      prompt: "What pressures are you feeling from administration? How can you support yourself?"
+    }
+  ];
 
   useEffect(() => {
     // Initialize speech synthesis
@@ -33,13 +68,16 @@ const MirrorMomentSimulation = () => {
       setSpeechSynth(window.speechSynthesis);
     }
 
-    // Initialize conversation with welcome message
-    if (conversation.length === 0) {
-      setConversation([{
-        sender: 'mirror',
-        message: "Hello. I'm here to listen. After a tough day, it's okay to feel what you're feeling. What's on your mind?",
-        timestamp: new Date()
-      }]);
+    // Initialize conversation with welcome message for the first scenario
+    if (conversations[0].length === 0) {
+      setConversations([
+        [{
+          sender: 'mirror',
+          message: scenarios[0].prompt,
+          timestamp: new Date()
+        }],
+        [], [], [], [] // Empty arrays for the other scenarios
+      ]);
     }
   }, []);
 
@@ -213,14 +251,18 @@ const MirrorMomentSimulation = () => {
       return;
     }
 
-    // Add user message to conversation
+    // Add user message to current conversation
     const newUserMessage = {
       sender: 'user',
       message: userMessage.trim(),
       timestamp: new Date()
     };
 
-    setConversation(prev => [...prev, newUserMessage]);
+    setConversations(prev => {
+      const newConversations = [...prev];
+      newConversations[currentQuestion] = [...newConversations[currentQuestion], newUserMessage];
+      return newConversations;
+    });
     setUserMessage("");
     setIsProcessing(true);
 
@@ -235,12 +277,15 @@ const MirrorMomentSimulation = () => {
         timestamp: new Date()
       };
 
-      setConversation(prev => [...prev, newAiMessage]);
+      setConversations(prev => {
+        const newConversations = [...prev];
+        newConversations[currentQuestion] = [...newConversations[currentQuestion], newAiMessage];
+        return newConversations;
+      });
       setIsProcessing(false);
-      setScore(prev => prev + 1);
 
       // After a few exchanges, show self-care options
-      if (conversation.length >= 2 && !showSelfCare) {
+      if (conversations[currentQuestion].length >= 2 && !showSelfCare) {
         setTimeout(() => {
           setShowSelfCare(true);
         }, 2000);
@@ -250,9 +295,11 @@ const MirrorMomentSimulation = () => {
 
   const handleSelectSelfCare = (selfCare) => {
     setSelectedSelfCare(selfCare);
-    setScore(prev => prev + 1);
     
-    // Add self-care selection to conversation
+    // Mark current scenario as completed
+    setCompletedScenarios(prev => new Set([...prev, currentQuestion]));
+    
+    // Add self-care selection to current conversation
     const selfCareMessage = {
       sender: 'mirror',
       message: `That's a wonderful choice. ${selfCare.description} Remember, taking care of yourself isn't selfish—it's essential for your wellbeing and your ability to be present for your students. You deserve this moment of care.`,
@@ -260,14 +307,38 @@ const MirrorMomentSimulation = () => {
       timestamp: new Date()
     };
 
+    setConversations(prev => {
+      const newConversations = [...prev];
+      newConversations[currentQuestion] = [...newConversations[currentQuestion], selfCareMessage];
+      return newConversations;
+    });
+    
+    // Move to next scenario after a delay
     setTimeout(() => {
-      setConversation(prev => [...prev, selfCareMessage]);
-      
-      // Complete game after self-care selection
-      setTimeout(() => {
+      if (currentQuestion < scenarios.length - 1) {
+        // Reset for next scenario
+        setCurrentQuestion(currentQuestion + 1);
+        setUserMessage("");
+        setShowSelfCare(false);
+        setSelectedSelfCare(null);
+        
+        // Initialize next scenario with its prompt
+        setConversations(prev => {
+          const newConversations = [...prev];
+          if (newConversations[currentQuestion + 1].length === 0) {
+            newConversations[currentQuestion + 1] = [{
+              sender: 'mirror',
+              message: scenarios[currentQuestion + 1].prompt,
+              timestamp: new Date()
+            }];
+          }
+          return newConversations;
+        });
+      } else {
+        // All scenarios completed
         setShowGameOver(true);
-      }, 3000);
-    }, 1000);
+      }
+    }, 3000);
   };
 
   const handleKeyPress = (e) => {
@@ -282,31 +353,40 @@ const MirrorMomentSimulation = () => {
       title={gameData?.title || "Mirror Moment Simulation"}
       subtitle={gameData?.description || "Experience self-dialogue to reduce guilt or shame after a tough day"}
       showGameOver={showGameOver}
-      score={score}
+      score={completedScenarios.size}
       gameId={gameId}
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={0}
+      currentQuestion={currentQuestion}
     >
       <div className="w-full max-w-4xl mx-auto px-4">
         <div className="bg-white rounded-2xl shadow-lg p-8 mb-6">
-          {/* Mirror Header */}
-          <div className="text-center mb-6">
-            <div className="text-6xl mb-4">🪞</div>
-            <h2 className="text-2xl font-bold text-gray-800 mb-2">
-              Mirror Moment Simulation
-            </h2>
-            <p className="text-gray-600">
-              Speak or type your feelings. Your inner voice is here to listen with empathy.
-            </p>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 mx-auto rounded-full mt-4"></div>
+          <div className="mb-6">
+            <div className="flex items-center justify-between mb-4">
+              <span className="text-sm font-medium text-gray-500">
+                Scenario {currentQuestion + 1} of {scenarios.length}
+              </span>
+              <span className="text-sm font-medium text-gray-500">
+                Score: {completedScenarios.size}/{scenarios.length}
+              </span>
+            </div>
+            <div className="text-center mb-6">
+              <div className="text-6xl mb-4">🪞</div>
+              <h2 className="text-2xl font-bold text-gray-800 mb-2">
+                {scenarios[currentQuestion].title}
+              </h2>
+              <p className="text-gray-600">
+                {scenarios[currentQuestion].description}
+              </p>
+              <div className="w-24 h-1 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 mx-auto rounded-full mt-4"></div>
+            </div>
           </div>
 
           {/* Conversation Area */}
           <div className="mb-6">
             <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl p-6 border-2 border-gray-200 h-[400px] overflow-y-auto flex flex-col gap-4">
-              {conversation.map((msg, index) => (
+              {conversations[currentQuestion].map((msg, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 10 }}

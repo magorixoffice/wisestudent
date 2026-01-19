@@ -34,11 +34,17 @@ const UnderstandingCompassionFatigue = () => {
         description: "You care about Sarah and want to help. You've connected her with the school counselor, notified her parents, and checked in with her regularly. You maintain boundaries and recognize that you can support her without taking on all of her emotional burden. You still care deeply, but you also take care of yourself.",
         explanation: "Healthy empathy means caring deeply while maintaining boundaries. You can support students without absorbing all their pain. You recognize that you're part of a support system, not the only support."
       },
+      
+      mixedCase: {
+        title: "Mixed Case",
+        description: "This scenario shows some signs of both healthy empathy and compassion fatigue. While you care deeply and are connecting resources, the loss of sleep and constant worry indicate you may be heading toward compassion fatigue.",
+        explanation: "Some behaviors show healthy empathy (caring, connecting with resources) but others indicate early signs of compassion fatigue (loss of sleep, constant worry). This is a warning sign to establish better boundaries and self-care practices."
+      },
       compassionFatigue: {
         title: "Compassion Fatigue",
         description: "You're experiencing compassion fatigue. The constant worry, loss of sleep, and emotional exhaustion are signs that you've taken on too much. You're trying to carry Sarah's burden alone, which is leaving you drained and unable to be fully present for other students or yourself.",
         explanation: "Compassion fatigue happens when caring deeply becomes overwhelming. Signs include constant worry, loss of sleep, emotional exhaustion, and feeling like you must do everything yourself. This is different from healthy empathy, which includes self-care and boundaries."
-      }
+      },
     },
     {
       id: 2,
@@ -54,6 +60,11 @@ const UnderstandingCompassionFatigue = () => {
         title: "Compassion Fatigue",
         description: "You're experiencing compassion fatigue. Taking on all of Maria's responsibilities, working late every day, and feeling responsible for her wellbeing are signs that you've crossed from caring into over-caring. The resentment and exhaustion indicate you need to set boundaries.",
         explanation: "Compassion fatigue includes taking on others' responsibilities, working beyond your capacity, and feeling responsible for others' wellbeing. Healthy support includes boundaries and recognizing when professional help is needed."
+      },
+      mixedCase: {
+        title: "Mixed Case",
+        description: "This shows concerning patterns of compassion fatigue with some healthy elements. While you're helping Maria, taking on all her duties and working late daily suggests you're approaching burnout.",
+        explanation: "Helping with urgent tasks is healthy, but taking on all responsibilities and working late indicates compassion fatigue developing. Early intervention with boundaries is needed."
       }
     },
     {
@@ -70,6 +81,11 @@ const UnderstandingCompassionFatigue = () => {
         title: "Compassion Fatigue",
         description: "This is NOT compassion fatigue. In this scenario, you're maintaining boundaries, collaborating effectively, and preserving your energy. You care without becoming overwhelmed.",
         explanation: "This scenario shows healthy empathy, not compassion fatigue. The key difference is maintaining boundaries and energy while still caring deeply."
+      },
+      mixedCase: {
+        title: "Mixed Case",
+        description: "This scenario demonstrates healthy empathy practices. You're collaborating effectively and maintaining boundaries while still caring deeply about outcomes.",
+        explanation: "All indicators point to healthy empathy: collaboration, maintained energy, clear boundaries, and effective communication. This is the ideal balance."
       }
     },
     {
@@ -78,15 +94,21 @@ const UnderstandingCompassionFatigue = () => {
       story: "A student in your class experiences a family crisis. You immediately connect them with the school counselor and notify the appropriate support staff. You check in with the student regularly, offer support, and maintain your regular teaching responsibilities. You feel concerned and want to help, but you also recognize that you're part of a team supporting this student. You continue to take care of yourself and maintain your energy for all your students.",
       correctAnswer: "healthy-empathy", // This is healthy empathy
       healthyEmpathy: {
-        title: "Healthy Empathy",
-        description: "This is healthy empathy! You respond with care, connect the student with appropriate resources, and maintain your role as part of a support team. You care deeply while maintaining boundaries and your own wellbeing.",
-        explanation: "Healthy empathy means responding with care while recognizing you're part of a support system. You can care deeply without taking on the entire emotional burden alone."
-      },
+      
       compassionFatigue: {
         title: "Compassion Fatigue",
         description: "This is NOT compassion fatigue. In this scenario, you're working as part of a team, maintaining boundaries, and preserving your energy. You care without becoming overwhelmed.",
         explanation: "This scenario shows healthy empathy. The key is working collaboratively, maintaining boundaries, and preserving your own capacity while caring deeply."
-      }
+      },
+      mixedCase: {
+        title: "Mixed Case",
+        description: "This exemplifies healthy empathy in action. Working as part of a team while maintaining personal boundaries shows excellent professional balance.",
+        explanation: "Team collaboration, maintained boundaries, preserved energy, and continued presence for all students demonstrate mature healthy empathy practices."
+      },
+        title: "Healthy Empathy",
+        description: "This is healthy empathy! You respond with care, connect the student with appropriate resources, and maintain your role as part of a support team. You care deeply while maintaining boundaries and your own wellbeing.",
+        explanation: "Healthy empathy means responding with care while recognizing you're part of a support system. You can care deeply without taking on the entire emotional burden alone."
+      },
     },
     {
       id: 5,
@@ -102,6 +124,11 @@ const UnderstandingCompassionFatigue = () => {
         title: "Compassion Fatigue",
         description: "You're experiencing severe compassion fatigue. The signs are clear: working beyond capacity, loss of sleep, exhaustion, irritability, emotional numbness, and guilt about self-care. You're trying to carry too much alone, which is unsustainable.",
         explanation: "Compassion fatigue includes working beyond capacity, emotional exhaustion, numbness, irritability, and guilt about self-care. The key is recognizing that sustainable care requires boundaries, self-care, and working as part of a team."
+      },
+      mixedCase: {
+        title: "Mixed Case",
+        description: "This is a clear case of severe compassion fatigue. Working weekends, losing sleep, feeling numb, and guilt about self-care are classic signs of burnout approaching.",
+        explanation: "All indicators point to advanced compassion fatigue: working beyond capacity, emotional exhaustion, numbness, and guilt about self-care. Immediate boundary setting and support seeking needed."
       }
     }
   ];
@@ -136,7 +163,11 @@ const UnderstandingCompassionFatigue = () => {
   const selected = selectedAnswers[currentStory];
   const progress = ((currentStory + 1) / totalLevels) * 100;
   const isCorrect = selected === current.correctAnswer;
-  const feedback = selected ? (selected === 'healthy-empathy' ? current.healthyEmpathy : current.compassionFatigue) : null;
+  const feedback = selected ? (
+    selected === 'healthy-empathy' ? current.healthyEmpathy : 
+    selected === 'compassion-fatigue' ? current.compassionFatigue : 
+    current.mixedCase
+  ) : null;
 
   return (
     <TeacherGameShell
@@ -148,7 +179,7 @@ const UnderstandingCompassionFatigue = () => {
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={currentStory + 1}
+      currentQuestion={currentStory + 0}
     >
       <div className="w-full max-w-4xl mx-auto px-4">
         {!showGameOver ? (
@@ -208,6 +239,28 @@ const UnderstandingCompassionFatigue = () => {
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
+                  onClick={() => handleAnswerSelect('mixed-case')}
+                  disabled={!!selected}
+                  className="w-full p-6 rounded-xl border-2 border-blue-300 bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center flex-shrink-0">
+                      <AlertCircle className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-blue-800 mb-1">
+                        Mixed Case
+                      </h3>
+                      <p className="text-blue-700">
+                        Shows elements of both healthy empathy and concerning patterns
+                      </p>
+                    </div>
+                  </div>
+                </motion.button>
+
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   onClick={() => handleAnswerSelect('compassion-fatigue')}
                   disabled={!!selected}
                   className="w-full p-6 rounded-xl border-2 border-orange-300 bg-gradient-to-r from-orange-50 to-red-50 hover:from-orange-100 hover:to-red-100 transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
@@ -235,38 +288,47 @@ const UnderstandingCompassionFatigue = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0 }}
                   className={`mb-6 rounded-xl p-6 border-2 ${
-                    isCorrect
+                    selected === 'healthy-empathy'
                       ? 'bg-gradient-to-br from-green-50 to-emerald-50 border-green-300'
+                      : selected === 'mixed-case'
+                      ? 'bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-300'
                       : 'bg-gradient-to-br from-orange-50 to-red-50 border-orange-300'
                   }`}
                 >
                   <div className="flex items-start gap-4 mb-4">
-                    {isCorrect ? (
+                    {selected === 'healthy-empathy' ? (
                       <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
+                    ) : selected === 'mixed-case' ? (
+                      <AlertCircle className="w-8 h-8 text-blue-600 flex-shrink-0 mt-1" />
                     ) : (
                       <XCircle className="w-8 h-8 text-orange-600 flex-shrink-0 mt-1" />
                     )}
                     <div className="flex-1">
                       <h3 className={`text-2xl font-bold mb-2 ${
-                        isCorrect ? 'text-green-800' : 'text-orange-800'
+                        selected === 'healthy-empathy' ? 'text-green-800' : 
+                        selected === 'mixed-case' ? 'text-blue-800' : 'text-orange-800'
                       }`}>
                         {feedback.title}
                       </h3>
                       <p className={`text-lg mb-4 ${
-                        isCorrect ? 'text-green-700' : 'text-orange-700'
+                        selected === 'healthy-empathy' ? 'text-green-700' : 
+                        selected === 'mixed-case' ? 'text-blue-700' : 'text-orange-700'
                       }`}>
                         {feedback.description}
                       </p>
                       <div className={`bg-white rounded-lg p-4 border-l-4 ${
-                        isCorrect ? 'border-green-500' : 'border-orange-500'
+                        selected === 'healthy-empathy' ? 'border-green-500' : 
+                        selected === 'mixed-case' ? 'border-blue-500' : 'border-orange-500'
                       }`}>
                         <p className={`font-semibold mb-2 ${
-                          isCorrect ? 'text-green-800' : 'text-orange-800'
+                          selected === 'healthy-empathy' ? 'text-green-800' : 
+                          selected === 'mixed-case' ? 'text-blue-800' : 'text-orange-800'
                         }`}>
                           💡 Key Insight:
                         </p>
                         <p className={`${
-                          isCorrect ? 'text-green-700' : 'text-orange-700'
+                          selected === 'healthy-empathy' ? 'text-green-700' : 
+                          selected === 'mixed-case' ? 'text-blue-700' : 'text-orange-700'
                         }`}>
                           {feedback.explanation}
                         </p>

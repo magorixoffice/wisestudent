@@ -14,27 +14,64 @@ const TaskPrioritizationPuzzle = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 1;
+  const totalLevels = 5; // Set to 5 questions
   
-  const [tasks, setTasks] = useState([
-    { id: 1, text: "Marking student assignments due tomorrow", correctCategory: 'urgent', icon: '📝', explanation: "Urgent - Has a deadline and needs immediate attention." },
-    { id: 2, text: "Getting 8 hours of sleep tonight", correctCategory: 'important', icon: '😴', explanation: "Important - Essential for health and wellbeing, but sleep can't be 'done' immediately. This is about prioritizing sleep time, which is always important." },
-    { id: 3, text: "Lesson plan for next week's classes", correctCategory: 'important', icon: '📚', explanation: "Important - Critical for effective teaching, but not urgent if it's for next week. Planning ahead is important but doesn't need immediate action." },
-    { id: 4, text: "Return parent phone call from this morning", correctCategory: 'urgent', icon: '📞', explanation: "Urgent - Parent communication typically needs timely response, especially when they called this morning. Should be addressed soon." },
-    { id: 5, text: "Organize filing cabinet", correctCategory: 'can-wait', icon: '📁', explanation: "Can Wait - Organizational tasks can be postponed without immediate consequences. Important for efficiency but not urgent." },
-    { id: 6, text: "Student having behavioral crisis right now", correctCategory: 'urgent', icon: '🚨', explanation: "Urgent - A current crisis needs immediate attention. This is both urgent and important, but categorized as urgent because it requires immediate action." },
-    { id: 7, text: "Professional development workshop next month", correctCategory: 'can-wait', icon: '🎓', explanation: "Can Wait - Future professional development can be planned for later. Not urgent if it's next month." },
-    { id: 8, text: "Grading papers from last week", correctCategory: 'important', icon: '✏️', explanation: "Important - Grading is important for student feedback, but if it's from last week, it's no longer urgent. Still important to complete but can be scheduled." },
-    { id: 9, text: "Email from administrator requiring immediate response", correctCategory: 'urgent', icon: '📧', explanation: "Urgent - Administrative requests requiring immediate response need urgent attention, especially from leadership." },
-    { id: 10, text: "Update classroom bulletin board", correctCategory: 'can-wait', icon: '📌', explanation: "Can Wait - Decor and display updates enhance the environment but aren't urgent. Can be done when there's available time." },
-    { id: 11, text: "Student evaluation and progress tracking", correctCategory: 'important', icon: '📊', explanation: "Important - Tracking student progress is essential for teaching effectiveness, but doesn't need immediate action. Can be scheduled during planning time." },
-    { id: 12, text: "Prepare materials for tomorrow's science experiment", correctCategory: 'urgent', icon: '🧪', explanation: "Urgent - Materials needed for tomorrow's lesson require immediate preparation. This directly impacts tomorrow's teaching." }
-  ]);
+  // Define 5 different question sets
+  const questionSets = [
+    // Question 1: Basic Urgent vs Important vs Can Wait
+    [
+      { id: 2, text: "Return parent phone call from this morning", correctCategory: 'urgent', icon: '📞', explanation: "Urgent - Parent communication typically needs timely response, especially when they called this morning. Should be addressed soon.", category: null },
+      { id: 6, text: "Update classroom bulletin board", correctCategory: 'can-wait', icon: '📌', explanation: "Can Wait - Decor and display updates enhance the environment but aren't urgent. Can be done when there's available time.", category: null },
+      { id: 3, text: "Getting 8 hours of sleep tonight", correctCategory: 'important', icon: '😴', explanation: "Important - Essential for health and wellbeing, but sleep can't be 'done' immediately. This is about prioritizing sleep time, which is always important.", category: null },
+      { id: 4, text: "Lesson plan for next week's classes", correctCategory: 'important', icon: '📚', explanation: "Important - Critical for effective teaching, but not urgent if it's for next week. Planning ahead is important but doesn't need immediate action.", category: null },
+      { id: 1, text: "Marking student assignments due tomorrow", correctCategory: 'urgent', icon: '📝', explanation: "Urgent - Has a deadline and needs immediate attention.", category: null },
+      { id: 5, text: "Organize filing cabinet", correctCategory: 'can-wait', icon: '📁', explanation: "Can Wait - Organizational tasks can be postponed without immediate consequences. Important for efficiency but not urgent.", category: null },
+    ],
+    // Question 2: Work-Life Balance Focus
+    [
+      { id: 1, text: "Submit quarterly budget report by 5 PM today", correctCategory: 'urgent', icon: '📊', explanation: "Urgent - Has a hard deadline that requires immediate attention today.", category: null },
+      { id: 3, text: "Attend child's school play in the evening", correctCategory: 'important', icon: '👨‍👩‍👧', explanation: "Important - Family time is crucial for personal wellbeing and important relationships, though not urgent.", category: null },
+      { id: 4, text: "Plan summer curriculum with colleagues", correctCategory: 'important', icon: '📅', explanation: "Important - Long-term planning is essential for effective teaching but not urgent.", category: null },
+      { id: 6, text: "Attend faculty book club meeting", correctCategory: 'can-wait', icon: '📚', explanation: "Can Wait - Professional interest activity that can be skipped without major impact.", category: null },
+      { id: 2, text: "Call substitute teacher for tomorrow's class", correctCategory: 'urgent', icon: '📞', explanation: "Urgent - Class needs to be covered tomorrow, immediate action required.", category: null },
+      { id: 5, text: "Clean out old student files", correctCategory: 'can-wait', icon: '🗂️', explanation: "Can Wait - Organization task that can be done when convenient, no immediate impact.", category: null },
+    ],
+    // Question 3: Resource Management Focus
+    [
+      { id: 5, text: "Redesign classroom layout for next semester", correctCategory: 'can-wait', icon: '🎨', explanation: "Can Wait - Aesthetic improvements can be done when time permits.", category: null },
+      { id: 3, text: "Maintain professional learning network", correctCategory: 'important', icon: '🤝', explanation: "Important - Building relationships is essential for career growth but not urgent.", category: null },
+      { id: 4, text: "Create backup copies of student work", correctCategory: 'important', icon: '💾', explanation: "Important - Data protection is critical but can be scheduled.", category: null },
+      { id: 2, text: "Order materials for science fair next week", correctCategory: 'urgent', icon: '🔬', explanation: "Urgent - Science fair is coming up, materials needed immediately.", category: null },
+      { id: 6, text: "Review and organize digital files", correctCategory: 'can-wait', icon: '💻', explanation: "Can Wait - Digital organization improves efficiency but can wait.", category: null },
+      { id: 1, text: "Request budget approval for classroom project", correctCategory: 'urgent', icon: '💰', explanation: "Urgent - Funding needed soon for upcoming project with deadlines.", category: null },
+    ],
+    // Question 4: Time Management Focus
+    [
+      { id: 4, text: "Reflect on teaching practices for improvement", correctCategory: 'important', icon: '🤔', explanation: "Important - Self-reflection is important for growth but not urgent.", category: null },
+      { id: 2, text: "Submit attendance records for yesterday", correctCategory: 'urgent', icon: '📋', explanation: "Urgent - Attendance records have daily deadlines.", category: null },
+      { id: 3, text: "Build emergency supply kit for classroom", correctCategory: 'important', icon: '🛠️', explanation: "Important - Preparedness is important for handling emergencies but not urgent.", category: null },
+      { id: 5, text: "Organize teacher appreciation decorations", correctCategory: 'can-wait', icon: '🎉', explanation: "Can Wait - Appreciation activities can be planned for appropriate times.", category: null },
+      { id: 1, text: "Grade pop quiz given this morning", correctCategory: 'urgent', icon: '📝', explanation: "Urgent - Students expect quick feedback on recent assessments.", category: null },
+      { id: 6, text: "Schedule parent conference for next month", correctCategory: 'can-wait', icon: '🗓️', explanation: "Can Wait - Long-term scheduling can be done when convenient.", category: null }
+    ],
+    // Question 5: Stress Management Focus
+    [
+      { id: 2, text: "Submit expense report for training attended last week", correctCategory: 'urgent', icon: '💼', explanation: "Urgent - Financial deadlines require timely submission.", category: null },
+      { id: 3, text: "Maintain work-life boundaries", correctCategory: 'important', icon: '⚖️', explanation: "Important - Essential for long-term health and effectiveness but not urgent.", category: null },
+      { id: 4, text: "Cultivate peer support networks", correctCategory: 'important', icon: '👥', explanation: "Important - Building support systems is important for resilience but not urgent.", category: null },
+      { id: 1, text: "Take prescribed medication", correctCategory: 'urgent', icon: '💊', explanation: "Urgent - Health needs immediate attention at scheduled times.", category: null },
+      { id: 5, text: "Plan team-building activities for staff", correctCategory: 'can-wait', icon: '🤝', explanation: "Can Wait - Team building is beneficial but can be scheduled as needed.", category: null },
+      { id: 6, text: "Organize teacher potluck event", correctCategory: 'can-wait', icon: '🥗', explanation: "Can Wait - Social events are nice but can be postponed without consequence.", category: null }
+    ]
+  ];
   
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [tasks, setTasks] = useState(questionSets[currentQuestionIndex]);
   const [draggedItem, setDraggedItem] = useState(null);
   const [showFeedback, setShowFeedback] = useState(false);
   const [showGameOver, setShowGameOver] = useState(false);
-  const [score, setScore] = useState(0);
+  const [questionScores, setQuestionScores] = useState(Array(totalLevels).fill(0)); // Track scores for each question
+  const [overallScore, setOverallScore] = useState(0); // Overall score
   const [feedbackTasks, setFeedbackTasks] = useState([]);
 
   const categories = [
@@ -108,16 +145,35 @@ const TaskPrioritizationPuzzle = () => {
         userCategory: task.category
       }));
       
-      // Calculate score
-      const correctCount = feedback.filter(f => f.isCorrect).length;
-      setScore(correctCount);
+      // Calculate if all tasks in current question are correct
+      const allCorrectInQuestion = feedback.every(f => f.isCorrect);
+      
+      // Update question scores - 1 point if all tasks in question are correct, 0 otherwise
+      const newQuestionScores = [...questionScores];
+      newQuestionScores[currentQuestionIndex] = allCorrectInQuestion ? 1 : 0;
+      setQuestionScores(newQuestionScores);
+      
+      // Update overall score
+      const newOverallScore = newQuestionScores.reduce((sum, score) => sum + score, 0);
+      setOverallScore(newOverallScore);
+      
       setFeedbackTasks(feedback);
       setShowFeedback(true);
     }
   };
 
   const handleComplete = () => {
-    setShowGameOver(true);
+    // If we're on the last question or have completed all 5 questions, show game over
+    if (currentQuestionIndex >= totalLevels - 1) {
+      setShowGameOver(true);
+    } else {
+      // Move to the next question
+      const nextQuestionIndex = currentQuestionIndex + 1;
+      setCurrentQuestionIndex(nextQuestionIndex);
+      setTasks(questionSets[nextQuestionIndex]);
+      setShowFeedback(false);
+      setFeedbackTasks([]);
+    }
   };
 
   const urgentTasks = tasks.filter(t => t.category === 'urgent');
@@ -131,18 +187,18 @@ const TaskPrioritizationPuzzle = () => {
       title={gameData?.title || "Task Prioritization Puzzle"}
       subtitle={gameData?.description || "Learn to separate urgent vs important tasks"}
       showGameOver={showGameOver}
-      score={score}
+      score={overallScore}
       gameId={gameId}
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={1}
+      currentQuestion={currentQuestionIndex + 0}
     >
       <div className="w-full max-w-6xl mx-auto px-4">
         {!showFeedback ? (
           <div className="bg-white rounded-2xl shadow-lg p-8">
             <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">
-              Task Prioritization Puzzle
+              Task Prioritization Puzzle - Question {currentQuestionIndex + 1} of {totalLevels}
             </h2>
             <p className="text-gray-600 mb-6 text-center">
               Drag and drop each task into the category that best describes its priority
@@ -339,17 +395,15 @@ const TaskPrioritizationPuzzle = () => {
             >
               <div className="text-center mb-8">
                 <h2 className="text-3xl font-bold text-gray-800 mb-4">
-                  Prioritization Feedback
+                  Prioritization Feedback - Question {currentQuestionIndex + 1}
                 </h2>
                 <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 border-2 border-purple-200 max-w-md mx-auto">
                   <p className="text-2xl font-bold text-purple-800 mb-2">
-                    Score: {score} / {tasks.length}
+                    Score: {questionScores[currentQuestionIndex]} / 1
                   </p>
                   <p className="text-lg text-gray-700">
-                    {score >= 10
+                    {questionScores[currentQuestionIndex] === 1
                       ? "Excellent! You have a strong understanding of task prioritization."
-                      : score >= 7
-                      ? "Good job! You're developing strong prioritization skills."
                       : "Nice effort! Keep practicing to improve your prioritization skills."}
                   </p>
                 </div>
@@ -360,7 +414,6 @@ const TaskPrioritizationPuzzle = () => {
                 {feedbackTasks.map((task, index) => {
                   const category = categories.find(c => c.id === task.userCategory);
                   const correctCategory = categories.find(c => c.id === task.correctCategory);
-                  const Icon = category.icon;
                   
                   return (
                     <motion.div
@@ -391,11 +444,11 @@ const TaskPrioritizationPuzzle = () => {
                                 ? 'bg-green-200 text-green-800'
                                 : 'bg-yellow-200 text-yellow-800'
                             }`}>
-                              Your choice: {category.label}
+                              Your choice: {category ? category.label : 'Unassigned'}
                             </span>
                             {!task.isCorrect && (
                               <span className="text-sm px-2 py-1 rounded bg-blue-200 text-blue-800">
-                                Suggested: {correctCategory.label}
+                                Suggested: {correctCategory ? correctCategory.label : 'None'}
                               </span>
                             )}
                           </div>
@@ -472,16 +525,16 @@ const TaskPrioritizationPuzzle = () => {
               transition={{ type: "spring", stiffness: 200, damping: 10 }}
               className="text-6xl mb-6"
             >
-              {score >= 10 ? '🎯' : score >= 7 ? '✨' : '💪'}
+              {overallScore >= 5 ? '🎯' : overallScore >= 3 ? '✨' : '💪'}
             </motion.div>
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
               Puzzle Complete!
             </h2>
             <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 border-2 border-purple-200 mb-6">
               <p className="text-xl text-gray-700 leading-relaxed">
-                {score >= 10
+                {overallScore >= 5
                   ? "Excellent! You have a strong understanding of task prioritization. You can effectively distinguish between urgent, important, and tasks that can wait."
-                  : score >= 7
+                  : overallScore >= 3
                   ? "Good job! You're developing strong prioritization skills. Continue practicing to refine your ability to separate urgent from important tasks."
                   : "Nice effort! Task prioritization is a skill that improves with practice. Review the feedback to better understand the difference between urgent and important tasks."}
               </p>

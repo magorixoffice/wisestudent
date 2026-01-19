@@ -14,19 +14,21 @@ const WorkLifeTrackerJournal = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 3;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [currentDay, setCurrentDay] = useState(0);
   const [dailyData, setDailyData] = useState([
     { day: 1, hoursWorked: '', timeRested: '', joyRating: null },
     { day: 2, hoursWorked: '', timeRested: '', joyRating: null },
-    { day: 3, hoursWorked: '', timeRested: '', joyRating: null }
+    { day: 3, hoursWorked: '', timeRested: '', joyRating: null },
+    { day: 4, hoursWorked: '', timeRested: '', joyRating: null },
+    { day: 5, hoursWorked: '', timeRested: '', joyRating: null }
   ]);
   const [showChart, setShowChart] = useState(false);
   const [showGameOver, setShowGameOver] = useState(false);
   const [score, setScore] = useState(0);
 
-  const dayLabels = ['Day 1', 'Day 2', 'Day 3'];
+  const dayLabels = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5'];
   const currentDayData = dailyData[currentDay];
 
   const handleInputChange = (field, value) => {
@@ -64,12 +66,14 @@ const WorkLifeTrackerJournal = () => {
       return;
     }
 
+    // Award 1 point for completing this day
+    setScore(prev => prev + 1);
+
     // Move to next day or show chart
-    if (currentDay < 2) {
+    if (currentDay < 4) {
       setCurrentDay(prev => prev + 1);
     } else {
       setShowChart(true);
-      setScore(1);
     }
   };
 
@@ -261,7 +265,7 @@ const WorkLifeTrackerJournal = () => {
         </div>
 
         {/* Chart Legend and Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-2 mb-6">
           {chartData.map((data, index) => (
             <div key={index} className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-lg p-4 border-2 border-indigo-200">
               <h4 className="font-bold text-gray-800 mb-2">{data.day}</h4>
@@ -402,27 +406,21 @@ const WorkLifeTrackerJournal = () => {
   return (
     <TeacherGameShell
       title={gameData?.title || "Work–Life Tracker Journal"}
-      subtitle={gameData?.description || "Track how personal time fluctuates across 3 days"}
+      subtitle={gameData?.description || "Track how personal time fluctuates across 5 days"}
       showGameOver={showGameOver}
       score={score}
       gameId={gameId}
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={currentDay + 1}
+      currentQuestion={currentDay + 0}
     >
       <div className="w-full max-w-5xl mx-auto px-4">
         {!showChart && !showGameOver && (
           <div className="bg-white rounded-2xl shadow-lg p-8">
             <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-gray-800 mb-4">
-                Work–Life Tracker Journal
-              </h2>
-              <p className="text-gray-600 text-lg mb-2">
-                Track your work-life balance across 3 days
-              </p>
               <p className="text-sm text-gray-500">
-                Enter data for {dayLabels[currentDay]} ({currentDay + 1} of 3)
+                Enter data for {dayLabels[currentDay]} ({currentDay + 1} of 5)
               </p>
             </div>
 
@@ -430,12 +428,12 @@ const WorkLifeTrackerJournal = () => {
             <div className="mb-8">
               <div className="flex justify-between text-sm text-gray-600 mb-2">
                 <span>{dayLabels[currentDay]}</span>
-                <span>{currentDay + 1} / 3 days</span>
+                <span>{currentDay + 1} / 5 days</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2">
                 <motion.div
                   initial={{ width: 0 }}
-                  animate={{ width: `${((currentDay + 1) / 3) * 100}%` }}
+                  animate={{ width: `${((currentDay + 1) / 5) * 100}%` }}
                   className="bg-gradient-to-r from-indigo-500 to-purple-500 h-2 rounded-full"
                 />
               </div>
@@ -545,7 +543,7 @@ const WorkLifeTrackerJournal = () => {
                 disabled={!currentDayData.hoursWorked || !currentDayData.timeRested || currentDayData.joyRating === null}
                 className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-8 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {currentDay < 2 ? 'Save & Continue →' : 'Save & View Balance Line'}
+                {currentDay < 4 ? 'Save & Continue →' : 'Save & View Balance Line'}
               </motion.button>
             </div>
           </div>
@@ -558,12 +556,6 @@ const WorkLifeTrackerJournal = () => {
               animate={{ opacity: 1, y: 0 }}
             >
               <div className="text-center mb-8">
-                <h2 className="text-3xl font-bold text-gray-800 mb-4">
-                  Your Balance Line
-                </h2>
-                <p className="text-gray-600 text-lg">
-                  Visualize how your work-life balance fluctuates across 3 days
-                </p>
               </div>
 
               {/* Balance Line Chart */}
@@ -599,7 +591,7 @@ const WorkLifeTrackerJournal = () => {
             </h2>
             <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6 border-2 border-indigo-200 mb-6">
               <p className="text-gray-700 text-lg leading-relaxed">
-                You've successfully tracked your work-life balance across 3 days. The Balance Line chart shows how your personal time fluctuates, helping you identify patterns and potential imbalances before they lead to burnout.
+                You've successfully tracked your work-life balance across 5 days. The Balance Line chart shows how your personal time fluctuates, helping you identify patterns and potential imbalances before they lead to burnout.
               </p>
             </div>
 

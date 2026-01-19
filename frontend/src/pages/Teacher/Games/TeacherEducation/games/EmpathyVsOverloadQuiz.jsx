@@ -14,7 +14,7 @@ const EmpathyVsOverloadQuiz = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 8;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState({});
@@ -38,11 +38,7 @@ const EmpathyVsOverloadQuiz = () => {
       vignette: "A student comes to you after class, visibly upset. They're worried about an upcoming test and share that they've been having trouble sleeping and feeling overwhelmed. They're asking for help but seem to be carrying a lot of emotional weight.",
       correctAnswer: 'listen', // Listen is the healthiest response
       responses: {
-        listen: {
-          title: "Listen",
-          description: "You listen attentively, acknowledge their feelings, and validate their experience. You offer support and connect them with appropriate resources (counselor, study strategies) while maintaining emotional boundaries. You care without taking on their emotional burden.",
-          explanation: "Listening without carrying is the healthiest response. You can be present, validate feelings, and offer support without absorbing their emotional weight. This maintains your capacity while still being helpful."
-        },
+       
         solve: {
           title: "Solve",
           description: "You immediately jump into problem-solving mode, creating a detailed study plan, offering to tutor them daily, and trying to fix everything. You take on responsibility for their success and feel stressed about their outcome.",
@@ -52,6 +48,11 @@ const EmpathyVsOverloadQuiz = () => {
           title: "Absorb",
           description: "You feel their anxiety deeply, lose sleep worrying about them, and carry their emotional burden. You think about them constantly and feel responsible for their wellbeing. Their stress becomes your stress.",
           explanation: "Absorbing someone's emotions is unhealthy emotional absorption. You're taking on their emotional burden, which drains your capacity and prevents you from being sustainably helpful. This leads to compassion fatigue."
+        },
+         listen: {
+          title: "Listen",
+          description: "You listen attentively, acknowledge their feelings, and validate their experience. You offer support and connect them with appropriate resources (counselor, study strategies) while maintaining emotional boundaries. You care without taking on their emotional burden.",
+          explanation: "Listening without carrying is the healthiest response. You can be present, validate feelings, and offer support without absorbing their emotional weight. This maintains your capacity while still being helpful."
         },
         avoid: {
           title: "Avoid",
@@ -94,11 +95,7 @@ const EmpathyVsOverloadQuiz = () => {
       vignette: "A student confides in you about a serious family crisis at home. They're worried, scared, and don't know what to do. They're looking to you for guidance and emotional support during this difficult time.",
       correctAnswer: 'listen', // Listen is the healthiest response
       responses: {
-        listen: {
-          title: "Listen",
-          description: "You listen with empathy, validate their feelings, and connect them with appropriate resources (counselor, support services). You offer emotional support while maintaining boundaries and recognizing your role as part of a support system.",
-          explanation: "Listening without carrying is essential here. You can be present and supportive while connecting them with professional resources. You care deeply without taking on their entire emotional burden."
-        },
+        
         solve: {
           title: "Solve",
           description: "You immediately try to fix their family situation, offer to intervene directly, and take on responsibility for resolving their crisis. You work beyond your role and feel stressed about outcomes you can't control.",
@@ -113,7 +110,12 @@ const EmpathyVsOverloadQuiz = () => {
           title: "Avoid",
           description: "You acknowledge their situation briefly but quickly redirect, saying it's not your place to get involved. You create distance and don't offer emotional support or resources.",
           explanation: "Avoiding prevents appropriate support. While boundaries are important, students in crisis need connection and resources. Complete avoidance can leave them feeling unsupported and alone."
-        }
+        },
+        listen: {
+          title: "Listen",
+          description: "You listen with empathy, validate their feelings, and connect them with appropriate resources (counselor, support services). You offer emotional support while maintaining boundaries and recognizing your role as part of a support system.",
+          explanation: "Listening without carrying is essential here. You can be present and supportive while connecting them with professional resources. You care deeply without taking on their entire emotional burden."
+        },
       }
     },
     {
@@ -122,15 +124,16 @@ const EmpathyVsOverloadQuiz = () => {
       vignette: "A student with behavioral challenges is disrupting your class regularly. They're acting out, and you can see they're struggling emotionally. Other students are being affected, and you're feeling frustrated and overwhelmed.",
       correctAnswer: 'listen', // Listen is the healthiest response
       responses: {
-        listen: {
-          title: "Listen",
-          description: "You seek to understand what's behind the behavior, listen to the student's perspective, and work with support staff to address underlying needs. You maintain boundaries while being supportive and addressing the situation appropriately.",
-          explanation: "Listening helps you understand the root causes while maintaining appropriate boundaries. You can be supportive and address the situation without absorbing all the emotional weight or avoiding it entirely."
-        },
+        
         solve: {
           title: "Solve",
           description: "You immediately create an intensive behavior plan, take on full responsibility for fixing their behavior, and work extra hours trying to solve the problem. You feel stressed and responsible for their transformation.",
           explanation: "While addressing behavior is important, taking on full responsibility for someone else's behavior creates overload. You can support and work with a team without carrying the entire burden."
+        },
+        listen: {
+          title: "Listen",
+          description: "You seek to understand what's behind the behavior, listen to the student's perspective, and work with support staff to address underlying needs. You maintain boundaries while being supportive and addressing the situation appropriately.",
+          explanation: "Listening helps you understand the root causes while maintaining appropriate boundaries. You can be supportive and address the situation without absorbing all the emotional weight or avoiding it entirely."
         },
         absorb: {
           title: "Absorb",
@@ -172,90 +175,7 @@ const EmpathyVsOverloadQuiz = () => {
         }
       }
     },
-    {
-      id: 6,
-      title: "The Academic Pressure",
-      vignette: "A high-achieving student is overwhelmed by academic pressure and perfectionism. They're stressed about grades, anxious about college admissions, and pushing themselves to the breaking point. They come to you feeling overwhelmed.",
-      correctAnswer: 'listen', // Listen is the healthiest response
-      responses: {
-        listen: {
-          title: "Listen",
-          description: "You listen to their concerns, validate their feelings, and help them develop healthier perspectives on achievement. You offer support and resources while maintaining boundaries and recognizing that they need to find balance themselves.",
-          explanation: "Listening helps them process their feelings and develop healthier approaches. You can be supportive without taking on their pressure or trying to solve their perfectionism for them."
-        },
-        solve: {
-          title: "Solve",
-          description: "You immediately create a plan to reduce their workload, take on responsibility for managing their stress, and try to fix their perfectionism. You work extra hours trying to solve their problem.",
-          explanation: "While helping is good, taking on responsibility for someone else's stress management creates overload. You can support and guide, but they need to develop their own coping strategies."
-        },
-        absorb: {
-          title: "Absorb",
-          description: "You take on their pressure and stress, feel anxious about their wellbeing, and carry their emotional burden. You lose sleep worrying about them and feel responsible for their mental health.",
-          explanation: "Absorbing their stress is unhealthy emotional absorption. You're taking on their pressure as your own, which drains your capacity and prevents sustainable support. This leads to compassion fatigue."
-        },
-        avoid: {
-          title: "Avoid",
-          description: "You tell them to 'just relax' or 'not worry so much,' and quickly move on. You don't want to deal with their emotional needs or invest time in understanding their situation.",
-          explanation: "Avoiding prevents appropriate support. While you might think you're helping by minimizing their concerns, students under pressure need validation and support, not dismissal."
-        }
-      }
-    },
-    {
-      id: 7,
-      title: "The Social Isolation",
-      vignette: "A student is struggling with social isolation and loneliness. They don't have friends, eat lunch alone, and seem disconnected from peers. They're quiet and withdrawn, and you're concerned about their wellbeing.",
-      correctAnswer: 'listen', // Listen is the healthiest response
-      responses: {
-        listen: {
-          title: "Listen",
-          description: "You listen to their experience, acknowledge their feelings, and connect them with appropriate resources (counselor, peer support programs). You offer support while maintaining boundaries and recognizing your role as part of a support system.",
-          explanation: "Listening helps you understand their experience and offer appropriate support. You can be present and helpful without taking on their loneliness or trying to solve their social situation for them."
-        },
-        solve: {
-          title: "Solve",
-          description: "You immediately try to fix their social situation, create friend-matching programs, and take on responsibility for ensuring they make friends. You work extra hours trying to solve their isolation.",
-          explanation: "While helping is good, taking on full responsibility for someone else's social connections creates overload. You can support and facilitate, but you can't force friendships or solve their isolation."
-        },
-        absorb: {
-          title: "Absorb",
-          description: "You take on their loneliness, feel sad about their isolation, and carry their emotional burden. You lose sleep worrying about them and feel responsible for their social wellbeing.",
-          explanation: "Absorbing their loneliness is unhealthy emotional absorption. You're taking on their emotional weight, which drains your capacity and prevents sustainable support. This is not helpful empathy."
-        },
-        avoid: {
-          title: "Avoid",
-          description: "You acknowledge their situation but don't engage deeply, thinking it's not your place to get involved in social issues. You create distance and don't offer support or resources.",
-          explanation: "Avoiding prevents appropriate support. While boundaries are important, students who are isolated need connection and resources. Complete avoidance can leave them feeling more alone."
-        }
-      }
-    },
-    {
-      id: 8,
-      title: "The Emotional Outburst",
-      vignette: "A student has an emotional outburst in your class, crying and expressing frustration about multiple challenges in their life. They're overwhelmed and looking to you for support. Other students are watching, and you need to respond.",
-      correctAnswer: 'listen', // Listen is the healthiest response
-      responses: {
-        listen: {
-          title: "Listen",
-          description: "You respond with empathy, acknowledge their feelings, and help them calm down. You offer support and connect them with resources while maintaining boundaries. You care without taking on their entire emotional burden.",
-          explanation: "Listening in the moment helps them feel heard and supported. You can be present and helpful while maintaining boundaries and connecting them with appropriate resources for ongoing support."
-        },
-        solve: {
-          title: "Solve",
-          description: "You immediately try to fix all their problems, create a comprehensive intervention plan, and take on responsibility for resolving their challenges. You work extra hours trying to solve everything for them.",
-          explanation: "Trying to solve all their problems creates overload. You can support and connect them with resources, but you can't fix everything. Taking on full responsibility prevents sustainable help."
-        },
-        absorb: {
-          title: "Absorb",
-          description: "You take on their emotional state deeply, feel their pain intensely, and carry their burden. You lose sleep worrying about them and feel responsible for their wellbeing. Their emotions become your emotions.",
-          explanation: "Absorbing their emotional state is unhealthy emotional absorption. You're taking on their emotional weight, which drains your capacity and prevents sustainable support. This leads to compassion fatigue."
-        },
-        avoid: {
-          title: "Avoid",
-          description: "You quickly calm them down and redirect, minimizing their feelings and creating distance. You don't want to deal with their emotional needs and focus on just managing the situation.",
-          explanation: "Avoiding prevents appropriate support. While managing the immediate situation is necessary, complete avoidance of their emotional needs doesn't help them and can make them feel dismissed."
-        }
-      }
-    }
+
   ];
 
   const handleAnswerSelect = (answer) => {
@@ -301,7 +221,7 @@ const EmpathyVsOverloadQuiz = () => {
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={currentQuestion + 1}
+      currentQuestion={currentQuestion + 0}
     >
       <div className="w-full max-w-4xl mx-auto px-4">
         {!showGameOver ? (
@@ -445,7 +365,7 @@ const EmpathyVsOverloadQuiz = () => {
               transition={{ type: "spring", stiffness: 200, damping: 10 }}
               className="text-6xl mb-6"
             >
-              {score === totalLevels ? '🎉' : score >= totalLevels * 0.75 ? '✨' : score >= totalLevels * 0.5 ? '💪' : '📚'}
+              {score === totalLevels ? '🎉' : score >= Math.ceil(totalLevels * 0.8) ? '✨' : score >= Math.ceil(totalLevels * 0.6) ? '💪' : '📚'}
             </motion.div>
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
               Quiz Complete!
@@ -457,9 +377,9 @@ const EmpathyVsOverloadQuiz = () => {
               <p className="text-gray-700 text-lg leading-relaxed">
                 {score === totalLevels
                   ? "Perfect! You have a strong understanding of the difference between helpful empathy and unhealthy emotional absorption. Remember that 'listening without carrying' is the key to sustainable care."
-                  : score >= totalLevels * 0.75
+                  : score >= Math.ceil(totalLevels * 0.8)
                   ? "Excellent! You're developing awareness of healthy empathy boundaries. Keep practicing 'listening without carrying' to maintain your capacity while being helpful."
-                  : score >= totalLevels * 0.5
+                  : score >= Math.ceil(totalLevels * 0.6)
                   ? "Good effort! Understanding empathy vs overload takes practice. Remember that you can care deeply while maintaining boundaries. 'Listening without carrying' protects your capacity."
                   : "Keep learning! Understanding the difference between helpful empathy and emotional absorption is important. Remember that 'listening without carrying' allows you to be sustainably helpful."}
               </p>

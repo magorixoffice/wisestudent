@@ -168,6 +168,22 @@ const CalmTeacherBadge = () => {
             badge: result.badge
           }
         }));
+        
+        // Register the badge game as completed in the game progress system
+        // This is crucial for sequential unlocking of the next game
+        try {
+          await teacherGameCompletionService.completeGame({
+            gameId,
+            gameType: 'teacher-education',
+            gameIndex: gameData?.gameIndex || null,
+            score: 5,
+            totalLevels: 5,
+            totalCoins: 0,
+            isReplay: false
+          });
+        } catch (error) {
+          console.error('Failed to mark badge game completed:', error);
+        }
       } else {
         toast.error(result.error || 'Failed to collect badge');
       }

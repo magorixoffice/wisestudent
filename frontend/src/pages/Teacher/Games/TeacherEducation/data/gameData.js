@@ -47,8 +47,8 @@ export const teacherEducationGameData = [
     estimatedTime: '20 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/trigger-finder'
   },
   {
@@ -62,8 +62,8 @@ export const teacherEducationGameData = [
     estimatedTime: '15 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 3,
-    totalLevels: 3,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/thought-tracker'
   },
   {
@@ -77,8 +77,8 @@ export const teacherEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/mood-map'
   },
   {
@@ -122,8 +122,8 @@ export const teacherEducationGameData = [
     estimatedTime: '15 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/mirror-moment-simulation'
   },
   {
@@ -137,8 +137,8 @@ export const teacherEducationGameData = [
     estimatedTime: '5 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 20,
-    totalLevels: 20,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/emotion-reflex'
   },
   {
@@ -167,8 +167,8 @@ export const teacherEducationGameData = [
     estimatedTime: '20 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/identify-your-stressors'
   },
   {
@@ -182,8 +182,8 @@ export const teacherEducationGameData = [
     estimatedTime: '15 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 8,
-    totalLevels: 8,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/stress-thermometer'
   },
   {
@@ -197,8 +197,8 @@ export const teacherEducationGameData = [
     estimatedTime: '5 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 20,
-    totalLevels: 20,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/quick-calm-reflex'
   },
   {
@@ -212,8 +212,8 @@ export const teacherEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/breathe-with-rhythm'
   },
   {
@@ -227,8 +227,8 @@ export const teacherEducationGameData = [
     estimatedTime: '15 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/time-pressure-simulation'
   },
   {
@@ -242,8 +242,8 @@ export const teacherEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/calm-corner-poster'
   },
   {
@@ -257,8 +257,8 @@ export const teacherEducationGameData = [
     estimatedTime: '15 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/workload-journal'
   },
   {
@@ -272,8 +272,8 @@ export const teacherEducationGameData = [
     estimatedTime: '20 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 3,
-    totalLevels: 3,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/pause-practice-simulation'
   },
   {
@@ -287,8 +287,8 @@ export const teacherEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/stress-release-body-scan'
   },
   {
@@ -302,8 +302,8 @@ export const teacherEducationGameData = [
     estimatedTime: '1 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     isBadgeGame: true,
     path: '/school-teacher/games/mental-health-emotional-regulation/calm-teacher-badge'
   },
@@ -333,8 +333,8 @@ export const teacherEducationGameData = [
     estimatedTime: '20 min',
     difficulty: 'intermediate',
     category: 'teacher-education',
-    totalQuestions: 8,
-    totalLevels: 8,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/empathy-vs-overload-quiz'
   },
   {
@@ -348,8 +348,8 @@ export const teacherEducationGameData = [
     estimatedTime: '18 min',
     difficulty: 'intermediate',
     category: 'teacher-education',
-    totalQuestions: 6,
-    totalLevels: 6,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/emotional-boundary-builder'
   },
   {
@@ -363,8 +363,8 @@ export const teacherEducationGameData = [
     estimatedTime: '15 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/energy-drain-tracker'
   },
   {
@@ -378,8 +378,8 @@ export const teacherEducationGameData = [
     estimatedTime: '20 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/refill-rituals'
   },
   {
@@ -393,8 +393,8 @@ export const teacherEducationGameData = [
     estimatedTime: '15 min',
     difficulty: 'intermediate',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/compassion-reflection-journal'
   },
   {
@@ -408,8 +408,8 @@ export const teacherEducationGameData = [
     estimatedTime: '25 min',
     difficulty: 'intermediate',
     category: 'teacher-education',
-    totalQuestions: 3,
-    totalLevels: 3,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/empathy-rebalance-simulation'
   },
   {
@@ -423,8 +423,8 @@ export const teacherEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/inner-recharge-visualization'
   },
   {
@@ -438,8 +438,8 @@ export const teacherEducationGameData = [
     estimatedTime: '5 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 20,
-    totalLevels: 20,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/empathy-reflex'
   },
   {
@@ -453,8 +453,8 @@ export const teacherEducationGameData = [
     estimatedTime: '1 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     isBadgeGame: true,
     path: '/school-teacher/games/mental-health-emotional-regulation/compassion-balance-badge'
   },
@@ -469,8 +469,8 @@ export const teacherEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/the-balance-scale'
   },
   {
@@ -484,8 +484,8 @@ export const teacherEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 8,
-    totalLevels: 8,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/boundaries-quiz'
   },
   {
@@ -499,8 +499,8 @@ export const teacherEducationGameData = [
     estimatedTime: '5 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/after-school-reset'
   },
   {
@@ -514,8 +514,8 @@ export const teacherEducationGameData = [
     estimatedTime: '15 min',
     difficulty: 'intermediate',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/task-prioritization-puzzle'
   },
   {
@@ -529,8 +529,8 @@ export const teacherEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/weekend-recharge-plan'
   },
   {
@@ -544,23 +544,23 @@ export const teacherEducationGameData = [
     estimatedTime: '15 min',
     difficulty: 'intermediate',
     category: 'teacher-education',
-    totalQuestions: 8,
-    totalLevels: 8,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/the-no-practice'
   },
   {
     id: 'teacher-education-37',
     slug: 'work-life-tracker-journal',
     title: 'Work–Life Tracker Journal',
-    description: 'Track how personal time fluctuates across 3 days',
+    description: 'Track how personal time fluctuates across 5 days',
     gameIndex: 37,
     calmCoins: getCalmCoinsForGame(37),  // 5 CalmCoins
     replayCost: getReplayCostForGame(37), // 2 CalmCoins
     estimatedTime: '10 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 3,
-    totalLevels: 3,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/work-life-tracker-journal'
   },
   {
@@ -589,8 +589,8 @@ export const teacherEducationGameData = [
     estimatedTime: '12 min',
     difficulty: 'intermediate',
     category: 'teacher-education',
-    totalQuestions: 8,
-    totalLevels: 8,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/digital-shutdown-simulation'
   },
   {
@@ -604,8 +604,8 @@ export const teacherEducationGameData = [
     estimatedTime: '1 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     isBadgeGame: true,
     path: '/school-teacher/games/mental-health-emotional-regulation/balanced-life-badge'
   },
@@ -620,8 +620,8 @@ export const teacherEducationGameData = [
     estimatedTime: '15 min',
     difficulty: 'intermediate',
     category: 'teacher-education',
-    totalQuestions: 6,
-    totalLevels: 6,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/present-moment-awareness'
   },
   {
@@ -635,8 +635,8 @@ export const teacherEducationGameData = [
     estimatedTime: '2 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/one-minute-pause'
   },
   {
@@ -650,8 +650,8 @@ export const teacherEducationGameData = [
     estimatedTime: '3 min',
     difficulty: 'intermediate',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/focus-anchor-exercise'
   },
   {
@@ -665,8 +665,8 @@ export const teacherEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/mindful-observation-game'
   },
   {
@@ -680,8 +680,8 @@ export const teacherEducationGameData = [
     estimatedTime: '6 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/guided-meditation-audio'
   },
   {
@@ -695,8 +695,8 @@ export const teacherEducationGameData = [
     estimatedTime: '8 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/distraction-detox'
   },
   {
@@ -710,8 +710,8 @@ export const teacherEducationGameData = [
     estimatedTime: '3 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/mindful-eating-break'
   },
   {
@@ -725,8 +725,8 @@ export const teacherEducationGameData = [
     estimatedTime: '5 min',
     difficulty: 'intermediate',
     category: 'teacher-education',
-    totalQuestions: 3,
-    totalLevels: 3,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/flow-state-simulation'
   },
   {
@@ -740,8 +740,8 @@ export const teacherEducationGameData = [
     estimatedTime: '3 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/gratitude-in-the-moment'
   },
   {
@@ -755,8 +755,8 @@ export const teacherEducationGameData = [
     estimatedTime: '1 min',
     difficulty: 'expert',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     isBadgeGame: true,
     path: '/school-teacher/games/mental-health-emotional-regulation/mindful-mastery-badge'
   },
@@ -771,8 +771,8 @@ export const teacherEducationGameData = [
     estimatedTime: '8 min',
     difficulty: 'intermediate',
     category: 'teacher-education',
-    totalQuestions: 8,
-    totalLevels: 8,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/the-bounce-back-quiz'
   },
   {
@@ -786,8 +786,8 @@ export const teacherEducationGameData = [
     estimatedTime: '6 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 10,
-    totalLevels: 10,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/growth-mindset-puzzle'
   },
   {
@@ -801,8 +801,8 @@ export const teacherEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'intermediate',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/tough-day-simulation'
   },
   {
@@ -816,8 +816,8 @@ export const teacherEducationGameData = [
     estimatedTime: '8 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 3,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/positive-recall-game'
   },
   {
@@ -831,8 +831,8 @@ export const teacherEducationGameData = [
     estimatedTime: '12 min',
     difficulty: 'intermediate',
     category: 'teacher-education',
-    totalQuestions: 4,
-    totalLevels: 4,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/resilience-roleplay'
   },
   {
@@ -846,8 +846,8 @@ export const teacherEducationGameData = [
     estimatedTime: '8 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/challenge-journal'
   },
   {
@@ -861,8 +861,8 @@ export const teacherEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/emotional-recovery-toolkit'
   },
   {
@@ -876,8 +876,8 @@ export const teacherEducationGameData = [
     estimatedTime: '8 min',
     difficulty: 'intermediate',
     category: 'teacher-education',
-    totalQuestions: 20,
-    totalLevels: 20,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/the-reframe-reflex'
   },
   {
@@ -891,8 +891,8 @@ export const teacherEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/gratitude-ladder'
   },
   {
@@ -906,8 +906,8 @@ export const teacherEducationGameData = [
     estimatedTime: '5 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/resilient-educator-badge',
     isBadgeGame: true
   },
@@ -937,8 +937,8 @@ export const teacherEducationGameData = [
     estimatedTime: '12 min',
     difficulty: 'intermediate',
     category: 'teacher-education',
-    totalQuestions: 6,
-    totalLevels: 6,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/active-listening-quiz'
   },
   {
@@ -952,8 +952,8 @@ export const teacherEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'intermediate',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/boundary-builder-puzzle'
   },
   {
@@ -997,8 +997,8 @@ export const teacherEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 10,
-    totalLevels: 10,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/communication-mirror'
   },
   {
@@ -1012,8 +1012,8 @@ export const teacherEducationGameData = [
     estimatedTime: '15 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/professional-boundaries-journal'
   },
   {
@@ -1042,8 +1042,8 @@ export const teacherEducationGameData = [
     estimatedTime: '5 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 20,
-    totalLevels: 20,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/communication-reflex'
   },
   {
@@ -1057,8 +1057,8 @@ export const teacherEducationGameData = [
     estimatedTime: 'N/A',
     difficulty: 'intermediate',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/clear-communicator-badge',
     isBadgeGame: true,
     icon: '🎯',
@@ -1077,8 +1077,8 @@ export const teacherEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 3,
-    totalLevels: 3,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/the-support-circle',
     icon: '💙',
     color: 'from-blue-500 to-purple-500',
@@ -1115,8 +1115,8 @@ export const teacherEducationGameData = [
     estimatedTime: '15 min',
     difficulty: 'intermediate',
     category: 'teacher-education',
-    totalQuestions: 4,
-    totalLevels: 4,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/ask-for-help-simulation',
     icon: '🤝',
     color: 'from-blue-500 to-purple-500',
@@ -1134,8 +1134,8 @@ export const teacherEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/team-gratitude-wall',
     icon: '💙',
     color: 'from-pink-500 to-purple-500',
@@ -1153,8 +1153,8 @@ export const teacherEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'intermediate',
     category: 'teacher-education',
-    totalQuestions: 2,
-    totalLevels: 2,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/listening-partner-practice',
     icon: '👂',
     color: 'from-blue-500 to-purple-500',
@@ -1172,8 +1172,8 @@ export const teacherEducationGameData = [
     estimatedTime: '5 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 3,
-    totalLevels: 3,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/encourage-a-colleague-challenge',
     icon: '💙',
     color: 'from-pink-500 to-purple-500',
@@ -1191,8 +1191,8 @@ export const teacherEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/mentor-memory-journal',
     icon: '📖',
     color: 'from-indigo-500 to-purple-500',
@@ -1210,8 +1210,8 @@ export const teacherEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'intermediate',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/staffroom-connection-map',
     icon: '🗺️',
     color: 'from-blue-500 to-purple-500',
@@ -1248,8 +1248,8 @@ export const teacherEducationGameData = [
     estimatedTime: '5 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/connected-teacher-badge',
     icon: '🤝',
     color: 'from-pink-500 to-purple-500',
@@ -1268,8 +1268,8 @@ export const teacherEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/why-i-teach',
     icon: '💡',
     color: 'from-purple-500 to-indigo-500',
@@ -1287,8 +1287,8 @@ export const teacherEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/the-ripple-effect',
     icon: '🌊',
     color: 'from-blue-500 to-purple-500',
@@ -1306,8 +1306,8 @@ export const teacherEducationGameData = [
     estimatedTime: '15 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/legacy-ladder',
     icon: '🪜',
     color: 'from-purple-500 to-pink-500',
@@ -1325,8 +1325,8 @@ export const teacherEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'intermediate',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/life-map-puzzle',
     icon: '🗺️',
     color: 'from-indigo-500 to-purple-500',
@@ -1344,8 +1344,8 @@ export const teacherEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 8,
-    totalLevels: 8,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/meaning-in-the-moment',
     icon: '💡',
     color: 'from-purple-500 to-pink-500',
@@ -1363,8 +1363,8 @@ export const teacherEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/fulfillment-journal',
     icon: '📔',
     color: 'from-purple-500 to-indigo-500',
@@ -1382,8 +1382,8 @@ export const teacherEducationGameData = [
     estimatedTime: '5 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/impact-visualization',
     icon: '✨',
     color: 'from-purple-500 to-pink-500',
@@ -1401,8 +1401,8 @@ export const teacherEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/mentor-gratitude-challenge',
     icon: '💌',
     color: 'from-pink-500 to-rose-500',
@@ -1420,8 +1420,8 @@ export const teacherEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'intermediate',
     category: 'teacher-education',
-    totalQuestions: 10,
-    totalLevels: 10,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/inner-alignment-quiz',
     icon: '🎯',
     color: 'from-purple-500 to-indigo-500',
@@ -1439,8 +1439,8 @@ export const teacherEducationGameData = [
     estimatedTime: '1 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/purposeful-teacher-badge',
     icon: '✨',
     color: 'from-purple-500 to-pink-500',
@@ -1459,8 +1459,8 @@ export const teacherEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/screen-time-mirror',
     icon: '📱',
     color: 'from-blue-500 to-indigo-500',
@@ -1478,8 +1478,8 @@ export const teacherEducationGameData = [
     estimatedTime: '15 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 10,
-    totalLevels: 10,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/digital-boundaries-quiz',
     icon: '🛡️',
     color: 'from-indigo-500 to-purple-500',
@@ -1497,8 +1497,8 @@ export const teacherEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/evening-log-off-ritual',
     icon: '🌙',
     color: 'from-indigo-500 to-purple-500',
@@ -1516,8 +1516,8 @@ export const teacherEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/social-media-reflection',
     icon: '📱',
     color: 'from-pink-500 to-rose-500',
@@ -1535,8 +1535,8 @@ export const teacherEducationGameData = [
     estimatedTime: '15 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/morning-nourish-routine',
     icon: '🌅',
     color: 'from-orange-500 to-yellow-500',
@@ -1554,8 +1554,8 @@ export const teacherEducationGameData = [
     estimatedTime: '20 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/nature-reconnect-challenge',
     icon: '🌿',
     color: 'from-green-500 to-emerald-500',
@@ -1573,8 +1573,8 @@ export const teacherEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 20,
-    totalLevels: 20,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/self-care-inventory',
     icon: '📊',
     color: 'from-indigo-500 to-purple-500',
@@ -1592,8 +1592,8 @@ export const teacherEducationGameData = [
     estimatedTime: '10 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/rest-recovery-plan',
     icon: '📅',
     color: 'from-indigo-500 to-purple-500',
@@ -1611,8 +1611,8 @@ export const teacherEducationGameData = [
     estimatedTime: '5 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/silence-stillness-practice',
     icon: '🤫',
     color: 'from-purple-500 to-indigo-500',
@@ -1630,8 +1630,8 @@ export const teacherEducationGameData = [
     estimatedTime: '1 min',
     difficulty: 'beginner',
     category: 'teacher-education',
-    totalQuestions: 1,
-    totalLevels: 1,
+    totalQuestions: 5,
+    totalLevels: 5,
     path: '/school-teacher/games/mental-health-emotional-regulation/self-care-champion-badge',
     icon: '🏆',
     color: 'from-amber-500 to-yellow-500',

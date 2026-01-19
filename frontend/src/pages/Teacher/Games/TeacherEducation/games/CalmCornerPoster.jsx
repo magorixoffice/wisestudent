@@ -14,139 +14,187 @@ const CalmCornerPoster = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 1;
+  const totalLevels = gameData?.totalQuestions || 5;
   
+  const [currentQuestion, setCurrentQuestion] = useState(1);
   const [selectedBackground, setSelectedBackground] = useState(null);
   const [posterItems, setPosterItems] = useState([]);
+  const [completedPosters, setCompletedPosters] = useState({});
   const [showGameOver, setShowGameOver] = useState(false);
   const [score, setScore] = useState(0);
   const posterRef = useRef(null);
 
-  const backgrounds = [
+  const posterThemes = [
     {
-      id: 'soft-blue',
-      name: 'Soft Blue',
-      gradient: 'from-blue-50 via-cyan-50 to-teal-50',
-      color: 'bg-blue-100'
+      id: 1,
+      title: "Calm Corner Poster",
+      description: "Create a personal Calm Corner visual for desk or phone wallpaper",
+      backgrounds: [
+        { id: 'soft-blue', name: 'Soft Blue', gradient: 'from-blue-50 via-cyan-50 to-teal-50' },
+        { id: 'lavender', name: 'Lavender', gradient: 'from-purple-50 via-pink-50 to-rose-50' },
+        { id: 'sage-green', name: 'Sage Green', gradient: 'from-green-50 via-emerald-50 to-teal-50' },
+        { id: 'warm-beige', name: 'Warm Beige', gradient: 'from-amber-50 via-orange-50 to-yellow-50' },
+        { id: 'misty-gray', name: 'Misty Gray', gradient: 'from-gray-50 via-slate-50 to-zinc-50' }
+      ],
+      stickers: [
+        { id: 'plant-1', type: 'plant', emoji: '🌿', label: 'Potted Plant', size: 'text-6xl' },
+        { id: 'plant-2', type: 'plant', emoji: '🌱', label: 'Small Plant', size: 'text-5xl' },
+        { id: 'candle', type: 'candle', emoji: '🕯️', label: 'Candle', size: 'text-5xl' },
+        { id: 'quote-1', type: 'quote', emoji: '💭', label: 'Quote: "Breathe"', text: 'Breathe', size: 'text-4xl' },
+        { id: 'quote-2', type: 'quote', emoji: '✨', label: 'Quote: "You\'ve got this"', text: "You've got this", size: 'text-3xl' },
+        { id: 'quote-3', type: 'quote', emoji: '🌟', label: 'Quote: "One moment at a time"', text: 'One moment at a time', size: 'text-2xl' },
+        { id: 'heart', type: 'decoration', emoji: '💚', label: 'Heart', size: 'text-5xl' },
+        { id: 'star', type: 'decoration', emoji: '⭐', label: 'Star', size: 'text-5xl' },
+        { id: 'leaf', type: 'decoration', emoji: '🍃', label: 'Leaf', size: 'text-5xl' },
+        { id: 'sun', type: 'decoration', emoji: '☀️', label: 'Sun', size: 'text-5xl' }
+      ]
     },
     {
-      id: 'lavender',
-      name: 'Lavender',
-      gradient: 'from-purple-50 via-pink-50 to-rose-50',
-      color: 'bg-purple-100'
+      id: 2,
+      title: "Focus Flow Poster",
+      description: "Design a visual reminder for sustained concentration and mindful attention",
+      backgrounds: [
+        { id: 'deep-blue', name: 'Deep Focus Blue', gradient: 'from-blue-100 via-indigo-100 to-violet-100' },
+        { id: 'forest-green', name: 'Forest Green', gradient: 'from-green-100 via-emerald-100 to-teal-100' },
+        { id: 'amber-gold', name: 'Amber Gold', gradient: 'from-amber-100 via-yellow-100 to-orange-100' },
+        { id: 'cool-gray', name: 'Cool Gray', gradient: 'from-gray-100 via-slate-100 to-zinc-100' },
+        { id: 'purple-haze', name: 'Purple Haze', gradient: 'from-purple-100 via-fuchsia-100 to-pink-100' }
+      ],
+      stickers: [
+        { id: 'brain', type: 'icon', emoji: '🧠', label: 'Focused Brain', size: 'text-5xl' },
+        { id: 'target', type: 'icon', emoji: '🎯', label: 'Target Focus', size: 'text-5xl' },
+        { id: 'clock', type: 'icon', emoji: '⏰', label: 'Time Management', size: 'text-5xl' },
+        { id: 'quote-focus', type: 'quote', emoji: '✨', label: 'Quote: "Deep Work"', text: 'Deep Work', size: 'text-3xl' },
+        { id: 'quote-concentrate', type: 'quote', emoji: '💭', label: 'Quote: "One Thing"', text: 'One Thing', size: 'text-2xl' },
+        { id: 'zen-circle', type: 'decoration', emoji: '⭕', label: 'Zen Circle', size: 'text-5xl' },
+        { id: 'lightning', type: 'decoration', emoji: '⚡', label: 'Lightning Bolt', size: 'text-4xl' },
+        { id: 'mountain', type: 'decoration', emoji: '⛰️', label: 'Mountain Peak', size: 'text-5xl' },
+        { id: 'book', type: 'icon', emoji: '📚', label: 'Study Book', size: 'text-4xl' },
+        { id: 'meditation', type: 'icon', emoji: '🧘', label: 'Meditation', size: 'text-4xl' }
+      ]
     },
     {
-      id: 'sage-green',
-      name: 'Sage Green',
-      gradient: 'from-green-50 via-emerald-50 to-teal-50',
-      color: 'bg-green-100'
+      id: 3,
+      title: "Growth Mindset Poster",
+      description: "Create an inspiring visual that celebrates learning from challenges",
+      backgrounds: [
+        { id: 'sunrise-orange', name: 'Sunrise Orange', gradient: 'from-orange-100 via-amber-100 to-yellow-100' },
+        { id: 'spring-green', name: 'Spring Green', gradient: 'from-green-100 via-lime-100 to-emerald-100' },
+        { id: 'sky-blue', name: 'Sky Blue', gradient: 'from-sky-100 via-blue-100 to-cyan-100' },
+        { id: 'coral-pink', name: 'Coral Pink', gradient: 'from-rose-100 via-pink-100 to-fuchsia-100' },
+        { id: 'lavender-purple', name: 'Lavender Purple', gradient: 'from-purple-100 via-violet-100 to-indigo-100' }
+      ],
+      stickers: [
+        { id: 'sprout', type: 'plant', emoji: '🌱', label: 'Growing Sprout', size: 'text-5xl' },
+        { id: 'up-arrow', type: 'icon', emoji: '📈', label: 'Growth Arrow', size: 'text-5xl' },
+        { id: 'lightbulb', type: 'icon', emoji: '💡', label: 'Bright Idea', size: 'text-5xl' },
+        { id: 'quote-grow', type: 'quote', emoji: '✨', label: 'Quote: "Grow"', text: 'Grow', size: 'text-4xl' },
+        { id: 'quote-learn', type: 'quote', emoji: '📚', label: 'Quote: "Learn"', text: 'Learn', size: 'text-3xl' },
+        { id: 'quote-improve', type: 'quote', emoji: '🚀', label: 'Quote: "Improve"', text: 'Improve', size: 'text-3xl' },
+        { id: 'star-progress', type: 'decoration', emoji: '⭐', label: 'Progress Star', size: 'text-4xl' },
+        { id: 'flower-bloom', type: 'decoration', emoji: '🌸', label: 'Blooming Flower', size: 'text-5xl' },
+        { id: 'muscle', type: 'icon', emoji: '💪', label: 'Strength Muscle', size: 'text-4xl' },
+        { id: 'trophy', type: 'icon', emoji: '🏆', label: 'Achievement Trophy', size: 'text-4xl' }
+      ]
     },
     {
-      id: 'warm-beige',
-      name: 'Warm Beige',
-      gradient: 'from-amber-50 via-orange-50 to-yellow-50',
-      color: 'bg-amber-100'
+      id: 4,
+      title: "Kindness Canvas",
+      description: "Design a heart-centered poster promoting empathy and positive relationships",
+      backgrounds: [
+        { id: 'warm-pink', name: 'Warm Pink', gradient: 'from-pink-100 via-rose-100 to-red-100' },
+        { id: 'soft-yellow', name: 'Soft Yellow', gradient: 'from-yellow-100 via-amber-100 to-orange-100' },
+        { id: 'gentle-purple', name: 'Gentle Purple', gradient: 'from-purple-100 via-fuchsia-100 to-pink-100' },
+        { id: 'peaceful-blue', name: 'Peaceful Blue', gradient: 'from-blue-100 via-cyan-100 to-teal-100' },
+        { id: 'serene-green', name: 'Serene Green', gradient: 'from-green-100 via-emerald-100 to-lime-100' }
+      ],
+      stickers: [
+        { id: 'heart-red', type: 'decoration', emoji: '❤️', label: 'Red Heart', size: 'text-5xl' },
+        { id: 'hands', type: 'icon', emoji: '🤝', label: 'Helping Hands', size: 'text-5xl' },
+        { id: 'smiley', type: 'face', emoji: '😊', label: 'Happy Face', size: 'text-5xl' },
+        { id: 'quote-kind', type: 'quote', emoji: '✨', label: 'Quote: "Be Kind"', text: 'Be Kind', size: 'text-3xl' },
+        { id: 'quote-love', type: 'quote', emoji: '💖', label: 'Quote: "Love"', text: 'Love', size: 'text-4xl' },
+        { id: 'quote-care', type: 'quote', emoji: '🤗', label: 'Quote: "Care"', text: 'Care', size: 'text-3xl' },
+        { id: 'dove', type: 'animal', emoji: '🕊️', label: 'Peace Dove', size: 'text-4xl' },
+        { id: 'rainbow', type: 'decoration', emoji: '🌈', label: 'Rainbow', size: 'text-5xl' },
+        { id: 'hug', type: 'icon', emoji: '🫂', label: 'Group Hug', size: 'text-4xl' },
+        { id: 'gift', type: 'icon', emoji: '💝', label: 'Gift Heart', size: 'text-4xl' }
+      ]
     },
     {
-      id: 'misty-gray',
-      name: 'Misty Gray',
-      gradient: 'from-gray-50 via-slate-50 to-zinc-50',
-      color: 'bg-gray-100'
+      id: 5,
+      title: "Balance Bridge Poster",
+      description: "Create a visual bridge connecting work life and personal wellbeing",
+      backgrounds: [
+        { id: 'balanced-blue', name: 'Balanced Blue', gradient: 'from-blue-100 via-indigo-100 to-purple-100' },
+        { id: 'harmony-green', name: 'Harmony Green', gradient: 'from-green-100 via-teal-100 to-cyan-100' },
+        { id: 'centered-orange', name: 'Centered Orange', gradient: 'from-orange-100 via-amber-100 to-yellow-100' },
+        { id: 'peaceful-lavender', name: 'Peaceful Lavender', gradient: 'from-purple-100 via-pink-100 to-rose-100' },
+        { id: 'stable-gray', name: 'Stable Gray', gradient: 'from-gray-100 via-slate-100 to-zinc-100' }
+      ],
+      stickers: [
+        { id: 'scale', type: 'icon', emoji: '⚖️', label: 'Balance Scale', size: 'text-5xl' },
+        { id: 'bridge', type: 'icon', emoji: '🌉', label: 'Connecting Bridge', size: 'text-5xl' },
+        { id: 'yin-yang', type: 'symbol', emoji: '☯️', label: 'Yin Yang', size: 'text-5xl' },
+        { id: 'quote-balance', type: 'quote', emoji: '✨', label: 'Quote: "Balance"', text: 'Balance', size: 'text-3xl' },
+        { id: 'quote-harmony', type: 'quote', emoji: '🕊️', label: 'Quote: "Harmony"', text: 'Harmony', size: 'text-3xl' },
+        { id: 'quote-center', type: 'quote', emoji: '⭕', label: 'Quote: "Center"', text: 'Center', size: 'text-3xl' },
+        { id: 'work-icon', type: 'icon', emoji: '💼', label: 'Work Briefcase', size: 'text-4xl' },
+        { id: 'home-icon', type: 'icon', emoji: '🏠', label: 'Home House', size: 'text-4xl' },
+        { id: 'tree-of-life', type: 'plant', emoji: '🌳', label: 'Tree of Life', size: 'text-5xl' },
+        { id: 'lotus', type: 'plant', emoji: '🪷', label: 'Lotus Flower', size: 'text-4xl' }
+      ]
     }
   ];
 
-  const stickers = [
-    {
-      id: 'plant-1',
-      type: 'plant',
-      emoji: '🌿',
-      label: 'Potted Plant',
-      size: 'text-6xl'
-    },
-    {
-      id: 'plant-2',
-      type: 'plant',
-      emoji: '🌱',
-      label: 'Small Plant',
-      size: 'text-5xl'
-    },
-    {
-      id: 'candle',
-      type: 'candle',
-      emoji: '🕯️',
-      label: 'Candle',
-      size: 'text-5xl'
-    },
-    {
-      id: 'quote-1',
-      type: 'quote',
-      emoji: '💭',
-      label: 'Quote: "Breathe"',
-      text: 'Breathe',
-      size: 'text-4xl'
-    },
-    {
-      id: 'quote-2',
-      type: 'quote',
-      emoji: '✨',
-      label: 'Quote: "You\'ve got this"',
-      text: "You've got this",
-      size: 'text-3xl'
-    },
-    {
-      id: 'quote-3',
-      type: 'quote',
-      emoji: '🌟',
-      label: 'Quote: "One moment at a time"',
-      text: 'One moment at a time',
-      size: 'text-2xl'
-    },
-    {
-      id: 'heart',
-      type: 'decoration',
-      emoji: '💚',
-      label: 'Heart',
-      size: 'text-5xl'
-    },
-    {
-      id: 'star',
-      type: 'decoration',
-      emoji: '⭐',
-      label: 'Star',
-      size: 'text-5xl'
-    },
-    {
-      id: 'leaf',
-      type: 'decoration',
-      emoji: '🍃',
-      label: 'Leaf',
-      size: 'text-5xl'
-    },
-    {
-      id: 'sun',
-      type: 'decoration',
-      emoji: '☀️',
-      label: 'Sun',
-      size: 'text-5xl'
-    }
-  ];
+
+
+  const getCurrentTheme = () => {
+    return posterThemes.find(theme => theme.id === currentQuestion) || posterThemes[0];
+  };
 
   const handleBackgroundSelect = (bg) => {
     setSelectedBackground(bg);
   };
 
+  const handleNextQuestion = () => {
+    if (currentQuestion < totalLevels) {
+      // Save current poster
+      setCompletedPosters(prev => ({
+        ...prev,
+        [currentQuestion]: {
+          background: selectedBackground,
+          items: [...posterItems]
+        }
+      }));
+      
+      // Reset for next question
+      setSelectedBackground(null);
+      setPosterItems([]);
+      setCurrentQuestion(currentQuestion + 1);
+    } else {
+      // Last question - complete game
+      setScore(totalLevels);
+      setShowGameOver(true);
+      
+      setTimeout(() => {
+        alert("Congratulations! You've created all 5 wellness posters!\n\nTo save your posters:\n1. Take screenshots of each poster\n2. Use them as wallpapers or print them\n3. Share with colleagues for inspiration");
+      }, 500);
+    }
+  };
+
   const handleStickerClick = (sticker) => {
     if (posterItems.length >= 3) {
-      alert("You can add up to 3 soothing visuals. Remove one to add another.");
+      alert("You can add up to 3 visuals. Remove one to add another.");
       return;
     }
 
     const newItem = {
       ...sticker,
       id: `${sticker.id}-${Date.now()}`,
-      x: Math.random() * 60 + 20, // Random position in percentage
+      x: Math.random() * 60 + 20,
       y: Math.random() * 60 + 20,
-      rotation: (Math.random() - 0.5) * 15 // Slight rotation
+      rotation: (Math.random() - 0.5) * 15
     };
 
     setPosterItems([...posterItems, newItem]);
@@ -158,25 +206,19 @@ const CalmCornerPoster = () => {
 
   const handleSavePoster = () => {
     if (!selectedBackground || posterItems.length < 3) {
-      alert("Please select a background and add at least 3 soothing visuals.");
+      alert(`Please select a background and add at least 3 visuals for ${getCurrentTheme().title}.`);
       return;
     }
 
-    // Mark as completed
-    setScore(1);
-    setShowGameOver(true);
-
-    // Instructions for saving
-    setTimeout(() => {
-      alert("To save your poster:\n\n1. Take a screenshot of your poster\n2. Or right-click on the poster and select 'Save image as'\n3. Use it as your phone wallpaper or print it for your desk!");
-    }, 500);
+    // Save current poster and move to next
+    handleNextQuestion();
   };
 
   const handleDownload = () => {
     if (!posterRef.current) return;
 
-    // Provide instructions for saving
-    const instructions = `To save your Calm Corner Poster:\n\n` +
+    const currentTheme = getCurrentTheme();
+    const instructions = `To save your ${currentTheme.title}:\n\n` +
       `1. Take a screenshot:\n` +
       `   • Windows: Press Win + Shift + S, then select the poster area\n` +
       `   • Mac: Press Cmd + Shift + 4, then select the poster area\n` +
@@ -186,39 +228,41 @@ const CalmCornerPoster = () => {
       `   • Phone wallpaper\n` +
       `   • Desktop background\n` +
       `   • Print it for your desk\n\n` +
-      `Your poster is ready to use!`;
+      `Progress: ${currentQuestion}/${totalLevels} posters completed`;
     
     alert(instructions);
   };
 
-  const currentBg = backgrounds.find(bg => bg.id === selectedBackground) || backgrounds[0];
+  const currentTheme = getCurrentTheme();
+  const currentBg = currentTheme.backgrounds.find(bg => bg.id === selectedBackground) || currentTheme.backgrounds[0];
 
   return (
     <TeacherGameShell
-      title={gameData?.title || "Calm Corner Poster"}
-      subtitle={gameData?.description || "Create a personal Calm Corner visual for desk or phone wallpaper"}
+      title={currentTheme.title}
+      subtitle={currentTheme.description}
       showGameOver={showGameOver}
       score={score}
       gameId={gameId}
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={1}
+      currentQuestion={currentQuestion}
     >
       <div className="w-full max-w-6xl mx-auto px-4">
         <div className="bg-white rounded-2xl shadow-lg p-8 mb-6">
           {/* Instructions */}
           <div className="mb-6">
             <h2 className="text-2xl font-bold text-gray-800 mb-4">
-              Create Your Calm Corner Poster
+              Create Your {currentTheme.title}
             </h2>
             <p className="text-gray-600 mb-2">
-              Select a background and add 3 soothing visuals to create your personal calm space poster.
+              Question {currentQuestion} of {totalLevels}: {currentTheme.description}
             </p>
             <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
               <p className="text-sm text-blue-800">
                 <strong>Progress:</strong> {selectedBackground ? '✓ Background selected' : 'Select background'} • 
-                {posterItems.length}/3 visuals added
+                {posterItems.length}/3 visuals added • 
+                {Object.keys(completedPosters).length}/{totalLevels - 1} posters completed
               </p>
             </div>
           </div>
@@ -228,7 +272,7 @@ const CalmCornerPoster = () => {
             <div className="lg:col-span-1">
               <h3 className="text-lg font-semibold text-gray-800 mb-4">1. Select Background</h3>
               <div className="space-y-3">
-                {backgrounds.map((bg) => (
+                {currentTheme.backgrounds.map((bg) => (
                   <motion.button
                     key={bg.id}
                     whileHover={{ scale: 1.02 }}
@@ -315,7 +359,7 @@ const CalmCornerPoster = () => {
             <div className="lg:col-span-1">
               <h3 className="text-lg font-semibold text-gray-800 mb-4">3. Add Soothing Visuals</h3>
               <div className="grid grid-cols-2 gap-3 max-h-[500px] overflow-y-auto">
-                {stickers.map((sticker) => (
+                {currentTheme.stickers.map((sticker) => (
                   <motion.button
                     key={sticker.id}
                     whileHover={{ scale: 1.05 }}
@@ -353,19 +397,21 @@ const CalmCornerPoster = () => {
               disabled={!selectedBackground || posterItems.length < 3}
               className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Complete
+              {currentQuestion < totalLevels ? 'Next Poster' : 'Complete All'}
             </motion.button>
           </div>
 
           {/* Teacher Tip */}
           <div className="mt-6 bg-amber-50 border-2 border-amber-200 rounded-xl p-4">
             <p className="text-sm font-semibold text-amber-900 mb-2">
-              💡 Teacher Tip:
+              💡 Teacher Tip - {currentTheme.title}:
             </p>
             <p className="text-sm text-amber-800 leading-relaxed">
-              Display posters in the staffroom "Calm Wall". Create a dedicated space where teachers can share their calm corner posters. 
-              This creates a visual reminder of self-care and provides inspiration for others. Rotate posters monthly to keep the space fresh 
-              and encourage ongoing participation in wellness practices.
+              {currentQuestion === 1 && 'Display posters in the staffroom "Wellness Wall". Create a dedicated space where teachers can share their wellness posters. This creates visual reminders of self-care and provides inspiration for others.'}
+              {currentQuestion === 2 && 'Use the Focus Flow poster as a daily reminder during lesson planning. Place it near your desk calendar to maintain concentrated attention on priority tasks.'}
+              {currentQuestion === 3 && 'Share Growth Mindset posters with students to reinforce learning resilience. Create classroom displays that celebrate effort and improvement over perfection.'}
+              {currentQuestion === 4 && 'Place Kindness Canvas posters in common areas to promote positive relationships. Encourage staff and students to practice empathy and supportive interactions daily.'}
+              {currentQuestion === 5 && 'Use Balance Bridge posters to remind yourself of work-life harmony. Create visual boundaries between professional responsibilities and personal wellbeing time.'}
             </p>
           </div>
         </div>

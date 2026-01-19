@@ -14,46 +14,79 @@ const EmpathyReflex = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 20;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [gameState, setGameState] = useState("ready"); // ready, playing, finished
-  const [currentPhrase, setCurrentPhrase] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(3); // 3 seconds per phrase
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [timeLeft, setTimeLeft] = useState(5); // 5 seconds per question
   const [score, setScore] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [selectedOption, setSelectedOption] = useState(null);
   const [showFeedback, setShowFeedback] = useState(false);
   const [showGameOver, setShowGameOver] = useState(false);
-  const [answeredPhrases, setAnsweredPhrases] = useState([]);
+  const [answers, setAnswers] = useState([]);
   const timerRef = useRef(null);
 
-  // 20 flash phrases - supportive vs draining
-  const phrases = [
-    { id: 1, text: "I'm here to listen", isSupportive: true, explanation: "Supportive - Shows presence and willingness to hear the person out." },
-    { id: 2, text: "You must be strong", isSupportive: false, explanation: "Draining - Dismisses emotions and puts pressure on the person to suppress feelings." },
-    { id: 3, text: "That sounds really hard", isSupportive: true, explanation: "Supportive - Validates the person's experience and acknowledges their difficulty." },
-    { id: 4, text: "You'll get over it", isSupportive: false, explanation: "Draining - Minimizes the person's feelings and dismisses their experience." },
-    { id: 5, text: "I can see this is affecting you", isSupportive: true, explanation: "Supportive - Acknowledges the person's emotional state with empathy." },
-    { id: 6, text: "It could be worse", isSupportive: false, explanation: "Draining - Invalidates feelings by comparing to others' situations." },
-    { id: 7, text: "Your feelings are valid", isSupportive: true, explanation: "Supportive - Affirms the person's right to feel their emotions." },
-    { id: 8, text: "Don't be so emotional", isSupportive: false, explanation: "Draining - Criticizes emotional expression and dismisses feelings." },
-    { id: 9, text: "I understand why you'd feel that way", isSupportive: true, explanation: "Supportive - Shows understanding and validates the emotional response." },
-    { id: 10, text: "Just think positive", isSupportive: false, explanation: "Draining - Oversimplifies complex emotions and dismisses genuine struggles." },
-    { id: 11, text: "You're not alone in this", isSupportive: true, explanation: "Supportive - Provides connection and reduces isolation." },
-    { id: 12, text: "Stop making a big deal out of it", isSupportive: false, explanation: "Draining - Minimizes the person's concerns and shuts down expression." },
-    { id: 13, text: "It's okay to feel this way", isSupportive: true, explanation: "Supportive - Normalizes emotions and creates a safe space for expression." },
-    { id: 14, text: "You're overreacting", isSupportive: false, explanation: "Draining - Invalidates the person's emotional response and judges their reaction." },
-    { id: 15, text: "How can I support you right now?", isSupportive: true, explanation: "Supportive - Offers practical help and shows care for the person's needs." },
-    { id: 16, text: "Everyone goes through this", isSupportive: false, explanation: "Draining - While true, it dismisses the person's unique experience and feelings." },
-    { id: 17, text: "Your emotions make sense given what you're going through", isSupportive: true, explanation: "Supportive - Connects emotions to circumstances, showing understanding." },
-    { id: 18, text: "Just move on", isSupportive: false, explanation: "Draining - Forces emotional suppression and doesn't allow for processing." },
-    { id: 19, text: "I'm with you in this", isSupportive: true, explanation: "Supportive - Provides companionship and solidarity during difficult times." },
-    { id: 20, text: "You're being too sensitive", isSupportive: false, explanation: "Draining - Criticizes the person's emotional sensitivity and dismisses their feelings." }
+  // 5 questions with 4 options each
+  const questions = [
+    {
+      id: 1,
+      question: "A student comes to you crying about failing a test. What's the most supportive response?",
+      options: [
+        { id: 'a', text: "You'll get over it, it's just one test", isCorrect: false, explanation: "This minimizes their feelings and dismisses their experience. It's draining because it invalidates their emotions." },
+        { id: 'b', text: "I can see this is really affecting you. Let's talk about how you're feeling", isCorrect: true, explanation: "This validates their emotions and shows willingness to listen. It's supportive because it acknowledges their struggle." },
+        { id: 'c', text: "Don't be so emotional, you need to focus on studying more", isCorrect: false, explanation: "This criticizes their emotional expression. It's draining because it dismisses their feelings and puts pressure on them." },
+        { id: 'd', text: "Everyone fails tests sometimes, yours isn't even that bad", isCorrect: false, explanation: "This compares their situation to others and minimizes their specific experience. It's draining because it invalidates their unique feelings." }
+      ]
+    },
+    {
+      id: 2,
+      question: "A colleague vents to you about feeling overwhelmed with workload. How should you respond?",
+      options: [
+        { id: 'a', text: "I understand why you'd feel that way given your workload", isCorrect: true, explanation: "This shows understanding and validates their emotional response to their circumstances. It's supportive because it connects their feelings to their situation." },
+        { id: 'b', text: "You must be strong and power through it like everyone else", isCorrect: false, explanation: "This dismisses their emotions and pressures them to suppress feelings. It's draining because it invalidates their struggle." },
+        { id: 'c', text: "Just think positive and it won't feel so heavy", isCorrect: false, explanation: "This oversimplifies complex emotions and dismisses their genuine struggle. It's draining because it minimizes their experience." },
+        { id: 'd', text: "Stop making a big deal out of it, everyone has busy periods", isCorrect: false, explanation: "This minimizes their concerns and shuts down emotional expression. It's draining because it invalidates their feelings." }
+      ]
+    },
+    {
+      id: 3,
+      question: "A parent calls upset about their child's behavioral issues at school. What's your best response?",
+      options: [
+        
+        { id: 'b', text: "You're overreacting, it's just typical kid behavior", isCorrect: false, explanation: "This invalidates their emotional response and judges their reaction. It's draining because it dismisses their genuine concern." },
+        { id: 'a', text: "It's okay to feel this way, parenting can be really challenging", isCorrect: true, explanation: "This normalizes their emotions and creates a safe space for expression. It's supportive because it validates their parental struggles." },
+        { id: 'c', text: "You should be stronger, kids need firm discipline", isCorrect: false, explanation: "This puts pressure on them to suppress feelings and be 'stronger'. It's draining because it dismisses their emotional needs." },
+        { id: 'd', text: "It could be worse, at least your child isn't failing grades", isCorrect: false, explanation: "This invalidates feelings by comparing to worse situations. It's draining because it dismisses their specific concerns." }
+      ]
+    },
+    {
+      id: 4,
+      question: "A student approaches you saying they feel isolated and alone. How do you respond?",
+      options: [
+        
+        { id: 'b', text: "Everyone feels lonely sometimes, you'll get used to it", isCorrect: false, explanation: "While technically true, this dismisses their unique experience and current feelings. It's draining because it minimizes their specific situation." },
+        { id: 'c', text: "Just be more outgoing and make more friends", isCorrect: false, explanation: "This puts the burden entirely on them and dismisses their feelings. It's draining because it invalidates their emotional experience." },
+        { id: 'a', text: "You're not alone in this, I'm here to support you", isCorrect: true, explanation: "This provides connection and reduces isolation. It's supportive because it offers companionship during difficult times." },
+        { id: 'd', text: "You're being too sensitive, school is supposed to be challenging", isCorrect: false, explanation: "This criticizes their emotional sensitivity and dismisses their feelings. It's draining because it invalidates their genuine experience." }
+      ]
+    },
+    {
+      id: 5,
+      question: "A teacher tells you they're considering quitting due to burnout. What's the most helpful response?",
+      options: [
+        
+        { id: 'b', text: "Just stick with it, teaching is rewarding in the long run", isCorrect: false, explanation: "This dismisses their current crisis and pressures them to endure. It's draining because it invalidates their present struggle." },
+        { id: 'c', text: "You're overreacting, everyone deals with stress", isCorrect: false, explanation: "This invalidates their emotional response and judges their reaction. It's draining because it dismisses their legitimate burnout concerns." },
+        { id: 'd', text: "Move on from this negative thinking and focus on solutions", isCorrect: false, explanation: "This forces emotional suppression and doesn't allow for processing. It's draining because it dismisses their need to express and process feelings." },
+        { id: 'a', text: "How can I support you right now? Would talking to counseling help?", isCorrect: true, explanation: "This offers practical help and shows care for their needs. It's supportive because it provides concrete assistance options." },
+      ]
+    }
   ];
 
-  // Shuffle phrases for variety
-  const shuffledPhrases = [...phrases].sort(() => Math.random() - 0.5);
+  // Questions are already in a fixed order for consistency
+  // const shuffledQuestions = [...questions].sort(() => Math.random() - 0.9);
 
-  // Timer effect - 3 seconds per phrase
+  // Timer effect - 5 seconds per question
   useEffect(() => {
     if (gameState !== "playing") {
       if (timerRef.current) {
@@ -63,7 +96,7 @@ const EmpathyReflex = () => {
       return;
     }
 
-    if (currentPhrase >= shuffledPhrases.length) {
+    if (currentQuestion >= questions.length) {
       setGameState("finished");
       return;
     }
@@ -74,9 +107,9 @@ const EmpathyReflex = () => {
       timerRef.current = null;
     }
 
-    // Reset timer for new phrase
-    setTimeLeft(3);
-    setSelectedAnswer(null);
+    // Reset timer for new question
+    setTimeLeft(5);
+    setSelectedOption(null);
     setShowFeedback(false);
 
     // Start countdown timer
@@ -102,43 +135,39 @@ const EmpathyReflex = () => {
         timerRef.current = null;
       }
     };
-  }, [gameState, currentPhrase]);
+  }, [gameState, currentQuestion]);
 
   const handleTimeUp = () => {
-    // Time's up - check if they correctly didn't tap a draining phrase
-    const phrase = shuffledPhrases[currentPhrase];
-    // Correct if phrase is draining (they correctly didn't tap)
-    // Incorrect if phrase is supportive (they missed tapping it)
-    const isCorrect = !phrase.isSupportive;
-    setSelectedAnswer('timeUp');
+    // Time's up - treat as incorrect answer
+    const currentQ = questions[currentQuestion];
+    const correctOption = currentQ.options.find(opt => opt.isCorrect);
+    
+    setSelectedOption(null);
     setShowFeedback(true);
     
-    if (isCorrect) {
-      setScore(prev => prev + 1);
-    }
-    
-    setAnsweredPhrases(prev => [...prev, {
-      phraseId: phrase.id,
-      phrase: phrase.text,
-      correct: isCorrect,
-      timeUp: true,
-      isSupportive: phrase.isSupportive,
-      explanation: phrase.explanation,
-      action: 'timeUp'
+    setAnswers(prev => [...prev, {
+      questionId: currentQ.id,
+      question: currentQ.question,
+      selectedOption: null,
+      correct: false,
+      correctOption: correctOption.id,
+      explanation: correctOption.explanation,
+      timeUp: true
     }]);
 
-    // Move to next phrase after showing feedback
+    // Show feedback for 4 seconds, then move to next question
     setTimeout(() => {
-      if (currentPhrase < shuffledPhrases.length - 1) {
-        setCurrentPhrase(prev => prev + 1);
+      if (currentQuestion < questions.length - 1) {
+        setCurrentQuestion(prev => prev + 1);
+        setShowFeedback(false);
       } else {
         setGameState("finished");
       }
-    }, 2000);
+    }, 4000);
   };
 
-  const handleTap = () => {
-    if (selectedAnswer !== null || gameState !== "playing") return;
+  const handleOptionSelect = (optionId) => {
+    if (selectedOption !== null || gameState !== "playing") return;
 
     // Clear the timer
     if (timerRef.current) {
@@ -146,56 +175,57 @@ const EmpathyReflex = () => {
       timerRef.current = null;
     }
 
-    const phrase = shuffledPhrases[currentPhrase];
-    // Correct if they tapped a supportive phrase OR didn't tap a draining phrase
-    // Since they tapped, it's only correct if the phrase is supportive
-    const isCorrect = phrase.isSupportive;
-    const timeUsed = 3 - timeLeft;
+    const currentQ = questions[currentQuestion];
+    const selectedOpt = currentQ.options.find(opt => opt.id === optionId);
+    const isCorrect = selectedOpt.isCorrect;
+    const timeUsed = 5 - timeLeft;
 
-    setSelectedAnswer('tap');
+    setSelectedOption(optionId);
     setShowFeedback(true);
 
     if (isCorrect) {
       setScore(prev => prev + 1);
     }
 
-    setAnsweredPhrases(prev => [...prev, {
-      phraseId: phrase.id,
-      phrase: phrase.text,
+    setAnswers(prev => [...prev, {
+      questionId: currentQ.id,
+      question: currentQ.question,
+      selectedOption: optionId,
       correct: isCorrect,
-      timeUsed: timeUsed,
-      isSupportive: phrase.isSupportive,
-      explanation: phrase.explanation,
-      action: 'tap'
+      correctOption: currentQ.options.find(opt => opt.isCorrect).id,
+      explanation: selectedOpt.explanation,
+      timeUsed: timeUsed
     }]);
 
-    // Move to next phrase after showing feedback
+    // Show feedback for 4 seconds, then move to next question
     setTimeout(() => {
-      if (currentPhrase < shuffledPhrases.length - 1) {
-        setCurrentPhrase(prev => prev + 1);
+      if (currentQuestion < questions.length - 1) {
+        setCurrentQuestion(prev => prev + 1);
+        setSelectedOption(null);
+        setShowFeedback(false);
       } else {
         setGameState("finished");
       }
-    }, 2000);
+    }, 4000);
   };
 
   const startGame = () => {
     setGameState("playing");
-    setCurrentPhrase(0);
+    setCurrentQuestion(0);
     setScore(0);
-    setTimeLeft(3);
-    setSelectedAnswer(null);
+    setTimeLeft(5);
+    setSelectedOption(null);
     setShowFeedback(false);
-    setAnsweredPhrases([]);
+    setAnswers([]);
   };
 
   const handleFinish = () => {
     setShowGameOver(true);
   };
 
-  const currentPhraseData = shuffledPhrases[currentPhrase];
-  const progress = ((currentPhrase + 1) / shuffledPhrases.length) * 100;
-  const currentAnswer = answeredPhrases.find(a => a.phraseId === currentPhraseData?.id);
+  const currentQuestionData = questions[currentQuestion];
+  const progress = ((currentQuestion + 1) / questions.length) * 100;
+  const currentAnswer = answers.find(a => a.questionId === currentQuestionData?.id);
 
   return (
     <TeacherGameShell
@@ -207,7 +237,7 @@ const EmpathyReflex = () => {
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={currentPhrase}
+      currentQuestion={gameState === "finished" ? totalLevels : currentQuestion + 1}
     >
       <div className="w-full max-w-4xl mx-auto px-4">
         {gameState === "ready" && (
@@ -217,17 +247,18 @@ const EmpathyReflex = () => {
               Empathy Reflex
             </h2>
             <p className="text-lg text-gray-600 mb-6">
-              Quick reaction game! Tap supportive phrases within 3 seconds. 
-              Don't tap draining phrases. Build your empathy reflexes!
+              Test your empathy skills! Choose the most supportive response to challenging situations.
+              Build your emotional intelligence and communication skills!
             </p>
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border-2 border-green-200 mb-6 max-w-2xl mx-auto">
               <h3 className="font-semibold text-gray-800 mb-3">How to play:</h3>
               <ul className="text-left text-gray-700 space-y-2">
-                <li>• {shuffledPhrases.length} phrases will flash on screen</li>
-                <li>• Tap <strong>supportive</strong> phrases (green) quickly</li>
-                <li>• Don't tap <strong>draining</strong> phrases (red)</li>
-                <li>• You have 3 seconds per phrase</li>
-                <li>• Get instant feedback on each response</li>
+                <li>• 5 realistic teaching scenarios with 4 response options each</li>
+                <li>• Select the most <strong>supportive</strong> response (green checkmark)</li>
+                <li>• Avoid <strong>draining</strong> responses (red X)</li>
+                <li>• You have 5 seconds per question</li>
+                <li>• Detailed explanations help you learn from each choice</li>
+                
               </ul>
             </div>
             <motion.button
@@ -242,12 +273,12 @@ const EmpathyReflex = () => {
           </div>
         )}
 
-        {gameState === "playing" && currentPhraseData && (
+        {gameState === "playing" && currentQuestionData && (
           <div className="bg-white rounded-2xl shadow-lg p-8">
             {/* Progress */}
             <div className="mb-6">
               <div className="flex justify-between text-sm text-gray-600 mb-2">
-                <span>Phrase {currentPhrase + 1} of {shuffledPhrases.length}</span>
+                <span>Question {currentQuestion + 1} of 5</span>
                 <span className="font-semibold">Score: {score}</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2">
@@ -269,40 +300,45 @@ const EmpathyReflex = () => {
               </div>
             </div>
 
-            {/* Current Phrase */}
+            {/* Current Question */}
             {!showFeedback ? (
-              <motion.div
-                key={currentPhraseData.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                className={`rounded-2xl p-8 border-4 cursor-pointer transition-all ${
-                  currentPhraseData.isSupportive
-                    ? 'bg-gradient-to-br from-green-50 to-emerald-50 border-green-300 hover:border-green-400 hover:shadow-lg'
-                    : 'bg-gradient-to-br from-red-50 to-rose-50 border-red-300 hover:border-red-400 hover:shadow-lg'
-                }`}
-                onClick={handleTap}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <div className="text-center">
-                  <div className={`text-4xl mb-4 ${
-                    currentPhraseData.isSupportive ? 'text-green-600' : 'text-red-600'
-                  }`}>
-                    {currentPhraseData.isSupportive ? <Heart className="w-12 h-12 mx-auto" /> : <AlertCircle className="w-12 h-12 mx-auto" />}
-                  </div>
-                  <p className={`text-3xl font-bold mb-4 ${
-                    currentPhraseData.isSupportive ? 'text-green-800' : 'text-red-800'
-                  }`}>
-                    {currentPhraseData.text}
-                  </p>
-                  <p className="text-gray-600 text-lg">
-                    {currentPhraseData.isSupportive 
-                      ? "Tap if this is SUPPORTIVE" 
-                      : "Don't tap - this is DRAINING"}
-                  </p>
+              <div className="space-y-4">
+                <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 border-2 border-purple-200">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">
+                    {currentQuestionData.question}
+                  </h3>
                 </div>
-              </motion.div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {currentQuestionData.options.map((option) => (
+                    <motion.button
+                      key={option.id}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      onClick={() => handleOptionSelect(option.id)}
+                      disabled={selectedOption !== null}
+                      className={`p-4 rounded-xl border-2 text-left transition-all ${
+                        selectedOption === option.id
+                          ? 'border-blue-500 bg-blue-50 shadow-lg'
+                          : 'border-gray-300 bg-white hover:border-blue-300 hover:shadow-md'
+                      } ${selectedOption !== null ? 'opacity-75 cursor-not-allowed' : 'cursor-pointer'}`}
+                    >
+                      <div className="flex items-start gap-3">
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
+                          selectedOption === option.id
+                            ? 'bg-blue-500 text-white'
+                            : 'bg-gray-200 text-gray-600'
+                        }`}>
+                          {option.id.toUpperCase()}
+                        </div>
+                        <p className="text-gray-800 font-medium">
+                          {option.text}
+                        </p>
+                      </div>
+                    </motion.button>
+                  ))}
+                </div>
+              </div>
             ) : (
               /* Feedback */
               <AnimatePresence>
@@ -333,16 +369,17 @@ const EmpathyReflex = () => {
                       currentAnswer?.correct ? 'text-green-800' : 'text-red-800'
                     }`}>
                       {currentAnswer?.correct 
-                        ? (currentAnswer?.isSupportive 
-                          ? "Correct! You tapped a supportive phrase!" 
-                          : "Correct! You correctly didn't tap a draining phrase!")
-                        : (currentAnswer?.isSupportive && currentAnswer?.action === 'timeUp'
-                          ? "Missed it! That was supportive - you should have tapped"
-                          : currentAnswer?.isSupportive && currentAnswer?.action === 'tap'
-                          ? "Wait, that's correct!" // This shouldn't happen, but handle it
-                          : "Oops! You tapped a draining phrase - you shouldn't have tapped")
-                      }
+                        ? "Correct! That's the most supportive response!" 
+                        : "Not quite. Here's the better approach:"}
                     </h3>
+                    
+                    <div className="bg-white rounded-lg p-4 border-2 mb-4 text-left">
+                      <p className="font-semibold text-gray-800 mb-2">Best Response:</p>
+                      <p className="text-gray-700">
+                        {currentQuestionData.options.find(opt => opt.id === currentAnswer?.correctOption)?.text}
+                      </p>
+                    </div>
+                    
                     {currentAnswer?.explanation && (
                       <div className={`mt-4 p-4 rounded-lg border-2 ${
                         currentAnswer?.correct
@@ -352,7 +389,7 @@ const EmpathyReflex = () => {
                         <p className={`text-sm font-semibold mb-2 ${
                           currentAnswer?.correct ? 'text-green-900' : 'text-red-900'
                         }`}>
-                          💡 Explanation:
+                          💡 Why this matters:
                         </p>
                         <p className={`text-sm ${
                           currentAnswer?.correct ? 'text-green-800' : 'text-red-800'
@@ -361,6 +398,7 @@ const EmpathyReflex = () => {
                         </p>
                       </div>
                     )}
+                    
                   </div>
                 </motion.div>
               </AnimatePresence>
@@ -376,19 +414,19 @@ const EmpathyReflex = () => {
               transition={{ type: "spring", stiffness: 200, damping: 10 }}
               className="text-6xl mb-6"
             >
-              {score >= 15 ? '🌟' : score >= 10 ? '✨' : '💪'}
+              {score >= 5 ? '🌟' : score >= 3 ? '✨' : '💪'}
             </motion.div>
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
               Game Complete!
             </h2>
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border-2 border-green-200 mb-6 max-w-2xl mx-auto">
               <p className="text-2xl font-bold text-green-800 mb-2">
-                Final Score: {score} / {shuffledPhrases.length}
+                Final Score: {score} / 5
               </p>
               <p className="text-lg text-gray-700">
-                {score >= 15
-                  ? "Excellent! You have strong empathy reflexes! You quickly recognize supportive responses."
-                  : score >= 10
+                {score >= 5
+                  ? "Perfect! You have strong empathy reflexes! You quickly recognize supportive responses."
+                  : score >= 3
                   ? "Good job! You're developing strong empathy reflexes. Keep practicing!"
                   : "Nice effort! Empathy reflexes improve with practice. Keep identifying supportive responses!"}
               </p>
@@ -396,34 +434,49 @@ const EmpathyReflex = () => {
 
             {/* Summary */}
             <div className="bg-gray-50 rounded-xl p-6 border-2 border-gray-200 mb-6 text-left max-w-2xl mx-auto">
-              <h3 className="font-semibold text-gray-800 mb-4">Your Responses:</h3>
-              <div className="space-y-2 max-h-60 overflow-y-auto">
-                {answeredPhrases.map((answer, index) => (
-                  <div
-                    key={index}
-                    className={`p-3 rounded-lg border ${
-                      answer.correct
-                        ? 'bg-green-50 border-green-200'
-                        : 'bg-red-50 border-red-200'
-                    }`}
-                  >
-                    <div className="flex items-start gap-2">
-                      {answer.correct ? (
-                        <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                      ) : (
-                        <XCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
-                      )}
-                      <div className="flex-1">
-                        <p className="text-sm font-semibold text-gray-800">
-                          "{answer.phrase}"
-                        </p>
-                        <p className="text-xs text-gray-600 mt-1">
-                          {answer.isSupportive ? 'Supportive' : 'Draining'} • {answer.timeUsed ? `${answer.timeUsed.toFixed(1)}s` : 'Time\'s up'}
-                        </p>
+              <h3 className="font-semibold text-gray-800 mb-4">Your Answers:</h3>
+              <div className="space-y-3 max-h-80 overflow-y-auto">
+                {answers.map((answer, index) => {
+                  const question = questions.find(q => q.id === answer.questionId);
+                  const selectedOption = question?.options.find(opt => opt.id === answer.selectedOption);
+                  const correctOption = question?.options.find(opt => opt.isCorrect);
+                  return (
+                    <div
+                      key={index}
+                      className={`p-4 rounded-lg border ${
+                        answer.correct
+                          ? 'bg-green-50 border-green-200'
+                          : 'bg-red-50 border-red-200'
+                      }`}
+                    >
+                      <div className="flex items-start gap-3">
+                        {answer.correct ? (
+                          <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
+                        ) : (
+                          <XCircle className="w-6 h-6 text-red-600 flex-shrink-0 mt-0.5" />
+                        )}
+                        <div className="flex-1">
+                          <p className="text-sm font-semibold text-gray-800 mb-2">
+                            Q{answer.questionId}: {question?.question}
+                          </p>
+                          <div className="mb-2">
+                            <p className="text-xs text-gray-600">
+                              <span className="font-medium">Your answer:</span> {selectedOption?.text || 'None (time expired)'}
+                            </p>
+                            {!answer.correct && (
+                              <p className="text-xs text-gray-600 mt-1">
+                                <span className="font-medium">Better response:</span> {correctOption?.text}
+                              </p>
+                            )}
+                          </div>
+                          <p className="text-xs text-gray-500">
+                            {answer.timeUsed ? `${answer.timeUsed.toFixed(1)}s used` : 'Time expired'}
+                          </p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 

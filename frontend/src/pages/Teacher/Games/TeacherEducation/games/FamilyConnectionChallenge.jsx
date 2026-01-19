@@ -14,7 +14,7 @@ const FamilyConnectionChallenge = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 5;
+  const totalLevels = 5;
   
   const [selectedPrompt, setSelectedPrompt] = useState(null);
   const [completedChallenges, setCompletedChallenges] = useState([]);
@@ -76,28 +76,28 @@ const FamilyConnectionChallenge = () => {
     },
     {
       id: 6,
-      title: "Take Photos Together",
-      description: "Capture moments together, look through old photos, or create a memory album",
+      title: "Take Photos",
+      description: "Capture special moments with family through photography",
       icon: Camera,
       emoji: "📸",
-      color: "from-indigo-500 to-purple-500",
-      bgColor: "bg-indigo-50",
-      borderColor: "border-indigo-300"
+      color: "from-violet-500 to-purple-500",
+      bgColor: "bg-violet-50",
+      borderColor: "border-violet-300"
     },
     {
       id: 7,
-      title: "Surprise Someone",
-      description: "Plan a small surprise, gift, or act of kindness for a family member",
+      title: "Exchange Gifts",
+      description: "Give a thoughtful gift to a family member or receive one",
       icon: Gift,
       emoji: "🎁",
-      color: "from-yellow-500 to-amber-500",
-      bgColor: "bg-yellow-50",
-      borderColor: "border-yellow-300"
+      color: "from-rose-500 to-pink-500",
+      bgColor: "bg-rose-50",
+      borderColor: "border-rose-300"
     },
     {
       id: 8,
-      title: "Share a Meal",
-      description: "Have breakfast, lunch, or dinner together without distractions",
+      title: "Enjoy Coffee/Tea",
+      description: "Spend quality time over a warm beverage with loved ones",
       icon: Coffee,
       emoji: "☕",
       color: "from-amber-500 to-orange-500",
@@ -106,23 +106,23 @@ const FamilyConnectionChallenge = () => {
     },
     {
       id: 9,
-      title: "Take a Walk",
-      description: "Go for a walk, hike, or explore a new place together",
+      title: "Go for a Walk",
+      description: "Take a walk or hike with family members in nature",
       icon: Users,
       emoji: "🚶",
-      color: "from-teal-500 to-cyan-500",
-      bgColor: "bg-teal-50",
-      borderColor: "border-teal-300"
+      color: "from-emerald-500 to-teal-500",
+      bgColor: "bg-emerald-50",
+      borderColor: "border-emerald-300"
     },
     {
       id: 10,
-      title: "Share Gratitude",
-      description: "Tell each other what you're grateful for or appreciate about one another",
+      title: "Share Stories",
+      description: "Tell stories from the past or create new ones together",
       icon: Heart,
-      emoji: "💝",
-      color: "from-rose-500 to-pink-500",
-      bgColor: "bg-rose-50",
-      borderColor: "border-rose-300"
+      emoji: "📖",
+      color: "from-red-500 to-pink-500",
+      bgColor: "bg-red-50",
+      borderColor: "border-red-300"
     }
   ];
 
@@ -188,7 +188,7 @@ const FamilyConnectionChallenge = () => {
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={completedChallenges.length + 1}
+      currentQuestion={completedChallenges.length + 0}
     >
       <div className="w-full max-w-6xl mx-auto px-4">
         {!showGameOver && (
@@ -226,6 +226,8 @@ const FamilyConnectionChallenge = () => {
                   <AnimatePresence>
                     {availablePrompts.map((prompt, index) => {
                       const IconComponent = prompt.icon;
+                      const isMaxChallengesReached = completedChallenges.length >= 5;
+                      
                       return (
                         <motion.div
                           key={prompt.id}
@@ -236,8 +238,13 @@ const FamilyConnectionChallenge = () => {
                           whileTap={{ scale: 0.98 }}
                         >
                           <button
-                            onClick={() => handlePromptSelect(prompt)}
-                            className={`w-full ${prompt.bgColor} ${prompt.borderColor} border-2 rounded-xl p-6 text-left transition-all hover:shadow-lg`}
+                            onClick={() => !isMaxChallengesReached && handlePromptSelect(prompt)}
+                            disabled={isMaxChallengesReached}
+                            className={`w-full ${prompt.bgColor} ${prompt.borderColor} border-2 rounded-xl p-6 text-left transition-all hover:shadow-lg ${
+                              isMaxChallengesReached 
+                                ? 'opacity-50 cursor-not-allowed' 
+                                : 'hover:shadow-lg'
+                            }`}
                           >
                             <div className="flex items-start gap-4">
                               <div className={`w-14 h-14 rounded-full bg-gradient-to-r ${prompt.color} flex items-center justify-center text-2xl flex-shrink-0`}>
@@ -254,7 +261,9 @@ const FamilyConnectionChallenge = () => {
                             </div>
                             <div className="mt-4 flex items-center gap-2 text-sm font-semibold text-gray-700">
                               <ArrowRight className="w-4 h-4" />
-                              <span>Choose this challenge</span>
+                              <span>
+                                {isMaxChallengesReached ? 'Max challenges reached' : 'Choose this challenge'}
+                              </span>
                             </div>
                           </button>
                         </motion.div>
@@ -300,7 +309,7 @@ const FamilyConnectionChallenge = () => {
                   </div>
                 )}
 
-                {completedChallenges.length >= 1 && (
+                {completedChallenges.length >= 1 && completedChallenges.length < 5 && (
                   <div className="text-center mt-8">
                     <motion.button
                       whileHover={{ scale: 1.05 }}
@@ -316,11 +325,11 @@ const FamilyConnectionChallenge = () => {
                   </div>
                 )}
 
-                {availablePrompts.length === 0 && (
+                {completedChallenges.length >= 5 && (
                   <div className="text-center py-8">
                     <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
                     <p className="text-lg font-semibold text-gray-800 mb-2">
-                      All challenges completed!
+                      All 5 required challenges completed!
                     </p>
                     <motion.button
                       whileHover={{ scale: 1.05 }}
@@ -456,14 +465,14 @@ const FamilyConnectionChallenge = () => {
               transition={{ type: "spring", stiffness: 200, damping: 10 }}
               className="text-6xl mb-6"
             >
-              {completedChallenges.length >= 3 ? '🌟' : completedChallenges.length >= 1 ? '✨' : '💝'}
+              {completedChallenges.length >= 5 ? '🏆' : completedChallenges.length >= 3 ? '🌟' : completedChallenges.length >= 1 ? '✨' : '💝'}
             </motion.div>
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
               Challenge Complete!
             </h2>
             <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl p-6 border-2 border-pink-200 mb-6">
               <p className="text-gray-700 text-lg leading-relaxed mb-4">
-                You completed <span className="font-bold text-pink-600">{completedChallenges.length}</span> family connection challenge{completedChallenges.length !== 1 ? 's' : ''}!
+                You completed <span className="font-bold text-pink-600">{completedChallenges.length}</span> out of 5 required family connection challenges!
               </p>
               <p className="text-gray-600">
                 These moments of connection help counter isolation from overwork and reinforce your personal bonds.

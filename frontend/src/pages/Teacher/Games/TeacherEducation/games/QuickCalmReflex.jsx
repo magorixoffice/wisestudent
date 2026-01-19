@@ -14,13 +14,13 @@ const QuickCalmReflex = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 20;
+  const totalLevels = 5; // Updated to 5 questions
   
   const [gameState, setGameState] = useState("ready"); // ready, playing, finished
   const [currentRound, setCurrentRound] = useState(0);
   const [score, setScore] = useState(0);
   const [missed, setMissed] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(15); // 15 seconds per round
+  const [timeLeft, setTimeLeft] = useState(5); // 5 seconds per round
   const [showGameOver, setShowGameOver] = useState(false);
   const [currentIcons, setCurrentIcons] = useState([]);
   const [tappedIcons, setTappedIcons] = useState(new Set());
@@ -28,17 +28,13 @@ const QuickCalmReflex = () => {
   const iconTimerRef = useRef(null);
   const roundRef = useRef(0);
 
-  const TOTAL_ROUNDS = 3;
+  const TOTAL_ROUNDS = 5; // Updated to match total levels
   const ICONS_PER_ROUND = 6; // Show 6 icons at once
-  const ICON_FLASH_INTERVAL = 1000; // Change icons every second
+  const ICON_FLASH_INTERVAL = 3000; // Change icons every 3 seconds (more time to react)
 
   // Calming actions (correct - should tap)
   const calmingActions = [
     { id: 'breathe', icon: '🧘', label: 'Breathe', color: 'from-green-400 to-emerald-500' },
-    { id: 'smile', icon: '😊', label: 'Smile', color: 'from-yellow-400 to-orange-400' },
-    { id: 'stretch', icon: '🤸', label: 'Stretch', color: 'from-blue-400 to-cyan-500' },
-    { id: 'sip-water', icon: '💧', label: 'Sip Water', color: 'from-cyan-400 to-blue-500' },
-    { id: 'step-out', icon: '🚶', label: 'Step Out', color: 'from-purple-400 to-pink-500' },
   ];
 
   // Non-calming actions (incorrect - should NOT tap)
@@ -50,30 +46,38 @@ const QuickCalmReflex = () => {
     { id: 'complain', icon: '😠', label: 'Complain', color: 'from-red-600 to-red-800' },
   ];
 
-  // Generate random icons for display (mix of calming and non-calming)
+  // Generate random icons for display (ensuring exactly one calming action per round)
   const generateRandomIcons = () => {
     const icons = [];
-    const allActions = [...calmingActions, ...nonCalmingActions];
     
-    // Mix of calming and non-calming
-    for (let i = 0; i < ICONS_PER_ROUND; i++) {
-      const isCalming = Math.random() > 0.4; // 60% chance of calming
-      const actionPool = isCalming ? calmingActions : nonCalmingActions;
-      const action = actionPool[Math.floor(Math.random() * actionPool.length)];
-      icons.push({ 
-        ...action, 
-        isCalming,
-        uniqueId: `${Date.now()}-${i}-${Math.random()}` // Unique ID for each flash
+    // Ensure exactly one calming action (Breathe) per round
+    if (calmingActions.length > 0) {
+      const calmingAction = calmingActions[0]; // Take the first (and only) calming action
+      icons.push({
+        ...calmingAction,
+        isCalming: true,
+        uniqueId: `${Date.now()}-calming-${Math.random()}` // Unique ID for each flash
       });
     }
     
-    return icons;
+    // Fill remaining slots with non-calming actions
+    for (let i = 1; i < ICONS_PER_ROUND; i++) {
+      const nonCalmingAction = nonCalmingActions[Math.floor(Math.random() * nonCalmingActions.length)];
+      icons.push({
+        ...nonCalmingAction,
+        isCalming: false,
+        uniqueId: `${Date.now()}-noncalming-${i}-${Math.random()}` // Unique ID for each flash
+      });
+    }
+    
+    // Shuffle the icons so the calming action isn't always in the same position
+    return icons.sort(() => Math.random() - 0.5);
   };
 
   // Start a new round
   const startRound = () => {
     setTappedIcons(new Set());
-    setTimeLeft(15);
+    setTimeLeft(5);
     roundRef.current = roundRef.current + 1;
     setCurrentRound(roundRef.current);
     
@@ -187,7 +191,7 @@ const QuickCalmReflex = () => {
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={currentRound}
+      currentQuestion={currentRound+0-1}
     >
       <div className="w-full max-w-5xl mx-auto px-4">
         {gameState === "ready" && (
@@ -197,10 +201,10 @@ const QuickCalmReflex = () => {
               Quick Calm Reflex
             </h2>
             <p className="text-gray-600 mb-6 text-lg">
-              Icons will flash rapidly. Tap only the <strong>calming actions</strong> (breathe, smile, stretch, sip water, step out).
+              Icons will flash rapidly. Tap only the <strong>calming action</strong> (breathe).
             </p>
             <p className="text-gray-500 mb-8">
-              You'll play {TOTAL_ROUNDS} rounds. Each round lasts 15 seconds. Icons will flash rapidly - tap only the calming ones!
+              You'll play {TOTAL_ROUNDS} rounds. Each round lasts 5 seconds. Icons will flash rapidly - tap only the calming ones!
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -249,7 +253,7 @@ const QuickCalmReflex = () => {
             {/* Instructions */}
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-4 border-2 border-green-200 text-center">
               <p className="text-sm font-semibold text-green-800">
-                💡 Tap only calming actions: Breathe, Smile, Stretch, Sip Water, Step Out
+                💡 Tap only calming action: Breathe
               </p>
             </div>
 
@@ -331,11 +335,11 @@ const QuickCalmReflex = () => {
 
             <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 border-2 border-purple-200 mb-6">
               <h3 className="text-lg font-semibold text-gray-800 mb-2">Your Performance</h3>
-              {score >= ICONS_PER_ROUND * TOTAL_ROUNDS * 0.6 * 0.8 ? (
+              {score >= TOTAL_ROUNDS * 0.8 ? (
                 <p className="text-gray-700">
                   Excellent! You have great reflexes for identifying calming actions. Keep practicing to build this into a natural habit.
                 </p>
-              ) : score >= ICONS_PER_ROUND * TOTAL_ROUNDS * 0.6 * 0.5 ? (
+              ) : score >= TOTAL_ROUNDS * 0.5 ? (
                 <p className="text-gray-700">
                   Good job! You're getting better at recognizing calming actions. Practice more to improve your reflexes.
                 </p>

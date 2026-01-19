@@ -147,26 +147,50 @@ const BalancedLifeBadge = () => {
     try {
       setIsCollecting(true);
       const response = await api.post('/api/school/teacher/badge/balanced-life/collect');
-      
-      if (response.data.success && response.data.badgeEarned) {
+
+      const result = response.data;
+
+      if (result.success && result.badgeEarned) {
         setBadgeCollected(true);
-        setShowCollectionModal(true);
+        setShowCollectionModal(false);
+        toast.success('🎉 Badge collected successfully!');
         
-        // Play affirmation audio
-        setTimeout(() => {
-          playAffirmation("Balance brings brilliance.");
-        }, 500);
+        // Play positive audio affirmation
+        const affirmation = "Congratulations! You have earned the Balanced Life Badge. Your consistent practice of work-life balance shows your commitment to wellbeing. You have mastered weekend planning, saying no, tracking work-life balance, connecting with family, and digital shutdown. Your balanced approach benefits not only you but also your students and colleagues. Well done!";
+        playAffirmation(affirmation);
         
-        toast.success('🏆 Balanced Life Badge Collected! Balance brings brilliance.');
-      } else if (response.data.alreadyEarned) {
-        setBadgeCollected(true);
-        toast.info('You already have this badge!');
+        // Dispatch badge earned event
+        window.dispatchEvent(new CustomEvent('teacherBadgeEarned', {
+          detail: {
+            badgeId: 'balanced-life',
+            badgeName: 'Balanced Life',
+            message: 'Maintain consistent rest and self-care routines',
+            badge: result.badge
+          }
+        }));
+        
+        // Register the badge game as completed in the game progress system
+        // This is crucial for sequential unlocking of the next game
+        try {
+          await teacherGameCompletionService.completeGame({
+            gameId,
+            gameType: 'teacher-education',
+            gameIndex: gameData?.gameIndex || null,
+            score: 5,
+            totalLevels: 5,
+            totalCoins: 0,
+            isReplay: false
+          });
+        } catch (error) {
+          console.error('Failed to mark badge game completed:', error);
+        }
       } else {
-        toast.error(response.data.error || 'Failed to collect badge. Please complete all required activities first.');
+        toast.error(result.error || 'Failed to collect badge');
       }
     } catch (error) {
       console.error('Error collecting badge:', error);
-      toast.error(error.response?.data?.error || 'Failed to collect badge');
+      const errorMessage = error.response?.data?.error || 'Failed to collect badge. Please try again.';
+      toast.error(errorMessage);
     } finally {
       setIsCollecting(false);
     }
@@ -180,13 +204,13 @@ const BalancedLifeBadge = () => {
     <TeacherGameShell
       title={gameData?.title || "Balanced Life Badge"}
       subtitle={gameData?.description || "Reward teachers who maintain consistent rest and self-care routines"}
-      showGameOver={badgeCollected}
-      score={badgeCollected ? 1 : 0}
+      showGameOver={false}
+      score={0}
       gameId={gameId}
       gameType="teacher-education"
-      totalLevels={1}
-      totalCoins={gameData?.calmCoins || 5}
-      currentQuestion={1}
+      totalLevels={0}
+      totalCoins={0}
+      currentQuestion={0}
     >
       <div className="w-full max-w-5xl mx-auto px-4">
         {loading ? (
@@ -304,21 +328,12 @@ const BalancedLifeBadge = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={handleCollectBadge}
+                  onClick={() => setShowCollectionModal(true)}
                   disabled={isCollecting}
                   className="bg-gradient-to-r from-amber-500 via-yellow-500 to-orange-500 text-white px-8 py-4 rounded-xl text-xl font-semibold shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-3 mx-auto"
                 >
-                  {isCollecting ? (
-                    <>
-                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                      Collecting...
-                    </>
-                  ) : (
-                    <>
-                      <Award className="w-6 h-6" />
-                      Collect Badge
-                    </>
-                  )}
+                  <Award className="w-6 h-6" />
+                  Collect Badge
                 </motion.button>
               </div>
             )}
@@ -376,6 +391,71 @@ const BalancedLifeBadge = () => {
                     </ul>
                   </div>
                 </div>
+              </div>
+            )}
+
+            {/* Collection Confirmation Modal */}
+            {showCollectionModal && (
+              <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 text-center"
+                >
+                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 mb-4">
+                    <Award className="w-10 h-10 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                    Collect Your Badge
+                  </h3>
+                  <p className="text-gray-600 mb-6">
+                    Are you ready to collect your Balanced Life Badge? You'll hear a positive affirmation when you collect it!
+                  </p>
+                  <div className="flex gap-4 justify-center">
+                    <button
+                      onClick={() => setShowCollectionModal(false)}
+                      disabled={isCollecting}
+                      className="bg-gray-300 hover:bg-gray-400 text-gray-800 px-6 py-3 rounded-full font-semibold transition disabled:opacity-50"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      onClick={handleCollectBadge}
+                      disabled={isCollecting}
+                      className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 disabled:opacity-50"
+                    >
+                      {isCollecting ? 'Collecting...' : 'Yes, Collect Badge!'}
+                    </button>
+                  </div>
+                </motion.div>
+              </div>
+            )}
+
+            {/* Audio Affirmation Section */}
+            {badgeCollected && (
+              <div className="mb-6">
+                <button
+                  onClick={() => {
+                    if (isPlayingAudio) {
+                      stopAudio();
+                    } else {
+                      playAffirmation("Congratulations! You have earned the Balanced Life Badge. Your consistent practice of work-life balance shows your commitment to wellbeing. You have mastered weekend planning, saying no, tracking work-life balance, connecting with family, and digital shutdown. Your balanced approach benefits not only you but also your students and colleagues. Well done!");
+                    }
+                  }}
+                  className="flex items-center gap-2 mx-auto px-6 py-3 bg-amber-100 hover:bg-amber-200 text-amber-700 rounded-xl font-semibold transition-all"
+                >
+                  {isPlayingAudio ? (
+                    <>
+                      <VolumeX className="w-5 h-5" />
+                      Stop Affirmation
+                    </>
+                  ) : (
+                    <>
+                      <Volume2 className="w-5 h-5" />
+                      Hear Affirmation Again
+                    </>
+                  )}
+                </button>
               </div>
             )}
 

@@ -14,7 +14,7 @@ const TheNoPractice = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 8;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [currentRequest, setCurrentRequest] = useState(0);
   const [selectedResponses, setSelectedResponses] = useState({});
@@ -31,13 +31,7 @@ const TheNoPractice = () => {
       request: "Can you cover my class? I have an emergency and need to leave early.",
       context: "A colleague asks you to cover their class with short notice",
       responseOptions: [
-        {
-          id: 'a',
-          text: "I'd love to help, but I'm full today. Can I support you in another way?",
-          calmScore: 9,
-          type: 'assertive-empathy',
-          explanation: "Excellent! This is assertive empathy—firm yet kind. You clearly state your boundary while offering alternative support. This maintains relationships while protecting your capacity."
-        },
+       
         {
           id: 'b',
           text: "Sure, I can do that. No problem at all.",
@@ -51,6 +45,13 @@ const TheNoPractice = () => {
           calmScore: 5,
           type: 'too-direct',
           explanation: "While clear, this response lacks empathy and might damage relationships. A firm 'no' with brief explanation and alternative offer is more effective."
+        },
+         {
+          id: 'a',
+          text: "I'd love to help, but I'm full today. Can I support you in another way?",
+          calmScore: 9,
+          type: 'assertive-empathy',
+          explanation: "Excellent! This is assertive empathy—firm yet kind. You clearly state your boundary while offering alternative support. This maintains relationships while protecting your capacity."
         },
         {
           id: 'd',
@@ -101,13 +102,7 @@ const TheNoPractice = () => {
       request: "Would you mind staying late today to finish this report? It's really important.",
       context: "Supervisor requests you stay late for additional work",
       responseOptions: [
-        {
-          id: 'a',
-          text: "I appreciate the urgency, but I've committed to being home tonight. Could we discuss alternatives tomorrow morning?",
-          calmScore: 9,
-          type: 'assertive-empathy',
-          explanation: "Excellent! You acknowledge the importance while clearly stating your boundary. Offering an alternative solution shows collaborative problem-solving."
-        },
+        
         {
           id: 'b',
           text: "Okay, I'll stay. Family can wait, I guess.",
@@ -128,7 +123,14 @@ const TheNoPractice = () => {
           calmScore: 4,
           type: 'wishy-washy',
           explanation: "This creates uncertainty and doesn't set clear boundaries. A definitive response with brief explanation is more effective and respectful."
-        }
+        },
+        {
+          id: 'a',
+          text: "I appreciate the urgency, but I've committed to being home tonight. Could we discuss alternatives tomorrow morning?",
+          calmScore: 9,
+          type: 'assertive-empathy',
+          explanation: "Excellent! You acknowledge the importance while clearly stating your boundary. Offering an alternative solution shows collaborative problem-solving."
+        },
       ]
     },
     {
@@ -136,19 +138,20 @@ const TheNoPractice = () => {
       request: "Can you take on this extra committee role? We really need someone with your expertise.",
       context: "Administration asks you to join an additional committee",
       responseOptions: [
-        {
-          id: 'a',
-          text: "I appreciate the opportunity, but I'm at capacity right now. Perhaps we could discuss this next semester when my workload lightens?",
-          calmScore: 9,
-          type: 'assertive-empathy',
-          explanation: "Perfect! You acknowledge their request positively while setting a clear boundary. Offering a future possibility shows engagement without overcommitting now."
-        },
+        
         {
           id: 'b',
           text: "Yes, absolutely! I'll make it work somehow.",
           calmScore: 3,
           type: 'over-accommodating',
           explanation: "While enthusiastic, taking on too much can lead to burnout. It's important to honestly assess your capacity before committing."
+        },
+        {
+          id: 'a',
+          text: "I appreciate the opportunity, but I'm at capacity right now. Perhaps we could discuss this next semester when my workload lightens?",
+          calmScore: 9,
+          type: 'assertive-empathy',
+          explanation: "Perfect! You acknowledge their request positively while setting a clear boundary. Offering a future possibility shows engagement without overcommitting now."
         },
         {
           id: 'c',
@@ -198,111 +201,6 @@ const TheNoPractice = () => {
           calmScore: 3,
           type: 'wishy-washy',
           explanation: "This response creates confusion and doesn't protect your boundaries. A clear, kind 'no' is more helpful for everyone involved."
-        }
-      ]
-    },
-    {
-      id: 6,
-      request: "Can you attend this optional training session on Saturday? It would really benefit the team.",
-      context: "Optional weekend training requested during your personal time",
-      responseOptions: [
-        {
-          id: 'a',
-          text: "I appreciate the opportunity, but I protect my weekends for rest and personal time. I'm happy to discuss weekday alternatives.",
-          calmScore: 9,
-          type: 'assertive-empathy',
-          explanation: "Perfect! You clearly state your boundary around personal time while remaining open to alternatives. This protects your rest while showing engagement."
-        },
-        {
-          id: 'b',
-          text: "Sure, I'll be there. Weekends don't really matter, I guess.",
-          calmScore: 2,
-          type: 'over-accommodating',
-          explanation: "This shows disregard for your own needs. Protecting personal time is essential for sustainable teaching. It's okay to say no to weekend work."
-        },
-        {
-          id: 'c',
-          text: "No, I don't work on weekends. That's my time.",
-          calmScore: 6,
-          type: 'too-direct',
-          explanation: "Clear boundary, but could be more collaborative in tone. Adding brief acknowledgment of the opportunity makes it more relationship-friendly."
-        },
-        {
-          id: 'd',
-          text: "I'm not sure... maybe I can make it? I'll try to come if nothing else comes up.",
-          calmScore: 3,
-          type: 'wishy-washy',
-          explanation: "This creates uncertainty and doesn't clearly protect your boundaries. A definitive response is more respectful of everyone's planning."
-        }
-      ]
-    },
-    {
-      id: 7,
-      request: "Would you mind handling parent communication for our grade level? You're so good at it.",
-      context: "Asked to take on additional responsibilities because you're skilled at them",
-      responseOptions: [
-        {
-          id: 'a',
-          text: "I appreciate the recognition, but I'm at capacity with my current responsibilities. Could we rotate this role or find a shared approach?",
-          calmScore: 9,
-          type: 'assertive-empathy',
-          explanation: "Excellent! You acknowledge the compliment without taking on extra work. Suggesting alternatives shows collaborative problem-solving while protecting your capacity."
-        },
-        {
-          id: 'b',
-          text: "Of course! I don't mind doing it since I'm good at it.",
-          calmScore: 3,
-          type: 'over-accommodating',
-          explanation: "Being good at something doesn't mean you should always do it. Setting boundaries prevents skills from becoming burdens. It's okay to say no."
-        },
-        {
-          id: 'c',
-          text: "No, I'm not doing everyone else's work. That's not fair.",
-          calmScore: 5,
-          type: 'too-direct',
-          explanation: "While fair, this response could be more empathetic. Acknowledging the compliment and suggesting alternatives maintains relationships better."
-        },
-        {
-          id: 'd',
-          text: "I'm not sure... maybe sometimes? But not all the time...",
-          calmScore: 4,
-          type: 'wishy-washy',
-          explanation: "This creates unclear expectations. A definitive response with brief explanation is more helpful for everyone's planning."
-        }
-      ]
-    },
-    {
-      id: 8,
-      request: "Could you help me with lesson planning this weekend? I'm really struggling with this unit.",
-      context: "Colleague requests help with lesson planning during your weekend",
-      responseOptions: [
-        {
-          id: 'a',
-          text: "I understand you're struggling, but I protect my weekends for rest. I'm happy to help during our planning period this week instead.",
-          calmScore: 9,
-          type: 'assertive-empathy',
-          explanation: "Perfect! You show empathy for their struggle while clearly protecting your personal time. Offering an alternative time demonstrates support without compromising your boundaries."
-        },
-        {
-          id: 'b',
-          text: "Sure, I'll help you this weekend. No problem.",
-          calmScore: 2,
-          type: 'over-accommodating',
-          explanation: "While helpful, giving up your weekend for work leads to burnout. Protecting personal time is essential. It's okay to say no and offer alternatives."
-        },
-        {
-          id: 'c',
-          text: "No, I don't work on weekends. You'll have to figure it out yourself.",
-          calmScore: 5,
-          type: 'too-direct',
-          explanation: "Clear boundary, but lacks empathy. Adding acknowledgment of their struggle and offering alternative support maintains relationships better."
-        },
-        {
-          id: 'd',
-          text: "I'm not sure if I can... maybe I'll have some time? I'll see...",
-          calmScore: 3,
-          type: 'wishy-washy',
-          explanation: "This creates uncertainty and doesn't clearly protect your boundaries. A definitive response with an alternative offer is more helpful."
         }
       ]
     }
@@ -358,10 +256,8 @@ const TheNoPractice = () => {
     setShowFeedback(true);
     setTotalCalmScore(prev => prev + option.calmScore);
     
-    // Score based on calm score (8-10 = excellent, 6-7 = good, 4-5 = fair, 1-3 = needs work)
-    if (option.calmScore >= 8) {
-      setScore(prev => prev + 1);
-    }
+    // Award 1 point for each answered question regardless of calm score
+    setScore(prev => prev + 1);
   };
 
   const handleNext = () => {
@@ -398,7 +294,7 @@ const TheNoPractice = () => {
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={currentRequest + 1}
+      currentQuestion={currentRequest + 0}
     >
       <div className="w-full max-w-5xl mx-auto px-4">
         {!showGameOver && currentRequestData && (

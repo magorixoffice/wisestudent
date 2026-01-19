@@ -26,11 +26,11 @@ const NameYourFeeling = () => {
       description: "Your classroom is unusually loud and chaotic. Students are talking over each other, some are out of their seats, and despite your attempts to get their attention, the noise level keeps rising. You've tried redirecting multiple times, but the class seems restless and unfocused.",
       options: [
         "Calm and Patient",
-        "Frustrated and Overwhelmed",
         "Energetic and Excited",
+        "Frustrated and Overwhelmed",
         "Indifferent and Unaffected"
       ],
-      correct: 1, // Frustrated and Overwhelmed
+      correct: 2, // Frustrated and Overwhelmed
       insight: "That's frustration mixed with fatigue. Recognizing this helps you pause before reacting.",
       reflection: "Recognizing you feel 'Frustrated and Overwhelmed' helps you pause before reacting. Naming this emotion allows you to respond thoughtfully rather than escalating the situation. When you label your feeling, you can choose a calm response strategy that maintains classroom management while addressing the students' needs.",
       teacherTip: "Pause and label your feelings before reacting to stressful moments. When you name your frustration, you create space to choose your response. You might say to yourself: 'I'm feeling frustrated. Let me take a breath and use a calm redirect strategy.'"
@@ -71,11 +71,11 @@ const NameYourFeeling = () => {
       description: "You're in the staffroom during lunch break. A colleague is venting about a difficult parent meeting, and the conversation turns into complaining about students and administration. The energy feels negative and draining. You want to contribute but feel uncomfortable with the tone of the conversation.",
       options: [
         "Comfortable and Engaged",
-        "Uncomfortable and Drained",
         "Energetic and Motivated",
-        "Angry and Critical"
+        "Angry and Critical",
+        "Uncomfortable and Drained",
       ],
-      correct: 1, // Uncomfortable and Drained
+      correct: 3, // Uncomfortable and Drained
       insight: "That's discomfort mixed with emotional fatigue. Naming this helps you set healthy boundaries.",
       reflection: "Identifying you feel 'Uncomfortable and Drained' helps you set healthy boundaries. You can say to yourself: 'I'm feeling drained by this negative conversation. I need to protect my energy.' This allows you to choose how to engage or disengage in a way that preserves your wellbeing.",
       teacherTip: "Naming your discomfort helps you protect your emotional energy. When you recognize you're feeling drained, you can choose to step away or redirect conversations toward more constructive topics. This models self-care and boundary-setting for your students."
@@ -109,7 +109,7 @@ const NameYourFeeling = () => {
       setScore(prev => prev + 1);
     }
 
-    // Move to next question after a short delay
+    // Move to next question after a longer delay to allow reading of insights and reflections
     setTimeout(() => {
       if (questionIndex < scenarios.length - 1) {
         setCurrentQuestion(questionIndex + 1);
@@ -117,7 +117,7 @@ const NameYourFeeling = () => {
         // All questions answered
         setShowGameOver(true);
       }
-    }, 2500); // 2.5 second delay to show reflection
+    }, 8000); // 8 second delay to allow reading of insights, reflections, and teacher tips
   };
 
   const getOptionStyle = (questionIndex, optionIndex) => {
