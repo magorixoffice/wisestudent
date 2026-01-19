@@ -21,6 +21,13 @@ import {
   getComplianceDashboard,
   processDeletionRequest
 } from '../controllers/adminController.js';
+import {
+  getGoodieOrders,
+  updateGoodieOrderStatus,
+  createGoodie,
+  listAllGoodies,
+  deleteGoodie
+} from '../controllers/goodieController.js';
 import { requireAuth } from '../middlewares/requireAuth.js';
 import { checkAdmin } from '../middlewares/checkRole.js';
 
@@ -57,6 +64,12 @@ router.get('/research-sandbox', getResearchSandbox);
 router.post('/create-research-agreement', createResearchAgreement);
 router.get('/compliance-dashboard', getComplianceDashboard);
 router.post('/process-deletion', processDeletionRequest);
+
+router.get('/goodie-orders', getGoodieOrders);
+router.patch('/goodie-orders/:orderId', updateGoodieOrderStatus);
+router.get('/goodies', listAllGoodies);
+router.post('/goodies', createGoodie);
+router.delete('/goodies/:goodieId', deleteGoodie);
 
 export default router;
 

@@ -11,7 +11,8 @@ const MainNavbar = ({
     handlePricingClick,
     handleFooterClick,
     showMobileMenu,
-    setShowMobileMenu
+    setShowMobileMenu,
+    fixed = false
 }) => {
     const navigate = useNavigate();
 
@@ -38,8 +39,10 @@ const MainNavbar = ({
         }
     }, [showMobileMenu]);
 
+    const navClasses = `bg-white shadow-md py-4 relative ${fixed ? "fixed top-0 left-0 z-[60] w-full" : ""}`;
+
     return (
-        <nav className="bg-white shadow-md py-4 relative">
+        <nav className={navClasses}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center cursor-pointer relative">
                     {/* Left: Logo and Title */}

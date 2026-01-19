@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import {
   Shield, Users, Building, Settings, BarChart3, TrendingUp,
   FileText, Eye, AlertTriangle, CheckCircle, Zap, Globe,
-  ArrowRight, Target, Award, Activity, Database, Server
+  ArrowRight, Target, Award, Activity, Database, Server, Gift
 } from 'lucide-react';
 import api from '../../utils/api';
 import { toast } from 'react-hot-toast';
@@ -134,6 +134,13 @@ const AdminPanel = () => {
             icon={Database}
             color="from-teal-500 to-cyan-600"
             onClick={() => navigate('/admin/stats')}
+          />
+          <QuickAccessCard
+            title="Goodie Orders"
+            description="Track HealCoin-goodie requests and delivery status"
+            icon={Gift}
+            color="from-amber-500 to-orange-500"
+            onClick={() => navigate('/admin/goodie-orders')}
           />
         </div>
 
