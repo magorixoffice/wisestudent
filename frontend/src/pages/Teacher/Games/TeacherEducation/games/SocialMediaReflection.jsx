@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import TeacherGameShell from "../../TeacherGameShell";
 import { getTeacherEducationGameById } from "../data/gameData";
-import { Smartphone, TrendingUp, TrendingDown, Heart, Smile, Frown, Meh, AlertCircle, BookOpen, Wind, Sparkles, Eye } from "lucide-react";
+import { Smartphone, TrendingUp, TrendingDown, Heart, Smile, Frown, Meh, AlertCircle, BookOpen, Wind, Sparkles, Eye, CheckCircle } from "lucide-react";
 
 const SocialMediaReflection = () => {
   const location = useLocation();
@@ -14,7 +14,7 @@ const SocialMediaReflection = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 1;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [currentStep, setCurrentStep] = useState('pre-scroll'); // 'pre-scroll', 'scrolling', 'post-scroll', 'reflection', 'complete'
   const [preScrollMood, setPreScrollMood] = useState(null);
@@ -91,61 +91,6 @@ const SocialMediaReflection = () => {
       content: '🎓 Get Your Master\'s Degree Online - Special Discount for Teachers!',
       color: 'bg-yellow-50',
       borderColor: 'border-yellow-200'
-    },
-    {
-      id: 6,
-      type: 'post',
-      author: 'Inspiration Daily',
-      avatar: '🌟',
-      content: 'Remember: You are making a difference every single day. Your students appreciate you more than you know. Keep going! 💪',
-      likes: 5.2,
-      comments: 678,
-      time: '1d ago',
-      color: 'bg-green-50',
-      borderColor: 'border-green-200'
-    },
-    {
-      id: 7,
-      type: 'post',
-      author: 'Teacher Rants',
-      avatar: '😤',
-      content: 'Another unrealistic deadline from admin. How are we supposed to do all this with no support? This is ridiculous!',
-      likes: 1.8,
-      comments: 423,
-      time: '1d ago',
-      color: 'bg-red-50',
-      borderColor: 'border-red-200'
-    },
-    {
-      id: 8,
-      type: 'post',
-      author: 'Success Stories',
-      avatar: '🏆',
-      content: 'My student won the science fair! So proud! This is why I teach. 🎉',
-      likes: 456,
-      comments: 67,
-      time: '2d ago',
-      color: 'bg-indigo-50',
-      borderColor: 'border-indigo-200'
-    },
-    {
-      id: 9,
-      type: 'post',
-      author: 'Comparison Trap',
-      avatar: '😰',
-      content: 'Everyone else\'s classrooms look so much better than mine. I must be doing something wrong...',
-      likes: 234,
-      comments: 89,
-      time: '2d ago',
-      color: 'bg-pink-50',
-      borderColor: 'border-pink-200'
-    },
-    {
-      id: 10,
-      type: 'ad',
-      content: '💊 Get More Energy! Try This Teacher Supplement Now!',
-      color: 'bg-cyan-50',
-      borderColor: 'border-cyan-200'
     }
   ];
 
@@ -165,7 +110,12 @@ const SocialMediaReflection = () => {
   };
 
   const handleItemViewed = (itemId) => {
-    setScrolledItems(prev => new Set([...prev, itemId]));
+    setScrolledItems(prev => {
+      const newSet = new Set([...prev, itemId]);
+      // Award 1 point for each new item viewed
+      setScore(newSet.size);
+      return newSet;
+    });
   };
 
   const handleFinishScrolling = () => {
@@ -173,6 +123,7 @@ const SocialMediaReflection = () => {
       clearInterval(scrollTimer);
       setScrollTimer(null);
     }
+    // If user hasn't viewed 5 posts yet, still allow them to finish scrolling
     setCurrentStep('post-scroll');
   };
 
@@ -183,6 +134,10 @@ const SocialMediaReflection = () => {
   const handleSelectPostScrollMood = (emotion) => {
     setPostScrollMood(emotion);
     setCurrentStep('reflection');
+    // Automatically move to game complete after a brief reflection
+    setTimeout(() => {
+      setShowGameOver(true);
+    }, 1000);
   };
 
   const getMoodChange = () => {
@@ -262,9 +217,20 @@ const SocialMediaReflection = () => {
   };
 
   const handleComplete = () => {
-    setScore(1);
+    // Score is already calculated based on number of items scrolled
     setShowGameOver(true);
   };
+
+  // Automatically move to reflection when all posts are viewed
+  React.useEffect(() => {
+    if (scrolledItems.size >= 5 && currentStep === 'scrolling') {
+      // Wait a bit to show the last post being viewed, then move to post-scroll mood selection
+      const timer = setTimeout(() => {
+        setCurrentStep('post-scroll');
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [scrolledItems.size, currentStep]);
 
   const moodChange = getMoodChange();
 
@@ -281,7 +247,7 @@ const SocialMediaReflection = () => {
         gameType="teacher-education"
         totalLevels={totalLevels}
         totalCoins={totalCoins}
-        currentQuestion={1}
+        currentQuestion={Math.min(scrolledItems.size, totalLevels)}
       >
         <div className="w-full max-w-4xl mx-auto px-4">
           <motion.div

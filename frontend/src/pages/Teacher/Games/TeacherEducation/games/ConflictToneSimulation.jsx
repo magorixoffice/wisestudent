@@ -54,26 +54,7 @@ const ConflictToneSimulation = () => {
           },
           feedback: "Sharp tones may get immediate compliance, but they damage relationships and increase tension. The high pitch and fast rate signal threat, making the situation more adversarial."
         },
-        {
-          id: 'calm-firm',
-          label: 'Calm & Firm Tone',
-          description: 'Low, slow, controlled voice with clear boundaries',
-          text: "I need you to stop talking now. Please listen while I'm teaching.",
-          rate: 0.75, // Slower
-          pitch: 0.9, // Lower pitch
-          volume: 0.9,
-          outcome: {
-            title: "Calm & Firm Tone Outcome",
-            respect: 90,
-            clarity: 95,
-            description: "The student stops talking and looks at you. Other students relax slightly. The calm tone maintained your authority while preserving respect. The classroom atmosphere remains controlled.",
-            emoji: "✨",
-            color: "from-green-400 to-emerald-500",
-            bgColor: "from-green-50 to-emerald-50",
-            borderColor: "border-green-300"
-          },
-          feedback: "Excellent! 'Low and slow' voice modulation maintains authority while preserving respect. The lower pitch and slower rate signal confidence and control, not threat. This approach protects relationships while enforcing boundaries."
-        },
+       
         {
           id: 'passive',
           label: 'Passive Tone',
@@ -93,7 +74,27 @@ const ConflictToneSimulation = () => {
             borderColor: "border-gray-400"
           },
           feedback: "Passive tones lack authority and don't effectively enforce boundaries. The uncertain pitch and weak volume communicate that you're not confident in your request, so students may not respect it."
-        }
+        },
+         {
+          id: 'calm-firm',
+          label: 'Calm & Firm Tone',
+          description: 'Low, slow, controlled voice with clear boundaries',
+          text: "I need you to stop talking now. Please listen while I'm teaching.",
+          rate: 0.75, // Slower
+          pitch: 0.9, // Lower pitch
+          volume: 0.9,
+          outcome: {
+            title: "Calm & Firm Tone Outcome",
+            respect: 90,
+            clarity: 95,
+            description: "The student stops talking and looks at you. Other students relax slightly. The calm tone maintained your authority while preserving respect. The classroom atmosphere remains controlled.",
+            emoji: "✨",
+            color: "from-green-400 to-emerald-500",
+            bgColor: "from-green-50 to-emerald-50",
+            borderColor: "border-green-300"
+          },
+          feedback: "Excellent! 'Low and slow' voice modulation maintains authority while preserving respect. The lower pitch and slower rate signal confidence and control, not threat. This approach protects relationships while enforcing boundaries."
+        },
       ],
       correctTone: 'calm-firm'
     },
@@ -173,26 +174,6 @@ const ConflictToneSimulation = () => {
       conflictLevel: "Medium",
       tones: [
         {
-          id: 'reactive',
-          label: 'Reactive Tone',
-          description: 'Immediate, sharp response',
-          text: "That's not true at all! You don't know what you're talking about! I've seen great results with my approach!",
-          rate: 1.25,
-          pitch: 1.35,
-          volume: 1.0,
-          outcome: {
-            title: "Reactive Tone Outcome",
-            respect: 35,
-            clarity: 65,
-            description: "The conversation becomes heated and personal. Other team members feel uncomfortable. The reactive tone created division rather than understanding. The team dynamic is damaged.",
-            emoji: "🔥",
-            color: "from-red-500 to-rose-600",
-            bgColor: "from-red-50 to-rose-50",
-            borderColor: "border-red-400"
-          },
-          feedback: "Reactive tones in professional settings damage relationships and team cohesion. The high pitch and fast rate signal defensiveness rather than professionalism."
-        },
-        {
           id: 'calm-firm',
           label: 'Calm & Firm Tone',
           description: 'Low, measured, professional response',
@@ -212,6 +193,27 @@ const ConflictToneSimulation = () => {
           },
           feedback: "Excellent! 'Low and slow' voice modulation in professional conflicts maintains respect and professionalism. Your calm tone influences the conversation's direction, creating space for constructive dialogue."
         },
+        {
+          id: 'reactive',
+          label: 'Reactive Tone',
+          description: 'Immediate, sharp response',
+          text: "That's not true at all! You don't know what you're talking about! I've seen great results with my approach!",
+          rate: 1.25,
+          pitch: 1.35,
+          volume: 1.0,
+          outcome: {
+            title: "Reactive Tone Outcome",
+            respect: 35,
+            clarity: 65,
+            description: "The conversation becomes heated and personal. Other team members feel uncomfortable. The reactive tone created division rather than understanding. The team dynamic is damaged.",
+            emoji: "🔥",
+            color: "from-red-500 to-rose-600",
+            bgColor: "from-red-50 to-rose-50",
+            borderColor: "border-red-400"
+          },
+          feedback: "Reactive tones in professional settings damage relationships and team cohesion. The high pitch and fast rate signal defensiveness rather than professionalism."
+        },
+        
         {
           id: 'silent',
           label: 'Remain Silent',
@@ -261,26 +263,7 @@ const ConflictToneSimulation = () => {
           },
           feedback: "Compliant tones in the face of pressure don't protect your boundaries. The higher pitch may signal uncertainty, making it easier for others to override your needs."
         },
-        {
-          id: 'calm-firm',
-          label: 'Calm & Firm Tone',
-          description: 'Low, steady, clear boundary-setting',
-          text: "I appreciate the opportunity, but I'm at capacity with my current responsibilities. My current commitments are full, and I want to maintain quality in what I'm already doing.",
-          rate: 0.7,
-          pitch: 0.85,
-          volume: 0.9,
-          outcome: {
-            title: "Calm & Firm Tone Outcome",
-            respect: 93,
-            clarity: 97,
-            description: "The administrator listens and respects your boundary. They understand your capacity. The calm tone maintained professionalism while protecting your limits. You're able to negotiate or decline without conflict.",
-            emoji: "✨",
-            color: "from-green-400 to-emerald-500",
-            bgColor: "from-green-50 to-emerald-50",
-            borderColor: "border-green-300"
-          },
-          feedback: "Perfect! 'Low and slow' voice modulation when setting boundaries communicates confidence and clarity. The lower pitch and slower rate signal that you're certain about your limits, making your boundary more likely to be respected."
-        },
+       
         {
           id: 'aggressive',
           label: 'Aggressive Tone',
@@ -300,7 +283,27 @@ const ConflictToneSimulation = () => {
             borderColor: "border-red-400"
           },
           feedback: "While aggressive tones may communicate boundaries clearly, they damage professional relationships. The very high pitch and fast rate signal anger rather than confident boundary-setting."
-        }
+        },
+         {
+          id: 'calm-firm',
+          label: 'Calm & Firm Tone',
+          description: 'Low, steady, clear boundary-setting',
+          text: "I appreciate the opportunity, but I'm at capacity with my current responsibilities. My current commitments are full, and I want to maintain quality in what I'm already doing.",
+          rate: 0.7,
+          pitch: 0.85,
+          volume: 0.9,
+          outcome: {
+            title: "Calm & Firm Tone Outcome",
+            respect: 93,
+            clarity: 97,
+            description: "The administrator listens and respects your boundary. They understand your capacity. The calm tone maintained professionalism while protecting your limits. You're able to negotiate or decline without conflict.",
+            emoji: "✨",
+            color: "from-green-400 to-emerald-500",
+            bgColor: "from-green-50 to-emerald-50",
+            borderColor: "border-green-300"
+          },
+          feedback: "Perfect! 'Low and slow' voice modulation when setting boundaries communicates confidence and clarity. The lower pitch and slower rate signal that you're certain about your limits, making your boundary more likely to be respected."
+        },
       ],
       correctTone: 'calm-firm'
     },
@@ -470,7 +473,7 @@ const ConflictToneSimulation = () => {
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={currentScenario + 1}
+      currentQuestion={currentScenario}
     >
       <div className="w-full max-w-5xl mx-auto px-4">
         <motion.div

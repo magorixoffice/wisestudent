@@ -14,7 +14,7 @@ const BoundaryBuilderPuzzle = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 1;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [boundaries, setBoundaries] = useState([
     { 
@@ -148,21 +148,11 @@ const BoundaryBuilderPuzzle = () => {
   const handleShowAnalysis = () => {
     const allSorted = boundaries.every(b => b.category !== null);
     if (allSorted) {
-      // Calculate score based on appropriate categorization
+      // Calculate score based on correct categorization - 1 point per correct boundary
       let correctCount = 0;
       boundaries.forEach(boundary => {
-        // Firm is recommended for most, but flexible is acceptable for Availability and Energy
-        const isGoodChoice = 
-          (boundary.recommendedCategory === boundary.category) ||
-          (boundary.recommendedCategory === 'firm' && boundary.category === 'flexible' && (boundary.id === 3 || boundary.id === 5)) ||
-          (boundary.recommendedCategory === 'flexible' && boundary.category === 'firm' && (boundary.id === 3 || boundary.id === 5));
-        
-        // Unclear is never a good choice
-        if (boundary.category === 'unclear') {
-          correctCount += 0;
-        } else if (isGoodChoice) {
-          correctCount += 2;
-        } else {
+        // Award 1 point for each correctly categorized boundary
+        if (boundary.category === boundary.recommendedCategory) {
           correctCount += 1;
         }
       });
@@ -192,7 +182,7 @@ const BoundaryBuilderPuzzle = () => {
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={1}
+      currentQuestion={score}
     >
       <div className="w-full max-w-6xl mx-auto px-4">
         {!showAnalysis ? (
@@ -435,25 +425,25 @@ const BoundaryBuilderPuzzle = () => {
 
             {/* Score Summary */}
             <div className={`bg-gradient-to-br rounded-xl p-6 border-2 mb-8 ${
-              score >= 8
+              score === 5
                 ? 'from-green-50 to-emerald-50 border-green-200'
-                : score >= 5
+                : score >= 3
                 ? 'from-blue-50 to-indigo-50 border-blue-200'
                 : 'from-yellow-50 to-orange-50 border-yellow-200'
             }`}>
               <div className="text-center">
                 <h3 className="text-xl font-bold text-gray-800 mb-2">Your Boundary Builder Score</h3>
                 <div className={`text-5xl font-bold mb-2 ${
-                  score >= 8 ? 'text-green-600' :
-                  score >= 5 ? 'text-blue-600' :
+                  score === 5 ? 'text-green-600' :
+                  score >= 3 ? 'text-blue-600' :
                   'text-yellow-600'
                 }`}>
-                  {score}/10
+                  {score}/5
                 </div>
                 <p className="text-gray-700">
-                  {score >= 8
+                  {score === 5
                     ? "Excellent! You've built strong boundaries that protect your emotional health."
-                    : score >= 5
+                    : score >= 3
                     ? "Good progress! You're learning to balance firm and flexible boundaries."
                     : "Keep practicing! Understanding boundaries is key to protecting your emotional health."}
                 </p>

@@ -14,7 +14,7 @@ const ActiveListeningQuiz = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 6;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [currentClip, setCurrentClip] = useState(0);
   const [selectedResponse, setSelectedResponse] = useState({});
@@ -57,6 +57,19 @@ const ActiveListeningQuiz = () => {
           bgColor: "from-gray-50 to-slate-50",
           borderColor: "border-gray-300"
         },
+        
+        {
+          id: 'redirecting',
+          label: 'Redirect the Conversation',
+          text: "I understand. Hey, did you see that new curriculum change they announced?",
+          explanation: "Redirecting the conversation away from their feelings can make them feel dismissed. Active listening means staying present with what they're sharing.",
+          tone: "Redirecting",
+          isCorrect: false,
+          emoji: "🔄",
+          color: "from-yellow-400 to-orange-500",
+          bgColor: "from-yellow-50 to-orange-50",
+          borderColor: "border-yellow-300"
+        },
         {
           id: 'active-listening',
           label: 'Active Listening Response',
@@ -69,18 +82,6 @@ const ActiveListeningQuiz = () => {
           bgColor: "from-green-50 to-emerald-50",
           borderColor: "border-green-300"
         },
-        {
-          id: 'redirecting',
-          label: 'Redirect the Conversation',
-          text: "I understand. Hey, did you see that new curriculum change they announced?",
-          explanation: "Redirecting the conversation away from their feelings can make them feel dismissed. Active listening means staying present with what they're sharing.",
-          tone: "Redirecting",
-          isCorrect: false,
-          emoji: "🔄",
-          color: "from-yellow-400 to-orange-500",
-          bgColor: "from-yellow-50 to-orange-50",
-          borderColor: "border-yellow-300"
-        }
       ],
       correctResponse: 'active-listening'
     },
@@ -91,6 +92,18 @@ const ActiveListeningQuiz = () => {
       audioText: "I've been having a really hard time at home lately. My parents are fighting a lot, and I can't focus in class. I'm worried about everything, and my grades are dropping. I don't want to tell anyone because I feel like I'm making excuses, but it's really hard. I don't know what to do.",
       context: "A student stays after class to share a personal struggle with you.",
       responses: [
+        {
+          id: 'active-listening',
+          label: 'Active Listening Response',
+          text: "Thank you for sharing that with me. It sounds like you're dealing with a lot right now, and it's affecting how you're able to focus. I can hear that you're worried about your grades, and it's brave of you to talk about what's happening.",
+          explanation: "Perfect! This is active listening. You acknowledged their courage in sharing, reflected what you heard, and showed empathy without judgment. This makes the student feel heard and supported.",
+          tone: "Active Listening",
+          isCorrect: true,
+          emoji: "✨",
+          color: "from-green-400 to-emerald-500",
+          bgColor: "from-green-50 to-emerald-50",
+          borderColor: "border-green-300"
+        },
         {
           id: 'dismissing',
           label: 'Dismiss Concerns',
@@ -115,18 +128,7 @@ const ActiveListeningQuiz = () => {
           bgColor: "from-blue-50 to-cyan-50",
           borderColor: "border-blue-300"
         },
-        {
-          id: 'active-listening',
-          label: 'Active Listening Response',
-          text: "Thank you for sharing that with me. It sounds like you're dealing with a lot right now, and it's affecting how you're able to focus. I can hear that you're worried about your grades, and it's brave of you to talk about what's happening.",
-          explanation: "Perfect! This is active listening. You acknowledged their courage in sharing, reflected what you heard, and showed empathy without judgment. This makes the student feel heard and supported.",
-          tone: "Active Listening",
-          isCorrect: true,
-          emoji: "✨",
-          color: "from-green-400 to-emerald-500",
-          bgColor: "from-green-50 to-emerald-50",
-          borderColor: "border-green-300"
-        },
+        
         {
           id: 'interrupting',
           label: 'Interrupt and Share Your Own Experience',
@@ -220,18 +222,6 @@ const ActiveListeningQuiz = () => {
           borderColor: "border-blue-300"
         },
         {
-          id: 'sharing-your-story',
-          label: 'Share Your Own Story',
-          text: "Oh, I had the exact same problem! Here's what I did—it was amazing...",
-          explanation: "Sharing your own experience shifts focus away from them. Active listening means staying present with their situation and asking questions to understand better.",
-          tone: "Story-Sharing",
-          isCorrect: false,
-          emoji: "💬",
-          color: "from-yellow-400 to-orange-500",
-          bgColor: "from-yellow-50 to-orange-50",
-          borderColor: "border-yellow-300"
-        },
-        {
           id: 'active-listening',
           label: 'Active Listening Response',
           text: "It sounds like you're feeling really frustrated and worried about this class. I can hear that you've tried several strategies, and it's been discouraging that they haven't worked. Can you tell me more about what happens specifically when they talk over you?",
@@ -243,6 +233,19 @@ const ActiveListeningQuiz = () => {
           bgColor: "from-green-50 to-emerald-50",
           borderColor: "border-green-300"
         },
+        {
+          id: 'sharing-your-story',
+          label: 'Share Your Own Story',
+          text: "Oh, I had the exact same problem! Here's what I did—it was amazing...",
+          explanation: "Sharing your own experience shifts focus away from them. Active listening means staying present with their situation and asking questions to understand better.",
+          tone: "Story-Sharing",
+          isCorrect: false,
+          emoji: "💬",
+          color: "from-yellow-400 to-orange-500",
+          bgColor: "from-yellow-50 to-orange-50",
+          borderColor: "border-yellow-300"
+        },
+        
         {
           id: 'dismissing',
           label: 'Dismiss Their Concern',
@@ -265,6 +268,18 @@ const ActiveListeningQuiz = () => {
       audioText: "I'm really nervous about the upcoming test. I've been studying, but I don't think I'm prepared. What if I fail? Everyone else seems to understand the material better than me. I can't sleep because I'm so worried about it. I don't know what to do.",
       context: "A student approaches you before class expressing anxiety about an upcoming test.",
       responses: [
+        {
+          id: 'active-listening',
+          label: 'Active Listening Response',
+          text: "It sounds like you're feeling really anxious about this test, and the worry is even affecting your sleep. I can hear that you've been studying, but you're still feeling unprepared. What specific parts of the material are you most worried about?",
+          explanation: "Excellent! This is active listening. You acknowledged their anxiety, reflected what you heard about their studying and sleep, and asked an open-ended question to understand better. This makes them feel heard and helps address their specific concerns.",
+          tone: "Active Listening",
+          isCorrect: true,
+          emoji: "✨",
+          color: "from-green-400 to-emerald-500",
+          bgColor: "from-green-50 to-emerald-50",
+          borderColor: "border-green-300"
+        },
         {
           id: 'reassuring-only',
           label: 'Reassure Without Listening',
@@ -289,18 +304,7 @@ const ActiveListeningQuiz = () => {
           bgColor: "from-blue-50 to-cyan-50",
           borderColor: "border-blue-300"
         },
-        {
-          id: 'active-listening',
-          label: 'Active Listening Response',
-          text: "It sounds like you're feeling really anxious about this test, and the worry is even affecting your sleep. I can hear that you've been studying, but you're still feeling unprepared. What specific parts of the material are you most worried about?",
-          explanation: "Excellent! This is active listening. You acknowledged their anxiety, reflected what you heard about their studying and sleep, and asked an open-ended question to understand better. This makes them feel heard and helps address their specific concerns.",
-          tone: "Active Listening",
-          isCorrect: true,
-          emoji: "✨",
-          color: "from-green-400 to-emerald-500",
-          bgColor: "from-green-50 to-emerald-50",
-          borderColor: "border-green-300"
-        },
+        
         {
           id: 'comparing',
           label: 'Compare to Others',
@@ -309,64 +313,6 @@ const ActiveListeningQuiz = () => {
           tone: "Comparing",
           isCorrect: false,
           emoji: "👥",
-          color: "from-gray-400 to-slate-500",
-          bgColor: "from-gray-50 to-slate-50",
-          borderColor: "border-gray-300"
-        }
-      ],
-      correctResponse: 'active-listening'
-    },
-    {
-      id: 6,
-      title: "Colleague Sharing Success",
-      type: "colleague",
-      audioText: "I'm so excited! I finally tried that teaching strategy you suggested, and it worked perfectly! The students were so engaged, and I actually had fun teaching for the first time in weeks. I can't believe how well it went. Thank you so much for the idea!",
-      context: "A colleague shares an exciting success story with you.",
-      responses: [
-        {
-          id: 'deflecting',
-          label: 'Deflect the Praise',
-          text: "Oh, it was nothing. Anyone could have suggested that. I'm just glad it worked out.",
-          explanation: "Deflecting their excitement can diminish their moment of celebration. Active listening means being present with their joy and celebrating with them.",
-          tone: "Deflecting",
-          isCorrect: false,
-          emoji: "😐",
-          color: "from-gray-400 to-slate-500",
-          bgColor: "from-gray-50 to-slate-50",
-          borderColor: "border-gray-300"
-        },
-        {
-          id: 'shifting-focus',
-          label: 'Shift Focus to Yourself',
-          text: "That's great! You know, I've been using that strategy for years. It's one of my favorites...",
-          explanation: "Shifting focus to yourself takes away from their moment. Active listening means staying present with their success and excitement.",
-          tone: "Focus-Shifting",
-          isCorrect: false,
-          emoji: "💬",
-          color: "from-yellow-400 to-orange-500",
-          bgColor: "from-yellow-50 to-orange-50",
-          borderColor: "border-yellow-300"
-        },
-        {
-          id: 'active-listening',
-          label: 'Active Listening Response',
-          text: "That's wonderful! I can hear how excited and energized you are about how it went. It sounds like it really reconnected you with your love of teaching, and that must feel great. I'm so happy for you that it worked so well!",
-          explanation: "Perfect! This is active listening. You acknowledged their excitement, reflected what you heard about their experience, and celebrated with them. Active listening means being fully present for both struggles and successes.",
-          tone: "Active Listening",
-          isCorrect: true,
-          emoji: "✨",
-          color: "from-green-400 to-emerald-500",
-          bgColor: "from-green-50 to-emerald-50",
-          borderColor: "border-green-300"
-        },
-        {
-          id: 'quick-acknowledgment',
-          label: 'Quick Acknowledgment',
-          text: "Cool. That's nice. Hey, did you get that email from the principal?",
-          explanation: "Quick acknowledgment followed by topic change can make them feel dismissed. Active listening means giving space to their excitement and being present with it.",
-          tone: "Quick Acknowledgment",
-          isCorrect: false,
-          emoji: "😐",
           color: "from-gray-400 to-slate-500",
           bgColor: "from-gray-50 to-slate-50",
           borderColor: "border-gray-300"
@@ -465,7 +411,7 @@ const ActiveListeningQuiz = () => {
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={currentClip + 1}
+      currentQuestion={currentClip}
     >
       <div className="w-full max-w-5xl mx-auto px-4">
         <motion.div
@@ -575,17 +521,7 @@ const ActiveListeningQuiz = () => {
                       }`}
                     >
                       <div className="flex items-start gap-4">
-                        <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 ${
-                          response.isCorrect
-                            ? 'bg-gradient-to-r from-green-400 to-emerald-500'
-                            : response.tone === 'Active Listening'
-                            ? 'bg-gradient-to-r from-green-400 to-emerald-500'
-                            : response.tone.includes('Problem') || response.tone.includes('Advice')
-                            ? 'bg-gradient-to-r from-blue-400 to-cyan-500'
-                            : response.tone.includes('Defensive') || response.tone.includes('Dismissing')
-                            ? 'bg-gradient-to-r from-red-400 to-rose-500'
-                            : 'bg-gradient-to-r from-yellow-400 to-orange-500'
-                        }`}>
+                        <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 bg-gradient-to-r from-blue-400 to-cyan-500`}>
                           <span className="text-white font-bold">{String.fromCharCode(65 + index)}</span>
                         </div>
                         <div className="flex-1">

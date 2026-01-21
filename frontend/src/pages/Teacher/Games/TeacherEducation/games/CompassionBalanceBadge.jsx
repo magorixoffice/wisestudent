@@ -148,9 +148,26 @@ const CompassionBalanceBadge = () => {
       setIsCollecting(true);
       const response = await api.post('/api/school/teacher/badge/compassion-balance/collect');
 
-      if (response.data.success) {
+      const result = response.data;
+      
+      if (result.success && (result.badgeEarned || result.newlyEarned)) {
         setBadgeCollected(true);
-        setShowCollectionModal(true);
+        setShowCollectionModal(false);
+        toast.success('🎉 Badge collected successfully!');
+        
+        // Play positive audio affirmation
+        const affirmation = "Your care has clarity. Congratulations! You have earned the Compassion Balance Badge. Your commitment to healthy empathy and compassion balance sustains your wellbeing while serving others. You are a Compassion Balance Champion, modeling healthy empathy in school culture. Well done!";
+        playAffirmation(affirmation);
+        
+        // Dispatch badge earned event
+        window.dispatchEvent(new CustomEvent('teacherBadgeEarned', {
+          detail: {
+            badgeId: 'compassion-balance',
+            badgeName: 'Compassion Balance',
+            message: 'Your care has clarity.',
+            badge: result.badge
+          }
+        }));
         
         // Register the badge game as completed in the game progress system
         // This is crucial for sequential unlocking of the next game
@@ -167,10 +184,8 @@ const CompassionBalanceBadge = () => {
         } catch (error) {
           console.error('Failed to mark badge game completed:', error);
         }
-        
-        playAffirmation("Your care has clarity.");
       } else {
-        toast.error(response.data.message || 'Failed to collect badge');
+        toast.error(result.error || 'Failed to collect badge');
       }
     } catch (error) {
       console.error('Error collecting badge:', error);

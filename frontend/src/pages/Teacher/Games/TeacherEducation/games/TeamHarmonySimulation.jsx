@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import TeacherGameShell from "../../TeacherGameShell";
@@ -26,7 +26,13 @@ const TeamHarmonySimulation = () => {
   });
   const [scenarioChoices, setScenarioChoices] = useState({});
   const [score, setScore] = useState(0);
+  const [scenarioScores, setScenarioScores] = useState([]);
   const [showGameOver, setShowGameOver] = useState(false);
+
+  // Initialize scenarioScores when component mounts
+  React.useEffect(() => {
+    setScenarioScores(Array(scenarios.length).fill(0));
+  }, []);
 
   // Team meeting scenarios
   const scenarios = [
@@ -36,13 +42,7 @@ const TeamHarmonySimulation = () => {
       context: "During a department meeting, your team is discussing how to divide additional responsibilities for a new curriculum rollout. Some teachers feel overwhelmed, while others seem eager to take on more.",
       situation: "Sarah says: 'I'm already stretched thin with my current classes. I don't think I can take on more curriculum work right now.'",
       choices: [
-        {
-          id: 'a',
-          phrase: "I understand Sarah's concern. Let's make sure everyone's workload is fair before we assign anything.",
-          impact: { opinions: 10, workload: 15, empathy: 15 },
-          feedback: "Excellent! You balanced empathy for Sarah's concern while addressing workload fairness. This shows you're listening to different opinions and considering everyone's capacity.",
-          category: "Balanced Response"
-        },
+        
         {
           id: 'b',
           phrase: "We all have to pitch in. Everyone should take equal shares regardless of current workload.",
@@ -56,7 +56,14 @@ const TeamHarmonySimulation = () => {
           impact: { opinions: -5, workload: -5, empathy: 5 },
           feedback: "While kind, this doesn't address the underlying issue of workload balance. It may create resentment from others or enable unequal distribution.",
           category: "Well-Meaning But Incomplete"
-        }
+        },
+        {
+          id: 'a',
+          phrase: "I understand Sarah's concern. Let's make sure everyone's workload is fair before we assign anything.",
+          impact: { opinions: 10, workload: 15, empathy: 15 },
+          feedback: "Excellent! You balanced empathy for Sarah's concern while addressing workload fairness. This shows you're listening to different opinions and considering everyone's capacity.",
+          category: "Balanced Response"
+        },
       ]
     },
     {
@@ -94,13 +101,7 @@ const TeamHarmonySimulation = () => {
       context: "A parent has complained about a teaching approach used by Lisa, your colleague. The team is discussing how to respond and support Lisa, while also addressing the parent's concerns.",
       situation: "Lisa feels defensive and hurt by the complaint. Some team members want to defend her strongly, while others think the parent might have valid concerns.",
       choices: [
-        {
-          id: 'a',
-          phrase: "Let's first make sure Lisa feels supported, then we can address the parent's concerns together. Both perspectives matter here.",
-          impact: { opinions: 10, workload: 10, empathy: 20 },
-          feedback: "Excellent! You're showing empathy for Lisa while also acknowledging the need to address the parent's concerns. This balances support with responsibility.",
-          category: "Empathetic & Balanced"
-        },
+       
         {
           id: 'b',
           phrase: "We need to address the parent's complaint immediately. Let's figure out what went wrong.",
@@ -114,7 +115,14 @@ const TeamHarmonySimulation = () => {
           impact: { opinions: -10, workload: -5, empathy: 10 },
           feedback: "While showing support for Lisa, this dismisses the parent's perspective entirely. It doesn't balance opinions or show empathy for all parties.",
           category: "Defensive Response"
-        }
+        },
+         {
+          id: 'a',
+          phrase: "Let's first make sure Lisa feels supported, then we can address the parent's concerns together. Both perspectives matter here.",
+          impact: { opinions: 10, workload: 10, empathy: 20 },
+          feedback: "Excellent! You're showing empathy for Lisa while also acknowledging the need to address the parent's concerns. This balances support with responsibility.",
+          category: "Empathetic & Balanced"
+        },
       ]
     },
     {
@@ -123,19 +131,20 @@ const TeamHarmonySimulation = () => {
       context: "Your team needs to decide how to allocate limited classroom resources - new technology, supplies, or support materials. Different teachers have different needs and priorities.",
       situation: "David needs new history resources, but Maria needs music equipment. The budget can only cover one major purchase this semester.",
       choices: [
-        {
-          id: 'a',
-          phrase: "Let's hear from everyone about their priorities, then find a solution that addresses the most urgent needs while planning for future purchases.",
-          impact: { opinions: 15, workload: 10, empathy: 15 },
-          feedback: "Great approach! You're ensuring everyone's opinions are heard, balancing different needs with empathy, and working toward a fair solution.",
-          category: "Inclusive & Fair"
-        },
+        
         {
           id: 'b',
           phrase: "We should prioritize based on which department serves more students. Let's count enrollment.",
           impact: { opinions: -10, workload: 5, empathy: -10 },
           feedback: "This purely quantitative approach doesn't consider the importance of different subjects or show empathy for teachers' specific needs.",
           category: "Numbers-Only Approach"
+        },
+        {
+          id: 'a',
+          phrase: "Let's hear from everyone about their priorities, then find a solution that addresses the most urgent needs while planning for future purchases.",
+          impact: { opinions: 15, workload: 10, empathy: 15 },
+          feedback: "Great approach! You're ensuring everyone's opinions are heard, balancing different needs with empathy, and working toward a fair solution.",
+          category: "Inclusive & Fair"
         },
         {
           id: 'c',
@@ -188,6 +197,33 @@ const TeamHarmonySimulation = () => {
     };
     setHarmonyMeters(newMeters);
     
+    // Award 1 point for positive-impact choices (best choices in each scenario)
+    // The best choice in each scenario has the highest sum of positive impacts
+    let scenarioScore = 0;
+    const currentScenarioChoices = scenarios[currentScenario].choices;
+    
+    // Identify the best choice in the current scenario based on highest positive impact
+    const bestChoice = currentScenarioChoices.reduce((best, choice) => {
+      const totalImpact = choice.impact.opinions + choice.impact.workload + choice.impact.empathy;
+      const bestTotalImpact = best.impact.opinions + best.impact.workload + best.impact.empathy;
+      return totalImpact > bestTotalImpact ? choice : best;
+    });
+    
+    // Give 1 point if the selected choice is the best one for this scenario
+    if (choice.id === bestChoice.id) {
+      scenarioScore = 1;
+    }
+    
+    // Ensure scenarioScores is properly initialized
+    let newScenarioScores;
+    if (scenarioScores.length === 0) {
+      newScenarioScores = Array(scenarios.length).fill(0);
+    } else {
+      newScenarioScores = [...scenarioScores];
+    }
+    newScenarioScores[currentScenario] = scenarioScore;
+    setScenarioScores(newScenarioScores);
+    
     // Save choice
     setScenarioChoices(prev => ({
       ...prev,
@@ -203,11 +239,11 @@ const TeamHarmonySimulation = () => {
       setSelectedChoice(null);
       setShowFeedback(false);
     } else {
-      // Calculate final score
-      const avgHarmony = Math.round(
-        (harmonyMeters.opinions + harmonyMeters.workload + harmonyMeters.empathy) / 3
-      );
-      setScore(avgHarmony);
+      // Ensure scenarioScores is properly initialized before calculating total
+      const scores = scenarioScores.length > 0 ? scenarioScores : Array(scenarios.length).fill(0);
+      // Calculate final score as number of correct scenarios (1 point per scenario)
+      const totalScore = scores.reduce((sum, score) => sum + score, 0);
+      setScore(totalScore);
       setShowGameOver(true);
     }
   };
@@ -475,7 +511,7 @@ const TeamHarmonySimulation = () => {
                 Team Harmony Simulation Complete!
               </h2>
               <p className="text-xl text-gray-600">
-                You completed {scenarios.length} team meeting scenarios
+                You scored {score} out of {scenarios.length} scenarios
               </p>
             </div>
 
@@ -484,13 +520,13 @@ const TeamHarmonySimulation = () => {
               <div className="text-center">
                 <h3 className="text-2xl font-bold text-gray-800 mb-4">Final Team Harmony Score</h3>
                 <div className="text-7xl font-bold mb-2 text-indigo-600">
-                  {overallHarmony}/100
+                  {score}/{scenarios.length}
                 </div>
                 <p className="text-lg text-gray-700 mb-6">
-                  {overallHarmony >= 80 ? 'Excellent harmony! You consistently balanced opinions, workload, and empathy.' :
-                   overallHarmony >= 60 ? 'Good harmony! You showed strong balance in most scenarios.' :
-                   overallHarmony >= 40 ? 'Developing harmony! Continue practicing balanced responses.' :
-                   'Keep practicing! Focus on balancing all three elements.'}
+                  {score === 5 ? 'Perfect score! You consistently chose the best responses for team harmony.' :
+                   score >= 4 ? 'Excellent! You made mostly great choices for team harmony.' :
+                   score >= 3 ? 'Good job! You made some solid choices for team harmony.' :
+                   'Keep practicing! Focus on choosing responses that balance opinions, workload, and empathy.'}
                 </p>
 
                 {/* Final Meter Breakdown */}

@@ -14,7 +14,7 @@ const GratitudeLadder = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 1;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [step, setStep] = useState(1); // 1: Writing, 2: Animation, 3: Complete
   const [rungEntries, setRungEntries] = useState({
@@ -27,6 +27,7 @@ const GratitudeLadder = () => {
   const [currentClimbingRung, setCurrentClimbingRung] = useState(0);
   const [showClimbAnimation, setShowClimbAnimation] = useState(false);
   const [score, setScore] = useState(0);
+  const [completedRungs, setCompletedRungs] = useState(new Set());
   const [showGameOver, setShowGameOver] = useState(false);
 
   // Ladder rungs definition
@@ -90,11 +91,22 @@ const GratitudeLadder = () => {
       ...prev,
       [rungId]: value
     }));
+    
+    // Track completed rungs for scoring
+    if (value.trim().length >= 10) {
+      setCompletedRungs(prev => new Set(prev).add(rungId));
+    } else {
+      setCompletedRungs(prev => {
+        const newSet = new Set(prev);
+        newSet.delete(rungId);
+        return newSet;
+      });
+    }
   };
 
   const handleStartClimb = () => {
     if (allRungsFilled) {
-      setScore(1); // Award score for completing all entries
+      setScore(completedRungs.size); // Award score based on completed rungs (1 point per rung)
       setStep(2);
       setShowClimbAnimation(true);
       animateClimb();
@@ -125,14 +137,14 @@ const GratitudeLadder = () => {
   return (
     <TeacherGameShell
       title={gameData?.title || "Gratitude Ladder"}
-      subtitle={gameData?.description || "Increase resilience through appreciation of daily progress"}
+      subtitle={gameData?.description || "Earn 1 Healcoin per gratitude rung completed"}
       showGameOver={showGameOver}
       score={score}
       gameId={gameId}
       gameType="teacher-education"
-      totalLevels={totalLevels}
+       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={1}
+      currentQuestion={completedRungs.size}
     >
       <div className="w-full max-w-5xl mx-auto px-4">
         {step === 1 && (
@@ -159,6 +171,7 @@ const GratitudeLadder = () => {
                 <div className="text-right">
                   <p className="text-sm text-gray-600 mb-1">Rungs Completed</p>
                   <p className="text-3xl font-bold text-indigo-600">{completedCount} / {rungs.length}</p>
+                  <p className="text-sm text-purple-600 font-semibold">🧡 {completedRungs.size} Healcoins earned</p>
                 </div>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-4">
@@ -552,13 +565,19 @@ const GratitudeLadder = () => {
                 Gratitude Ladder Complete!
               </h2>
               <p className="text-xl text-gray-600">
-                You've climbed to the top through appreciation
+                You've earned {score} Healcoins for climbing through gratitude
               </p>
             </div>
 
             {/* Gratitude Summary */}
             <div className="mb-8">
-              <h3 className="text-xl font-bold text-gray-800 mb-4">Your Gratitude Journey:</h3>
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-xl font-bold text-gray-800">Your Gratitude Journey:</h3>
+                <div className="text-right">
+                  <p className="text-sm text-gray-600">Healcoins Earned</p>
+                  <p className="text-3xl font-bold text-purple-600">🧡 {score}</p>
+                </div>
+              </div>
               <div className="space-y-4">
                 {rungs.map((rung, index) => {
                   const value = rungEntries[rung.id];

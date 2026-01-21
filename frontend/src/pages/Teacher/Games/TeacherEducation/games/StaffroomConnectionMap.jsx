@@ -14,7 +14,7 @@ const StaffroomConnectionMap = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 1;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [colleagues, setColleagues] = useState([
     { id: 1, name: "Sarah", role: "Math Teacher", emoji: "👩‍🏫", x: null, y: null, zone: null },
@@ -115,8 +115,8 @@ const StaffroomConnectionMap = () => {
 
   const handleAnalyze = () => {
     const placedCount = colleagues.filter(c => c.x !== null && c.y !== null).length;
-    if (placedCount < 3) {
-      alert("Please place at least 3 colleagues on the map to analyze connections.");
+    if (placedCount < 5) {
+      alert("Please place at least 5 colleagues on the map to analyze connections.");
       return;
     }
 
@@ -159,7 +159,9 @@ const StaffroomConnectionMap = () => {
         )
       : 0;
 
-    setScore(connectionStrength);
+    // Award 1 point per placed colleague (max 5 points)
+    const pointsScored = Math.min(placedCount, 5);
+    setScore(pointsScored);
     setShowAnalysis(true);
     setTimeout(() => {
       setShowGameOver(true);
@@ -167,6 +169,7 @@ const StaffroomConnectionMap = () => {
   };
 
   const placedCount = colleagues.filter(c => c.x !== null && c.y !== null).length;
+  const canPlaceMore = placedCount < 5;
   const centerX = mapSize.width / 2;
   const centerY = mapSize.height / 2;
   const maxRadius = Math.min(mapSize.width, mapSize.height) / 2;
@@ -335,7 +338,7 @@ const StaffroomConnectionMap = () => {
             <div className="mb-8">
               <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
                 <Users className="w-6 h-6 text-blue-600" />
-                Drag Colleagues to Map ({colleagues.length - placedCount} remaining):
+                Drag Colleagues to Map ({canPlaceMore ? colleagues.length - placedCount : 0} remaining):
               </h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {colleagues
@@ -343,9 +346,10 @@ const StaffroomConnectionMap = () => {
                   .map((colleague) => (
                     <motion.div
                       key={colleague.id}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
+                      whileHover={{ scale: canPlaceMore ? 1.05 : 1 }}
+                      whileTap={{ scale: canPlaceMore ? 0.95 : 1 }}
                       onMouseDown={(e) => {
+                        if (!canPlaceMore) return; // Prevent placing more than 5
                         e.preventDefault();
                         e.stopPropagation();
                         // Calculate initial position (center of map)
@@ -365,15 +369,26 @@ const StaffroomConnectionMap = () => {
                           }, 10);
                         }
                       }}
-                      className="p-4 rounded-xl border-2 border-gray-300 bg-white hover:border-blue-400 hover:shadow-lg transition-all cursor-move text-center"
+                      className={`p-4 rounded-xl border-2 text-center ${
+                        canPlaceMore 
+                          ? 'border-gray-300 bg-white hover:border-blue-400 hover:shadow-lg cursor-move transition-all'
+                          : 'border-gray-200 bg-gray-100 cursor-not-allowed opacity-60'
+                      }`}
                     >
                       <div className="text-3xl mb-2">{colleague.emoji}</div>
                       <p className="font-semibold text-gray-800 text-sm">{colleague.name}</p>
                       <p className="text-xs text-gray-600">{colleague.role}</p>
-                      <p className="text-xs text-blue-600 mt-1">Click to place on map</p>
+                      <p className="text-xs text-blue-600 mt-1">
+                        {canPlaceMore ? 'Click to place on map' : 'Max 5 placed'}
+                      </p>
                     </motion.div>
                   ))}
               </div>
+              {!canPlaceMore && (
+                <p className="text-sm text-gray-600 mt-3 text-center">
+                  Maximum of 5 colleagues placed. Click "Analyze Connection Strength" to continue.
+                </p>
+              )}
             </div>
 
             {/* Placed Colleagues Summary */}
@@ -411,9 +426,9 @@ const StaffroomConnectionMap = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleAnalyze}
-                disabled={placedCount < 3}
+                disabled={placedCount < 5}
                 className={`px-8 py-4 rounded-xl font-semibold text-lg shadow-lg transition-all flex items-center gap-3 mx-auto ${
-                  placedCount >= 3
+                  placedCount >= 5
                     ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:shadow-xl'
                     : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                 }`}
@@ -421,9 +436,9 @@ const StaffroomConnectionMap = () => {
                 <Map className="w-5 h-5" />
                 Analyze Connection Strength
               </motion.button>
-              {placedCount < 3 && (
+              {placedCount < 5 && (
                 <p className="text-sm text-gray-600 mt-3">
-                  Place at least 3 colleagues on the map to analyze connections.
+                  Place {5 - placedCount} more colleague(s) on the map to analyze connections.
                 </p>
               )}
             </div>
@@ -468,7 +483,7 @@ const StaffroomConnectionMap = () => {
                 Connection Map Analysis Complete!
               </h2>
               <p className="text-xl text-gray-600">
-                You've mapped {placedCount} support relationships
+                You've mapped {placedCount} support relationships and earned {score} points
               </p>
             </div>
 
@@ -477,11 +492,11 @@ const StaffroomConnectionMap = () => {
               <div className="text-center">
                 <h3 className="text-xl font-bold text-gray-800 mb-4">Connection Strength Index</h3>
                 <div className="text-6xl font-bold mb-2 text-indigo-600">
-                  {score}%
+                  {Math.round((score / 5) * 100)}%
                 </div>
                 <p className="text-gray-700 mb-4">
-                  {score >= 70 ? 'Strong connections! You have many trusted relationships.' :
-                   score >= 50 ? 'Good connections with room to grow closer relationships.' :
+                  {score >= 4 ? 'Strong connections! You have many trusted relationships.' :
+                   score >= 3 ? 'Good connections with room to grow closer relationships.' :
                    'Consider building deeper connections with colleagues.'}
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">

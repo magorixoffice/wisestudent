@@ -14,7 +14,7 @@ const LifeMapPuzzle = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 1;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [availableValues, setAvailableValues] = useState([
     { id: 1, name: "Integrity", emoji: "💎", description: "Honesty, ethics, moral principles", color: "from-blue-400 to-cyan-500" },
@@ -78,7 +78,9 @@ const LifeMapPuzzle = () => {
       return;
     }
 
-    setScore(selectedValues.length);
+    // Score based on number of values selected (1 point per value)
+    const valuesSelected = selectedValues.length;
+    setScore(valuesSelected);
     setShowAnalysis(true);
     setTimeout(() => {
       setShowGameOver(true);
@@ -371,9 +373,13 @@ const LifeMapPuzzle = () => {
               <h2 className="text-3xl font-bold text-gray-800 mb-2">
                 Life Map Complete!
               </h2>
-              <p className="text-xl text-gray-600">
+              <p className="text-xl text-gray-600 mb-2">
                 You've identified your top 5 values and reflected on their alignment
               </p>
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-green-100 to-emerald-100 px-4 py-2 rounded-full border-2 border-green-300">
+                <Award className="w-5 h-5 text-green-600" />
+                <span className="font-bold text-green-800">Earned {score} Healcoin{score !== 1 ? 's' : ''}!</span>
+              </div>
             </div>
 
             {/* Selected Values Display */}

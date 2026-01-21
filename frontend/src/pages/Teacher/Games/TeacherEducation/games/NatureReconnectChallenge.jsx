@@ -14,7 +14,7 @@ const NatureReconnectChallenge = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 1;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [completedActivities, setCompletedActivities] = useState(new Set());
   const [currentStep, setCurrentStep] = useState('activities'); // 'activities', 'reflection', 'complete'
@@ -115,15 +115,20 @@ const NatureReconnectChallenge = () => {
       if (newSet.has(activityId)) {
         newSet.delete(activityId);
       } else {
-        newSet.add(activityId);
+        // Only allow adding if we haven't reached 5 yet
+        if (newSet.size < 5) {
+          newSet.add(activityId);
+        } else {
+          alert('You can only select up to 5 activities. Deselect an activity first if you want to change your selection.');
+        }
       }
       return newSet;
     });
   };
 
   const handleContinueToReflection = () => {
-    if (completedActivities.size < 3) {
-      alert('Please complete at least 3 activities outdoors before continuing to reflection.');
+    if (completedActivities.size < 5) {
+      alert('Please complete at least 5 activities outdoors before continuing to reflection.');
       return;
     }
     setCurrentStep('reflection');
@@ -164,7 +169,8 @@ const NatureReconnectChallenge = () => {
       return;
     }
 
-    setScore(completedActivities.size);
+    // Set the score to the number of completed activities (up to 5)
+    setScore(Math.min(completedActivities.size, 5));
     setShowGameOver(true);
   };
 
@@ -185,7 +191,7 @@ const NatureReconnectChallenge = () => {
         gameType="teacher-education"
         totalLevels={totalLevels}
         totalCoins={totalCoins}
-        currentQuestion={1}
+        currentQuestion={Math.min(completedActivities.size, totalLevels)}
       >
         <div className="w-full max-w-5xl mx-auto px-4">
           <motion.div
@@ -221,9 +227,9 @@ const NatureReconnectChallenge = () => {
                   {completedActivities.size} / {activities.length}
                 </div>
                 <p className="text-gray-700">
-                  {completedActivities.size >= 3 
-                    ? 'Great job! You completed at least 3 activities outdoors.'
-                    : 'You completed some activities. Try for 3 or more next time!'
+                  {completedActivities.size >= 5 
+                    ? 'Great job! You completed at least 5 activities outdoors.'
+                    : 'You completed some activities. Try for 5 or more next time!'
                   }
                 </p>
               </div>
@@ -348,7 +354,7 @@ const NatureReconnectChallenge = () => {
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={1}
+      currentQuestion={Math.min(completedActivities.size, totalLevels)}
     >
       <div className="w-full max-w-5xl mx-auto px-4">
         <div className="bg-white rounded-2xl shadow-lg p-8">
@@ -361,7 +367,7 @@ const NatureReconnectChallenge = () => {
                   Nature Reconnect Challenge
                 </h2>
                 <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                  Complete at least 3 outdoor activities to reconnect with nature and reduce digital fatigue
+                  Complete at least 5 outdoor activities to reconnect with nature and reduce digital fatigue
                 </p>
               </div>
 
@@ -372,7 +378,7 @@ const NatureReconnectChallenge = () => {
                   How This Works
                 </h3>
                 <ul className="text-green-800 space-y-2 text-sm">
-                  <li>• <strong>Choose activities:</strong> Select at least 3 activities from the checklist</li>
+                  <li>• <strong>Choose activities:</strong> Select exactly 5 activities from the checklist</li>
                   <li>• <strong>Complete outdoors:</strong> Go outside and complete each activity you've selected</li>
                   <li>• <strong>Check off items:</strong> Mark each activity as complete after you've done it</li>
                   <li>• <strong>Add reflection:</strong> Upload a photo or write a note about your nature experience</li>
@@ -443,35 +449,23 @@ const NatureReconnectChallenge = () => {
                 })}
               </div>
 
-              {/* Progress */}
+              {/* Progress Message */}
               <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border-2 border-green-200 mb-8">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-lg font-bold text-gray-800 flex items-center gap-2">
-                    <TreePine className="w-5 h-5 text-green-600" />
+                <div className="text-center">
+                  <h3 className="text-lg font-bold text-gray-800 mb-2">
                     Progress
                   </h3>
-                  <div className="text-2xl font-bold text-green-600">
-                    {completedActivities.size} / {activities.length}
-                  </div>
+                  <p className="text-sm text-gray-600 mt-2">
+                    {completedActivities.size >= 5 
+                      ? '✅ You have completed at least 5 activities! You can continue to reflection or do more activities.'
+                      : `Complete ${5 - completedActivities.size} more activity${5 - completedActivities.size === 1 ? '' : 'ies'} to continue`
+                    }
+                  </p>
                 </div>
-                <div className="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    animate={{ width: `${(completedActivities.size / activities.length) * 100}%` }}
-                    transition={{ duration: 0.3 }}
-                    className="h-full bg-gradient-to-r from-green-500 to-emerald-500 rounded-full"
-                  />
-                </div>
-                <p className="text-sm text-gray-600 mt-2 text-center">
-                  {completedActivities.size >= 3 
-                    ? '✅ You\'ve completed at least 3 activities! You can continue to reflection or do more activities.'
-                    : `Complete ${3 - completedActivities.size} more activity${3 - completedActivities.size === 1 ? '' : 'ies'} to continue`
-                  }
-                </p>
               </div>
 
               {/* Continue Button */}
-              {completedActivities.size >= 3 && (
+              {completedActivities.size >= 5 && (
                 <div className="text-center">
                   <motion.button
                     whileHover={{ scale: 1.05 }}

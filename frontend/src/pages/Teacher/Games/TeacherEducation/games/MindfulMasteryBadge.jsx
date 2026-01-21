@@ -151,7 +151,7 @@ const MindfulMasteryBadge = () => {
 
       const result = response.data;
 
-      if (result.success && result.badgeEarned) {
+      if (result.success && (result.badgeEarned || result.newlyEarned)) {
         setBadgeCollected(true);
         setShowCollectionModal(false);
         toast.success('🎉 Badge collected successfully!');

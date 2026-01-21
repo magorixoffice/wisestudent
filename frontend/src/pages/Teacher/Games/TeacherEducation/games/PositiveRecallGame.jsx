@@ -14,11 +14,11 @@ const PositiveRecallGame = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 1;
+  const totalLevels = gameData?.totalQuestions || 5;
   
-  const [memories, setMemories] = useState(["", "", ""]);
+  const [memories, setMemories] = useState(["", "", "", "", ""]);
   const [completedCount, setCompletedCount] = useState(0);
-  const [showConfetti, setShowConfetti] = useState([false, false, false]);
+  const [showConfetti, setShowConfetti] = useState([false, false, false, false, false]);
   const [optimismScore, setOptimismScore] = useState(0);
   const [showGameOver, setShowGameOver] = useState(false);
   const [score, setScore] = useState(0);
@@ -45,6 +45,20 @@ const PositiveRecallGame = () => {
       prompt: "When did you make a difference?",
       description: "Remember a moment when you truly made a positive impact on a student's life or learning.",
       placeholder: "e.g., A student who struggled finally understood a concept and their face lit up..."
+    },
+    {
+      id: 4,
+      icon: Camera,
+      prompt: "When did you overcome a challenge?",
+      description: "Think of a time when you successfully navigated a difficult situation or obstacle in your teaching.",
+      placeholder: "e.g., When I had to adapt my lesson plan mid-class due to unexpected circumstances..."
+    },
+    {
+      id: 5,
+      icon: Sparkles,
+      prompt: "When did you learn something new?",
+      description: "Recall a moment when you gained new insight, skill, or knowledge that improved your teaching.",
+      placeholder: "e.g., A colleague shared a strategy that transformed my approach to classroom management..."
     }
   ];
 
@@ -157,7 +171,7 @@ const PositiveRecallGame = () => {
 
     // Calculate optimism score
     const completed = newMemories.filter(m => m.trim().length > 0).length;
-    const newOptimismScore = Math.round((completed / 3) * 100);
+    const newOptimismScore = Math.round((completed / 5) * 100);
     setOptimismScore(newOptimismScore);
   };
 
@@ -169,7 +183,7 @@ const PositiveRecallGame = () => {
       return;
     }
 
-    if (completed < 3) {
+    if (completed < 5) {
       if (!confirm(`You've written ${completed} success memor${completed !== 1 ? 'ies' : 'y'}. Would you like to add more, or complete with what you have?`)) {
         return;
       }
@@ -180,7 +194,7 @@ const PositiveRecallGame = () => {
   };
 
   const currentCompleted = memories.filter(m => m.trim().length > 0).length;
-  const allCompleted = currentCompleted === 3;
+  const allCompleted = currentCompleted === 5;
 
   return (
     <TeacherGameShell
@@ -192,7 +206,7 @@ const PositiveRecallGame = () => {
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={1}
+      currentQuestion={0}
     >
       <div className="w-full max-w-4xl mx-auto px-4">
         {/* Confetti Animation */}
@@ -209,7 +223,7 @@ const PositiveRecallGame = () => {
                 Recall Your Success Moments
               </h2>
               <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-                Take a mental photo of your successes. Write 3 moments when you made a positive impact, and watch confetti celebrate each one!
+                Take a mental photo of your successes. Write 5 moments when you made a positive impact, and watch confetti celebrate each one!
               </p>
             </div>
 
@@ -231,7 +245,7 @@ const PositiveRecallGame = () => {
                 </div>
                 <div className="text-right">
                   <p className="text-sm text-gray-600 mb-1">Memories Written</p>
-                  <p className="text-3xl font-bold text-orange-600">{currentCompleted} / 3</p>
+                  <p className="text-3xl font-bold text-orange-600">{currentCompleted} / 5</p>
                 </div>
               </div>
               
@@ -252,9 +266,11 @@ const PositiveRecallGame = () => {
               {/* Optimism Score Message */}
               <p className="text-sm text-center text-gray-600 mt-2">
                 {optimismScore === 0 && "Start writing success memories to build optimism..."}
-                {optimismScore > 0 && optimismScore < 33 && "Great start! Recall more successes..."}
-                {optimismScore >= 33 && optimismScore < 66 && "You're building optimism! Continue..."}
-                {optimismScore >= 66 && optimismScore < 100 && "Wonderful! Almost there..."}
+                {optimismScore > 0 && optimismScore < 20 && "Great start! Recall more successes..."}
+                {optimismScore >= 20 && optimismScore < 40 && "You're building optimism! Continue..."}
+                {optimismScore >= 40 && optimismScore < 60 && "Keep going! You're making progress..."}
+                {optimismScore >= 60 && optimismScore < 80 && "Almost there! Just a bit more..."}
+                {optimismScore >= 80 && optimismScore < 100 && "Wonderful! Almost there..."}
                 {optimismScore === 100 && "Perfect! You've reinforced optimism with positive recall."}
               </p>
             </div>
@@ -362,7 +378,7 @@ const PositiveRecallGame = () => {
                 💡 Remember: Every success moment matters
               </p>
               <p className="text-xs text-blue-700 leading-relaxed">
-                Success memories don't have to be big achievements. Small moments of connection, understanding, or progress all count. Recalling these moments reinforces your sense of competence and builds optimism for future challenges.
+                Success memories don't have to be big achievements. Small moments of connection, understanding, progress, or growth all count. Recalling these moments reinforces your sense of competence and builds optimism for future challenges.
               </p>
             </div>
 
@@ -387,7 +403,7 @@ const PositiveRecallGame = () => {
                     Complete & Celebrate!
                   </span>
                 ) : currentCompleted > 0 ? (
-                  `Complete with ${currentCompleted} Memor${currentCompleted !== 1 ? 'ies' : 'y'}`
+                  `Complete with ${currentCompleted} Memor${currentCompleted !== 1 ? 'ies' : 'y'} `
                 ) : (
                   "Write at least one success memory to complete"
                 )}
@@ -478,7 +494,7 @@ const PositiveRecallGame = () => {
                 <li>• <strong>Recall reinforces resilience:</strong> Actively recalling past successes strengthens your belief in your ability to handle future challenges.</li>
                 <li>• <strong>Positive memory building:</strong> Regularly recalling success moments creates a library of positive memories that you can draw on during difficult times.</li>
                 <li>• <strong>Evidence-based optimism:</strong> These memories provide concrete evidence of your competence and impact, making optimism more grounded and sustainable.</li>
-                <li>• <strong>Small wins matter:</strong> Success doesn't have to be big. Small moments of connection, understanding, or progress all contribute to building optimism.</li>
+                <li>• <strong>Small wins matter:</strong> Success doesn't have to be big. Small moments of connection, understanding, progress, or growth all contribute to building optimism.</li>
                 <li>• <strong>Consistency is key:</strong> Making this practice regular (like weekly) helps maintain and build optimism over time.</li>
               </ul>
             </div>

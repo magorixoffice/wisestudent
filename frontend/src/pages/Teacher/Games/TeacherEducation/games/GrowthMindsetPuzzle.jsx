@@ -14,19 +14,14 @@ const GrowthMindsetPuzzle = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 10;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [negativeThoughts, setNegativeThoughts] = useState([
     { id: 1, text: "I can't do this", matched: false, selected: false },
     { id: 2, text: "I'm not good at this", matched: false, selected: false },
     { id: 3, text: "I failed", matched: false, selected: false },
     { id: 4, text: "This is too hard", matched: false, selected: false },
-    { id: 5, text: "I give up", matched: false, selected: false },
-    { id: 6, text: "I made a mistake", matched: false, selected: false },
-    { id: 7, text: "I'll never be able to do this", matched: false, selected: false },
-    { id: 8, text: "I'm bad at this", matched: false, selected: false },
-    { id: 9, text: "I'm not smart enough", matched: false, selected: false },
-    { id: 10, text: "This is pointless", matched: false, selected: false }
+    { id: 5, text: "I give up", matched: false, selected: false }
   ]);
   
   const initialGrowthThoughts = [
@@ -34,12 +29,7 @@ const GrowthMindsetPuzzle = () => {
     { id: 2, text: "I'm still learning", matched: false, selected: false, pairId: 2 },
     { id: 3, text: "I learned what doesn't work", matched: false, selected: false, pairId: 3 },
     { id: 4, text: "This will take time and effort", matched: false, selected: false, pairId: 4 },
-    { id: 5, text: "I'll use a different strategy", matched: false, selected: false, pairId: 5 },
-    { id: 6, text: "Mistakes help me learn", matched: false, selected: false, pairId: 6 },
-    { id: 7, text: "I'm improving with practice", matched: false, selected: false, pairId: 7 },
-    { id: 8, text: "I can get better with effort", matched: false, selected: false, pairId: 8 },
-    { id: 9, text: "I can develop my abilities", matched: false, selected: false, pairId: 9 },
-    { id: 10, text: "I can find meaning in challenges", matched: false, selected: false, pairId: 10 }
+    { id: 5, text: "I'll use a different strategy", matched: false, selected: false, pairId: 5 }
   ];
   
   // Shuffle growth thoughts once on mount
@@ -109,7 +99,7 @@ const GrowthMindsetPuzzle = () => {
       setTimeout(() => setShowEmotionalBoost(false), 2000);
       
       // Check if all matched
-      if (matchedPairs.length + 1 === 10) {
+      if (matchedPairs.length + 1 === 5) {
         setTimeout(() => setShowGameOver(true), 500);
       }
     } else {
@@ -125,7 +115,7 @@ const GrowthMindsetPuzzle = () => {
     }
   };
 
-  const allMatched = matchedPairs.length === 10;
+  const allMatched = matchedPairs.length === 5;
 
   return (
     <TeacherGameShell
@@ -137,7 +127,7 @@ const GrowthMindsetPuzzle = () => {
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={matchedPairs.length + 1}
+      currentQuestion={matchedPairs.length}
     >
       <div className="w-full max-w-6xl mx-auto px-4">
         {!showGameOver && (
@@ -153,14 +143,14 @@ const GrowthMindsetPuzzle = () => {
             {/* Progress */}
             <div className="mb-6">
               <div className="flex justify-between text-sm text-gray-600 mb-2">
-                <span className="font-semibold">Matches: {matchedPairs.length} / 10</span>
-                <span className="font-semibold">{Math.round((matchedPairs.length / 10) * 100)}% Complete</span>
+                <span className="font-semibold">Matches: {matchedPairs.length} / 5</span>
+                <span className="font-semibold">{Math.round((matchedPairs.length / 5) * 100)}% Complete</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-3">
                 <motion.div
                   className="bg-gradient-to-r from-purple-500 to-pink-500 h-3 rounded-full"
                   initial={{ width: 0 }}
-                  animate={{ width: `${(matchedPairs.length / 10) * 100}%` }}
+                  animate={{ width: `${(matchedPairs.length / 5) * 100}%` }}
                   transition={{ duration: 0.3 }}
                 />
               </div>
@@ -329,10 +319,10 @@ const GrowthMindsetPuzzle = () => {
             {/* Score */}
             <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 border-2 border-purple-200 mb-6 text-center">
               <div className="text-4xl font-bold text-purple-600 mb-2">
-                {score} / 10 Matches
+                {score} / 5 Matches
               </div>
               <p className="text-gray-700">
-                Perfect score! You've mastered the art of reframing negative thoughts into growth mindset alternatives.
+                Great job! You've mastered the art of reframing negative thoughts into growth mindset alternatives.
               </p>
             </div>
 
@@ -345,12 +335,7 @@ const GrowthMindsetPuzzle = () => {
                   { negative: "I'm not good at this", growth: "I'm still learning" },
                   { negative: "I failed", growth: "I learned what doesn't work" },
                   { negative: "This is too hard", growth: "This will take time and effort" },
-                  { negative: "I give up", growth: "I'll use a different strategy" },
-                  { negative: "I made a mistake", growth: "Mistakes help me learn" },
-                  { negative: "I'll never be able to do this", growth: "I'm improving with practice" },
-                  { negative: "I'm bad at this", growth: "I can get better with effort" },
-                  { negative: "I'm not smart enough", growth: "I can develop my abilities" },
-                  { negative: "This is pointless", growth: "I can find meaning in challenges" }
+                  { negative: "I give up", growth: "I'll use a different strategy" }
                 ].map((pair, index) => (
                   <motion.div
                     key={index}

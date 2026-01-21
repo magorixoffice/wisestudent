@@ -14,7 +14,7 @@ const EmotionalRecoveryToolkit = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 1;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [selectedStrategies, setSelectedStrategies] = useState([]);
   const [showRecoveryRoutine, setShowRecoveryRoutine] = useState(false);
@@ -161,18 +161,18 @@ const EmotionalRecoveryToolkit = () => {
     if (selectedStrategies.includes(strategyId)) {
       // Deselect if already selected
       setSelectedStrategies(selectedStrategies.filter(id => id !== strategyId));
-    } else if (selectedStrategies.length < 4) {
-      // Select if less than 4 are selected
+    } else if (selectedStrategies.length < 5) {
+      // Select if less than 5 are selected
       setSelectedStrategies([...selectedStrategies, strategyId]);
     } else {
-      // Already have 4 selected, replace the first one
+      // Already have 5 selected, replace the first one
       setSelectedStrategies([...selectedStrategies.slice(1), strategyId]);
     }
   };
 
   const handleBuildRoutine = () => {
-    if (selectedStrategies.length !== 4) {
-      alert("Please select exactly 4 recovery strategies to build your toolkit.");
+    if (selectedStrategies.length !== 5) {
+      alert("Please select exactly 5 recovery strategies to build your toolkit.");
       return;
     }
     setShowRecoveryRoutine(true);
@@ -197,7 +197,7 @@ const EmotionalRecoveryToolkit = () => {
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={1}
+      currentQuestion={0}
     >
       <div className="w-full max-w-6xl mx-auto px-4">
         {!showRecoveryRoutine && !showGameOver && (
@@ -209,7 +209,7 @@ const EmotionalRecoveryToolkit = () => {
                 Emotional Recovery Toolkit
               </h2>
               <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-                Build your personal recovery plan. Choose 4 strategies that help you recover from disappointment or failure days.
+                Build your personal recovery plan. Choose 5 strategies that help you recover from disappointment or failure days.
               </p>
             </div>
 
@@ -218,9 +218,9 @@ const EmotionalRecoveryToolkit = () => {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className={`w-16 h-16 rounded-full bg-gradient-to-r ${
-                    selectedStrategies.length === 4
+                    selectedStrategies.length === 5
                       ? 'from-green-400 to-emerald-500'
-                      : selectedStrategies.length >= 2
+                      : selectedStrategies.length >= 3
                       ? 'from-blue-400 to-cyan-500'
                       : 'from-gray-300 to-gray-400'
                   } flex items-center justify-center text-2xl font-bold text-white shadow-lg`}>
@@ -229,21 +229,21 @@ const EmotionalRecoveryToolkit = () => {
                   <div>
                     <h3 className="text-xl font-bold text-gray-800">Strategies Selected</h3>
                     <p className="text-sm text-gray-600">
-                      {selectedStrategies.length === 4
+                      {selectedStrategies.length === 5
                         ? "Perfect! Ready to build your toolkit"
-                        : `Select ${4 - selectedStrategies.length} more to complete your toolkit`}
+                        : `Select ${5 - selectedStrategies.length} more to complete your toolkit`}
                     </p>
                   </div>
                 </div>
                 <div className="text-right">
-                  <p className="text-sm text-gray-600 mb-1">Target: 4 Strategies</p>
+                  <p className="text-sm text-gray-600 mb-1">Target: 5 Strategies</p>
                   <div className="w-32 bg-gray-200 rounded-full h-4">
                     <motion.div
                       initial={{ width: 0 }}
-                      animate={{ width: `${(selectedStrategies.length / 4) * 100}%` }}
+                      animate={{ width: `${(selectedStrategies.length / 5) * 100}%` }}
                       transition={{ duration: 0.3 }}
                       className={`h-4 rounded-full ${
-                        selectedStrategies.length === 4
+                        selectedStrategies.length === 5
                           ? 'bg-gradient-to-r from-green-400 to-emerald-500'
                           : 'bg-gradient-to-r from-blue-400 to-cyan-500'
                       }`}
@@ -265,11 +265,11 @@ const EmotionalRecoveryToolkit = () => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => handleStrategySelect(strategy.id)}
-                    disabled={!isSelected && selectedStrategies.length >= 4}
+                    disabled={!isSelected && selectedStrategies.length >= 5}
                     className={`relative p-5 rounded-xl border-2 text-left transition-all ${
                       isSelected
                         ? `bg-gradient-to-br ${strategy.bgColor} ${strategy.borderColor} shadow-lg`
-                        : selectedStrategies.length >= 4
+                        : selectedStrategies.length >= 5
                         ? 'bg-gray-50 border-gray-200 opacity-50 cursor-not-allowed'
                         : 'bg-white border-gray-300 hover:border-indigo-400 hover:shadow-md cursor-pointer'
                     }`}
@@ -322,20 +322,20 @@ const EmotionalRecoveryToolkit = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleBuildRoutine}
-                disabled={selectedStrategies.length !== 4}
+                disabled={selectedStrategies.length !== 5}
                 className={`px-8 py-4 rounded-xl font-semibold text-lg shadow-lg transition-all ${
-                  selectedStrategies.length === 4
+                  selectedStrategies.length === 5
                     ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white hover:shadow-xl'
                     : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                 }`}
               >
-                {selectedStrategies.length === 4 ? (
+                {selectedStrategies.length === 5 ? (
                   <span className="flex items-center justify-center gap-2">
                     <Sparkles className="w-5 h-5" />
                     Build My Recovery Routine
                   </span>
                 ) : (
-                  `Select ${4 - selectedStrategies.length} more strateg${4 - selectedStrategies.length === 1 ? 'y' : 'ies'}`
+                  'Select ' + (5 - selectedStrategies.length) + ' more strateg' + (5 - selectedStrategies.length === 1 ? 'y' : 'ies')
                 )}
               </motion.button>
             </div>
@@ -526,6 +526,7 @@ const EmotionalRecoveryToolkit = () => {
       </div>
     </TeacherGameShell>
   );
+
 };
 
 export default EmotionalRecoveryToolkit;

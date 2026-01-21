@@ -14,7 +14,7 @@ const SilenceStillnessPractice = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 1;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [currentPhase, setCurrentPhase] = useState('breathing'); // 'breathing', 'silence', 'rating', 'complete'
   const [isPlaying, setIsPlaying] = useState(false);
@@ -180,7 +180,7 @@ const SilenceStillnessPractice = () => {
         gameType="teacher-education"
         totalLevels={totalLevels}
         totalCoins={totalCoins}
-        currentQuestion={1}
+        currentQuestion={score}
       >
         <div className="w-full max-w-5xl mx-auto px-4">
           <motion.div
@@ -307,7 +307,7 @@ const SilenceStillnessPractice = () => {
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={1}
+      currentQuestion={score}
     >
       <div className="w-full max-w-4xl mx-auto px-4">
         <div className="bg-white rounded-2xl shadow-lg p-8">

@@ -57,6 +57,20 @@ const TheRespectfulNo = () => {
           bgColor: "from-red-50 to-rose-50",
           borderColor: "border-red-300"
         },
+        
+        {
+          id: 'wishy-washy',
+          label: 'Unclear Response',
+          text: "I'm not sure... maybe? Let me think about it.",
+          assertiveness: 40,
+          kindness: 70,
+          tone: "Unclear",
+          feedback: "This creates uncertainty and doesn't set clear boundaries. A definitive response with kindness is more respectful to everyone.",
+          emoji: "🤔",
+          color: "from-yellow-400 to-orange-500",
+          bgColor: "from-yellow-50 to-orange-50",
+          borderColor: "border-yellow-300"
+        },
         {
           id: 'respectful-no',
           label: 'Respectful "No"',
@@ -70,19 +84,6 @@ const TheRespectfulNo = () => {
           bgColor: "from-green-50 to-emerald-50",
           borderColor: "border-green-300"
         },
-        {
-          id: 'wishy-washy',
-          label: 'Unclear Response',
-          text: "I'm not sure... maybe? Let me think about it.",
-          assertiveness: 40,
-          kindness: 70,
-          tone: "Unclear",
-          feedback: "This creates uncertainty and doesn't set clear boundaries. A definitive response with kindness is more respectful to everyone.",
-          emoji: "🤔",
-          color: "from-yellow-400 to-orange-500",
-          bgColor: "from-yellow-50 to-orange-50",
-          borderColor: "border-yellow-300"
-        }
       ],
       correctResponse: 'respectful-no'
     },
@@ -154,6 +155,19 @@ const TheRespectfulNo = () => {
       situation: "A colleague asks you to swap your planning period with theirs this week so they can attend a personal appointment. They've done this several times before, and it's starting to feel like a pattern.",
       responses: [
         {
+          id: 'respectful-no',
+          label: 'Respectful "No"',
+          text: "I wish I could help, but my current commitments are full this week. I need to protect my planning time. Perhaps we could find another solution?",
+          assertiveness: 85,
+          kindness: 88,
+          tone: "Respectful & Assertive",
+          feedback: "Perfect! This is a respectful 'no'—you acknowledge the request, state your boundary clearly, and offer to explore alternatives. This maintains the relationship while protecting your time.",
+          emoji: "✨",
+          color: "from-green-400 to-emerald-500",
+          bgColor: "from-green-50 to-emerald-50",
+          borderColor: "border-green-300"
+        },
+        {
           id: 'over-accommodating',
           label: 'Agree Immediately',
           text: "Sure, no problem! I can always make it work.",
@@ -179,19 +193,7 @@ const TheRespectfulNo = () => {
           bgColor: "from-red-50 to-rose-50",
           borderColor: "border-red-300"
         },
-        {
-          id: 'respectful-no',
-          label: 'Respectful "No"',
-          text: "I wish I could help, but my current commitments are full this week. I need to protect my planning time. Perhaps we could find another solution?",
-          assertiveness: 85,
-          kindness: 88,
-          tone: "Respectful & Assertive",
-          feedback: "Perfect! This is a respectful 'no'—you acknowledge the request, state your boundary clearly, and offer to explore alternatives. This maintains the relationship while protecting your time.",
-          emoji: "✨",
-          color: "from-green-400 to-emerald-500",
-          bgColor: "from-green-50 to-emerald-50",
-          borderColor: "border-green-300"
-        },
+        
         {
           id: 'wishy-washy',
           label: 'Unclear Response',
@@ -289,19 +291,6 @@ const TheRespectfulNo = () => {
           borderColor: "border-gray-300"
         },
         {
-          id: 'too-direct',
-          label: 'Refuse Abruptly',
-          text: "No, I'm not available. You should have planned better.",
-          assertiveness: 100,
-          kindness: 20,
-          tone: "Too Direct",
-          feedback: "While your boundary is important, the tone is harsh. A respectful 'no' can be clear without being judgmental.",
-          emoji: "😤",
-          color: "from-red-400 to-rose-500",
-          bgColor: "from-red-50 to-rose-50",
-          borderColor: "border-red-300"
-        },
-        {
           id: 'respectful-no',
           label: 'Respectful "No"',
           text: "I wish I could help, but I've committed to resting this weekend. I hope you're able to find support elsewhere.",
@@ -314,6 +303,20 @@ const TheRespectfulNo = () => {
           bgColor: "from-green-50 to-emerald-50",
           borderColor: "border-green-300"
         },
+        {
+          id: 'too-direct',
+          label: 'Refuse Abruptly',
+          text: "No, I'm not available. You should have planned better.",
+          assertiveness: 100,
+          kindness: 20,
+          tone: "Too Direct",
+          feedback: "While your boundary is important, the tone is harsh. A respectful 'no' can be clear without being judgmental.",
+          emoji: "😤",
+          color: "from-red-400 to-rose-500",
+          bgColor: "from-red-50 to-rose-50",
+          borderColor: "border-red-300"
+        },
+        
         {
           id: 'wishy-washy',
           label: 'Unclear Response',
@@ -383,7 +386,7 @@ const TheRespectfulNo = () => {
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={currentScenario + 1}
+      currentQuestion={currentScenario}
     >
       <div className="w-full max-w-5xl mx-auto px-4">
         <motion.div
@@ -457,15 +460,7 @@ const TheRespectfulNo = () => {
                       }`}
                     >
                       <div className="flex items-start gap-4">
-                        <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 ${
-                          response.id === 'respectful-no'
-                            ? 'bg-gradient-to-r from-green-400 to-emerald-500'
-                            : response.id === 'too-direct'
-                            ? 'bg-gradient-to-r from-red-400 to-rose-500'
-                            : response.id === 'over-accommodating'
-                            ? 'bg-gradient-to-r from-gray-400 to-slate-500'
-                            : 'bg-gradient-to-r from-yellow-400 to-orange-500'
-                        }`}>
+                        <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 bg-gradient-to-r from-yellow-400 to-orange-500`}>
                           <span className="text-white font-bold">{String.fromCharCode(65 + index)}</span>
                         </div>
                         <div className="flex-1">

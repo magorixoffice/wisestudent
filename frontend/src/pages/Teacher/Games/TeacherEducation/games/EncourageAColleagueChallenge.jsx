@@ -14,7 +14,7 @@ const EncourageAColleagueChallenge = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 3;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [selectedColleague, setSelectedColleague] = useState(null);
   const [selectedEncouragement, setSelectedEncouragement] = useState(null);
@@ -23,6 +23,9 @@ const EncourageAColleagueChallenge = () => {
   const [dailyStreak, setDailyStreak] = useState(1);
   const [score, setScore] = useState(0);
   const [showGameOver, setShowGameOver] = useState(false);
+  
+  // Total number of encouragements to send
+  const TOTAL_ENCOURAGEMENTS = 5;
 
   // Colleague cards (simulated)
   const colleagues = [
@@ -118,8 +121,8 @@ const EncourageAColleagueChallenge = () => {
       setSelectedColleague(null);
       setSelectedEncouragement(null);
       
-      // Show game over if sent 3 encouragements
-      if (sentEncouragements.length + 1 >= 3) {
+      // Show game over if sent all encouragements
+      if (sentEncouragements.length + 1 >= TOTAL_ENCOURAGEMENTS) {
         setTimeout(() => {
           setShowGameOver(true);
         }, 2000);
@@ -128,7 +131,7 @@ const EncourageAColleagueChallenge = () => {
   };
 
   const encouragementCount = sentEncouragements.length;
-  const progress = (encouragementCount / 3) * 100;
+  const progress = (encouragementCount / TOTAL_ENCOURAGEMENTS) * 100;
 
   return (
     <TeacherGameShell
@@ -152,7 +155,7 @@ const EncourageAColleagueChallenge = () => {
                 Encourage-a-Colleague Challenge
               </h2>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Daily reminder: Encourage 1 colleague today!
+                Daily reminder: Encourage {TOTAL_ENCOURAGEMENTS} colleagues today!
               </p>
             </div>
 
@@ -165,7 +168,7 @@ const EncourageAColleagueChallenge = () => {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-gray-800">Daily Challenge</h3>
-                    <p className="text-gray-600">Send {3 - encouragementCount} more encouragement{3 - encouragementCount !== 1 ? 's' : ''} today</p>
+                    <p className="text-gray-600">Send {TOTAL_ENCOURAGEMENTS - encouragementCount} more encouragement{TOTAL_ENCOURAGEMENTS - encouragementCount !== 1 ? 's' : ''} today</p>
                   </div>
                 </div>
                 <div className="text-right">
@@ -181,7 +184,7 @@ const EncourageAColleagueChallenge = () => {
                   className="bg-gradient-to-r from-pink-500 to-purple-500 h-3 rounded-full"
                 />
               </div>
-              <p className="text-sm text-gray-600 text-center">{encouragementCount} / 3 encouragements sent</p>
+              <p className="text-sm text-gray-600 text-center">{encouragementCount} / {TOTAL_ENCOURAGEMENTS} encouragements sent</p>
             </div>
 
             {/* Animation */}
@@ -415,7 +418,7 @@ const EncourageAColleagueChallenge = () => {
                 Challenge Complete!
               </h2>
               <p className="text-xl text-gray-600">
-                You sent {encouragementCount} encouragement{encouragementCount !== 1 ? 's' : ''} today!
+                You sent {encouragementCount} of {TOTAL_ENCOURAGEMENTS} encouragements today!
               </p>
             </div>
 
@@ -431,7 +434,7 @@ const EncourageAColleagueChallenge = () => {
                   <p className="text-sm text-gray-700">Day Streak</p>
                 </div>
                 <div>
-                  <div className="text-4xl font-bold text-indigo-600 mb-2">100%</div>
+                  <div className="text-4xl font-bold text-indigo-600 mb-2">{Math.round((encouragementCount / TOTAL_ENCOURAGEMENTS) * 100)}%</div>
                   <p className="text-sm text-gray-700">Challenge Complete</p>
                 </div>
               </div>

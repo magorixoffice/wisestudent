@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import TeacherGameShell from "../../TeacherGameShell";
 import { getTeacherEducationGameById } from "../data/gameData";
-import { Lightbulb, Heart, CheckCircle, BookOpen, Sparkles, Target, TrendingUp } from "lucide-react";
+import { Lightbulb, Heart, CheckCircle, BookOpen, Sparkles, Target, TrendingUp, Award } from "lucide-react";
 
 const MeaningInTheMoment = () => {
   const location = useLocation();
@@ -14,7 +14,7 @@ const MeaningInTheMoment = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 8;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [currentScenario, setCurrentScenario] = useState(0);
   const [selectedMeaning, setSelectedMeaning] = useState(null);
@@ -37,19 +37,20 @@ const MeaningInTheMoment = () => {
           feedback: "While true, this perspective misses the deeper meaning. Finding purpose in ordinary moments helps sustain motivation and recognize impact.",
           category: "Task-Oriented"
         },
-        {
-          id: 'b',
-          text: "I'm building this student's confidence and showing them that they can learn. My patience and support are teaching them that struggles are part of growth.",
-          feedback: "Perfect! You're finding meaning in this moment. Small acts like this create large ripples—building confidence, showing patience, and modeling resilience. This moment matters! ✨",
-          category: "Meaning-Focused",
-          isBest: true
-        },
+        
         {
           id: 'c',
           text: "This is just one student out of many. It's a small moment that probably won't matter much.",
           feedback: "It's easy to underestimate small moments, but they often matter most. Finding meaning in ordinary moments helps you recognize their impact.",
           category: "Minimizing"
-        }
+        },
+        {
+          id: 'b',
+          text: "I'm building this student's confidence and showing them that they can learn. ",
+          feedback: "Perfect! You're finding meaning in this moment. Small acts like this create large ripples—building confidence, showing patience, and modeling resilience. This moment matters! ✨",
+          category: "Meaning-Focused",
+          isBest: true
+        },
       ]
     },
     {
@@ -66,7 +67,7 @@ const MeaningInTheMoment = () => {
         },
         {
           id: 'b',
-          text: "I'm teaching self-regulation and emotional control through modeling. My calm response shows students how to handle stress and maintain peace in challenging moments.",
+          text: "I'm teaching self-regulation and emotional control through modeling. ",
           feedback: "Excellent! You're finding meaning in this moment. Small acts like this create large ripples—teaching self-regulation, modeling calm, and creating a safe learning environment. This moment matters! ✨",
           category: "Meaning-Focused",
           isBest: true
@@ -85,19 +86,20 @@ const MeaningInTheMoment = () => {
       description: "Students are confused about a complex science concept. You try three different explanations, use visual aids, relate it to their lives, and finally see understanding click in their eyes.",
       emoji: "💡",
       meaningStatements: [
+         {
+          id: 'b',
+          text: "I'm teaching persistence, adaptability, and that learning takes different approaches. ",
+          feedback: "Perfect! You're finding meaning in this moment. Small acts like this create large ripples—teaching persistence, modeling adaptability, and showing that challenges can be overcome. This moment matters! ✨",
+          category: "Meaning-Focused",
+          isBest: true
+        },
         {
           id: 'a',
           text: "I'm just explaining the curriculum. This is standard teaching practice.",
           feedback: "True, but there's deeper meaning in persistence and adapting to students' needs. Finding purpose in ordinary moments recognizes your impact.",
           category: "Standard-Focused"
         },
-        {
-          id: 'b',
-          text: "I'm teaching persistence, adaptability, and that learning takes different approaches. My willingness to try multiple methods shows students that their understanding matters and that challenges can be overcome.",
-          feedback: "Perfect! You're finding meaning in this moment. Small acts like this create large ripples—teaching persistence, modeling adaptability, and showing that challenges can be overcome. This moment matters! ✨",
-          category: "Meaning-Focused",
-          isBest: true
-        },
+       
         {
           id: 'c',
           text: "It took too long. I should have explained it better the first time.",
@@ -118,6 +120,13 @@ const MeaningInTheMoment = () => {
           feedback: "While listening is part of teaching, finding deeper meaning recognizes the significance of making students feel heard and valued.",
           category: "Task-Oriented"
         },
+        
+        {
+          id: 'c',
+          text: "This is just a small conversation. There are bigger things to focus on.",
+          feedback: "Small conversations often carry the most meaning. Finding purpose in ordinary moments helps you recognize that brief connections can have lasting impact.",
+          category: "Minimizing"
+        },
         {
           id: 'b',
           text: "I'm making this student feel seen, heard, and valued. My presence and attention are showing them that they matter and that they're not alone in their struggles.",
@@ -125,12 +134,6 @@ const MeaningInTheMoment = () => {
           category: "Meaning-Focused",
           isBest: true
         },
-        {
-          id: 'c',
-          text: "This is just a small conversation. There are bigger things to focus on.",
-          feedback: "Small conversations often carry the most meaning. Finding purpose in ordinary moments helps you recognize that brief connections can have lasting impact.",
-          category: "Minimizing"
-        }
       ]
     },
     {
@@ -147,7 +150,7 @@ const MeaningInTheMoment = () => {
         },
         {
           id: 'b',
-          text: "I'm building this student's self-belief and showing them that their progress matters. My celebration is teaching them to recognize their own growth and feel proud of small steps forward.",
+          text: "I'm building this student's self-belief and showing them that their progress matters.",
           feedback: "Perfect! You're finding meaning in this moment. Small acts like this create large ripples—building self-belief, celebrating progress, and teaching students to value their own growth. This moment matters! ✨",
           category: "Meaning-Focused",
           isBest: true
@@ -157,87 +160,6 @@ const MeaningInTheMoment = () => {
           text: "It's just one problem. They should celebrate bigger achievements.",
           feedback: "Small wins matter. Finding purpose in ordinary moments recognizes that celebrating small progress builds momentum for larger achievements.",
           category: "Achievement-Focused"
-        }
-      ]
-    },
-    {
-      id: 6,
-      title: "Creating a Safe Space",
-      description: "A student seems anxious before a test. You notice their stress, offer encouragement, and create a quiet corner for students who need it. The student seems calmer and more ready to focus.",
-      emoji: "🛡️",
-      meaningStatements: [
-        {
-          id: 'a',
-          text: "I'm just managing test anxiety. This is part of test preparation.",
-          feedback: "While managing anxiety is important, finding deeper meaning recognizes how you're creating emotional safety and teaching self-regulation.",
-          category: "Management-Focused"
-        },
-        {
-          id: 'b',
-          text: "I'm creating emotional safety and teaching students that it's okay to feel anxious, and that support is available. My response is showing them how to care for themselves and others during stressful moments.",
-          feedback: "Excellent! You're finding meaning in this moment. Small acts like this create large ripples—creating emotional safety, normalizing anxiety, and teaching self-care. This moment matters! ✨",
-          category: "Meaning-Focused",
-          isBest: true
-        },
-        {
-          id: 'c',
-          text: "Students should learn to manage their own anxiety. I can't always help everyone.",
-          feedback: "While students do need to learn self-management, your support and modeling are meaningful. Finding purpose in ordinary moments recognizes how you're teaching these skills through example.",
-          category: "Self-Reliance-Focused"
-        }
-      ]
-    },
-    {
-      id: 7,
-      title: "Encouraging Peer Support",
-      description: "You notice one student helping another understand a concept. You acknowledge their kindness, thank them for being a supportive classmate, and the helping continues even after class.",
-      emoji: "💚",
-      meaningStatements: [
-        {
-          id: 'a',
-          text: "Students help each other sometimes. This is normal classroom behavior.",
-          feedback: "While peer support is common, finding deeper meaning recognizes how you're fostering a culture of kindness and collaboration.",
-          category: "Normalizing"
-        },
-        {
-          id: 'b',
-          text: "I'm fostering a culture of kindness and collaboration. My acknowledgment is reinforcing that helping others matters and creating a classroom community where students support each other.",
-          feedback: "Perfect! You're finding meaning in this moment. Small acts like this create large ripples—fostering kindness, building community, and teaching that helping others matters. This moment matters! ✨",
-          category: "Meaning-Focused",
-          isBest: true
-        },
-        {
-          id: 'c',
-          text: "Students helping each other is nice, but it doesn't need special recognition.",
-          feedback: "Acknowledging kindness reinforces it. Finding purpose in ordinary moments recognizes how your response shapes classroom culture and values.",
-          category: "Undervaluing"
-        }
-      ]
-    },
-    {
-      id: 8,
-      title: "Maintaining Patience",
-      description: "A student keeps interrupting during a lesson. Instead of getting frustrated, you calmly redirect them, use positive language, and later pull them aside to check in. They seem more settled afterward.",
-      emoji: "🧘",
-      meaningStatements: [
-        {
-          id: 'a',
-          text: "I'm just managing disruptive behavior. This is classroom management.",
-          feedback: "While managing behavior is part of teaching, finding deeper meaning recognizes how patience and understanding build relationships and teach self-regulation.",
-          category: "Management-Focused"
-        },
-        {
-          id: 'b',
-          text: "I'm modeling patience, emotional regulation, and care. My calm response is teaching this student that they're valued even when they struggle, and showing them how to handle challenging moments with grace.",
-          feedback: "Excellent! You're finding meaning in this moment. Small acts like this create large ripples—modeling patience, showing care, and teaching emotional regulation through example. This moment matters! ✨",
-          category: "Meaning-Focused",
-          isBest: true
-        },
-        {
-          id: 'c',
-          text: "I should have been more firm. Letting interruptions continue isn't effective teaching.",
-          feedback: "There's a balance between firmness and patience. Finding purpose in ordinary moments recognizes how your calm, caring response builds relationships and teaches important skills.",
-          category: "Control-Focused"
         }
       ]
     }
@@ -288,7 +210,7 @@ const MeaningInTheMoment = () => {
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={currentScenario + 1}
+      currentQuestion={currentScenario}
     >
       <div className="w-full max-w-5xl mx-auto px-4">
         {!showGameOver && (
@@ -443,9 +365,13 @@ const MeaningInTheMoment = () => {
               <h2 className="text-3xl font-bold text-gray-800 mb-2">
                 Meaning in the Moment Complete!
               </h2>
-              <p className="text-xl text-gray-600">
+              <p className="text-xl text-gray-600 mb-2">
                 You practiced finding purpose in {scenarios.length} classroom moments
               </p>
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-green-100 to-emerald-100 px-4 py-2 rounded-full border-2 border-green-300">
+                <Award className="w-5 h-5 text-green-600" />
+                <span className="font-bold text-green-800">Earned {score} Healcoin{score !== 1 ? 's' : ''}!</span>
+              </div>
             </div>
 
             {/* Score */}

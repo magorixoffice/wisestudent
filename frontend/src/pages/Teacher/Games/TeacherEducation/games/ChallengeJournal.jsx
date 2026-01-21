@@ -14,12 +14,14 @@ const ChallengeJournal = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 1;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [journalEntries, setJournalEntries] = useState({
     challenge: "",
     learned: "",
-    nextTime: ""
+    nextTime: "",
+    helpedBy: "",
+    proudOf: ""
   });
   const [completionScore, setCompletionScore] = useState(0);
   const [showGameOver, setShowGameOver] = useState(false);
@@ -61,6 +63,28 @@ const ChallengeJournal = () => {
       bgColor: 'from-green-50 to-emerald-50',
       borderColor: 'border-green-300',
       textColor: 'text-green-800'
+    },
+    {
+      id: 'helpedBy',
+      label: 'I was helped by…',
+      icon: Share2,
+      description: 'Identify people, resources, or strategies that supported you',
+      placeholder: 'e.g., My mentor gave me advice on de-escalation techniques, and a colleague shared similar experiences...',
+      color: 'from-purple-400 to-pink-500',
+      bgColor: 'from-purple-50 to-pink-50',
+      borderColor: 'border-purple-300',
+      textColor: 'text-purple-800'
+    },
+    {
+      id: 'proudOf',
+      label: "I'm proud that…",
+      icon: Sparkles,
+      description: 'Acknowledge your accomplishments and growth from this experience',
+      placeholder: "e.g., I'm proud that I remained calm under pressure and found a solution that worked for everyone...",
+      color: 'from-yellow-400 to-orange-500',
+      bgColor: 'from-yellow-50 to-orange-50',
+      borderColor: 'border-yellow-300',
+      textColor: 'text-yellow-800'
     }
   ];
 
@@ -73,7 +97,7 @@ const ChallengeJournal = () => {
     // Calculate completion score
     const completed = Object.values({ ...journalEntries, [field]: value })
       .filter(entry => entry.trim().length > 0).length;
-    const newScore = Math.round((completed / 3) * 100);
+    const newScore = Math.round((completed / 5) * 100);
     setCompletionScore(newScore);
   };
 
@@ -86,8 +110,8 @@ const ChallengeJournal = () => {
       return;
     }
 
-    if (completedCount < 3) {
-      if (!confirm(`You've completed ${completedCount} of 3 sections. Would you like to add more, or complete with what you have?`)) {
+    if (completedCount < 5) {
+      if (!confirm(`You've completed ${completedCount} of 5 sections. Would you like to add more, or complete with what you have?`)) {
         return;
       }
     }
@@ -107,7 +131,7 @@ const ChallengeJournal = () => {
 
   const completedCount = Object.values(journalEntries)
     .filter(entry => entry.trim().length > 0).length;
-  const allCompleted = completedCount === 3;
+  const allCompleted = completedCount === 5;
 
   return (
     <TeacherGameShell
@@ -119,7 +143,7 @@ const ChallengeJournal = () => {
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={1}
+      currentQuestion={0}
     >
       <div className="w-full max-w-4xl mx-auto px-4">
         {!showGameOver && (
@@ -128,7 +152,7 @@ const ChallengeJournal = () => {
             <div className="text-center mb-8">
               <div className="text-6xl mb-4">📔</div>
               <h2 className="text-3xl font-bold text-gray-800 mb-4">
-                Challenge Journal
+                
               </h2>
               <p className="text-gray-600 text-lg max-w-2xl mx-auto">
                 Document a recent challenge you faced and reflect on how you overcame it. Celebrating small comebacks strengthens self-belief.
@@ -153,7 +177,7 @@ const ChallengeJournal = () => {
                 </div>
                 <div className="text-right">
                   <p className="text-sm text-gray-600 mb-1">Sections Completed</p>
-                  <p className="text-3xl font-bold text-indigo-600">{completedCount} / 3</p>
+                  <p className="text-3xl font-bold text-indigo-600">{completedCount} / 5</p>
                 </div>
               </div>
               
@@ -174,9 +198,11 @@ const ChallengeJournal = () => {
               {/* Completion Message */}
               <p className="text-sm text-center text-gray-600 mt-2">
                 {completionScore === 0 && "Start documenting your challenge to begin reflection..."}
-                {completionScore > 0 && completionScore < 33 && "Good start! Continue reflecting..."}
-                {completionScore >= 33 && completionScore < 66 && "You're building insights! Keep going..."}
-                {completionScore >= 66 && completionScore < 100 && "Almost complete! Finish your reflection..."}
+                {completionScore > 0 && completionScore < 20 && "Good start! Continue reflecting..."}
+                {completionScore >= 20 && completionScore < 40 && "You're building insights! Keep going..."}
+                {completionScore >= 40 && completionScore < 60 && "Making progress! Continue your reflection..."}
+                {completionScore >= 60 && completionScore < 80 && "Great work! Almost there..."}
+                {completionScore >= 80 && completionScore < 100 && "Almost complete! Finish your reflection..."}
                 {completionScore === 100 && "Perfect! You've documented your comeback journey."}
               </p>
             </div>

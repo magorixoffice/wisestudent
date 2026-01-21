@@ -14,15 +14,14 @@ const ScreenTimeMirror = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 1;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [screenTimeData, setScreenTimeData] = useState({
     work: { hours: 0, minutes: 0 },
     email: { hours: 0, minutes: 0 },
     social: { hours: 0, minutes: 0 },
     entertainment: { hours: 0, minutes: 0 },
-    news: { hours: 0, minutes: 0 },
-    other: { hours: 0, minutes: 0 }
+    news: { hours: 0, minutes: 0 }
   });
   
   const [showChart, setShowChart] = useState(false);
@@ -75,15 +74,6 @@ const ScreenTimeMirror = () => {
       color: 'from-green-400 to-emerald-500',
       bgColor: 'from-green-50 to-emerald-50',
       borderColor: 'border-green-300'
-    },
-    {
-      id: 'other',
-      name: 'Other Digital Activities',
-      description: 'Other screen time activities',
-      icon: Monitor,
-      color: 'from-gray-400 to-slate-500',
-      bgColor: 'from-gray-50 to-slate-50',
-      borderColor: 'border-gray-300'
     }
   ];
 
@@ -186,8 +176,18 @@ const ScreenTimeMirror = () => {
       alert("Please enter at least some screen time data first.");
       return;
     }
+    
+    // Calculate score based on completed activities (1 point per activity with time entered)
+    let calculatedScore = 0;
+    for (const activityId in screenTimeData) {
+      const activity = screenTimeData[activityId];
+      if ((activity.hours || 0) > 0 || (activity.minutes || 0) > 0) {
+        calculatedScore++;
+      }
+    }
+    
     setShowChart(true);
-    setScore(1);
+    setScore(calculatedScore);
     setTimeout(() => {
       setShowGameOver(true);
     }, 3000);
@@ -206,7 +206,7 @@ const ScreenTimeMirror = () => {
       gameType="teacher-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentQuestion={1}
+      currentQuestion={0}
     >
       <div className="w-full max-w-5xl mx-auto px-4">
         {!showGameOver && (
@@ -214,9 +214,7 @@ const ScreenTimeMirror = () => {
             {/* Header */}
             <div className="text-center mb-8">
               <div className="text-6xl mb-4">📱</div>
-              <h2 className="text-3xl font-bold text-gray-800 mb-4">
-                Screen-Time Mirror
-              </h2>
+              
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                 Track your daily digital exposure to understand how screen time affects your focus and rest.
               </p>

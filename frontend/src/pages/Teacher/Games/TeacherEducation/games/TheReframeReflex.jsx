@@ -14,7 +14,7 @@ const TheReframeReflex = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 20;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [gameState, setGameState] = useState("ready"); // ready, playing, finished
   const [currentStatement, setCurrentStatement] = useState(0);
@@ -26,9 +26,10 @@ const TheReframeReflex = () => {
   const [showGameOver, setShowGameOver] = useState(false);
   const [answeredStatements, setAnsweredStatements] = useState([]);
   const [responseTimes, setResponseTimes] = useState([]);
+  const [shuffledOptionsPerStatement, setShuffledOptionsPerStatement] = useState({});
   const timerRef = useRef(null);
 
-  // 20 flash statements with negative thoughts and growth responses
+  // 5 flash statements with negative thoughts and growth responses
   const statements = [
     {
       id: 1,
@@ -64,111 +65,6 @@ const TheReframeReflex = () => {
       growth: "Mistakes help me learn",
       options: ["Mistakes help me learn", "I'm so stupid", "I always mess up", "I can't do anything right"],
       correctIndex: 0
-    },
-    {
-      id: 6,
-      negative: "This is too hard",
-      growth: "This will take time and effort",
-      options: ["This will take time and effort", "I can't handle this", "It's too difficult", "I'm not cut out for this"],
-      correctIndex: 0
-    },
-    {
-      id: 7,
-      negative: "I'll never be able to do this",
-      growth: "I'm improving with practice",
-      options: ["I'm improving with practice", "This is impossible", "I'll always fail", "I don't have what it takes"],
-      correctIndex: 0
-    },
-    {
-      id: 8,
-      negative: "I'm not smart enough",
-      growth: "I can develop my abilities",
-      options: ["I can develop my abilities", "I'm too dumb", "I'll never understand", "I'm just not good enough"],
-      correctIndex: 0
-    },
-    {
-      id: 9,
-      negative: "I give up",
-      growth: "I'll use a different strategy",
-      options: ["I'll use a different strategy", "It's not worth trying", "I'm done", "There's no point"],
-      correctIndex: 0
-    },
-    {
-      id: 10,
-      negative: "This is pointless",
-      growth: "I can find meaning in challenges",
-      options: ["I can find meaning in challenges", "Nothing matters", "This doesn't help", "It's all useless"],
-      correctIndex: 0
-    },
-    {
-      id: 11,
-      negative: "I'm overwhelmed",
-      growth: "I can break this into smaller steps",
-      options: ["I can break this into smaller steps", "This is too much", "I can't handle it", "I'm drowning"],
-      correctIndex: 0
-    },
-    {
-      id: 12,
-      negative: "I don't know what to do",
-      growth: "I can learn and figure this out",
-      options: ["I can learn and figure this out", "I'm lost", "I'm clueless", "I have no idea"],
-      correctIndex: 0
-    },
-    {
-      id: 13,
-      negative: "Everyone is better than me",
-      growth: "I'm on my own learning journey",
-      options: ["I'm on my own learning journey", "I'm the worst", "I'll never catch up", "I'm behind everyone"],
-      correctIndex: 0
-    },
-    {
-      id: 14,
-      negative: "I'm a failure",
-      growth: "This is feedback, not failure",
-      options: ["This is feedback, not failure", "I'm worthless", "I'm a loser", "I can't do anything"],
-      correctIndex: 0
-    },
-    {
-      id: 15,
-      negative: "I should be further along",
-      growth: "Progress happens at different paces",
-      options: ["Progress happens at different paces", "I'm behind", "I'm not good enough", "I'm failing"],
-      correctIndex: 0
-    },
-    {
-      id: 16,
-      negative: "I always mess things up",
-      growth: "Each attempt teaches me something new",
-      options: ["Each attempt teaches me something new", "I'm hopeless", "I ruin everything", "I'm a disaster"],
-      correctIndex: 0
-    },
-    {
-      id: 17,
-      negative: "I'm not cut out for this",
-      growth: "I can grow into this with practice",
-      options: ["I can grow into this with practice", "This isn't for me", "I'm not talented", "I'll never get it"],
-      correctIndex: 0
-    },
-    {
-      id: 18,
-      negative: "This is impossible",
-      growth: "This is challenging but achievable",
-      options: ["This is challenging but achievable", "It can't be done", "I'm doomed", "There's no way"],
-      correctIndex: 0
-    },
-    {
-      id: 19,
-      negative: "I'm wasting my time",
-      growth: "Every effort builds my skills",
-      options: ["Every effort builds my skills", "This is pointless", "Nothing helps", "I'm going nowhere"],
-      correctIndex: 0
-    },
-    {
-      id: 20,
-      negative: "I'll never understand this",
-      growth: "Understanding comes with time and effort",
-      options: ["Understanding comes with time and effort", "I'm too slow", "I'm hopeless", "It's too confusing"],
-      correctIndex: 0
     }
   ];
 
@@ -184,6 +80,7 @@ const TheReframeReflex = () => {
 
   // Shuffle options for each statement (only once when statement changes)
   useEffect(() => {
+    const currentStatementData = shuffledStatements[currentStatement];
     if (gameState === "playing" && currentStatementData && !shuffledOptionsPerStatement[currentStatementData.id]) {
       const shuffled = [...currentStatementData.options];
       for (let i = shuffled.length - 1; i > 0; i--) {
@@ -197,7 +94,7 @@ const TheReframeReflex = () => {
         [currentStatementData.id]: { options: shuffled, correctIndex: newCorrectIndex }
       }));
     }
-  }, [gameState, currentStatementData, shuffledOptionsPerStatement]);
+  }, [gameState, currentStatement, shuffledStatements, shuffledOptionsPerStatement]);
 
   // Timer effect - 5 seconds per statement
   useEffect(() => {
@@ -320,6 +217,19 @@ const TheReframeReflex = () => {
   };
 
   const startGame = () => {
+    // Pre-shuffle options for all statements
+    const initialShuffledOptions = {};
+    shuffledStatements.forEach(statement => {
+      const shuffled = [...statement.options];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      // Find the new index of the correct answer
+      const newCorrectIndex = shuffled.findIndex(opt => opt === statement.growth);
+      initialShuffledOptions[statement.id] = { options: shuffled, correctIndex: newCorrectIndex };
+    });
+    
     setGameState("playing");
     setCurrentStatement(0);
     setScore(0);
@@ -329,7 +239,7 @@ const TheReframeReflex = () => {
     setShowPraise(false);
     setAnsweredStatements([]);
     setResponseTimes([]);
-    setShuffledOptionsPerStatement({});
+    setShuffledOptionsPerStatement(initialShuffledOptions);
   };
 
   const handleFinish = () => {
@@ -338,7 +248,7 @@ const TheReframeReflex = () => {
 
   const currentStatementData = shuffledStatements[currentStatement];
   const progress = ((currentStatement + 1) / shuffledStatements.length) * 100;
-  const currentAnswer = answeredStatements.find(a => a.statementId === currentStatementData?.id);
+  const currentAnswer = currentStatementData ? answeredStatements.find(a => a.statementId === currentStatementData.id) : null;
   const shuffledOptions = currentStatementData ? shuffledOptionsPerStatement[currentStatementData.id] : { options: [], correctIndex: 0 };
   const averageTime = responseTimes.length > 0 
     ? (responseTimes.reduce((a, b) => a + b, 0) / responseTimes.length).toFixed(1)
@@ -469,7 +379,7 @@ const TheReframeReflex = () => {
             {/* Response Options */}
             {!showFeedback && (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {shuffledOptions.options.map((option, index) => {
+                {(shuffledOptions && shuffledOptions.options) ? shuffledOptions.options.map((option, index) => {
                   const isGrowth = option === currentStatementData.growth;
                   
                   return (
@@ -481,23 +391,27 @@ const TheReframeReflex = () => {
                       disabled={selectedAnswer !== null}
                       className={`p-6 rounded-xl border-2 text-left transition-all ${
                         isGrowth
-                          ? 'bg-gradient-to-br from-green-50 to-emerald-50 border-green-300 hover:border-green-400 hover:shadow-lg'
-                          : 'bg-gradient-to-br from-red-50 to-orange-50 border-red-300 hover:border-red-400'
+                          ? 'bg-gradient-to-br from-gray-50 to-emerald-50 border-gray-300 hover:border-gray-400 hover:shadow-lg'
+                          : 'bg-gradient-to-br from-gray-50 to-gray-50 border-gray-300 hover:border-gray-400'
                       } ${selectedAnswer !== null ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
                     >
                       <div className="flex items-center gap-3">
                         {isGrowth ? (
                           <TrendingUp className="w-6 h-6 text-green-600 flex-shrink-0" />
                         ) : (
-                          <XCircle className="w-6 h-6 text-red-600 flex-shrink-0" />
+                          <TrendingUp className="w-6 h-6 text-green-600 flex-shrink-0" />
                         )}
-                        <p className={`font-semibold text-lg ${isGrowth ? 'text-green-800' : 'text-red-800'}`}>
+                        <p className={`font-semibold text-lg ${isGrowth ? 'text-green-800' : 'text-green-800'}`}>
                           {option}
                         </p>
                       </div>
                     </motion.button>
                   );
-                })}
+                }) : (
+                  <div className="col-span-full text-center py-8 text-gray-500">
+                    Loading options...
+                  </div>
+                )}
               </div>
             )}
 
@@ -563,6 +477,9 @@ const TheReframeReflex = () => {
               <p className="text-lg text-gray-700 mb-4">
                 Growth responses selected correctly
               </p>
+              <p className="text-md text-purple-600 font-semibold">
+                Earned {score} Healcoins
+              </p>
               {averageTime > 0 && (
                 <p className="text-sm text-gray-600">
                   Average response time: {averageTime}s
@@ -595,7 +512,7 @@ const TheReframeReflex = () => {
                 Reframe Reflex Complete!
               </h2>
               <p className="text-xl text-gray-600">
-                You've practiced quick reframing {score} times
+                You've earned {score} Healcoins for strengthening your mindset
               </p>
             </div>
 
@@ -616,13 +533,16 @@ const TheReframeReflex = () => {
                 }`}>
                   {score} / {shuffledStatements.length}
                 </div>
-                <p className="text-gray-700">
+                <p className="text-gray-700 mb-2">
                   {score >= shuffledStatements.length * 0.8
                     ? "Excellent! You've built strong reframing reflexes!"
                     : score >= shuffledStatements.length * 0.6
                     ? "Good work! Keep practicing to strengthen your reframing skills."
                     : "Keep practicing! Each game builds your reframing reflexes."}
                 </p>
+                <div className="text-2xl font-bold text-purple-600 mt-2">
+                  🧡 {score} Healcoins Earned!
+                </div>
               </div>
             </div>
 
