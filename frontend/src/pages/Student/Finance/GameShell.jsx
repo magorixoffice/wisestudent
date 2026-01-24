@@ -304,9 +304,7 @@ export const GameOverModal = ({ score, gameId, gameType = 'ai', totalLevels = 1,
           // Use fullyCompleted from result, default to true if not provided
           // IMPORTANT: If all answers are correct and it's a full completion, mark as fully completed
           // Also check if the game was already fully completed (from database)
-          const fullyCompleted = result.fullyCompleted !== undefined
-            ? result.fullyCompleted
-            : (isFullCompletion && (result.allAnswersCorrect === true || calculatedAllCorrect));
+          const fullyCompleted = result.fullyCompleted === true || (isFullCompletion && result.allAnswersCorrect === true);
 
           console.log('✅ Game completion result:', {
             gameId,
@@ -326,12 +324,12 @@ export const GameOverModal = ({ score, gameId, gameType = 'ai', totalLevels = 1,
           // 2. All answers are correct and it's a full completion
           // This ensures the games page updates correctly even if coins weren't awarded
           // CRITICAL: Dispatch even if game was already completed to ensure UI sync
-          const shouldDispatchEvent = fullyCompleted || (isFullCompletion && (result.allAnswersCorrect === true || calculatedAllCorrect));
+          const shouldDispatchEvent = fullyCompleted;
 
           if (shouldDispatchEvent) {
             console.log('📢 Dispatching gameCompleted event:', {
               gameId,
-              fullyCompleted: true, // Always send true to ensure UI updates
+              fullyCompleted,
               isReplay: result.isReplay === true,
               replayUnlocked: result.replayUnlocked === true,
               coinsEarned: result.coinsEarned,
@@ -340,7 +338,7 @@ export const GameOverModal = ({ score, gameId, gameType = 'ai', totalLevels = 1,
             window.dispatchEvent(new CustomEvent('gameCompleted', {
               detail: {
                 gameId,
-                fullyCompleted: true, // Always send true if game should be marked as completed
+                fullyCompleted,
                 isReplay: result.isReplay === true,
                 replayUnlocked: result.replayUnlocked === true
               }

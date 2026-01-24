@@ -260,10 +260,9 @@ const GameCategoryPage = () => {
           const progress = progressMap[gameId];
           
           if (progress) {
-            const levelsCompleted = progress.levelsCompleted ?? 0;
+            const isFullyCompleted = progress.fullyCompleted === true;
             const totalLevels = progress.totalLevels || 1;
-            const earnedFullLevels = levelsCompleted >= totalLevels && totalLevels > 0;
-            const isFullyCompleted = progress.fullyCompleted === true || earnedFullLevels;
+            const levelsCompleted = progress.levelsCompleted ?? 0;
 
             status[gameId] = isFullyCompleted;
             
