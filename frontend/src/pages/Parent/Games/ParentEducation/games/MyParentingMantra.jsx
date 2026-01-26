@@ -9,7 +9,7 @@ const MyParentingMantra = () => {
   const location = useLocation();
   
   // Get game data
-  const gameId = "parent-education-84";
+  const gameId = "parent-education-85";
   const gameData = getParentEducationGameById(gameId);
   
   // Get game props from location.state or gameData
@@ -20,7 +20,9 @@ const MyParentingMantra = () => {
   const [mantraParts, setMantraParts] = useState({
     chooseTo: "",
     evenWhen: "",
-    because: ""
+    because: "",
+    intention: "",
+    reminder: ""
   });
   const [savedMantra, setSavedMantra] = useState(null);
   const [showGameOver, setShowGameOver] = useState(false);
@@ -53,6 +55,24 @@ const MyParentingMantra = () => {
       "I'm building their emotional foundation",
       "they're learning from how I respond",
       "love is my greatest parenting tool"
+    ],
+    intention: [
+      "be mindful of my reactions",
+      "focus on long-term goals",
+      "practice self-compassion",
+      "remember my values",
+      "embrace growth mindset",
+      "create positive patterns",
+      "maintain perspective"
+    ],
+    reminder: [
+      "my child is learning",
+      "this phase will pass",
+      "connection builds trust",
+      "I am growing too",
+      "we are in this together",
+      "progress takes time",
+      "love is my priority"
     ]
   };
 
@@ -73,11 +93,13 @@ const MyParentingMantra = () => {
   const isMantraComplete = () => {
     return mantraParts.chooseTo.trim().length >= 3 &&
            mantraParts.evenWhen.trim().length >= 3 &&
-           mantraParts.because.trim().length >= 3;
+           mantraParts.because.trim().length >= 3 &&
+           mantraParts.intention.trim().length >= 3 &&
+           mantraParts.reminder.trim().length >= 3;
   };
 
   const buildMantra = () => {
-    return `I choose to ${mantraParts.chooseTo.trim()} even when ${mantraParts.evenWhen.trim()} because ${mantraParts.because.trim()}.`;
+    return `I choose to ${mantraParts.chooseTo.trim()}, with the intention to ${mantraParts.intention.trim()} even when ${mantraParts.evenWhen.trim()} because ${mantraParts.because.trim()}. My reminder: ${mantraParts.reminder.trim()}.`;
   };
 
   const handleSave = () => {
@@ -109,8 +131,10 @@ const MyParentingMantra = () => {
       `"${savedMantra.fullMantra}"\n\n` +
       `Breakdown:\n` +
       `• I choose to: ${savedMantra.parts.chooseTo}\n` +
+      `• With intention to: ${savedMantra.parts.intention}\n` +
       `• Even when: ${savedMantra.parts.evenWhen}\n` +
-      `• Because: ${savedMantra.parts.because}\n\n` +
+      `• Because: ${savedMantra.parts.because}\n` +
+      `• My reminder: ${savedMantra.parts.reminder}\n\n` +
       `Parent Tip: Speak your mantra before sleep—it resets your parental energy.\n`;
     
     const blob = new Blob([content], { type: 'text/plain' });
@@ -130,7 +154,7 @@ const MyParentingMantra = () => {
         title={gameData?.title || "My Parenting Mantra"}
         subtitle="Mantra Saved!"
         showGameOver={true}
-        score={1}
+        score={5}
         gameId={gameId}
         gameType="parent-education"
         totalLevels={totalLevels}
@@ -262,6 +286,10 @@ const MyParentingMantra = () => {
                 <p className="text-sm font-semibold text-gray-700 mb-1">I choose to:</p>
                 <p className="text-gray-800">{savedMantra.parts.chooseTo}</p>
               </div>
+              <div className="bg-green-50 rounded-lg p-4 border border-green-200">
+                <p className="text-sm font-semibold text-gray-700 mb-1">With intention to:</p>
+                <p className="text-gray-800">{savedMantra.parts.intention}</p>
+              </div>
               <div className="bg-indigo-50 rounded-lg p-4 border border-indigo-200">
                 <p className="text-sm font-semibold text-gray-700 mb-1">Even when:</p>
                 <p className="text-gray-800">{savedMantra.parts.evenWhen}</p>
@@ -269,6 +297,10 @@ const MyParentingMantra = () => {
               <div className="bg-purple-50 rounded-lg p-4 border border-purple-200">
                 <p className="text-sm font-semibold text-gray-700 mb-1">Because:</p>
                 <p className="text-gray-800">{savedMantra.parts.because}</p>
+              </div>
+              <div className="bg-yellow-50 rounded-lg p-4 border border-yellow-200">
+                <p className="text-sm font-semibold text-gray-700 mb-1">My reminder:</p>
+                <p className="text-gray-800">{savedMantra.parts.reminder}</p>
               </div>
             </div>
 
@@ -332,7 +364,7 @@ const MyParentingMantra = () => {
             </p>
             <div className="bg-gradient-to-r from-purple-100 to-indigo-100 rounded-lg p-4 inline-block mt-3">
               <p className="text-lg font-semibold text-gray-800">
-                "I choose to <span className="text-blue-600">___</span> even when <span className="text-indigo-600">___</span> because <span className="text-purple-600">___</span>"
+                "I choose to <span className="text-blue-600">___</span>, with the intention to <span className="text-green-600">___</span> even when <span className="text-indigo-600">___</span> because <span className="text-purple-600">___</span>. My reminder: <span className="text-yellow-600">___</span>"
               </p>
             </div>
           </div>
@@ -364,7 +396,32 @@ const MyParentingMantra = () => {
               </div>
             </div>
 
-            {/* Part 2: even when */}
+            {/* Part 2: with intention to */}
+            <div className="bg-gradient-to-br from-green-50 to-teal-50 rounded-xl p-6 border-2 border-green-200">
+              <h3 className="text-lg font-bold text-gray-800 mb-3">
+                With intention to...
+              </h3>
+              <textarea
+                value={mantraParts.intention}
+                onChange={(e) => handlePartChange('intention', e.target.value)}
+                placeholder="What is your underlying intention? (e.g., be mindful of my reactions, focus on long-term goals)"
+                className="w-full px-4 py-3 rounded-lg border-2 border-green-300 focus:border-green-500 focus:outline-none text-gray-800 min-h-[80px] resize-none mb-3"
+              />
+              <div className="flex flex-wrap gap-2">
+                <span className="text-xs text-gray-600 font-semibold">Examples:</span>
+                {examples.intention.slice(0, 3).map((example, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => handleExampleClick('intention', example)}
+                    className="text-xs bg-white px-3 py-1 rounded-full border border-green-300 hover:bg-green-100 transition-colors text-gray-700"
+                  >
+                    {example}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Part 3: even when */}
             <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6 border-2 border-indigo-200">
               <h3 className="text-lg font-bold text-gray-800 mb-3">
                 Even when...
@@ -389,7 +446,7 @@ const MyParentingMantra = () => {
               </div>
             </div>
 
-            {/* Part 3: because */}
+            {/* Part 4: because */}
             <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 border-2 border-purple-200">
               <h3 className="text-lg font-bold text-gray-800 mb-3">
                 Because...
@@ -407,6 +464,31 @@ const MyParentingMantra = () => {
                     key={idx}
                     onClick={() => handleExampleClick('because', example)}
                     className="text-xs bg-white px-3 py-1 rounded-full border border-purple-300 hover:bg-purple-100 transition-colors text-gray-700"
+                  >
+                    {example}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Part 5: my reminder */}
+            <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-xl p-6 border-2 border-yellow-200">
+              <h3 className="text-lg font-bold text-gray-800 mb-3">
+                My reminder...
+              </h3>
+              <textarea
+                value={mantraParts.reminder}
+                onChange={(e) => handlePartChange('reminder', e.target.value)}
+                placeholder="What reminds you of your purpose? (e.g., my child is learning, this phase will pass)"
+                className="w-full px-4 py-3 rounded-lg border-2 border-yellow-300 focus:border-yellow-500 focus:outline-none text-gray-800 min-h-[80px] resize-none mb-3"
+              />
+              <div className="flex flex-wrap gap-2">
+                <span className="text-xs text-gray-600 font-semibold">Examples:</span>
+                {examples.reminder.slice(0, 3).map((example, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => handleExampleClick('reminder', example)}
+                    className="text-xs bg-white px-3 py-1 rounded-full border border-yellow-300 hover:bg-yellow-100 transition-colors text-gray-700"
                   >
                     {example}
                   </button>
@@ -440,7 +522,7 @@ const MyParentingMantra = () => {
           {!isMantraComplete() && (
             <div className="mt-4 bg-yellow-100 rounded-lg p-3 border border-yellow-300">
               <p className="text-yellow-800 text-sm text-center">
-                Please complete all three parts to create your mantra (minimum 3 characters each).
+                Please complete all five parts to create your mantra (minimum 3 characters each).
               </p>
             </div>
           )}

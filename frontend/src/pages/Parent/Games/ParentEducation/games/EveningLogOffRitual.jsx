@@ -9,7 +9,7 @@ const EveningLogOffRitual = () => {
   const location = useLocation();
   
   // Get game data
-  const gameId = "parent-education-92";
+  const gameId = "parent-education-94";
   const gameData = getParentEducationGameById(gameId);
   
   // Get game props from location.state or gameData
@@ -76,17 +76,73 @@ const EveningLogOffRitual = () => {
       bgColor: 'from-indigo-50 to-purple-50',
       borderColor: 'border-indigo-300',
       points: 30
+    },
+    {
+      id: 'journal',
+      label: 'Write in Journal',
+      description: 'Spend a few minutes writing thoughts or reflections',
+      emoji: '📝',
+      icon: Lightbulb,
+      color: 'from-pink-400 to-rose-500',
+      bgColor: 'from-pink-50 to-rose-50',
+      borderColor: 'border-pink-300',
+      points: 25
+    },
+    {
+      id: 'breathing',
+      label: 'Deep Breathing',
+      description: 'Practice 5-10 deep breaths to center yourself',
+      emoji: '😮‍💨',
+      icon: Wind,
+      color: 'from-teal-400 to-cyan-500',
+      bgColor: 'from-teal-50 to-cyan-50',
+      borderColor: 'border-teal-300',
+      points: 20
+    },
+    {
+      id: 'affirmation',
+      label: 'Positive Affirmation',
+      description: 'Say one positive thing about yourself or your day',
+      emoji: '✨',
+      icon: Sparkles,
+      color: 'from-green-400 to-emerald-500',
+      bgColor: 'from-green-50 to-emerald-50',
+      borderColor: 'border-green-300',
+      points: 15
     }
   ];
 
-  const handleToggleItem = (itemId) => {
-    setCompletedItems(prev => {
+  // State to track which 5 rituals the user has selected to complete
+  const [selectedToComplete, setSelectedToComplete] = useState([]);
+
+  const handleToggleSelection = (itemId) => {
+    // Toggle ritual selection
+    setSelectedToComplete(prev => {
       if (prev.includes(itemId)) {
+        // If unselecting, also remove from completed items
+        setCompletedItems(current => current.filter(id => id !== itemId));
         return prev.filter(id => id !== itemId);
       } else {
-        return [...prev, itemId];
+        // Only allow up to 5 selections
+        if (prev.length < 5) {
+          return [...prev, itemId];
+        }
+        return prev;
       }
     });
+  };
+
+  const handleToggleCompletion = (itemId) => {
+    // Only allow toggling if the item is selected to be completed
+    if (selectedToComplete.includes(itemId)) {
+      setCompletedItems(prev => {
+        if (prev.includes(itemId)) {
+          return prev.filter(id => id !== itemId);
+        } else {
+          return [...prev, itemId];
+        }
+      });
+    }
   };
 
   const calculateCalmScore = () => {
@@ -95,7 +151,10 @@ const EveningLogOffRitual = () => {
       return sum + (item?.points || 0);
     }, 0);
     
-    const maxPoints = ritualItems.reduce((sum, item) => sum + item.points, 0);
+    const maxPoints = selectedToComplete.reduce((sum, itemId) => {
+      const item = ritualItems.find(i => i.id === itemId);
+      return sum + (item?.points || 0);
+    }, 0);
     return Math.round((totalPoints / maxPoints) * 100);
   };
 
@@ -109,7 +168,7 @@ const EveningLogOffRitual = () => {
   };
 
   const calmScore = calculateCalmScore();
-  const allCompleted = completedItems.length === ritualItems.length;
+  const allCompleted = completedItems.length === selectedToComplete.length && selectedToComplete.length === 5;
 
   const getCalmLevel = (score) => {
     if (score >= 90) return { label: 'Deeply Calm', emoji: '😌', color: 'from-green-500 to-emerald-600', bgColor: 'from-green-50 to-emerald-50', borderColor: 'border-green-300' };
@@ -127,7 +186,7 @@ const EveningLogOffRitual = () => {
         title={gameData?.title || "Evening Log-Off Ritual"}
         subtitle="Ritual Complete!"
         showGameOver={true}
-        score={1}
+        score={5}
         gameId={gameId}
         gameType="parent-education"
         totalLevels={totalLevels}
@@ -168,7 +227,12 @@ const EveningLogOffRitual = () => {
               <h3 className="text-xl font-bold text-gray-800 mb-4">Your Evening Ritual</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {ritualItems.map((item) => {
+                  const isSelected = selectedToComplete.includes(item.id);
                   const isCompleted = completedItems.includes(item.id);
+                  
+                  // Only show the selected rituals
+                  if (!isSelected) return null;
+                  
                   return (
                     <motion.div
                       key={item.id}
@@ -309,10 +373,13 @@ const EveningLogOffRitual = () => {
 
           {/* Ritual Checklist */}
           <div className="mb-6">
-            <h3 className="text-lg font-bold text-gray-800 mb-4">Complete Your Evening Ritual</h3>
+            <h3 className="text-lg font-bold text-gray-800 mb-4">Select 5 Rituals to Complete</h3>
             <div className="space-y-4">
               {ritualItems.map((item, index) => {
+                const isSelected = selectedToComplete.includes(item.id);
                 const isCompleted = completedItems.includes(item.id);
+                const isDisabled = !isSelected && selectedToComplete.length >= 5;
+                
                 return (
                   <motion.div
                     key={item.id}
@@ -320,18 +387,18 @@ const EveningLogOffRitual = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
                     className={`bg-gradient-to-br ${item.bgColor} rounded-xl p-5 border-2 ${item.borderColor} cursor-pointer hover:shadow-lg transition-all ${
-                      isCompleted ? 'ring-2 ring-green-400' : ''
+                      isSelected ? 'ring-2 ring-blue-400' : isDisabled ? 'opacity-50' : ''
                     }`}
-                    onClick={() => handleToggleItem(item.id)}
+                    onClick={() => handleToggleSelection(item.id)}
                   >
                     <div className="flex items-center gap-4">
                       <div className="flex-shrink-0">
-                        {isCompleted ? (
+                        {isSelected ? (
                           <motion.div
                             initial={{ scale: 0 }}
                             animate={{ scale: 1 }}
                             transition={{ type: "spring", stiffness: 200, damping: 10 }}
-                            className="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center"
+                            className="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center"
                           >
                             <CheckCircle className="w-8 h-8 text-white" />
                           </motion.div>
@@ -349,7 +416,17 @@ const EveningLogOffRitual = () => {
                         <p className="text-sm text-gray-600">{item.description}</p>
                       </div>
                       <div className="text-right">
-                        <div className="text-sm font-semibold text-gray-700">{item.points} pts</div>
+                        {isSelected && (
+                          <button 
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleToggleCompletion(item.id);
+                            }}
+                            className="mt-2 px-3 py-1 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
+                          >
+                            {isCompleted ? 'Completed' : 'Mark Done'}
+                          </button>
+                        )}
                       </div>
                     </div>
                   </motion.div>
@@ -361,18 +438,26 @@ const EveningLogOffRitual = () => {
           {/* Progress */}
           <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4 border-2 border-gray-200 mb-6">
             <div className="flex items-center justify-between mb-2">
-              <p className="text-sm font-semibold text-gray-700">Ritual Progress</p>
+              <p className="text-sm font-semibold text-gray-700">Ritual Selection</p>
               <p className="text-sm font-bold text-gray-800">
-                {completedItems.length}/{ritualItems.length} items complete
+                {selectedToComplete.length}/5 selected
               </p>
             </div>
-            <div className="w-full bg-gray-200 rounded-full h-3">
+            <div className="w-full bg-gray-200 rounded-full h-3 mb-3">
               <motion.div
                 initial={{ width: 0 }}
-                animate={{ width: `${(completedItems.length / ritualItems.length) * 100}%` }}
-                className="bg-gradient-to-r from-purple-600 to-indigo-600 h-3 rounded-full"
+                animate={{ width: `${(selectedToComplete.length / 5) * 100}%` }}
+                className="bg-gradient-to-r from-blue-500 to-indigo-600 h-3 rounded-full"
               />
             </div>
+            {selectedToComplete.length > 0 && (
+              <div className="flex items-center justify-between">
+                <p className="text-sm font-semibold text-gray-700">Progress</p>
+                <p className="text-sm font-bold text-gray-800">
+                  {completedItems.length}/{selectedToComplete.length} completed
+                </p>
+              </div>
+            )}
             {completedItems.length > 0 && (
               <p className="text-sm text-gray-600 mt-2 text-center">
                 Current Calm Score: <strong>{calmScore}/100</strong>
@@ -385,17 +470,25 @@ const EveningLogOffRitual = () => {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={handleViewScore}
-            disabled={completedItems.length === 0}
+            disabled={completedItems.length === 0 || selectedToComplete.length !== 5}
             className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
             <Moon className="w-5 h-5" />
             View Calm Score
           </motion.button>
 
-          {completedItems.length === 0 && (
+          {selectedToComplete.length < 5 && (
             <div className="mt-4 bg-yellow-100 rounded-lg p-3 border border-yellow-300">
               <p className="text-yellow-800 text-sm text-center">
-                Complete at least one ritual item to view your calm score.
+                Select 5 rituals to complete.
+              </p>
+            </div>
+          )}
+          
+          {selectedToComplete.length === 5 && completedItems.length === 0 && (
+            <div className="mt-4 bg-blue-100 rounded-lg p-3 border border-blue-300">
+              <p className="text-blue-800 text-sm text-center">
+                Mark at least one of your selected rituals as completed to view your calm score.
               </p>
             </div>
           )}

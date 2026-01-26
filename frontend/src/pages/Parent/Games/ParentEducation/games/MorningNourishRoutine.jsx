@@ -9,7 +9,7 @@ const MorningNourishRoutine = () => {
   const location = useLocation();
   
   // Get game data
-  const gameId = "parent-education-95";
+  const gameId = "parent-education-97";
   const gameData = getParentEducationGameById(gameId);
   
   // Get game props from location.state or gameData
@@ -82,6 +82,42 @@ const MorningNourishRoutine = () => {
       borderColor: 'border-indigo-300',
       guidance: 'Take 5 deep breaths: inhale slowly for 4 counts, hold for 4, exhale slowly for 4. Feel your body relax and your mind settle.',
       points: 20
+    },
+    {
+      id: 'stretch',
+      label: 'Gentle Stretching',
+      description: 'Do 5 minutes of gentle stretching to wake up your muscles',
+      emoji: '🧘',
+      icon: Wind,
+      color: 'from-pink-400 to-rose-500',
+      bgColor: 'from-pink-50 to-rose-50',
+      borderColor: 'border-pink-300',
+      guidance: 'Spend 5 minutes doing gentle stretches - reach for the sky, touch your toes, roll your shoulders. Move slowly and mindfully.',
+      points: 25
+    },
+    {
+      id: 'journal',
+      label: 'Morning Journal',
+      description: 'Write down your thoughts, intentions, or plans for the day',
+      emoji: '📝',
+      icon: Sun,
+      color: 'from-teal-400 to-cyan-500',
+      bgColor: 'from-teal-50 to-cyan-50',
+      borderColor: 'border-teal-300',
+      guidance: 'Spend 3-5 minutes writing in a journal. You can write your intentions for the day, things you\'re grateful for, or just stream-of-consciousness thoughts.',
+      points: 30
+    },
+    {
+      id: 'music',
+      label: 'Listen to Calming Music',
+      description: 'Play 5 minutes of calming music or nature sounds to set your mood',
+      emoji: '🎵',
+      icon: Sparkles,
+      color: 'from-violet-400 to-purple-500',
+      bgColor: 'from-violet-50 to-purple-50',
+      borderColor: 'border-violet-300',
+      guidance: 'Play your favorite calming playlist, classical music, or nature sounds for 5 minutes. Close your eyes and let the music wash over you.',
+      points: 20
     }
   ];
 
@@ -89,7 +125,7 @@ const MorningNourishRoutine = () => {
     setSelectedRituals(prev => {
       if (prev.includes(ritualId)) {
         return prev.filter(id => id !== ritualId);
-      } else if (prev.length < 3) {
+      } else if (prev.length < 5) {
         return [...prev, ritualId];
       }
       return prev;
@@ -107,7 +143,7 @@ const MorningNourishRoutine = () => {
   };
 
   const handleContinueToFollow = () => {
-    if (selectedRituals.length === 3) {
+    if (selectedRituals.length === 5) {
       setStep(2);
     }
   };
@@ -144,7 +180,7 @@ const MorningNourishRoutine = () => {
         title={gameData?.title || "Morning Nourish Routine"}
         subtitle="Routine Complete!"
         showGameOver={true}
-        score={1}
+        score={5}
         gameId={gameId}
         gameType="parent-education"
         totalLevels={totalLevels}
@@ -419,26 +455,34 @@ const MorningNourishRoutine = () => {
             <p className="text-gray-600 text-lg">
               Start your day with grounded, mindful self-nourishment.
             </p>
+            <div className="mt-4 bg-gradient-to-r from-amber-100 to-orange-100 rounded-lg p-3 inline-block">
+              <p className="text-amber-800 font-semibold">Select 5 rituals from 8 options</p>
+            </div>
           </div>
 
           {/* Instructions */}
           <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-5 border-2 border-amber-200 mb-6">
             <h3 className="text-lg font-bold text-gray-800 mb-3">How to Play</h3>
             <p className="text-gray-700 mb-2">
-              Choose <strong>3 rituals</strong> from the options below to create your morning nourish routine. After selecting, you'll follow each ritual and mark them complete.
+              Choose <strong>5 rituals</strong> from the options below to create your morning nourish routine. After selecting, you'll follow each ritual and mark them complete.
             </p>
             <p className="text-sm text-gray-600">
               Each ritual is designed to help you start the day grounded and present.
             </p>
           </div>
 
+          {/* Selection Info */}
+          <div className="bg-gradient-to-r from-amber-100 to-orange-100 rounded-lg p-3 mb-6 text-center">
+            <p className="text-amber-800 font-semibold">Select 5 rituals from 8 options</p>
+          </div>
+
           {/* Ritual Options */}
           <div className="mb-6">
-            <h3 className="text-lg font-bold text-gray-800 mb-4">Select 3 Rituals</h3>
+            <h3 className="text-lg font-bold text-gray-800 mb-4">Select 5 Rituals</h3>
             <div className="space-y-4">
               {allRituals.map((ritual, index) => {
                 const isSelected = selectedRituals.includes(ritual.id);
-                const canSelect = selectedRituals.length < 3 || isSelected;
+                const canSelect = selectedRituals.length < 5 || isSelected;
                 return (
                   <motion.div
                     key={ritual.id}
@@ -486,20 +530,20 @@ const MorningNourishRoutine = () => {
             <div className="flex items-center justify-between mb-2">
               <p className="text-sm font-semibold text-gray-700">Selection Progress</p>
               <p className="text-sm font-bold text-gray-800">
-                {selectedRituals.length}/3 rituals selected
+                {selectedRituals.length}/5 rituals selected
               </p>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-3">
               <motion.div
                 initial={{ width: 0 }}
-                animate={{ width: `${(selectedRituals.length / 3) * 100}%` }}
+                animate={{ width: `${(selectedRituals.length / 5) * 100}%` }}
                 className="bg-gradient-to-r from-amber-600 to-orange-600 h-3 rounded-full"
               />
             </div>
-            {selectedRituals.length === 3 && (
+            {selectedRituals.length === 5 && (
               <div className="mt-3 bg-green-100 rounded-lg p-2 border border-green-300">
                 <p className="text-green-800 text-sm text-center font-semibold">
-                  ✓ Perfect! You've selected 3 rituals. Ready to continue.
+                  ✓ Perfect! You've selected 5 rituals. Ready to continue.
                 </p>
               </div>
             )}
@@ -510,7 +554,7 @@ const MorningNourishRoutine = () => {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={handleContinueToFollow}
-            disabled={selectedRituals.length !== 3}
+            disabled={selectedRituals.length !== 5}
             className="w-full bg-gradient-to-r from-amber-600 to-orange-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
             Continue to Follow Rituals
@@ -520,7 +564,7 @@ const MorningNourishRoutine = () => {
           {selectedRituals.length !== 3 && (
             <div className="mt-4 bg-yellow-100 rounded-lg p-3 border border-yellow-300">
               <p className="text-yellow-800 text-sm text-center">
-                Please select exactly 3 rituals to create your morning routine.
+                Please select exactly 5 rituals to create your morning routine.
               </p>
             </div>
           )}

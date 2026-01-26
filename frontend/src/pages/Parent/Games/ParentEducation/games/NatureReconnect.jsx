@@ -9,7 +9,7 @@ const NatureReconnect = () => {
   const location = useLocation();
   
   // Get game data
-  const gameId = "parent-education-93";
+  const gameId = "parent-education-95";
   const gameData = getParentEducationGameById(gameId);
   
   // Get game props from location.state or gameData
@@ -66,6 +66,17 @@ const NatureReconnect = () => {
       bgColor: 'from-cyan-50 to-teal-50',
       borderColor: 'border-cyan-300',
       prompt: 'What do you feel? The air, wind, or temperature?'
+    },
+    {
+      id: 'sun',
+      label: 'Feel the Sunshine',
+      description: 'Notice warmth, light, or sun on your skin',
+      emoji: '☀️',
+      icon: Sparkles,
+      color: 'from-orange-400 to-red-500',
+      bgColor: 'from-orange-50 to-red-50',
+      borderColor: 'border-orange-300',
+      prompt: 'What do you feel? Warmth, sunlight, or brightness on your skin?'
     }
   ];
 
@@ -80,7 +91,7 @@ const NatureReconnect = () => {
   };
 
   const handleContinueToReflection = () => {
-    if (completedObservations.length >= 3) {
+    if (completedObservations.length === 5) {
       setStep(2);
     }
   };
@@ -105,7 +116,7 @@ const NatureReconnect = () => {
         title={gameData?.title || "Nature Reconnect"}
         subtitle="Reconnection Complete!"
         showGameOver={true}
-        score={1}
+        score={5}
         gameId={gameId}
         gameType="parent-education"
         totalLevels={totalLevels}
@@ -331,7 +342,7 @@ const NatureReconnect = () => {
       gameId={gameId}
       gameType="parent-education"
       totalLevels={totalLevels}
-      totalCoins={totalCoins}
+      totalCoins={5}
       currentLevel={1}
     >
       <div className="w-full max-w-4xl mx-auto px-4 py-6">
@@ -352,7 +363,7 @@ const NatureReconnect = () => {
           <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-5 border-2 border-green-200 mb-6">
             <h3 className="text-lg font-bold text-gray-800 mb-3">How to Play</h3>
             <p className="text-gray-700 mb-2">
-              Go outside or find a window with a view. Complete at least <strong>3 nature observations</strong> from the list below. Notice what you see, hear, and feel in the natural world around you.
+              Go outside or find a window with a view. Complete <strong>all 5 nature observations</strong> from the list below. Notice what you see, hear, and feel in the natural world around you.
             </p>
             <p className="text-sm text-gray-600">
               After completing your observations, you'll write a reflection about your experience.
@@ -413,7 +424,7 @@ const NatureReconnect = () => {
             <div className="flex items-center justify-between mb-2">
               <p className="text-sm font-semibold text-gray-700">Observation Progress</p>
               <p className="text-sm font-bold text-gray-800">
-                {completedObservations.length}/4 observations
+                {completedObservations.length}/5 observations
               </p>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-3">
@@ -423,10 +434,10 @@ const NatureReconnect = () => {
                 className="bg-gradient-to-r from-green-600 to-emerald-600 h-3 rounded-full"
               />
             </div>
-            {completedObservations.length >= 3 && (
+            {completedObservations.length === 5 && (
               <div className="mt-3 bg-green-100 rounded-lg p-2 border border-green-300">
                 <p className="text-green-800 text-sm text-center font-semibold">
-                  ✓ You've completed the minimum 3 observations! You can continue or complete more.
+                  ✓ You've completed all 5 observations! Ready to reflect.
                 </p>
               </div>
             )}
@@ -437,17 +448,17 @@ const NatureReconnect = () => {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={handleContinueToReflection}
-            disabled={completedObservations.length < 3}
+            disabled={completedObservations.length < 5}
             className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
             Continue to Reflection
             <ArrowRight className="w-5 h-5" />
           </motion.button>
 
-          {completedObservations.length < 3 && (
+          {completedObservations.length < 5 && (
             <div className="mt-4 bg-yellow-100 rounded-lg p-3 border border-yellow-300">
               <p className="text-yellow-800 text-sm text-center">
-                Please complete at least 3 nature observations to continue.
+                Please complete all 5 nature observations to continue.
               </p>
             </div>
           )}

@@ -290,7 +290,7 @@ const InnerStrengthVisualization = () => {
     }
   ];
 
-  const currentSessionData = visualizationSessions[currentSession];
+  const currentSessionData = visualizationSessions[Math.min(currentSession, visualizationSessions.length - 1)];
   const currentStepData = currentSessionData?.steps[currentStep];
   const progress = ((currentSession + 1) / totalLevels) * 100;
 
@@ -307,6 +307,8 @@ const InnerStrengthVisualization = () => {
   };
 
   const startVisualization = () => {
+    if (!currentSessionData || !currentSessionData.steps || currentSessionData.steps.length === 0) return;
+    
     setIsPlaying(true);
     setIsPaused(false);
     setCurrentStep(0);
@@ -338,14 +340,16 @@ const InnerStrengthVisualization = () => {
 
   // Move to next step when timer reaches 0
   useEffect(() => {
-    if (isPlaying && !isPaused && timeRemaining === 0) {
+    if (isPlaying && !isPaused && timeRemaining === 0 && currentSessionData && currentSessionData.steps) {
       if (currentStep < currentSessionData.steps.length - 1) {
         setTimeout(() => {
           setCurrentStep(prev => {
             const nextStep = prev + 1;
             const nextStepData = currentSessionData.steps[nextStep];
-            setTimeRemaining(nextStepData.duration);
-            speakPrompt(nextStepData.text);
+            if (nextStepData) {
+              setTimeRemaining(nextStepData.duration);
+              speakPrompt(nextStepData.text);
+            }
             return nextStep;
           });
         }, 500);
@@ -361,7 +365,8 @@ const InnerStrengthVisualization = () => {
   }, [timeRemaining, isPlaying, isPaused, currentStep, currentSessionData]);
 
   const handleRateStrength = (rating) => {
-    const sessionKey = `session${currentSession}`;
+    const sessionIndex = Math.min(currentSession, visualizationSessions.length - 1);
+    const sessionKey = `session${sessionIndex}`;
     setStrengthRatings(prev => ({
       ...prev,
       [sessionKey]: rating
@@ -370,8 +375,8 @@ const InnerStrengthVisualization = () => {
     setScore(prev => prev + 1);
 
     setTimeout(() => {
-      if (currentSession < totalLevels - 1) {
-        setCurrentSession(prev => prev + 1);
+      if (sessionIndex < totalLevels - 1) {
+        setCurrentSession(prev => Math.min(prev + 1, totalLevels - 1));
         setCurrentStep(0);
         setIsPlaying(false);
         setIsPaused(false);
@@ -382,7 +387,7 @@ const InnerStrengthVisualization = () => {
     }, 1500);
   };
 
-  const allStepsComplete = !isPlaying && currentStep === currentSessionData?.steps.length - 1 && timeRemaining === 0;
+  const allStepsComplete = !isPlaying && currentStep === (currentSessionData?.steps?.length - 1 || 0) && timeRemaining === 0;
   const currentRating = strengthRatings[`session${currentSession}`];
 
   if (showGameOver) {
@@ -431,7 +436,7 @@ const InnerStrengthVisualization = () => {
   return (
     <ParentGameShell
       title={gameData?.title || "Inner Strength Visualization"}
-      subtitle={`Session ${currentSession + 1} of ${totalLevels}: ${currentSessionData?.title}`}
+      subtitle={`Session ${currentSession + 1} of ${totalLevels}: ${currentSessionData?.title || "Loading..."}`}
       showGameOver={false}
       score={score}
       gameId={gameId}
@@ -464,9 +469,9 @@ const InnerStrengthVisualization = () => {
 
           {/* Session context */}
           <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-6 mb-6 border-2 border-amber-200">
-            <h3 className="text-xl font-bold text-gray-800 mb-2">{currentSessionData.title}</h3>
-            <p className="text-gray-700 mb-2">{currentSessionData.description}</p>
-            <p className="text-sm text-gray-600 italic">{currentSessionData.context}</p>
+            <h3 className="text-xl font-bold text-gray-800 mb-2">{currentSessionData?.title || "Loading..."}</h3>
+            <p className="text-gray-700 mb-2">{currentSessionData?.description || ""}</p>
+            <p className="text-sm text-gray-600 italic">{currentSessionData?.context || ""}</p>
             <div className="bg-amber-50 border border-amber-200 rounded-lg p-3 mt-4">
               <p className="text-sm text-amber-800">
                 <strong>💡 Parent Tip:</strong> Visualization strengthens your nervous system as powerfully as rest. Practice these visualizations regularly to build your resilience.
@@ -516,12 +521,12 @@ const InnerStrengthVisualization = () => {
                 {/* Step counter */}
                 <div className="mb-6">
                   <div className="text-3xl font-bold text-gray-800 mb-2">
-                    Step {currentStep + 1} of {currentSessionData.steps.length}
+                    Step {currentStep + 1} of {currentSessionData?.steps?.length || 0}
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2 max-w-md mx-auto">
                     <motion.div
                       initial={{ width: 0 }}
-                      animate={{ width: `${((currentStep + 1) / currentSessionData.steps.length) * 100}%` }}
+                      animate={{ width: `${((currentStep + 1) / (currentSessionData?.steps?.length || 1)) * 100}%` }}
                       className="bg-gradient-to-r from-amber-500 to-orange-500 h-2 rounded-full"
                     />
                   </div>
@@ -534,12 +539,12 @@ const InnerStrengthVisualization = () => {
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.5 }}
-                    className={`w-48 h-48 rounded-full bg-gradient-to-br ${currentStepData.color} shadow-2xl flex items-center justify-center relative`}
+                    className={`w-48 h-48 rounded-full bg-gradient-to-br ${currentStepData?.color || 'from-gray-400 to-gray-500'} shadow-2xl flex items-center justify-center relative`}
                     style={{
                       filter: 'drop-shadow(0 0 30px rgba(251, 191, 36, 0.6))',
                     }}
                   >
-                    <span className="text-7xl">{currentStepData.visual}</span>
+                    <span className="text-7xl">{currentStepData?.visual || '💭'}</span>
                     {/* Pulsing glow effect */}
                     <motion.div
                       animate={{
@@ -559,7 +564,7 @@ const InnerStrengthVisualization = () => {
                 {/* Current prompt text */}
                 <div className="bg-white rounded-lg p-4 mb-6 border-2 border-amber-200">
                   <p className="text-lg font-medium text-gray-800 italic leading-relaxed">
-                    "{currentStepData.text}"
+                    "{currentStepData?.text || 'Loading...'}"
                   </p>
                 </div>
 
@@ -661,22 +666,23 @@ const InnerStrengthVisualization = () => {
                 </p>
                 <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-6">
                   <p className="text-sm text-amber-800">
-                    <strong>💡 Parent Tip:</strong> {currentSessionData.tip}
+                    <strong>💡 Parent Tip:</strong> {currentSessionData?.tip || ""}
                   </p>
                 </div>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => {
-                    if (currentSession < totalLevels - 1) {
-                      setCurrentSession(prev => prev + 1);
+                    const sessionIndex = Math.min(currentSession, totalLevels - 1);
+                    if (sessionIndex < totalLevels - 1) {
+                      setCurrentSession(prev => Math.min(prev + 1, totalLevels - 1));
                       setCurrentStep(0);
                       setIsPlaying(false);
                       setIsPaused(false);
                       setTimeRemaining(0);
                       setStrengthRatings(prev => {
                         const newRatings = { ...prev };
-                        delete newRatings[`session${currentSession}`];
+                        delete newRatings[`session${sessionIndex}`];
                         return newRatings;
                       });
                     } else {

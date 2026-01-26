@@ -9,12 +9,12 @@ const MeaningInTheMundane = () => {
   const location = useLocation();
   
   // Get game data
-  const gameId = "parent-education-82";
+  const gameId = "parent-education-83";
   const gameData = getParentEducationGameById(gameId);
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 3;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [currentClip, setCurrentClip] = useState(0);
   const [clipTags, setClipTags] = useState({});
@@ -61,6 +61,32 @@ const MeaningInTheMundane = () => {
       borderColor: 'border-blue-300',
       icon: GraduationCap,
       meaning: 'This supportive act fosters growth and learning. Your guidance teaches not just subject matter, but perseverance and problem-solving.'
+    },
+    {
+      id: 'morning-routine',
+      title: 'Morning Routine',
+      emoji: '🌅',
+      animatedEmoji: '⏰',
+      description: 'Waking up early, preparing breakfast, getting everyone ready for the day with calm patience',
+      scene: 'morning',
+      color: 'from-yellow-400 to-amber-500',
+      bgColor: 'from-yellow-50 to-amber-50',
+      borderColor: 'border-yellow-300',
+      icon: Coffee,
+      meaning: 'This foundational routine sets the tone for the entire day. Your calm presence during rushed mornings creates stability and shows reliability.'
+    },
+    {
+      id: 'listening-actively',
+      title: 'Active Listening',
+      emoji: '👂',
+      animatedEmoji: '💭',
+      description: 'Putting down devices, making eye contact, truly hearing your child\'s thoughts and feelings without judgment',
+      scene: 'conversation',
+      color: 'from-green-400 to-emerald-500',
+      bgColor: 'from-green-50 to-emerald-50',
+      borderColor: 'border-green-300',
+      icon: Heart,
+      meaning: 'This simple act validates your child\'s emotions and builds trust. Being fully present shows they matter and creates space for authentic connection.'
     }
   ];
 

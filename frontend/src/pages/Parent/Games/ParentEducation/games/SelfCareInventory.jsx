@@ -1,33 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import ParentGameShell from "../../ParentGameShell";
 import { getParentEducationGameById } from "../data/gameData";
-import { Bed, Apple, Dumbbell, Heart, TrendingUp, CheckCircle, Sparkles, Lightbulb } from "lucide-react";
+import { Bed, Apple, Dumbbell, Heart, TrendingUp, CheckCircle, Sparkles, Lightbulb, ArrowRight, Users } from "lucide-react";
 
 const SelfCareInventory = () => {
   const location = useLocation();
   
   // Get game data
-  const gameId = "parent-education-94";
+  const gameId = "parent-education-96";
   const gameData = getParentEducationGameById(gameId);
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 4;
+  const totalLevels = gameData?.totalQuestions || selfCareCategories.length;
   
   const [currentCategory, setCurrentCategory] = useState(0);
   const [ratings, setRatings] = useState({
     rest: null,
     nutrition: null,
     exercise: null,
-    joy: null
+    joy: null,
+    social: null
   });
   const [showResults, setShowResults] = useState(false);
   const [score, setScore] = useState(0);
   const [showGameOver, setShowGameOver] = useState(false);
 
-  // 4-part self-care scorecard
+  // 5-part self-care scorecard
   const selfCareCategories = [
     {
       id: 'rest',
@@ -72,8 +73,26 @@ const SelfCareInventory = () => {
       bgColor: 'from-pink-50 to-rose-50',
       borderColor: 'border-pink-300',
       examples: 'Fun activities, hobbies, pleasure, enjoyment, laughter'
+    },
+    {
+      id: 'social',
+      label: 'Social Connection',
+      description: 'How well are you connecting with others? Relationships, friendships, community',
+      emoji: '👥',
+      icon: Users,
+      color: 'from-blue-400 to-cyan-500',
+      bgColor: 'from-blue-50 to-cyan-50',
+      borderColor: 'border-blue-300',
+      examples: 'Relationships, friendships, community involvement, social activities'
     }
   ];
+
+  // Ensure currentCategory stays within bounds
+  useEffect(() => {
+    if (currentCategory >= selfCareCategories.length && selfCareCategories.length > 0) {
+      setCurrentCategory(selfCareCategories.length - 1);
+    }
+  }, [currentCategory, selfCareCategories]);
 
   const handleRatingChange = (categoryId, value) => {
     setRatings(prev => ({
@@ -84,7 +103,7 @@ const SelfCareInventory = () => {
 
   const handleNext = () => {
     const currentCategoryData = selfCareCategories[currentCategory];
-    if (ratings[currentCategoryData.id] !== null) {
+    if (currentCategoryData && ratings[currentCategoryData.id] !== null) {
       if (currentCategory < totalLevels - 1) {
         setCurrentCategory(prev => prev + 1);
       } else {
@@ -161,16 +180,17 @@ const SelfCareInventory = () => {
   };
 
   const handleComplete = () => {
-    const wellbeingScore = calculateWellbeingScore();
-    setScore(Math.round(wellbeingScore / 10)); // Convert to 0-10 for game score
+    // Count how many categories have been rated (not null)
+    const completedCategories = Object.values(ratings).filter(rating => rating !== null).length;
+    setScore(completedCategories);
     setShowGameOver(true);
   };
 
   const wellbeingScore = calculateWellbeingScore();
   const wellbeingLevel = getWellbeingLevel(wellbeingScore);
   const suggestions = getSuggestions(wellbeingScore);
-  const currentCategoryData = selfCareCategories[currentCategory];
-  const currentRating = ratings[currentCategoryData.id];
+  const currentCategoryData = selfCareCategories[currentCategory] || {};
+  const currentRating = currentCategoryData.id ? ratings[currentCategoryData.id] : null;
   const progress = ((currentCategory + 1) / totalLevels) * 100;
 
   if (showGameOver) {
@@ -185,7 +205,7 @@ const SelfCareInventory = () => {
         totalLevels={totalLevels}
         totalCoins={totalCoins}
         currentLevel={totalLevels}
-        allAnswersCorrect={wellbeingScore >= 60}
+        allAnswersCorrect={Object.values(ratings).every(rating => rating !== null)}
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -408,7 +428,7 @@ const SelfCareInventory = () => {
   return (
     <ParentGameShell
       title={gameData?.title || "Self-Care Inventory"}
-      subtitle={`${currentCategoryData.label} - Rating ${currentCategory + 1} of ${totalLevels}`}
+      subtitle={`${currentCategoryData.label || 'Category'} - Rating ${currentCategory + 1} of ${totalLevels}`}
       showGameOver={false}
       score={0}
       gameId={gameId}
@@ -440,6 +460,7 @@ const SelfCareInventory = () => {
           </div>
 
           {/* Category Header */}
+          {currentCategoryData && currentCategoryData.id && (
           <div className={`bg-gradient-to-br ${currentCategoryData.bgColor} rounded-xl p-6 border-2 ${currentCategoryData.borderColor} mb-6`}>
             <div className="flex items-center gap-4 mb-4">
               <div className="text-5xl">{currentCategoryData.emoji}</div>
@@ -454,11 +475,12 @@ const SelfCareInventory = () => {
               </p>
             </div>
           </div>
+          )}
 
           {/* Rating Scale */}
           <div className="mb-6">
             <h3 className="text-lg font-bold text-gray-800 mb-4 text-center">
-              Rate your {currentCategoryData.label.toLowerCase()} (1-10)
+              Rate your {(currentCategoryData.label || '').toLowerCase()} (1-10)
             </h3>
             <div className="grid grid-cols-5 md:grid-cols-10 gap-2">
               {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((value) => {
@@ -474,7 +496,7 @@ const SelfCareInventory = () => {
                     key={value}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
-                    onClick={() => handleRatingChange(currentCategoryData.id, value)}
+                    onClick={() => currentCategoryData.id && handleRatingChange(currentCategoryData.id, value)}
                     className={`h-12 rounded-lg border-2 font-bold transition-all ${
                       isSelected
                         ? 'border-4 border-gray-800 shadow-lg scale-110'
@@ -493,7 +515,7 @@ const SelfCareInventory = () => {
           </div>
 
           {/* Selected Rating Display */}
-          {currentRating !== null && (
+          {currentRating !== null && currentCategoryData && currentCategoryData.id && (
             <div className={`bg-gradient-to-br ${currentCategoryData.bgColor} rounded-xl p-4 border-2 ${currentCategoryData.borderColor} mb-6`}>
               <div className="flex items-center justify-between">
                 <div>
@@ -515,7 +537,7 @@ const SelfCareInventory = () => {
           >
             {currentCategory < totalLevels - 1 ? (
               <>
-                Continue to {selfCareCategories[currentCategory + 1]?.label || 'Next'}
+                Continue to {(selfCareCategories[currentCategory + 1] && selfCareCategories[currentCategory + 1].label) || 'Next'}
                 <ArrowRight className="w-5 h-5" />
               </>
             ) : (
@@ -529,7 +551,7 @@ const SelfCareInventory = () => {
           {currentRating === null && (
             <div className="mt-4 bg-yellow-100 rounded-lg p-3 border border-yellow-300">
               <p className="text-yellow-800 text-sm text-center">
-                Please rate your {currentCategoryData.label.toLowerCase()} to continue.
+                Please rate your {(currentCategoryData.label || 'category').toLowerCase()} to continue.
               </p>
             </div>
           )}

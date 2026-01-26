@@ -9,27 +9,27 @@ const DigitalBoundariesQuiz = () => {
   const location = useLocation();
   
   // Get game data
-  const gameId = "parent-education-91";
+  const gameId = "parent-education-93";
   const gameData = getParentEducationGameById(gameId);
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 10;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [showGameOver, setShowGameOver] = useState(false);
 
-  // 10 questions about digital boundaries
+  // 5 questions about digital boundaries
   const questions = [
     {
       id: 1,
       question: "How many hours per day do your children typically spend on screens (phones, tablets, computers, TV)?",
       options: [
-        { id: 'a', text: 'Less than 1 hour', score: 10 },
-        { id: 'b', text: '1-2 hours', score: 8 },
-        { id: 'c', text: '2-4 hours', score: 5 },
-        { id: 'd', text: '4-6 hours', score: 3 },
+        { id: 'b', text: '1-2 hours', score: 4 },
+        { id: 'c', text: '2-4 hours', score: 3 },
+        { id: 'd', text: '4-6 hours', score: 2 },
+        { id: 'a', text: 'Less than 1 hour', score: 5 },
         { id: 'e', text: 'More than 6 hours', score: 1 }
       ],
       category: 'screen-time'
@@ -38,11 +38,11 @@ const DigitalBoundariesQuiz = () => {
       id: 2,
       question: "Do you have specific screen-free times or zones in your home?",
       options: [
-        { id: 'a', text: 'Yes, multiple times/zones (meals, bedrooms, before bed)', score: 10 },
-        { id: 'b', text: 'Yes, some times/zones (meals or bedrooms)', score: 7 },
-        { id: 'c', text: 'Sometimes, but not consistently', score: 4 },
+        { id: 'b', text: 'Yes, some times/zones (meals or bedrooms)', score: 4 },
+        { id: 'c', text: 'Sometimes, but not consistently', score: 3 },
         { id: 'd', text: 'No, but we\'re thinking about it', score: 2 },
-        { id: 'e', text: 'No, we don\'t have any', score: 0 }
+        { id: 'e', text: 'No, we don\'t have any', score: 1 },
+        { id: 'a', text: 'Yes, multiple times/zones (meals, bedrooms, before bed)', score: 5 },
       ],
       category: 'boundaries'
     },
@@ -50,11 +50,11 @@ const DigitalBoundariesQuiz = () => {
       id: 3,
       question: "How do you handle screen time limits with your children?",
       options: [
-        { id: 'a', text: 'We plan screen times together and discuss them openly', score: 10 },
-        { id: 'b', text: 'We have set rules that we enforce consistently', score: 8 },
-        { id: 'c', text: 'We have rules but they\'re flexible depending on the day', score: 5 },
-        { id: 'd', text: 'We set limits but struggle to enforce them', score: 3 },
-        { id: 'e', text: 'We don\'t really have limits', score: 0 }
+        { id: 'b', text: 'We have set rules that we enforce consistently', score: 4 },
+        { id: 'c', text: 'We have rules but they\'re flexible depending on the day', score: 3 },
+        { id: 'a', text: 'We plan screen times together and discuss them openly', score: 5 },
+        { id: 'd', text: 'We set limits but struggle to enforce them', score: 2 },
+        { id: 'e', text: 'We don\'t really have limits', score: 1 }
       ],
       category: 'enforcement'
     },
@@ -62,11 +62,11 @@ const DigitalBoundariesQuiz = () => {
       id: 4,
       question: "What happens when screen time limits are exceeded?",
       options: [
-        { id: 'a', text: 'We discuss it calmly and adjust together', score: 10 },
-        { id: 'b', text: 'We remind them of the rules and enforce consequences', score: 7 },
-        { id: 'c', text: 'We sometimes enforce, sometimes let it slide', score: 4 },
+        { id: 'b', text: 'We remind them of the rules and enforce consequences', score: 4 },
+        { id: 'a', text: 'We discuss it calmly and adjust together', score: 5 },
+        { id: 'c', text: 'We sometimes enforce, sometimes let it slide', score: 3 },
         { id: 'd', text: 'We get frustrated but don\'t always follow through', score: 2 },
-        { id: 'e', text: 'We don\'t really address it', score: 0 }
+        { id: 'e', text: 'We don\'t really address it', score: 1 }
       ],
       category: 'consequences'
     },
@@ -74,73 +74,13 @@ const DigitalBoundariesQuiz = () => {
       id: 5,
       question: "How do you model healthy screen use for your children?",
       options: [
-        { id: 'a', text: 'I follow the same boundaries I set for them', score: 10 },
-        { id: 'b', text: 'I try to be mindful but sometimes use screens during family time', score: 6 },
-        { id: 'c', text: 'I use screens when needed but try to be present', score: 4 },
+        { id: 'a', text: 'I follow the same boundaries I set for them', score: 5 },
+        { id: 'b', text: 'I try to be mindful but sometimes use screens during family time', score: 4 },
+        { id: 'c', text: 'I use screens when needed but try to be present', score: 3 },
         { id: 'd', text: 'I use screens frequently, but I\'m an adult so it\'s different', score: 2 },
-        { id: 'e', text: 'I don\'t really think about modeling', score: 0 }
+        { id: 'e', text: 'I don\'t really think about modeling', score: 1 }
       ],
       category: 'modeling'
-    },
-    {
-      id: 6,
-      question: "Do you monitor or review what your children do online?",
-      options: [
-        { id: 'a', text: 'Yes, we regularly check and discuss their online activities', score: 10 },
-        { id: 'b', text: 'Yes, we check occasionally and have open conversations', score: 8 },
-        { id: 'c', text: 'Sometimes, but not consistently', score: 5 },
-        { id: 'd', text: 'Rarely, we trust them to be responsible', score: 3 },
-        { id: 'e', text: 'No, we don\'t monitor', score: 1 }
-      ],
-      category: 'monitoring'
-    },
-    {
-      id: 7,
-      question: "How do you handle screen time during meals?",
-      options: [
-        { id: 'a', text: 'Screens are always off during meals', score: 10 },
-        { id: 'b', text: 'Screens are usually off, with rare exceptions', score: 7 },
-        { id: 'c', text: 'Sometimes we use screens during meals', score: 4 },
-        { id: 'd', text: 'Screens are often used during meals', score: 2 },
-        { id: 'e', text: 'Screens are always on during meals', score: 0 }
-      ],
-      category: 'meals'
-    },
-    {
-      id: 8,
-      question: "What is your approach to screens before bedtime?",
-      options: [
-        { id: 'a', text: 'No screens 1-2 hours before bed for everyone', score: 10 },
-        { id: 'b', text: 'No screens 30-60 minutes before bed', score: 7 },
-        { id: 'c', text: 'We try to limit but it\'s not consistent', score: 4 },
-        { id: 'd', text: 'Screens are allowed until bedtime', score: 2 },
-        { id: 'e', text: 'Screens are used right up until sleep', score: 0 }
-      ],
-      category: 'bedtime'
-    },
-    {
-      id: 9,
-      question: "How do you balance screen time with other activities?",
-      options: [
-        { id: 'a', text: 'We prioritize outdoor play, reading, and family activities', score: 10 },
-        { id: 'b', text: 'We encourage a mix of activities, screens included', score: 7 },
-        { id: 'c', text: 'We try to balance but screens often win', score: 4 },
-        { id: 'd', text: 'Screens are the default activity when bored', score: 2 },
-        { id: 'e', text: 'Screens are the main activity', score: 0 }
-      ],
-      category: 'balance'
-    },
-    {
-      id: 10,
-      question: "How do you involve your children in setting digital boundaries?",
-      options: [
-        { id: 'a', text: 'We discuss and plan boundaries together as a family', score: 10 },
-        { id: 'b', text: 'We set boundaries together but parents have final say', score: 8 },
-        { id: 'c', text: 'We set boundaries but don\'t always discuss them', score: 5 },
-        { id: 'd', text: 'We set boundaries without much input from children', score: 3 },
-        { id: 'e', text: 'We don\'t involve children in boundary setting', score: 0 }
-      ],
-      category: 'involvement'
     }
   ];
 
@@ -169,7 +109,7 @@ const DigitalBoundariesQuiz = () => {
 
   const calculateHealthyTechScore = () => {
     const totalScore = Object.values(selectedAnswers).reduce((sum, answer) => sum + answer.score, 0);
-    const maxScore = questions.length * 10;
+    const maxScore = questions.length * 5;
     const percentage = (totalScore / maxScore) * 100;
     return Math.round(percentage);
   };
@@ -219,7 +159,7 @@ const DigitalBoundariesQuiz = () => {
     const insights = [];
     Object.entries(categoryScores).forEach(([category, data]) => {
       const avgScore = data.total / data.count;
-      if (avgScore < 5) {
+      if (avgScore < 3) {
         insights.push({
           category,
           message: `Consider strengthening boundaries around ${category.replace('-', ' ')}`
@@ -250,7 +190,7 @@ const DigitalBoundariesQuiz = () => {
         totalLevels={totalLevels}
         totalCoins={totalCoins}
         currentLevel={totalLevels}
-        allAnswersCorrect={healthyTechScore >= 70}
+        allAnswersCorrect={healthyTechScore >= 80}
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}

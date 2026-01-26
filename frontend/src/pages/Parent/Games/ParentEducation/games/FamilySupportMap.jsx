@@ -9,7 +9,7 @@ const FamilySupportMap = () => {
   const location = useLocation();
   
   // Get game data
-  const gameId = "parent-education-75";
+  const gameId = "parent-education-76";
   const gameData = getParentEducationGameById(gameId);
   
   // Get game props from location.state or gameData
@@ -156,7 +156,7 @@ const FamilySupportMap = () => {
   };
 
   const handleComplete = () => {
-    if (familyMembers.length >= 2) {
+    if (familyMembers.length >= 1) {
       setStep(3);
       setShowGameOver(true);
     }
@@ -170,7 +170,7 @@ const FamilySupportMap = () => {
         title={gameData?.title || "Family Support Map"}
         subtitle="Map Complete!"
         showGameOver={true}
-        score={1}
+        score={familyMembers.length >= 5 ? 5 : familyMembers.length}
         gameId={gameId}
         gameType="parent-education"
         totalLevels={totalLevels}
@@ -448,7 +448,7 @@ const FamilySupportMap = () => {
               )}
 
               {/* Continue Button */}
-              {familyMembers.length >= 2 && (
+              {familyMembers.length >= 1 && (
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
@@ -538,7 +538,7 @@ const FamilySupportMap = () => {
           {/* Parent Tip */}
           <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-4 border-2 border-amber-200 mt-6">
             <p className="text-sm text-gray-700">
-              <strong>💡 Parent Tip:</strong> Let everyone in the family be a supporter, not just one person. When support roles are shared, it creates a stronger, more resilient family system.
+              <strong>💡 Parent Tip:</strong> Let everyone in the family be a supporter, not just one person. When support roles are shared, it creates a stronger, more resilient family system. You earn 1 point for each family member added, up to 5 members.
             </p>
           </div>
         </motion.div>

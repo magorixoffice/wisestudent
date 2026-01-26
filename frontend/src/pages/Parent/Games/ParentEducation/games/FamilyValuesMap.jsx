@@ -9,7 +9,7 @@ const FamilyValuesMap = () => {
   const location = useLocation();
   
   // Get game data
-  const gameId = "parent-education-83";
+  const gameId = "parent-education-84";
   const gameData = getParentEducationGameById(gameId);
   
   // Get game props from location.state or gameData
@@ -223,7 +223,7 @@ const FamilyValuesMap = () => {
         title={gameData?.title || "Family Values Map"}
         subtitle="Values Map Complete!"
         showGameOver={true}
-        score={1}
+        score={selectedValues.length}
         gameId={gameId}
         gameType="parent-education"
         totalLevels={totalLevels}
@@ -343,7 +343,7 @@ const FamilyValuesMap = () => {
       title={gameData?.title || "Family Values Map"}
       subtitle="Define Your Core Values"
       showGameOver={false}
-      score={0}
+      score={selectedValues.length}
       gameId={gameId}
       gameType="parent-education"
       totalLevels={totalLevels}

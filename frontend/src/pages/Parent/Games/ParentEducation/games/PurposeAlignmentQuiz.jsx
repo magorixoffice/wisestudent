@@ -14,7 +14,7 @@ const PurposeAlignmentQuiz = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 10;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [currentStatement, setCurrentStatement] = useState(0);
   const [ratings, setRatings] = useState({});
@@ -22,7 +22,7 @@ const PurposeAlignmentQuiz = () => {
   const [score, setScore] = useState(0);
   const [showGameOver, setShowGameOver] = useState(false);
 
-  // 10 reflection statements about daily actions matching parenting goals
+  // 5 reflection statements about daily actions matching parenting goals
   const reflectionStatements = [
     {
       id: 1,
@@ -58,41 +58,6 @@ const PurposeAlignmentQuiz = () => {
       description: "What I tell my children is reflected in what I do",
       emoji: '💬',
       category: 'Integrity'
-    },
-    {
-      id: 6,
-      statement: "I make time for what matters",
-      description: "I actively create space for the parenting moments I value",
-      emoji: '🌱',
-      category: 'Intentionality'
-    },
-    {
-      id: 7,
-      statement: "I model the behaviors I expect",
-      description: "I demonstrate the respect, patience, and kindness I want to see",
-      emoji: '✨',
-      category: 'Example'
-    },
-    {
-      id: 8,
-      statement: "My energy goes toward my values",
-      description: "I invest my emotional and physical energy in what aligns with my goals",
-      emoji: '💪',
-      category: 'Investment'
-    },
-    {
-      id: 9,
-      statement: "I course-correct when I notice misalignment",
-      description: "When I see my actions don't match my goals, I adjust",
-      emoji: '🔄',
-      category: 'Awareness'
-    },
-    {
-      id: 10,
-      statement: "I live what I want my children to learn",
-      description: "My daily life demonstrates the lessons I hope to impart",
-      emoji: '📚',
-      category: 'Teaching'
     }
   ];
 
@@ -109,7 +74,10 @@ const PurposeAlignmentQuiz = () => {
       if (currentStatement < totalLevels - 1) {
         setCurrentStatement(prev => prev + 1);
       } else {
-        setShowResults(true);
+        // Check if all questions are answered before showing results
+        if (Object.keys(ratings).length === totalLevels) {
+          setShowResults(true);
+        }
       }
     }
   };
@@ -117,9 +85,10 @@ const PurposeAlignmentQuiz = () => {
   const calculateAlignmentScore = () => {
     const values = Object.values(ratings).filter(v => v !== null);
     if (values.length === 0) return 0;
-    const average = values.reduce((sum, val) => sum + val, 0) / values.length;
-    // Convert 1-5 scale to 0-100 score: (average / 5) * 100
-    return Math.round((average / 5) * 100);
+    // Sum all ratings (each 1-5) for total score out of 25
+    const total = values.reduce((sum, val) => sum + val, 0);
+    // Convert to 0-100 scale: (total / 25) * 100
+    return Math.round((total / 25) * 100);
   };
 
   const getAlignmentLevel = (score) => {
@@ -131,7 +100,10 @@ const PurposeAlignmentQuiz = () => {
 
   const getAlignmentInsights = (score) => {
     const insights = [];
-    const averageRating = Object.values(ratings).reduce((sum, val) => sum + (val || 0), 0) / reflectionStatements.length;
+    const values = Object.values(ratings).filter(v => v !== null);
+    if (values.length === 0) return ['Please complete all questions to see your insights.'];
+    
+    const totalScore = values.reduce((sum, val) => sum + val, 0);
     
     // Category analysis
     const categoryRatings = {};
@@ -159,11 +131,11 @@ const PurposeAlignmentQuiz = () => {
       insights.push(`Consider focusing on ${lowestCategory.toLowerCase()}. This area shows the most opportunity for alignment.`);
     }
 
-    if (score >= 80) {
+    if (totalScore >= 20) {
       insights.push('You\'re doing an excellent job aligning your actions with your parenting goals. Keep up the intentional practice!');
-    } else if (score >= 60) {
+    } else if (totalScore >= 15) {
       insights.push('You\'re mostly aligned! Identify one area where a small shift could create even more harmony.');
-    } else if (score >= 40) {
+    } else if (totalScore >= 10) {
       insights.push('Awareness is the first step. Choose one area to focus on this week—small shifts create big harmony.');
     } else {
       insights.push('Realignment is possible. Start with one statement where you can make a small change this week.');
@@ -173,8 +145,16 @@ const PurposeAlignmentQuiz = () => {
   };
 
   const handleComplete = () => {
-    const alignmentScore = calculateAlignmentScore();
-    setScore(Math.round(alignmentScore / 10)); // Convert to 0-10 for game score
+    // Ensure all questions are answered
+    if (Object.keys(ratings).length !== totalLevels) {
+      alert('Please answer all questions before completing the quiz.');
+      return;
+    }
+    
+    const values = Object.values(ratings).filter(v => v !== null);
+    const totalScore = values.reduce((sum, val) => sum + val, 0);
+    // Pass the number of questions answered (5) instead of total points for correct display
+    setScore(totalLevels); // 5 questions answered correctly
     setShowGameOver(true);
   };
 
@@ -182,7 +162,7 @@ const PurposeAlignmentQuiz = () => {
   const alignmentLevel = getAlignmentLevel(alignmentScore);
   const insights = getAlignmentInsights(alignmentScore);
   const currentStatementData = reflectionStatements[currentStatement];
-  const currentRating = ratings[currentStatementData.id];
+  const currentRating = ratings[currentStatementData?.id];
   const progress = ((currentStatement + 1) / totalLevels) * 100;
 
   if (showGameOver) {
@@ -191,13 +171,13 @@ const PurposeAlignmentQuiz = () => {
         title={gameData?.title || "Purpose Alignment Quiz"}
         subtitle="Quiz Complete!"
         showGameOver={true}
-        score={score}
+        score={totalLevels} // Show 5/5 questions completed
         gameId={gameId}
         gameType="parent-education"
         totalLevels={totalLevels}
         totalCoins={totalCoins}
         currentLevel={totalLevels}
-        allAnswersCorrect={alignmentScore >= 80}
+        allAnswersCorrect={Object.keys(ratings).length === totalLevels}
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -321,7 +301,7 @@ const PurposeAlignmentQuiz = () => {
         title={gameData?.title || "Purpose Alignment Quiz"}
         subtitle="Your Alignment Score"
         showGameOver={false}
-        score={score}
+        score={totalLevels} // Show 5/5 questions completed
         gameId={gameId}
         gameType="parent-education"
         totalLevels={totalLevels}
@@ -368,11 +348,20 @@ const PurposeAlignmentQuiz = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={handleComplete}
-              className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
+              disabled={Object.keys(ratings).length !== totalLevels}
+              className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
               <CheckCircle className="w-5 h-5" />
               View Complete Analysis
             </motion.button>
+
+            {Object.keys(ratings).length < totalLevels && (
+              <div className="mt-4 bg-blue-100 rounded-lg p-3 border border-blue-300">
+                <p className="text-blue-800 text-sm text-center">
+                  Please answer all {totalLevels} questions to view your results.
+                </p>
+              </div>
+            )}
 
             {/* Parent Tip */}
             <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-4 border-2 border-amber-200 mt-6">

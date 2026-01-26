@@ -426,7 +426,7 @@ const KindResponseChallenge = () => {
                     <div className="text-3xl">{option.emoji}</div>
                     <div className="flex-1">
                       <h3 className="text-xl font-bold text-gray-900 mb-2">
-                        {option.label}
+                       
                       </h3>
                       <p className="text-base text-gray-700 leading-relaxed italic mb-3">
                         "{option.response}"

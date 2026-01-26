@@ -31,6 +31,27 @@ const ConflictResponseSimulation = () => {
       situation: "You and your spouse are having a heated discussion about money. The conversation is getting tense, and voices are starting to rise. You feel defensive and frustrated.",
       conflict: "Your spouse says: 'You never listen to my concerns about our spending! Every time I try to talk about it, you shut down or get defensive!'",
       responses: [
+        
+        {
+          id: 'defensive',
+          label: 'Defensive Response',
+          text: "Well, maybe if you didn't always bring it up at the worst times, I'd be more willing to listen! You're not exactly perfect with money either!",
+          harmonyChange: -20,
+          explanation: "This response is defensive and counter-attacking. It escalates the conflict by shifting blame and avoids taking responsibility or truly listening.",
+          outcome: "The argument escalates. Both of you feel attacked and defensive. The conversation becomes a blame game, and the real issue—financial communication—remains unresolved.",
+          emoji: "💚",
+          color: "from-green-500 to-emerald-600"
+        },
+        {
+          id: 'avoidant',
+          label: 'Avoidant Response',
+          text: "I don't want to talk about this right now. Can we just drop it? We'll figure it out later.",
+          harmonyChange: -12,
+          explanation: "This response avoids the conflict but doesn't resolve it. It dismisses your spouse's concerns and leaves underlying issues unaddressed, creating future tension.",
+          outcome: "The immediate conflict pauses, but resentment builds. Your spouse feels dismissed and unheard. The issue resurfaces later, often with more intensity.",
+          emoji: "💚",
+          color: "from-green-500 to-emerald-600"
+        },
         {
           id: 'constructive',
           label: 'Constructive Response',
@@ -41,26 +62,6 @@ const ConflictResponseSimulation = () => {
           emoji: "💚",
           color: "from-green-500 to-emerald-600"
         },
-        {
-          id: 'defensive',
-          label: 'Defensive Response',
-          text: "Well, maybe if you didn't always bring it up at the worst times, I'd be more willing to listen! You're not exactly perfect with money either!",
-          harmonyChange: -20,
-          explanation: "This response is defensive and counter-attacking. It escalates the conflict by shifting blame and avoids taking responsibility or truly listening.",
-          outcome: "The argument escalates. Both of you feel attacked and defensive. The conversation becomes a blame game, and the real issue—financial communication—remains unresolved.",
-          emoji: "💥",
-          color: "from-red-500 to-rose-600"
-        },
-        {
-          id: 'avoidant',
-          label: 'Avoidant Response',
-          text: "I don't want to talk about this right now. Can we just drop it? We'll figure it out later.",
-          harmonyChange: -12,
-          explanation: "This response avoids the conflict but doesn't resolve it. It dismisses your spouse's concerns and leaves underlying issues unaddressed, creating future tension.",
-          outcome: "The immediate conflict pauses, but resentment builds. Your spouse feels dismissed and unheard. The issue resurfaces later, often with more intensity.",
-          emoji: "😐",
-          color: "from-yellow-500 to-orange-500"
-        }
       ],
       correctChoice: "constructive",
       whyItMatters: "Lower your voice and your ego; clarity will rise naturally. When you respond constructively in conflicts, you model emotional regulation and create space for real solutions."
@@ -71,6 +72,17 @@ const ConflictResponseSimulation = () => {
       situation: "Your teenager comes home from school in a bad mood. When you ask how their day was, they snap at you with attitude: 'Why do you always ask me that? My day was fine, okay? Stop bugging me!'",
       conflict: "Your teen is clearly upset but being dismissive and rude. You feel hurt by their tone and frustrated by their attitude.",
       responses: [
+        
+        {
+          id: 'defensive',
+          label: 'Defensive Response',
+          text: "Don't talk to me like that! I'm your parent and you will show me respect! I was just trying to be nice, and you're being rude for no reason!",
+          harmonyChange: -22,
+          explanation: "This response is reactive and escalates the conflict. It focuses on the disrespect rather than the underlying emotion, creating a power struggle.",
+          outcome: "The conflict escalates into an argument about respect. Your teen becomes more defensive and shuts down. Communication breaks down, and the real issue—what's bothering them—remains unknown.",
+          emoji: "💚",
+          color: "from-green-500 to-emerald-600"
+        },
         {
           id: 'constructive',
           label: 'Constructive Response',
@@ -82,24 +94,14 @@ const ConflictResponseSimulation = () => {
           color: "from-green-500 to-emerald-600"
         },
         {
-          id: 'defensive',
-          label: 'Defensive Response',
-          text: "Don't talk to me like that! I'm your parent and you will show me respect! I was just trying to be nice, and you're being rude for no reason!",
-          harmonyChange: -22,
-          explanation: "This response is reactive and escalates the conflict. It focuses on the disrespect rather than the underlying emotion, creating a power struggle.",
-          outcome: "The conflict escalates into an argument about respect. Your teen becomes more defensive and shuts down. Communication breaks down, and the real issue—what's bothering them—remains unknown.",
-          emoji: "💥",
-          color: "from-red-500 to-rose-600"
-        },
-        {
           id: 'avoidant',
           label: 'Avoidant Response',
           text: "Fine, whatever. I'll just leave you alone then. You can figure everything out yourself.",
           harmonyChange: -15,
           explanation: "This response withdraws and communicates hurt through distance. It doesn't address the issue and teaches that conflict leads to emotional abandonment.",
           outcome: "Your teen feels dismissed and may feel guilty for pushing you away. Communication shuts down, and they may struggle to reach out when they actually need support.",
-          emoji: "😐",
-          color: "from-yellow-500 to-orange-500"
+          emoji: "💚",
+          color: "from-green-500 to-emerald-600"
         }
       ],
       correctChoice: "constructive",
@@ -128,8 +130,8 @@ const ConflictResponseSimulation = () => {
           harmonyChange: -18,
           explanation: "This response is reactive and comes from your own frustration. It focuses on stopping the behavior rather than understanding the cause, which doesn't teach conflict resolution.",
           outcome: "The immediate conflict stops, but the underlying issue isn't resolved. The children may feel shame or blame each other more. The pattern of conflict continues because the skills aren't learned.",
-          emoji: "💥",
-          color: "from-red-500 to-rose-600"
+          emoji: "💚",
+          color: "from-green-500 to-emerald-600"
         },
         {
           id: 'avoidant',
@@ -138,8 +140,8 @@ const ConflictResponseSimulation = () => {
           harmonyChange: -14,
           explanation: "This response withdraws and avoids the conflict. It doesn't help the children learn to resolve disagreements, and they may feel unsupported.",
           outcome: "The children may stop fighting temporarily, but the conflict remains unresolved. They don't learn conflict resolution skills, and the pattern continues without guidance.",
-          emoji: "😐",
-          color: "from-yellow-500 to-orange-500"
+          emoji: "💚",
+          color: "from-green-500 to-emerald-600"
         }
       ],
       correctChoice: "constructive",
@@ -151,6 +153,27 @@ const ConflictResponseSimulation = () => {
       situation: "Your in-laws are visiting and make a comment about your parenting: 'You're letting the kids stay up too late. When we were parents, children had earlier bedtimes and more structure.' You feel judged and defensive.",
       conflict: "The comment feels like criticism of your parenting choices. You want to stand up for yourself but also maintain family harmony.",
       responses: [
+        
+        {
+          id: 'defensive',
+          label: 'Defensive Response',
+          text: "Times have changed! Things are different now than when you were parents! You don't understand our situation, and we're doing fine without your advice!",
+          harmonyChange: -16,
+          explanation: "This response is defensive and dismissive. It creates conflict and may damage the relationship with your in-laws while not effectively communicating your position.",
+          outcome: "Tension increases. Your in-laws may feel attacked or dismissed. Family relationships become strained, and future visits may be more difficult.",
+          emoji: "💚",
+          color: "from-green-500 to-emerald-600"
+        },
+        {
+          id: 'avoidant',
+          label: 'Avoidant Response',
+          text: "Oh, okay. Maybe you're right. We'll think about changing bedtime. Thanks for the advice.",
+          harmonyChange: -8,
+          explanation: "This response avoids conflict by agreeing, but it may not be authentic. It can lead to resentment if you don't actually agree, and it doesn't set healthy boundaries.",
+          outcome: "The immediate conflict is avoided, but you may feel resentful. The boundary isn't clear, and similar comments may continue. You may feel your parenting choices aren't respected.",
+          emoji: "💚",
+          color: "from-green-500 to-emerald-600"
+        },
         {
           id: 'constructive',
           label: 'Constructive Response',
@@ -161,26 +184,6 @@ const ConflictResponseSimulation = () => {
           emoji: "💚",
           color: "from-green-500 to-emerald-600"
         },
-        {
-          id: 'defensive',
-          label: 'Defensive Response',
-          text: "Times have changed! Things are different now than when you were parents! You don't understand our situation, and we're doing fine without your advice!",
-          harmonyChange: -16,
-          explanation: "This response is defensive and dismissive. It creates conflict and may damage the relationship with your in-laws while not effectively communicating your position.",
-          outcome: "Tension increases. Your in-laws may feel attacked or dismissed. Family relationships become strained, and future visits may be more difficult.",
-          emoji: "💥",
-          color: "from-red-500 to-rose-600"
-        },
-        {
-          id: 'avoidant',
-          label: 'Avoidant Response',
-          text: "Oh, okay. Maybe you're right. We'll think about changing bedtime. Thanks for the advice.",
-          harmonyChange: -8,
-          explanation: "This response avoids conflict by agreeing, but it may not be authentic. It can lead to resentment if you don't actually agree, and it doesn't set healthy boundaries.",
-          outcome: "The immediate conflict is avoided, but you may feel resentful. The boundary isn't clear, and similar comments may continue. You may feel your parenting choices aren't respected.",
-          emoji: "😐",
-          color: "from-yellow-500 to-orange-500"
-        }
       ],
       correctChoice: "constructive",
       whyItMatters: "Setting boundaries with extended family requires balance. A constructive response maintains relationships while respectfully asserting your family's values and choices."
@@ -208,8 +211,8 @@ const ConflictResponseSimulation = () => {
           harmonyChange: -19,
           explanation: "This response uses force and power to demand compliance. It focuses on the behavior rather than understanding, which may lead to fake apologies without real learning.",
           outcome: "Your child may apologize, but it's likely forced and insincere. They don't learn empathy or genuine repair. The underlying issue—understanding others' feelings—remains unaddressed.",
-          emoji: "💥",
-          color: "from-red-500 to-rose-600"
+          emoji: "💚",
+          color: "from-green-500 to-emerald-600"
         },
         {
           id: 'avoidant',
@@ -218,8 +221,8 @@ const ConflictResponseSimulation = () => {
           harmonyChange: -13,
           explanation: "This response avoids the conflict by using punishment instead of teaching. It doesn't help the child understand empathy or learn to repair relationships.",
           outcome: "The immediate situation is managed, but the child doesn't learn about empathy or taking responsibility. Future conflicts may continue because the skills aren't developed.",
-          emoji: "😐",
-          color: "from-yellow-500 to-orange-500"
+          emoji: "💚",
+          color: "from-green-500 to-emerald-600"
         }
       ],
       correctChoice: "constructive",
@@ -455,7 +458,7 @@ const ConflictResponseSimulation = () => {
                       <span className="text-2xl">{response.emoji}</span>
                     </div>
                     <div className="flex-1">
-                      <h4 className="font-bold text-gray-800 mb-2">{response.label}</h4>
+                      <h4 className="font-bold text-gray-800 mb-2"></h4>
                       <p className="text-gray-700 italic">
                         "{response.text}"
                       </p>

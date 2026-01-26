@@ -9,7 +9,7 @@ const WhyIParent = () => {
   const location = useLocation();
   
   // Get game data
-  const gameId = "parent-education-80";
+  const gameId = "parent-education-81";
   const gameData = getParentEducationGameById(gameId);
   
   // Get game props from location.state or gameData
@@ -121,8 +121,8 @@ const WhyIParent = () => {
         // Deselect
         return prev.filter(id => id !== valueId);
       } else {
-        // Select (max 3)
-        if (prev.length < 3) {
+        // Select (max 5)
+        if (prev.length < 5) {
           return [...prev, valueId];
         }
         return prev;
@@ -133,7 +133,7 @@ const WhyIParent = () => {
   const handleNext = () => {
     if (step === 1 && reflection.trim().length >= 50) {
       setStep(2);
-    } else if (step === 2 && selectedValues.length === 3) {
+    } else if (step === 2 && selectedValues.length === 5) {
       handleComplete();
     }
   };
@@ -156,7 +156,7 @@ const WhyIParent = () => {
         title={gameData?.title || "Why I Parent"}
         subtitle="Reflection Complete!"
         showGameOver={true}
-        score={1}
+        score={selectedValues.length}
         gameId={gameId}
         gameType="parent-education"
         totalLevels={totalLevels}
@@ -384,12 +384,12 @@ const WhyIParent = () => {
         >
           <div className="text-center mb-8">
             <div className="text-6xl mb-4">🎯</div>
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Choose 3 Core Values</h2>
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">Choose 5 Core Values</h2>
             <p className="text-gray-600">
-              Select the 3 values that most align with the kind of human being you want to raise.
+              Select the 5 values that most align with the kind of human being you want to raise.
             </p>
             <p className="text-sm text-gray-500 mt-2">
-              Selected: {selectedValues.length}/3
+              Selected: {selectedValues.length}/5
             </p>
           </div>
 
@@ -403,12 +403,12 @@ const WhyIParent = () => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => handleValueToggle(value.id)}
-                  disabled={!isSelected && selectedValues.length >= 3}
+                  disabled={!isSelected && selectedValues.length >= 5}
                   className={`p-5 rounded-xl border-2 transition-all text-left ${
                     isSelected
                       ? `${value.bgColor} ${value.borderColor} border-4 shadow-lg`
                       : 'bg-white border-gray-200 hover:border-gray-300'
-                  } ${!isSelected && selectedValues.length >= 3 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+                  } ${!isSelected && selectedValues.length >= 5 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
                 >
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-3xl">{value.emoji}</span>
@@ -455,7 +455,7 @@ const WhyIParent = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={handleNext}
-              disabled={selectedValues.length !== 3}
+              disabled={selectedValues.length !== 5}
               className="flex-1 bg-gradient-to-r from-purple-600 to-violet-600 text-white px-6 py-3 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
               View Complete Reflection
@@ -463,10 +463,10 @@ const WhyIParent = () => {
             </motion.button>
           </div>
 
-          {selectedValues.length !== 3 && (
+          {selectedValues.length !== 5 && (
             <div className="mt-4 bg-yellow-100 rounded-lg p-3 border border-yellow-300">
               <p className="text-yellow-800 text-sm text-center">
-                Please select exactly 3 values to continue.
+                Please select exactly 5 values to continue.
               </p>
             </div>
           )}

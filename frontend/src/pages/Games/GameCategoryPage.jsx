@@ -1203,9 +1203,9 @@ const GameCategoryPage = () => {
   const getReplayCost = (game) => {
     const index = getGameIndex(game);
     if (!index) return 2;
-    if (index <= 25) return 2;
-    if (index <= 50) return 4;
-    if (index <= 75) return 6;
+    if (index <= 24) return 2;
+    if (index <= 49) return 4;
+    if (index <= 74) return 6;
     return 8;
   };
 

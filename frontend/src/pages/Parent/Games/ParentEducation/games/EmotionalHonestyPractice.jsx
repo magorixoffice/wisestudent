@@ -14,16 +14,19 @@ const EmotionalHonestyPractice = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 1;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [step, setStep] = useState(1); // 1: Building, 2: Review
   const [statements, setStatements] = useState([
     { id: 1, feeling: "", when: "", because: "" },
     { id: 2, feeling: "", when: "", because: "" },
-    { id: 3, feeling: "", when: "", because: "" }
+    { id: 3, feeling: "", when: "", because: "" },
+    { id: 4, feeling: "", when: "", because: "" },
+    { id: 5, feeling: "", when: "", because: "" }
   ]);
   const [savedStatements, setSavedStatements] = useState(null);
   const [score, setScore] = useState(0);
+  const [completedStatements, setCompletedStatements] = useState(new Set());
   const [showGameOver, setShowGameOver] = useState(false);
 
   // Common feeling words for guidance
@@ -42,6 +45,32 @@ const EmotionalHonestyPractice = () => {
           : stmt
       )
     );
+    
+    // Check if this statement is now complete and update score
+    setTimeout(() => {
+      const updatedStatements = statements.map(stmt =>
+        stmt.id === statementId
+          ? { ...stmt, [field]: value }
+          : stmt
+      );
+      const statement = updatedStatements.find(s => s.id === statementId);
+      const wasComplete = completedStatements.has(statementId);
+      const isComplete = isStatementComplete(statement);
+      
+      if (isComplete && !wasComplete) {
+        // Statement newly completed
+        setCompletedStatements(prev => new Set([...prev, statementId]));
+        setScore(prev => prev + 1);
+      } else if (!isComplete && wasComplete) {
+        // Statement no longer complete
+        setCompletedStatements(prev => {
+          const newSet = new Set(prev);
+          newSet.delete(statementId);
+          return newSet;
+        });
+        setScore(prev => Math.max(0, prev - 1));
+      }
+    }, 0);
   };
 
   const isStatementComplete = (statement) => {
@@ -65,13 +94,11 @@ const EmotionalHonestyPractice = () => {
     }));
 
     setSavedStatements(formatted);
-    setScore(prev => prev + 1);
     setStep(2);
   };
 
   const handleComplete = () => {
     setShowGameOver(true);
-    setScore(prev => prev + 1);
   };
 
   const getStatementFeedback = (statement) => {
@@ -115,7 +142,7 @@ const EmotionalHonestyPractice = () => {
         totalLevels={totalLevels}
         totalCoins={totalCoins}
         currentLevel={1}
-        allAnswersCorrect={score >= 2}
+        allAnswersCorrect={score >= 5}
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -230,7 +257,7 @@ const EmotionalHonestyPractice = () => {
                 <div className="text-6xl mb-4">💬</div>
                 <h2 className="text-3xl font-bold text-gray-800 mb-4">Emotional Honesty Practice</h2>
                 <p className="text-gray-600 text-lg mb-2">
-                  Express your feelings clearly without blame or criticism. Complete 3 statements using the format:
+                  Express your feelings clearly without blame or criticism. Complete 5 statements using the format:
                 </p>
                 <div className="bg-gradient-to-r from-blue-100 to-indigo-100 rounded-lg p-4 inline-block mt-3">
                   <p className="text-lg font-semibold text-gray-800">
@@ -404,7 +431,7 @@ const EmotionalHonestyPractice = () => {
               <div className="text-center mb-6">
                 <h2 className="text-3xl font-bold text-gray-800 mb-4">Review Your Statements</h2>
                 <p className="text-gray-600">
-                  Here are your 3 emotional honesty statements. Review them and use this format in your daily communication.
+                  Here are your 5 emotional honesty statements. Review them and use this format in your daily communication.
                 </p>
               </div>
 

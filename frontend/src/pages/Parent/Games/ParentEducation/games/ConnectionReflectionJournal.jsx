@@ -9,27 +9,25 @@ const ConnectionReflectionJournal = () => {
   const location = useLocation();
   
   // Get game data
-  const gameId = "parent-education-78";
+  const gameId = "parent-education-79";
   const gameData = getParentEducationGameById(gameId);
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 7;
+  const totalLevels = gameData?.totalQuestions || 5;
   
-  const [currentDay, setCurrentDay] = useState(0);
+  const [currentDay, setCurrentDay] = useState(1);
   const [journalEntries, setJournalEntries] = useState({});
   const [showGameOver, setShowGameOver] = useState(false);
   const [score, setScore] = useState(0);
 
-  // 7 days for weekly reflection
+  // 5 days for weekly reflection
   const weekDays = [
-    { id: 0, label: "Day 1", dayName: "Monday" },
-    { id: 1, label: "Day 2", dayName: "Tuesday" },
-    { id: 2, label: "Day 3", dayName: "Wednesday" },
-    { id: 3, label: "Day 4", dayName: "Thursday" },
-    { id: 4, label: "Day 5", dayName: "Friday" },
-    { id: 5, label: "Day 6", dayName: "Saturday" },
-    { id: 6, label: "Day 7", dayName: "Sunday" }
+    { id: 1, label: "Day 1", dayName: "Monday" },
+    { id: 2, label: "Day 2", dayName: "Tuesday" },
+    { id: 3, label: "Day 3", dayName: "Wednesday" },
+    { id: 4, label: "Day 4", dayName: "Thursday" },
+    { id: 5, label: "Day 5", dayName: "Friday" }
   ];
 
   const handleEntryChange = (dayId, value) => {
@@ -106,7 +104,7 @@ const ConnectionReflectionJournal = () => {
     if (isDayComplete(currentDay)) {
       setScore(prev => prev + 1);
       
-      if (currentDay < totalLevels - 1) {
+      if (currentDay < totalLevels) {
         setCurrentDay(prev => prev + 1);
       } else {
         setShowGameOver(true);
@@ -116,7 +114,7 @@ const ConnectionReflectionJournal = () => {
 
   const connectionScore = calculateConnectionScore();
   const energizingRelationships = analyzeEnergizingRelationships();
-  const completedEntries = Object.values(journalEntries).filter(e => e?.reflection?.trim()).length;
+  const completedEntries = weekDays.filter(day => isDayComplete(day.id)).length;
 
   if (showGameOver) {
     const scoreInfo = connectionScore >= 70 
@@ -128,15 +126,15 @@ const ConnectionReflectionJournal = () => {
     return (
       <ParentGameShell
         title={gameData?.title || "Connection Reflection Journal"}
-        subtitle="Weekly Reflection Complete!"
+        subtitle="5-Day Reflection Complete!"
         showGameOver={true}
-        score={connectionScore}
+        score={Math.round((completedEntries / totalLevels) * 100)}
         gameId={gameId}
         gameType="parent-education"
         totalLevels={totalLevels}
         totalCoins={totalCoins}
         currentLevel={totalLevels}
-        allAnswersCorrect={connectionScore >= 60}
+        allAnswersCorrect={completedEntries === totalLevels}
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -155,7 +153,7 @@ const ConnectionReflectionJournal = () => {
               </motion.div>
               <h2 className="text-3xl font-bold text-gray-800 mb-4">Connection Reflection Complete!</h2>
               <p className="text-lg text-gray-600 mb-6">
-                You reflected on {completedEntries} moment{completedEntries === 1 ? '' : 's'} of support this week.
+                You reflected on {completedEntries} moment{completedEntries === 1 ? '' : 's'} of support over these 5 days.
               </p>
             </div>
 
@@ -171,7 +169,7 @@ const ConnectionReflectionJournal = () => {
             <div className="mb-8">
               <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
                 <BookOpen className="w-6 h-6 text-blue-600" />
-                Your Weekly Reflections
+                Your 5-Day Reflections
               </h3>
               <div className="space-y-4">
                 {weekDays.map((day) => {
@@ -187,7 +185,7 @@ const ConnectionReflectionJournal = () => {
                     >
                       <div className="flex items-center gap-3 mb-3">
                         <div className="w-10 h-10 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold">
-                          {day.id + 1}
+                          {day.id}
                         </div>
                         <div>
                           <h4 className="font-bold text-gray-800">{day.dayName}</h4>
@@ -242,7 +240,7 @@ const ConnectionReflectionJournal = () => {
               <ul className="space-y-2 text-gray-700">
                 <li className="flex items-start gap-2">
                   <span className="text-green-600 mt-1">•</span>
-                  <span><strong>Social Ties Impact Mood:</strong> Regular reflection reveals how connections with others improve your emotional wellbeing throughout the week.</span>
+                  <span><strong>Social Ties Impact Mood:</strong> Regular reflection reveals how connections with others improve your emotional wellbeing over these 5 days.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-green-600 mt-1">•</span>
@@ -250,7 +248,7 @@ const ConnectionReflectionJournal = () => {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-green-600 mt-1">•</span>
-                  <span><strong>Pattern Recognition:</strong> Weekly reflection helps you see patterns in when and how you feel supported, guiding you to nurture those relationships.</span>
+                  <span><strong>Pattern Recognition:</strong> 5-day reflection helps you see patterns in when and how you feel supported, guiding you to nurture those relationships.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-green-600 mt-1">•</span>
@@ -262,7 +260,7 @@ const ConnectionReflectionJournal = () => {
             {/* Parent Tip */}
             <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-6 border-2 border-amber-200">
               <p className="text-gray-700 font-medium text-center">
-                <strong>💡 Parent Tip:</strong> Regular reflection reveals which relationships truly energize you. When you take time to notice moments when you felt supported, you begin to see patterns—which relationships lift you up, which interactions leave you feeling connected, and how social ties improve your mood throughout the week. Use these insights to intentionally nurture the relationships that energize you and build a support system that sustains your wellbeing.
+                <strong>💡 Parent Tip:</strong> Regular reflection reveals which relationships truly energize you. When you take time to notice moments when you felt supported, you begin to see patterns—which relationships lift you up, which interactions leave you feeling connected, and how social ties improve your mood over these 5 days. Use these insights to intentionally nurture the relationships that energize you and build a support system that sustains your wellbeing.
               </p>
             </div>
           </div>
@@ -271,20 +269,20 @@ const ConnectionReflectionJournal = () => {
     );
   }
 
-  const currentDayData = weekDays[currentDay];
+  const currentDayData = weekDays.find(day => day.id === currentDay) || weekDays[0];
   const currentEntry = journalEntries[currentDay];
 
   return (
     <ParentGameShell
       title={gameData?.title || "Connection Reflection Journal"}
-      subtitle={`${currentDayData.label} - Weekly Reflection`}
+      subtitle={`${currentDayData.label} - 5-Day Reflection`}
       showGameOver={false}
       score={score}
       gameId={gameId}
       gameType="parent-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentLevel={currentDay + 1}
+      currentLevel={currentDay}
     >
       <div className="w-full max-w-4xl mx-auto px-4 py-6">
         <motion.div
@@ -296,13 +294,13 @@ const ConnectionReflectionJournal = () => {
           {/* Progress */}
           <div className="mb-6">
             <div className="flex justify-between text-sm text-gray-600 mb-2">
-              <span>{currentDayData.label} of 7 Days</span>
-              <span>{Math.round(((currentDay + 1) / totalLevels) * 100)}% Complete</span>
+              <span>{currentDayData.label} of 5 Days</span>
+              <span>{Math.round((currentDay / totalLevels) * 100)}% Complete</span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2">
               <motion.div
                 initial={{ width: 0 }}
-                animate={{ width: `${((currentDay + 1) / totalLevels) * 100}%` }}
+                animate={{ width: `${(currentDay / totalLevels) * 100}%` }}
                 className="bg-gradient-to-r from-blue-600 to-indigo-600 h-2 rounded-full"
               />
             </div>
@@ -313,7 +311,7 @@ const ConnectionReflectionJournal = () => {
             <div className="text-6xl mb-4">💚</div>
             <h2 className="text-3xl font-bold text-gray-800 mb-4">{currentDayData.dayName}</h2>
             <p className="text-gray-600 text-lg">
-              Reflect on how social ties improved your mood today.
+              Reflect on how social ties improved your mood over these 5 days.
             </p>
           </div>
 
@@ -385,9 +383,9 @@ const ConnectionReflectionJournal = () => {
             disabled={!isDayComplete(currentDay)}
             className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
-            {currentDay < totalLevels - 1 ? (
+            {currentDay < totalLevels ? (
               <>
-                Continue to {weekDays[currentDay + 1]?.dayName || 'Next Day'}
+                Continue to {weekDays.find(day => day.id === currentDay + 1)?.dayName || 'Next Day'}
                 <CheckCircle className="w-5 h-5" />
               </>
             ) : (

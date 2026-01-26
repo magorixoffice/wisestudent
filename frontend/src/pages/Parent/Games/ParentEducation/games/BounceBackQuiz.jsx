@@ -14,7 +14,7 @@ const BounceBackQuiz = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 8;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [currentScenario, setCurrentScenario] = useState(0);
   const [selectedChoices, setSelectedChoices] = useState({});
@@ -27,23 +27,14 @@ const BounceBackQuiz = () => {
     withdrawn: 0
   });
 
-  // 8 scenarios related to parenting setbacks
+  // 5 scenarios related to parenting setbacks
   const scenarios = [
     {
       id: 1,
       title: "The Argument",
       description: "You had a heated argument with your teenager about curfew. They stormed out, slammed the door, and you're left feeling like you've failed. You're both upset and communication broke down completely.",
       reactions: [
-        {
-          id: 'resilient',
-          label: 'Resilient Response',
-          text: "I'm going to take a few minutes to calm down. Then I'll reach out and say: 'I know we're both upset. When you're ready, I'd like to talk about how we can both feel heard and find a solution together.'",
-          icon: Shield,
-          color: "from-green-500 to-emerald-600",
-          bgColor: "from-green-50 to-emerald-50",
-          borderColor: "border-green-300",
-          description: "Acknowledge the setback, regulate your emotions, and commit to repair. This shows resilience—bouncing back with intention."
-        },
+        
         {
           id: 'reactive',
           label: 'Reactive Response',
@@ -59,11 +50,21 @@ const BounceBackQuiz = () => {
           label: 'Withdrawn Response',
           text: "I'll just let it go. There's no point talking to them when they're like this. I'll wait for them to come to me.",
           icon: Cloud,
-          color: "from-gray-500 to-slate-600",
-          bgColor: "from-gray-50 to-slate-50",
-          borderColor: "border-gray-300",
+          color: "from-red-500 to-rose-600",
+          bgColor: "from-red-50 to-rose-50",
+          borderColor: "border-red-300",
           description: "Withdrawing can leave conflicts unresolved and signals to your child that repair isn't possible."
-        }
+        },
+        {
+          id: 'resilient',
+          label: 'Resilient Response',
+          text: "I'm going to take a few minutes to calm down. Then I'll reach out and say: 'I know we're both upset. When you're ready, I'd like to talk about how we can both feel heard and find a solution together.'",
+          icon: Shield,
+          color: "from-red-500 to-rose-600",
+          bgColor: "from-red-50 to-rose-50",
+          borderColor: "border-red-300",
+          description: "Acknowledge the setback, regulate your emotions, and commit to repair. This shows resilience—bouncing back with intention."
+        },
       ]
     },
     {
@@ -71,34 +72,35 @@ const BounceBackQuiz = () => {
       title: "Broken Trust",
       description: "You discovered your child lied to you about where they were after school. They were at a friend's house instead of the library as they said. You feel hurt and betrayed, and now you're questioning their honesty.",
       reactions: [
-        {
-          id: 'resilient',
-          label: 'Resilient Response',
-          text: "I'm going to sit with them and say: 'I noticed you weren't at the library. I feel hurt because honesty is important in our relationship. I want to understand why you felt you needed to lie. Let's talk about trust and what we both need.'",
-          icon: Shield,
-          color: "from-green-500 to-emerald-600",
-          bgColor: "from-green-50 to-emerald-50",
-          borderColor: "border-green-300",
-          description: "Address the breach directly with empathy, seeking understanding rather than blame. This rebuilds trust through communication."
-        },
+       
         {
           id: 'reactive',
           label: 'Reactive Response',
           text: "I'm going to ground them immediately: 'You lied to me! That's it—you're grounded for a month. No phone, no friends, nothing. I can't trust you anymore.'",
           icon: Flame,
-          color: "from-red-500 to-rose-600",
+         color: "from-red-500 to-rose-600",
           bgColor: "from-red-50 to-rose-50",
           borderColor: "border-red-300",
           description: "Punishing without understanding can damage the relationship and doesn't address the underlying reason for the lie."
+        },
+         {
+          id: 'resilient',
+          label: 'Resilient Response',
+          text: "I'm going to sit with them and say: 'I noticed you weren't at the library. I feel hurt because honesty is important in our relationship. I want to understand why you felt you needed to lie. Let's talk about trust and what we both need.'",
+          icon: Shield,
+          color: "from-red-500 to-rose-600",
+          bgColor: "from-red-50 to-rose-50",
+          borderColor: "border-red-300",
+          description: "Address the breach directly with empathy, seeking understanding rather than blame. This rebuilds trust through communication."
         },
         {
           id: 'withdrawn',
           label: 'Withdrawn Response',
           text: "I'll just stop trusting them. I won't ask where they're going anymore since they'll just lie anyway. I'll keep my distance.",
           icon: Cloud,
-          color: "from-gray-500 to-slate-600",
-          bgColor: "from-gray-50 to-slate-50",
-          borderColor: "border-gray-300",
+          color: "from-red-500 to-rose-600",
+          bgColor: "from-red-50 to-rose-50",
+          borderColor: "border-red-300",
           description: "Withdrawing trust without addressing the issue can create distance and doesn't teach your child how to repair."
         }
       ]
@@ -108,16 +110,7 @@ const BounceBackQuiz = () => {
       title: "Missed Target",
       description: "You set a goal to have more patience with your child this week, but by Wednesday you'd already lost your temper twice. You feel disappointed in yourself and like you're failing as a parent.",
       reactions: [
-        {
-          id: 'resilient',
-          label: 'Resilient Response',
-          text: "I'm going to acknowledge this: 'I set a goal and didn't meet it yet. That's okay—change is hard. Let me reflect on what happened and what I can learn. Tomorrow is a new day, and I'll try again with more self-compassion.'",
-          icon: Shield,
-          color: "from-green-500 to-emerald-600",
-          bgColor: "from-green-50 to-emerald-50",
-          borderColor: "border-green-300",
-          description: "Self-compassion and learning from setbacks builds resilience. Progress isn't linear—what matters is getting back up."
-        },
+       
         {
           id: 'reactive',
           label: 'Reactive Response',
@@ -128,14 +121,24 @@ const BounceBackQuiz = () => {
           borderColor: "border-red-300",
           description: "Blaming others prevents self-reflection and growth. It keeps you stuck in reactive patterns."
         },
+         {
+          id: 'resilient',
+          label: 'Resilient Response',
+          text: "I'm going to acknowledge this: 'I set a goal and didn't meet it yet. That's okay—change is hard. Let me reflect on what happened and what I can learn. Tomorrow is a new day, and I'll try again with more self-compassion.'",
+          icon: Shield,
+          color: "from-red-500 to-rose-600",
+          bgColor: "from-red-50 to-rose-50",
+          borderColor: "border-red-300",
+          description: "Self-compassion and learning from setbacks builds resilience. Progress isn't linear—what matters is getting back up."
+        },
         {
           id: 'withdrawn',
           label: 'Withdrawn Response',
           text: "I'll just give up on this goal. I'm clearly not cut out for this. I'll stop trying to change because it's not working anyway.",
           icon: Cloud,
-          color: "from-gray-500 to-slate-600",
-          bgColor: "from-gray-50 to-slate-50",
-          borderColor: "border-gray-300",
+          color: "from-red-500 to-rose-600",
+          bgColor: "from-red-50 to-rose-50",
+          borderColor: "border-red-300",
           description: "Giving up after setbacks reinforces a fixed mindset. Resilience means continuing to try despite obstacles."
         }
       ]
@@ -150,9 +153,9 @@ const BounceBackQuiz = () => {
           label: 'Resilient Response',
           text: "I'm going to process this: 'That was really hard, and I felt embarrassed. But my child was overwhelmed, and I did my best in that moment. Next time, I can prepare better and maybe leave earlier when they're getting tired. This doesn't define my parenting.'",
           icon: Shield,
-          color: "from-green-500 to-emerald-600",
-          bgColor: "from-green-50 to-emerald-50",
-          borderColor: "border-green-300",
+         color: "from-red-500 to-rose-600",
+          bgColor: "from-red-50 to-rose-50",
+          borderColor: "border-red-300",
           description: "Processing the event with self-compassion and learning from it builds resilience. You're allowed to have hard moments."
         },
         {
@@ -170,9 +173,9 @@ const BounceBackQuiz = () => {
           label: 'Withdrawn Response',
           text: "I'll just avoid taking them places for a while. It's easier to stay home than deal with this again. I'll isolate until they're older.",
           icon: Cloud,
-          color: "from-gray-500 to-slate-600",
-          bgColor: "from-gray-50 to-slate-50",
-          borderColor: "border-gray-300",
+          color: "from-red-500 to-rose-600",
+          bgColor: "from-red-50 to-rose-50",
+          borderColor: "border-red-300",
           description: "Avoiding situations doesn't teach your child emotional regulation. It can reinforce isolation and fear."
         }
       ]
@@ -182,16 +185,7 @@ const BounceBackQuiz = () => {
       title: "School Struggle",
       description: "Your child's teacher called to say they're falling behind in class and not paying attention. You've been trying to help, but nothing seems to work. You feel like you're failing to support them academically.",
       reactions: [
-        {
-          id: 'resilient',
-          label: 'Resilient Response',
-          text: "I'm going to approach this collaboratively: 'This is tough, but let me reach out to the teacher and my child. I want to understand what's really going on—is it attention, learning style, or something else? Together, we can find solutions.'",
-          icon: Shield,
-          color: "from-green-500 to-emerald-600",
-          bgColor: "from-green-50 to-emerald-50",
-          borderColor: "border-green-300",
-          description: "Seeking understanding and collaboration builds resilience. You're not alone—schools and teachers are partners in supporting your child."
-        },
+        
         {
           id: 'reactive',
           label: 'Reactive Response',
@@ -207,122 +201,21 @@ const BounceBackQuiz = () => {
           label: 'Withdrawn Response',
           text: "I'll just accept this is how they are. Some kids aren't good at school. There's nothing I can do about it, so I'll stop trying.",
           icon: Cloud,
-          color: "from-gray-500 to-slate-600",
-          bgColor: "from-gray-50 to-slate-50",
-          borderColor: "border-gray-300",
+          color: "from-red-500 to-rose-600",
+          bgColor: "from-red-50 to-rose-50",
+          borderColor: "border-red-300",
           description: "Giving up sends the message that your child isn't capable of success. Resilience means finding new approaches when one doesn't work."
-        }
-      ]
-    },
-    {
-      id: 6,
-      title: "Friendship Conflict",
-      description: "Your child's best friend stopped talking to them, and your child is devastated. You've tried to help, but your child is shutting down and refusing to talk about it. You feel helpless watching them hurt.",
-      reactions: [
+        },
         {
           id: 'resilient',
           label: 'Resilient Response',
-          text: "I'm going to be present: 'I can see you're really hurting. I'm here whenever you're ready to talk, or we can just sit together quietly. Your feelings matter, and I'm here to support you through this.'",
+          text: "I'm going to approach this collaboratively: 'This is tough, but let me reach out to the teacher and my child. I want to understand what's really going on—is it attention, learning style, or something else? Together, we can find solutions.'",
           icon: Shield,
-          color: "from-green-500 to-emerald-600",
-          bgColor: "from-green-50 to-emerald-50",
-          borderColor: "border-green-300",
-          description: "Being present and available without pushing teaches your child that they can process emotions in their own time with support."
-        },
-        {
-          id: 'reactive',
-          label: 'Reactive Response',
-          text: "I'm going to push them: 'You need to tell me what happened! Stop shutting down. If you don't talk to me, I can't help you. What's wrong with you? Just talk!'",
-          icon: Flame,
           color: "from-red-500 to-rose-600",
           bgColor: "from-red-50 to-rose-50",
           borderColor: "border-red-300",
-          description: "Pushing can increase emotional overwhelm. Your child needs space to process before they can communicate."
+          description: "Seeking understanding and collaboration builds resilience. You're not alone—schools and teachers are partners in supporting your child."
         },
-        {
-          id: 'withdrawn',
-          label: 'Withdrawn Response',
-          text: "I'll just leave them alone. They don't want to talk, so I won't try. They'll figure it out themselves eventually.",
-          icon: Cloud,
-          color: "from-gray-500 to-slate-600",
-          bgColor: "from-gray-50 to-slate-50",
-          borderColor: "border-gray-300",
-          description: "Withdrawing can make your child feel alone in their pain. Even if they don't talk, your presence matters."
-        }
-      ]
-    },
-    {
-      id: 7,
-      title: "Discipline Backfire",
-      description: "You tried a new discipline approach you learned, but it didn't work at all. Your child's behavior got worse, and now you're questioning whether you know what you're doing. You feel lost and ineffective.",
-      reactions: [
-        {
-          id: 'resilient',
-          label: 'Resilient Response',
-          text: "I'm going to reflect and adjust: 'This approach didn't work for us, and that's okay. Every child and family is different. Let me think about what I learned from this and try a different approach that fits our family better.'",
-          icon: Shield,
-          color: "from-green-500 to-emerald-600",
-          bgColor: "from-green-50 to-emerald-50",
-          borderColor: "border-green-300",
-          description: "Flexibility and learning from what doesn't work is resilience. There's no one-size-fits-all solution in parenting."
-        },
-        {
-          id: 'reactive',
-          label: 'Reactive Response',
-          text: "I'm going to go back to what I know: 'Fine, I'll just be strict like my parents were. At least that worked. All this new-age parenting stuff doesn't work anyway.'",
-          icon: Flame,
-          color: "from-red-500 to-rose-600",
-          bgColor: "from-red-50 to-rose-50",
-          borderColor: "border-red-300",
-          description: "Reactive returns to old patterns prevent growth. What worked in the past may not be what your child needs now."
-        },
-        {
-          id: 'withdrawn',
-          label: 'Withdrawn Response',
-          text: "I'll just stop trying new things. Nothing works, so why bother? I'll just go through the motions and hope for the best.",
-          icon: Cloud,
-          color: "from-gray-500 to-slate-600",
-          bgColor: "from-gray-50 to-slate-50",
-          borderColor: "border-gray-300",
-          description: "Giving up after one setback prevents finding what works for your family. Resilience is about persistence and adaptation."
-        }
-      ]
-    },
-    {
-      id: 8,
-      title: "Comparison Trap",
-      description: "You see other parents at a school event, and they seem to have it all together. Their kids are well-behaved, they're calm and organized, and you feel like you're failing in comparison. Self-doubt creeps in.",
-      reactions: [
-        {
-          id: 'resilient',
-          label: 'Resilient Response',
-          text: "I'm going to remind myself: 'Comparison steals joy. I don't know their full story, and they don't know mine. My journey is unique, and I'm doing my best with what I have. That's enough.'",
-          icon: Shield,
-          color: "from-green-500 to-emerald-600",
-          bgColor: "from-green-50 to-emerald-50",
-          borderColor: "border-green-300",
-          description: "Protecting yourself from comparison builds resilience. Your parenting journey is unique and valid."
-        },
-        {
-          id: 'reactive',
-          label: 'Reactive Response',
-          text: "I'm going to be hard on my child: 'Why can't you be like those other kids? Look how well-behaved they are. You need to do better. I'm clearly not doing something right.'",
-          icon: Flame,
-          color: "from-red-500 to-rose-600",
-          bgColor: "from-red-50 to-rose-50",
-          borderColor: "border-red-300",
-          description: "Reacting to comparison by criticizing your child damages their self-worth and your relationship."
-        },
-        {
-          id: 'withdrawn',
-          label: 'Withdrawn Response',
-          text: "I'll just avoid these events. I don't belong with parents who have it together. I'll keep to myself and stay away from comparisons.",
-          icon: Cloud,
-          color: "from-gray-500 to-slate-600",
-          bgColor: "from-gray-50 to-slate-50",
-          borderColor: "border-gray-300",
-          description: "Isolating yourself increases feelings of inadequacy. Connection with other parents can actually reduce comparison when done healthily."
-        }
       ]
     }
   ];
@@ -363,7 +256,7 @@ const BounceBackQuiz = () => {
     const { resilient, reactive, withdrawn } = responsePattern;
     const max = Math.max(resilient, reactive, withdrawn);
 
-    if (max === resilient && resilient >= 5) {
+    if (max === resilient && resilient >= 3) {  // Changed from >= 5 to >= 3 (majority of 5 questions)
       return {
         type: 'resilient',
         title: 'Resilient Pattern',
@@ -414,7 +307,7 @@ const BounceBackQuiz = () => {
         totalLevels={totalLevels}
         totalCoins={totalCoins}
         currentLevel={totalLevels}
-        allAnswersCorrect={score >= 5}
+        allAnswersCorrect={score >= 3}  // Changed from >= 5 to >= 3 (majority of 5 questions)
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}

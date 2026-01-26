@@ -14,11 +14,15 @@ const ForgiveYourselfJournal = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 1;
+  const totalLevels = gameData?.totalQuestions || 5; // Changed from 1 to 5 journal questions
   
+  const [currentQuestion, setCurrentQuestion] = useState(0); // Index of current question (0-4)
+  const [journalEntries, setJournalEntries] = useState(Array(5).fill(null).map(() => ({
+    note: "",
+    generatedAffirmation: null,
+    completed: false
+  })));
   const [step, setStep] = useState(1); // 1: Writing, 2: Affirmation
-  const [forgivenessNote, setForgivenessNote] = useState("");
-  const [generatedAffirmation, setGeneratedAffirmation] = useState(null);
   const [score, setScore] = useState(0);
   const [showGameOver, setShowGameOver] = useState(false);
 
@@ -86,17 +90,31 @@ const ForgiveYourselfJournal = () => {
   };
 
   const handleGenerateAffirmation = () => {
-    if (forgivenessNote.trim().length >= 15) {
-      const affirmation = generateAffirmation(forgivenessNote);
-      setGeneratedAffirmation(affirmation);
+    const currentEntry = journalEntries[currentQuestion];
+    if (currentEntry.note.trim().length >= 15) {
+      const affirmation = generateAffirmation(currentEntry.note);
+      const updatedEntries = [...journalEntries];
+      updatedEntries[currentQuestion].generatedAffirmation = affirmation;
+      updatedEntries[currentQuestion].completed = true;
+      setJournalEntries(updatedEntries);
       setStep(2);
-      setScore(1); // Award score for completing the journal entry
+      setScore(prev => prev + 1); // Award score for completing the journal entry
     }
   };
 
   const handleComplete = () => {
-    setShowGameOver(true);
-    setScore(prev => prev + 1); // Award score for viewing affirmation
+    if (currentQuestion < 4) {
+      // Move to next question
+      setCurrentQuestion(prev => prev + 1);
+      setStep(1);
+      // Reset the textarea for the next question
+      const updatedEntries = [...journalEntries];
+      updatedEntries[currentQuestion + 1].note = "";
+      setJournalEntries(updatedEntries);
+    } else {
+      // All questions completed
+      setShowGameOver(true);
+    }
   };
 
   if (showGameOver) {
@@ -110,8 +128,8 @@ const ForgiveYourselfJournal = () => {
         gameType="parent-education"
         totalLevels={totalLevels}
         totalCoins={totalCoins}
-        currentLevel={1}
-        allAnswersCorrect={score >= 2}
+        currentLevel={currentQuestion + 1}
+        allAnswersCorrect={score >= 5}
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -126,42 +144,42 @@ const ForgiveYourselfJournal = () => {
                 transition={{ type: "spring", stiffness: 200, damping: 10 }}
                 className="text-7xl mb-4"
               >
-                {generatedAffirmation?.emoji || "💙"}
+                💜
               </motion.div>
-              <h2 className="text-3xl font-bold text-gray-800 mb-4">Self-Forgiveness Complete</h2>
+              <h2 className="text-3xl font-bold text-gray-800 mb-4">Self-Forgiveness Journey Complete</h2>
               <p className="text-lg text-gray-600 mb-6">
-                You've taken a powerful step toward self-compassion and growth.
+                You've completed all {journalEntries.length} forgiveness exercises. Well done!
               </p>
             </div>
 
-            {/* Your Forgiveness Note */}
-            <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl p-6 border-2 border-purple-200 mb-6">
-              <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
-                <BookOpen className="w-6 h-6 text-purple-600" />
-                Your Forgiveness Note
-              </h3>
-              <div className="bg-white rounded-lg p-4 border border-purple-200">
-                <p className="text-gray-800 italic leading-relaxed">
-                  "I forgive myself for {forgivenessNote}"
-                </p>
-              </div>
-            </div>
-
-            {/* Generated Affirmation */}
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border-2 border-green-200 mb-6">
-              <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
-                <Sparkles className="w-6 h-6 text-green-600" />
-                Your Affirmation
-              </h3>
-              <div className="bg-white rounded-lg p-5 border border-green-200">
-                <p className="text-gray-800 leading-relaxed text-lg font-medium">
-                  {generatedAffirmation?.text}
-                </p>
-              </div>
+            {/* Summary of entries */}
+            <div className="space-y-6">
+              {journalEntries.map((entry, index) => (
+                <div key={index} className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl p-6 border-2 border-purple-200">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                    <BookOpen className="w-6 h-6 text-purple-600" />
+                    Entry {index + 1}: "{entry.note.substring(0, 50)}{entry.note.length > 50 ? '...' : ''}"
+                  </h3>
+                  <div className="bg-white rounded-lg p-4 border border-purple-200 mb-4">
+                    <p className="text-gray-800 italic leading-relaxed">
+                      "I forgive myself for {entry.note}"
+                    </p>
+                  </div>
+                  <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-4 border-2 border-green-200">
+                    <h4 className="font-bold text-gray-800 mb-2 flex items-center gap-2">
+                      <Sparkles className="w-5 h-5 text-green-600" />
+                      Your Affirmation
+                    </h4>
+                    <p className="text-gray-800 leading-relaxed">
+                      {entry.generatedAffirmation?.text}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
 
             {/* Parent Tip */}
-            <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-6 border-2 border-amber-200">
+            <div className="mt-8 bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-6 border-2 border-amber-200">
               <p className="text-gray-700 font-medium text-center">
                 <strong>💡 Parent Tip:</strong> Children learn forgiveness by watching you forgive yourself. When you model self-compassion after making mistakes, you're teaching your children that mistakes are normal, growth is possible, and self-forgiveness is a practice of self-love. Every time you forgive yourself, you're showing them how to do the same.
               </p>
@@ -175,14 +193,14 @@ const ForgiveYourselfJournal = () => {
   return (
     <ParentGameShell
       title={gameData?.title || "Forgive Yourself Journal"}
-      subtitle={step === 1 ? "Write Your Forgiveness Note" : "Your Affirmation"}
+      subtitle={`${step === 1 ? "Write Your Forgiveness Note" : "Your Affirmation"} (${currentQuestion + 1}/${journalEntries.length})`}
       showGameOver={false}
       score={score}
       gameId={gameId}
       gameType="parent-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentLevel={1}
+      currentLevel={currentQuestion + 1}
     >
       <div className="w-full max-w-4xl mx-auto px-4 py-6">
         <motion.div
@@ -208,19 +226,23 @@ const ForgiveYourselfJournal = () => {
                   I forgive myself for…
                 </label>
                 <textarea
-                  value={forgivenessNote}
-                  onChange={(e) => setForgivenessNote(e.target.value)}
+                  value={journalEntries[currentQuestion].note}
+                  onChange={(e) => {
+                    const updatedEntries = [...journalEntries];
+                    updatedEntries[currentQuestion].note = e.target.value;
+                    setJournalEntries(updatedEntries);
+                  }}
                   placeholder="Write freely about what you'd like to forgive yourself for. This is a safe space for self-compassion. (e.g., 'I forgive myself for losing my temper today, for not being patient, for feeling overwhelmed...')"
                   className="w-full h-48 p-4 border-2 border-purple-300 rounded-lg focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200 resize-none text-gray-700 text-base leading-relaxed"
                 />
                 <div className="flex items-center justify-between mt-3">
                   <p className="text-sm text-gray-600">
-                    {forgivenessNote.length} characters
-                    {forgivenessNote.trim().length >= 15 && (
+                    {journalEntries[currentQuestion].note.length} characters
+                    {journalEntries[currentQuestion].note.trim().length >= 15 && (
                       <span className="text-green-600 font-semibold ml-2">✓ Ready to continue</span>
                     )}
                   </p>
-                  {forgivenessNote.trim().length > 0 && forgivenessNote.trim().length < 15 && (
+                  {journalEntries[currentQuestion].note.trim().length > 0 && journalEntries[currentQuestion].note.trim().length < 15 && (
                     <p className="text-xs text-purple-600">
                       Please write at least 15 characters
                     </p>
@@ -247,7 +269,7 @@ const ForgiveYourselfJournal = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={handleGenerateAffirmation}
-                disabled={forgivenessNote.trim().length < 15}
+                disabled={journalEntries[currentQuestion].note.trim().length < 15}
                 className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
                 Generate My Affirmation
@@ -256,7 +278,7 @@ const ForgiveYourselfJournal = () => {
             </>
           )}
 
-          {step === 2 && generatedAffirmation && (
+          {step === 2 && journalEntries[currentQuestion].generatedAffirmation && (
             /* Affirmation Step */
             <>
               <div className="text-center mb-8">
@@ -266,7 +288,7 @@ const ForgiveYourselfJournal = () => {
                   transition={{ type: "spring", stiffness: 200, damping: 10 }}
                   className="text-7xl mb-4"
                 >
-                  {generatedAffirmation.emoji}
+                  {journalEntries[currentQuestion].generatedAffirmation.emoji}
                 </motion.div>
                 <h2 className="text-3xl font-bold text-gray-800 mb-4">Your Affirmation</h2>
                 <p className="text-gray-600 text-lg">
@@ -278,7 +300,7 @@ const ForgiveYourselfJournal = () => {
               <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl p-4 border-2 border-purple-200 mb-6">
                 <p className="text-sm font-semibold text-gray-700 mb-2">Your Note:</p>
                 <p className="text-gray-800 italic">
-                  "I forgive myself for {forgivenessNote.length > 100 ? forgivenessNote.substring(0, 100) + '...' : forgivenessNote}"
+                  "I forgive myself for {journalEntries[currentQuestion].note.length > 100 ? journalEntries[currentQuestion].note.substring(0, 100) + '...' : journalEntries[currentQuestion].note}"
                 </p>
               </div>
 
@@ -290,7 +312,7 @@ const ForgiveYourselfJournal = () => {
                 </div>
                 <div className="bg-white rounded-lg p-5 border border-green-200">
                   <p className="text-gray-800 leading-relaxed text-lg font-medium">
-                    {generatedAffirmation.text}
+                    {journalEntries[currentQuestion].generatedAffirmation?.text}
                   </p>
                 </div>
               </div>

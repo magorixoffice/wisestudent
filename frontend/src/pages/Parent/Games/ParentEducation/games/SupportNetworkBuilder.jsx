@@ -136,7 +136,7 @@ const SupportNetworkBuilder = () => {
 
   const handleComplete = () => {
     const totalPeople = innerCircle.length + outerCircle.length + backupCircle.length;
-    if (totalPeople >= 3) {
+    if (totalPeople >= 5) {
       setScore(Math.min(5, totalPeople)); // Score based on number of people (max 5)
       setStep(2);
       setShowGameOver(true);
@@ -158,7 +158,7 @@ const SupportNetworkBuilder = () => {
         totalLevels={totalLevels}
         totalCoins={totalCoins}
         currentLevel={1}
-        allAnswersCorrect={score >= 3}
+        allAnswersCorrect={score >= 5}
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -275,7 +275,7 @@ const SupportNetworkBuilder = () => {
               </motion.button>
             </div>
             <p className="text-xs text-gray-600 mt-2">
-              Add at least 3 people to continue. You can add family, friends, professionals, or support groups.
+              Add at least 5 people to continue. You can add family, friends, professionals, or support groups.
             </p>
           </div>
 
@@ -452,11 +452,11 @@ const SupportNetworkBuilder = () => {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={handleComplete}
-            disabled={totalPeople < 3}
+            disabled={totalPeople < 5}
             className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
             <CheckCircle className="w-5 h-5" />
-            Complete Network ({totalPeople >= 3 ? 'Ready' : `Need ${3 - totalPeople} more`})
+            Complete Network ({totalPeople >= 5 ? 'Ready' : `Need ${5 - totalPeople} more`})
           </motion.button>
         </motion.div>
       </div>

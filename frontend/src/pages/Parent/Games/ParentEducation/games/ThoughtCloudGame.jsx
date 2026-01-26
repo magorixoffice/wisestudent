@@ -18,229 +18,162 @@ const ThoughtCloudGame = () => {
   
   const [currentSession, setCurrentSession] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [thoughts, setThoughts] = useState([]);
-  const [labeledThoughts, setLabeledThoughts] = useState([]);
+  const [userSelections, setUserSelections] = useState({}); // Track user selections for each option
   const [score, setScore] = useState(0);
   const [showGameOver, setShowGameOver] = useState(false);
-  const [selectedThought, setSelectedThought] = useState(null);
 
-  const thoughtIdRef = useRef(0);
-  const spawnIntervalRef = useRef(null);
 
-  // Thought scenarios with different types of thoughts
+
+  // Fixed questions with 5 options each to identify as useful or ignore
   const sessions = [
     {
       id: 1,
-      title: "Morning Thoughts",
-      description: "Observe your morning thoughts as they float by. Label each as 'Useful' or 'Let Go' without getting lost in them.",
-      context: "Your mind is active with thoughts about the day ahead. Notice them like clouds—watch, don't chase.",
-      thoughtPool: [
-        "I have so much to do today",
-        "I hope my child has a good day at school",
-        "I'm already behind schedule",
-        "Today will be better than yesterday",
-        "I forgot to prepare lunch",
-        "I'm grateful for this moment",
-        "Everything feels overwhelming",
-        "I can handle what comes my way",
-        "I'm worried about the meeting",
-        "Each moment is a fresh start"
+      title: "Identifying Helpful Thoughts",
+      description: "Look at these 5 thoughts and identify which ones are helpful/useful for your mental wellbeing.",
+      context: "In this exercise, you'll practice distinguishing between helpful and unhelpful thoughts. This skill helps you focus on thoughts that serve you.",
+      options: [
+        { id: 1, text: "I can handle what comes my way", isUseful: true },
+        { id: 3, text: "Each day is a fresh start", isUseful: true },
+        { id: 2, text: "I'm overwhelmed and can't cope", isUseful: false },
+        { id: 4, text: "Everyone else has it figured out", isUseful: false },
+        { id: 5, text: "I'm learning and growing daily", isUseful: true }
       ],
-      parentTip: "Notice thoughts like clouds—watch, don't chase. When you observe thoughts without getting lost in them, you teach your child the same skill. They'll learn to notice their thoughts without being controlled by them."
+      parentTip: "Teaching yourself to identify helpful thoughts helps you model emotional regulation for your child. They'll learn to notice which thoughts serve them and which don't."
     },
     {
       id: 2,
-      title: "Parenting Thoughts",
-      description: "Watch thoughts about parenting float by. Observe them mindfully and decide which serve you.",
-      context: "Thoughts about your child, your parenting, your worries. See them as passing clouds.",
-      thoughtPool: [
-        "Am I doing enough for my child?",
-        "My child is capable and growing",
-        "I made a mistake yesterday",
-        "I'm learning and improving every day",
-        "Other parents seem to have it together",
-        "Every parent has their own journey",
-        "I'm worried about my child's future",
-        "I can only control this moment",
-        "I'm not good enough",
-        "I'm doing my best with what I have"
+      title: "Parenting Perspective",
+      description: "Evaluate these 5 parenting-related thoughts and identify which ones are constructive.",
+      context: "As a parent, recognizing helpful versus unhelpful thoughts impacts not just you, but also models emotional intelligence for your child.",
+      options: [
+        { id: 1, text: "My child is capable and growing", isUseful: true },
+        { id: 2, text: "I'm not good enough as a parent", isUseful: false },
+        { id: 3, text: "Every parent has their own journey", isUseful: true },
+        { id: 5, text: "I can only control this moment", isUseful: true },
+        { id: 4, text: "Other parents seem to have it together", isUseful: false },
       ],
-      parentTip: "When you observe thoughts without getting lost in them, you model emotional regulation for your child. They see you notice thoughts, label them, and let them go. This becomes their blueprint."
+      parentTip: "When you model thoughtful evaluation of your thoughts, you teach your child to do the same. They learn that thoughts aren't facts—they can be examined and evaluated."
     },
     {
       id: 3,
-      title: "Work-Life Balance Thoughts",
-      description: "Observe thoughts about work and life balance. Watch them float by without getting caught.",
-      context: "Thoughts about work, family balance, responsibilities. Notice them, label them, let them pass.",
-      thoughtPool: [
-        "I need to finish this project",
-        "Family time is important too",
-        "I'm spread too thin",
-        "I can prioritize and manage",
-        "Work is taking over my life",
-        "I'm learning to set boundaries",
-        "I'm missing important moments",
-        "I'm present when I'm present",
-        "Nothing is ever enough",
-        "Each day is a chance to balance"
+      title: "Work-Life Balance",
+      description: "Assess these 5 thoughts about work-life balance and determine which support your wellbeing.",
+      context: "Balancing responsibilities requires recognizing thoughts that empower versus those that disempower you.",
+      options: [
+        { id: 1, text: "I need to finish this project", isUseful: true },
+        { id: 2, text: "I'm spread too thin", isUseful: false },
+        { id: 4, text: "Work is taking over my life", isUseful: false },
+        { id: 3, text: "I can prioritize and manage", isUseful: true },
+        { id: 5, text: "I'm learning to set boundaries", isUseful: true }
       ],
-      parentTip: "Thoughts come and go. When you practice observing them like clouds—noticing but not chasing—you create space between stimulus and response. That space is where wise parenting happens."
+      parentTip: "Children learn about balance by watching how you manage your own thoughts and priorities. Your ability to distinguish helpful from unhelpful thoughts sets an example."
     },
     {
       id: 4,
-      title: "Stress Thoughts",
-      description: "Watch stressful thoughts float by. Observe them without getting lost in their stories.",
-      context: "Anxious, worried, or stressful thoughts. See them as temporary clouds passing through the sky.",
-      thoughtPool: [
-        "What if something goes wrong?",
-        "I can handle challenges as they come",
-        "Everything feels out of control",
-        "I can control my response",
-        "I'm not prepared for this",
-        "I have tools and resources",
-        "This will never get better",
-        "Things change and evolve",
-        "I can't cope with this stress",
-        "I've handled difficult things before"
+      title: "Managing Stress",
+      description: "Review these 5 stress-related thoughts and identify which ones promote resilience.",
+      context: "Stress management begins with recognizing thoughts that increase stress versus those that help you cope.",
+      options: [
+        { id: 1, text: "I can handle challenges as they come", isUseful: true },
+        { id: 2, text: "Everything feels out of control", isUseful: false },
+        { id: 3, text: "I can control my response", isUseful: true },
+        { id: 4, text: "I can't cope with this stress", isUseful: false },
+        { id: 5, text: "I've handled difficult things before", isUseful: true }
       ],
-      parentTip: "The practice of observing thoughts like clouds teaches your child emotional regulation. They learn that thoughts are temporary, and they don't have to be controlled by every thought that appears."
+      parentTip: "Your approach to managing stressful thoughts directly impacts how your child learns to manage their own emotions. Demonstrating thought evaluation builds their resilience."
     },
     {
       id: 5,
-      title: "Gratitude Thoughts",
-      description: "Notice thoughts of both worry and gratitude. Observe them all with equal attention.",
-      context: "A mix of thoughts—some useful, some to let go. Practice observing them all without judgment.",
-      thoughtPool: [
-        "I'm grateful for my family",
-        "I wish things were different",
-        "Today has been challenging",
-        "I'm learning from every experience",
-        "I'm blessed to be a parent",
-        "I'm not good at this",
-        "I'm growing every day",
-        "I compare myself to others",
-        "My journey is unique",
-        "I'm thankful for this moment"
+      title: "Gratitude and Growth",
+      description: "Consider these 5 thoughts and identify which ones foster gratitude and personal growth.",
+      context: "Cultivating awareness of thoughts that promote gratitude and growth enhances overall wellbeing for you and your family.",
+      options: [
+        { id: 1, text: "I'm grateful for my family", isUseful: true },
+        { id: 2, text: "I wish things were different", isUseful: false },
+        { id: 4, text: "I compare myself to others", isUseful: false },
+        { id: 3, text: "I'm growing every day", isUseful: true },
+        { id: 5, text: "My journey is unique", isUseful: true }
       ],
-      parentTip: "When you practice observing thoughts without attachment, you teach your child resilience. They learn that thoughts don't define them—they're temporary clouds in the sky of awareness. Watch, don't chase."
+      parentTip: "Practicing gratitude and growth-oriented thinking creates a positive environment for your child. They learn to focus on what's going well and their own unique path."
     }
   ];
 
   const currentSessionData = sessions[currentSession];
 
-  // Spawn a new thought cloud
-  const spawnThought = () => {
-    if (thoughts.length >= 10) return; // Max 10 thoughts at once
-    
-    const availableThoughts = currentSessionData.thoughtPool.filter(
-      t => !thoughts.some(th => th.text === t) && !labeledThoughts.some(lt => lt.text === t)
-    );
-    
-    if (availableThoughts.length === 0) {
-      // All thoughts used, restart pool for this session
-      if (thoughts.length === 0 && labeledThoughts.length >= 5) {
-        // Ready for next session
-        return;
-      }
-      return;
-    }
-
-    const randomThought = availableThoughts[Math.floor(Math.random() * availableThoughts.length)];
-    const newThought = {
-      id: thoughtIdRef.current++,
-      text: randomThought,
-      x: Math.random() * 80 + 10, // Random horizontal position (10-90%)
-      y: 100, // Start from bottom
-      speed: 0.3 + Math.random() * 0.4, // Random speed
-      opacity: 1
-    };
-
-    setThoughts(prev => [...prev, newThought]);
-  };
+  
 
   // Start the session
   const startSession = () => {
     setIsPlaying(true);
-    setThoughts([]);
-    setLabeledThoughts([]);
-    setSelectedThought(null);
-    thoughtIdRef.current = 0;
-    
-    // Spawn first thought
-    spawnThought();
-    
-    // Spawn thoughts every 2-4 seconds
-    spawnIntervalRef.current = setInterval(() => {
-      spawnThought();
-    }, 2500);
   };
 
-  // Update thought positions (floating animation)
-  useEffect(() => {
-    if (!isPlaying) return;
+  
 
-    const interval = setInterval(() => {
-      setThoughts(prev => 
-        prev.map(thought => ({
-          ...thought,
-          y: thought.y - thought.speed,
-          opacity: thought.y < 20 ? 0 : 1 // Fade out at top
-        })).filter(thought => thought.y > -10 && thought.opacity > 0) // Remove off-screen thoughts
-      );
-    }, 50); // Update every 50ms for smooth animation
+  
 
-    return () => clearInterval(interval);
-  }, [isPlaying]);
-
-  // Handle thought click - show label options
-  const handleThoughtClick = (thought) => {
-    setSelectedThought(thought);
+  // Handle option selection
+  const handleOptionSelection = (optionId, userChoice) => {
+    setUserSelections(prev => ({
+      ...prev,
+      [optionId]: userChoice // 'useful' or 'ignore'
+    }));
   };
 
-  // Label a thought
-  const handleLabelThought = (label) => {
-    if (!selectedThought) return;
-
-    const labeled = {
-      ...selectedThought,
-      label: label, // 'useful' or 'letgo'
-      labeledAt: Date.now()
-    };
-
-    setLabeledThoughts(prev => [...prev, labeled]);
-    setThoughts(prev => prev.filter(t => t.id !== selectedThought.id));
-    setSelectedThought(null);
-    setScore(prev => prev + 1);
-
-    // Check if session is complete (at least 5 thoughts labeled)
-    if (labeledThoughts.length >= 4) {
-      setTimeout(() => {
-        setIsPlaying(false);
-        if (spawnIntervalRef.current) {
-          clearInterval(spawnIntervalRef.current);
-        }
-      }, 1000);
+  // Calculate if current session is completed correctly
+  const isSessionCompleted = () => {
+    const currentOptions = sessions[currentSession].options;
+    for (const option of currentOptions) {
+      const userSelection = userSelections[`${currentSession}-${option.id}`];
+      if (!userSelection) return false; // Not all options selected yet
+      
+      // Check if user's selection matches the correct answer
+      const isCorrect = (userSelection === 'useful') === option.isUseful;
+      if (!isCorrect) return false; // At least one wrong answer
     }
+    return true; // All selections are correct
   };
+
+  // Check if all options in session are selected
+  const isSessionAttempted = () => {
+    const currentOptions = sessions[currentSession].options;
+    return currentOptions.every(option => userSelections[`${currentSession}-${option.id}`]);
+  };
+
+  // Effect to check if session is complete and auto-proceed if needed
+  useEffect(() => {
+    if (isPlaying && isSessionAttempted()) {
+      // Auto-proceed after a brief delay to let user see results
+      const timer = setTimeout(() => {
+        // Award score if session completed correctly
+        if (isSessionCompleted() && score < totalLevels) {
+          setScore(prev => prev + 1);
+        }
+        
+        if (currentSession < sessions.length - 1) {
+          setCurrentSession(prev => prev + 1);
+          setIsPlaying(false);
+        } else {
+          setShowGameOver(true);
+        }
+      }, 2000); // Wait 2 seconds before auto-proceeding
+      
+      return () => clearTimeout(timer);
+    }
+  }, [userSelections, isPlaying, currentSession]);
 
   // Handle next session
   const handleNext = () => {
     if (currentSession < sessions.length - 1) {
       setCurrentSession(prev => prev + 1);
       setIsPlaying(false);
-      setThoughts([]);
-      setLabeledThoughts([]);
-      setSelectedThought(null);
-      if (spawnIntervalRef.current) {
-        clearInterval(spawnIntervalRef.current);
-      }
     } else {
       setShowGameOver(true);
     }
   };
 
   const progress = ((currentSession + 1) / totalLevels) * 100;
-  const sessionComplete = labeledThoughts.length >= 5;
+  const sessionComplete = isSessionCompleted();
+  const sessionAttempted = isSessionAttempted();
 
   if (showGameOver) {
     return (
@@ -254,7 +187,7 @@ const ThoughtCloudGame = () => {
         totalLevels={totalLevels}
         totalCoins={totalCoins}
         currentLevel={totalLevels}
-        allAnswersCorrect={score >= totalLevels * 4}
+        allAnswersCorrect={score >= totalLevels}
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -324,26 +257,26 @@ const ThoughtCloudGame = () => {
             </div>
           </div>
 
-          {!isPlaying && !sessionComplete && (
+          {!isPlaying && (
             /* Start screen */
             <div className="text-center space-y-6">
               <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-8 border-2 border-blue-200">
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">Observe Your Thoughts</h3>
+                <h3 className="text-2xl font-bold text-gray-800 mb-4">Thought Classification Practice</h3>
                 <p className="text-gray-700 mb-6">
-                  Watch thoughts float by like clouds in the sky. Tap on each thought cloud to label it as "Useful" or "Let Go." Observe without getting lost in them.
+                  In this exercise, you'll review 5 thoughts in each session and classify each as either "Useful" or "Ignore". Focus on thoughts that serve your wellbeing.
                 </p>
                 <div className="flex items-center justify-center gap-6 mb-6 text-gray-600">
                   <div className="flex items-center gap-2">
                     <Eye className="w-5 h-5" />
-                    <span>Observe</span>
+                    <span>Review</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Cloud className="w-5 h-5" />
-                    <span>Watch thoughts</span>
+                    <span>Classify</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Sparkles className="w-5 h-5" />
-                    <span>Label & let go</span>
+                    <span>Decide</span>
                   </div>
                 </div>
                 <motion.button
@@ -353,153 +286,114 @@ const ThoughtCloudGame = () => {
                   className="bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 text-white px-8 py-4 rounded-xl font-bold text-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-3 mx-auto"
                 >
                   <Cloud className="w-6 h-6" />
-                  Start Observing Thoughts
+                  Begin Session {currentSession + 1}
                 </motion.button>
               </div>
             </div>
           )}
 
           {isPlaying && (
-            /* Thought cloud animation area */
-            <div className="relative bg-gradient-to-b from-blue-100 via-sky-50 to-white rounded-xl h-96 border-2 border-blue-200 overflow-hidden mb-6">
-              <p className="absolute top-4 left-4 text-sm text-gray-600 flex items-center gap-2 z-10">
-                <Eye className="w-4 h-4" />
-                <span>Labeled: {labeledThoughts.length} / 5 thoughts</span>
-              </p>
-
-              <AnimatePresence>
-                {thoughts.map((thought) => (
-                  <motion.div
-                    key={thought.id}
-                    initial={{ y: 100, opacity: 0 }}
-                    animate={{ 
-                      y: thought.y,
-                      opacity: thought.opacity,
-                      x: [thought.x, thought.x + Math.sin(thought.id) * 10] // Gentle sway
-                    }}
-                    exit={{ opacity: 0 }}
-                    transition={{ 
-                      duration: 0.1,
-                      x: {
-                        duration: 3,
-                        repeat: Infinity,
-                        repeatType: "reverse",
-                        ease: "easeInOut"
-                      }
-                    }}
-                    onClick={() => handleThoughtClick(thought)}
-                    className={`absolute cursor-pointer ${
-                      selectedThought?.id === thought.id
-                        ? 'ring-4 ring-indigo-400 ring-offset-2'
-                        : 'hover:scale-110'
-                    }`}
-                    style={{
-                      left: `${thought.x}%`,
-                      transform: 'translate(-50%, -50%)'
-                    }}
-                  >
+            /* Options display area */
+            <div className="mb-8">
+              <div className="space-y-4">
+                {currentSessionData.options.map((option) => {
+                  const optionKey = `${currentSession}-${option.id}`;
+                  const userSelection = userSelections[optionKey];
+                  const isCorrect = userSelection ? (userSelection === 'useful') === option.isUseful : null;
+                  
+                  return (
                     <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="bg-white/90 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg border-2 border-gray-200 min-w-[120px] text-center"
+                      key={option.id}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="p-4 rounded-lg border-2 bg-white shadow-sm"
                     >
-                      <Cloud className="w-6 h-6 text-gray-400 mx-auto mb-1" />
-                      <p className="text-sm font-medium text-gray-800 whitespace-nowrap">
-                        {thought.text}
-                      </p>
-                    </motion.div>
-                  </motion.div>
-                ))}
-              </AnimatePresence>
-
-              {/* Label selection modal for selected thought */}
-              {selectedThought && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="absolute inset-0 flex items-center justify-center bg-black/20 backdrop-blur-sm z-50"
-                  onClick={() => setSelectedThought(null)}
-                >
-                  <motion.div
-                    initial={{ y: 20 }}
-                    animate={{ y: 0 }}
-                    onClick={(e) => e.stopPropagation()}
-                    className="bg-white rounded-xl p-6 shadow-2xl border-2 border-indigo-300 max-w-md mx-4"
-                  >
-                    <h4 className="font-bold text-gray-800 mb-4 text-center">Label This Thought</h4>
-                    <p className="text-center text-gray-600 mb-6 italic">"{selectedThought.text}"</p>
-                    <div className="flex gap-4">
-                      <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        onClick={() => handleLabelThought('useful')}
-                        className="flex-1 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
-                      >
-                        <CheckCircle className="w-5 h-5" />
-                        Useful
-                      </motion.button>
-                      <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        onClick={() => handleLabelThought('letgo')}
-                        className="flex-1 bg-gradient-to-r from-red-500 to-rose-500 text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
-                      >
-                        <XCircle className="w-5 h-5" />
-                        Let Go
-                      </motion.button>
-                    </div>
-                  </motion.div>
-                </motion.div>
-              )}
-            </div>
-          )}
-
-          {/* Labeled thoughts summary */}
-          {labeledThoughts.length > 0 && (
-            <div className="mb-6">
-              <h4 className="font-semibold text-gray-800 mb-3">Thoughts You've Labeled:</h4>
-              <div className="grid md:grid-cols-2 gap-3">
-                {labeledThoughts.map((thought) => (
-                  <motion.div
-                    key={thought.id}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    className={`p-3 rounded-lg border-2 ${
-                      thought.label === 'useful'
-                        ? 'bg-green-50 border-green-300'
-                        : 'bg-red-50 border-red-300'
-                    }`}
-                  >
-                    <div className="flex items-start gap-2">
-                      {thought.label === 'useful' ? (
-                        <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                      ) : (
-                        <XCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
-                      )}
-                      <div className="flex-1">
-                        <p className="text-sm text-gray-800">{thought.text}</p>
-                        <p className="text-xs text-gray-600 mt-1">
-                          {thought.label === 'useful' ? '✓ Useful' : '✗ Let Go'}
-                        </p>
+                      <div className="flex flex-col md:flex-row md:items-center gap-4">
+                        <div className="flex-1">
+                          <p className="text-gray-800 font-medium">{option.text}</p>
+                        </div>
+                        <div className="flex gap-2">
+                          <button
+                            onClick={() => !userSelection && handleOptionSelection(optionKey, 'useful')}
+                            disabled={!!userSelection}
+                            className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                              userSelection === 'useful'
+                                ? 'bg-green-500 text-white'
+                                : userSelection 
+                                  ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                                  : 'bg-gray-100 text-gray-700 hover:bg-green-100'
+                            }`}
+                          >
+                            Useful
+                          </button>
+                          <button
+                            onClick={() => !userSelection && handleOptionSelection(optionKey, 'ignore')}
+                            disabled={!!userSelection}
+                            className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                              userSelection === 'ignore'
+                                ? 'bg-red-500 text-white'
+                                : userSelection 
+                                  ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                                  : 'bg-gray-100 text-gray-700 hover:bg-red-100'
+                            }`}
+                          >
+                            Ignore
+                          </button>
+                        </div>
                       </div>
-                    </div>
-                  </motion.div>
-                ))}
+                      {userSelection && (
+                        <div className="mt-2 text-sm">
+                          {isCorrect ? (
+                            <span className="text-green-600 flex items-center gap-1">
+                              <CheckCircle className="w-4 h-4" /> Correct
+                            </span>
+                          ) : (
+                            <span className="text-red-600 flex items-center gap-1">
+                              <XCircle className="w-4 h-4" /> Incorrect
+                            </span>
+                          )}
+                        </div>
+                      )}
+                    </motion.div>
+                  );
+                })}
               </div>
             </div>
           )}
 
-          {sessionComplete && !isPlaying && (
+          {/* Session status display */}
+          {isPlaying && (
+            <div className="mb-6">
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-sm text-gray-600">
+                  Status: {Object.keys(userSelections).filter(key => key.startsWith(`${currentSession}-`)).length}/5 selected
+                </span>
+                {sessionComplete && (
+                  <span className="text-green-600 font-semibold">✓ All Correct!</span>
+                )}
+              </div>
+            </div>
+          )}
+
+          {sessionAttempted && !isPlaying && (
             /* Session complete */
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-8 border-2 border-green-300 text-center"
+              className={`rounded-xl p-8 border-2 text-center ${
+                sessionComplete 
+                  ? 'bg-gradient-to-br from-green-50 to-emerald-50 border-green-300' 
+                  : 'bg-gradient-to-br from-yellow-50 to-amber-50 border-yellow-300'
+              }`}
             >
-              <div className="text-6xl mb-4">✨</div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">Session Complete!</h3>
+              <div className="text-6xl mb-4">{sessionComplete ? '✨' : '💭'}</div>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                {sessionComplete ? 'Session Complete!' : 'Session Finished'}
+              </h3>
               <p className="text-gray-700 mb-6">
-                You've successfully observed and labeled {labeledThoughts.length} thoughts. Great practice in mindful observation!
+                {sessionComplete
+                  ? 'Great job! You correctly identified all useful thoughts.'
+                  : 'Try again! Review the correct answers to improve your thought classification skills.'}
               </p>
               <motion.button
                 whileHover={{ scale: 1.05 }}

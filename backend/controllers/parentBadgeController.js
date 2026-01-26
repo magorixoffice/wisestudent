@@ -848,11 +848,13 @@ export const collectPresentParentBadge = async (userId) => {
     );
 
     if (existingBadge) {
+      const gamesStatus = await checkPresentParentGamesCompleted(userId);
       return {
         success: true,
         badgeEarned: false,
         alreadyEarned: true,
         badge: existingBadge,
+        gamesStatus,
         message: 'Badge already collected'
       };
     }
@@ -904,8 +906,10 @@ export const collectPresentParentBadge = async (userId) => {
     return {
       success: true,
       badgeEarned: true,
+      alreadyEarned: false,
       badge: badgeData,
-      message: 'Present Parent Badge collected successfully!'
+      gamesStatus,
+      message: 'Badge collected successfully!'
     };
   } catch (error) {
     console.error('Error collecting Present Parent Badge:', error);
@@ -961,7 +965,18 @@ export const collectPresentParentBadgeEndpoint = async (req, res) => {
     }
 
     const result = await collectPresentParentBadge(userId);
-    res.json(result);
+    
+    if (result.success) {
+      res.json({
+        success: true,
+        ...result
+      });
+    } else {
+      res.status(400).json({
+        success: false,
+        ...result
+      });
+    }
   } catch (error) {
     console.error('Error collecting Present Parent Badge:', error);
     res.status(500).json({
@@ -1073,11 +1088,13 @@ export const collectMindfulParentBadge = async (userId) => {
     );
 
     if (existingBadge) {
+      const gamesStatus = await checkMindfulParentGamesCompleted(userId);
       return {
         success: true,
         badgeEarned: false,
         alreadyEarned: true,
         badge: existingBadge,
+        gamesStatus,
         message: 'Badge already collected'
       };
     }
@@ -1129,8 +1146,10 @@ export const collectMindfulParentBadge = async (userId) => {
     return {
       success: true,
       badgeEarned: true,
+      alreadyEarned: false,
       badge: badgeData,
-      message: 'Mindful Parent Badge collected successfully!'
+      gamesStatus,
+      message: 'Badge collected successfully!'
     };
   } catch (error) {
     console.error('Error collecting Mindful Parent Badge:', error);
@@ -1186,7 +1205,18 @@ export const collectMindfulParentBadgeEndpoint = async (req, res) => {
     }
 
     const result = await collectMindfulParentBadge(userId);
-    res.json(result);
+    
+    if (result.success) {
+      res.json({
+        success: true,
+        ...result
+      });
+    } else {
+      res.status(400).json({
+        success: false,
+        ...result
+      });
+    }
   } catch (error) {
     console.error('Error collecting Mindful Parent Badge:', error);
     res.status(500).json({
@@ -1335,7 +1365,9 @@ export const collectResilientParentBadge = async (userId) => {
       badgeId: 'resilient-parent',
       description: 'Recognize parents who recover and grow through challenges',
       earnedAt: new Date(),
-      category: 'resilience'
+      category: 'resilience',
+      icon: '💪',
+      message: 'You rise, your family rises.'
     };
 
     if (!user.badges) {
@@ -1419,7 +1451,18 @@ export const collectResilientParentBadgeEndpoint = async (req, res) => {
     }
 
     const result = await collectResilientParentBadge(userId);
-    res.json(result);
+    
+    if (result.success) {
+      res.json({
+        success: true,
+        ...result
+      });
+    } else {
+      res.status(400).json({
+        success: false,
+        ...result
+      });
+    }
   } catch (error) {
     console.error('Error collecting Resilient Parent Badge:', error);
     res.status(500).json({
@@ -1568,7 +1611,9 @@ export const collectPeacefulCommunicatorBadge = async (userId) => {
       badgeId: 'peaceful-communicator',
       description: 'Reward parents who maintain emotional clarity and respect in dialogue',
       earnedAt: new Date(),
-      category: 'communication'
+      category: 'communication',
+      icon: '🗣️',
+      message: 'Your calm words heal hearts.'
     };
 
     if (!user.badges) {
@@ -1652,7 +1697,18 @@ export const collectPeacefulCommunicatorBadgeEndpoint = async (req, res) => {
     }
 
     const result = await collectPeacefulCommunicatorBadge(userId);
-    res.json(result);
+    
+    if (result.success) {
+      res.json({
+        success: true,
+        ...result
+      });
+    } else {
+      res.status(400).json({
+        success: false,
+        ...result
+      });
+    }
   } catch (error) {
     console.error('Error collecting Peaceful Communicator Badge:', error);
     res.status(500).json({
@@ -1664,7 +1720,7 @@ export const collectPeacefulCommunicatorBadgeEndpoint = async (req, res) => {
 };
 
 /**
- * Check if all required connection games (70, 72, 73, 74, 77) are completed
+ * Check if all required connection games (71, 73, 74, 75, 78) are completed
  */
 export const checkConnectedParentGamesCompleted = async (userId) => {
   try {
@@ -1756,7 +1812,7 @@ export const checkConnectedParentBadgeStatus = async (userId) => {
 
 /**
  * Collect/Award Connected Parent Badge
- * Only awards if all required games (70, 72, 73, 74, 77) are completed
+ * Only awards if all required games (71, 73, 74, 75, 78) are completed
  */
 export const collectConnectedParentBadge = async (userId) => {
   try {
@@ -1801,7 +1857,9 @@ export const collectConnectedParentBadge = async (userId) => {
       badgeId: 'connected-parent',
       description: 'Celebrate consistent efforts to nurture supportive relationships',
       earnedAt: new Date(),
-      category: 'connection'
+      category: 'connection',
+      icon: '👥',
+      message: 'Connection is your family\'s invisible strength.'
     };
 
     if (!user.badges) {
@@ -1885,7 +1943,18 @@ export const collectConnectedParentBadgeEndpoint = async (req, res) => {
     }
 
     const result = await collectConnectedParentBadge(userId);
-    res.json(result);
+    
+    if (result.success) {
+      res.json({
+        success: true,
+        ...result
+      });
+    } else {
+      res.status(400).json({
+        success: false,
+        ...result
+      });
+    }
   } catch (error) {
     console.error('Error collecting Connected Parent Badge:', error);
     res.status(500).json({
@@ -1989,7 +2058,7 @@ export const checkPurposefulParentBadgeStatus = async (userId) => {
 
 /**
  * Collect/Award Purposeful Parent Badge
- * Only awards if all required games (80, 81, 83, 84, 86) are completed
+ * Only awards if all required games (81, 82, 84, 85, 87) are completed
  */
 export const collectPurposefulParentBadge = async (userId) => {
   try {
@@ -2034,7 +2103,9 @@ export const collectPurposefulParentBadge = async (userId) => {
       badgeId: 'purposeful-parent',
       description: 'Celebrate parents who raise families guided by love and intention',
       earnedAt: new Date(),
-      category: 'purpose'
+      category: 'purpose',
+      icon: '🎯',
+      message: 'Your purpose becomes your child\'s compass.'
     };
 
     if (!user.badges) {
@@ -2118,7 +2189,18 @@ export const collectPurposefulParentBadgeEndpoint = async (req, res) => {
     }
 
     const result = await collectPurposefulParentBadge(userId);
-    res.json(result);
+    
+    if (result.success) {
+      res.json({
+        success: true,
+        ...result
+      });
+    } else {
+      res.status(400).json({
+        success: false,
+        ...result
+      });
+    }
   } catch (error) {
     console.error('Error collecting Purposeful Parent Badge:', error);
     res.status(500).json({
@@ -2270,7 +2352,9 @@ export const collectSelfCareChampionBadge = async (userId) => {
       badgeId: 'self-care-champion',
       description: 'Reward parents who consistently model self-care and digital discipline',
       earnedAt: new Date(),
-      category: 'self-care'
+      category: 'self-care',
+      icon: '🛀',
+      message: 'When you care for yourself, you teach your child how to live with peace.'
     };
 
     if (!user.badges) {
@@ -2294,6 +2378,7 @@ export const collectSelfCareChampionBadge = async (userId) => {
     return {
       success: true,
       badgeEarned: true,
+      alreadyEarned: false,
       badge: badgeData,
       gamesStatus,
       message: 'Badge collected successfully!'
@@ -2314,8 +2399,20 @@ export const collectSelfCareChampionBadge = async (userId) => {
 export const getSelfCareChampionBadgeStatusEndpoint = async (req, res) => {
   try {
     const userId = req.user._id;
+    
+    // Validate parent role
+    if (req.user.role !== 'parent') {
+      return res.status(403).json({
+        success: false,
+        error: 'Only parents can access parent badges'
+      });
+    }
+    
     const status = await checkSelfCareChampionBadgeStatus(userId);
-    res.json(status);
+    res.json({
+      success: true,
+      ...status
+    });
   } catch (error) {
     console.error('Error getting Self-Care Champion Badge status:', error);
     res.status(500).json({
@@ -2332,12 +2429,27 @@ export const getSelfCareChampionBadgeStatusEndpoint = async (req, res) => {
 export const collectSelfCareChampionBadgeEndpoint = async (req, res) => {
   try {
     const userId = req.user._id;
+    
+    // Validate parent role
+    if (req.user.role !== 'parent') {
+      return res.status(403).json({
+        success: false,
+        error: 'Only parents can collect parent badges'
+      });
+    }
+    
     const result = await collectSelfCareChampionBadge(userId);
     
     if (result.success) {
-      res.json(result);
+      res.json({
+        success: true,
+        ...result
+      });
     } else {
-      res.status(400).json(result);
+      res.status(400).json({
+        success: false,
+        ...result
+      });
     }
   } catch (error) {
     console.error('Error collecting Self-Care Champion Badge:', error);

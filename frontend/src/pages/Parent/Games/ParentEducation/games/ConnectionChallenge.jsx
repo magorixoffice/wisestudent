@@ -9,7 +9,7 @@ const ConnectionChallenge = () => {
   const location = useLocation();
   
   // Get game data
-  const gameId = "parent-education-72";
+  const gameId = "parent-education-73";
   const gameData = getParentEducationGameById(gameId);
   
   // Get game props from location.state or gameData
@@ -145,8 +145,8 @@ const ConnectionChallenge = () => {
   ];
 
   const handleSelectChallenge = (challengeId) => {
-    if (selectedChallenges.length >= 3 && !selectedChallenges.includes(challengeId)) {
-      return; // Can only select 3
+    if (selectedChallenges.length >= 5 && !selectedChallenges.includes(challengeId)) {
+      return; // Can only select 5
     }
     
     setSelectedChallenges(prev => {
@@ -154,8 +154,8 @@ const ConnectionChallenge = () => {
         // Deselect
         return prev.filter(id => id !== challengeId);
       } else {
-        // Select (max 3)
-        if (prev.length < 3) {
+        // Select (max 5)
+        if (prev.length < 5) {
           return [...prev, challengeId];
         }
         return prev;
@@ -206,13 +206,13 @@ const ConnectionChallenge = () => {
         title={gameData?.title || "Connection Challenge"}
         subtitle="Challenge Complete!"
         showGameOver={true}
-        score={connectionPoints}
+        score={completedChallenges.length}
         gameId={gameId}
         gameType="parent-education"
-        totalLevels={totalLevels}
+        totalLevels={selectedChallenges.length}
         totalCoins={totalCoins}
-        currentLevel={totalLevels}
-        allAnswersCorrect={completedChallenges.length >= 3}
+        currentLevel={selectedChallenges.length}
+        allAnswersCorrect={completedChallenges.length >= selectedChallenges.length}
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -245,9 +245,9 @@ const ConnectionChallenge = () => {
                 </div>
               </div>
               <p className="text-sm opacity-90">
-                {connectionPoints >= 40 
+                {connectionPoints >= 60 
                   ? "Amazing! You've created powerful connections and strengthened your relationships."
-                  : connectionPoints >= 25
+                  : connectionPoints >= 40
                   ? "Great work! Your supportive gestures are making a real difference."
                   : "Every gesture counts! You're building meaningful connections."}
               </p>
@@ -349,20 +349,20 @@ const ConnectionChallenge = () => {
             <div className="text-6xl mb-4">🌟</div>
             <h2 className="text-3xl font-bold text-gray-800 mb-4">Connection Challenge</h2>
             <p className="text-gray-600 text-lg mb-2">
-              Pick 3 supportive gestures to complete and strengthen your relationships.
+              Pick 5 supportive gestures to complete and strengthen your relationships.
             </p>
             <p className="text-sm text-gray-500">
-              Select {selectedChallenges.length}/3 challenges
+              Select {selectedChallenges.length}/5 challenges
             </p>
           </div>
 
           {/* Selection Phase */}
-          {selectedChallenges.length < 3 ? (
+          {selectedChallenges.length < 5 ? (
             <>
               <div className="mb-6">
-                <h3 className="text-lg font-bold text-gray-800 mb-4">Choose Your 3 Challenges</h3>
+                <h3 className="text-lg font-bold text-gray-800 mb-4">Choose Your 5 Challenges</h3>
                 <p className="text-sm text-gray-600 mb-4">
-                  Select 3 supportive gestures you'd like to complete. Each gesture earns connection points and strengthens your relationships.
+                  Select 5 supportive gestures you'd like to complete. Each gesture earns connection points and strengthens your relationships.
                 </p>
               </div>
 
@@ -376,12 +376,12 @@ const ConnectionChallenge = () => {
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={() => handleSelectChallenge(challenge.id)}
-                      disabled={selectedChallenges.length >= 3 && !isSelected}
+                      disabled={selectedChallenges.length >= 5 && !isSelected}
                       className={`text-left p-5 rounded-xl border-2 transition-all ${
                         isSelected
                           ? `${challenge.bgColor} ${challenge.borderColor} border-4 shadow-lg`
                           : 'bg-white border-gray-200 hover:border-gray-300'
-                      } ${selectedChallenges.length >= 3 && !isSelected ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+                      } ${selectedChallenges.length >= 5 && !isSelected ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
                     >
                       <div className="flex items-start justify-between mb-3">
                         <div className="flex items-center gap-3">
@@ -418,7 +418,7 @@ const ConnectionChallenge = () => {
                       </p>
                     </div>
                     <div className="text-right">
-                      <p className="text-2xl font-bold text-green-600">{completedChallenges.length}/3</p>
+                      <p className="text-2xl font-bold text-green-600">{completedChallenges.length}/5</p>
                       <p className="text-xs text-gray-600">Completed</p>
                     </div>
                   </div>

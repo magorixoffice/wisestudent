@@ -27,6 +27,7 @@ const StillMindChallenge = () => {
   const [completedSessions, setCompletedSessions] = useState([]);
   const [detectionReady, setDetectionReady] = useState(false);
 
+
   const timerRef = useRef(null);
   const orientationRef = useRef(null);
   const startButtonClickedRef = useRef(false);
@@ -35,43 +36,43 @@ const StillMindChallenge = () => {
   const sessions = [
     {
       id: 1,
-      title: "Three-Minute Stillness",
-      description: "Practice sitting still for 3 minutes without touching the phone or fidgeting.",
-      duration: 180, // 3 minutes in seconds
-      context: "Sit comfortably. Place your device down and remain still. Let your mind settle into stillness.",
-      parentTip: "Daily stillness of even 3 minutes clears decision fatigue. When you practice sitting still, you're giving your mind a break from constant input and stimulation. This restores your capacity to make clear decisions."
+      title: "Thirty-Second Stillness",
+      description: "Practice sitting still for 30 seconds without touching the phone or fidgeting.",
+      duration: 30, // 30 seconds
+      context: "Sit comfortably. Place your device down and remain still. Let your mind settle into stillness for 30 seconds.",
+      parentTip: "Even 30 seconds of stillness can clear your mind and reduce stress. When you practice sitting still, you're giving your mind a break from constant input and stimulation. This restores your capacity to make clear decisions."
     },
     {
       id: 2,
-      title: "Two-Minute Stillness",
-      description: "Challenge yourself to remain perfectly still for 2 minutes.",
-      duration: 120, // 2 minutes
-      context: "Find a comfortable seated position. Place your device on a flat surface and remain still. Notice any urges to move—observe them, but stay still.",
-      parentTip: "Stillness practice reduces decision fatigue because it gives your prefrontal cortex—the decision-making part of your brain—a break. Even 2-3 minutes of stillness can reset your mental clarity."
+      title: "Forty-Second Stillness",
+      description: "Challenge yourself to remain perfectly still for 40 seconds.",
+      duration: 40, // 40 seconds
+      context: "Find a comfortable seated position. Place your device on a flat surface and remain still. Notice any urges to move—observe them, but stay still for 40 seconds.",
+      parentTip: "Stillness practice reduces decision fatigue because it gives your prefrontal cortex—the decision-making part of your brain—a break. Even 30-40 seconds of stillness can reset your mental clarity."
     },
     {
       id: 3,
-      title: "Four-Minute Stillness",
-      description: "Extend your stillness practice to 4 minutes. Notice the urge to move and choose stillness.",
-      duration: 240, // 4 minutes
-      context: "Settle into stillness. Your device will detect any movement—touching the screen or tilting the device. The challenge is to remain completely still until the timer ends.",
+      title: "Fifty-Second Stillness",
+      description: "Extend your stillness practice to 50 seconds. Notice the urge to move and choose stillness.",
+      duration: 50, // 50 seconds
+      context: "Settle into stillness. Your device will detect any movement—touching the screen or tilting the device. The challenge is to remain completely still for 50 seconds until the timer ends.",
       parentTip: "When you practice stillness, you're not just resting—you're training your mind to resist the constant urge to check, scroll, or fidget. This mental discipline transfers to better focus with your child."
     },
     {
       id: 4,
-      title: "Five-Minute Stillness",
-      description: "Master the art of stillness for 5 minutes. Let your mind settle deeply.",
-      duration: 300, // 5 minutes
-      context: "This is an extended practice in stillness. Sit comfortably, place your device down, and remain perfectly still. Notice thoughts, urges, sensations—but stay still.",
+      title: "Sixty-Second Stillness",
+      description: "Master the art of stillness for 60 seconds. Let your mind settle deeply.",
+      duration: 60, // 60 seconds
+      context: "This is an extended practice in stillness. Sit comfortably, place your device down, and remain perfectly still for 60 seconds. Notice thoughts, urges, sensations—but stay still.",
       parentTip: "Stillness practice teaches you to sit with discomfort, with boredom, with restlessness. When you can sit still with your own mind, you can sit still with your child's big feelings. Stillness becomes a superpower."
     },
     {
       id: 5,
-      title: "Ultimate Stillness Challenge",
-      description: "Complete stillness for 6 minutes. Master your ability to remain present without movement.",
-      duration: 360, // 6 minutes
-      context: "The ultimate challenge in stillness. Sit comfortably, place your device down, and remain perfectly still. This extended practice deepens your capacity for presence and calm.",
-      parentTip: "Daily stillness of even 3 minutes clears decision fatigue. When practiced regularly, stillness becomes your anchor. You arrive at decisions from clarity, not exhaustion. Your child benefits from your clear, rested mind."
+      title: "Seventy-Second Stillness Challenge",
+      description: "Complete stillness for 70 seconds. Master your ability to remain present without movement.",
+      duration: 70, // 70 seconds
+      context: "The ultimate challenge in stillness. Sit comfortably, place your device down, and remain perfectly still for 70 seconds. This extended practice deepens your capacity for presence and calm.",
+      parentTip: "Daily stillness of even 30 seconds clears decision fatigue. When practiced regularly, stillness becomes your anchor. You arrive at decisions from clarity, not exhaustion. Your child benefits from your clear, rested mind."
     }
   ];
 
@@ -191,6 +192,7 @@ const StillMindChallenge = () => {
       setIsPlaying(false);
       setCompletedSessions(prev => [...prev, currentSession]);
       setScore(prev => prev + 1);
+
       setInitialOrientation(null);
     }
 
@@ -253,19 +255,19 @@ const StillMindChallenge = () => {
     setIsPlaying(false);
     setTimeRemaining(0);
     setDetectionReady(false);
+    // Remove this session from completed sessions if it was completed
+    setCompletedSessions(prev => prev.filter(session => session !== currentSession));
     startButtonClickedRef.current = false;
   };
 
   // Format time display
   const formatTime = (seconds) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins}:${secs.toString().padStart(2, '0')}`;
+    return `${seconds}s`;
   };
 
   const progress = ((currentSession + 1) / totalLevels) * 100;
-  const challengeComplete = timeRemaining === 0 && !movementDetected && !isPlaying;
-  const minutes = Math.floor(currentSessionData.duration / 60);
+  const challengeComplete = timeRemaining === 0 && !movementDetected && completedSessions.includes(currentSession);
+
 
   if (showGameOver) {
     return (
@@ -290,11 +292,11 @@ const StillMindChallenge = () => {
             <div className="text-6xl mb-4">🧘</div>
             <h2 className="text-3xl font-bold text-gray-800 mb-4">Still Mind Mastered!</h2>
             <p className="text-lg text-gray-600 mb-6">
-              You've practiced sitting still and maintaining presence. Remember: daily stillness of even 3 minutes clears decision fatigue.
+              You've practiced sitting still and maintaining presence. Remember: daily stillness of even 30 seconds clears decision fatigue.
             </p>
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border-2 border-blue-200">
               <p className="text-gray-700 font-medium">
-                <strong>💡 Parent Tip:</strong> Daily stillness of even 3 minutes clears decision fatigue. When you practice sitting still, you're giving your mind a break from constant input and stimulation. This restores your capacity to make clear decisions. Your child benefits from your clear, rested mind. Stillness becomes your anchor in the chaos of parenting.
+                <strong>💡 Parent Tip:</strong> Daily stillness of even 30 seconds clears decision fatigue. When you practice sitting still, you're giving your mind a break from constant input and stimulation. This restores your capacity to make clear decisions. Your child benefits from your clear, rested mind. Stillness becomes your anchor in the chaos of parenting.
               </p>
             </div>
           </div>
@@ -355,7 +357,7 @@ const StillMindChallenge = () => {
               <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-8 border-2 border-blue-200">
                 <h3 className="text-2xl font-bold text-gray-800 mb-4">Still Mind Challenge</h3>
                 <p className="text-gray-700 mb-6">
-                  Sit comfortably and place your device on a flat surface. Remain perfectly still for <strong>{minutes} minute{minutes !== 1 ? 's' : ''}</strong> without touching the screen or moving the device.
+                  Sit comfortably and place your device on a flat surface. Remain perfectly still for <strong>{currentSessionData.duration} seconds</strong> without touching the screen or moving the device.
                 </p>
                 <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
                   <p className="text-sm text-red-800 flex items-center gap-2 justify-center">
@@ -366,7 +368,7 @@ const StillMindChallenge = () => {
                 <div className="flex items-center justify-center gap-6 mb-6 text-gray-600">
                   <div className="flex items-center gap-2">
                     <Timer className="w-5 h-5" />
-                    <span>{minutes} min timer</span>
+                    <span>{currentSessionData.duration} sec timer</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Lock className="w-5 h-5" />
@@ -427,12 +429,52 @@ const StillMindChallenge = () => {
                 ))}
               </div>
 
+              {/* Circular progress bar */}
+              <div className="absolute inset-0 flex items-center justify-center z-5">
+                <svg width="300" height="300" viewBox="0 0 100 100" className="transform -rotate-90">
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    stroke="rgba(255,255,255,0.2)"
+                    strokeWidth="4"
+                    fill="none"
+                  />
+                  <motion.circle
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    stroke="white"
+                    strokeWidth="4"
+                    fill="none"
+                    strokeLinecap="round"
+                    initial={{ pathLength: 1 }}
+                    animate={{ pathLength: timeRemaining / currentSessionData.duration }}
+                    transition={{ duration: 0.5 }}
+                    transform="rotate(-90 50 50)"
+                  />
+                </svg>
+              </div>
+
               {/* Timer display */}
               <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
-                <div className="text-8xl font-bold text-white mb-4 drop-shadow-2xl">
+                <motion.div 
+                  className="text-8xl font-bold text-white mb-2 drop-shadow-2xl"
+                  animate={{
+                    scale: [1, 1.05, 1],
+                    opacity: [0.9, 1, 0.9]
+                  }}
+                  transition={{
+                    duration: 1,
+                    repeat: Infinity,
+                    repeatType: "reverse"
+                  }}
+                >
                   {formatTime(timeRemaining)}
-                </div>
-                <p className="text-xl text-white/80 mb-2">Remain Still</p>
+                </motion.div>
+                <p className="text-3xl text-white/90 mb-1 font-semibold">Time Remaining</p>
+                <p className="text-lg text-white/80 mb-4">{Math.round((timeRemaining / currentSessionData.duration) * 100)}% Complete</p>
+                <p className="text-xl text-white/80 mb-4">Remain Still</p>
                 <div className="flex items-center gap-2 text-white/60">
                   <Heart className="w-5 h-5" />
                   <span className="text-sm">Sit quietly, breathe naturally</span>
@@ -511,7 +553,7 @@ const StillMindChallenge = () => {
               <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
               <h3 className="text-2xl font-bold text-gray-800 mb-4">Stillness Achieved!</h3>
               <p className="text-gray-700 mb-6">
-                Congratulations! You maintained complete stillness for {minutes} minute{minutes !== 1 ? 's' : ''}. You've successfully cleared decision fatigue and restored mental clarity.
+                Congratulations! You maintained complete stillness for {currentSessionData.duration} seconds. You've successfully cleared decision fatigue and restored mental clarity.
               </p>
               <div className="bg-white rounded-lg p-4 mb-6">
                 <p className="text-sm text-gray-700 mb-2">

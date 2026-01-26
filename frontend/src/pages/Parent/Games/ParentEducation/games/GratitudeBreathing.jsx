@@ -109,7 +109,7 @@ const GratitudeBreathing = () => {
     }
   ];
 
-  const currentSessionData = sessions[currentSession];
+  const currentSessionData = sessions[Math.min(currentSession, sessions.length - 1)] || {};
   const currentGratitudePrompt = currentSessionData?.gratitudePrompts?.[breathCycle] || "";
 
   // Start the gratitude breathing exercise
@@ -118,7 +118,8 @@ const GratitudeBreathing = () => {
     setBreathCycle(0);
     setBreathPhase('inhale');
     setTimeRemaining(breathingTimings.inhale);
-    speakPrompt(`Breath ${breathCycle + 1} of 5. ${currentSessionData.gratitudePrompts[0]}.`);
+    const firstPrompt = currentSessionData?.gratitudePrompts?.[0] || "Inhale calm, exhale thanks";
+    speakPrompt(`Breath ${breathCycle + 1} of 5. ${firstPrompt}.`);
   };
 
   // Handle breathing cycle
@@ -140,7 +141,7 @@ const GratitudeBreathing = () => {
         if (breathCycle < 4) {
           // Start next cycle
           const nextCycle = breathCycle + 1;
-          const currentPrompts = sessions[currentSession]?.gratitudePrompts || [];
+          const currentPrompts = sessions[Math.min(currentSession, sessions.length - 1)]?.gratitudePrompts || [];
           setBreathCycle(nextCycle);
           setBreathPhase('inhale');
           setTimeRemaining(breathingTimings.inhale);
@@ -208,30 +209,19 @@ const GratitudeBreathing = () => {
 
   // Handle calm level rating
   const handleRateCalm = (rating) => {
-    const sessionKey = `session${currentSession}`;
+    const safeCurrentSession = Math.min(currentSession, sessions.length - 1);
+    const sessionKey = `session${safeCurrentSession}`;
     setCalmRatings(prev => ({
       ...prev,
       [sessionKey]: rating
     }));
 
     setScore(prev => prev + 1);
-
-    setTimeout(() => {
-      if (currentSession < sessions.length - 1) {
-        setCurrentSession(prev => prev + 1);
-        setBreathCycle(0);
-        setIsPlaying(false);
-        setBreathPhase('idle');
-        setTimeRemaining(0);
-      } else {
-        setShowGameOver(true);
-      }
-    }, 1500);
   };
 
-  const progress = ((currentSession + 1) / totalLevels) * 100;
+  const progress = Math.min(((currentSession + 1) / totalLevels) * 100, 100);
   const allCyclesComplete = breathCycle === 4 && breathPhase === 'idle' && !isPlaying;
-  const currentRating = calmRatings[`session${currentSession}`];
+  const currentRating = calmRatings[`session${Math.min(currentSession, sessions.length - 1)}`];
 
   if (showGameOver) {
     return (
@@ -245,7 +235,7 @@ const GratitudeBreathing = () => {
         totalLevels={totalLevels}
         totalCoins={totalCoins}
         currentLevel={totalLevels}
-        allAnswersCorrect={score >= totalLevels * 0.8}
+        allAnswersCorrect={score === totalLevels}
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -272,14 +262,14 @@ const GratitudeBreathing = () => {
   return (
     <ParentGameShell
       title={gameData?.title || "Gratitude Breathing"}
-      subtitle={`Session ${currentSession + 1} of ${totalLevels}: ${currentSessionData.title}`}
+      subtitle={`Session ${Math.min(currentSession + 1, totalLevels)} of ${totalLevels}: ${currentSessionData.title || 'Gratitude Breathing'}`}
       showGameOver={false}
       score={score}
       gameId={gameId}
       gameType="parent-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentLevel={currentSession + 1}
+      currentLevel={Math.min(currentSession + 1, totalLevels)}
     >
       <div className="w-full max-w-5xl mx-auto px-4 py-6">
         <motion.div
@@ -291,7 +281,7 @@ const GratitudeBreathing = () => {
           {/* Progress bar */}
           <div className="mb-6">
             <div className="flex justify-between text-sm text-gray-600 mb-2">
-              <span>Session {currentSession + 1} of {totalLevels}</span>
+              <span>Session {Math.min(currentSession + 1, totalLevels)} of {totalLevels}</span>
               <span>{Math.round(progress)}% Complete</span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2">
@@ -305,12 +295,12 @@ const GratitudeBreathing = () => {
 
           {/* Session context */}
           <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-6 mb-6 border-2 border-amber-200">
-            <h3 className="text-xl font-bold text-gray-800 mb-2">{currentSessionData.title}</h3>
-            <p className="text-gray-700 mb-2">{currentSessionData.description}</p>
-            <p className="text-sm text-gray-600 italic mb-3">{currentSessionData.context}</p>
+            <h3 className="text-xl font-bold text-gray-800 mb-2">{currentSessionData.title || 'Gratitude Breathing'}</h3>
+            <p className="text-gray-700 mb-2">{currentSessionData.description || ''}</p>
+            <p className="text-sm text-gray-600 italic mb-3">{currentSessionData.context || ''}</p>
             <div className="bg-amber-50 border border-amber-200 rounded-lg p-3">
               <p className="text-sm text-amber-800">
-                <strong>💡 Parent Tip:</strong> {currentSessionData.parentTip}
+                <strong>💡 Parent Tip:</strong> {currentSessionData.parentTip || ''}
               </p>
             </div>
           </div>
@@ -488,7 +478,7 @@ const GratitudeBreathing = () => {
                 </p>
                 <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-6">
                   <p className="text-sm text-amber-800">
-                    <strong>💡 Parent Tip:</strong> {currentSessionData.parentTip}
+                    <strong>💡 Parent Tip:</strong> {currentSessionData.parentTip || ''}
                   </p>
                 </div>
                 <motion.button
@@ -496,11 +486,13 @@ const GratitudeBreathing = () => {
                   whileTap={{ scale: 0.95 }}
                   onClick={() => {
                     if (currentSession < sessions.length - 1) {
-                      setCurrentSession(prev => prev + 1);
+                      const nextSession = currentSession + 1;
+                      setCurrentSession(nextSession);
                       setBreathCycle(0);
                       setIsPlaying(false);
                       setBreathPhase('idle');
                       setTimeRemaining(0);
+                      // Clear rating for the completed session
                       setCalmRatings(prev => {
                         const newRatings = { ...prev };
                         delete newRatings[`session${currentSession}`];

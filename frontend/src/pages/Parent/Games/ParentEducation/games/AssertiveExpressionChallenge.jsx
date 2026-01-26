@@ -30,17 +30,7 @@ const AssertiveExpressionChallenge = () => {
       situation: "Your teenager has been using a disrespectful tone with you lately. When you ask them to help with chores, they roll their eyes and say 'Whatever, just leave me alone.' You feel hurt and frustrated.",
       conflict: "Your teen says: 'You're always nagging me! I'll do it later, stop bothering me!'",
       responses: [
-        {
-          id: 'assertive',
-          label: 'Assertive Response',
-          text: "I understand you're feeling annoyed, and I also need respect when we communicate. When you use that tone, it hurts my feelings. Can we find a way to talk about chores that works for both of us?",
-          explanation: "This response is assertive because it: (1) acknowledges their feelings, (2) clearly states your need for respect, (3) expresses your own feelings honestly, (4) invites collaborative problem-solving. It's calm truth with respectful delivery.",
-          outcome: "Your teen feels heard and respected, while you've maintained your boundary. They're more likely to engage in respectful communication. The relationship stays connected while addressing the issue.",
-          emoji: "✅",
-          color: "from-green-500 to-emerald-600",
-          bgColor: "from-green-50 to-emerald-50",
-          borderColor: "border-green-300"
-        },
+        
         {
           id: 'passive',
           label: 'Passive Response',
@@ -62,7 +52,18 @@ const AssertiveExpressionChallenge = () => {
           color: "from-red-500 to-rose-600",
           bgColor: "from-red-50 to-rose-50",
           borderColor: "border-red-300"
-        }
+        },
+        {
+          id: 'assertive',
+          label: 'Assertive Response',
+          text: "I understand you're feeling annoyed, and I also need respect when we communicate. When you use that tone, it hurts my feelings. Can we find a way to talk about chores that works for both of us?",
+          explanation: "This response is assertive because it: (1) acknowledges their feelings, (2) clearly states your need for respect, (3) expresses your own feelings honestly, (4) invites collaborative problem-solving. It's calm truth with respectful delivery.",
+          outcome: "Your teen feels heard and respected, while you've maintained your boundary. They're more likely to engage in respectful communication. The relationship stays connected while addressing the issue.",
+          emoji: "✅",
+          color: "from-green-500 to-emerald-600",
+          bgColor: "from-green-50 to-emerald-50",
+          borderColor: "border-green-300"
+        },
       ],
       correctChoice: "assertive",
       whyItMatters: "Assertiveness with teens builds mutual respect. When you communicate assertively, you model healthy boundaries and emotional expression. They learn that you can disagree while maintaining connection."
@@ -73,17 +74,7 @@ const AssertiveExpressionChallenge = () => {
       situation: "Your in-laws are visiting and make a comment about how you're raising your children: 'You're being too lenient. Children need more discipline and structure than what you're providing.' You feel judged and defensive.",
       conflict: "Your in-law says: 'Back in our day, children knew their place and respected adults. You're spoiling them by being too soft.'",
       responses: [
-        {
-          id: 'assertive',
-          label: 'Assertive Response',
-          text: "I appreciate your perspective and your experience. Every family is different, and we're doing our best to find what works for our children and values. I respect your approach, and I hope you can respect ours as well. We're all trying to raise good kids.",
-          explanation: "This response is assertive because it: (1) acknowledges their perspective respectfully, (2) clearly states your family's different approach, (3) sets a boundary for respect, (4) maintains relationship while standing firm. It's calm truth with respectful delivery.",
-          outcome: "Family harmony is maintained. Your in-laws feel heard and respected, while you've communicated your position clearly. The boundary is set without creating conflict, and relationships stay positive.",
-          emoji: "✅",
-          color: "from-green-500 to-emerald-600",
-          bgColor: "from-green-50 to-emerald-50",
-          borderColor: "border-green-300"
-        },
+        
         {
           id: 'passive',
           label: 'Passive Response',
@@ -94,6 +85,17 @@ const AssertiveExpressionChallenge = () => {
           color: "from-yellow-500 to-orange-500",
           bgColor: "from-yellow-50 to-orange-50",
           borderColor: "border-yellow-300"
+        },
+        {
+          id: 'assertive',
+          label: 'Assertive Response',
+          text: "I appreciate your perspective and your experience. Every family is different, and we're doing our best to find what works for our children and values. I respect your approach, and I hope you can respect ours as well. We're all trying to raise good kids.",
+          explanation: "This response is assertive because it: (1) acknowledges their perspective respectfully, (2) clearly states your family's different approach, (3) sets a boundary for respect, (4) maintains relationship while standing firm. It's calm truth with respectful delivery.",
+          outcome: "Family harmony is maintained. Your in-laws feel heard and respected, while you've communicated your position clearly. The boundary is set without creating conflict, and relationships stay positive.",
+          emoji: "✅",
+          color: "from-green-500 to-emerald-600",
+          bgColor: "from-green-50 to-emerald-50",
+          borderColor: "border-green-300"
         },
         {
           id: 'aggressive',
@@ -159,17 +161,7 @@ const AssertiveExpressionChallenge = () => {
       situation: "Your boss has been asking you to work late and on weekends regularly, affecting your family time. You've been accommodating, but it's becoming unsustainable. You need to set boundaries.",
       conflict: "Your boss says: 'I know it's last minute, but I need you to finish this project over the weekend. It's really important, and you're the only one who can do it. I'm counting on you.'",
       responses: [
-        {
-          id: 'assertive',
-          label: 'Assertive Response',
-          text: "I understand this is important, and I want to support the team. However, I've been working a lot of weekends lately, and I need to protect my family time. Can we discuss a solution that meets the deadline while respecting my boundaries? Perhaps we can plan better for future projects or redistribute some of the work.",
-          explanation: "This response is assertive because it: (1) acknowledges their need, (2) clearly states your boundary and need, (3) expresses your values (family time), (4) invites collaborative problem-solving. It's calm truth with respectful delivery.",
-          outcome: "Your boss understands your boundary while seeing your commitment. A solution is found that respects both needs. Future planning improves, and you maintain work-life balance. Professional respect increases.",
-          emoji: "✅",
-          color: "from-green-500 to-emerald-600",
-          bgColor: "from-green-50 to-emerald-50",
-          borderColor: "border-green-300"
-        },
+        
         {
           id: 'passive',
           label: 'Passive Response',
@@ -191,7 +183,18 @@ const AssertiveExpressionChallenge = () => {
           color: "from-red-500 to-rose-600",
           bgColor: "from-red-50 to-rose-50",
           borderColor: "border-red-300"
-        }
+        },
+        {
+          id: 'assertive',
+          label: 'Assertive Response',
+          text: "I understand this is important, and I want to support the team. However, I've been working a lot of weekends lately, and I need to protect my family time. Can we discuss a solution that meets the deadline while respecting my boundaries? Perhaps we can plan better for future projects or redistribute some of the work.",
+          explanation: "This response is assertive because it: (1) acknowledges their need, (2) clearly states your boundary and need, (3) expresses your values (family time), (4) invites collaborative problem-solving. It's calm truth with respectful delivery.",
+          outcome: "Your boss understands your boundary while seeing your commitment. A solution is found that respects both needs. Future planning improves, and you maintain work-life balance. Professional respect increases.",
+          emoji: "✅",
+          color: "from-green-500 to-emerald-600",
+          bgColor: "from-green-50 to-emerald-50",
+          borderColor: "border-green-300"
+        },
       ],
       correctChoice: "assertive",
       whyItMatters: "Assertiveness at work protects your boundaries while maintaining professionalism. When you communicate assertively, you teach others how to treat you and create sustainable work-life balance."
@@ -429,15 +432,15 @@ const AssertiveExpressionChallenge = () => {
                   onClick={() => handleChoice(response.id)}
                   className={`w-full text-left p-5 rounded-xl border-2 transition-all ${
                     response.id === 'assertive'
-                      ? 'bg-gradient-to-br from-green-50 to-emerald-50 border-green-300 hover:border-green-400 hover:shadow-lg'
+                      ? 'bg-gradient-to-br from-yellow-50 to-orange-50 border-yellow-300 hover:border-yellow-400 hover:shadow-lg'
                       : response.id === 'passive'
                       ? 'bg-gradient-to-br from-yellow-50 to-orange-50 border-yellow-300 hover:border-yellow-400 hover:shadow-lg'
-                      : 'bg-gradient-to-br from-red-50 to-rose-50 border-red-300 hover:border-red-400 hover:shadow-lg'
+                      : 'bg-gradient-to-br from-yellow-50 to-orange-50 border-yellow-300 hover:border-yellow-400 hover:shadow-lg'
                   }`}
                 >
                   <div className="flex items-center gap-3 mb-2">
-                    <span className="text-2xl">{response.emoji}</span>
-                    <h4 className="text-lg font-bold text-gray-800">{response.label}</h4>
+                    <span className="text-2xl"></span>
+                    <h4 className="text-lg font-bold text-gray-800"></h4>
                   </div>
                   <p className="text-gray-700 leading-relaxed">{response.text}</p>
                 </motion.button>

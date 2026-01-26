@@ -25,7 +25,7 @@ const ArtOfListening = () => {
   const [score, setScore] = useState(0);
   const [showGameOver, setShowGameOver] = useState(false);
 
-  // Scenarios with listening examples - distracted vs mindful listening
+  // Scenarios with listening examples - now with 3 options each
   const scenarios = [
     {
       id: 1,
@@ -45,6 +45,13 @@ const ArtOfListening = () => {
         explanation: "This response shows mindful listening—being present, acknowledging what was heard, reflecting back key points, and showing genuine interest. The parent is listening to understand, not just waiting for their turn to speak.",
         empathyScore: 10,
         outcome: "Your child feels heard and valued. They sense your genuine interest and continue sharing. This builds connection and trust."
+      },
+      balancedResponse: {
+        response: "That sounds like a lot happened today! Why don't you tell me about your painting first, and then we can go over everything else after dinner when I can give you my full attention?",
+        type: "balanced",
+        explanation: "This response acknowledges the child's excitement and validates their experience, but sets a realistic expectation about timing due to other commitments. It balances attention with practical constraints.",
+        empathyScore: 8,
+        outcome: "Your child feels acknowledged but may feel slightly disappointed that they can't share everything right now."
       }
     },
     {
@@ -63,8 +70,15 @@ const ArtOfListening = () => {
         response: "I can hear how worried you are about your presentation. The fear of forgetting or being laughed at feels really scary right now. That must feel overwhelming. Want to talk about what's making you feel this way? I'm here to listen.",
         type: "mindful",
         explanation: "This response shows mindful listening—acknowledging the worry, naming the specific fears, and being fully present with the child's emotional experience. The parent is listening to understand, not just to fix.",
-        empathyScore: 10,
+        empathyScore: 8,
         outcome: "Your child feels heard and understood. Having their worry validated often reduces its intensity. They feel safe to share more and process their concerns."
+      },
+      balancedResponse: {
+        response: "It's normal to feel nervous about presentations. How about we practice a little more now, and then you can tell me what would help you feel more prepared? We can also talk about what you'll do if you do forget something.",
+        type: "balanced",
+        explanation: "This response acknowledges the worry but also offers practical support and problem-solving. It validates feelings while providing tools to address the concern.",
+        empathyScore: 10,
+        outcome: "Your child feels heard and supported with practical solutions. They gain confidence through preparation and contingency planning."
       }
     },
     {
@@ -72,6 +86,13 @@ const ArtOfListening = () => {
       title: "Friend Conflict",
       situation: "Your child comes to you after a conflict with a friend. They're upset and need to talk.",
       childSays: "I'm so mad at Jake! He said I couldn't play soccer with them because I'm not good enough. He said I always mess up the game. I practiced all week, but he still won't let me play. It's not fair!",
+      mindfulListening: {
+        response: "You're feeling really hurt and angry because Jake said you weren't good enough and excluded you. That must have felt really painful, especially since you've been practicing. That rejection hurts. Tell me more about how that felt.",
+        type: "mindful",
+        explanation: "This response shows mindful listening—fully hearing the emotional experience (hurt, anger), reflecting back what was heard, and creating space for the child to express more. The parent is listening to understand the feelings first.",
+        empathyScore: 10,
+        outcome: "Your child feels deeply understood and validated. Their hurt is acknowledged, which helps them process it. They feel safe to share more and may be more open to solutions later."
+      },
       distractedListening: {
         response: "Well, maybe you should practice more then. Or find other friends to play with. Don't let it bother you—kids can be mean sometimes. Just move on.",
         type: "distracted",
@@ -79,12 +100,13 @@ const ArtOfListening = () => {
         empathyScore: 3,
         outcome: "Your child feels like their hurt isn't important. They may feel judged or not understood. The emotional pain remains unprocessed."
       },
-      mindfulListening: {
-        response: "You're feeling really hurt and angry because Jake said you weren't good enough and excluded you. That must have felt really painful, especially since you've been practicing. That rejection hurts. Tell me more about how that felt.",
-        type: "mindful",
-        explanation: "This response shows mindful listening—fully hearing the emotional experience (hurt, anger), reflecting back what was heard, and creating space for the child to express more. The parent is listening to understand the feelings first.",
-        empathyScore: 10,
-        outcome: "Your child feels deeply understood and validated. Their hurt is acknowledged, which helps them process it. They feel safe to share more and may be more open to solutions later."
+      
+      balancedResponse: {
+        response: "That really hurt, didn't it? I understand why you're angry. At the same time, maybe Jake has some concerns about team dynamics. Would you like to talk about other ways to connect with friends or improve your skills?",
+        type: "balanced",
+        explanation: "This response acknowledges the hurt feelings while also introducing perspective-taking and problem-solving. It validates emotions while encouraging growth and alternative approaches.",
+        empathyScore: 8,
+        outcome: "Your child feels heard but may feel like their emotional needs are being overshadowed by problem-solving suggestions."
       }
     },
     {
@@ -103,8 +125,15 @@ const ArtOfListening = () => {
         response: "Wow! You spent the whole afternoon on this and you figured it out yourself! That persistence paid off. I can see how proud you are. Show me how it works—I'd love to see what you created!",
         type: "mindful",
         explanation: "This response shows mindful listening—being fully present with the child's excitement, acknowledging their effort and persistence, and showing genuine interest in what they've accomplished. The parent is listening to celebrate, not just acknowledge.",
-        empathyScore: 10,
+        empathyScore: 8,
         outcome: "Your child feels celebrated and valued. Their excitement is matched, which amplifies their joy and sense of accomplishment. They feel seen and important."
+      },
+      balancedResponse: {
+        response: "That's amazing! You put so much effort into this. I can see how excited you are. Let me finish what I'm doing here, and then I'll come over and you can show me everything it does, okay?",
+        type: "balanced",
+        explanation: "This response acknowledges the child's excitement and accomplishment while setting a realistic timeframe for full attention. It validates the achievement while managing practical responsibilities.",
+        empathyScore: 10,
+        outcome: "Your child feels acknowledged and knows their achievement will be celebrated soon. They learn patience while still feeling valued."
       }
     },
     {
@@ -123,8 +152,15 @@ const ArtOfListening = () => {
         response: "I can hear how frustrated you are. You've been working on this for an hour and nothing is clicking. That feeling of being stuck and confused must be really discouraging. The frustration is real, and it makes sense. Want to take a short break and then we can look at it together when you're ready?",
         type: "mindful",
         explanation: "This response shows mindful listening—acknowledging the frustration, validating the struggle, and being present with the emotional experience before offering help. The parent is listening to understand the feelings first, then offering support.",
-        empathyScore: 10,
+        empathyScore: 10,  // Mindful listening is the best response
         outcome: "Your child feels understood and validated. Their frustration is acknowledged, which often reduces it. They feel supported and may be more open to learning once their emotions are heard."
+      },
+      balancedResponse: {
+        response: "This is really frustrating for you, and I can see you've been working hard on it. Let's take a 5-minute break, and then I'll help you work through it step by step. Sometimes a fresh look helps a lot.",
+        type: "balanced",
+        explanation: "This response acknowledges the child's frustration and effort, validates their feelings, and provides practical support with a structured approach. It balances emotional validation with problem-solving.",
+        empathyScore: 8,
+        outcome: "Your child feels heard and supported with a practical plan, though emotional validation is secondary to problem-solving."
       }
     }
   ];
@@ -183,7 +219,14 @@ const ArtOfListening = () => {
     setEmpathyScore(selected.empathyScore);
     setTotalEmpathyScore(prev => prev + selected.empathyScore);
 
-    if (selected.type === 'mindful') {
+    // Update scoring logic to check if the choice has the highest empathy score among options
+    const maxEmpathyScore = Math.max(
+      currentScenarioData.distractedListening.empathyScore,
+      currentScenarioData.mindfulListening.empathyScore,
+      currentScenarioData.balancedResponse.empathyScore
+    );
+    
+    if (selected.empathyScore === maxEmpathyScore) {
       setScore(prev => prev + 1);
     }
 
@@ -250,7 +293,7 @@ const ArtOfListening = () => {
               </motion.div>
               <h2 className="text-3xl font-bold text-gray-800 mb-4">Listening Practice Complete!</h2>
               <p className="text-lg text-gray-600 mb-6">
-                You've practiced the art of mindful, active listening.
+                You've practiced the art of thoughtful, empathetic listening.
               </p>
             </div>
 
@@ -278,10 +321,10 @@ const ArtOfListening = () => {
                 </div>
                 <p className="text-sm text-gray-600">
                   {empathyPercentage >= 80
-                    ? "Excellent! You're practicing mindful, active listening."
+                    ? "Excellent! You're practicing empathetic and thoughtful listening."
                     : empathyPercentage >= 60
                     ? "Good job! You're learning to listen with presence and empathy."
-                    : "Keep practicing! Mindful listening is a skill that grows with awareness."}
+                    : "Keep practicing! Thoughtful listening is a skill that grows with awareness."}
                 </p>
               </div>
             </div>
@@ -291,7 +334,7 @@ const ArtOfListening = () => {
               <h3 className="text-lg font-bold text-gray-800 mb-4">Results Summary</h3>
               <div className="space-y-2">
                 <div className="flex items-center justify-between bg-white rounded-lg p-3">
-                  <span className="text-gray-700">Mindful Listening Responses:</span>
+                  <span className="text-gray-700">Thoughtful Listening Responses:</span>
                   <span className="font-bold text-green-600">{score} / {totalLevels}</span>
                 </div>
                 <div className="flex items-center justify-between bg-white rounded-lg p-3">
@@ -304,7 +347,7 @@ const ArtOfListening = () => {
             {/* Parent Tip */}
             <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-6 border-2 border-amber-200">
               <p className="text-gray-700 font-medium text-center">
-                <strong>💡 Parent Tip:</strong> Listening to understand is more powerful than listening to reply. When you practice mindful listening—being fully present, acknowledging what you hear, and reflecting back emotions—you create deep connection with your children. They feel heard, valued, and understood. This doesn't mean you never offer advice or solutions—it means you listen first to understand their experience, then respond from a place of empathy. Your mindful listening teaches your children how to listen to others and themselves.
+                <strong>💡 Parent Tip:</strong> Listening to understand is more powerful than listening to reply. When you practice thoughtful listening—being fully present, acknowledging what you hear, and reflecting back emotions—you create deep connection with your children. They feel heard, valued, and understood. This doesn't mean you never offer advice or solutions—it means you listen first to understand their experience, then respond from a place of empathy. Your thoughtful listening teaches your children how to listen to others and themselves.
               </p>
             </div>
           </div>
@@ -377,12 +420,12 @@ const ArtOfListening = () => {
           {/* Instructions */}
           <div className="bg-amber-50 border-2 border-amber-200 rounded-xl p-4 mb-6">
             <p className="text-sm text-amber-800 font-medium">
-              <strong>📋 Instructions:</strong> Choose the response that shows better listening—mindful, active listening that understands vs. distracted listening that multi-tasks or rushes to reply.
+              <strong>📋 Instructions:</strong> Choose the response that shows the most thoughtful listening—mindful, active listening that understands vs. distracted listening that multi-tasks or rushes to reply vs. a balanced approach that considers practical constraints.
             </p>
           </div>
 
           {!showOutcome ? (
-            /* Choice Selection */
+            /* Choice Selection - 3 Options */
             <div className="space-y-4 mb-6">
               <motion.button
                 whileHover={{ scale: 1.02 }}
@@ -391,11 +434,11 @@ const ArtOfListening = () => {
                 className="w-full bg-white border-2 border-gray-300 rounded-xl p-6 text-left hover:border-red-400 hover:bg-red-50 transition-all shadow-md"
               >
                 <div className="flex items-start gap-4">
-                  <div className="bg-red-100 rounded-full p-2">
-                    <VolumeX className="w-6 h-6 text-red-600" />
+                  <div className="bg-blue-100 rounded-full p-2">
+                    <CheckCircle className="w-6 h-6 text-blue-600" />
                   </div>
                   <div className="flex-1">
-                    <h4 className="font-bold text-gray-800 mb-2">Response A: Distracted Listening</h4>
+                    <h4 className="font-bold text-gray-800 mb-2">Response A:</h4>
                     <p className="text-gray-700 italic">
                       "{currentScenarioData.distractedListening.response}"
                     </p>
@@ -410,13 +453,32 @@ const ArtOfListening = () => {
                 className="w-full bg-white border-2 border-gray-300 rounded-xl p-6 text-left hover:border-green-400 hover:bg-green-50 transition-all shadow-md"
               >
                 <div className="flex items-start gap-4">
-                  <div className="bg-green-100 rounded-full p-2">
-                    <Headphones className="w-6 h-6 text-green-600" />
+                  <div className="bg-blue-100 rounded-full p-2">
+                    <CheckCircle className="w-6 h-6 text-blue-600" />
                   </div>
                   <div className="flex-1">
-                    <h4 className="font-bold text-gray-800 mb-2">Response B: Mindful Listening</h4>
+                    <h4 className="font-bold text-gray-800 mb-2">Response B: </h4>
                     <p className="text-gray-700 italic">
                       "{currentScenarioData.mindfulListening.response}"
+                    </p>
+                  </div>
+                </div>
+              </motion.button>
+
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => handleChoice('balancedResponse')}
+                className="w-full bg-white border-2 border-gray-300 rounded-xl p-6 text-left hover:border-blue-400 hover:bg-blue-50 transition-all shadow-md"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="bg-blue-100 rounded-full p-2">
+                    <CheckCircle className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-bold text-gray-800 mb-2">Response C: </h4>
+                    <p className="text-gray-700 italic">
+                      "{currentScenarioData.balancedResponse.response}"
                     </p>
                   </div>
                 </div>
@@ -435,15 +497,19 @@ const ArtOfListening = () => {
                   <div className={`bg-gradient-to-br rounded-xl p-6 border-2 ${
                     selectedChoice === 'mindfulListening'
                       ? 'from-green-50 to-emerald-50 border-green-200'
+                      : selectedChoice === 'balancedResponse'
+                      ? 'from-blue-50 to-indigo-50 border-blue-200'
                       : 'from-red-50 to-rose-50 border-red-200'
                   }`}>
                     <div className="flex items-center justify-center gap-3 mb-4">
                       <Heart className={`w-8 h-8 ${
-                        selectedChoice === 'mindfulListening' ? 'text-green-600' : 'text-red-600'
+                        selectedChoice === 'mindfulListening' ? 'text-green-600' : 
+                        selectedChoice === 'balancedResponse' ? 'text-blue-600' : 'text-red-600'
                       }`} />
                       <div className="text-center">
                         <div className={`text-3xl font-bold mb-1 ${
-                          selectedChoice === 'mindfulListening' ? 'text-green-600' : 'text-red-600'
+                          selectedChoice === 'mindfulListening' ? 'text-green-600' : 
+                          selectedChoice === 'balancedResponse' ? 'text-blue-600' : 'text-red-600'
                         }`}>
                           {empathyScore} / 10
                         </div>
@@ -456,9 +522,11 @@ const ArtOfListening = () => {
                   <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl p-6 border-2 border-purple-200">
                     <h4 className="font-bold text-gray-800 mb-3 flex items-center gap-2">
                       <CheckCircle className={`w-5 h-5 ${
-                        selectedChoice === 'mindfulListening' ? 'text-green-600' : 'text-red-600'
+                        selectedChoice === 'mindfulListening' ? 'text-green-600' : 
+                        selectedChoice === 'balancedResponse' ? 'text-blue-600' : 'text-red-600'
                       }`} />
-                      {selectedChoice === 'mindfulListening' ? 'Mindful Listening ✓' : 'Distracted Listening'}
+                      {selectedChoice === 'mindfulListening' ? 'Mindful Listening ✓' : 
+                       selectedChoice === 'balancedResponse' ? 'Balanced Response ✓' : 'Distracted Listening'}
                     </h4>
                     <p className="text-gray-700 mb-4">
                       {currentScenarioData[selectedChoice].explanation}
@@ -488,7 +556,7 @@ const ArtOfListening = () => {
           {/* Parent Tip */}
           <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-4 border-2 border-amber-200">
             <p className="text-sm text-gray-700">
-              <strong>💡 Parent Tip:</strong> Listening to understand is more powerful than listening to reply. When you practice mindful listening, you create deep connection with your children.
+              <strong>💡 Parent Tip:</strong> Listening to understand is more powerful than listening to reply. When you practice thoughtful listening, you create deep connection with your children.
             </p>
           </div>
         </motion.div>

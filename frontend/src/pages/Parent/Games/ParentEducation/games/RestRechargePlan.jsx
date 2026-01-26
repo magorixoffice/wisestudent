@@ -9,7 +9,7 @@ const RestRechargePlan = () => {
   const location = useLocation();
 
   // Get game data
-  const gameId = "parent-education-97";
+  const gameId = "parent-education-99";
   const gameData = getParentEducationGameById(gameId);
 
   // Get game props from location.state or gameData
@@ -156,7 +156,7 @@ Remember: Protect rest like an appointment — without guilt or apology.
         title={gameData?.title || "Rest & Recharge Plan"}
         subtitle="Plan Complete!"
         showGameOver={true}
-        score={score}
+        score={5}
         gameId={gameId}
         gameType="parent-education"
         totalLevels={totalLevels}

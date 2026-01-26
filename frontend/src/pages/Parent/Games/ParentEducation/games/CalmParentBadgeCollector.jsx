@@ -13,7 +13,7 @@ const CalmParentBadgeCollector = () => {
   const navigate = useNavigate();
   
   // Get game data
-  const gameId = "parent-education-20";
+  const gameId = "parent-education-20"; // This is the badge collector game ID
   const gameData = getParentEducationGameById(gameId);
   
   const [loading, setLoading] = useState(true);
@@ -113,34 +113,47 @@ const CalmParentBadgeCollector = () => {
 
       const result = response.data;
 
-      if (result.success && result.badgeEarned) {
-        setBadgeCollected(true);
-        setShowCollectionModal(false);
-        toast.success('🎉 Badge collected successfully!');
-        
-        // Dispatch badge earned event
-        window.dispatchEvent(new CustomEvent('parentBadgeEarned', {
-          detail: {
-            badgeId: 'calm-parent',
-            badgeName: 'Calm Parent',
-            message: 'Calm is your family\'s anchor.',
-            badge: result.badge
+      if (result.success) {
+        if (result.badgeEarned || result.alreadyEarned) {
+          setBadgeCollected(true);
+          setShowCollectionModal(false);
+          
+          if (result.badgeEarned) {
+            toast.success('🎉 Badge collected successfully!');
+            
+            // Dispatch badge earned event
+            window.dispatchEvent(new CustomEvent('parentBadgeEarned', {
+              detail: {
+                badgeId: 'calm-parent',
+                badgeName: 'Calm Parent',
+                message: 'Calm is your family\'s anchor.',
+                badge: result.badge
+              }
+            }));
+          } else {
+            toast.info('Badge already collected!');
           }
-        }));
-        try {
-          await parentGameCompletionService.completeGame({
-            gameId,
-            gameType: 'parent-education',
-            gameIndex: gameData?.gameIndex || null,
-            score: 5,
-            totalLevels: 5,
-            totalCoins: 0,
-            isReplay: false
-          });
-        } catch (error) {
-          console.error('Failed to mark badge game completed:', error);
+          
+          // Mark the badge collector as completed
+          try {
+            await parentGameCompletionService.completeGame({
+              gameId,
+              gameType: 'parent-education',
+              gameIndex: gameData?.gameIndex || null,
+              score: 5,
+              totalLevels: 5,
+              totalCoins: 0,
+              isReplay: false
+            });
+            
+            // Refresh badge status to ensure it's properly updated
+            await checkBadgeStatus();
+          } catch (error) {
+            console.error('Failed to mark badge collector game as completed:', error);
+          }
+        } else {
+          toast.error(result.error || 'Failed to collect badge');
         }
-
       } else {
         toast.error(result.error || 'Failed to collect badge');
       }
@@ -343,7 +356,7 @@ const CalmParentBadgeCollector = () => {
 
             {/* Collect Badge Button */}
             <button
-              onClick={() => setShowCollectionModal(true)}
+              onClick={handleCollectBadge}
               className="bg-gradient-to-r from-indigo-500 via-blue-500 to-cyan-500 text-white px-12 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
             >
               Collect Badge

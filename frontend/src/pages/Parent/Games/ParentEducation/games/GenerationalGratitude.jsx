@@ -9,37 +9,101 @@ const GenerationalGratitude = () => {
   const location = useLocation();
   
   // Get game data
-  const gameId = "parent-education-87";
+  const gameId = "parent-education-88";
   const gameData = getParentEducationGameById(gameId);
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 1;
+  const totalLevels = gameData?.totalQuestions || 5;
   
-  const [step, setStep] = useState(1); // 1: Reflection, 2: Choose to Carry Forward, 3: Complete
-  const [reflection, setReflection] = useState("");
+  const [step, setStep] = useState(1); // 1: Reflection prompts, 2: Choose to Carry Forward, 3: Complete
+  const [reflections, setReflections] = useState(Array(5).fill(""));
+  const [currentPromptIndex, setCurrentPromptIndex] = useState(0);
   const [lessonsIdentified, setLessonsIdentified] = useState([]);
-  const [selectedLesson, setSelectedLesson] = useState(null);
+  const [selectedLessons, setSelectedLessons] = useState(Array(5).fill(null));
+  const [score, setScore] = useState(0);
   const [showGameOver, setShowGameOver] = useState(false);
 
   const extractLessons = (text) => {
     // Extract key lessons/phrases from the reflection
     const sentences = text.split(/[.!?]\s+/).filter(s => s.trim().length > 10);
-    return sentences.slice(0, 5); // Take up to 5 sentences as potential lessons
+    return sentences.slice(0, 3); // Take up to 3 sentences as potential lessons per reflection
   };
 
-  const handleReflectionComplete = () => {
-    if (reflection.trim().length >= 50) {
-      const lessons = extractLessons(reflection);
-      setLessonsIdentified(lessons);
-      setStep(2);
+  // 5 different reflection prompts
+  const reflectionPrompts = [
+    {
+      id: 1,
+      title: "What did my parents teach me about love, even through mistakes?",
+      guidance: "Reflect on your parents, elders, or mentors. What did they teach you about love, parenting, relationships, or life—both through their strengths and through their mistakes? What wisdom can you find in their imperfect humanity? How did their challenges teach you valuable lessons?"
+    },
+    {
+      id: 2,
+      title: "What generational patterns do I want to continue or transform?",
+      guidance: "Think about behaviors, values, or traditions passed down through generations. Which ones nourish your family? Which ones create unnecessary stress or conflict? What would you like to preserve and what would you like to change?"
+    },
+    {
+      id: 3,
+      title: "How did my parents' sacrifices shape my understanding of love?",
+      guidance: "Consider the sacrifices your parents made—their time, energy, dreams deferred, or personal struggles endured. How did witnessing or experiencing these sacrifices influence your concept of love, commitment, and family responsibility?"
+    },
+    {
+      id: 4,
+      title: "What did I learn about resilience from my family's challenges?",
+      guidance: "Reflect on difficult periods your family faced—financial hardship, illness, loss, or other struggles. What did these experiences teach you about perseverance, hope, and finding strength in community? How do these lessons inform your parenting today?"
+    },
+    {
+      id: 5,
+      title: "How can I honor my family's legacy while creating new patterns?",
+      guidance: "Consider how you can respectfully acknowledge and appreciate what previous generations gave you while consciously choosing different approaches for your own family. What traditions will you celebrate? What cycles will you intentionally break?"
+    }
+  ];
+
+  const handleReflectionComplete = (promptIndex) => {
+    if (reflections[promptIndex].trim().length >= 50) {
+      // Move to next prompt or proceed to step 2
+      if (promptIndex < 4) {
+        setCurrentPromptIndex(promptIndex + 1);
+      } else {
+        // All reflections completed, combine all lessons
+        const allLessons = [];
+        reflections.forEach(reflection => {
+          if (reflection.trim().length >= 50) {
+            allLessons.push(...extractLessons(reflection));
+          }
+        });
+        setLessonsIdentified([...new Set(allLessons)]); // Remove duplicates
+        setStep(2);
+      }
+    }
+  };
+
+  const handlePreviousPrompt = () => {
+    if (currentPromptIndex > 0) {
+      setCurrentPromptIndex(currentPromptIndex - 1);
     }
   };
 
   const handleComplete = () => {
-    if (selectedLesson) {
+    const completedSelections = selectedLessons.filter(lesson => lesson !== null).length;
+    if (completedSelections === 5) {
+      setScore(completedSelections);
       setShowGameOver(true);
     }
+  };
+
+  const handleLessonSelect = (promptIndex, lesson) => {
+    const newSelectedLessons = [...selectedLessons];
+    newSelectedLessons[promptIndex] = lesson;
+    setSelectedLessons(newSelectedLessons);
+  };
+
+  const getCurrentReflection = () => reflections[currentPromptIndex] || "";
+  
+  const setCurrentReflection = (value) => {
+    const newReflections = [...reflections];
+    newReflections[currentPromptIndex] = value;
+    setReflections(newReflections);
   };
 
   if (showGameOver) {
@@ -48,7 +112,7 @@ const GenerationalGratitude = () => {
         title={gameData?.title || "Generational Gratitude"}
         subtitle="Reflection Complete!"
         showGameOver={true}
-        score={1}
+        score={score}
         gameId={gameId}
         gameType="parent-education"
         totalLevels={totalLevels}
@@ -77,29 +141,48 @@ const GenerationalGratitude = () => {
               </p>
             </div>
 
-            {/* Reflection Display */}
+            {/* All Reflections Display */}
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border-2 border-blue-200 mb-6">
               <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
                 <BookOpen className="w-6 h-6 text-blue-600" />
-                Your Reflection
+                Your Reflections
               </h3>
-              <div className="bg-white rounded-lg p-5 border border-blue-200">
-                <p className="text-gray-800 leading-relaxed italic text-lg">
-                  "{reflection}"
-                </p>
+              <div className="space-y-4">
+                {reflections.map((reflection, index) => (
+                  reflection.trim().length >= 50 && (
+                    <div key={index} className="bg-white rounded-lg p-4 border border-blue-200">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="font-bold text-blue-600">Prompt {index + 1}:</span>
+                        <span className="text-sm text-gray-600">{reflectionPrompts[index]?.title}</span>
+                      </div>
+                      <p className="text-gray-800 leading-relaxed italic text-base">
+                        "{reflection}"
+                      </p>
+                    </div>
+                  )
+                ))}
               </div>
             </div>
 
-            {/* Selected Lesson to Carry Forward */}
+            {/* Selected Lessons to Carry Forward */}
             <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-6 border-2 border-amber-200 mb-6">
               <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
                 <Star className="w-6 h-6 text-amber-600" />
                 What I'll Carry Forward
               </h3>
-              <div className="bg-white rounded-lg p-5 border border-amber-200">
-                <p className="text-gray-800 leading-relaxed text-lg font-semibold">
-                  "{selectedLesson}"
-                </p>
+              <div className="space-y-3">
+                {selectedLessons.map((lesson, index) => (
+                  lesson && (
+                    <div key={index} className="bg-white rounded-lg p-4 border border-amber-200">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="font-bold text-amber-600">From Prompt {index + 1}:</span>
+                      </div>
+                      <p className="text-gray-800 leading-relaxed text-base font-semibold">
+                        "{lesson}"
+                      </p>
+                    </div>
+                  )
+                ))}
               </div>
             </div>
 
@@ -148,7 +231,7 @@ const GenerationalGratitude = () => {
         title={gameData?.title || "Generational Gratitude"}
         subtitle="Choose What to Carry Forward"
         showGameOver={false}
-        score={0}
+        score={score}
         gameId={gameId}
         gameType="parent-education"
         totalLevels={totalLevels}
@@ -169,71 +252,85 @@ const GenerationalGratitude = () => {
               </p>
             </div>
 
-            {/* Your Reflection Preview */}
+            {/* Progress Indicator */}
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-5 border-2 border-blue-200 mb-6">
-              <h3 className="text-lg font-bold text-gray-800 mb-3">Your Reflection:</h3>
-              <p className="text-gray-700 italic text-sm line-clamp-3">"{reflection.substring(0, 200)}..."</p>
+              <div className="flex justify-between items-center mb-3">
+                <h3 className="text-lg font-bold text-gray-800">Progress: {currentPromptIndex + 1}/5</h3>
+                <div className="flex gap-1">
+                  {Array(5).fill(0).map((_, index) => (
+                    <div 
+                      key={index}
+                      className={`w-3 h-3 rounded-full ${index <= currentPromptIndex ? 'bg-blue-500' : 'bg-gray-300'}`}
+                    />
+                  ))}
+                </div>
+              </div>
+              <p className="text-gray-700 font-medium">
+                Current Prompt: {reflectionPrompts[currentPromptIndex]?.title}
+              </p>
             </div>
 
-            {/* Lessons to Choose From */}
+            {/* Lessons Selection for Each Prompt */}
             <div className="mb-6">
-              <h3 className="text-lg font-bold text-gray-800 mb-4">What will you carry forward?</h3>
-              <div className="space-y-3">
-                {lessonsIdentified.length > 0 ? (
-                  lessonsIdentified.map((lesson, index) => {
-                    const isSelected = selectedLesson === lesson;
-                    return (
-                      <motion.button
-                        key={index}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        onClick={() => setSelectedLesson(lesson)}
-                        className={`w-full text-left p-5 rounded-xl border-2 transition-all ${
-                          isSelected
-                            ? 'bg-gradient-to-br from-amber-50 to-orange-50 border-amber-400 border-4 shadow-lg'
-                            : 'bg-white border-gray-200 hover:border-amber-300'
-                        }`}
-                      >
-                        <div className="flex items-center justify-between">
-                          <p className="text-gray-800 font-medium flex-1">{lesson}</p>
-                          {isSelected && (
-                            <CheckCircle className="w-6 h-6 text-amber-600 flex-shrink-0 ml-4" />
-                          )}
-                        </div>
-                      </motion.button>
-                    );
-                  })
-                ) : (
-                  <div className="bg-gray-50 rounded-xl p-6 border-2 border-dashed border-gray-300 text-center">
-                    <p className="text-gray-600 mb-4">No lessons identified yet. Please write a longer reflection.</p>
+              <h3 className="text-lg font-bold text-gray-800 mb-4">Choose one lesson to carry forward from each reflection:</h3>
+              
+              {reflections.map((reflection, promptIndex) => {
+                if (reflection.trim().length < 50) return null;
+                
+                const lessons = extractLessons(reflection);
+                const selectedLesson = selectedLessons[promptIndex];
+                
+                return (
+                  <div key={promptIndex} className="mb-6 p-5 bg-white rounded-xl border-2 border-gray-200">
+                    <div className="mb-3">
+                      <span className="font-bold text-blue-600">Prompt {promptIndex + 1}:</span>
+                      <p className="text-sm text-gray-600 mt-1">{reflectionPrompts[promptIndex]?.title}</p>
+                    </div>
+                    
+                    <div className="space-y-2 mb-3">
+                      {lessons.length > 0 ? (
+                        lessons.map((lesson, index) => (
+                          <motion.button
+                            key={index}
+                            whileHover={{ scale: 1.01 }}
+                            whileTap={{ scale: 0.99 }}
+                            onClick={() => handleLessonSelect(promptIndex, lesson)}
+                            className={`w-full text-left p-3 rounded-lg border transition-all ${
+                              selectedLesson === lesson
+                                ? 'bg-gradient-to-br from-amber-50 to-orange-50 border-amber-400 border-2 shadow-md'
+                                : 'bg-gray-50 border-gray-300 hover:border-amber-300'
+                            }`}
+                          >
+                            <div className="flex items-center justify-between">
+                              <p className="text-gray-800 text-sm">{lesson}</p>
+                              {selectedLesson === lesson && (
+                                <CheckCircle className="w-5 h-5 text-amber-600 flex-shrink-0 ml-2" />
+                              )}
+                            </div>
+                          </motion.button>
+                        ))
+                      ) : (
+                        <p className="text-gray-500 text-sm italic">No clear lessons identified. Write a more detailed reflection.</p>
+                      )}
+                    </div>
+                    
+                    {/* Custom Option */}
                     <motion.button
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      onClick={() => setStep(1)}
-                      className="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition-colors"
+                      whileHover={{ scale: 1.01 }}
+                      whileTap={{ scale: 0.99 }}
+                      onClick={() => {
+                        const custom = prompt(`Enter a lesson from Prompt ${promptIndex + 1}:`);
+                        if (custom && custom.trim()) {
+                          handleLessonSelect(promptIndex, custom.trim());
+                        }
+                      }}
+                      className="w-full p-3 rounded-lg border-2 border-dashed border-gray-300 hover:border-gray-400 bg-gray-50 text-gray-700 text-sm font-medium transition-all"
                     >
-                      Return to Reflection
+                      + Add my own lesson for this prompt
                     </motion.button>
                   </div>
-                )}
-              </div>
-
-              {/* Custom Option */}
-              {lessonsIdentified.length > 0 && (
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => {
-                    const custom = prompt("Enter a lesson or value you want to carry forward:");
-                    if (custom && custom.trim()) {
-                      setSelectedLesson(custom.trim());
-                    }
-                  }}
-                  className="w-full mt-4 p-5 rounded-xl border-2 border-dashed border-gray-300 hover:border-gray-400 bg-gray-50 text-gray-700 font-medium transition-all"
-                >
-                  + Add my own lesson
-                </motion.button>
-              )}
+                );
+              })}
             </div>
 
             {/* Action Buttons */}
@@ -244,24 +341,24 @@ const GenerationalGratitude = () => {
                 onClick={() => setStep(1)}
                 className="flex-1 bg-gray-200 text-gray-800 px-6 py-3 rounded-xl font-bold hover:bg-gray-300 transition-all"
               >
-                Back to Reflection
+                Back to Reflections
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={handleComplete}
-                disabled={!selectedLesson}
+                disabled={selectedLessons.filter(l => l !== null).length !== 5}
                 className="flex-1 bg-gradient-to-r from-amber-600 to-orange-600 text-white px-6 py-3 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
-                Complete Reflection
+                Complete All Reflections
                 <CheckCircle className="w-5 h-5" />
               </motion.button>
             </div>
 
-            {!selectedLesson && (
+            {selectedLessons.filter(l => l !== null).length !== 5 && (
               <div className="mt-4 bg-yellow-100 rounded-lg p-3 border border-yellow-300">
                 <p className="text-yellow-800 text-sm text-center">
-                  Please select one lesson or value to carry forward.
+                  Please select one lesson for each of the 5 prompts ({selectedLessons.filter(l => l !== null).length}/5 completed).
                 </p>
               </div>
             )}
@@ -284,12 +381,12 @@ const GenerationalGratitude = () => {
       title={gameData?.title || "Generational Gratitude"}
       subtitle="Acknowledge Generational Wisdom"
       showGameOver={false}
-      score={0}
+      score={score}
       gameId={gameId}
       gameType="parent-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentLevel={1}
+      currentLevel={currentPromptIndex + 1}
     >
       <div className="w-full max-w-4xl mx-auto px-4 py-6">
         <motion.div
@@ -303,37 +400,54 @@ const GenerationalGratitude = () => {
             <p className="text-gray-600 text-lg">
               Acknowledge lessons learned from parents, elders, and mentors.
             </p>
+            <div className="mt-4 bg-blue-100 rounded-lg p-3 inline-block">
+              <p className="text-blue-800 font-medium">Reflection {currentPromptIndex + 1} of 5</p>
+            </div>
           </div>
 
-          {/* Reflection Prompt */}
+          {/* Progress Bar */}
+          <div className="mb-6">
+            <div className="flex justify-between text-sm text-gray-600 mb-2">
+              <span>Prompt {currentPromptIndex + 1} of 5</span>
+              <span>{Math.round(((currentPromptIndex) / 5) * 100)}% Complete</span>
+            </div>
+            <div className="w-full bg-gray-200 rounded-full h-3">
+              <div 
+                className="bg-gradient-to-r from-blue-500 to-indigo-600 h-3 rounded-full transition-all duration-300"
+                style={{ width: `${((currentPromptIndex + 1) / 5) * 100}%` }}
+              ></div>
+            </div>
+          </div>
+
+          {/* Current Reflection Prompt */}
           <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border-2 border-blue-200 mb-6">
             <h3 className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
               <Heart className="w-7 h-7 text-blue-600" />
-              Reflection Prompt
+              Reflection Prompt {currentPromptIndex + 1}
             </h3>
             <div className="bg-white rounded-lg p-5 border border-blue-200 mb-4">
               <p className="text-xl font-semibold text-gray-800 mb-3">
-                "What did my parents teach me about love, even through mistakes?"
+                "{reflectionPrompts[currentPromptIndex]?.title}"
               </p>
               <p className="text-sm text-gray-600">
-                Reflect on your parents, elders, or mentors. What did they teach you about love, parenting, relationships, or life—both through their strengths and through their mistakes? What wisdom can you find in their imperfect humanity? How did their challenges teach you valuable lessons?
+                {reflectionPrompts[currentPromptIndex]?.guidance}
               </p>
             </div>
             
             <textarea
-              value={reflection}
-              onChange={(e) => setReflection(e.target.value)}
-              placeholder="Write your reflection here... Think about the lessons—both positive and challenging—that shaped you. What did your parents' mistakes teach you? What did their love show you? What patterns do you want to continue, and what would you do differently?"
+              value={getCurrentReflection()}
+              onChange={(e) => setCurrentReflection(e.target.value)}
+              placeholder="Write your reflection here... Consider both positive lessons and challenging ones. Acknowledge their humanity and imperfections. Identify what you learned about love through their mistakes. Recognize patterns you want to continue or transform. Find gratitude for the wisdom gained, even from difficult experiences."
               className="w-full px-4 py-3 rounded-lg border-2 border-blue-300 focus:border-blue-500 focus:outline-none text-gray-800 min-h-[300px] resize-none"
             />
             <div className="flex justify-between items-center mt-3">
               <p className="text-sm text-gray-600">
-                {(reflection?.length || 0)} characters (minimum 50)
+                {(getCurrentReflection()?.length || 0)} characters (minimum 50)
               </p>
-              {reflection && reflection.length >= 50 && (
+              {getCurrentReflection() && getCurrentReflection().length >= 50 && (
                 <div className="flex items-center gap-2 text-green-600">
                   <CheckCircle className="w-5 h-5" />
-                  <span className="text-sm font-semibold">Ready to continue</span>
+                  <span className="text-sm font-semibold">Ready for next prompt</span>
                 </div>
               )}
             </div>
@@ -351,22 +465,36 @@ const GenerationalGratitude = () => {
             </ul>
           </div>
 
-          {/* Next Button */}
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={handleReflectionComplete}
-            disabled={!reflection.trim() || reflection.trim().length < 50}
-            className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-          >
-            Continue to Choose What to Carry Forward
-            <ArrowRight className="w-5 h-5" />
-          </motion.button>
+          {/* Navigation Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 mb-6">
+            {currentPromptIndex > 0 && (
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={handlePreviousPrompt}
+                className="flex-1 bg-gray-200 text-gray-800 px-6 py-3 rounded-xl font-bold hover:bg-gray-300 transition-all flex items-center justify-center gap-2"
+              >
+                <ArrowRight className="w-5 h-5 rotate-180" />
+                Previous Prompt
+              </motion.button>
+            )}
+            
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => handleReflectionComplete(currentPromptIndex)}
+              disabled={!getCurrentReflection().trim() || getCurrentReflection().trim().length < 50}
+              className="flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            >
+              {currentPromptIndex < 4 ? 'Next Prompt' : 'Finish Reflections'}
+              <ArrowRight className="w-5 h-5" />
+            </motion.button>
+          </div>
 
-          {(!reflection.trim() || reflection.trim().length < 50) && (
+          {(!getCurrentReflection().trim() || getCurrentReflection().trim().length < 50) && (
             <div className="mt-4 bg-yellow-100 rounded-lg p-3 border border-yellow-300">
               <p className="text-yellow-800 text-sm text-center">
-                Please write at least 50 characters to continue.
+                Please write at least 50 characters to continue to the next prompt.
               </p>
             </div>
           )}

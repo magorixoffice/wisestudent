@@ -15,7 +15,7 @@ const ResilienceLadder = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 1;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [step, setStep] = useState(1); // 1: Writing, 2: Animation, 3: Complete
   const [rungEntries, setRungEntries] = useState({
@@ -95,7 +95,9 @@ const ResilienceLadder = () => {
 
   const handleStartClimb = () => {
     if (allRungsFilled) {
-      setScore(1); // Award score for completing all entries
+      // Award 1 point for each completed rung (5 total)
+      const completedRungs = Object.values(rungEntries).filter(entry => entry.trim().length >= 10).length;
+      setScore(completedRungs);
       setStep(2);
       setShowClimbAnimation(true);
       animateClimb();
@@ -115,7 +117,7 @@ const ResilienceLadder = () => {
           setShowClimbAnimation(false);
           setStep(3);
           setShowGameOver(true);
-          setScore(prev => prev + 1); // Award score for completing climb
+          // No additional score for climb completion since we already awarded points for each rung
         }, 2000);
       }
     }, 1500); // 1.5 seconds per rung
@@ -133,7 +135,7 @@ const ResilienceLadder = () => {
         totalLevels={totalLevels}
         totalCoins={totalCoins}
         currentLevel={1}
-        allAnswersCorrect={score >= 2}
+        allAnswersCorrect={score >= 5}
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}

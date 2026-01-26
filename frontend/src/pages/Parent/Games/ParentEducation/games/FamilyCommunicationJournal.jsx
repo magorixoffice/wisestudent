@@ -14,7 +14,7 @@ const FamilyCommunicationJournal = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 7;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [currentDay, setCurrentDay] = useState(0);
   const [journalEntries, setJournalEntries] = useState({});
@@ -22,15 +22,13 @@ const FamilyCommunicationJournal = () => {
   const [score, setScore] = useState(0);
   const [showGameOver, setShowGameOver] = useState(false);
 
-  // 7 days of journaling
+  // 5 days of journaling
   const weekDays = [
     { id: 0, label: "Day 1", dayName: "Monday" },
     { id: 1, label: "Day 2", dayName: "Tuesday" },
     { id: 2, label: "Day 3", dayName: "Wednesday" },
     { id: 3, label: "Day 4", dayName: "Thursday" },
-    { id: 4, label: "Day 5", dayName: "Friday" },
-    { id: 5, label: "Day 6", dayName: "Saturday" },
-    { id: 6, label: "Day 7", dayName: "Sunday" }
+    { id: 4, label: "Day 5", dayName: "Friday" }
   ];
 
   const moodOptions = [
@@ -247,7 +245,7 @@ const FamilyCommunicationJournal = () => {
               </motion.div>
               <h2 className="text-3xl font-bold text-gray-800 mb-4">Your Weekly Communication Journal is Complete!</h2>
               <p className="text-lg text-gray-600 mb-6">
-                You've reflected on how family conversations affect your emotions. Awareness of tone and timing turns talk into bonding.
+                You've reflected on how family conversations affect your emotions over 5 days. Awareness of tone and timing turns talk into bonding.
               </p>
             </div>
 
@@ -307,7 +305,7 @@ const FamilyCommunicationJournal = () => {
               <ul className="space-y-2 text-gray-700">
                 <li className="flex items-start gap-2">
                   <span className="text-green-600 mt-1">•</span>
-                  <span>You've tracked how family conversations affect your emotions over 7 days.</span>
+                  <span>You've tracked how family conversations affect your emotions over 5 days.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-green-600 mt-1">•</span>
@@ -354,7 +352,7 @@ const FamilyCommunicationJournal = () => {
             <div className="text-center mb-8">
               <h2 className="text-3xl font-bold text-gray-800 mb-4">Your Weekly Reflection Summary</h2>
               <p className="text-gray-600">
-                Review your mood chart and reflections from the past week.
+                Review your mood chart and reflections from the past 5 days.
               </p>
             </div>
 
@@ -428,7 +426,7 @@ const FamilyCommunicationJournal = () => {
           {/* Progress bar */}
           <div className="mb-6">
             <div className="flex justify-between text-sm text-gray-600 mb-2">
-              <span>{currentDayData.label} of 7</span>
+              <span>{currentDayData.label} of 5</span>
               <span>{Math.round(progress)}% Complete</span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2">

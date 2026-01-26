@@ -9,15 +9,15 @@ const FulfillmentJournal = () => {
   const location = useLocation();
   
   // Get game data
-  const gameId = "parent-education-85";
+  const gameId = "parent-education-86";
   const gameData = getParentEducationGameById(gameId);
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 1;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [step, setStep] = useState(1); // 1: Writing, 2: Animation, 3: Complete
-  const [fulfillmentLines, setFulfillmentLines] = useState(['', '', '']);
+  const [fulfillmentLines, setFulfillmentLines] = useState(['', '', '', '', '']);
   const [showAnimation, setShowAnimation] = useState(false);
   const [score, setScore] = useState(0);
   const [showGameOver, setShowGameOver] = useState(false);
@@ -33,7 +33,7 @@ const FulfillmentJournal = () => {
 
   const handleComplete = () => {
     if (allLinesFilled) {
-      setScore(1);
+      setScore(5); // Set score to 5 for completing all 5 prompts
       setStep(2);
       setShowAnimation(true);
       startAnimation();
@@ -53,7 +53,6 @@ const FulfillmentJournal = () => {
           setShowAnimation(false);
           setStep(3);
           setShowGameOver(true);
-          setScore(prev => prev + 1);
         }, 1500);
       }
     }, 800); // 0.8 seconds per stage
@@ -80,7 +79,7 @@ const FulfillmentJournal = () => {
         totalLevels={totalLevels}
         totalCoins={totalCoins}
         currentLevel={1}
-        allAnswersCorrect={score >= 2}
+        allAnswersCorrect={score >= 5}
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -284,9 +283,9 @@ const FulfillmentJournal = () => {
             </div>
           </div>
 
-          {/* Three Lines Input */}
+          {/* Five Lines Input */}
           <div className="space-y-4 mb-6">
-            {[0, 1, 2].map((index) => (
+            {[0, 1, 2, 3, 4].map((index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, x: -20 }}
@@ -330,6 +329,8 @@ const FulfillmentJournal = () => {
               <li>• Watching them overcome a challenge</li>
               <li>• Feeling proud of how you handled a difficult situation</li>
               <li>• A spontaneous hug or "I love you"</li>
+              <li>• A proud achievement moment</li>
+              <li>• A moment of peace and contentment</li>
             </ul>
           </div>
 

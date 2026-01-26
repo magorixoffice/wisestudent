@@ -14,7 +14,7 @@ const GrowthMindsetGame = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 10;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [currentThought, setCurrentThought] = useState(0);
   const [selectedReframe, setSelectedReframe] = useState(null);
@@ -22,18 +22,14 @@ const GrowthMindsetGame = () => {
   const [score, setScore] = useState(0);
   const [showGameOver, setShowGameOver] = useState(false);
 
-  // 10 negative thoughts with reframe options
+  // 5 negative thoughts with reframe options
   const thoughts = [
     {
       id: 1,
       negativeThought: "I failed",
       context: "After making a mistake with your child, you feel like you've completely failed as a parent.",
       reframes: [
-        {
-          text: "I made a mistake, and I can learn from it",
-          isCorrect: true,
-          explanation: "This reframe shifts from self-blame to learning. Mistakes are opportunities for growth, not proof of failure."
-        },
+        
         {
           text: "I'm a terrible parent",
           isCorrect: false,
@@ -48,7 +44,12 @@ const GrowthMindsetGame = () => {
           text: "This proves I can't do this",
           isCorrect: false,
           explanation: "This is a fixed mindset. Growth mindset recognizes that you can improve with practice and learning."
-        }
+        },
+        {
+          text: "I made a mistake, and I can learn from it",
+          isCorrect: true,
+          explanation: "This reframe shifts from self-blame to learning. Mistakes are opportunities for growth, not proof of failure."
+        },
       ]
     },
     {
@@ -56,15 +57,16 @@ const GrowthMindsetGame = () => {
       negativeThought: "I'm not patient",
       context: "You lost your patience again and snapped at your child. You feel like you'll never be the patient parent you want to be.",
       reframes: [
-        {
-          text: "Patience is a skill I'm practicing and improving",
-          isCorrect: true,
-          explanation: "This reframe acknowledges growth. Patience isn't a fixed trait—it's something you can develop with practice and self-compassion."
-        },
+        
         {
           text: "I'll never be patient enough",
           isCorrect: false,
           explanation: "This is a fixed mindset that prevents growth. Believing you can't change keeps you stuck."
+        },
+        {
+          text: "Patience is a skill I'm practicing and improving",
+          isCorrect: true,
+          explanation: "This reframe acknowledges growth. Patience isn't a fixed trait—it's something you can develop with practice and self-compassion."
         },
         {
           text: "I need to try harder to be patient",
@@ -83,11 +85,7 @@ const GrowthMindsetGame = () => {
       negativeThought: "I'm ruining my child",
       context: "After a difficult interaction, you worry that your mistakes are causing lasting harm to your child.",
       reframes: [
-        {
-          text: "I'm human, and I can repair and grow. Our relationship is stronger than any single moment.",
-          isCorrect: true,
-          explanation: "This reframe emphasizes repair and growth. Children are resilient, and your consistent love and effort matter more than perfection."
-        },
+        
         {
           text: "I need to be perfect from now on",
           isCorrect: false,
@@ -97,6 +95,11 @@ const GrowthMindsetGame = () => {
           text: "The damage is already done",
           isCorrect: false,
           explanation: "This is a fixed mindset that doesn't account for repair and growth. Relationships can heal and strengthen."
+        },
+        {
+          text: "I'm human, and I can repair and grow. Our relationship is stronger than any single moment.",
+          isCorrect: true,
+          explanation: "This reframe emphasizes repair and growth. Children are resilient, and your consistent love and effort matter more than perfection."
         },
         {
           text: "I should just give up",
@@ -129,7 +132,8 @@ const GrowthMindsetGame = () => {
           text: "I'm not cut out for this",
           isCorrect: false,
           explanation: "This is a fixed mindset. You ARE capable—you're just learning, like every parent."
-        }
+        },
+        
       ]
     },
     {
@@ -137,11 +141,7 @@ const GrowthMindsetGame = () => {
       negativeThought: "I always mess up",
       context: "After another mistake, you feel like you're constantly failing and can't do anything right.",
       reframes: [
-        {
-          text: "I make mistakes sometimes, and I'm learning from each one",
-          isCorrect: true,
-          explanation: "This reframe shifts from 'always' (all-or-nothing thinking) to 'sometimes' and emphasizes learning. You're not defined by mistakes."
-        },
+        
         {
           text: "I need to stop making mistakes",
           isCorrect: false,
@@ -156,142 +156,12 @@ const GrowthMindsetGame = () => {
           text: "Nothing I do works",
           isCorrect: false,
           explanation: "This is all-or-nothing thinking. Some things work, some don't—that's normal. Focus on what you're learning."
-        }
-      ]
-    },
-    {
-      id: 6,
-      negativeThought: "I'm not good enough",
-      context: "Comparing yourself to other parents or your own expectations, you feel like you're falling short in every way.",
-      reframes: [
+        },
         {
-          text: "I'm doing my best with what I have, and that's enough. I'm growing every day.",
+          text: "I make mistakes sometimes, and I'm learning from each one",
           isCorrect: true,
-          explanation: "This reframe emphasizes self-compassion and growth. 'Good enough' is a moving target—focus on your effort and progress."
+          explanation: "This reframe shifts from 'always' (all-or-nothing thinking) to 'sometimes' and emphasizes learning. You're not defined by mistakes."
         },
-        {
-          text: "I need to do more to be good enough",
-          isCorrect: false,
-          explanation: "This adds pressure. The solution isn't doing more—it's recognizing that you're already enough as you learn and grow."
-        },
-        {
-          text: "I'll never be good enough",
-          isCorrect: false,
-          explanation: "This is a fixed mindset that prevents growth. You ARE good enough—you're just learning and improving."
-        },
-        {
-          text: "Everyone else is better than me",
-          isCorrect: false,
-          explanation: "Comparison is the thief of joy. You only see others' highlights—everyone struggles and learns."
-        }
-      ]
-    },
-    {
-      id: 7,
-      negativeThought: "I can't handle this",
-      context: "Feeling overwhelmed by parenting challenges, you doubt your ability to cope with everything on your plate.",
-      reframes: [
-        {
-          text: "I can handle this one step at a time. I've handled difficult things before.",
-          isCorrect: true,
-          explanation: "This reframe breaks challenges into manageable pieces and reminds you of your past resilience. You have more capacity than you think."
-        },
-        {
-          text: "This is too much for me",
-          isCorrect: false,
-          explanation: "This reinforces helplessness. While it's important to acknowledge overwhelm, include a path forward."
-        },
-        {
-          text: "I need someone else to do this",
-          isCorrect: false,
-          explanation: "While support is valuable, this can make you feel helpless. You CAN handle it—you might just need to break it down or ask for help."
-        },
-        {
-          text: "I'm completely overwhelmed",
-          isCorrect: false,
-          explanation: "This amplifies the feeling without offering a way forward. Acknowledge the feeling, then focus on the next small step."
-        }
-      ]
-    },
-    {
-      id: 8,
-      negativeThought: "I should be better by now",
-      context: "You've been working on improving, but you still make mistakes. You feel like you should have figured it out already.",
-      reframes: [
-        {
-          text: "Growth takes time, and I'm making progress. Every day is a new opportunity to practice.",
-          isCorrect: true,
-          explanation: "This reframe acknowledges that growth is a process, not a destination. Progress matters more than perfection."
-        },
-        {
-          text: "I'm not improving fast enough",
-          isCorrect: false,
-          explanation: "This adds pressure and comparison. Growth happens at your own pace—there's no timeline for improvement."
-        },
-        {
-          text: "I should have learned this already",
-          isCorrect: false,
-          explanation: "This adds shame. There's no deadline for learning—every day is a chance to grow."
-        },
-        {
-          text: "I'm not making any progress",
-          isCorrect: false,
-          explanation: "This overlooks small wins. Progress might be slow, but it's happening. Celebrate small steps."
-        }
-      ]
-    },
-    {
-      id: 9,
-      negativeThought: "I'm a bad parent",
-      context: "After a series of mistakes or difficult moments, you label yourself as a fundamentally bad parent.",
-      reframes: [
-        {
-          text: "I'm a parent who makes mistakes and learns from them. That's what good parents do.",
-          isCorrect: true,
-          explanation: "This reframe shifts from a fixed label to growth. Good parents aren't perfect—they're learning, trying, and growing."
-        },
-        {
-          text: "I need to become a good parent",
-          isCorrect: false,
-          explanation: "This suggests you're not good now. You ARE a good parent—you're just human and learning."
-        },
-        {
-          text: "I'll never be a good parent",
-          isCorrect: false,
-          explanation: "This is a fixed mindset. You're already a good parent—you're learning and growing, which is what good parents do."
-        },
-        {
-          text: "I should be like other parents",
-          isCorrect: false,
-          explanation: "Comparison doesn't help. Your parenting journey is unique—focus on your growth, not others'."
-        }
-      ]
-    },
-    {
-      id: 10,
-      negativeThought: "I'm failing my child",
-      context: "Worrying that you're not doing enough or doing things wrong, you feel like you're letting your child down.",
-      reframes: [
-        {
-          text: "I'm doing my best, and I can learn and grow. My child needs a parent who tries, not a perfect one.",
-          isCorrect: true,
-          explanation: "This reframe emphasizes effort and growth over perfection. Your child needs your love, presence, and willingness to grow—not perfection."
-        },
-        {
-          text: "I need to do more for my child",
-          isCorrect: false,
-          explanation: "This adds pressure. Your child needs your presence and love, not perfection or doing everything."
-        },
-        {
-          text: "I'm letting my child down",
-          isCorrect: false,
-          explanation: "This assumes you're failing. You're not—you're learning and trying, which is what your child needs."
-        },
-        {
-          text: "My child deserves better",
-          isCorrect: false,
-          explanation: "This suggests you're not enough. Your child deserves YOU—a parent who loves, tries, and grows."
-        }
       ]
     }
   ];
@@ -339,7 +209,7 @@ const GrowthMindsetGame = () => {
         totalLevels={totalLevels}
         totalCoins={totalCoins}
         currentLevel={totalLevels}
-        allAnswersCorrect={score >= 8}
+        allAnswersCorrect={score >= 4}  // Changed from >= 8 to >= 4 (majority of 5 questions)
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}

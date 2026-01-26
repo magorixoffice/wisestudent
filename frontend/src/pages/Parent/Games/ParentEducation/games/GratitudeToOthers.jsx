@@ -9,7 +9,7 @@ const GratitudeToOthers = () => {
   const location = useLocation();
   
   // Get game data
-  const gameId = "parent-education-73";
+  const gameId = "parent-education-74";
   const gameData = getParentEducationGameById(gameId);
   
   // Get game props from location.state or gameData
@@ -17,8 +17,8 @@ const GratitudeToOthers = () => {
   const totalLevels = gameData?.totalQuestions || 1;
   
   const [step, setStep] = useState(1); // 1: Select recipient, 2: Create message, 3: Complete
-  const [selectedRecipient, setSelectedRecipient] = useState(null);
-  const [recipientName, setRecipientName] = useState("");
+  const [selectedRecipients, setSelectedRecipients] = useState([]); // Changed to array to hold multiple recipients
+  const [currentRecipient, setCurrentRecipient] = useState({ selectedRecipient: null, recipientName: "" });
   const [message, setMessage] = useState("");
   const [isRecording, setIsRecording] = useState(false);
   const [audioBlob, setAudioBlob] = useState(null);
@@ -102,12 +102,45 @@ const GratitudeToOthers = () => {
   ];
 
   const handleSelectRecipient = (categoryId) => {
-    setSelectedRecipient(categoryId);
+    setCurrentRecipient(prev => ({
+      ...prev,
+      selectedRecipient: categoryId
+    }));
   };
 
   const handleContinueToMessage = () => {
-    if (selectedRecipient && recipientName.trim()) {
-      setStep(2);
+    if (currentRecipient.selectedRecipient && currentRecipient.recipientName.trim()) {
+      // Check if we've reached 5 recipients
+      if (selectedRecipients.length + 1 >= 5) {
+        // Add the last recipient and finish the game
+        setSelectedRecipients(prev => [...prev, {
+          ...currentRecipient,
+          message: message || '',
+          audioBlob: audioBlob,
+          audioURL: audioURL,
+          selectedSticker: selectedSticker
+        }]);
+        
+        setStep(3);
+        setShowGameOver(true);
+      } else {
+        // Add current recipient to the selected recipients list
+        setSelectedRecipients(prev => [...prev, {
+          ...currentRecipient,
+          message: message || '',
+          audioBlob: audioBlob,
+          audioURL: audioURL,
+          selectedSticker: selectedSticker
+        }]);
+        
+        // Reset current recipient and message fields
+        setCurrentRecipient({ selectedRecipient: null, recipientName: "" });
+        setMessage("");
+        setAudioBlob(null);
+        setAudioURL(null);
+        setSelectedSticker(null);
+        audioChunksRef.current = [];
+      }
     }
   };
 
@@ -158,42 +191,110 @@ const GratitudeToOthers = () => {
 
   const handleSendMessage = () => {
     if (message.trim() || audioBlob) {
-      // In a real app, this would send the message
-      // For now, we'll just mark as complete
-      setStep(3);
-      setShowGameOver(true);
+      // Check if we've reached 5 recipients
+      if (selectedRecipients.length + 1 >= 5) {
+        // Add the last recipient and finish the game
+        setSelectedRecipients(prev => [...prev, {
+          ...currentRecipient,
+          message: message || '',
+          audioBlob: audioBlob,
+          audioURL: audioURL,
+          selectedSticker: selectedSticker
+        }]);
+        
+        setStep(3);
+        setShowGameOver(true);
+      } else {
+        // Add current recipient to the selected recipients list
+        setSelectedRecipients(prev => [...prev, {
+          ...currentRecipient,
+          message: message || '',
+          audioBlob: audioBlob,
+          audioURL: audioURL,
+          selectedSticker: selectedSticker
+        }]);
+        
+        // Reset current recipient and message fields
+        setCurrentRecipient({ selectedRecipient: null, recipientName: "" });
+        setMessage("");
+        setAudioBlob(null);
+        setAudioURL(null);
+        setSelectedSticker(null);
+        audioChunksRef.current = [];
+      }
     }
   };
 
   const handleSaveMessage = () => {
     if (message.trim() || audioBlob) {
-      // Create a downloadable file
-      const content = `Gratitude Message\n\nTo: ${recipientName}\nCategory: ${recipientCategories.find(c => c.id === selectedRecipient)?.label}\n\nMessage:\n${message}\n\n${audioBlob ? '[Voice message attached]' : ''}\n\nCreated: ${new Date().toLocaleString()}`;
-      
-      const blob = new Blob([content], { type: 'text/plain' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `gratitude-message-${recipientName.replace(/\s+/g, '-')}.txt`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
+      // Check if we've reached 5 recipients
+      if (selectedRecipients.length + 1 >= 5) {
+        // Add the last recipient and finish the game
+        setSelectedRecipients(prev => [...prev, {
+          ...currentRecipient,
+          message: message || '',
+          audioBlob: audioBlob,
+          audioURL: audioURL,
+          selectedSticker: selectedSticker
+        }]);
+        
+        // Create a downloadable file with all messages
+        const allMessages = selectedRecipients.map((recipient, index) => 
+          `Gratitude Message #${index + 1}
 
-      setStep(3);
-      setShowGameOver(true);
+To: ${recipient.recipientName}
+Category: ${recipientCategories.find(c => c.id === recipient.selectedRecipient)?.label}
+
+Message:
+${recipient.message}
+
+${recipient.audioBlob ? '[Voice message attached]' : ''}`
+        ).join('\n\n---\n\n');
+        
+        const content = `${allMessages}\n\nCreated: ${new Date().toLocaleString()}`;
+        
+        const blob = new Blob([content], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `gratitude-messages-${new Date().toISOString().slice(0, 10)}.txt`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        
+        setStep(3);
+        setShowGameOver(true);
+      } else {
+        // Add current recipient to the selected recipients list
+        setSelectedRecipients(prev => [...prev, {
+          ...currentRecipient,
+          message: message || '',
+          audioBlob: audioBlob,
+          audioURL: audioURL,
+          selectedSticker: selectedSticker
+        }]);
+        
+        // Reset current recipient and message fields
+        setCurrentRecipient({ selectedRecipient: null, recipientName: "" });
+        setMessage("");
+        setAudioBlob(null);
+        setAudioURL(null);
+        setSelectedSticker(null);
+        audioChunksRef.current = [];
+      }
     }
   };
 
-  const selectedCategory = recipientCategories.find(c => c.id === selectedRecipient);
+  const selectedCategory = recipientCategories.find(c => c.id === currentRecipient.selectedRecipient);
 
   if (showGameOver && step === 3) {
     return (
       <ParentGameShell
         title={gameData?.title || "Gratitude to Others"}
-        subtitle="Message Created!"
+        subtitle="All Messages Created!"
         showGameOver={true}
-        score={1}
+        score={5}
         gameId={gameId}
         gameType="parent-education"
         totalLevels={totalLevels}
@@ -222,35 +323,43 @@ const GratitudeToOthers = () => {
               </p>
             </div>
 
-            {/* Message Preview */}
-            <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-6 border-2 border-amber-200 mb-6">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-4xl">{selectedCategory?.emoji}</span>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-800">To: {recipientName}</h3>
-                  <p className="text-sm text-gray-600">{selectedCategory?.label}</p>
-                </div>
-              </div>
-              
-              {selectedSticker && (
-                <div className="text-center mb-4">
-                  <span className="text-6xl">{stickers.find(s => s.id === selectedSticker)?.emoji}</span>
-                </div>
-              )}
+            {/* All Message Previews */}
+            <div className="space-y-6 mb-6">
+              {selectedRecipients.map((recipient, index) => {
+                const recipientCategory = recipientCategories.find(c => c.id === recipient.selectedRecipient);
+                const sticker = stickers.find(s => s.id === recipient.selectedSticker);
+                return (
+                  <div key={index} className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-6 border-2 border-amber-200">
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="text-4xl">{recipientCategory?.emoji}</span>
+                      <div>
+                        <h3 className="text-xl font-bold text-gray-800">To: {recipient.recipientName}</h3>
+                        <p className="text-sm text-gray-600">{recipientCategory?.label}</p>
+                      </div>
+                    </div>
+                    
+                    {recipient.selectedSticker && (
+                      <div className="text-center mb-4">
+                        <span className="text-6xl">{sticker?.emoji}</span>
+                      </div>
+                    )}
 
-              <div className="bg-white rounded-lg p-5 border border-amber-200 mb-4">
-                <p className="text-gray-800 leading-relaxed whitespace-pre-wrap">
-                  {message || '[Voice message]'}
-                </p>
-              </div>
+                    <div className="bg-white rounded-lg p-5 border border-amber-200 mb-4">
+                      <p className="text-gray-800 leading-relaxed whitespace-pre-wrap">
+                        {recipient.message || '[Voice message]'}
+                      </p>
+                    </div>
 
-              {audioURL && (
-                <div className="bg-white rounded-lg p-4 border border-amber-200 mb-4">
-                  <audio controls src={audioURL} className="w-full">
-                    Your browser does not support the audio element.
-                  </audio>
-                </div>
-              )}
+                    {recipient.audioURL && (
+                      <div className="bg-white rounded-lg p-4 border border-amber-200 mb-4">
+                        <audio controls src={recipient.audioURL} className="w-full">
+                          Your browser does not support the audio element.
+                        </audio>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
 
             {/* Insights */}
@@ -294,9 +403,9 @@ const GratitudeToOthers = () => {
   return (
     <ParentGameShell
       title={gameData?.title || "Gratitude to Others"}
-      subtitle={step === 1 ? "Choose Recipient" : step === 2 ? "Create Message" : "Complete"}
+      subtitle={step === 1 ? `Choose Recipient (${selectedRecipients.length + 1}/5)` : step === 2 ? "Create Message" : "Complete"}
       showGameOver={false}
-      score={0}
+      score={selectedRecipients.length}
       gameId={gameId}
       gameType="parent-education"
       totalLevels={totalLevels}
@@ -330,7 +439,7 @@ const GratitudeToOthers = () => {
                     whileTap={{ scale: 0.98 }}
                     onClick={() => handleSelectRecipient(category.id)}
                     className={`text-left p-5 rounded-xl border-2 transition-all ${
-                      selectedRecipient === category.id
+                      currentRecipient.selectedRecipient === category.id
                         ? `${category.bgColor} ${category.borderColor} border-4 shadow-lg`
                         : 'bg-white border-gray-200 hover:border-gray-300'
                     }`}
@@ -340,7 +449,7 @@ const GratitudeToOthers = () => {
                       <div>
                         <h3 className="text-lg font-bold text-gray-800">{category.label}</h3>
                       </div>
-                      {selectedRecipient === category.id && (
+                      {currentRecipient.selectedRecipient === category.id && (
                         <CheckCircle className="w-6 h-6 text-green-600 ml-auto" />
                       )}
                     </div>
@@ -349,7 +458,7 @@ const GratitudeToOthers = () => {
               </div>
 
               {/* Recipient Name Input */}
-              {selectedRecipient && (
+              {currentRecipient.selectedRecipient && (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -360,23 +469,49 @@ const GratitudeToOthers = () => {
                   </label>
                   <input
                     type="text"
-                    value={recipientName}
-                    onChange={(e) => setRecipientName(e.target.value)}
-                    placeholder={recipientCategories.find(c => c.id === selectedRecipient)?.placeholder}
+                    value={currentRecipient.recipientName}
+                    onChange={(e) => setCurrentRecipient(prev => ({
+                      ...prev,
+                      recipientName: e.target.value
+                    }))}
+                    placeholder={recipientCategories.find(c => c.id === currentRecipient.selectedRecipient)?.placeholder}
                     className="w-full px-4 py-3 rounded-lg border-2 border-blue-300 focus:border-blue-500 focus:outline-none text-gray-800 text-lg"
                   />
                 </motion.div>
               )}
 
+              {/* Selected Recipients Summary */}
+              {selectedRecipients.length > 0 && (
+                <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border-2 border-green-200 mb-6">
+                  <h3 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
+                    Selected Recipients ({selectedRecipients.length}/5)
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                    {selectedRecipients.map((recipient, index) => {
+                      const category = recipientCategories.find(c => c.id === recipient.selectedRecipient);
+                      return (
+                        <div key={index} className="flex items-center gap-3 p-3 bg-white rounded-lg border border-green-300">
+                          <span>{category?.emoji}</span>
+                          <div>
+                            <p className="font-medium text-gray-800">{recipient.recipientName}</p>
+                            <p className="text-sm text-gray-600">{category?.label}</p>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+                          
               {/* Continue Button */}
-              {selectedRecipient && recipientName.trim() && (
+              {currentRecipient.selectedRecipient && currentRecipient.recipientName.trim() && (
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={handleContinueToMessage}
                   className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
                 >
-                  Continue to Message
+                  {selectedRecipients.length + 1 >= 5 ? 'Finish & Submit All Messages' : 'Continue to Message'}
                   <MessageSquare className="w-5 h-5" />
                 </motion.button>
               )}
@@ -390,7 +525,7 @@ const GratitudeToOthers = () => {
                 <div className="text-6xl mb-4">💝</div>
                 <h2 className="text-3xl font-bold text-gray-800 mb-2">Create Your Gratitude Message</h2>
                 <p className="text-gray-600">
-                  Write a message to <strong className="text-gray-800">{recipientName}</strong>
+                  Write a message to <strong className="text-gray-800">{currentRecipient.recipientName}</strong>
                 </p>
               </div>
 

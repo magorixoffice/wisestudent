@@ -32,15 +32,7 @@ const RespectfulNo = () => {
       situation: "A friend calls asking if you can help them move furniture this weekend. You're already exhausted from the week, and you had planned this weekend as family time. You feel pressure to say yes, but you're already overcommitted.",
       request: "Can you help me move some furniture this Saturday? I know you're busy, but I really need the help. It shouldn't take too long—maybe just a few hours?",
       responses: [
-        {
-          id: 'respectful-no',
-          label: 'Respectful "No"',
-          text: "I appreciate you thinking of me, and I'd love to help, but I've already committed to family time this weekend. I need to honor that commitment. I hope you find someone who can help!",
-          calmScore: 90,
-          guiltScore: 10,
-          explanation: "This response sets a clear boundary while being kind and respectful. It acknowledges the request, explains your limitation, and maintains the relationship without guilt.",
-          outcome: "You maintain your boundaries and family time. You feel calm and confident. Your friend understands your limit, and your relationship stays strong."
-        },
+       
         {
           id: 'guilty-yes',
           label: 'Guilty "Yes"',
@@ -58,7 +50,16 @@ const RespectfulNo = () => {
           guiltScore: 60,
           explanation: "This response is firm but harsh and dismissive. While it sets a boundary, it damages the relationship and creates guilt about being unkind.",
           outcome: "You feel guilty about being harsh. Your friend feels hurt and rejected. The relationship suffers, and you may feel conflicted about your response."
-        }
+        },
+         {
+          id: 'respectful-no',
+          label: 'Respectful "No"',
+          text: "I appreciate you thinking of me, and I'd love to help, but I've already committed to family time this weekend. I need to honor that commitment. I hope you find someone who can help!",
+          calmScore: 90,
+          guiltScore: 10,
+          explanation: "This response sets a clear boundary while being kind and respectful. It acknowledges the request, explains your limitation, and maintains the relationship without guilt.",
+          outcome: "You maintain your boundaries and family time. You feel calm and confident. Your friend understands your limit, and your relationship stays strong."
+        },
       ],
       correctChoice: "respectful-no",
       whyItMatters: "A respectful 'No' protects your boundaries while maintaining relationships. When you say no with love and clarity, you respect both yourself and others."
@@ -69,15 +70,7 @@ const RespectfulNo = () => {
       situation: "Your child has already used their screen time for the day. They're begging for more, saying all their friends get more time, and promising to do extra chores if you say yes. You know they need to stick to the limit.",
       request: "Pleeease, can I just have 30 more minutes? All my friends get way more screen time than me! I'll do extra chores tomorrow, I promise! Just this once?",
       responses: [
-        {
-          id: 'respectful-no',
-          label: 'Respectful "No"',
-          text: "I hear that you really want more screen time, and I understand it feels unfair when friends have different rules. Our rule is still one hour per day, and you've already used yours. Tomorrow is a new day, and you can have your screen time then.",
-          calmScore: 85,
-          guiltScore: 15,
-          explanation: "This response acknowledges their feelings while firmly holding the boundary. It's kind and clear, without negotiation or guilt.",
-          outcome: "You maintain the boundary calmly. Your child learns that rules are consistent and fair. They may be disappointed, but they understand and respect the limit."
-        },
+        
         {
           id: 'guilty-yes',
           label: 'Guilty "Yes"',
@@ -86,6 +79,15 @@ const RespectfulNo = () => {
           guiltScore: 80,
           explanation: "This response gives in out of guilt or pressure, which weakens the boundary and teaches children that rules don't really matter.",
           outcome: "You feel guilty for breaking your own rule. Your child learns that boundaries are negotiable. Tomorrow they'll ask again, and the pattern continues."
+        },
+        {
+          id: 'respectful-no',
+          label: 'Respectful "No"',
+          text: "I hear that you really want more screen time, and I understand it feels unfair when friends have different rules. Our rule is still one hour per day, and you've already used yours. Tomorrow is a new day, and you can have your screen time then.",
+          calmScore: 85,
+          guiltScore: 15,
+          explanation: "This response acknowledges their feelings while firmly holding the boundary. It's kind and clear, without negotiation or guilt.",
+          outcome: "You maintain the boundary calmly. Your child learns that rules are consistent and fair. They may be disappointed, but they understand and respect the limit."
         },
         {
           id: 'harsh-no',
@@ -143,15 +145,7 @@ const RespectfulNo = () => {
       situation: "A friend invites you to a party tonight, but you've been looking forward to a quiet evening at home. You're tired, and you know you need rest, but you feel bad saying no to a friend.",
       request: "Hey! We're having a last-minute get-together tonight. I know it's short notice, but it would be so fun if you could come! Everyone will be there. Can you make it?",
       responses: [
-        {
-          id: 'respectful-no',
-          label: 'Respectful "No"',
-          text: "Thank you so much for inviting me! That sounds like fun. I'm actually planning a quiet evening at home tonight—I really need some rest. I'd love to catch up soon though! Have a great time!",
-          calmScore: 85,
-          guiltScore: 15,
-          explanation: "This response is warm and appreciative while clearly setting your boundary. It maintains the relationship without feeling guilty.",
-          outcome: "You honor your need for rest and feel calm about your choice. Your friend understands, and you maintain a healthy friendship based on mutual respect for boundaries."
-        },
+        
         {
           id: 'guilty-yes',
           label: 'Guilty "Yes"',
@@ -169,7 +163,16 @@ const RespectfulNo = () => {
           guiltScore: 70,
           explanation: "This response is defensive and critical. While it sets a boundary, it creates conflict and guilt about how you responded.",
           outcome: "You feel guilty about your tone. Your friend feels hurt and may stop inviting you. The friendship suffers, even though your boundary was reasonable."
-        }
+        },
+        {
+          id: 'respectful-no',
+          label: 'Respectful "No"',
+          text: "Thank you so much for inviting me! That sounds like fun. I'm actually planning a quiet evening at home tonight—I really need some rest. I'd love to catch up soon though! Have a great time!",
+          calmScore: 85,
+          guiltScore: 15,
+          explanation: "This response is warm and appreciative while clearly setting your boundary. It maintains the relationship without feeling guilty.",
+          outcome: "You honor your need for rest and feel calm about your choice. Your friend understands, and you maintain a healthy friendship based on mutual respect for boundaries."
+        },
       ],
       correctChoice: "respectful-no",
       whyItMatters: "Saying no to social events when you need rest is self-care. A respectful 'No' protects your energy while maintaining friendships."
@@ -471,20 +474,20 @@ const RespectfulNo = () => {
                 >
                   <div className="flex items-start gap-4">
                     <div className={`rounded-full p-2 ${
-                      response.id === 'respectful-no' ? 'bg-green-100' 
-                      : response.id === 'guilty-yes' ? 'bg-red-100'
+                      response.id === 'respectful-no' ? 'bg-orange-100' 
+                      : response.id === 'guilty-yes' ? 'bg-orange-100'
                       : 'bg-orange-100'
                     }`}>
                       {response.id === 'respectful-no' ? (
-                        <CheckCircle className="w-6 h-6 text-green-600" />
+                        <AlertCircle className="w-6 h-6 text-orange-600" />
                       ) : response.id === 'guilty-yes' ? (
-                        <XCircle className="w-6 h-6 text-red-600" />
+                        <AlertCircle className="w-6 h-6 text-orange-600" />
                       ) : (
                         <AlertCircle className="w-6 h-6 text-orange-600" />
                       )}
                     </div>
                     <div className="flex-1">
-                      <h4 className="font-bold text-gray-800 mb-2">{response.label}</h4>
+                      <h4 className="font-bold text-gray-800 mb-2"></h4>
                       <p className="text-gray-700 italic">
                         "{response.text}"
                       </p>

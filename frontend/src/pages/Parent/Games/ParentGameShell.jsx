@@ -252,28 +252,6 @@ const ParentGameShell = ({
         </div>
       </div>
 
-      {/* Progress Indicator */}
-      {totalLevels > 1 && (
-        <div className="px-6 py-3 bg-white/60 backdrop-blur-sm border-b border-gray-200">
-          <div className="max-w-3xl mx-auto">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-medium text-gray-600">
-                Question {currentQuestion + 1} of {totalLevels}
-              </span>
-              <span className="text-sm font-medium text-gray-600">
-                {Math.round(((currentQuestion + 1) / totalLevels) * 100)}%
-              </span>
-            </div>
-            <div className="w-full bg-gray-200 rounded-full h-2">
-              <div
-                className="bg-blue-600 h-2 rounded-full transition-all duration-300"
-                style={{ width: `${((currentQuestion + 1) / totalLevels) * 100}%` }}
-              ></div>
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* Main Game Area */}
       <div className="flex-1 flex flex-col justify-center items-center text-center px-4 z-10 pt-8">
         {(title || subtitle) && (

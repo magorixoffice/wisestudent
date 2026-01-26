@@ -9,7 +9,7 @@ const HelpingHandChallenge = () => {
   const location = useLocation();
   
   // Get game data
-  const gameId = "parent-education-76";
+  const gameId = "parent-education-77";
   const gameData = getParentEducationGameById(gameId);
   
   // Get game props from location.state or gameData
@@ -136,8 +136,8 @@ const HelpingHandChallenge = () => {
   ];
 
   const handleSelectTask = (taskId) => {
-    if (selectedTasks.length >= 2 && !selectedTasks.includes(taskId)) {
-      return; // Can only select 2
+    if (selectedTasks.length >= 5 && !selectedTasks.includes(taskId)) {
+      return; // Can only select 5
     }
     
     setSelectedTasks(prev => {
@@ -150,8 +150,8 @@ const HelpingHandChallenge = () => {
         setTaskReflections(newReflections);
         return newTasks;
       } else {
-        // Select (max 2)
-        if (prev.length < 2) {
+        // Select (max 5)
+        if (prev.length < 5) {
           return [...prev, taskId];
         }
         return prev;
@@ -328,20 +328,20 @@ const HelpingHandChallenge = () => {
             <div className="text-6xl mb-4">🤝</div>
             <h2 className="text-3xl font-bold text-gray-800 mb-4">Helping Hand Challenge</h2>
             <p className="text-gray-600 text-lg mb-2">
-              Select and complete 1-2 acts of kindness in your community.
+              Select and complete 1-5 acts of kindness in your community.
             </p>
             <p className="text-sm text-gray-500">
-              Select {selectedTasks.length}/2 tasks
+              Select {selectedTasks.length}/5 tasks
             </p>
           </div>
 
           {/* Selection Phase */}
-          {selectedTasks.length < 2 ? (
+          {selectedTasks.length < 5 ? (
             <>
               <div className="mb-6">
                 <h3 className="text-lg font-bold text-gray-800 mb-4">Choose Your Acts of Kindness</h3>
                 <p className="text-sm text-gray-600 mb-4">
-                  Select 1-2 community kindness tasks you'd like to complete. After completing each task, you'll record a short reflection.
+                  Select 1-5 community kindness tasks you'd like to complete. After completing each task, you'll record a short reflection.
                 </p>
               </div>
 
@@ -355,12 +355,12 @@ const HelpingHandChallenge = () => {
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={() => handleSelectTask(task.id)}
-                      disabled={selectedTasks.length >= 2 && !isSelected}
+                      disabled={selectedTasks.length >= 5 && !isSelected}
                       className={`text-left p-5 rounded-xl border-2 transition-all ${
                         isSelected
                           ? `${task.bgColor} ${task.borderColor} border-4 shadow-lg`
                           : 'bg-white border-gray-200 hover:border-gray-300'
-                      } ${selectedTasks.length >= 2 && !isSelected ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+                      } ${selectedTasks.length >= 5 && !isSelected ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
                     >
                       <div className="flex items-start justify-between mb-3">
                         <div className="flex items-center gap-3">

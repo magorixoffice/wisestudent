@@ -9,7 +9,7 @@ const SilenceChallenge = () => {
   const location = useLocation();
   
   // Get game data
-  const gameId = "parent-education-96";
+  const gameId = "parent-education-98";
   const gameData = getParentEducationGameById(gameId);
   
   // Get game props from location.state or gameData
@@ -143,7 +143,7 @@ const SilenceChallenge = () => {
         title={gameData?.title || "Silence Challenge"}
         subtitle="Challenge Complete!"
         showGameOver={true}
-        score={score}
+        score={5}
         gameId={gameId}
         gameType="parent-education"
         totalLevels={totalLevels}

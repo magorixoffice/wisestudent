@@ -9,7 +9,7 @@ const SupportCircle = () => {
   const location = useLocation();
   
   // Get game data
-  const gameId = "parent-education-70";
+  const gameId = "parent-education-71";
   const gameData = getParentEducationGameById(gameId);
   
   // Get game props from location.state or gameData
@@ -90,15 +90,15 @@ const SupportCircle = () => {
     const totalPeople = supportPeople.length;
     const uniqueCategories = new Set(supportPeople.map(p => p.category)).size;
     
-    // Base score from number of people (max 20 points)
-    let score = Math.min(20, totalPeople * 2);
+    // Base score from number of people (max 25 points for 5 people)
+    let score = Math.min(25, totalPeople * 5);
     
     // Bonus for diversity (having people from different categories)
     const diversityBonus = uniqueCategories * 5; // Up to 20 points for 4 categories
     
-    // Total score out of 40, normalized to 100
+    // Total score out of 45, normalized to 100
     const totalPoints = score + diversityBonus;
-    return Math.min(100, Math.round((totalPoints / 40) * 100));
+    return Math.min(100, Math.round((totalPoints / 45) * 100));
   };
 
   const getScoreLabel = (score) => {
@@ -109,7 +109,7 @@ const SupportCircle = () => {
   };
 
   const handleComplete = () => {
-    if (supportPeople.length >= 3) {
+    if (supportPeople.length >= 5) {
       setStep(2);
       setShowGameOver(true);
     }
@@ -416,12 +416,12 @@ const SupportCircle = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={handleComplete}
-              disabled={supportPeople.length < 3}
+              disabled={supportPeople.length < 5}
               className="flex-1 bg-gradient-to-r from-green-600 to-emerald-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
               <CheckCircle className="w-5 h-5" />
-              {supportPeople.length < 3 
-                ? `Add ${3 - supportPeople.length} more ${3 - supportPeople.length === 1 ? 'person' : 'people'} to complete`
+              {supportPeople.length < 5 
+                ? `Add ${5 - supportPeople.length} more ${5 - supportPeople.length === 1 ? 'person' : 'people'} to complete`
                 : 'Complete Support Circle'}
             </motion.button>
           </div>

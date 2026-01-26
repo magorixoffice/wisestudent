@@ -30,17 +30,7 @@ const ChallengeChoiceSimulation = () => {
       title: "Spilled Milk",
       situation: "Your child accidentally spills a full glass of milk all over the kitchen floor. It's spreading everywhere, and you just cleaned the kitchen.",
       responses: [
-        {
-          id: 'calm',
-          label: 'Calm Response',
-          text: "Take a deep breath and say: 'It's okay, accidents happen. Let's clean it up together.'",
-          calmImpact: +15,
-          explanation: "This response maintains your calm and teaches your child that mistakes are okay. Your calm level increases because you avoided stress escalation.",
-          emoji: "😌",
-          color: "from-green-500 to-emerald-600",
-          bgColor: "from-green-50 to-emerald-50",
-          borderColor: "border-green-300"
-        },
+        
         {
           id: 'neutral',
           label: 'Neutral Response',
@@ -53,15 +43,26 @@ const ChallengeChoiceSimulation = () => {
           borderColor: "border-yellow-300"
         },
         {
+          id: 'calm',
+          label: 'Calm Response',
+          text: "Take a deep breath and say: 'It's okay, accidents happen. Let's clean it up together.'",
+          calmImpact: +15,
+          explanation: "This response maintains your calm and teaches your child that mistakes are okay. Your calm level increases because you avoided stress escalation.",
+          emoji: "😌",
+           color: "from-yellow-500 to-orange-500",
+          bgColor: "from-yellow-50 to-orange-50",
+          borderColor: "border-yellow-300"
+        },
+        {
           id: 'reactive',
           label: 'Reactive Response',
           text: "Shout: 'Why can't you be more careful? I just cleaned this!'",
           calmImpact: -25,
           explanation: "This reactive response creates stress for both you and your child. Your calm level decreases significantly, and the situation escalates.",
           emoji: "😠",
-          color: "from-red-500 to-rose-600",
-          bgColor: "from-red-50 to-rose-50",
-          borderColor: "border-red-300"
+           color: "from-yellow-500 to-orange-500",
+          bgColor: "from-yellow-50 to-orange-50",
+          borderColor: "border-yellow-300"
         }
       ],
       correctChoice: 'calm'
@@ -71,17 +72,7 @@ const ChallengeChoiceSimulation = () => {
       title: "Rude Reply",
       situation: "Your teenager responds rudely when you ask them to help with dinner: 'Why do I always have to do everything? Can't you just do it yourself?'",
       responses: [
-        {
-          id: 'calm',
-          label: 'Calm Response',
-          text: "Pause, then say: 'I hear you're frustrated. Let's talk about what's really bothering you. I'd appreciate your help, but I want to understand what's going on.'",
-          calmImpact: +12,
-          explanation: "This response addresses the underlying issue and maintains your calm. You're modeling emotional regulation and open communication.",
-          emoji: "🤝",
-          color: "from-green-500 to-emerald-600",
-          bgColor: "from-green-50 to-emerald-50",
-          borderColor: "border-green-300"
-        },
+       
         {
           id: 'neutral',
           label: 'Neutral Response',
@@ -89,7 +80,7 @@ const ChallengeChoiceSimulation = () => {
           calmImpact: -8,
           explanation: "This response avoids conflict but creates distance. Your calm level decreases because resentment builds when needs aren't addressed.",
           emoji: "😑",
-          color: "from-yellow-500 to-orange-500",
+           color: "from-yellow-500 to-orange-500",
           bgColor: "from-yellow-50 to-orange-50",
           borderColor: "border-yellow-300"
         },
@@ -100,10 +91,21 @@ const ChallengeChoiceSimulation = () => {
           calmImpact: -30,
           explanation: "This reactive response escalates conflict. Your calm level drops significantly, and the power struggle creates stress for everyone.",
           emoji: "⚔️",
-          color: "from-red-500 to-rose-600",
-          bgColor: "from-red-50 to-rose-50",
-          borderColor: "border-red-300"
-        }
+           color: "from-yellow-500 to-orange-500",
+          bgColor: "from-yellow-50 to-orange-50",
+          borderColor: "border-yellow-300"
+        },
+         {
+          id: 'calm',
+          label: 'Calm Response',
+          text: "Pause, then say: 'I hear you're frustrated. Let's talk about what's really bothering you. I'd appreciate your help, but I want to understand what's going on.'",
+          calmImpact: +12,
+          explanation: "This response addresses the underlying issue and maintains your calm. You're modeling emotional regulation and open communication.",
+          emoji: "🤝",
+           color: "from-yellow-500 to-orange-500",
+          bgColor: "from-yellow-50 to-orange-50",
+          borderColor: "border-yellow-300"
+        },
       ],
       correctChoice: 'calm'
     },
@@ -119,9 +121,9 @@ const ChallengeChoiceSimulation = () => {
           calmImpact: +10,
           explanation: "This response balances your needs with your child's. You set boundaries and keep your commitment. Your calm level increases because you handled it thoughtfully.",
           emoji: "⚖️",
-          color: "from-green-500 to-emerald-600",
-          bgColor: "from-green-50 to-emerald-50",
-          borderColor: "border-green-300"
+           color: "from-yellow-500 to-orange-500",
+          bgColor: "from-yellow-50 to-orange-50",
+          borderColor: "border-yellow-300"
         },
         {
           id: 'neutral',
@@ -141,9 +143,9 @@ const ChallengeChoiceSimulation = () => {
           calmImpact: -20,
           explanation: "This reactive response creates guilt and defensiveness. Your calm level decreases significantly because you're reacting from stress and frustration.",
           emoji: "😤",
-          color: "from-red-500 to-rose-600",
-          bgColor: "from-red-50 to-rose-50",
-          borderColor: "border-red-300"
+           color: "from-yellow-500 to-orange-500",
+          bgColor: "from-yellow-50 to-orange-50",
+          borderColor: "border-yellow-300"
         }
       ],
       correctChoice: 'calm'
@@ -153,17 +155,7 @@ const ChallengeChoiceSimulation = () => {
       title: "Tantrum in Public",
       situation: "Your child has a full meltdown in the grocery store because you won't buy them a toy. People are staring, and you feel embarrassed and overwhelmed.",
       responses: [
-        {
-          id: 'calm',
-          label: 'Calm Response',
-          text: "Kneel down to their level, speak softly: 'I know you're upset. We can't get that today, but I'm here with you. Let's finish shopping and go home.'",
-          calmImpact: +18,
-          explanation: "This response maintains your composure and connects with your child. Your calm level increases because you handled a difficult situation with grace.",
-          emoji: "🧘",
-          color: "from-green-500 to-emerald-600",
-          bgColor: "from-green-50 to-emerald-50",
-          borderColor: "border-green-300"
-        },
+        
         {
           id: 'neutral',
           label: 'Neutral Response',
@@ -182,10 +174,21 @@ const ChallengeChoiceSimulation = () => {
           calmImpact: -35,
           explanation: "This reactive response comes from embarrassment and shame. Your calm level drops significantly, and the situation becomes more stressful for everyone.",
           emoji: "😡",
-          color: "from-red-500 to-rose-600",
-          bgColor: "from-red-50 to-rose-50",
-          borderColor: "border-red-300"
-        }
+           color: "from-yellow-500 to-orange-500",
+          bgColor: "from-yellow-50 to-orange-50",
+          borderColor: "border-yellow-300"
+        },
+        {
+          id: 'calm',
+          label: 'Calm Response',
+          text: "Kneel down to their level, speak softly: 'I know you're upset. We can't get that today, but I'm here with you. Let's finish shopping and go home.'",
+          calmImpact: +18,
+          explanation: "This response maintains your composure and connects with your child. Your calm level increases because you handled a difficult situation with grace.",
+          emoji: "🧘",
+           color: "from-yellow-500 to-orange-500",
+          bgColor: "from-yellow-50 to-orange-50",
+          borderColor: "border-yellow-300"
+        },
       ],
       correctChoice: 'calm'
     },
@@ -201,9 +204,9 @@ const ChallengeChoiceSimulation = () => {
           calmImpact: +14,
           explanation: "This response prioritizes connection over control. Your calm level increases because you're choosing thoughtful action over reactive escalation.",
           emoji: "💙",
-          color: "from-green-500 to-emerald-600",
-          bgColor: "from-green-50 to-emerald-50",
-          borderColor: "border-green-300"
+           color: "from-yellow-500 to-orange-500",
+          bgColor: "from-yellow-50 to-orange-50",
+          borderColor: "border-yellow-300"
         },
         {
           id: 'neutral',
@@ -223,9 +226,9 @@ const ChallengeChoiceSimulation = () => {
           calmImpact: -28,
           explanation: "This reactive response escalates the conflict. Your calm level drops significantly, and the punishment creates more tension rather than resolution.",
           emoji: "💥",
-          color: "from-red-500 to-rose-600",
-          bgColor: "from-red-50 to-rose-50",
-          borderColor: "border-red-300"
+           color: "from-yellow-500 to-orange-500",
+          bgColor: "from-yellow-50 to-orange-50",
+          borderColor: "border-yellow-300"
         }
       ],
       correctChoice: 'calm'
@@ -435,7 +438,7 @@ const ChallengeChoiceSimulation = () => {
                         <span className="text-2xl">{response.emoji}</span>
                       </div>
                       <div className="flex-1">
-                        <h5 className="font-bold text-gray-800 mb-2">{response.label}</h5>
+                        <h5 className="font-bold text-gray-800 mb-2"></h5>
                         <p className="text-gray-700">{response.text}</p>
                       </div>
                       {selectedChoice?.id === response.id && (

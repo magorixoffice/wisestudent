@@ -9,12 +9,12 @@ const ScreenTimeMirror = () => {
   const location = useLocation();
   
   // Get game data
-  const gameId = "parent-education-89";
+  const gameId = "parent-education-91";
   const gameData = getParentEducationGameById(gameId);
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 7;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [currentDay, setCurrentDay] = useState(0);
   const [trackingEntries, setTrackingEntries] = useState({});
@@ -22,15 +22,13 @@ const ScreenTimeMirror = () => {
   const [score, setScore] = useState(0);
   const [showGameOver, setShowGameOver] = useState(false);
 
-  // 7 days for weekly tracking
+  // 5 days for weekly tracking
   const weekDays = [
     { id: 0, label: "Day 1", dayName: "Monday" },
     { id: 1, label: "Day 2", dayName: "Tuesday" },
     { id: 2, label: "Day 3", dayName: "Wednesday" },
     { id: 3, label: "Day 4", dayName: "Thursday" },
-    { id: 4, label: "Day 5", dayName: "Friday" },
-    { id: 5, label: "Day 6", dayName: "Saturday" },
-    { id: 6, label: "Day 7", dayName: "Sunday" }
+    { id: 4, label: "Day 5", dayName: "Friday" }
   ];
 
   const moodOptions = [
@@ -545,7 +543,7 @@ const ScreenTimeMirror = () => {
           {/* Progress */}
           <div className="mb-6">
             <div className="flex justify-between text-sm text-gray-600 mb-2">
-              <span>{currentDayData.label} of 7 Days</span>
+              <span>{currentDayData.label} of 5 Days</span>
               <span>{Math.round(((currentDay + 1) / totalLevels) * 100)}% Complete</span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2">
@@ -603,36 +601,6 @@ const ScreenTimeMirror = () => {
             </p>
             <div className="grid grid-cols-5 gap-3">
               {moodOptions.map((mood) => {
-                const isSelected = currentEntry?.mood === mood.value;
-                return (
-                  <motion.button
-                    key={mood.value}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => handleEntryChange(currentDay, 'mood', mood.value)}
-                    className={`p-4 rounded-xl border-2 transition-all ${
-                      isSelected
-                        ? `border-2 border-4 shadow-lg`
-                        : 'border-gray-200 hover:border-gray-300'
-                    }`}
-                    style={{
-                      background: isSelected ? `linear-gradient(to bottom right, ${mood.color}, ${mood.color}dd)` : 'white',
-                      borderColor: isSelected ? mood.color : undefined
-                    }}
-                  >
-                    <div className="text-3xl mb-2">{mood.emoji}</div>
-                    <div className={`text-xs font-semibold ${isSelected ? 'text-white' : 'text-gray-700'}`}>
-                      {mood.value}
-                    </div>
-                    <div className={`text-xs ${isSelected ? 'text-white' : 'text-gray-600'}`}>
-                      {mood.label.split(' ')[0]}
-                    </div>
-                  </motion.button>
-                );
-              })}
-            </div>
-            <div className="grid grid-cols-5 gap-3 mt-3">
-              {moodOptions.slice(5).map((mood) => {
                 const isSelected = currentEntry?.mood === mood.value;
                 return (
                   <motion.button

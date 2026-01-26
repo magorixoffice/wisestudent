@@ -263,10 +263,11 @@ const FamilyToneMirror = () => {
 
       // Check if it matches the ideal tone for this scenario
       const current = scenarios[currentScenario];
-      const matchesIdeal = (current.idealTone === "gentle" && detectedTone === "gentle") ||
+      const matchesIdeal = (current.idealTone === "gentle" && (detectedTone === "gentle" || detectedTone === "neutral")) ||
                           (current.idealTone === "neutral" && (detectedTone === "neutral" || detectedTone === "gentle"));
 
-      if (matchesIdeal && toneScore >= 60) {
+      // Lower the threshold for scoring to make it easier
+      if (matchesIdeal && toneScore >= 45) {
         setScore(prev => prev + 1);
       }
 

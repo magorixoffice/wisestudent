@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import ParentGameShell from "../../ParentGameShell";
 import { getParentEducationGameById } from "../data/gameData";
-import { Play, Volume2, Pause, Ear, Wind, Footprints, Bird, Sparkles } from "lucide-react";
+import { CheckCircle, AlertCircle, Clock, Volume2, Ear, Sparkles, Bird, Wind, Footprints, Play, Pause } from "lucide-react";
 
 const MindfulSoundWalk = () => {
   const location = useLocation();
@@ -16,273 +16,157 @@ const MindfulSoundWalk = () => {
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
   const totalLevels = gameData?.totalQuestions || 5;
   
-  const [currentWalk, setCurrentWalk] = useState(0);
-  const [isListening, setIsListening] = useState(false);
-  const [focusedSounds, setFocusedSounds] = useState([]);
-  const [reflections, setReflections] = useState({});
-  const [showReflection, setShowReflection] = useState(false);
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [selectedChoices, setSelectedChoices] = useState({});
+  const [showFeedback, setShowFeedback] = useState(false);
   const [score, setScore] = useState(0);
   const [showGameOver, setShowGameOver] = useState(false);
 
-  const audioContextRef = useRef(null);
-  const soundSourcesRef = useRef([]);
-
-  // Sound walk scenarios
-  const walks = [
+  // Questions related to mindful sound walks
+  const questions = [
     {
       id: 1,
       title: "Morning Garden Walk",
-      description: "Step into a peaceful morning garden. Tune into the sounds around you to ground your awareness.",
-      context: "Early morning in a garden—birds are singing, leaves rustle in the breeze, and you can hear your own footsteps on the path.",
-      sounds: [
-        { id: 'birds', label: 'Bird Songs', icon: Bird, color: 'from-blue-400 to-cyan-400', description: 'Chirping and singing' },
-        { id: 'breeze', label: 'Gentle Breeze', icon: Wind, color: 'from-green-400 to-emerald-400', description: 'Leaves rustling' },
-        { id: 'footsteps', label: 'Footsteps', icon: Footprints, color: 'from-amber-400 to-orange-400', description: 'Walking on path' }
-      ],
-      parentTip: "Walking with awareness lowers cortisol more than phone scrolling ever could. When you tune into sounds, you're grounding yourself in the present moment, not escaping into screens."
+      description: "You're on a peaceful morning garden walk. You notice various sounds around you. Which approach best demonstrates mindful listening?",
+      options: [
+      
+        {
+          id: 'incorrect1',
+          text: "Try to ignore all sounds except for your favorite one to avoid being distracted.",
+          explanation: "Ignoring sounds defeats the purpose of mindful listening. Mindfulness is about openness to all experiences, not filtering them."
+        },
+        {
+          id: 'incorrect2',
+          text: "Count all the sounds you hear and write them down in a notebook.",
+          explanation: "While noting sounds can be helpful, mindfulness is more about experiencing the sounds rather than analyzing them intellectually."
+        },
+          {
+          id: 'correct',
+          text: "Focus on three distinct sounds consciously - like bird songs, breeze through leaves, and your footsteps - acknowledging each without judgment.",
+          explanation: "Mindful listening involves consciously identifying distinct sounds without judgment, helping ground your awareness in the present moment."
+        },
+      ]
     },
     {
       id: 2,
-      title: "Forest Path Walk",
-      description: "Walk through a quiet forest path. Listen mindfully to the natural sounds around you.",
-      context: "A peaceful forest trail—distant birds, wind through trees, and your steps on the forest floor.",
-      sounds: [
-        { id: 'birds', label: 'Bird Calls', icon: Bird, color: 'from-blue-400 to-cyan-400', description: 'Distant bird calls' },
-        { id: 'breeze', label: 'Wind Through Trees', icon: Wind, color: 'from-green-400 to-emerald-400', description: 'Rustling leaves' },
-        { id: 'footsteps', label: 'Footsteps on Path', icon: Footprints, color: 'from-amber-400 to-orange-400', description: 'Walking sounds' }
-      ],
-      parentTip: "Practicing mindful sound walks trains your brain to be present. This presence—not phone scrolling—is what lowers stress and builds connection with your child."
+      title: "Forest Path Focus",
+      description: "During a mindful walk in the forest, you realize you're thinking about work stress. What's the most mindful response?",
+      options: [
+        
+        {
+          id: 'incorrect1',
+          text: "Push the thoughts away forcefully and try to empty your mind completely.",
+          explanation: "Forcefully pushing thoughts away creates more mental tension. Mindfulness is about acceptance, not suppression."
+        },
+        {
+          id: 'correct',
+          text: "Notice the thought without judgment, then gently redirect your attention back to the sounds around you.",
+          explanation: "Mindfulness involves observing thoughts without judgment and gently returning attention to the present moment experience."
+        },
+        {
+          id: 'incorrect2',
+          text: "Analyze the work stress in detail to resolve it while continuing the walk.",
+          explanation: "Analyzing stress takes you further away from the mindful experience of the present moment."
+        }
+      ]
     },
     {
       id: 3,
-      title: "Park Stroll",
-      description: "Take a mindful stroll through a park. Focus on three distinct sounds to ground your awareness.",
-      context: "A city park—birds in trees, a gentle breeze, and the rhythm of your walking.",
-      sounds: [
-        { id: 'birds', label: 'Park Birds', icon: Bird, color: 'from-blue-400 to-cyan-400', description: 'Birds in trees' },
-        { id: 'breeze', label: 'Park Breeze', icon: Wind, color: 'from-green-400 to-emerald-400', description: 'Gentle wind' },
-        { id: 'footsteps', label: 'Walking Rhythm', icon: Footprints, color: 'from-amber-400 to-orange-400', description: 'Your footsteps' }
-      ],
-      parentTip: "After a mindful sound walk, you arrive home more present. Your lowered cortisol means more patience, more connection, more calm for your child."
+      title: "Benefits of Sound Walking",
+      description: "What is a key benefit of practicing mindful sound walks regularly?",
+      options: [
+        {
+          id: 'correct',
+          text: "It trains your brain to be present and reduces cortisol, making you more patient and connected with your child.",
+          explanation: "Regular mindful sound walks train present-moment awareness and reduce stress hormones, leading to greater patience and connection."
+        },
+        {
+          id: 'incorrect1',
+          text: "It helps you become better at identifying animal species by their sounds.",
+          explanation: "While you might notice more sounds, the primary benefit is stress reduction and present-moment awareness, not identification skills."
+        },
+        {
+          id: 'incorrect2',
+          text: "It gives you more topics to talk about with neighbors.",
+          explanation: "This is not the intended benefit of mindful sound walks. The focus is on internal awareness and stress reduction."
+        }
+      ]
     },
     {
       id: 4,
-      title: "Beach Walk",
-      description: "Walk along a beach path. Tune into the sounds of nature to restore your awareness.",
-      context: "A beachside path—seagulls calling, ocean breeze, and footsteps on sand.",
-      sounds: [
-        { id: 'birds', label: 'Seagulls', icon: Bird, color: 'from-blue-400 to-cyan-400', description: 'Seagull calls' },
-        { id: 'breeze', label: 'Ocean Breeze', icon: Wind, color: 'from-green-400 to-emerald-400', description: 'Wind from ocean' },
-        { id: 'footsteps', label: 'Footsteps on Sand', icon: Footprints, color: 'from-amber-400 to-orange-400', description: 'Sand underfoot' }
-      ],
-      parentTip: "Mindful sound walks are a reset button. Five minutes of tuning into sounds does more for your stress than hours of scrolling. Try it before coming home to your child."
+      title: "Timing for Maximum Benefit",
+      description: "When would be most beneficial to take a mindful sound walk?",
+      options: [
+        
+        {
+          id: 'incorrect1',
+          text: "Right after your child goes to bed so you can analyze your day.",
+          explanation: "While reflective time is valuable, the greatest benefit is arriving home in a calm, present state."
+        },
+        {
+          id: 'incorrect2',
+          text: "Only on weekends when you have plenty of time.",
+          explanation: "Mindful sound walks can be beneficial anytime, even in short durations. Regular practice is more important than timing."
+        },
+        {
+          id: 'correct',
+          text: "Before coming home to your child, as it helps you arrive with lower stress and higher presence.",
+          explanation: "Taking a mindful sound walk before interacting with your child helps you arrive in a calmer, more present state."
+        },
+      ]
     },
     {
       id: 5,
-      title: "Neighborhood Walk",
-      description: "Take a mindful walk through your neighborhood. Focus on three sounds to ground yourself.",
-      context: "Your familiar neighborhood—birds in nearby trees, a light breeze, and your steady walking pace.",
-      sounds: [
-        { id: 'birds', label: 'Neighborhood Birds', icon: Bird, color: 'from-blue-400 to-cyan-400', description: 'Birds nearby' },
-        { id: 'breeze', label: 'Light Breeze', icon: Wind, color: 'from-green-400 to-emerald-400', description: 'Gentle wind' },
-        { id: 'footsteps', label: 'Your Footsteps', icon: Footprints, color: 'from-amber-400 to-orange-400', description: 'Walking pace' }
-      ],
-      parentTip: "Make sound walks a daily practice. Five minutes of mindful listening before coming home means you arrive with lower stress and higher presence. Your child feels the difference."
+      title: "Building the Habit",
+      description: "How can you best integrate mindful sound walks into your routine?",
+      options: [
+        {
+          id: 'correct',
+          text: "Make it a daily practice, even if just for five minutes, before coming home to your child.",
+          explanation: "Consistency is key to forming the habit. Even brief daily practice before home interactions can significantly impact your presence and stress levels."
+        },
+        {
+          id: 'incorrect1',
+          text: "Save it for special occasions when you feel particularly stressed.",
+          explanation: "Waiting for special occasions means missing regular opportunities for stress reduction and presence."
+        },
+        {
+          id: 'incorrect2',
+          text: "Do it only when your child is not around so they don't interrupt.",
+          explanation: "Mindful sound walks are meant to enhance your presence with your child, not replace time with them."
+        }
+      ]
     }
   ];
 
-  const currentWalkData = walks[currentWalk];
+  const handleAnswerSelect = (optionId) => {
+    if (selectedChoices[currentQuestion]) return; // Already selected
 
-  // Initialize audio context
-  useEffect(() => {
-    try {
-      audioContextRef.current = new (window.AudioContext || window.webkitAudioContext)();
-    } catch (error) {
-      console.log('Audio context not available');
+    const newChoices = { ...selectedChoices, [currentQuestion]: optionId };
+    setSelectedChoices(newChoices);
+
+    // Increase score if correct answer
+    if (optionId === 'correct') {
+      setScore(prev => prev + 1);
     }
 
-    return () => {
-      // Cleanup: stop all sounds
-      if (soundSourcesRef.current) {
-        soundSourcesRef.current.forEach(source => {
-          if (source) source.stop();
-        });
-      }
-      if (audioContextRef.current && audioContextRef.current.state !== 'closed') {
-        audioContextRef.current.close();
-      }
-    };
-  }, []);
-
-  // Generate bird sounds using Web Audio API
-  const generateBirdSound = () => {
-    if (!audioContextRef.current) return null;
-    
-    const osc1 = audioContextRef.current.createOscillator();
-    const osc2 = audioContextRef.current.createOscillator();
-    const gain1 = audioContextRef.current.createGain();
-    const gain2 = audioContextRef.current.createGain();
-    const masterGain = audioContextRef.current.createGain();
-    
-    // Create chirping pattern
-    osc1.frequency.setValueAtTime(800, audioContextRef.current.currentTime);
-    osc1.frequency.setValueAtTime(1200, audioContextRef.current.currentTime + 0.1);
-    osc1.frequency.setValueAtTime(900, audioContextRef.current.currentTime + 0.2);
-    osc1.type = 'sine';
-    
-    osc2.frequency.setValueAtTime(1000, audioContextRef.current.currentTime);
-    osc2.frequency.setValueAtTime(1400, audioContextRef.current.currentTime + 0.15);
-    osc2.type = 'triangle';
-    
-    gain1.gain.setValueAtTime(0.15, audioContextRef.current.currentTime);
-    gain2.gain.setValueAtTime(0.1, audioContextRef.current.currentTime);
-    masterGain.gain.setValueAtTime(0.3, audioContextRef.current.currentTime);
-    
-    osc1.connect(gain1);
-    osc2.connect(gain2);
-    gain1.connect(masterGain);
-    gain2.connect(masterGain);
-    masterGain.connect(audioContextRef.current.destination);
-    
-    osc1.start();
-    osc2.start();
-    
-    return { osc1, osc2, stop: () => { osc1.stop(); osc2.stop(); } };
+    // Show feedback for this choice
+    setShowFeedback(true);
   };
 
-  // Generate breeze/wind sounds
-  const generateBreezeSound = () => {
-    if (!audioContextRef.current) return null;
+  const handleNext = () => {
+    setShowFeedback(false);
     
-    // Use noise generator for wind-like sound
-    const bufferSize = audioContextRef.current.sampleRate * 2;
-    const buffer = audioContextRef.current.createBuffer(1, bufferSize, audioContextRef.current.sampleRate);
-    const data = buffer.getChannelData(0);
-    
-    for (let i = 0; i < bufferSize; i++) {
-      data[i] = Math.random() * 2 - 1;
-    }
-    
-    const noise = audioContextRef.current.createBufferSource();
-    noise.buffer = buffer;
-    noise.loop = true;
-    
-    const filter = audioContextRef.current.createBiquadFilter();
-    filter.type = 'lowpass';
-    filter.frequency.value = 800;
-    
-    const gain = audioContextRef.current.createGain();
-    gain.gain.setValueAtTime(0.2, audioContextRef.current.currentTime);
-    
-    noise.connect(filter);
-    filter.connect(gain);
-    gain.connect(audioContextRef.current.destination);
-    
-    noise.start();
-    
-    return { noise, stop: () => noise.stop() };
-  };
-
-  // Generate footsteps sound
-  const generateFootstepsSound = () => {
-    if (!audioContextRef.current) return null;
-    
-    const playStep = () => {
-      const osc = audioContextRef.current.createOscillator();
-      const gain = audioContextRef.current.createGain();
-      const filter = audioContextRef.current.createBiquadFilter();
-      
-      filter.type = 'lowpass';
-      filter.frequency.value = 200;
-      
-      osc.frequency.setValueAtTime(100, audioContextRef.current.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(50, audioContextRef.current.currentTime + 0.2);
-      osc.type = 'sawtooth';
-      
-      gain.gain.setValueAtTime(0.3, audioContextRef.current.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.01, audioContextRef.current.currentTime + 0.2);
-      
-      osc.connect(filter);
-      filter.connect(gain);
-      gain.connect(audioContextRef.current.destination);
-      
-      osc.start();
-      osc.stop(audioContextRef.current.currentTime + 0.2);
-    };
-    
-    // Play footsteps rhythmically
-    const interval = setInterval(playStep, 800);
-    
-    return { interval, stop: () => clearInterval(interval) };
-  };
-
-  // Start the sound walk
-  const startWalk = () => {
-    setIsListening(true);
-    setFocusedSounds([]);
-    
-    // Play all sounds simultaneously
-    if (audioContextRef.current && audioContextRef.current.state === 'suspended') {
-      audioContextRef.current.resume();
-    }
-    
-    const birdSound = generateBirdSound();
-    const breezeSound = generateBreezeSound();
-    const footstepsSound = generateFootstepsSound();
-    
-    soundSourcesRef.current = [birdSound, breezeSound, footstepsSound].filter(Boolean);
-  };
-
-  // Stop all sounds
-  const stopWalk = () => {
-    setIsListening(false);
-    if (soundSourcesRef.current) {
-      soundSourcesRef.current.forEach(source => {
-        if (source && source.stop) source.stop();
-      });
-      soundSourcesRef.current = [];
+    if (currentQuestion < questions.length - 1) {
+      setCurrentQuestion(prev => prev + 1);
+    } else {
+      // All questions completed
+      setShowGameOver(true);
     }
   };
 
-  // Handle sound focus
-  const handleSoundFocus = (soundId) => {
-    if (focusedSounds.includes(soundId)) {
-      setFocusedSounds(prev => prev.filter(id => id !== soundId));
-    } else if (focusedSounds.length < 3) {
-      setFocusedSounds(prev => [...prev, soundId]);
-      
-      // If 3 sounds focused, stop listening and show reflection
-      if (focusedSounds.length === 2) {
-        setTimeout(() => {
-          stopWalk();
-          setShowReflection(true);
-        }, 500);
-      }
-    }
-  };
-
-  // Handle reflection submission
-  const handleReflectionSubmit = (reflectionText) => {
-    const walkKey = `walk${currentWalk}`;
-    setReflections(prev => ({
-      ...prev,
-      [walkKey]: reflectionText
-    }));
-    
-    setScore(prev => prev + 1);
-    
-    setTimeout(() => {
-      if (currentWalk < walks.length - 1) {
-        setCurrentWalk(prev => prev + 1);
-        setFocusedSounds([]);
-        setShowReflection(false);
-      } else {
-        setShowGameOver(true);
-      }
-    }, 1500);
-  };
-
-  const progress = ((currentWalk + 1) / totalLevels) * 100;
+  const currentQuestionData = questions[currentQuestion];
+  const selectedOption = currentQuestionData?.options.find(opt => opt.id === selectedChoices[currentQuestion]);
 
   if (showGameOver) {
     return (
@@ -296,7 +180,7 @@ const MindfulSoundWalk = () => {
         totalLevels={totalLevels}
         totalCoins={totalCoins}
         currentLevel={totalLevels}
-        allAnswersCorrect={score >= totalLevels * 0.8}
+        allAnswersCorrect={score >= 4} // 4 out of 5 correct answers
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -306,8 +190,8 @@ const MindfulSoundWalk = () => {
           <div className="bg-white rounded-2xl shadow-xl p-8 text-center">
             <div className="text-6xl mb-4">👂</div>
             <h2 className="text-3xl font-bold text-gray-800 mb-4">Mindful Sound Walk Mastered!</h2>
-            <p className="text-lg text-gray-600 mb-6">
-              You've learned to tune into sounds around you to ground your awareness. Remember: walking with awareness lowers cortisol more than phone scrolling ever could.
+            <p className="text-lg text-gray-700 mb-6">
+              You scored {score} out of {totalLevels} on mindful sound walking concepts. You've learned to tune into sounds around you to ground your awareness.
             </p>
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border-2 border-blue-200">
               <p className="text-gray-700 font-medium">
@@ -323,230 +207,138 @@ const MindfulSoundWalk = () => {
   return (
     <ParentGameShell
       title={gameData?.title || "Mindful Sound Walk"}
-      subtitle={`Walk ${currentWalk + 1} of ${totalLevels}: ${currentWalkData.title}`}
+      subtitle={`Question ${currentQuestion + 1} of ${totalLevels}: ${currentQuestionData.title}`}
       showGameOver={false}
       score={score}
       gameId={gameId}
       gameType="parent-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
-      currentLevel={currentWalk + 1}
+      currentLevel={currentQuestion + 1}
     >
-      <div className="w-full max-w-5xl mx-auto px-4 py-6">
+      <div className="w-full max-w-4xl mx-auto px-4 py-6">
         <motion.div
-          key={currentWalk}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          key={currentQuestion}
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
           className="bg-white rounded-2xl shadow-lg p-6 md:p-8"
         >
           {/* Progress bar */}
           <div className="mb-6">
             <div className="flex justify-between text-sm text-gray-600 mb-2">
-              <span>Walk {currentWalk + 1} of {totalLevels}</span>
-              <span>{Math.round(progress)}% Complete</span>
+              <span>Question {currentQuestion + 1} of {totalLevels}</span>
+              <span>{Math.round(((currentQuestion + 1) / totalLevels) * 100)}% Complete</span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2">
               <motion.div
                 initial={{ width: 0 }}
-                animate={{ width: `${progress}%` }}
+                animate={{ width: `${((currentQuestion + 1) / totalLevels) * 100}%` }}
                 className="bg-gradient-to-r from-blue-600 to-indigo-600 h-2 rounded-full"
               />
             </div>
           </div>
 
-          {/* Walk context */}
-          <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6 mb-6 border-2 border-indigo-200">
-            <h3 className="text-xl font-bold text-gray-800 mb-2">{currentWalkData.title}</h3>
-            <p className="text-gray-700 mb-2">{currentWalkData.description}</p>
-            <p className="text-sm text-gray-600 italic mb-3">{currentWalkData.context}</p>
-            <div className="bg-amber-50 border border-amber-200 rounded-lg p-3">
-              <p className="text-sm text-amber-800">
-                <strong>💡 Parent Tip:</strong> {currentWalkData.parentTip}
-              </p>
-            </div>
-          </div>
+          <AnimatePresence mode="wait">
+            {!showFeedback ? (
+              /* Question screen */
+              <motion.div
+                key="question"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                className="space-y-6"
+              >
+                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 mb-6 border-2 border-blue-200">
+                  <h3 className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                    <Ear className="w-6 h-6 text-blue-600" />
+                    {currentQuestionData.title}
+                  </h3>
+                  <p className="text-gray-700 text-lg">{currentQuestionData.description}</p>
+                </div>
 
-          {!isListening && !showReflection && (
-            /* Start screen */
-            <div className="text-center space-y-6">
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-8 border-2 border-blue-200">
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">Step Outdoors</h3>
-                <p className="text-gray-700 mb-6">
-                  Take a moment to prepare for your mindful sound walk. When you're ready, start listening and focus on 3 distinct sounds around you.
-                </p>
-                <div className="flex items-center justify-center gap-6 mb-6 text-gray-600">
-                  <div className="flex items-center gap-2">
-                    <Ear className="w-5 h-5" />
-                    <span>Listen mindfully</span>
+                <div className="space-y-4">
+                  <h4 className="text-lg font-semibold text-gray-800 mb-4">Choose the most mindful approach:</h4>
+                  {currentQuestionData.options.map((option, index) => {
+                    const isSelected = selectedChoices[currentQuestion] === option.id;
+                    const isCorrect = option.id === 'correct';
+                    
+                    return (
+                      <motion.button
+                        key={option.id}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        onClick={() => handleAnswerSelect(option.id)}
+                        disabled={!!selectedChoices[currentQuestion]}
+                        className={`w-full text-left p-5 rounded-xl border-2 transition-all ${
+                          isSelected
+                            ? (isCorrect 
+                                ? 'border-green-500 bg-green-50 shadow-lg' 
+                                : 'border-red-500 bg-red-50 shadow-lg')
+                            : 'border-gray-200 bg-white hover:border-gray-300 hover:shadow-md'
+                        } disabled:opacity-50 disabled:cursor-not-allowed`}
+                      >
+                        <div className="flex items-start gap-4">
+                          <div className={`p-2 rounded-lg ${isSelected ? (isCorrect ? 'bg-green-500' : 'bg-red-500') : 'bg-gray-200'} flex-shrink-0`}>
+                            <span className="text-white font-bold">{String.fromCharCode(65 + index)}</span>
+                          </div>
+                          <div className="flex-1">
+                            <p className="text-gray-700">{option.text}</p>
+                          </div>
+                          {isSelected && (
+                            <div className={`${isCorrect ? 'text-green-600' : 'text-red-600'} flex-shrink-0`}>
+                              {isCorrect ? (
+                                <CheckCircle className="w-6 h-6" />
+                              ) : (
+                                <AlertCircle className="w-6 h-6" />
+                              )}
+                            </div>
+                          )}
+                        </div>
+                      </motion.button>
+                    );
+                  })}
+                </div>
+              </motion.div>
+            ) : (
+              /* Feedback screen */
+              <motion.div
+                key="feedback"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                className={`bg-gradient-to-br ${selectedOption?.id === 'correct' ? 'from-green-50 to-emerald-50' : 'from-red-50 to-rose-50'} rounded-xl p-6 border-2 ${selectedOption?.id === 'correct' ? 'border-green-200' : 'border-red-200'} mb-6`}
+              >
+                <div className="flex items-start gap-4 mb-4">
+                  <div className={`p-3 rounded-lg ${selectedOption?.id === 'correct' ? 'bg-green-500' : 'bg-red-500'} flex-shrink-0`}>
+                    {selectedOption?.id === 'correct' ? (
+                      <CheckCircle className="w-6 h-6 text-white" />
+                    ) : (
+                      <AlertCircle className="w-6 h-6 text-white" />
+                    )}
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Volume2 className="w-5 h-5" />
-                    <span>Focus on 3 sounds</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Sparkles className="w-5 h-5" />
-                    <span>Ground awareness</span>
+                  <div className="flex-1">
+                    <h4 className="text-xl font-bold text-gray-800 mb-2">
+                      {selectedOption?.id === 'correct' ? 'Correct!' : 'Feedback'}
+                    </h4>
+                    <p className="text-gray-700 mb-4">{selectedOption?.explanation}</p>
                   </div>
                 </div>
+
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={startWalk}
-                  className="bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 text-white px-8 py-4 rounded-xl font-bold text-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-3 mx-auto"
+                  onClick={handleNext}
+                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
                 >
-                  <Play className="w-6 h-6" />
-                  Start Sound Walk
+                  {currentQuestion < questions.length - 1 ? 'Next Question' : 'View Results'}
+                  <Sparkles className="w-5 h-5" />
                 </motion.button>
-              </div>
-            </div>
-          )}
-
-          {isListening && !showReflection && (
-            /* Listening screen */
-            <div className="space-y-6">
-              <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border-2 border-green-200 text-center">
-                <div className="flex items-center justify-center gap-2 mb-4">
-                  <motion.div
-                    animate={{ scale: [1, 1.2, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="w-4 h-4 bg-green-500 rounded-full"
-                  />
-                  <p className="text-lg font-semibold text-gray-800">Listening...</p>
-                </div>
-                <p className="text-gray-700 mb-4">
-                  Focus on <strong>{3 - focusedSounds.length}</strong> more sound{focusedSounds.length !== 2 ? 's' : ''} to complete your walk.
-                </p>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={stopWalk}
-                  className="bg-red-500 text-white px-4 py-2 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 mx-auto"
-                >
-                  <Pause className="w-5 h-5" />
-                  Stop Listening
-                </motion.button>
-              </div>
-
-              {/* Sound options */}
-              <div className="grid md:grid-cols-3 gap-4">
-                {currentWalkData.sounds.map((sound) => {
-                  const isFocused = focusedSounds.includes(sound.id);
-                  const SoundIcon = sound.icon;
-                  
-                  return (
-                    <motion.button
-                      key={sound.id}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      onClick={() => handleSoundFocus(sound.id)}
-                      disabled={focusedSounds.length >= 3 && !isFocused}
-                      className={`relative p-6 rounded-xl border-2 transition-all ${
-                        isFocused
-                          ? `bg-gradient-to-br ${sound.color} text-white border-transparent shadow-lg`
-                          : focusedSounds.length >= 3
-                          ? 'bg-gray-100 border-gray-300 text-gray-400 opacity-50 cursor-not-allowed'
-                          : `bg-white border-gray-300 text-gray-700 hover:border-indigo-400 hover:shadow-md`
-                      }`}
-                    >
-                      <SoundIcon className="w-12 h-12 mx-auto mb-3" />
-                      <div className="font-semibold text-lg mb-1">{sound.label}</div>
-                      <div className="text-sm opacity-75">{sound.description}</div>
-                      {isFocused && (
-                        <motion.div
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          className="absolute top-2 right-2"
-                        >
-                          <CheckCircle className="w-6 h-6 text-white" />
-                        </motion.div>
-                      )}
-                    </motion.button>
-                  );
-                })}
-              </div>
-
-              {/* Focused sounds display */}
-              {focusedSounds.length > 0 && (
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                  <h4 className="font-semibold text-blue-800 mb-2">Sounds You've Focused On:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {focusedSounds.map((soundId) => {
-                      const sound = currentWalkData.sounds.find(s => s.id === soundId);
-                      return (
-                        <span key={soundId} className="bg-blue-200 text-blue-800 px-3 py-1 rounded-full text-sm flex items-center gap-1">
-                          <sound.icon className="w-4 h-4" />
-                          {sound?.label}
-                        </span>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
-            </div>
-          )}
-
-          {showReflection && (
-            /* Reflection screen */
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="space-y-6"
-            >
-              <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6 border-2 border-indigo-200">
-                <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
-                  <Sparkles className="w-6 h-6 text-indigo-600" />
-                  Reflect on Your Sound Walk
-                </h3>
-                <p className="text-gray-700 mb-4">
-                  How did tuning into sounds affect your awareness? What did you notice about being present with the sounds?
-                </p>
-                
-                <SoundWalkReflection
-                  onSubmit={handleReflectionSubmit}
-                  focusedSounds={focusedSounds}
-                  sounds={currentWalkData.sounds}
-                />
-              </div>
-            </motion.div>
-          )}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
       </div>
     </ParentGameShell>
-  );
-};
-
-// Reflection component
-const SoundWalkReflection = ({ onSubmit, focusedSounds, sounds }) => {
-  const [reflection, setReflection] = useState("");
-
-  const handleSubmit = () => {
-    if (reflection.trim().length > 10) {
-      onSubmit(reflection);
-    }
-  };
-
-  return (
-    <div className="space-y-4">
-      <textarea
-        value={reflection}
-        onChange={(e) => setReflection(e.target.value)}
-        placeholder="Share your reflections on the sound walk. How did focusing on sounds ground your awareness? What did you notice?"
-        className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-indigo-500 focus:outline-none resize-none"
-        rows={6}
-      />
-      <motion.button
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
-        onClick={handleSubmit}
-        disabled={reflection.trim().length < 10}
-        className="w-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-      >
-        Submit Reflection
-      </motion.button>
-      <p className="text-xs text-gray-500 text-center">
-        Minimum 10 characters required
-      </p>
-    </div>
   );
 };
 

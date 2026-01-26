@@ -9,7 +9,7 @@ const FamilyVisionBoard = () => {
   const location = useLocation();
   
   // Get game data
-  const gameId = "parent-education-86";
+  const gameId = "parent-education-87";
   const gameData = getParentEducationGameById(gameId);
   
   // Get game props from location.state or gameData
@@ -269,7 +269,7 @@ const FamilyVisionBoard = () => {
   };
 
   const handleComplete = () => {
-    if (boardItems.length >= 3) {
+    if (boardItems.length >= 5) {
       setStep(2);
       setShowGameOver(true);
     }
@@ -311,13 +311,13 @@ const FamilyVisionBoard = () => {
         title={gameData?.title || "Family Vision Board"}
         subtitle="Vision Board Complete!"
         showGameOver={true}
-        score={boardItems.length}
+        score={5}
         gameId={gameId}
         gameType="parent-education"
         totalLevels={totalLevels}
         totalCoins={totalCoins}
         currentLevel={totalLevels}
-        allAnswersCorrect={boardItems.length >= 3}
+        allAnswersCorrect={boardItems.length >= 5}
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -336,7 +336,7 @@ const FamilyVisionBoard = () => {
               </motion.div>
               <h2 className="text-3xl font-bold text-gray-800 mb-4">Your Family Vision Board</h2>
               <p className="text-lg text-gray-600">
-                You've created a shared vision for your family's dreams and goals.
+                You've created a shared vision for your family's dreams and goals with {boardItems.length} inspiring elements.
               </p>
             </div>
 
@@ -583,7 +583,7 @@ const FamilyVisionBoard = () => {
                   <div className="text-center py-32 text-gray-400">
                     <Target className="w-16 h-16 mx-auto mb-4 opacity-50" />
                     <p className="font-semibold text-lg">Drag items here to build your vision board</p>
-                    <p className="text-sm mt-2">Add at least 3 items to complete</p>
+                    <p className="text-sm mt-2">Add at least 5 items to complete</p>
                   </div>
                 ) : (
                   boardItems.map((item) => (
@@ -634,17 +634,17 @@ const FamilyVisionBoard = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={handleComplete}
-              disabled={boardItems.length < 3}
+              disabled={boardItems.length < 5}
               className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
               <CheckCircle className="w-5 h-5" />
               Complete Vision Board
             </motion.button>
 
-            {boardItems.length < 3 && (
+            {boardItems.length < 5 && (
               <div className="mt-4 bg-yellow-100 rounded-lg p-3 border border-yellow-300">
                 <p className="text-yellow-800 text-sm text-center">
-                  Please add at least 3 items to your vision board to complete it.
+                  Please add at least 5 items to your vision board to complete it. You've added {boardItems.length} of 5 required items.
                 </p>
               </div>
             )}

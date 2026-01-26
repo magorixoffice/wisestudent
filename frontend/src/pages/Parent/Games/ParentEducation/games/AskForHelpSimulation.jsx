@@ -9,7 +9,7 @@ const AskForHelpSimulation = () => {
   const location = useLocation();
   
   // Get game data
-  const gameId = "parent-education-71";
+  const gameId = "parent-education-72";
   const gameData = getParentEducationGameById(gameId);
   
   // Get game props from location.state or gameData
@@ -32,16 +32,7 @@ const AskForHelpSimulation = () => {
       situation: "You're feeling really sick today—fever, body aches, the whole thing. Your partner is at work, and you have two kids who need care. You're struggling to keep up.",
       context: "You need to ask your neighbor or friend for help watching the kids for a few hours.",
       responses: [
-        {
-          id: 'confident',
-          label: 'Confident Request',
-          text: "Hi [Name], I'm feeling really sick today and could use some help. Would you be able to watch the kids for a couple hours this afternoon? I'd really appreciate it.",
-          explanation: "This request is clear, direct, and honest. You're stating your need without apology or excessive explanation. This shows confidence and respect for both yourself and the person you're asking.",
-          emoji: "✅",
-          color: "from-green-500 to-emerald-600",
-          bgColor: "from-green-50 to-emerald-50",
-          borderColor: "border-green-300"
-        },
+        
         {
           id: 'hesitant',
           label: 'Hesitant Request',
@@ -61,7 +52,17 @@ const AskForHelpSimulation = () => {
           color: "from-red-500 to-rose-600",
           bgColor: "from-red-50 to-rose-50",
           borderColor: "border-red-300"
-        }
+        },
+        {
+          id: 'confident',
+          label: 'Confident Request',
+          text: "Hi [Name], I'm feeling really sick today and could use some help. Would you be able to watch the kids for a couple hours this afternoon? I'd really appreciate it.",
+          explanation: "This request is clear, direct, and honest. You're stating your need without apology or excessive explanation. This shows confidence and respect for both yourself and the person you're asking.",
+          emoji: "✅",
+          color: "from-green-500 to-emerald-600",
+          bgColor: "from-green-50 to-emerald-50",
+          borderColor: "border-green-300"
+        },
       ],
       correctChoice: "confident",
       simulatedResponse: {
@@ -77,16 +78,7 @@ const AskForHelpSimulation = () => {
       situation: "You've been juggling work, parenting, household tasks, and personal responsibilities for weeks. You're exhausted and feel like you're drowning. You need someone to help with some basic tasks.",
       context: "You want to ask a family member or close friend for practical help—maybe picking up groceries or helping with some chores.",
       responses: [
-        {
-          id: 'confident',
-          label: 'Confident Request',
-          text: "I've been feeling really overwhelmed lately and could use some support. Would you be able to help me with [specific task] this week? I'd be so grateful.",
-          explanation: "This request is specific, honest about your need, and doesn't apologize for needing help. You're being clear about what you need, which helps the person know exactly how to help.",
-          emoji: "✅",
-          color: "from-green-500 to-emerald-600",
-          bgColor: "from-green-50 to-emerald-50",
-          borderColor: "border-green-300"
-        },
+        
         {
           id: 'hesitant',
           label: 'Hesitant Request',
@@ -96,6 +88,16 @@ const AskForHelpSimulation = () => {
           color: "from-yellow-500 to-orange-500",
           bgColor: "from-yellow-50 to-orange-50",
           borderColor: "border-yellow-300"
+        },
+        {
+          id: 'confident',
+          label: 'Confident Request',
+          text: "I've been feeling really overwhelmed lately and could use some support. Would you be able to help me with [specific task] this week? I'd be so grateful.",
+          explanation: "This request is specific, honest about your need, and doesn't apologize for needing help. You're being clear about what you need, which helps the person know exactly how to help.",
+          emoji: "✅",
+          color: "from-green-500 to-emerald-600",
+          bgColor: "from-green-50 to-emerald-50",
+          borderColor: "border-green-300"
         },
         {
           id: 'ashamed',
@@ -167,16 +169,7 @@ const AskForHelpSimulation = () => {
       situation: "You're facing unexpected financial stress. Bills are piling up, and you're worried about making ends meet this month. You know you need help, but asking for financial support feels really difficult.",
       context: "You need to ask a trusted family member or friend for temporary financial assistance.",
       responses: [
-        {
-          id: 'confident',
-          label: 'Confident Request',
-          text: "I'm facing some unexpected financial challenges this month and could use some temporary help. I know this is a big ask, but would you be able to loan me [specific amount]? I have a plan to pay it back by [date].",
-          explanation: "This request is clear, specific, and includes a repayment plan. You're being transparent and responsible, which shows respect for both yourself and the person you're asking.",
-          emoji: "✅",
-          color: "from-green-500 to-emerald-600",
-          bgColor: "from-green-50 to-emerald-50",
-          borderColor: "border-green-300"
-        },
+        
         {
           id: 'hesitant',
           label: 'Hesitant Request',
@@ -196,7 +189,17 @@ const AskForHelpSimulation = () => {
           color: "from-red-500 to-rose-600",
           bgColor: "from-red-50 to-rose-50",
           borderColor: "border-red-300"
-        }
+        },
+        {
+          id: 'confident',
+          label: 'Confident Request',
+          text: "I'm facing some unexpected financial challenges this month and could use some temporary help. I know this is a big ask, but would you be able to loan me [specific amount]? I have a plan to pay it back by [date].",
+          explanation: "This request is clear, specific, and includes a repayment plan. You're being transparent and responsible, which shows respect for both yourself and the person you're asking.",
+          emoji: "✅",
+          color: "from-green-500 to-emerald-600",
+          bgColor: "from-green-50 to-emerald-50",
+          borderColor: "border-green-300"
+        },
       ],
       correctChoice: "confident",
       simulatedResponse: {
@@ -437,13 +440,12 @@ const AskForHelpSimulation = () => {
                     response.id === 'confident'
                       ? 'bg-gradient-to-br from-green-50 to-emerald-50 border-green-300 hover:border-green-400 hover:shadow-lg'
                       : response.id === 'hesitant'
-                      ? 'bg-gradient-to-br from-yellow-50 to-orange-50 border-yellow-300 hover:border-yellow-400 hover:shadow-lg'
-                      : 'bg-gradient-to-br from-red-50 to-rose-50 border-red-300 hover:border-red-400 hover:shadow-lg'
+                      ? 'bg-gradient-to-br from-green-50 to-emerald-50 border-green-300 hover:border-green-400 hover:shadow-lg'
+                      : 'bg-gradient-to-br from-green-50 to-emerald-50 border-green-300 hover:border-green-400 hover:shadow-lg'
                   }`}
                 >
                   <div className="flex items-center gap-3 mb-2">
-                    <span className="text-2xl">{response.emoji}</span>
-                    <h4 className="text-lg font-bold text-gray-800">{response.label}</h4>
+                    
                   </div>
                   <p className="text-gray-700 leading-relaxed italic">"{response.text}"</p>
                 </motion.button>

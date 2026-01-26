@@ -20,7 +20,9 @@ const GratitudeForGrowth = () => {
   const [gratitudeEntries, setGratitudeEntries] = useState({
     lesson1: "",
     lesson2: "",
-    lesson3: ""
+    lesson3: "",
+    lesson4: "",
+    lesson5: ""
   });
   const [treeStage, setTreeStage] = useState(0); // 0: seed, 1: sprout, 2: sapling, 3: tree
   const [showAnimation, setShowAnimation] = useState(false);
@@ -38,7 +40,7 @@ const GratitudeForGrowth = () => {
 
   const handleStartAnimation = () => {
     if (allEntriesFilled) {
-      setScore(1); // Award score for completing entries
+      setScore(5); // Award score for completing all 5 entries
       setStep(2);
       setShowAnimation(true);
       animateTreeGrowth();
@@ -58,7 +60,7 @@ const GratitudeForGrowth = () => {
           setShowAnimation(false);
           setStep(3);
           setShowGameOver(true);
-          setScore(prev => prev + 1); // Award score for completing animation
+          // Score already awarded when starting animation
         }, 2000);
       }
     }, 1500); // 1.5 seconds per stage
@@ -112,7 +114,7 @@ const GratitudeForGrowth = () => {
         totalLevels={totalLevels}
         totalCoins={totalCoins}
         currentLevel={1}
-        allAnswersCorrect={score >= 2}
+        allAnswersCorrect={score >= 5}
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -217,7 +219,7 @@ const GratitudeForGrowth = () => {
 
               {/* Writing Form */}
               <div className="space-y-6 mb-6">
-                {[1, 2, 3].map((num) => {
+                {[1, 2, 3, 4, 5].map((num) => {
                   const lessonId = `lesson${num}`;
                   const entry = gratitudeEntries[lessonId];
                   const isValid = entry.trim().length >= 10;
@@ -247,6 +249,8 @@ const GratitudeForGrowth = () => {
                             {num === 1 && "Write about a specific lesson you learned from a challenging experience."}
                             {num === 2 && "Write about another insight or strength you gained."}
                             {num === 3 && "Write about one more way you've grown from hardship."}
+                            {num === 4 && "Write about how you've helped others with your experience."}
+                            {num === 5 && "Write about your overall transformation from hardship."}
                           </p>
                         </div>
                       </div>
@@ -257,7 +261,11 @@ const GratitudeForGrowth = () => {
                           ? "Example: 'I learned that asking for help is a sign of strength, not weakness...'"
                           : num === 2
                           ? "Example: 'I discovered my own resilience and ability to adapt...'"
-                          : "Example: 'I learned to find gratitude even in difficult moments...'"}
+                          : num === 3
+                          ? "Example: 'I learned to find gratitude even in difficult moments...'"
+                          : num === 4
+                          ? "Example: 'I now mentor others who face similar challenges...'"
+                          : "Example: 'Through hardship, I've become more compassionate and stronger...'"}
                         disabled={!previousLessonsFilled}
                         className={`w-full h-24 p-4 border-2 rounded-lg focus:outline-none focus:ring-2 resize-none text-gray-700 ${
                           isValid

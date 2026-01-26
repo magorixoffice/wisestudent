@@ -14,14 +14,14 @@ const PresentParentBadgeCollector = () => {
   const navigate = useNavigate();
   
   // Get game data
-  const gameId = "parent-education-40";
+  const gameId = "parent-education-40"; // This is the badge collector game ID
   const gameData = getParentEducationGameById(gameId);
   
   const [loading, setLoading] = useState(true);
   const [gamesStatus, setGamesStatus] = useState([]);
   const [allCompleted, setAllCompleted] = useState(false);
   const [badgeCollected, setBadgeCollected] = useState(false);
-  const [showCollectionModal, setShowCollectionModal] = useState(false);
+
   const [isCollecting, setIsCollecting] = useState(false);
 
   // Required game IDs (34, 35, 36, 38, 39) - Presence and Balance games
@@ -114,34 +114,46 @@ const PresentParentBadgeCollector = () => {
 
       const result = response.data;
 
-      if (result.success && result.badgeEarned) {
-        setBadgeCollected(true);
-        setShowCollectionModal(false);
-        toast.success('🎉 Badge collected successfully!');
-        
-        // Dispatch badge earned event
-        window.dispatchEvent(new CustomEvent('parentBadgeEarned', {
-          detail: {
-            badgeId: 'present-parent',
-            badgeName: 'Present Parent',
-            message: 'Your time is love made visible.',
-            badge: result.badge
+      if (result.success) {
+        if (result.badgeEarned || result.alreadyEarned) {
+          setBadgeCollected(true);
+          
+          if (result.badgeEarned) {
+            toast.success('🎉 Badge collected successfully!');
+            
+            // Dispatch badge earned event
+            window.dispatchEvent(new CustomEvent('parentBadgeEarned', {
+              detail: {
+                badgeId: 'present-parent',
+                badgeName: 'Present Parent',
+                message: 'Your time is love made visible.',
+                badge: result.badge
+              }
+            }));
+          } else {
+            toast.info('Badge already collected!');
           }
-        }));
-        try {
-          await parentGameCompletionService.completeGame({
-            gameId,
-            gameType: 'parent-education',
-            gameIndex: gameData?.gameIndex || null,
-            score: 5,
-            totalLevels: 5,
-            totalCoins: 0,
-            isReplay: false
-          });
-        } catch (error) {
-          console.error('Failed to mark badge game completed:', error);
+          
+          // Mark the badge collector as completed
+          try {
+            await parentGameCompletionService.completeGame({
+              gameId,
+              gameType: 'parent-education',
+              gameIndex: gameData?.gameIndex || null,
+              score: 5,
+              totalLevels: 5,
+              totalCoins: 0,
+              isReplay: false
+            });
+            
+            // Refresh badge status to ensure it's properly updated
+            await checkBadgeStatus();
+          } catch (error) {
+            console.error('Failed to mark badge collector game as completed:', error);
+          }
+        } else {
+          toast.error(result.error || 'Failed to collect badge');
         }
-
       } else {
         toast.error(result.error || 'Failed to collect badge');
       }
@@ -162,10 +174,10 @@ const PresentParentBadgeCollector = () => {
         showGameOver={false}
         score={0}
         gameId={gameId}
-        gameData={gameData}
+        gameType="parent-education"
         totalLevels={0}
         totalCoins={0}
-        currentLevel={0}
+        currentQuestion={0}
       >
         <div className="w-full max-w-4xl mx-auto px-4">
           <div className="bg-white rounded-2xl shadow-lg p-12 text-center">
@@ -185,10 +197,10 @@ const PresentParentBadgeCollector = () => {
         showGameOver={false}
         score={0}
         gameId={gameId}
-        gameData={gameData}
+        gameType="parent-education"
         totalLevels={0}
         totalCoins={0}
-        currentLevel={0}
+        currentQuestion={0}
       >
         <div className="w-full max-w-4xl mx-auto px-4">
           <div className="bg-white rounded-2xl shadow-lg p-8">
@@ -276,10 +288,10 @@ const PresentParentBadgeCollector = () => {
       showGameOver={false}
       score={0}
       gameId={gameId}
-      gameData={gameData}
+      gameType="parent-education"
       totalLevels={0}
       totalCoins={0}
-      currentLevel={0}
+      currentQuestion={0}
     >
       <div className="w-full max-w-4xl mx-auto px-4">
         {badgeCollected ? (

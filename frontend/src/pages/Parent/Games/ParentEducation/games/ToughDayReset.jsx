@@ -14,11 +14,21 @@ const ToughDayReset = () => {
   
   // Get game props from location.state or gameData
   const totalCoins = gameData?.calmCoins || location.state?.totalCoins || 5;
-  const totalLevels = gameData?.totalQuestions || 1;
+  const totalLevels = gameData?.totalQuestions || 5;
   
   const [step, setStep] = useState(1); // 1: Reflection, 2: Self-kindness, 3: Complete
   const [triggerReflection, setTriggerReflection] = useState("");
   const [handledWell, setHandledWell] = useState("");
+  const [learnedFrom, setLearnedFrom] = useState("");
+  const [supportNeeded, setSupportNeeded] = useState("");
+  const [gratefulFor, setGratefulFor] = useState("");
+  const [completedQuestions, setCompletedQuestions] = useState({
+    triggerReflection: false,
+    handledWell: false,
+    learnedFrom: false,
+    supportNeeded: false,
+    gratefulFor: false
+  });
   const [selectedAction, setSelectedAction] = useState(null);
   const [score, setScore] = useState(0);
   const [showGameOver, setShowGameOver] = useState(false);
@@ -56,18 +66,24 @@ const ToughDayReset = () => {
     }
   ];
 
-  const canProceedToActions = triggerReflection.trim().length >= 10 && handledWell.trim().length >= 10;
+  const canProceedToActions = completedQuestions.triggerReflection && 
+                                completedQuestions.handledWell && 
+                                completedQuestions.learnedFrom && 
+                                completedQuestions.supportNeeded && 
+                                completedQuestions.gratefulFor;
 
   const handleProceedToActions = () => {
     if (canProceedToActions) {
       setStep(2);
-      setScore(1); // Award score for completing reflection
     }
   };
 
   const handleActionSelect = (action) => {
     setSelectedAction(action);
-    setScore(prev => prev + 1); // Award score for selecting action
+    // Only award 1 point for selecting a self-kindness action if not already selected
+    if (!selectedAction) {
+      setScore(prev => prev + 1);
+    }
   };
 
   const handleComplete = () => {
@@ -85,13 +101,13 @@ const ToughDayReset = () => {
         title={gameData?.title || "Tough Day Reset"}
         subtitle="Reset Complete!"
         showGameOver={true}
-        score={score}
+        score={Object.values(completedQuestions).filter(Boolean).length}
         gameId={gameId}
         gameType="parent-education"
         totalLevels={totalLevels}
         totalCoins={totalCoins}
         currentLevel={1}
-        allAnswersCorrect={score >= 2}
+        allAnswersCorrect={Object.values(completedQuestions).every(Boolean)}
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -133,6 +149,24 @@ const ToughDayReset = () => {
                     {handledWell}
                   </p>
                 </div>
+                <div>
+                  <p className="text-sm font-semibold text-gray-700 mb-2">What did I learn from today?</p>
+                  <p className="text-gray-800 bg-white rounded-lg p-3 border border-blue-200">
+                    {learnedFrom}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-gray-700 mb-2">What support do I need?</p>
+                  <p className="text-gray-800 bg-white rounded-lg p-3 border border-blue-200">
+                    {supportNeeded}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-gray-700 mb-2">What am I grateful for today?</p>
+                  <p className="text-gray-800 bg-white rounded-lg p-3 border border-blue-200">
+                    {gratefulFor}
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -166,12 +200,13 @@ const ToughDayReset = () => {
       title={gameData?.title || "Tough Day Reset"}
       subtitle={step === 1 ? "Reflect on Your Day" : step === 2 ? "Choose Self-Kindness" : "Complete"}
       showGameOver={false}
-      score={score}
+      score={Object.values(completedQuestions).filter(Boolean).length}
       gameId={gameId}
       gameType="parent-education"
       totalLevels={totalLevels}
       totalCoins={totalCoins}
       currentLevel={1}
+      allAnswersCorrect={Object.values(completedQuestions).every(Boolean)}
     >
       <div className="w-full max-w-4xl mx-auto px-4 py-6">
         <motion.div
@@ -187,7 +222,7 @@ const ToughDayReset = () => {
                 <div className="text-6xl mb-4">💭</div>
                 <h2 className="text-3xl font-bold text-gray-800 mb-4">Reflect on Your Tough Day</h2>
                 <p className="text-gray-600 text-lg">
-                  Take a moment to acknowledge what happened today. Both the challenges and the strengths.
+                  Take a moment to acknowledge what happened today. Both the challenges and the strengths. Answer all five questions below.
                 </p>
               </div>
 
@@ -199,12 +234,21 @@ const ToughDayReset = () => {
                   </label>
                   <textarea
                     value={triggerReflection}
-                    onChange={(e) => setTriggerReflection(e.target.value)}
+                    onChange={(e) => {
+                      setTriggerReflection(e.target.value);
+                      if (e.target.value.trim().length >= 10 && !completedQuestions.triggerReflection) {
+                        setScore(prev => prev + 1);
+                        setCompletedQuestions(prev => ({...prev, triggerReflection: true}));
+                      } else if (e.target.value.trim().length < 10 && completedQuestions.triggerReflection) {
+                        setScore(prev => prev - 1);
+                        setCompletedQuestions(prev => ({...prev, triggerReflection: false}));
+                      }
+                    }}
                     placeholder="What situations, events, or interactions made today difficult? (e.g., 'My child had a meltdown at the store, work deadline pressure, feeling overwhelmed by everything I need to do')"
                     className="w-full h-32 p-4 border-2 border-red-300 rounded-lg focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-200 resize-none text-gray-700"
                   />
                   <p className="mt-2 text-sm text-gray-600">
-                    {triggerReflection.length} characters {triggerReflection.trim().length >= 10 && (
+                    {triggerReflection.length} characters {completedQuestions.triggerReflection && (
                       <span className="text-green-600 font-semibold">✓</span>
                     )}
                   </p>
@@ -220,16 +264,115 @@ const ToughDayReset = () => {
                   </label>
                   <textarea
                     value={handledWell}
-                    onChange={(e) => setHandledWell(e.target.value)}
+                    onChange={(e) => {
+                      setHandledWell(e.target.value);
+                      if (e.target.value.trim().length >= 10 && !completedQuestions.handledWell) {
+                        setScore(prev => prev + 1);
+                        setCompletedQuestions(prev => ({...prev, handledWell: true}));
+                      } else if (e.target.value.trim().length < 10 && completedQuestions.handledWell) {
+                        setScore(prev => prev - 1);
+                        setCompletedQuestions(prev => ({...prev, handledWell: false}));
+                      }
+                    }}
                     placeholder="What moments, responses, or actions did you handle well today? (e.g., 'I stayed calm during the morning rush, I listened when my child was upset, I took a breath before reacting')"
                     className="w-full h-32 p-4 border-2 border-green-300 rounded-lg focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-200 resize-none text-gray-700"
                   />
                   <p className="mt-2 text-sm text-gray-600">
-                    {handledWell.length} characters {handledWell.trim().length >= 10 && (
+                    {handledWell.length} characters {completedQuestions.handledWell && (
                       <span className="text-green-600 font-semibold">✓</span>
                     )}
                   </p>
                   {handledWell.trim().length > 0 && handledWell.trim().length < 10 && (
+                    <p className="mt-1 text-xs text-red-600">Please write at least 10 characters</p>
+                  )}
+                </div>
+
+                {/* What did I learn from today */}
+                <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-6 border-2 border-blue-200">
+                  <label className="block text-lg font-bold text-gray-800 mb-3">
+                    What did I learn from today?
+                  </label>
+                  <textarea
+                    value={learnedFrom}
+                    onChange={(e) => {
+                      setLearnedFrom(e.target.value);
+                      if (e.target.value.trim().length >= 10 && !completedQuestions.learnedFrom) {
+                        setScore(prev => prev + 1);
+                        setCompletedQuestions(prev => ({...prev, learnedFrom: true}));
+                      } else if (e.target.value.trim().length < 10 && completedQuestions.learnedFrom) {
+                        setScore(prev => prev - 1);
+                        setCompletedQuestions(prev => ({...prev, learnedFrom: false}));
+                      }
+                    }}
+                    placeholder="What insights or lessons did I gain from today's experiences? (e.g., 'I learned that taking a pause helps me respond better, I realized I'm more patient than I thought')"
+                    className="w-full h-32 p-4 border-2 border-blue-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 resize-none text-gray-700"
+                  />
+                  <p className="mt-2 text-sm text-gray-600">
+                    {learnedFrom.length} characters {completedQuestions.learnedFrom && (
+                      <span className="text-green-600 font-semibold">✓</span>
+                    )}
+                  </p>
+                  {learnedFrom.trim().length > 0 && learnedFrom.trim().length < 10 && (
+                    <p className="mt-1 text-xs text-red-600">Please write at least 10 characters</p>
+                  )}
+                </div>
+
+                {/* What support do I need? */}
+                <div className="bg-gradient-to-br from-yellow-50 to-amber-50 rounded-xl p-6 border-2 border-yellow-200">
+                  <label className="block text-lg font-bold text-gray-800 mb-3">
+                    What support do I need?
+                  </label>
+                  <textarea
+                    value={supportNeeded}
+                    onChange={(e) => {
+                      setSupportNeeded(e.target.value);
+                      if (e.target.value.trim().length >= 10 && !completedQuestions.supportNeeded) {
+                        setScore(prev => prev + 1);
+                        setCompletedQuestions(prev => ({...prev, supportNeeded: true}));
+                      } else if (e.target.value.trim().length < 10 && completedQuestions.supportNeeded) {
+                        setScore(prev => prev - 1);
+                        setCompletedQuestions(prev => ({...prev, supportNeeded: false}));
+                      }
+                    }}
+                    placeholder="What kind of support would help me feel better or cope better? (e.g., 'I need someone to listen without judgment, I need help with household tasks, I need some time for myself')"
+                    className="w-full h-32 p-4 border-2 border-yellow-300 rounded-lg focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200 resize-none text-gray-700"
+                  />
+                  <p className="mt-2 text-sm text-gray-600">
+                    {supportNeeded.length} characters {completedQuestions.supportNeeded && (
+                      <span className="text-green-600 font-semibold">✓</span>
+                    )}
+                  </p>
+                  {supportNeeded.trim().length > 0 && supportNeeded.trim().length < 10 && (
+                    <p className="mt-1 text-xs text-red-600">Please write at least 10 characters</p>
+                  )}
+                </div>
+
+                {/* What am I grateful for today? */}
+                <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 border-2 border-purple-200">
+                  <label className="block text-lg font-bold text-gray-800 mb-3">
+                    What am I grateful for today?
+                  </label>
+                  <textarea
+                    value={gratefulFor}
+                    onChange={(e) => {
+                      setGratefulFor(e.target.value);
+                      if (e.target.value.trim().length >= 10 && !completedQuestions.gratefulFor) {
+                        setScore(prev => prev + 1);
+                        setCompletedQuestions(prev => ({...prev, gratefulFor: true}));
+                      } else if (e.target.value.trim().length < 10 && completedQuestions.gratefulFor) {
+                        setScore(prev => prev - 1);
+                        setCompletedQuestions(prev => ({...prev, gratefulFor: false}));
+                      }
+                    }}
+                    placeholder="What positive things happened today or am I thankful for? (e.g., 'My child's smile, a friend's encouraging text, a moment of peace')"
+                    className="w-full h-32 p-4 border-2 border-purple-300 rounded-lg focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200 resize-none text-gray-700"
+                  />
+                  <p className="mt-2 text-sm text-gray-600">
+                    {gratefulFor.length} characters {completedQuestions.gratefulFor && (
+                      <span className="text-green-600 font-semibold">✓</span>
+                    )}
+                  </p>
+                  {gratefulFor.trim().length > 0 && gratefulFor.trim().length < 10 && (
                     <p className="mt-1 text-xs text-red-600">Please write at least 10 characters</p>
                   )}
                 </div>

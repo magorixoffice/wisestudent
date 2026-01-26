@@ -9,7 +9,7 @@ const FamilyNoScreenHour = () => {
   const location = useLocation();
   
   // Get game data
-  const gameId = "parent-education-90";
+  const gameId = "parent-education-92";
   const gameData = getParentEducationGameById(gameId);
   
   // Get game props from location.state or gameData
@@ -22,7 +22,7 @@ const FamilyNoScreenHour = () => {
   const [moodBefore, setMoodBefore] = useState(null);
   const [moodAfter, setMoodAfter] = useState(null);
   const [isRunning, setIsRunning] = useState(false);
-  const [timeRemaining, setTimeRemaining] = useState(3600); // 1 hour = 3600 seconds
+  const [timeRemaining, setTimeRemaining] = useState(300); // 5 minutes = 300 seconds
   const [showGameOver, setShowGameOver] = useState(false);
   
   const timerRef = useRef(null);
@@ -186,10 +186,10 @@ const FamilyNoScreenHour = () => {
   if (showGameOver) {
     return (
       <ParentGameShell
-        title={gameData?.title || "Family No-Screen Hour"}
-        subtitle="Hour Complete!"
+        title={gameData?.title || "Family No-Screen Time"}
+        subtitle="Time Complete!"
         showGameOver={true}
-        score={1}
+        score={5}
         gameId={gameId}
         gameType="parent-education"
         totalLevels={totalLevels}
@@ -212,9 +212,9 @@ const FamilyNoScreenHour = () => {
               >
                 🎉
               </motion.div>
-              <h2 className="text-3xl font-bold text-gray-800 mb-4">Family No-Screen Hour Complete!</h2>
+              <h2 className="text-3xl font-bold text-gray-800 mb-4">5-Minute No-Screen Time Complete!</h2>
               <p className="text-lg text-gray-600">
-                You've spent an hour without screens, building connection and presence.
+                Great job completing your 5-minute no-screen time!
               </p>
             </div>
 
@@ -261,9 +261,9 @@ const FamilyNoScreenHour = () => {
                 </p>
                 <p className="text-sm text-gray-600 mt-2">
                   {moodChange > 0 
-                    ? 'Your mood improved during the no-screen hour!' 
+                    ? 'Your mood improved during the no-screen time!' 
                     : moodChange < 0
-                    ? 'Your mood changed during the hour.'
+                    ? 'Your mood changed during the time.'
                     : 'Your mood stayed the same.'}
                 </p>
               </div>
@@ -290,7 +290,7 @@ const FamilyNoScreenHour = () => {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-green-600 mt-1">•</span>
-                  <span><strong>Rest for Eyes & Mind:</strong> Regular no-screen hours give your eyes and mind a break, reducing digital fatigue and improving wellbeing.</span>
+                  <span><strong>Rest for Eyes & Mind:</strong> Regular no-screen time gives your eyes and mind a break, reducing digital fatigue and improving wellbeing.</span>
                 </li>
               </ul>
             </div>
@@ -298,7 +298,7 @@ const FamilyNoScreenHour = () => {
             {/* Parent Tip */}
             <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-6 border-2 border-amber-200">
               <p className="text-gray-700 font-medium text-center">
-                <strong>💡 Parent Tip:</strong> Let your child choose the no-screen activity — ownership makes joy grow. When children have a say in what the family does during no-screen time, they feel ownership and excitement. This choice empowers them and makes the hour something they look forward to, not something they're forced into. Regular no-screen hours create space for connection, creativity, and presence that screens can't replace.
+                <strong>💡 Parent Tip:</strong> Let your child choose the no-screen activity — ownership makes joy grow. When children have a say in what the family does during no-screen time, they feel ownership and excitement. This choice empowers them and makes the time something they look forward to, not something they're forced into. Regular no-screen time creates space for connection, creativity, and presence that screens can't replace.
               </p>
             </div>
           </div>
@@ -311,7 +311,7 @@ const FamilyNoScreenHour = () => {
   if (step === 3) {
     return (
       <ParentGameShell
-        title={gameData?.title || "Family No-Screen Hour"}
+        title={gameData?.title || "Family No-Screen Time"}
         subtitle="How Do You Feel Now?"
         showGameOver={false}
         score={0}
@@ -329,16 +329,16 @@ const FamilyNoScreenHour = () => {
           >
             <div className="text-center mb-8">
               <div className="text-6xl mb-4">🎉</div>
-              <h2 className="text-3xl font-bold text-gray-800 mb-4">Hour Complete!</h2>
+              <h2 className="text-3xl font-bold text-gray-800 mb-4">Time Complete!</h2>
               <p className="text-gray-600 text-lg">
-                How is your mood now after spending an hour without screens?
+                How is your mood now after spending time without screens?
               </p>
             </div>
 
             {/* Activity Reminder */}
             {activityLabel && (
               <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl p-4 border-2 border-purple-200 mb-6 text-center">
-                <p className="text-sm text-gray-600 mb-1">You spent the hour:</p>
+                <p className="text-sm text-gray-600 mb-1">You spent the time:</p>
                 <p className="text-lg font-bold text-gray-800">
                   {selectedActivity ? activityIdeas.find(a => a.id === selectedActivity)?.emoji + ' ' : ''}
                   {activityLabel}
@@ -390,36 +390,6 @@ const FamilyNoScreenHour = () => {
                   );
                 })}
               </div>
-              <div className="grid grid-cols-5 gap-3 mt-3">
-                {moodOptions.slice(5).map((mood) => {
-                  const isSelected = moodAfter === mood.value;
-                  return (
-                    <motion.button
-                      key={mood.value}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      onClick={() => setMoodAfter(mood.value)}
-                      className={`p-4 rounded-xl border-2 transition-all ${
-                        isSelected
-                          ? 'shadow-lg'
-                          : 'border-gray-200 hover:border-gray-300'
-                      }`}
-                      style={{
-                        background: isSelected ? `linear-gradient(to bottom right, ${mood.color}, ${mood.color}dd)` : 'white',
-                        borderColor: isSelected ? mood.color : undefined
-                      }}
-                    >
-                      <div className="text-3xl mb-2">{mood.emoji}</div>
-                      <div className={`text-xs font-semibold ${isSelected ? 'text-white' : 'text-gray-700'}`}>
-                        {mood.value}
-                      </div>
-                      <div className={`text-xs ${isSelected ? 'text-white' : 'text-gray-600'}`}>
-                        {mood.label.split(' ')[0]}
-                      </div>
-                    </motion.button>
-                  );
-                })}
-              </div>
             </div>
 
             <motion.button
@@ -436,7 +406,7 @@ const FamilyNoScreenHour = () => {
             {!moodAfter && (
               <div className="mt-4 bg-yellow-100 rounded-lg p-3 border border-yellow-300">
                 <p className="text-yellow-800 text-sm text-center">
-                  Please rate your mood after the no-screen hour.
+                  Please rate your mood after the no-screen time.
                 </p>
               </div>
             )}
@@ -455,12 +425,12 @@ const FamilyNoScreenHour = () => {
 
   // Step 2: Timer Running
   if (step === 2) {
-    const progress = ((3600 - timeRemaining) / 3600) * 100;
+    const progress = ((300 - timeRemaining) / 300) * 100;
     
     return (
       <ParentGameShell
-        title={gameData?.title || "Family No-Screen Hour"}
-        subtitle="No-Screen Hour in Progress"
+        title={gameData?.title || "Family No-Screen Time"}
+        subtitle="No-Screen Time in Progress"
         showGameOver={false}
         score={0}
         gameId={gameId}
@@ -490,9 +460,9 @@ const FamilyNoScreenHour = () => {
               >
                 ⏰
               </motion.div>
-              <h2 className="text-3xl font-bold text-gray-800 mb-4">No-Screen Hour Active</h2>
+              <h2 className="text-3xl font-bold text-gray-800 mb-4">No-Screen Time Active</h2>
               <p className="text-gray-600">
-                Enjoy your time without screens! {activityLabel && `You're doing: ${activityLabel}`}
+                Enjoy your 5 minutes without screens! {activityLabel && `You're doing: ${activityLabel}`}
               </p>
             </div>
 
@@ -508,7 +478,7 @@ const FamilyNoScreenHour = () => {
                 >
                   {formatTime(timeRemaining)}
                 </motion.div>
-                <p className="text-lg text-gray-600 mb-6">remaining</p>
+                <p className="text-lg text-gray-600 mb-6">remaining of 5 minutes</p>
                 
                 {/* Progress Bar */}
                 <div className="w-full bg-gray-200 rounded-full h-4 mb-4">
@@ -560,7 +530,7 @@ const FamilyNoScreenHour = () => {
             {/* Encouragement */}
             <div className="mt-6 bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-4 border-2 border-green-200 text-center">
               <p className="text-gray-700 font-medium">
-                💚 Keep going! You're building connection and presence without screens.
+                💚 Keep going! You're building connection and presence without screens for 5 minutes.
               </p>
             </div>
 
@@ -579,8 +549,8 @@ const FamilyNoScreenHour = () => {
   // Step 1: Setup
   return (
     <ParentGameShell
-      title={gameData?.title || "Family No-Screen Hour"}
-      subtitle="Set Up Your No-Screen Hour"
+      title={gameData?.title || "Family No-Screen Time"}
+      subtitle="Set Up Your 5-Min No-Screen Time"
       showGameOver={false}
       score={0}
       gameId={gameId}
@@ -597,9 +567,9 @@ const FamilyNoScreenHour = () => {
         >
           <div className="text-center mb-8">
             <div className="text-6xl mb-4">📱</div>
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Family No-Screen Hour</h2>
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">Family No-Screen Time</h2>
             <p className="text-gray-600 text-lg">
-              Build collective family time without devices.
+              Spend 5 minutes of device-free family time together.
             </p>
           </div>
 
@@ -644,7 +614,7 @@ const FamilyNoScreenHour = () => {
                   setCustomActivity(e.target.value);
                   setSelectedActivity(null);
                 }}
-                placeholder="Let your child suggest an activity..."
+                placeholder="Let your child suggest an activity for 5 minutes..."
                 className="w-full px-4 py-2 rounded-lg border-2 border-gray-300 focus:border-purple-500 focus:outline-none text-gray-800"
               />
             </div>
@@ -654,40 +624,10 @@ const FamilyNoScreenHour = () => {
           <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border-2 border-blue-200 mb-6">
             <h3 className="text-lg font-bold text-gray-800 mb-4">Rate Your Mood Before</h3>
             <p className="text-sm text-gray-600 mb-4">
-              How are you feeling right now, before starting the no-screen hour? (1 = very low, 10 = excellent)
+              How are you feeling right now, before starting the no-screen time? (1 = very low, 10 = excellent)
             </p>
             <div className="grid grid-cols-5 gap-3">
               {moodOptions.map((mood) => {
-                const isSelected = moodBefore === mood.value;
-                return (
-                  <motion.button
-                    key={mood.value}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => setMoodBefore(mood.value)}
-                    className={`p-4 rounded-xl border-2 transition-all ${
-                      isSelected
-                        ? 'shadow-lg'
-                        : 'border-gray-200 hover:border-gray-300'
-                    }`}
-                    style={{
-                      background: isSelected ? `linear-gradient(to bottom right, ${mood.color}, ${mood.color}dd)` : 'white',
-                      borderColor: isSelected ? mood.color : undefined
-                    }}
-                  >
-                    <div className="text-3xl mb-2">{mood.emoji}</div>
-                    <div className={`text-xs font-semibold ${isSelected ? 'text-white' : 'text-gray-700'}`}>
-                      {mood.value}
-                    </div>
-                    <div className={`text-xs ${isSelected ? 'text-white' : 'text-gray-600'}`}>
-                      {mood.label.split(' ')[0]}
-                    </div>
-                  </motion.button>
-                );
-              })}
-            </div>
-            <div className="grid grid-cols-5 gap-3 mt-3">
-              {moodOptions.slice(5).map((mood) => {
                 const isSelected = moodBefore === mood.value;
                 return (
                   <motion.button
@@ -727,13 +667,13 @@ const FamilyNoScreenHour = () => {
             className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
             <Play className="w-5 h-5" />
-            Start No-Screen Hour
+            Start 5-Min No-Screen Time
           </motion.button>
 
           {!moodBefore && (
             <div className="mt-4 bg-yellow-100 rounded-lg p-3 border border-yellow-300">
               <p className="text-yellow-800 text-sm text-center">
-                Please rate your mood before starting the no-screen hour.
+                Please rate your mood before starting the no-screen time.
               </p>
             </div>
           )}
@@ -741,7 +681,7 @@ const FamilyNoScreenHour = () => {
           {/* Parent Tip */}
           <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-4 border-2 border-amber-200 mt-6">
             <p className="text-sm text-gray-700">
-              <strong>💡 Parent Tip:</strong> Let your child choose the no-screen activity — ownership makes joy grow. When children help decide what to do during no-screen time, they feel excited and engaged, making the hour more meaningful for everyone.
+              <strong>💡 Parent Tip:</strong> Let your child choose the no-screen activity — ownership makes joy grow. When children help decide what to do during no-screen time, they feel excited and engaged, making the time more meaningful for everyone.
             </p>
           </div>
         </motion.div>
