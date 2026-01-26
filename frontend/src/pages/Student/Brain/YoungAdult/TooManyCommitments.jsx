@@ -7,46 +7,65 @@ import { getGameDataById } from "../../../../utils/getGameData";
 const choices = [
   {
     id: "a",
-    title: "Complete everything as planned",
-    outcome: "Stress increases and focus decreases, making each task harder.",
+    title: "Try to complete everything without changing plans",
+    outcome: "Stress increases and focus reduces.",
   },
   {
     id: "b",
-    title: "Prioritise tasks and postpone others",
-    outcome: "Pressure reduces, allowing you to focus on what truly matters.",
+    title: "Prioritise the most important tasks and postpone others",
+    outcome: "Pressure reduces, but some tasks remain pending.",
   },
   {
     id: "c",
-    title: "Avoid planning and hope it works out",
-    outcome: "Anxiety rises because nothing is under control.",
+    title: "Avoid planning and hope things work out",
+    outcome: "Anxiety increases due to lack of control.",
   },
 ];
+
+const MIN_CHARS = 10;
 
 const TooManyCommitments = () => {
   const location = useLocation();
   const gameId = "brain-young-adult-1";
   const gameData = getGameDataById(gameId);
+
   const coinsPerLevel = gameData?.coins || location.state?.coinsPerLevel || 5;
   const totalCoins = gameData?.coins || location.state?.totalCoins || 5;
   const totalXp = gameData?.xp || location.state?.totalXp || 10;
 
-  const [selected, setSelected] = useState(null);
-  const [levelCompleted, setLevelCompleted] = useState(false);
+  const [selectedChoice, setSelectedChoice] = useState(null);
   const [feedback, setFeedback] = useState(null);
   const [score, setScore] = useState(0);
-  const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
+
+  // 🔑 NEW STATES (important)
+  const [outcomeSeen, setOutcomeSeen] = useState(false);
+  const [showFirstReflection, setShowFirstReflection] = useState(false);
+  const [showSecondReflection, setShowSecondReflection] = useState(false);
+  const [firstReflectionText, setFirstReflectionText] = useState("");
+  const [secondReflectionText, setSecondReflectionText] = useState("");
+  const [firstReflectionCompleted, setFirstReflectionCompleted] = useState(false);
+  const [secondReflectionCompleted, setSecondReflectionCompleted] = useState(false);
+  const [skillUnlocked, setSkillUnlocked] = useState(false);
+
+  const {
+    flashPoints,
+    showAnswerConfetti,
+    showCorrectAnswerFeedback,
+    resetFeedback,
+  } = useGameFeedback();
 
   const handleChoice = (choice) => {
-    if (levelCompleted || selected) return;
-    setSelected(choice.id);
+    if (selectedChoice) return;
+
+    setSelectedChoice(choice.id);
     resetFeedback();
-    setFeedback({
-      text: choice.outcome,
-      success: true,
-    });
+
+    setFeedback({ text: choice.outcome, success: true });
     setScore(1);
     showCorrectAnswerFeedback(1, true);
-    setLevelCompleted(true);
+
+    // Move to outcome screen
+    setOutcomeSeen(true);
   };
 
   const reflectionPrompts = useMemo(
@@ -57,19 +76,33 @@ const TooManyCommitments = () => {
     []
   );
 
+  const handleFirstReflectionContinue = () => {
+    setFirstReflectionCompleted(true);
+    setShowSecondReflection(true);
+  };
+
+  const handleSecondReflectionContinue = () => {
+    setSecondReflectionCompleted(true);
+    setTimeout(() => setSkillUnlocked(true), 500); // Small delay before skill unlock
+  };
+
   useEffect(() => {
-    if (levelCompleted) {
-      console.log("Completed Too Many Commitments", { score });
+    if (skillUnlocked) {
+      console.log("Skill unlocked: Prioritisation awareness");
     }
-  }, [levelCompleted, score]);
+  }, [skillUnlocked]);
 
   return (
     <GameShell
       title="Too Many Commitments"
       subtitle={
-        levelCompleted
-          ? "Reflection unlocked"
-          : "Decide how to manage the pressure"
+        skillUnlocked
+          ? "Insight unlocked"
+          : showSecondReflection && !secondReflectionCompleted
+            ? "Reflect on the next prompt"
+            : showFirstReflection && !firstReflectionCompleted
+              ? "Reflect on your response"
+              : "Decide how to handle the pressure"
       }
       score={score}
       currentLevel={1}
@@ -79,73 +112,144 @@ const TooManyCommitments = () => {
       totalXp={totalXp}
       gameId={gameId}
       gameType="brain"
-      showGameOver={levelCompleted}
+      showGameOver={skillUnlocked}
       maxScore={1}
       showConfetti={showAnswerConfetti}
       flashPoints={flashPoints}
       showAnswerConfetti={showAnswerConfetti}
     >
       <div className="space-y-6 max-w-4xl mx-auto p-4">
-        <div className="bg-white/10 backdrop-blur-2xl rounded-3xl p-6 border border-white/20 shadow-lg">
-          <h3 className="text-xl font-semibold text-white mb-4">
-            Scenario
-          </h3>
-          <p className="text-white/90 mb-5">
-            A college student is preparing for exams while working part-time and
-            handling family expectations. Multiple deadlines fall in the same
-            week, creating overload. Decide how to handle the pressure.
-          </p>
-          <div className="grid gap-3">
-            {choices.map((choice) => {
-              const isSelected = selected === choice.id;
-              return (
-                <button
-                  key={choice.id}
-                  onClick={() => handleChoice(choice)}
-                  disabled={!!selected}
-                  className={`rounded-2xl p-4 text-left border transition-all duration-200 ${
-                    isSelected
-                      ? "border-green-400 bg-green-500/20"
-                      : "border-white/20 bg-white/5 hover:border-white/40 hover:bg-white/10"
+
+        {/* Scenario */}
+        <Section title="Scenario Setup">
+          A college student is preparing for exams while also working part-time and handling family expectations.
+        </Section>
+
+        {/* Trigger */}
+        <Section title="Stress Point">
+          Multiple deadlines fall in the same week, making the student feel mentally overloaded.
+        </Section>
+
+        {/* Decision */}
+        <Section title="Decision Moment">
+          The student must decide how to handle the pressure.
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+            {choices.map((choice) => (
+              <button
+                key={choice.id}
+                disabled={!!selectedChoice}
+                onClick={() => handleChoice(choice)}
+                className={`rounded-2xl p-4 border ${
+                  selectedChoice === choice.id
+                    ? "border-green-400 bg-green-500/20"
+                    : "border-white/20 bg-white/5"
+                }`}
+              >
+                <div className="text-xs text-white/60 mb-1">
+                  Choice {choice.id.toUpperCase()}
+                </div>
+                <p className="text-white">{choice.title}</p>
+              </button>
+            ))}
+          </div>
+
+        </Section>
+
+        {/* Outcome - only shown after choice */}
+        {outcomeSeen && !showFirstReflection && (
+          <Section title="Outcome">
+            <p className="text-white/90">{feedback?.text}</p>
+            <button 
+              onClick={() => {
+                setShowFirstReflection(true);
+              }}
+              className="mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+            >
+              Continue
+            </button>
+          </Section>
+        )}
+        
+        {/* First Reflection - full screen */}
+        {showFirstReflection && !firstReflectionCompleted && (
+          <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+            <div className="w-full max-w-2xl">
+              <Section title="Reflection Prompt">
+                <p className="mb-2 text-white/80 text-sm">{reflectionPrompts[0]}</p>
+                <textarea 
+                  value={firstReflectionText}
+                  onChange={(e) => setFirstReflectionText(e.target.value)}
+                  placeholder="Write your reflection here..."
+                  className="w-full p-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 mt-2"
+                  rows="6"
+                />
+                <div className="text-right text-xs text-white/60 mt-1">
+                  {firstReflectionText.length}/{MIN_CHARS} characters
+                </div>
+                <button 
+                  onClick={handleFirstReflectionContinue}
+                  disabled={firstReflectionText.length < MIN_CHARS}
+                  className={`mt-2 px-4 py-2 rounded-lg transition-colors ${
+                    firstReflectionText.length >= MIN_CHARS 
+                      ? "bg-blue-600 hover:bg-blue-700 text-white cursor-pointer" 
+                      : "bg-gray-600 text-gray-400 cursor-not-allowed"
                   }`}
                 >
-                  <div className="text-sm uppercase tracking-wider text-white/60 mb-1">
-                    Choice {choice.id.toUpperCase()}
-                  </div>
-                  <p className="text-white font-semibold">{choice.title}</p>
+                  Continue
                 </button>
-              );
-            })}
-          </div>
-          {feedback && (
-            <p
-              className={`mt-4 text-white/90 text-sm border-l-4 pl-4 py-2 ${
-                feedback.success ? "border-green-400" : "border-red-400"
-              }`}
-            >
-              {feedback.text}
-            </p>
-          )}
-        </div>
-
-        {levelCompleted && (
-          <div className="bg-white/5 rounded-3xl border border-white/20 p-6">
-            <h4 className="text-lg font-semibold text-white mb-3">
-              Reflection Prompts
-            </h4>
-            <ul className="list-disc list-inside space-y-2 text-white/80 text-sm">
-              {reflectionPrompts.map((prompt) => (
-                <li key={prompt}>{prompt}</li>
-              ))}
-            </ul>
-            <div className="mt-4 text-sm text-white/70">
-              Skill unlocked: <strong>Prioritisation awareness</strong>
+              </Section>
             </div>
           </div>
+        )}
+        
+        {/* Second Reflection - full screen */}
+        {showSecondReflection && !secondReflectionCompleted && (
+          <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+            <div className="w-full max-w-2xl">
+              <Section title="Reflection Prompt">
+                <p className="mb-2 text-white/80 text-sm">{reflectionPrompts[1]}</p>
+                <textarea 
+                  value={secondReflectionText}
+                  onChange={(e) => setSecondReflectionText(e.target.value)}
+                  placeholder="Write your reflection here..."
+                  className="w-full p-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 mt-2"
+                  rows="6"
+                />
+                <div className="text-right text-xs text-white/60 mt-1">
+                  {secondReflectionText.length}/{MIN_CHARS} characters
+                </div>
+                <button 
+                  onClick={handleSecondReflectionContinue}
+                  disabled={secondReflectionText.length < MIN_CHARS}
+                  className={`mt-2 px-4 py-2 rounded-lg transition-colors ${
+                    secondReflectionText.length >= MIN_CHARS 
+                      ? "bg-blue-600 hover:bg-blue-700 text-white cursor-pointer" 
+                      : "bg-gray-600 text-gray-400 cursor-not-allowed"
+                  }`}
+                >
+                  Continue
+                </button>
+              </Section>
+            </div>
+          </div>
+        )}
+
+        {/* Skill */}
+        {skillUnlocked && (
+          <Section title="Skill / Insight Unlocked">
+            <strong>Prioritisation awareness</strong>
+          </Section>
         )}
       </div>
     </GameShell>
   );
 };
+
+const Section = ({ title, children }) => (
+  <div className="bg-white/10 rounded-3xl p-6 border border-white/20">
+    <h3 className="text-lg font-semibold text-white mb-2">{title}</h3>
+    <div className="text-white/90 text-sm">{children}</div>
+  </div>
+);
 
 export default TooManyCommitments;

@@ -1,0 +1,420 @@
+import React, { useMemo, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { Trophy } from "lucide-react";
+import GameShell from "../GameShell";
+import useGameFeedback from "../../../../hooks/useGameFeedback";
+import { getGameDataById } from "../../../../utils/getGameData";
+
+const IGNORING_SMALL_EXPENSES_STAGES = [
+  {
+    id: 1,
+    prompt: "Small daily spends usually:",
+    options: [
+        {
+        id: "addup",
+        label: "Add up over the month",
+        reflection: "Exactly! Small daily expenses add up quickly over the course of a month, potentially representing a significant portion of your budget.",
+        isCorrect: true,
+      },
+      {
+        id: "dontmatter",
+        label: "Don't matter",
+        reflection: "Actually, small daily spends do matter. Even small amounts can accumulate significantly over time.",
+        isCorrect: false,
+      },
+      
+      {
+        id: "save",
+        label: "Save you money in the long run",
+        reflection: "Small daily expenses reduce your available funds rather than saving money in the long run.",
+        isCorrect: false,
+      },
+      {
+        id: "invest",
+        label: "Provide good investment opportunities",
+        reflection: "Small daily expenses are typically consumption rather than investments that generate returns.",
+        isCorrect: false,
+      },
+    ],
+    reward: 5,
+  },
+  {
+    id: 2,
+    prompt: "What is the cumulative effect of spending ₹20 daily on tea/coffee?",
+    options: [
+      {
+        id: "small",
+        label: "₹600 per month (minimal impact)",
+        reflection: "Actually, ₹20 daily would be ₹600 per month assuming 30 days, which can represent a significant portion of a young person's budget.",
+        isCorrect: false,
+      },
+      
+      {
+        id: "insignificant",
+        label: "Insignificant amount",
+        reflection: "₹600 per month is a significant sum that could be redirected toward savings or other important goals.",
+        isCorrect: false,
+      },
+      {
+        id: "zero",
+        label: "Zero impact on finances",
+        reflection: "Any spending, regardless of size, has an impact on your overall financial position.",
+        isCorrect: false,
+      },
+      {
+        id: "significant",
+        label: "₹600 per month (significant impact)",
+        reflection: "Perfect! ₹20 daily adds up to ₹600 per month, which is a significant amount that could be allocated elsewhere.",
+        isCorrect: true,
+      },
+    ],
+    reward: 5,
+  },
+  {
+    id: 3,
+    prompt: "Why do people often ignore small recurring expenses?",
+    options: [
+     
+      {
+        id: "necessity",
+        label: "They are always necessary expenses",
+        reflection: "Many small recurring expenses are actually discretionary, not necessary, such as snacks, drinks, or entertainment.",
+        isCorrect: false,
+      },
+      {
+        id: "priority",
+        label: "They have higher priority than big expenses",
+        reflection: "Big expenses are typically prioritized over small ones, but small expenses often add up to be substantial.",
+        isCorrect: false,
+      },
+       {
+        id: "visibility",
+        label: "They seem too small to notice individually",
+        reflection: "Exactly! Small expenses seem insignificant when viewed individually, causing people to overlook their cumulative impact.",
+        isCorrect: true,
+      },
+      {
+        id: "benefit",
+        label: "They provide significant financial benefits",
+        reflection: "Small recurring expenses typically provide personal satisfaction rather than financial benefits.",
+        isCorrect: false,
+      },
+    ],
+    reward: 5,
+  },
+  {
+    id: 4,
+    prompt: "What happens when you ignore small daily expenses in budgeting?",
+    options: [
+     
+      {
+        id: "simpler",
+        label: "Budgets become simpler to manage",
+        reflection: "While excluding small expenses might simplify the budget, it also makes it inaccurate and prone to failure.",
+        isCorrect: false,
+      },
+       {
+        id: "accuracy",
+        label: "Budgets become inaccurate and fail",
+        reflection: "Perfect! Ignoring small daily expenses makes budgets inaccurate and likely to fail, as these expenses accumulate significantly over time.",
+        isCorrect: true,
+      },
+      {
+        id: "success",
+        label: "Budgets are more likely to succeed",
+        reflection: "Ignoring small expenses actually makes budgets less likely to succeed due to unaccounted spending.",
+        isCorrect: false,
+      },
+      {
+        id: "flexibility",
+        label: "Budgets have more flexibility",
+        reflection: "Untracked small expenses reduce flexibility by consuming budgeted funds unexpectedly.",
+        isCorrect: false,
+      },
+    ],
+    reward: 5,
+  },
+  {
+    id: 5,
+    prompt: "How can tracking small expenses improve your financial health?",
+    options: [
+      {
+        id: "awareness",
+        label: "Creates awareness of actual spending patterns",
+        reflection: "Exactly! Tracking small expenses creates awareness of actual spending patterns and helps identify areas where money can be redirected to better uses.",
+        isCorrect: true,
+      },
+      {
+        id: "complexity",
+        label: "Makes financial management more complex",
+        reflection: "While tracking adds some complexity, it provides valuable insights that improve financial management.",
+        isCorrect: false,
+      },
+      {
+        id: "restriction",
+        label: "Restricts your ability to enjoy life",
+        reflection: "Tracking small expenses doesn't restrict enjoyment; it helps ensure you have enough for both necessities and pleasures.",
+        isCorrect: false,
+      },
+      {
+        id: "inequality",
+        label: "Creates inequality in spending",
+        reflection: "Tracking expenses doesn't create inequality; it helps ensure balanced and intentional spending.",
+        isCorrect: false,
+      },
+    ],
+    reward: 5,
+  },
+];
+
+const totalStages = IGNORING_SMALL_EXPENSES_STAGES.length;
+const successThreshold = totalStages;
+
+const IgnoringSmallExpenses = () => {
+  const location = useLocation();
+  const gameId = "finance-young-adult-24";
+  const gameData = getGameDataById(gameId);
+  const coinsPerLevel = gameData?.coins || location.state?.coinsPerLevel || 5;
+  const totalCoins = gameData?.coins || location.state?.totalCoins || 5;
+  const totalXp = gameData?.xp || location.state?.totalXp || 10;
+  const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
+
+  const [currentStage, setCurrentStage] = useState(0);
+  const [coins, setCoins] = useState(0);
+  const [history, setHistory] = useState([]);
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [showResult, setShowResult] = useState(false);
+  const [finalScore, setFinalScore] = useState(0);
+  const [showFeedback, setShowFeedback] = useState(false);
+  const [selectedReflection, setSelectedReflection] = useState(null);
+  const [canProceed, setCanProceed] = useState(false);
+
+  const reflectionPrompts = useMemo(
+    () => [
+      "How can you track small daily expenses without making budgeting overly burdensome?",
+      "What strategies help maintain awareness of small expenses while still enjoying life?",
+    ],
+    []
+  );
+
+  const handleChoice = (option) => {
+    if (selectedOption || showResult) return;
+
+    resetFeedback();
+    const currentStageData = IGNORING_SMALL_EXPENSES_STAGES[currentStage];
+    const updatedHistory = [
+      ...history,
+      { stageId: currentStageData.id, isCorrect: option.isCorrect },
+    ];
+    setHistory(updatedHistory);
+    setSelectedOption(option.id);
+    setSelectedReflection(option.reflection); // Set the reflection for the selected option
+    setShowFeedback(true); // Show feedback after selection
+    setCanProceed(false); // Disable proceeding initially
+    
+    // Update coins if the answer is correct
+    if (option.isCorrect) {
+      setCoins(prevCoins => prevCoins + 1);
+    }
+    
+    // Wait for the reflection period before allowing to proceed
+    setTimeout(() => {
+      setCanProceed(true); // Enable proceeding after showing reflection
+    }, 1500); // Wait 1.5 seconds before allowing to proceed
+    
+    // Handle the final stage separately
+    if (currentStage === totalStages - 1) {
+      setTimeout(() => {
+        const correctCount = updatedHistory.filter((item) => item.isCorrect).length;
+        const passed = correctCount === successThreshold;
+        setFinalScore(correctCount);
+        setCoins(passed ? totalCoins : 0); // Set final coins based on performance
+        setShowResult(true);
+      }, 2500); // Wait longer before showing final results
+    }
+    
+    if (option.isCorrect) {
+      showCorrectAnswerFeedback(currentStageData.reward, true);
+    } else {
+      showCorrectAnswerFeedback(0, false);
+    }
+  };
+
+  const handleRetry = () => {
+    resetFeedback();
+    setCurrentStage(0);
+    setHistory([]);
+    setSelectedOption(null);
+    setCoins(0);
+    setFinalScore(0);
+    setShowResult(false);
+  };
+
+  const subtitle = `Stage ${Math.min(currentStage + 1, totalStages)} of ${totalStages}`;
+  const stage = IGNORING_SMALL_EXPENSES_STAGES[Math.min(currentStage, totalStages - 1)];
+  const hasPassed = finalScore === successThreshold;
+
+  return (
+    <GameShell
+      title="Ignoring Small Expenses"
+      subtitle={subtitle}
+      score={coins}
+      coins={coins}
+      coinsPerLevel={coinsPerLevel}
+      totalCoins={totalCoins}
+      totalXp={totalXp}
+      maxScore={IGNORING_SMALL_EXPENSES_STAGES.length}
+      currentLevel={Math.min(currentStage + 1, IGNORING_SMALL_EXPENSES_STAGES.length)}
+      totalLevels={IGNORING_SMALL_EXPENSES_STAGES.length}
+      gameId={gameId}
+      gameType="finance"
+      showGameOver={showResult}
+      showConfetti={showResult && hasPassed}
+      shouldSubmitGameCompletion={hasPassed}
+      flashPoints={flashPoints}
+      showAnswerConfetti={showAnswerConfetti}
+    >
+      <div className="space-y-5 text-white">
+        <div className="bg-white/10 border border-white/20 rounded-3xl p-8 shadow-2xl max-w-4xl mx-auto">
+          <div className="flex justify-between items-center mb-4 text-sm uppercase tracking-[0.3em] text-white/60">
+            <span>Scenario</span>
+            <span>Small Expenses</span>
+          </div>
+          <p className="text-lg text-white/90 mb-6">{stage.prompt}</p>
+          <div className="grid grid-cols-2 gap-4">
+            {stage.options.map((option) => {
+              const isSelected = selectedOption === option.id;
+              return (
+                <button
+                  key={option.id}
+                  onClick={() => handleChoice(option)}
+                  disabled={!!selectedOption}
+                  className={`rounded-2xl border-2 p-5 text-left transition ${isSelected
+                      ? option.isCorrect
+                        ? "border-emerald-400 bg-emerald-500/20"
+                        : "border-rose-400 bg-rose-500/10"
+                      : "border-white/30 bg-white/5 hover:border-white/60 hover:bg-white/10"
+                    }`}
+                >
+                  <div className="flex justify-between items-center mb-2 text-sm text-white/70">
+                    <span>Choice {option.id.toUpperCase()}</span>
+                  </div>
+                  <p className="text-white font-semibold">{option.label}</p>
+                </button>
+              );
+            })}
+          </div>
+          {(showResult || showFeedback) && (
+            <div className="bg-white/5 border border-white/20 rounded-3xl p-6 shadow-xl max-w-4xl mx-auto space-y-3">
+              <h4 className="text-lg font-semibold text-white">Reflection</h4>
+              {selectedReflection && (
+                <div className="max-h-24 overflow-y-auto pr-2">
+                  <p className="text-sm text-white/90">{selectedReflection}</p>
+                </div>
+              )}
+              {showFeedback && !showResult && (
+                <div className="mt-4 flex justify-center">
+                  {canProceed ? (
+                    <button
+                      onClick={() => {
+                        if (currentStage < totalStages - 1) {
+                          setCurrentStage((prev) => prev + 1);
+                          setSelectedOption(null);
+                          setSelectedReflection(null);
+                          setShowFeedback(false);
+                          setCanProceed(false);
+                        }
+                      }}
+                      className="rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 px-6 font-semibold shadow-lg hover:opacity-90"
+                    >
+                      Continue
+                    </button>
+                  ) : (
+                    <div className="py-2 px-6 text-white font-semibold">Reading...</div>
+                  )}
+                </div>
+              )}
+              {/* Automatically advance if we're in the last stage and the timeout has passed */}
+              {!showResult && currentStage === totalStages - 1 && canProceed && (
+                <div className="mt-4 flex justify-center">
+                  <button
+                    onClick={() => {
+                      const updatedHistory = [
+                        ...history,
+                        { stageId: IGNORING_SMALL_EXPENSES_STAGES[currentStage].id, isCorrect: IGNORING_SMALL_EXPENSES_STAGES[currentStage].options.find(opt => opt.id === selectedOption)?.isCorrect },
+                      ];
+                      const correctCount = updatedHistory.filter((item) => item.isCorrect).length;
+                      const passed = correctCount === successThreshold;
+                      setFinalScore(correctCount);
+                      setCoins(passed ? totalCoins : 0);
+                      setShowResult(true);
+                    }}
+                    className="rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 px-6 font-semibold shadow-lg hover:opacity-90"
+                  >
+                  Finish
+                  </button>
+                </div>
+              )}
+              {showResult && (
+                <>
+                  <ul className="text-sm list-disc list-inside space-y-1">
+                    {reflectionPrompts.map((prompt) => (
+                      <li key={prompt}>{prompt}</li>
+                    ))}
+                  </ul>
+                  <p className="text-sm text-white/70">
+                    Skill unlocked: <strong>Expense tracking awareness</strong>
+                  </p>
+                  {!hasPassed && (
+                    <p className="text-xs text-amber-300">
+                      Answer all {totalStages} choices correctly to earn the full reward.
+                    </p>
+                  )}
+                  {!hasPassed && (
+                    <button
+                      onClick={handleRetry}
+                      className="w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 font-semibold shadow-lg hover:opacity-90"
+                    >
+                      Try Again
+                    </button>
+                  )}
+                </>
+              )}
+            </div>
+          )}
+          <div className="mt-6 text-right text-sm text-white/70">
+            Coins collected: <strong>{coins}</strong>
+          </div>
+        </div>
+        {showResult && (
+          <div className="bg-white/5 border border-white/20 rounded-3xl p-6 shadow-xl max-w-4xl mx-auto space-y-3">
+            <h4 className="text-lg font-semibold text-white">Reflection Prompts</h4>
+            <ul className="text-sm list-disc list-inside space-y-1">
+              {reflectionPrompts.map((prompt) => (
+                <li key={prompt}>{prompt}</li>
+              ))}
+            </ul>
+            <p className="text-sm text-white/70">
+              Skill unlocked: <strong>Expense tracking awareness</strong>
+            </p>
+            {!hasPassed && (
+              <p className="text-xs text-amber-300">
+                Answer all {totalStages} choices correctly to earn the full reward.
+              </p>
+            )}
+            {!hasPassed && (
+              <button
+                onClick={handleRetry}
+                className="w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 font-semibold shadow-lg hover:opacity-90"
+              >
+                Try Again
+              </button>
+            )}
+          </div>
+        )}
+      </div>
+    </GameShell>
+  );
+};
+
+export default IgnoringSmallExpenses;
