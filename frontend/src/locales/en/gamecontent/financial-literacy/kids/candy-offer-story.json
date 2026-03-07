@@ -1,0 +1,54 @@
+{
+  "title": "Candy Offer Story",
+  "subtitleComplete": "Story Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}",
+  "questionCounter": "Question {{current}}/{{total}}",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "questions": [
+    {
+      "id": 1,
+      "text": "You see a big candy discount at a shop, but you already feel full. What is the best choice?",
+      "options": [
+        { "id": "b", "text": "Buy candy because it is cheap", "emoji": "🍬", "description": "", "isCorrect": false },
+        { "id": "a", "text": "Think about your health and skip buying candy", "emoji": "✅", "description": "", "isCorrect": true },
+        { "id": "c", "text": "Buy candy just because others are buying it", "emoji": "👀", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "A store offers extra candy if you buy more. What should you check before deciding?",
+      "options": [
+        { "id": "a", "text": "Whether you really need it or not", "emoji": "🤔", "description": "", "isCorrect": true },
+        { "id": "b", "text": "How colorful the packet looks", "emoji": "🌈", "description": "", "isCorrect": false },
+        { "id": "c", "text": "How many ads promote it", "emoji": "📢", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "You want candy, but you also want to save money for a school trip. What is a smart decision?",
+      "options": [
+        { "id": "b", "text": "Spend money now and worry later", "emoji": "💸", "description": "", "isCorrect": false },
+        { "id": "c", "text": "Ask someone else to pay for candy", "emoji": "🙏", "description": "", "isCorrect": false },
+        { "id": "a", "text": "Save money for something important", "emoji": "💡", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "You notice a candy offer near the checkout counter. Why do shops place it there?",
+      "options": [
+        { "id": "b", "text": "To help customers save money", "emoji": "💰", "description": "", "isCorrect": false },
+        { "id": "a", "text": "To encourage quick and unplanned buying", "emoji": "⚡", "description": "", "isCorrect": true },
+        { "id": "c", "text": "To replace healthy food options", "emoji": "🥗", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "You decide not to buy candy during an offer. What skill are you practicing?",
+      "options": [
+        { "id": "a", "text": "Self-control and smart decision-making", "emoji": "🧠", "description": "", "isCorrect": true },
+        { "id": "b", "text": "Missing out on fun", "emoji": "🎈", "description": "", "isCorrect": false },
+        { "id": "c", "text": "Ignoring all treats forever", "emoji": "🚫", "description": "", "isCorrect": false }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "title": "पहेली: बैंक के उपयोग",
+  "subtitleComplete": "पहेली पूरी हुई!",
+  "subtitleProgress": "आइटम मिलाएँ ({{matched}}/{{total}} मिलान)",
+  "scoreLabel": "स्कोर:",
+  "itemsTitle": "आइटम",
+  "categoriesTitle": "उपयोग",
+  "matchedLabel": "मिलान:",
+  "selectItem": "एक बैंकिंग आइटम चुनें",
+  "matchButton": "मिलान करें",
+  "items": [
+    { "id": 1, "name": "सेविंग अकाउंट", "emoji": "💰" },
+    { "id": 2, "name": "लोन", "emoji": "📝" },
+    { "id": 3, "name": "एटीएम", "emoji": "🏧" },
+    { "id": 4, "name": "ब्याज", "emoji": "📈" },
+    { "id": 5, "name": "वित्तीय शिक्षा", "emoji": "📚" }
+  ],
+  "categories": [
+    { "id": 6, "name": "पैसा सुरक्षित रखना", "emoji": "🔒", "description": "बचत सुरक्षित रखने का तरीका" },
+    { "id": 7, "name": "उधार राशि लेना", "emoji": "💸", "description": "ज़रूरत पर धन प्राप्त करना" },
+    { "id": 8, "name": "नकद निकालना", "emoji": "💵", "description": "खाते से नकद प्राप्त करना" },
+    { "id": 9, "name": "रिटर्न कमाना", "emoji": "🪙", "description": "समय के साथ पैसा बढ़ना" },
+    { "id": 10, "name": "ज्ञान बढ़ाना", "emoji": "🧠", "description": "पैसों की समझ बेहतर करना" }
+  ]
+}

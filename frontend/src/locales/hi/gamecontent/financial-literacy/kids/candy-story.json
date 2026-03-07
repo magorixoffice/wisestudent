@@ -1,0 +1,49 @@
+﻿{
+  "title": "कैंडी कहानी",
+  "subtitleComplete": "कहानी पूरी हुई!",
+  "subtitleProgress": "प्रश्न {{current}} में से {{total}}",
+  "scoreLabel": "स्कोर: {{score}}/{{total}}",
+  "stageEmoji": "🍬",
+  "stages": [
+    {
+      "question": "आपके पास Rs 20 हैं। सारी कैंडी पर खर्च करें या 2 दिन के लिए योजना बनाएं?",
+      "choices": [
+        { "text": "सारी कैंडी पर खर्च करें 🍬", "correct": false },
+        { "text": "2 दिन के लिए योजना बनाएं 🗓️", "correct": true },
+        { "text": "दोस्त को दे दें 🎁", "correct": false }
+      ]
+    },
+    {
+      "question": "1 कैंडी Rs 5 की है। Rs 15 में आप कितनी खरीद सकते हैं?",
+      "choices": [
+        { "text": "3 कैंडी 🍭", "correct": true },
+        { "text": "2 कैंडी 🍬", "correct": false },
+        { "text": "4 कैंडी 🍫", "correct": false }
+      ]
+    },
+    {
+      "question": "एक कैंडी Rs 10 की है, लेकिन आपके पास Rs 8 हैं। सबसे अच्छा विकल्प क्या है?",
+      "choices": [
+        { "text": "Rs 2 उधार लें 🙈", "correct": false },
+        { "text": "Rs 2 और बचाएं 💰", "correct": true },
+        { "text": "छूट मांगें 🎟️", "correct": false }
+      ]
+    },
+    {
+      "question": "आपने कैंडी के लिए Rs 10 बचाए हैं। सेल में 2 कैंडी Rs 15 की हैं। आप क्या करेंगे?",
+      "choices": [
+        { "text": "दो कैंडी खरीदें 🛒", "correct": false },
+        { "text": "सारे पैसे स्नैक्स पर खर्च करें 🍟", "correct": false },
+        { "text": "एक ही कैंडी लें ✅", "correct": true }
+      ]
+    },
+    {
+      "question": "कैंडी बजट की योजना बनाना क्यों स्मार्ट है?",
+      "choices": [
+        { "text": "इससे आप सब खर्च कर सकते हैं 🛍️", "correct": false },
+        { "text": "यह आपको लंबे समय तक आनंद दिलाता है 😊", "correct": true },
+        { "text": "यह आपको और कैंडी खरीदने के लिए प्रेरित करता है 🍬", "correct": false }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "title": "Journal of First Bank Visit",
+  "subtitleComplete": "Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "stages": [
+    {
+      "question": "Write: \"The main purpose of visiting a bank is ___.\"",
+      "minLength": 10
+    },
+    {
+      "question": "Write: \"A bank helps people by ___.\"",
+      "minLength": 10
+    },
+    {
+      "question": "Write: \"Saving money in a bank makes me feel ___.\"",
+      "minLength": 10
+    },
+    {
+      "question": "Write: \"One important thing I learned about banks is ___.\"",
+      "minLength": 10
+    },
+    {
+      "question": "Write: \"Visiting a bank taught me about money that ___.\"",
+      "minLength": 10
+    }
+  ],
+  "placeholder": "Write your thoughts here...",
+  "submitButton": "Submit"
+}

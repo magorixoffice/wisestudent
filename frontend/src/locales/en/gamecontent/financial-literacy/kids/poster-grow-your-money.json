@@ -1,0 +1,49 @@
+{
+  "title": "Poster: Grow Your Money",
+  "subtitleComplete": "Activity Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}: Choose posters that promote smart investing!",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "stageEmoji": "🖌️",
+  "stages": [
+    {
+      "question": "Which poster best encourages kids to save money?",
+      "choices": [
+        { "text": "Spend now, regret later! 💨", "correct": false },
+        { "text": "Money grows on trees! 🌳", "correct": false },
+        { "text": "Small savings today, big dreams tomorrow! 🌱", "correct": true }
+      ]
+    },
+    {
+      "question": "What poster best explains compounding to kids?",
+      "choices": [
+        { "text": "Let your money work while you play! ⚙️", "correct": true },
+        { "text": "Spend it all in one place! 🎯", "correct": false },
+        { "text": "Money disappears fast! 💨", "correct": false }
+      ]
+    },
+    {
+      "question": "Which poster teaches the best money-growing habit?",
+      "choices": [
+        { "text": "Buy now, think later! 🛒", "correct": false },
+        { "text": "Save first, spend later - watch money grow! 📈", "correct": true },
+        { "text": "Money is meant to be spent! 💸", "correct": false }
+      ]
+    },
+    {
+      "question": "What poster shows the power of patience with money?",
+      "choices": [
+        { "text": "Great things grow with time - including money! ⏳", "correct": true },
+        { "text": "Get rich quick with one trick! 🎩", "correct": false },
+        { "text": "Spend it before it's gone! 🏃", "correct": false }
+      ]
+    },
+    {
+      "question": "Which poster best explains why we should save?",
+      "choices": [
+        { "text": "Money is for spending, not saving! 🛍️", "correct": false },
+        { "text": "You can always get more money! 💰", "correct": false },
+        { "text": "A rupee saved is a rupee that can grow! 🌟", "correct": true }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "title": "Reflex Borrow Right",
+  "subtitlePlaying": "Question {{current}} of {{total}}: Test your borrowing reflexes!",
+  "subtitleReady": "Test your borrowing reflexes!",
+  "readyEmoji": "🤝",
+  "readyTitle": "Ready to Learn About Borrowing Right?",
+  "readyDescription": "Choose the right action when borrowing items or money.",
+  "readyInfo": "You have {{total}} questions with {{seconds}} seconds each!",
+  "startButton": "Start Game",
+  "roundLabel": "Question:",
+  "timeLabel": "Time:",
+  "scoreLabel": "Score:",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What should you do before borrowing something?",
+      "correctAnswer": "Ask permission",
+      "options": [
+        { "text": "Grab it", "isCorrect": false, "emoji": "🤏" },
+        { "text": "Take without asking", "isCorrect": false, "emoji": "🙈" },
+        { "text": "Ask permission", "isCorrect": true, "emoji": "🙋" },
+        { "text": "Ignore owner", "isCorrect": false, "emoji": "😴" }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "How should you borrow something?",
+      "correctAnswer": "Borrow politely",
+      "options": [
+        { "text": "Borrow politely", "isCorrect": true, "emoji": "🤝" },
+        { "text": "Take forcefully", "isCorrect": false, "emoji": "💪" },
+        { "text": "Grab quickly", "isCorrect": false, "emoji": "⚡" },
+        { "text": "Steal it", "isCorrect": false, "emoji": "😈" }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "What should you do with a borrowed item?",
+      "correctAnswer": "Return item",
+      "options": [
+        { "text": "Keep it", "isCorrect": false, "emoji": "🙈" },
+        { "text": "Hide it", "isCorrect": false, "emoji": "🫥" },
+        { "text": "Forget about it", "isCorrect": false, "emoji": "😴" },
+        { "text": "Return item", "isCorrect": true, "emoji": "↩️" }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "What should you do with a loan?",
+      "correctAnswer": "Repay loan",
+      "options": [
+        { "text": "Ignore payment", "isCorrect": false, "emoji": "🚫" },
+        { "text": "Repay loan", "isCorrect": true, "emoji": "💰" },
+        { "text": "Avoid it", "isCorrect": false, "emoji": "🏃" },
+        { "text": "Forget it", "isCorrect": false, "emoji": "🤷" }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "How should you handle borrowing?",
+      "correctAnswer": "Be honest",
+      "options": [
+        { "text": "Be honest", "isCorrect": true, "emoji": "✅" },
+        { "text": "Lie about it", "isCorrect": false, "emoji": "🤥" },
+        { "text": "Cheat", "isCorrect": false, "emoji": "🎭" },
+        { "text": "Pretend", "isCorrect": false, "emoji": "😏" }
+      ]
+    }
+  ]
+}

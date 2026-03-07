@@ -1,0 +1,70 @@
+{
+  "title": "रिफ्लेक्स: समझदारी से चुनो",
+  "subtitlePlaying": "राउंड {{current}}/{{total}}: समझदारी से सही विकल्प चुनें!",
+  "subtitleReady": "समझदारी से सही विकल्प चुनें!",
+  "readyEmoji": "🧠",
+  "readyTitle": "क्या आप स्मार्ट पिक स्किल्स टेस्ट करने के लिए तैयार हैं?",
+  "readyDescription": "समझदारी भरे विकल्प और निर्णय लेने पर आधारित सवालों के जवाब दें।",
+  "readyInfo": "आपके पास {{total}} सवाल हैं, हर सवाल के लिए {{seconds}} सेकंड!",
+  "startButton": "गेम शुरू करें",
+  "roundLabel": "राउंड:",
+  "timeLabel": "समय:",
+  "scoreLabel": "स्कोर:",
+  "questions": [
+    {
+      "id": 1,
+      "question": "स्वस्थ रहने के लिए समझदारी वाला विकल्प क्या है?",
+      "correctAnswer": "भोजन",
+      "options": [
+        { "text": "भोजन", "isCorrect": true, "emoji": "🍎" },
+        { "text": "अतिरिक्त आइसक्रीम", "isCorrect": false, "emoji": "🍦" },
+        { "text": "वीडियो गेम", "isCorrect": false, "emoji": "🎮" },
+        { "text": "फैंसी खिलौना", "isCorrect": false, "emoji": "🧸" }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "सीखने के लिए क्या चुनना चाहिए?",
+      "correctAnswer": "स्कूल सामग्री",
+      "options": [
+        { "text": "नया गेम", "isCorrect": false, "emoji": "🎮" },
+        { "text": "स्कूल सामग्री", "isCorrect": true, "emoji": "📚" },
+        { "text": "कैंडी", "isCorrect": false, "emoji": "🍬" },
+        { "text": "कूल गैजेट", "isCorrect": false, "emoji": "⌚" }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "दैनिक जीवन के लिए क्या आवश्यक है?",
+      "correctAnswer": "कपड़े",
+      "options": [
+        { "text": "फैंसी खिलौना", "isCorrect": false, "emoji": "🧸" },
+        { "text": "कपड़े", "isCorrect": true, "emoji": "👕" },
+        { "text": "आइसक्रीम", "isCorrect": false, "emoji": "🍦" },
+        { "text": "एक्शन फिगर", "isCorrect": false, "emoji": "🤖" }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "ज्ञान बढ़ाने में क्या मदद करता है?",
+      "correctAnswer": "किताबें",
+      "options": [
+        { "text": "कैंडी", "isCorrect": false, "emoji": "🍬" },
+        { "text": "वीडियो गेम", "isCorrect": false, "emoji": "🎮" },
+        { "text": "पज़ल गेम", "isCorrect": false, "emoji": "🧩" },
+        { "text": "किताबें", "isCorrect": true, "emoji": "📖" }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "स्कूल जाने के लिए क्या ज़रूरी है?",
+      "correctAnswer": "बस टिकट",
+      "options": [
+        { "text": "कूल गैजेट", "isCorrect": false, "emoji": "⌚" },
+        { "text": "म्यूजिक प्लेयर", "isCorrect": false, "emoji": "🎵" },
+        { "text": "बस टिकट", "isCorrect": true, "emoji": "🚌" },
+        { "text": "स्मार्ट वॉच", "isCorrect": false, "emoji": "⌚" }
+      ]
+    }
+  ]
+}

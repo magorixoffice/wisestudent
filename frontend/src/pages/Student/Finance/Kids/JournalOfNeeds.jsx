@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getGameDataById } from "../../../../utils/getGameData";
 
 const JournalOfNeeds = () => {
   const location = useLocation();
+  const { t } = useTranslation("gamecontent");
   
   // Get game data from game category folder (source of truth)
   const gameId = "finance-kids-37";
+  const gameContent = t("financial-literacy.kids.journal-of-needs", { returnObjects: true });
   const gameData = getGameDataById(gameId);
   
   // Get coinsPerLevel, totalCoins, and totalXp from game category data, fallback to location.state, then defaults
@@ -22,7 +25,7 @@ const JournalOfNeeds = () => {
   const [text, setText] = useState("");
   const [showResult, setShowResult] = useState(false);
 
-  const stages = [
+  const stages = gameContent.stages || [
     {
       question: 'Write: "One need I always spend on is ___."',
       minLength: 10,
@@ -75,8 +78,8 @@ const JournalOfNeeds = () => {
 
   return (
     <GameShell
-      title="Journal of Needs"
-      subtitle={!showResult ? `Question ${currentStage + 1} of ${stages.length}: Reflect on prioritizing your needs!` : "Journal Complete!"}
+      title={gameContent.title || "Journal of Needs"}
+      subtitle={!showResult ? t("financial-literacy.kids.journal-of-needs.subtitleProgress", { current: currentStage + 1, total: stages.length, defaultValue: "Question {{current}} of {{total}}: Reflect on prioritizing your needs!" }) : (gameContent.subtitleComplete || "Journal Complete!")}
       currentLevel={currentStage + 1}
       totalLevels={5}
       coinsPerLevel={coinsPerLevel}
@@ -97,19 +100,19 @@ const JournalOfNeeds = () => {
           <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20">
             <div className="text-4xl mb-4">📝</div>
             <h3 className="text-2xl font-bold mb-4">{stages[currentStage].question}</h3>
-            <p className="text-white/70 mb-4">Score: {score}/{stages.length}</p>
+            <p className="text-white/70 mb-4">{t("financial-literacy.kids.journal-of-needs.scoreLabel", { score, total: stages.length, defaultValue: "Score: {{score}}/{{total}}" })}</p>
             <p className="text-white/60 text-sm mb-4">
-              Write at least {stages[currentStage].minLength} characters
+              {t("financial-literacy.kids.journal-of-needs.minLengthLabel", { minLength: stages[currentStage].minLength, defaultValue: "Write at least {{minLength}} characters" })}
             </p>
             <textarea
               value={text}
               onChange={(e) => setText(e.target.value)}
-              placeholder="Write your journal entry here..."
+              placeholder={gameContent.placeholder || "Write your journal entry here..."}
               className="w-full max-w-xl p-4 rounded-xl text-black text-lg bg-white/90"
               disabled={showResult}
             />
             <div className="mt-2 text-white/50 text-sm">
-              {text.trim().length}/{stages[currentStage].minLength} characters
+              {t("financial-literacy.kids.journal-of-needs.charCounter", { current: text.trim().length, minLength: stages[currentStage].minLength, defaultValue: "{{current}}/{{minLength}} characters" })}
             </div>
             <button
               onClick={handleSubmit}
@@ -120,7 +123,7 @@ const JournalOfNeeds = () => {
               }`}
               disabled={text.trim().length < stages[currentStage].minLength || showResult}
             >
-              {currentStage === stages.length - 1 ? 'Submit Final Entry' : 'Submit & Continue'}
+              {currentStage === stages.length - 1 ? (gameContent.submitFinalButton || 'Submit Final Entry') : (gameContent.submitButton || 'Submit & Continue')}
             </button>
           </div>
         )}

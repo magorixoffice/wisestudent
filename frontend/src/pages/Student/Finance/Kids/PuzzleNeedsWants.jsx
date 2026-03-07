@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useTranslation } from "react-i18next";
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getFinanceKidsGames } from "../../../../pages/Games/GameCategories/Finance/kidGamesData";
@@ -7,6 +8,8 @@ import { getFinanceKidsGames } from "../../../../pages/Games/GameCategories/Fina
 const PuzzleNeedsWants = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { t } = useTranslation("gamecontent");
+  const gameContent = t("financial-literacy.kids.puzzle-needs-wants", { returnObjects: true });
   
   const { nextGamePath, nextGameId } = useMemo(() => {
     if (location.state?.nextGamePath) {
@@ -46,7 +49,7 @@ const PuzzleNeedsWants = () => {
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
   // Items (left side) - 5 items
-  const items = [
+  const items = gameContent.items || [
     { id: 1, name: "Drinking Water", emoji: "💧",  },
     { id: 2, name: "School Shoes", emoji: "👟",  },
     { id: 3, name: "Toy Car", emoji: "🚗",  },
@@ -55,7 +58,7 @@ const PuzzleNeedsWants = () => {
   ];
 
   // Categories (right side) - 5 items
-  const categories = [
+  const categories = gameContent.categories || [
     { id: 6, name: "Need", emoji: "✅",  },
     { id: 7, name: "Want", emoji: "🎁",  },
     { id: 8, name: "Save", emoji: "🏦",  },
@@ -147,8 +150,8 @@ const PuzzleNeedsWants = () => {
 
   return (
     <GameShell
-      title="Puzzle of Needs/Wants"
-      subtitle={gameFinished ? "Puzzle Complete!" : `Match Items with Categories (${matches.length}/${items.length} matched)`}
+      title={gameContent.title || "Puzzle of Needs/Wants"}
+      subtitle={gameFinished ? (gameContent.subtitleComplete || "Puzzle Complete!") : t("financial-literacy.kids.puzzle-needs-wants.subtitleProgress", { matched: matches.length, total: items.length, defaultValue: "Match Items with Categories ({{matched}}/{{total}} matched)" })}
       showGameOver={gameFinished}
       score={score}
       gameId="finance-kids-34"
@@ -171,7 +174,7 @@ const PuzzleNeedsWants = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Left column - Items */}
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-              <h3 className="text-xl font-bold text-white mb-4 text-center">Items</h3>
+              <h3 className="text-xl font-bold text-white mb-4 text-center">{gameContent.itemsTitle || "Items"}</h3>
               <div className="space-y-4">
                 {items.map(item => (
                   <button
@@ -205,8 +208,7 @@ const PuzzleNeedsWants = () => {
               <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 text-center">
                 <p className="text-white/80 mb-4">
                   {selectedItem 
-                    ? `Selected: ${selectedItem.name}` 
-                    : "Select an Item"}
+                    ? t("financial-literacy.kids.puzzle-needs-wants.selectedLabel", { name: selectedItem.name, defaultValue: "Selected: {{name}}" }) : (gameContent.selectItem || "Select an Item")}
                 </p>
                 <button
                   onClick={handleMatch}
@@ -220,15 +222,15 @@ const PuzzleNeedsWants = () => {
                   Match
                 </button>
                 <div className="mt-4 text-white/80">
-                  <p>Score: {score}/{items.length}</p>
-                  <p>Matched: {matches.length}/{items.length}</p>
+                  <p>{gameContent.scoreLabel || "Score:"} {score}/{items.length}</p>
+                  <p>{gameContent.matchedLabel || "Matched:"} {matches.length}/{items.length}</p>
                 </div>
               </div>
             </div>
 
             {/* Right column - Categories */}
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-              <h3 className="text-xl font-bold text-white mb-4 text-center">Categories</h3>
+              <h3 className="text-xl font-bold text-white mb-4 text-center">{gameContent.categoriesTitle || "Categories"}</h3>
               <div className="space-y-4">
                 {rearrangedCategories.map(category => (
                   <button

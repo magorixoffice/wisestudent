@@ -1,0 +1,54 @@
+﻿{
+  "title": "दुकान स्टोरी",
+  "subtitleComplete": "स्टोरी पूरी हुई!",
+  "subtitleProgress": "प्रश्न {{current}} में से {{total}}",
+  "questionCounter": "प्रश्न {{current}}/{{total}}",
+  "scoreLabel": "स्कोर: {{score}}/{{total}}",
+  "questions": [
+    {
+      "id": 1,
+      "text": "आपको आपकी पसंदीदा कैंडी दिखती है। आपके पास Rs 10 हैं, लेकिन आप Rs 50 के खिलौने के लिए हर हफ्ते Rs 5 बचा रहे हैं और अभी आपके पास Rs 20 बचत है। आप क्या करेंगे?",
+      "options": [
+        { "id": "save", "text": "खिलौने के लिए बचाएं", "emoji": "🏦", "isCorrect": true },
+        { "id": "spend", "text": "कैंडी खरीदें", "emoji": "🍬", "isCorrect": false },
+        { "id": "ignore", "text": "फैसला टालें", "emoji": "😴", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "आपको Rs 25 की एक अच्छी स्टिकर बुक दिखती है। आपने Rs 30 किसी बड़े खिलौने के लिए बचाए हैं। समझदारी भरा विकल्प क्या है?",
+      "options": [
+        { "id": "spend", "text": "स्टिकर बुक खरीदें", "emoji": "📚", "isCorrect": false },
+        { "id": "save", "text": "बचत जारी रखें", "emoji": "🎯", "isCorrect": true },
+        { "id": "borrow", "text": "पैसे उधार लें", "emoji": "🤲", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "आप दोस्तों को दुकान पर स्नैक्स खरीदते देखते हैं। आपने विज्ञान किट के लिए Rs 15 बचाए हैं। आपको क्या करना चाहिए?",
+      "options": [
+        { "id": "spend", "text": "दोस्तों के साथ जुड़ें", "emoji": "🍟", "isCorrect": false },
+        { "id": "give", "text": "बचत छोड़ दें", "emoji": "😞", "isCorrect": false },
+        { "id": "save", "text": "अपने लक्ष्य पर टिके रहें", "emoji": "🔬", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "आप खिलौनों पर 'सेल: 50% ऑफ' का बोर्ड देखते हैं। आप Rs 100 साइकिल के लिए बचा रहे हैं। सेल वाला खिलौना Rs 40 का है। क्या समझदारी है?",
+      "options": [
+        { "id": "save", "text": "साइकिल पर ध्यान दें", "emoji": "🚲", "isCorrect": true },
+        { "id": "spend", "text": "सेल वाला खिलौना खरीदें", "emoji": "🧸", "isCorrect": false },
+        { "id": "delay", "text": "फैसला टालें", "emoji": "⏰", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "आपने Rs 50 के खिलौने के लिए Rs 45 बचा लिए हैं। आपको Rs 5 की कैंडी दिखती है। आप लक्ष्य के बहुत करीब हैं! आप क्या चुनेंगे?",
+      "options": [
+        { "id": "spend", "text": "कैंडी खरीदें", "emoji": "🍬", "isCorrect": false },
+        { "id": "save", "text": "लक्ष्य पूरा करें", "emoji": "🎉", "isCorrect": true },
+        { "id": "waste", "text": "पैसा बर्बाद करें", "emoji": "💸", "isCorrect": false }
+      ]
+    }
+  ]
+}

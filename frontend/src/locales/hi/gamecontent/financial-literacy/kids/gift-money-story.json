@@ -1,0 +1,54 @@
+{
+  "title": "गिफ्ट मनी कहानी",
+  "subtitleComplete": "कहानी पूरी हुई!",
+  "subtitleProgress": "प्रश्न {{current}} / {{total}}",
+  "questionCounter": "प्रश्न {{current}}/{{total}}",
+  "scoreLabel": "स्कोर: {{score}}/{{total}}",
+  "questions": [
+    {
+      "id": 1,
+      "text": "जन्मदिन पर आपको गिफ्ट मनी मिली। समझदारी का पहला कदम क्या है?",
+      "options": [
+        { "id": "spend", "text": "तुरंत खर्च कर दें", "emoji": "💸", "description": "", "isCorrect": false },
+        { "id": "show", "text": "दोस्तों को दिखाएँ", "emoji": "👀", "description": "", "isCorrect": false },
+        { "id": "think", "text": "ज़रूरत और लक्ष्य के बारे में सोचें", "emoji": "🤔", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "आपको बैग चाहिए जिसकी कीमत गिफ्ट मनी से ज्यादा है। समझदारी क्या है?",
+      "options": [
+        { "id": "borrow", "text": "दोस्तों से पैसे उधार लें", "emoji": "💳", "description": "", "isCorrect": false },
+        { "id": "wait", "text": "रुकें और और पैसे बचाएँ", "emoji": "⏳", "description": "", "isCorrect": true },
+        { "id": "change", "text": "कुछ भी रैंडम खरीद लें", "emoji": "🎲", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "एक छोटा खिलौना और एक उपयोगी चीज़ दिखती है। निर्णय कैसे लें?",
+      "options": [
+        { "id": "use", "text": "जिसकी ज़रूरत ज्यादा हो, उसे चुनें", "emoji": "⭐", "description": "", "isCorrect": true },
+        { "id": "fun", "text": "जो ज्यादा मज़ेदार लगे, उसे चुनें", "emoji": "🎉", "description": "", "isCorrect": false },
+        { "id": "cheap", "text": "सबसे सस्ती चीज़ चुनें", "emoji": "💲", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "माता-पिता कहते हैं गिफ्ट मनी का कुछ हिस्सा बचाओ। आप क्या करेंगे?",
+      "options": [
+        { "id": "refuse", "text": "मना करके सब खर्च कर दूँ", "emoji": "🙅", "description": "", "isCorrect": false },
+        { "id": "agree", "text": "कुछ बचाकर बाकी की योजना बनाऊँ", "emoji": "📊", "description": "", "isCorrect": true },
+        { "id": "forget", "text": "पैसों को भूल जाऊँ", "emoji": "😴", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "गिफ्ट मनी आपको क्या सिखाती है?",
+      "options": [
+        { "id": "showoff", "text": "दिखावे के लिए खरीदारी करना", "emoji": "😎", "description": "", "isCorrect": false },
+        { "id": "spend", "text": "बिना सोचे खर्च करना", "emoji": "🔥", "description": "", "isCorrect": false },
+        { "id": "manage", "text": "जिम्मेदारी से पैसे संभालना", "emoji": "🎯", "description": "", "isCorrect": true }
+      ]
+    }
+  ]
+}

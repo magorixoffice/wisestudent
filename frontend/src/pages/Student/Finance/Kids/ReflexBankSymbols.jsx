@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getGameDataById } from "../../../../utils/getGameData";
@@ -9,9 +10,11 @@ const ROUND_TIME = 10;
 
 const ReflexBankSymbols = () => {
   const location = useLocation();
+  const { t } = useTranslation("gamecontent");
   
   // Get game data from game category folder (source of truth)
   const gameId = "finance-kids-49";
+  const gameContent = t("financial-literacy.kids.reflex-bank-symbols", { returnObjects: true });
   const gameData = getGameDataById(gameId);
   
   // Get coinsPerLevel, totalCoins, and totalXp from game category data, fallback to location.state, then defaults
@@ -28,7 +31,7 @@ const ReflexBankSymbols = () => {
   const timerRef = useRef(null);
   const currentRoundRef = useRef(0);
 
-  const questions = [
+  const questions = gameContent.questions || [
   {
     id: 1,
     question: "Riya goes with her parents to deposit money. She sees a building symbol used on passbooks and ATM cards. What does this symbol tell her?",
@@ -191,8 +194,16 @@ const ReflexBankSymbols = () => {
 
   return (
     <GameShell
-      title="Reflex Banking Symbols"
-      subtitle={gameState === "playing" ? `Round ${currentRound}/${TOTAL_ROUNDS}: Test your banking symbol knowledge!` : "Test your banking symbol knowledge!"}
+      title={gameContent.title || "Reflex Banking Symbols"}
+      subtitle={
+        gameState === "playing"
+          ? t("financial-literacy.kids.reflex-bank-symbols.subtitlePlaying", {
+              current: currentRound,
+              total: TOTAL_ROUNDS,
+              defaultValue: "Round {{current}}/{{total}}",
+            })
+          : (gameContent.subtitleReady || "Test your banking knowledge!")
+      }
       currentLevel={currentRound}
       coinsPerLevel={coinsPerLevel}
       showGameOver={gameState === "finished"}
@@ -212,19 +223,22 @@ const ReflexBankSymbols = () => {
         {gameState === "ready" && (
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 text-center">
             <div className="text-5xl mb-6">🏦</div>
-            <h3 className="text-2xl font-bold text-white mb-4">Get Ready!</h3>
+            <h3 className="text-2xl font-bold text-white mb-4">{gameContent.readyTitle || "Get Ready!"}</h3>
             <p className="text-white/90 text-lg mb-6">
-              Answer questions about banking symbols correctly!<br />
-              You have {ROUND_TIME} seconds for each question.
+              {gameContent.readyDescription || "Answer banking questions correctly!"}
             </p>
             <p className="text-white/80 mb-6">
-              You have {TOTAL_ROUNDS} questions with {ROUND_TIME} seconds each!
+              {t("financial-literacy.kids.reflex-bank-symbols.readyInfo", {
+                total: TOTAL_ROUNDS,
+                seconds: ROUND_TIME,
+                defaultValue: "You have {{total}} questions with {{seconds}} seconds each!",
+              })}
             </p>
             <button
               onClick={startGame}
               className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white py-4 px-8 rounded-full text-xl font-bold shadow-lg transition-all transform hover:scale-105"
             >
-              Start Game
+              {gameContent.startButton || "Start Game"}
             </button>
           </div>
         )}
@@ -234,13 +248,13 @@ const ReflexBankSymbols = () => {
             {/* Status Bar with Timer - Similar to ReflexSavings */}
             <div className="flex justify-between items-center bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
               <div className="text-white">
-                <span className="font-bold">Round:</span> {currentRound}/{TOTAL_ROUNDS}
+                <span className="font-bold">{gameContent.roundLabel || "Round:"}</span> {currentRound}/{TOTAL_ROUNDS}
               </div>
               <div className={`font-bold ${timeLeft <= 2 ? 'text-red-500' : timeLeft <= 3 ? 'text-yellow-500' : 'text-green-400'}`}>
-                <span className="text-white">Time:</span> {timeLeft}s
+                <span className="text-white">{gameContent.timeLabel || "Time:"}</span> {timeLeft}s
               </div>
               <div className="text-white">
-                <span className="font-bold">Score:</span> {score}
+                <span className="font-bold">{gameContent.scoreLabel || "Score:"}</span> {score}
               </div>
             </div>
 

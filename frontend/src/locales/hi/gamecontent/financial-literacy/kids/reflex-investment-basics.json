@@ -1,0 +1,70 @@
+{
+  "title": "रिफ्लेक्स निवेश की बुनियाद",
+  "subtitlePlaying": "प्रश्न {{current}} / {{total}}: निवेश रिफ्लेक्स जाँचें!",
+  "subtitleReady": "निवेश रिफ्लेक्स जाँचें!",
+  "readyEmoji": "💰",
+  "readyTitle": "निवेश की बुनियाद सीखने के लिए तैयार?",
+  "readyDescription": "हर प्रश्न में सही निवेश विकल्प चुनें।",
+  "readyInfo": "आपके पास {{total}} प्रश्न हैं, हर प्रश्न के लिए {{seconds}} सेकंड!",
+  "startButton": "गेम शुरू करें",
+  "roundLabel": "प्रश्न:",
+  "timeLabel": "समय:",
+  "scoreLabel": "स्कोर:",
+  "questions": [
+    {
+      "id": 1,
+      "question": "पैसा बढ़ाने के लिए क्या करना चाहिए?",
+      "correctAnswer": "बचाओ और बढ़ाओ",
+      "options": [
+        { "text": "सब खर्च करो", "isCorrect": false, "emoji": "💸" },
+        { "text": "छिपा दो", "isCorrect": false, "emoji": "🙈" },
+        { "text": "भूल जाओ", "isCorrect": false, "emoji": "😴" },
+        { "text": "बचाओ और बढ़ाओ", "isCorrect": true, "emoji": "🌱" }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "पैसे को समझदारी से कैसे संभालें?",
+      "correctAnswer": "समझदारी से निवेश",
+      "options": [
+        { "text": "समझदारी से निवेश", "isCorrect": true, "emoji": "💰" },
+        { "text": "जल्दी खर्च", "isCorrect": false, "emoji": "⚡" },
+        { "text": "बर्बाद करो", "isCorrect": false, "emoji": "🔥" },
+        { "text": "गुमा दो", "isCorrect": false, "emoji": "📉" }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "संपत्ति बनाने का सबसे अच्छा तरीका क्या है?",
+      "correctAnswer": "धन बढ़ाना",
+      "options": [
+        { "text": "पैसा गँवाना", "isCorrect": false, "emoji": "💔" },
+        { "text": "धन बढ़ाना", "isCorrect": true, "emoji": "📈" },
+        { "text": "सब खर्च करना", "isCorrect": false, "emoji": "🛍️" },
+        { "text": "बचत नज़रअंदाज़ करना", "isCorrect": false, "emoji": "😑" }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "पैसा आपके लिए कैसे काम करेगा?",
+      "correctAnswer": "ब्याज कमाओ",
+      "options": [
+        { "text": "नकद बर्बाद करो", "isCorrect": false, "emoji": "🔥" },
+        { "text": "तुरंत खर्च करो", "isCorrect": false, "emoji": "⚡" },
+        { "text": "ब्याज कमाओ", "isCorrect": true, "emoji": "💵" },
+        { "text": "भूल जाओ", "isCorrect": false, "emoji": "🤷" }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "भविष्य सुरक्षित करने में क्या मदद करता है?",
+      "correctAnswer": "बचत बनाना",
+      "options": [
+        { "text": "बचत बनाना", "isCorrect": true, "emoji": "🏦" },
+        { "text": "अभी खर्च", "isCorrect": false, "emoji": "🛒" },
+        { "text": "पैसा बर्बाद", "isCorrect": false, "emoji": "💸" },
+        { "text": "भविष्य नज़रअंदाज़", "isCorrect": false, "emoji": "😴" }
+      ]
+    }
+  ]
+}

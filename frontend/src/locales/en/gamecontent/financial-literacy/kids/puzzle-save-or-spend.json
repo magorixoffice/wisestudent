@@ -1,0 +1,32 @@
+﻿{
+  "title": "Puzzle: Save or Spend",
+  "subtitleComplete": "Puzzle Complete!",
+  "subtitleProgress": "Match Items with Actions ({{matched}}/{{total}} matched)",
+  "itemsTitle": "Items",
+  "actionsTitle": "Actions",
+  "selectedLabel": "Selected: {{name}}",
+  "selectItem": "Select an Item",
+  "matchButton": "Match",
+  "scoreLabel": "Score:",
+  "matchedLabel": "Matched:",
+  "resultGreatTitle": "Great Job!",
+  "resultGreatDescription": "You correctly matched {{score}} out of {{total}} items with actions!",
+  "resultLesson": "Lesson: Saving for important things helps build a secure future!",
+  "resultKeepTitle": "Keep Practicing!",
+  "resultKeepDescription": "You matched {{score}} out of {{total}} items correctly.",
+  "resultTip": "Tip: Think about whether each item is essential or discretionary!",
+  "items": [
+    { "id": 1, "name": "Money Bank", "emoji": "💰" },
+    { "id": 2, "name": "Ice Cream", "emoji": "🍦" },
+    { "id": 3, "name": "New Bicycle", "emoji": "🚲" },
+    { "id": 4, "name": "Candy", "emoji": "🍬" },
+    { "id": 5, "name": "School Books", "emoji": "📚" }
+  ],
+  "actions": [
+    { "id": 6, "name": "Save", "emoji": "📥" },
+    { "id": 7, "name": "Spend", "emoji": "📤" },
+    { "id": 8, "name": "Invest", "emoji": "📈" },
+    { "id": 9, "name": "Donate", "emoji": "❤️" },
+    { "id": 10, "name": "Budget", "emoji": "📋" }
+  ]
+}

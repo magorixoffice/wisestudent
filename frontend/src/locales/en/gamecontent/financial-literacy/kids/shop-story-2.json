@@ -1,0 +1,54 @@
+{
+  "title": "Shop Story 2",
+  "subtitleComplete": "Story Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}",
+  "questionCounter": "Question {{current}}/{{total}}",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "questions": [
+    {
+      "id": 1,
+      "text": "You see two pens in the store. One costs Rs 50 and the other costs Rs 15. Both work the same. Which should you buy?",
+      "options": [
+        { "id": "costly", "text": "Costly pen", "emoji": "🖊️", "description": "", "isCorrect": false },
+        { "id": "compare", "text": "Check reviews first", "emoji": "⭐", "description": "", "isCorrect": false },
+        { "id": "affordable", "text": "Affordable pen", "emoji": "💸", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "You have Rs 100 to spend on clothes. You find a shirt you like for Rs 80 and another similar one for Rs 30. What's smart?",
+      "options": [
+        { "id": "affordable", "text": "Buy cheaper shirt", "emoji": "👕", "description": "", "isCorrect": true },
+        { "id": "costly", "text": "Buy expensive shirt", "emoji": "💰", "description": "", "isCorrect": false },
+        { "id": "wait", "text": "Wait for sale", "emoji": "🏷️", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "You're buying snacks for a party. Brand A costs Rs 200 and Brand B costs Rs 120. Both have the same taste. Which?",
+      "options": [
+        { "id": "costly", "text": "Buy Brand A", "emoji": "📦", "description": "", "isCorrect": false },
+        { "id": "affordable", "text": "Buy Brand B", "emoji": "🛒", "description": "", "isCorrect": true },
+        { "id": "mix", "text": "Buy some of each", "emoji": "➗", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "You need a backpack for school. One costs Rs 800 and another costs Rs 400. Both are good quality. What's wise?",
+      "options": [
+        { "id": "affordable", "text": "Buy Rs 400 backpack", "emoji": "🎒", "description": "", "isCorrect": true },
+        { "id": "costly", "text": "Buy Rs 800 backpack", "emoji": "💳", "description": "", "isCorrect": false },
+        { "id": "borrow", "text": "Borrow for now", "emoji": "🤝", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "You're buying groceries. Organic vegetables cost Rs 300 and regular ones cost Rs 150. Both are nutritious. Which?",
+      "options": [
+        { "id": "costly", "text": "Buy organic veggies", "emoji": "🥦", "description": "", "isCorrect": false },
+        { "id": "selective", "text": "Mix both types", "emoji": "🥕", "description": "", "isCorrect": false },
+        { "id": "affordable", "text": "Buy regular veggies", "emoji": "🧺", "description": "", "isCorrect": true }
+      ]
+    }
+  ]
+}

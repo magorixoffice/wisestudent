@@ -1,0 +1,48 @@
+﻿{
+  "title": "पोस्टर: समझदारी से खरीदारी",
+  "subtitleComplete": "गतिविधि पूरी हुई!",
+  "subtitleProgress": "प्रश्न {{current}} में से {{total}}",
+  "scoreLabel": "स्कोर: {{score}}/{{total}}",
+  "stages": [
+    {
+      "question": "समझदारी से खरीदारी के लिए सबसे अच्छा पोस्टर चुनें:",
+      "choices": [
+        { "text": "जितना चाहें उतना खर्च करें", "design": "💸", "correct": false },
+        { "text": "खर्च करने से पहले सोचें", "design": "📝", "correct": true },
+        { "text": "सब कुछ अभी खरीदें", "design": "🛒", "correct": false }
+      ]
+    },
+    {
+      "question": "कौन सा पोस्टर समझदारी भरी खरीदारी की आदतें बढ़ाता है?",
+      "choices": [
+        { "text": "खरीदारी सूची बनाएं", "design": "📋", "correct": true },
+        { "text": "सोचे बिना खरीदें", "design": "🎯", "correct": false },
+        { "text": "तुरंत खर्च करें", "design": "⚡", "correct": false }
+      ]
+    },
+    {
+      "question": "सबसे अच्छा खरीदारी पोस्टर चुनें:",
+      "choices": [
+        { "text": "पहले खरीदो, बाद में सोचो", "design": "🛍️", "correct": false },
+        { "text": "योजना के बिना खर्च करें", "design": "💸", "correct": false },
+        { "text": "कीमतों की तुलना करें", "design": "🔍", "correct": true }
+      ]
+    },
+    {
+      "question": "स्मार्ट खरीदारी वाला पोस्टर चुनें:",
+      "choices": [
+        { "text": "सेल वाले सामान खरीदें", "design": "🏷️", "correct": true },
+        { "text": "हमेशा पूरी कीमत चुकाएं", "design": "💵", "correct": false },
+        { "text": "कभी पैसे न बचाएं", "design": "🎲", "correct": false }
+      ]
+    },
+    {
+      "question": "स्मार्ट खरीदारी के लिए सबसे अच्छा पोस्टर कौन सा है?",
+      "choices": [
+        { "text": "जल्दी-जल्दी सब खरीदें", "design": "🎁", "correct": false },
+        { "text": "बजट के बिना खर्च करें", "design": "💳", "correct": false },
+        { "text": "खरीदारी की योजना पहले से बनाएं", "design": "📰", "correct": true }
+      ]
+    }
+  ]
+}

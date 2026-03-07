@@ -1,0 +1,54 @@
+{
+  "title": "School Fair Story",
+  "subtitleComplete": "Story Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}",
+  "questionCounter": "Question {{current}}/{{total}}",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "questions": [
+    {
+      "id": 1,
+      "text": "The fair starts soon and you feel excited. What do you do first?",
+      "options": [
+        { "id": "run", "text": "Run to the first stall", "emoji": "🏃", "description": "", "isCorrect": false },
+        { "id": "shout", "text": "Shout with excitement", "emoji": "🎉", "description": "", "isCorrect": false },
+        { "id": "look", "text": "Look around the fair", "emoji": "👀", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "You see a long line for a popular game. What is the right choice?",
+      "options": [
+        { "id": "push", "text": "Push to the front", "emoji": "🙅", "description": "", "isCorrect": false },
+        { "id": "wait", "text": "Wait for your turn", "emoji": "⏳", "description": "", "isCorrect": true },
+        { "id": "leave", "text": "Leave angrily", "emoji": "😤", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "A shopkeeper gives you extra change by mistake. What do you do?",
+      "options": [
+        { "id": "return", "text": "Return the extra money", "emoji": "🤝", "description": "", "isCorrect": true },
+        { "id": "keep", "text": "Keep the extra money", "emoji": "💵", "description": "", "isCorrect": false },
+        { "id": "ignore", "text": "Walk away quietly", "emoji": "🚶", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "You want to try many rides but feel tired. What is a smart action?",
+      "options": [
+        { "id": "force", "text": "Force yourself to ride", "emoji": "😣", "description": "", "isCorrect": false },
+        { "id": "skip", "text": "Skip everything", "emoji": "🚫", "description": "", "isCorrect": false },
+        { "id": "rest", "text": "Take a short rest", "emoji": "🪑", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "The fair is ending and you have one ticket left. What do you choose?",
+      "options": [
+        { "id": "favorite", "text": "Choose your favorite activity", "emoji": "⭐", "description": "", "isCorrect": true },
+        { "id": "random", "text": "Use it randomly", "emoji": "🎲", "description": "", "isCorrect": false },
+        { "id": "waste", "text": "Throw it away", "emoji": "🗑️", "description": "", "isCorrect": false }
+      ]
+    }
+  ]
+}

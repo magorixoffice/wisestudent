@@ -1,0 +1,164 @@
+{
+  "title": "Badge: Bank Explorer",
+  "subtitleComplete": "Badge Earned!",
+  "subtitleProgress": "Challenge {{current}} of {{total}}",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "challenges": [
+    {
+      "id": 1,
+      "title": "Bank Basics",
+      "question": "What is the main purpose of a bank?",
+      "options": [
+        {
+          "text": "To give free toys",
+          "emoji": "🧸",
+          "isCorrect": false
+        },
+        {
+          "text": "Only for adults to visit",
+          "emoji": "👨",
+          "isCorrect": false
+        },
+        {
+          "text": "To keep money safe and help it grow",
+          "emoji": "💰",
+          "isCorrect": true
+        },
+        {
+          "text": "To play games",
+          "emoji": "🎮",
+          "isCorrect": false
+        }
+      ],
+      "feedback": {
+        "correct": "Excellent! Banks keep your money safe and help it grow!",
+        "wrong": "Banks are for keeping money safe and helping it grow, not for toys or games!"
+      }
+    },
+    {
+      "id": 2,
+      "title": "Savings Knowledge",
+      "question": "What happens when you put money in a savings account?",
+      "options": [
+        {
+          "text": "It stays safe and earns interest",
+          "emoji": "🔒",
+          "isCorrect": true
+        },
+        {
+          "text": "The bank uses it for free",
+          "emoji": "🚫",
+          "isCorrect": false
+        },
+        {
+          "text": "It disappears",
+          "emoji": "👻",
+          "isCorrect": false
+        },
+        {
+          "text": "You can't get it back",
+          "emoji": "❌",
+          "isCorrect": false
+        }
+      ],
+      "feedback": {
+        "correct": "Perfect! Money in savings is safe and earns interest!",
+        "wrong": "Your money is safe in savings accounts and even earns interest over time!"
+      }
+    },
+    {
+      "id": 3,
+      "title": "Card Security",
+      "question": "What should you NEVER do with your ATM card?",
+      "options": [
+        {
+          "text": "Share your PIN with strangers",
+          "emoji": "🤫",
+          "isCorrect": false
+        },
+        {
+          "text": "Never share with anyone",
+          "emoji": "🔒",
+          "isCorrect": true
+        },
+        {
+          "text": "Use it with parent's permission",
+          "emoji": "👨‍👩",
+          "isCorrect": false
+        },
+        {
+          "text": "Tell friends your PIN",
+          "emoji": "🗣️",
+          "isCorrect": false
+        }
+      ],
+      "feedback": {
+        "correct": "Great! Never share your PIN with anyone, not even friends or family!",
+        "wrong": "Your PIN should never be shared with anyone, including family!"
+      }
+    },
+    {
+      "id": 4,
+      "title": "Bank Safety",
+      "question": "Why do banks have security guards and cameras?",
+      "options": [
+        {
+          "text": "To scare children",
+          "emoji": "👻",
+          "isCorrect": false
+        },
+        {
+          "text": "To protect everyone's money",
+          "emoji": "🛡️",
+          "isCorrect": true
+        },
+        {
+          "text": "Just for decoration",
+          "emoji": "🎨",
+          "isCorrect": false
+        },
+        {
+          "text": "To make it look fancy",
+          "emoji": "💎",
+          "isCorrect": false
+        }
+      ],
+      "feedback": {
+        "correct": "Right! Security measures protect everyone's money!",
+        "wrong": "Security guards and cameras are there to protect everyone's money!"
+      }
+    },
+    {
+      "id": 5,
+      "title": "Bank Services",
+      "question": "Which service do banks provide to help people?",
+      "options": [
+        {
+          "text": "Free vacations",
+          "emoji": "✈️",
+          "isCorrect": false
+        },
+        {
+          "text": "Magic money machines",
+          "emoji": "✨",
+          "isCorrect": false
+        },
+        {
+          "text": "Loans to start businesses or buy homes",
+          "emoji": "🏠",
+          "isCorrect": true
+        },
+        {
+          "text": "Free money gifts",
+          "emoji": "🎁",
+          "isCorrect": false
+        }
+      ],
+      "feedback": {
+        "correct": "Perfect! Banks provide loans to help people start businesses and buy homes!",
+        "wrong": "Banks provide loans to help people achieve their goals like starting businesses or buying homes!"
+      }
+    }
+  ],
+  "tryAgainButton": "Try Again"
+}

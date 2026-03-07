@@ -1,0 +1,49 @@
+{
+  "title": "Poster: Return What You Borrow",
+  "subtitleComplete": "Activity Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}: Choose posters that promote honest borrowing!",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "stageEmoji": "🤝",
+  "stages": [
+    {
+      "question": "Which poster best reminds friends about borrowing responsibility?",
+      "choices": [
+        { "text": "Take what you want, when you want! 🎯", "correct": false },
+        { "text": "Finders keepers, losers weepers! 🎭", "correct": false },
+        { "text": "Borrow today, return tomorrow - keep trust strong! 🤝", "correct": true }
+      ]
+    },
+    {
+      "question": "What poster best encourages on-time returns?",
+      "choices": [
+        { "text": "Return when you feel like it! 🚫", "correct": false },
+        { "text": "A promise to return is a promise to keep! ✨", "correct": true },
+        { "text": "Borrowed items are better than new ones! 🆕", "correct": false }
+      ]
+    },
+    {
+      "question": "Which poster teaches the best borrowing habit?",
+      "choices": [
+        { "text": "Ask, use, return - the right way to borrow! ✅", "correct": true },
+        { "text": "Borrow now, worry later! 🎢", "correct": false },
+        { "text": "What's yours is mine! 🎯", "correct": false }
+      ]
+    },
+    {
+      "question": "What poster helps maintain trust between friends?",
+      "choices": [
+        { "text": "I'll return it... eventually! 🐢", "correct": false },
+        { "text": "Your trust is priceless - I'll return it! 💎", "correct": true },
+        { "text": "What borrowing policy? 🤔", "correct": false }
+      ]
+    },
+    {
+      "question": "Which poster best explains why returning matters?",
+      "choices": [
+        { "text": "Every return builds trust - let's build together! 🌈", "correct": true },
+        { "text": "Borrowing is easier than buying! 🛍️", "correct": false },
+        { "text": "Why buy when you can borrow forever? ♾️", "correct": false }
+      ]
+    }
+  ]
+}

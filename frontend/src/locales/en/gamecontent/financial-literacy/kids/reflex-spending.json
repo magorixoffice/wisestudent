@@ -1,0 +1,69 @@
+﻿{
+  "title": "Reflex Spending",
+  "subtitlePlaying": "Round {{current}}/{{total}}: Test your spending reflexes!",
+  "subtitleReady": "Test your spending reflexes!",
+  "readyTitle": "Ready to Test Your Spending Skills?",
+  "readyDescription": "Answer questions about smart spending and money management.",
+  "readyInfo": "You have {{total}} questions with {{seconds}} seconds each!",
+  "startButton": "Start Game",
+  "roundLabel": "Round:",
+  "timeLabel": "Time:",
+  "scoreLabel": "Score:",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What should you do before making a big purchase?",
+      "correctAnswer": "Plan Ahead",
+      "options": [
+        { "text": "Buy Immediately", "isCorrect": false, "emoji": "💸" },
+        { "text": "Plan Ahead", "isCorrect": true, "emoji": "📋" },
+        { "text": "Ask Friends", "isCorrect": false, "emoji": "👥" },
+        { "text": "Ignore Cost", "isCorrect": false, "emoji": "🙈" }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "What is the smartest way to spend your allowance?",
+      "correctAnswer": "Save Some First",
+      "options": [
+        { "text": "Spend All", "isCorrect": false, "emoji": "🛍️" },
+        { "text": "Buy Whatever", "isCorrect": false, "emoji": "🛒" },
+        { "text": "Save Some First", "isCorrect": true, "emoji": "💰" },
+        { "text": "Waste It", "isCorrect": false, "emoji": "🔥" }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "What helps you avoid impulse purchases?",
+      "correctAnswer": "Wait Before Buying",
+      "options": [
+        { "text": "Wait Before Buying", "isCorrect": true, "emoji": "⏳" },
+        { "text": "Buy Immediately", "isCorrect": false, "emoji": "⚡" },
+        { "text": "Shop Often", "isCorrect": false, "emoji": "🏪" },
+        { "text": "Spend Without Thinking", "isCorrect": false, "emoji": "🤔" }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "What should you compare when shopping?",
+      "correctAnswer": "Prices and Quality",
+      "options": [
+        { "text": "Colors Only", "isCorrect": false, "emoji": "🎨" },
+        { "text": "Brands Only", "isCorrect": false, "emoji": "🏷️" },
+        { "text": "Packaging", "isCorrect": false, "emoji": "📦" },
+        { "text": "Prices and Quality", "isCorrect": true, "emoji": "🔍" }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "What is the first step in smart spending?",
+      "correctAnswer": "Set a Budget",
+      "options": [
+        { "text": "Spend Freely", "isCorrect": false, "emoji": "💸" },
+        { "text": "Set a Budget", "isCorrect": true, "emoji": "📊" },
+        { "text": "Buy Everything", "isCorrect": false, "emoji": "🛍️" },
+        { "text": "Ignore Limits", "isCorrect": false, "emoji": "🚫" }
+      ]
+    }
+  ]
+}

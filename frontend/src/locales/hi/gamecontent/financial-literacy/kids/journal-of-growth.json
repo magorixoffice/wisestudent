@@ -1,0 +1,19 @@
+{
+  "title": "वृद्धि डायरी",
+  "subtitleComplete": "डायरी पूरी हुई!",
+  "subtitleProgress": "प्रश्न {{current}} / {{total}}: पैसे की वृद्धि पर सोचें!",
+  "scoreLabel": "स्कोर: {{score}}/{{total}}",
+  "stageEmoji": "📝",
+  "minLengthLabel": "कम से कम {{count}} अक्षर लिखें",
+  "placeholder": "अपनी डायरी यहाँ लिखें...",
+  "characterCount": "{{count}}/{{required}} अक्षर",
+  "submitContinueButton": "जमा करें और आगे बढ़ें",
+  "submitFinalButton": "अंतिम उत्तर जमा करें",
+  "stages": [
+    { "question": "लिखें: \"अगर मैं ₹100 निवेश करूँ, तो मैं चाहता/चाहती हूँ कि यह ___ बने।\"", "minLength": 10 },
+    { "question": "लिखें: \"निवेश करने से मुझे ___ महसूस होता है।\"", "minLength": 10 },
+    { "question": "लिखें: \"निवेश के बारे में मैंने यह सीखा कि ___.\"", "minLength": 10 },
+    { "question": "लिखें: \"मैं ₹100 निवेश करूँगा/करूँगी ताकि ___ में मदद हो।\"", "minLength": 10 },
+    { "question": "लिखें: \"पैसा बढ़ाने से मैंने धैर्य के बारे में ___ सीखा।\"", "minLength": 10 }
+  ]
+}

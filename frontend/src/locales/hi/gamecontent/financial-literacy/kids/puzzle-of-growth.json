@@ -1,0 +1,35 @@
+{
+  "title": "वृद्धि की पहेली",
+  "subtitleComplete": "पहेली पूरी हुई!",
+  "subtitleProgress": "वस्तु और परिणाम मिलाएँ ({{matched}}/{{total}} मिलान)",
+  "itemsTitle": "वृद्धि की वस्तुएँ",
+  "categoriesTitle": "परिणाम",
+  "selectedLabel": "चयनित: {{name}}",
+  "selectItem": "कोई वस्तु चुनें",
+  "matchButton": "मिलान करें",
+  "scoreLabel": "स्कोर:",
+  "matchedLabel": "मिलान:",
+  "resultGreatEmoji": "🎉",
+  "resultGreatTitle": "बहुत बढ़िया!",
+  "resultGreatDescription": "आपने {{total}} में से {{score}} वस्तुओं का सही मिलान किया!",
+  "coinsLabel": "कॉइन्स",
+  "resultLesson": "सीख: जैसे पौधे बढ़ते हैं, वैसे ही बचत और निवेश भी समय के साथ बढ़ते हैं।",
+  "resultKeepEmoji": "💪",
+  "resultKeepTitle": "अभ्यास जारी रखें!",
+  "resultKeepDescription": "आपने {{total}} में से {{score}} सही मिलान किए।",
+  "resultTip": "टिप: सोचें कि हर वस्तु समय के साथ किसमें बदलती है।",
+  "items": [
+    { "id": 1, "name": "बीज", "emoji": "🌱" },
+    { "id": 2, "name": "बचत", "emoji": "💰" },
+    { "id": 3, "name": "पौधा", "emoji": "🌿" },
+    { "id": 4, "name": "नन्हा पेड़", "emoji": "🌳" },
+    { "id": 5, "name": "कली", "emoji": "🌻" }
+  ],
+  "categories": [
+    { "id": 6, "name": "पेड़", "emoji": "🌲", "description": "बीज पेड़ बन सकता है" },
+    { "id": 7, "name": "वृद्धि", "emoji": "📈", "description": "बचत का मूल्य बढ़ सकता है" },
+    { "id": 8, "name": "फूल", "emoji": "🌸", "description": "पौधा फूल बन सकता है" },
+    { "id": 9, "name": "जंगल", "emoji": "🌲", "description": "कई नन्हे पेड़ जंगल बनाते हैं" },
+    { "id": 10, "name": "समृद्धि", "emoji": "🏦", "description": "अच्छी आदतें धन बनाती हैं" }
+  ]
+}

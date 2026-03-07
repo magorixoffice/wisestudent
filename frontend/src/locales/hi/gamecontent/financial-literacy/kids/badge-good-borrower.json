@@ -1,0 +1,96 @@
+{
+  "title": "बैज: अच्छा उधार लेने वाला",
+  "subtitleComplete": "बैज प्राप्त हुआ!",
+  "subtitleProgress": "चुनौती {{current}} / {{total}}",
+  "resultGreatEmoji": "🏆",
+  "resultGreatTitle": "अच्छा उधार लेने वाला बैज मिला!",
+  "resultGreatDescription": "आपने {{total}} में से {{score}} जिम्मेदार निर्णय सही लिए!",
+  "achievementTitle": "🎉 उपलब्धि अनलॉक!",
+  "achievementBadge": "बैज: अच्छा उधार लेने वाला",
+  "skillsTitle": "उधार कौशल",
+  "skillsDescription": "आपने समय पर लौटाना, नुकसान होने पर बदलना और उधार चीज़ों की देखभाल करना सीखा!",
+  "wisdomTitle": "विश्वास निर्माण",
+  "wisdomDescription": "ये आदतें विश्वास और अच्छे रिश्ते बनाने में मदद करती हैं।",
+  "resultKeepEmoji": "💪",
+  "resultKeepTitle": "सीखते रहें!",
+  "resultKeepDescription": "आपने {{total}} में से {{score}} जिम्मेदार निर्णय सही लिए।",
+  "resultKeepTip": "याद रखें: उधार ली चीज़ समय पर लौटाएँ, सुरक्षित रखें और जिम्मेदारी से उपयोग करें।",
+  "tryAgainButton": "फिर से प्रयास करें",
+  "challenges": [
+    {
+      "id": 1,
+      "title": "किताब की जिम्मेदारी",
+      "question": "दोस्त ने कहानी की किताब दी थी। क्या करना चाहिए?",
+      "options": [
+        { "text": "हमेशा के लिए रख लें", "emoji": "🔒", "isCorrect": false },
+        { "text": "किसी और को दे दें", "emoji": "🤝", "isCorrect": false },
+        { "text": "साफ रखकर समय पर लौटाएँ", "emoji": "📚", "isCorrect": true },
+        { "text": "दूसरे दोस्त को उधार दे दें", "emoji": "👥", "isCorrect": false }
+      ],
+      "feedback": {
+        "correct": "बहुत बढ़िया! समय पर लौटाने से विश्वास बनता है।",
+        "wrong": "उधार ली चीज़ समय पर लौटाना जिम्मेदारी है।"
+      }
+    },
+    {
+      "id": 2,
+      "title": "पेंसिल की देखभाल",
+      "question": "उधार ली पेंसिल टूट गई। अब क्या करें?",
+      "options": [
+        { "text": "नई पेंसिल देकर बदलें", "emoji": "✏️", "isCorrect": true },
+        { "text": "टूटी हुई ही लौटा दें", "emoji": "❌", "isCorrect": false },
+        { "text": "कुछ भी वापस न करें", "emoji": "🙈", "isCorrect": false },
+        { "text": "किसी और पर दोष डालें", "emoji": "🙅", "isCorrect": false }
+      ],
+      "feedback": {
+        "correct": "सही! नुकसान हो तो बदलकर देना चाहिए।",
+        "wrong": "उधार चीज़ खराब हो जाए तो उसे बदलना चाहिए।"
+      }
+    },
+    {
+      "id": 3,
+      "title": "फ़ोन वापसी",
+      "question": "कज़िन ने फ़ोन दिया था। वापस कैसे करें?",
+      "options": [
+        { "text": "लो बैटरी में लौटाएँ", "emoji": "🔋", "isCorrect": false },
+        { "text": "ऐप्स हटाकर लौटाएँ", "emoji": "🗑️", "isCorrect": false },
+        { "text": "अपने ऐप जोड़ दें", "emoji": "📱", "isCorrect": false },
+        { "text": "साफ करके धन्यवाद के साथ लौटाएँ", "emoji": "✨", "isCorrect": true }
+      ],
+      "feedback": {
+        "correct": "शानदार! अच्छी हालत में लौटाना भरोसा दिखाता है।",
+        "wrong": "उधार चीज़ उसी या बेहतर हालत में लौटाएँ।"
+      }
+    },
+    {
+      "id": 4,
+      "title": "छतरी शिष्टाचार",
+      "question": "पड़ोसी ने छतरी दी। कब लौटानी चाहिए?",
+      "options": [
+        { "text": "अगली बारिश तक रखें", "emoji": "🌧️", "isCorrect": false },
+        { "text": "जल्दी, सुखाकर और साफ करके लौटाएँ", "emoji": "✅", "isCorrect": true },
+        { "text": "इमरजेंसी के लिए रख लें", "emoji": "🔒", "isCorrect": false },
+        { "text": "जब याद आए तब लौटाएँ", "emoji": "🧠", "isCorrect": false }
+      ],
+      "feedback": {
+        "correct": "बहुत अच्छा! जल्दी लौटाना आभार दिखाता है।",
+        "wrong": "उधार चीज़ जल्दी लौटाएँ ताकि दूसरे भी उपयोग कर सकें।"
+      }
+    },
+    {
+      "id": 5,
+      "title": "खिलौने की संभाल",
+      "question": "भाई/बहन ने अपना पसंदीदा खिलौना दिया। क्या करेंगे?",
+      "options": [
+        { "text": "ध्यान से उपयोग कर सुरक्षित लौटाएँ", "emoji": "🧸", "isCorrect": true },
+        { "text": "रफ खेलें", "emoji": "💥", "isCorrect": false },
+        { "text": "दोस्तों से बदल लें", "emoji": "🤝", "isCorrect": false },
+        { "text": "तय समय से ज्यादा रखें", "emoji": "⏰", "isCorrect": false }
+      ],
+      "feedback": {
+        "correct": "बहुत बढ़िया! सावधानी से संभालना जिम्मेदारी है।",
+        "wrong": "उधार चीज़ों को अपनी चीज़ से भी ज्यादा संभालकर रखें।"
+      }
+    }
+  ]
+}

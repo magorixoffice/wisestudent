@@ -1,0 +1,35 @@
+{
+  "title": "Puzzle: Budget Items",
+  "subtitleComplete": "Puzzle Complete!",
+  "subtitleProgress": "Match Items with Categories ({{matched}}/{{total}} matched)",
+  "itemsTitle": "Items",
+  "categoriesTitle": "Categories",
+  "selectedLabel": "Selected: {{name}}",
+  "selectItem": "Select an Item",
+  "matchButton": "Match",
+  "scoreLabel": "Score:",
+  "matchedLabel": "Matched:",
+  "resultGreatEmoji": "🏆",
+  "resultGreatTitle": "Great Job!",
+  "resultGreatDescription": "You correctly matched {{score}} out of {{total}} items with categories!",
+  "coinsLabel": "Coins",
+  "resultLesson": "Lesson: Understanding needs vs wants helps in budgeting!",
+  "resultKeepEmoji": "🧩",
+  "resultKeepTitle": "Keep Practicing!",
+  "resultKeepDescription": "You matched {{score}} out of {{total}} items correctly.",
+  "resultTip": "Tip: Needs are essential for survival, wants are nice to have!",
+  "items": [
+    { "id": 1, "name": "Groceries", "emoji": "🛒" },
+    { "id": 2, "name": "Birthday Gift", "emoji": "🎁" },
+    { "id": 3, "name": "School Supplies", "emoji": "✏️" },
+    { "id": 4, "name": "Video Game Console", "emoji": "🎮" },
+    { "id": 5, "name": "Extra Snacks", "emoji": "🍿" }
+  ],
+  "categories": [
+    { "id": 6, "name": "Essential", "emoji": "✅", "description": "Must-have for daily life" },
+    { "id": 7, "name": "Non-Essential", "emoji": "➖", "description": "Optional, not required" },
+    { "id": 8, "name": "Necessary for School", "emoji": "🎒", "description": "Needed for learning" },
+    { "id": 9, "name": "Luxury", "emoji": "💎", "description": "Nice-to-have, expensive" },
+    { "id": 10, "name": "Optional Treat", "emoji": "🍭", "description": "Small fun expense" }
+  ]
+}

@@ -1,0 +1,94 @@
+﻿{
+  "title": "Badge: Saver Kid",
+  "subtitleComplete": "Badge Earned!",
+  "subtitleProgress": "Challenge {{current}} of {{total}}",
+  "resultWinTitle": "Saver Kid Badge Earned!",
+  "resultWinDescription": "You made {{score}} smart saving decisions out of {{total}} challenges!",
+  "achievementTitle": "Achievement Unlocked!",
+  "achievementBadge": "Badge: Saver Kid",
+  "savingSkillsTitle": "Saving Skills",
+  "savingSkillsBody": "You learned to save regularly, keep money safe, and make smart financial decisions!",
+  "financialWisdomTitle": "Financial Wisdom",
+  "financialWisdomBody": "These habits will help you achieve your financial goals!",
+  "resultKeepTitle": "Keep Learning!",
+  "resultKeepDescription": "You made {{score}} smart saving decisions out of {{total}} challenges.",
+  "resultKeepBody": "Remember, good saving habits include saving regularly, keeping money safe, and setting goals!",
+  "tryAgain": "Try Again",
+  "challenges": [
+    {
+      "id": 1,
+      "title": "Piggy Bank",
+      "question": "What is the best way to save money?",
+      "options": [
+        { "text": "Spend everything first", "emoji": "💸", "isCorrect": false },
+        { "text": "Save a little bit regularly", "emoji": "🐷", "isCorrect": true },
+        { "text": "Save only when you have a lot", "emoji": "💰", "isCorrect": false },
+        { "text": "Keep it in your pocket", "emoji": "👛", "isCorrect": false }
+      ],
+      "feedback": {
+        "correct": "Excellent! Regular saving, even small amounts, builds good habits!",
+        "wrong": "The best way to save is to save a little bit regularly, not just when you have a lot!"
+      }
+    },
+    {
+      "id": 2,
+      "title": "Safe Savings",
+      "question": "Where should you keep your savings?",
+      "options": [
+        { "text": "Under your bed", "emoji": "🛏️", "isCorrect": false },
+        { "text": "Spend it all immediately", "emoji": "🏃", "isCorrect": false },
+        { "text": "In a shoe box at home", "emoji": "👟", "isCorrect": false },
+        { "text": "In a safe place like a bank", "emoji": "🏦", "isCorrect": true }
+      ],
+      "feedback": {
+        "correct": "Perfect! Keeping money in a bank keeps it safe and can help it grow!",
+        "wrong": "Banks are the safest place to keep your savings - they protect your money!"
+      }
+    },
+    {
+      "id": 3,
+      "title": "Extra Money",
+      "question": "What should you do with extra money?",
+      "options": [
+        { "text": "Save it for future goals", "emoji": "🎯", "isCorrect": true },
+        { "text": "Spend it all right away", "emoji": "🛒", "isCorrect": false },
+        { "text": "Lose it or forget about it", "emoji": "😵", "isCorrect": false },
+        { "text": "Give it all to friends", "emoji": "🤝", "isCorrect": false }
+      ],
+      "feedback": {
+        "correct": "Amazing! Saving extra money helps you reach your goals faster!",
+        "wrong": "Extra money should be saved for future goals, not spent immediately!"
+      }
+    },
+    {
+      "id": 4,
+      "title": "Saving Importance",
+      "question": "Why is saving money important?",
+      "options": [
+        { "text": "It's not important at all", "emoji": "🤷", "isCorrect": false },
+        { "text": "You should never save", "emoji": "🚫", "isCorrect": false },
+        { "text": "It helps you reach your goals", "emoji": "🏆", "isCorrect": true },
+        { "text": "To show off to friends", "emoji": "🤝", "isCorrect": false }
+      ],
+      "feedback": {
+        "correct": "Great! Saving money helps you achieve your dreams and goals!",
+        "wrong": "Saving money is very important - it helps you reach your goals and be prepared!"
+      }
+    },
+    {
+      "id": 5,
+      "title": "Saving Habit",
+      "question": "What is a good saving habit?",
+      "options": [
+        { "text": "Never save anything", "emoji": "❌", "isCorrect": false },
+        { "text": "Spend more than you have", "emoji": "📈", "isCorrect": false },
+        { "text": "Set goals and save regularly", "emoji": "🎯", "isCorrect": true },
+        { "text": "Save only when feeling rich", "emoji": "🤑", "isCorrect": false }
+      ],
+      "feedback": {
+        "correct": "Wonderful! Setting goals and saving regularly makes you a smart saver!",
+        "wrong": "Good saving habits include setting goals and saving money regularly!"
+      }
+    }
+  ]
+}

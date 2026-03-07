@@ -1,39 +1,48 @@
-import React, { useState, useMemo } from "react";
-import { useNavigate, useLocation } from 'react-router-dom';
+﻿import React, { useState, useMemo } from "react";
+import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import GameShell from "../../Finance/GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getFinanceKidsGames } from "../../../../pages/Games/GameCategories/Finance/kidGamesData";
 
+const fallbackItems = [
+  { id: 1, name: "Seed", emoji: "🌱" },
+  { id: 2, name: "Savings", emoji: "💰" },
+  { id: 3, name: "Plant", emoji: "🌿" },
+  { id: 4, name: "Sapling", emoji: "🌳" },
+  { id: 5, name: "Bulb", emoji: "🌻" },
+];
+
+const fallbackCategories = [
+  { id: 6, name: "Tree", emoji: "🌲", description: "Seed can become a tree" },
+  { id: 7, name: "Growth", emoji: "📈", description: "Savings can grow in value" },
+  { id: 8, name: "Flower", emoji: "🌸", description: "Plant can bloom into flower" },
+  { id: 9, name: "Forest", emoji: "🌲", description: "Many saplings can make a forest" },
+  { id: 10, name: "Wealth", emoji: "🏦", description: "Money habits can build wealth" },
+];
+
 const PuzzleOfGrowth = () => {
-  const navigate = useNavigate();
   const location = useLocation();
-  
+  const { t } = useTranslation("gamecontent");
+  const gameContent = t("financial-literacy.kids.puzzle-of-growth", { returnObjects: true });
+
   const { nextGamePath, nextGameId } = useMemo(() => {
     if (location.state?.nextGamePath) {
-      return {
-        nextGamePath: location.state.nextGamePath,
-        nextGameId: location.state.nextGameId || null
-      };
+      return { nextGamePath: location.state.nextGamePath, nextGameId: location.state.nextGameId || null };
     }
-    
     try {
       const games = getFinanceKidsGames({});
-      const currentGame = games.find(g => g.id === "finance-kids-64");
-      if (currentGame && currentGame.index !== undefined) {
-        const nextGame = games.find(g => g.index === currentGame.index + 1 && g.isSpecial && g.path);
-        return {
-          nextGamePath: nextGame ? nextGame.path : null,
-          nextGameId: nextGame ? nextGame.id : null
-        };
+      const currentGame = games.find((g) => g.id === "finance-kids-64");
+      if (currentGame?.index !== undefined) {
+        const nextGame = games.find((g) => g.index === currentGame.index + 1 && g.isSpecial && g.path);
+        return { nextGamePath: nextGame ? nextGame.path : null, nextGameId: nextGame ? nextGame.id : null };
       }
     } catch (error) {
       console.warn("Error finding next game:", error);
     }
-    
     return { nextGamePath: null, nextGameId: null };
   }, [location.state]);
 
-  // Hardcode rewards to align with rule: 1 coin per question, 5 total coins, 10 total XP
   const coinsPerLevel = 1;
   const totalCoins = 5;
   const totalXp = 10;
@@ -45,110 +54,57 @@ const PuzzleOfGrowth = () => {
   const [gameFinished, setGameFinished] = useState(false);
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
-  // Growth Items (left side) - 5 items
-  const items = [
-    { id: 1, name: "Seed", emoji: "🌱",  },
-    { id: 2, name: "Savings", emoji: "💰",  },
-    { id: 3, name: "Plant", emoji: "🌿",  },
-    { id: 4, name: "Sapling", emoji: "🌳",  },
-    { id: 5, name: "Bulb", emoji: "🌻",  }
-  ];
+  const items = Array.isArray(gameContent?.items) && gameContent.items.length > 0 ? gameContent.items : fallbackItems;
+  const outcomes = Array.isArray(gameContent?.categories) && gameContent.categories.length > 0 ? gameContent.categories : fallbackCategories;
 
-  // Outcomes (right side) - 5 items
-  const outcomes = [
-    { id: 6, name: "Tree", emoji: "🌲",  },
-    { id: 7, name: "Growth", emoji: "📈",  },
-    { id: 8, name: "Flower", emoji: "🌸",  },
-    { id: 9, name: "Forest", emoji: "🌲",  },
-    { id: 10, name: "Wealth", emoji: "🏦",  }
-  ];
+  const rearrangedOutcomes = outcomes.length === 5 ? [outcomes[2], outcomes[4], outcomes[1], outcomes[0], outcomes[3]] : outcomes;
 
-  // Manually rearrange positions to prevent positional matching
-  // Original order was [6,7,8,9,10], rearranged to [8,10,7,6,9]
-  const rearrangedOutcomes = [
-    outcomes[2], // Flower (id: 8)
-    outcomes[4], // Wealth (id: 10)
-    outcomes[1], // Growth (id: 7)
-    outcomes[0], // Tree (id: 6)
-    outcomes[3]  // Forest (id: 9)
-  ];
-
-  // Correct matches using proper IDs, not positional order
-  // Each item has a unique correct match for true one-to-one mapping
   const correctMatches = [
-    { itemId: 1, outcomeId: 6 }, // Seed → Tree
-    { itemId: 2, outcomeId: 7 }, // Savings → Growth
-    { itemId: 3, outcomeId: 8 }, // Plant → Flower
-    { itemId: 4, outcomeId: 9 }, // Sapling → Forest
-    { itemId: 5, outcomeId: 10 }  // Bulb → Wealth
+    { itemId: 1, outcomeId: 6 },
+    { itemId: 2, outcomeId: 7 },
+    { itemId: 3, outcomeId: 8 },
+    { itemId: 4, outcomeId: 9 },
+    { itemId: 5, outcomeId: 10 },
   ];
-
-  const handleItemSelect = (item) => {
-    if (gameFinished) return;
-    setSelectedItem(item);
-  };
-
-  const handleOutcomeSelect = (outcome) => {
-    if (gameFinished) return;
-    setSelectedOutcome(outcome);
-  };
 
   const handleMatch = () => {
     if (!selectedItem || !selectedOutcome || gameFinished) return;
 
     resetFeedback();
+    const isCorrect = correctMatches.some(
+      (match) => match.itemId === selectedItem.id && match.outcomeId === selectedOutcome.id
+    );
 
-    const newMatch = {
-      itemId: selectedItem.id,
-      outcomeId: selectedOutcome.id,
-      isCorrect: correctMatches.some(
-        match => match.itemId === selectedItem.id && match.outcomeId === selectedOutcome.id
-      )
-    };
-
-    const newMatches = [...matches, newMatch];
+    const newMatches = [...matches, { itemId: selectedItem.id, outcomeId: selectedOutcome.id, isCorrect }];
     setMatches(newMatches);
 
-    // If the match is correct, add score and show flash/confetti
-    if (newMatch.isCorrect) {
-      setScore(prev => prev + 1);
+    if (isCorrect) {
+      setScore((prev) => prev + 1);
       showCorrectAnswerFeedback(1, true);
-    } else {
-      showCorrectAnswerFeedback(0, false);
     }
 
-    // Check if all items are matched
     if (newMatches.length === items.length) {
-      setTimeout(() => {
-        setGameFinished(true);
-      }, 1500);
+      setTimeout(() => setGameFinished(true), 1000);
     }
 
-    // Reset selections
     setSelectedItem(null);
     setSelectedOutcome(null);
   };
 
-  // Check if an item is already matched
-  const isItemMatched = (itemId) => {
-    return matches.some(match => match.itemId === itemId);
-  };
-
-  // Check if an outcome is already matched
-  const isOutcomeMatched = (outcomeId) => {
-    return matches.some(match => match.outcomeId === outcomeId);
-  };
-
-  // Get match result for an item
-  const getMatchResult = (itemId) => {
-    const match = matches.find(m => m.itemId === itemId);
-    return match ? match.isCorrect : null;
-  };
+  const isItemMatched = (itemId) => matches.some((m) => m.itemId === itemId);
+  const isOutcomeMatched = (outcomeId) => matches.some((m) => m.outcomeId === outcomeId);
+  const getMatchResult = (itemId) => matches.find((m) => m.itemId === itemId)?.isCorrect ?? null;
 
   return (
     <GameShell
-      title="Puzzle of Growth"
-      subtitle={gameFinished ? "Puzzle Complete!" : `Match Items with Outcomes (${matches.length}/${items.length} matched)`}
+      title={gameContent?.title || "Puzzle of Growth"}
+      subtitle={gameFinished
+        ? (gameContent?.subtitleComplete || "Puzzle Complete!")
+        : t("financial-literacy.kids.puzzle-of-growth.subtitleProgress", {
+            matched: matches.length,
+            total: items.length,
+            defaultValue: "Match Items with Outcomes ({{matched}}/{{total}} matched)",
+          })}
       showGameOver={gameFinished}
       score={score}
       gameId="finance-kids-64"
@@ -169,14 +125,13 @@ const PuzzleOfGrowth = () => {
       <div className="space-y-8 max-w-4xl mx-auto">
         {!gameFinished ? (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Left column - Growth Items */}
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-              <h3 className="text-xl font-bold text-white mb-4 text-center">Growth Items</h3>
+              <h3 className="text-xl font-bold text-white mb-4 text-center">{gameContent?.itemsTitle || "Items"}</h3>
               <div className="space-y-4">
-                {items.map(item => (
+                {items.map((item) => (
                   <button
                     key={item.id}
-                    onClick={() => handleItemSelect(item)}
+                    onClick={() => setSelectedItem(item)}
                     disabled={isItemMatched(item.id)}
                     className={`w-full p-4 rounded-xl text-left transition-all ${
                       isItemMatched(item.id)
@@ -184,29 +139,28 @@ const PuzzleOfGrowth = () => {
                           ? "bg-green-500/30 border-2 border-green-500"
                           : "bg-red-500/30 border-2 border-red-500"
                         : selectedItem?.id === item.id
-                        ? "bg-blue-500/50 border-2 border-blue-400"
-                        : "bg-white/10 hover:bg-white/20 border border-white/20"
+                          ? "bg-blue-500/50 border-2 border-blue-400"
+                          : "bg-white/10 hover:bg-white/20 border border-white/20"
                     }`}
                   >
                     <div className="flex items-center">
                       <div className="text-2xl mr-3">{item.emoji}</div>
-                      <div>
-                        <h4 className="font-bold text-white">{item.name}</h4>
-                        
-                      </div>
+                      <h4 className="font-bold text-white">{item.name}</h4>
                     </div>
                   </button>
                 ))}
               </div>
             </div>
 
-            {/* Middle column - Match button */}
             <div className="flex flex-col items-center justify-center">
               <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 text-center">
                 <p className="text-white/80 mb-4">
-                  {selectedItem 
-                    ? `Selected: ${selectedItem.name}` 
-                    : "Select an Item"}
+                  {selectedItem
+                    ? t("financial-literacy.kids.puzzle-of-growth.selectedLabel", {
+                        name: selectedItem.name,
+                        defaultValue: "Selected: {{name}}",
+                      })
+                    : (gameContent?.selectItem || "Select an Item")}
                 </p>
                 <button
                   onClick={handleMatch}
@@ -217,30 +171,29 @@ const PuzzleOfGrowth = () => {
                       : "bg-gray-500/30 text-gray-400 cursor-not-allowed"
                   }`}
                 >
-                  Match
+                  {gameContent?.matchButton || "Match"}
                 </button>
                 <div className="mt-4 text-white/80">
-                  <p>Score: {score}/{items.length}</p>
-                  <p>Matched: {matches.length}/{items.length}</p>
+                  <p>{gameContent?.scoreLabel || "Score:"} {score}/{items.length}</p>
+                  <p>{gameContent?.matchedLabel || "Matched:"} {matches.length}/{items.length}</p>
                 </div>
               </div>
             </div>
 
-            {/* Right column - Outcomes */}
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-              <h3 className="text-xl font-bold text-white mb-4 text-center">Outcomes</h3>
+              <h3 className="text-xl font-bold text-white mb-4 text-center">{gameContent?.categoriesTitle || "Outcomes"}</h3>
               <div className="space-y-4">
-                {rearrangedOutcomes.map(outcome => (
+                {rearrangedOutcomes.map((outcome) => (
                   <button
                     key={outcome.id}
-                    onClick={() => handleOutcomeSelect(outcome)}
+                    onClick={() => setSelectedOutcome(outcome)}
                     disabled={isOutcomeMatched(outcome.id)}
                     className={`w-full p-4 rounded-xl text-left transition-all ${
                       isOutcomeMatched(outcome.id)
                         ? "bg-green-500/30 border-2 border-green-500 opacity-50"
                         : selectedOutcome?.id === outcome.id
-                        ? "bg-purple-500/50 border-2 border-purple-400"
-                        : "bg-white/10 hover:bg-white/20 border border-white/20"
+                          ? "bg-purple-500/50 border-2 border-purple-400"
+                          : "bg-white/10 hover:bg-white/20 border border-white/20"
                     }`}
                   >
                     <div className="flex items-center">
@@ -259,28 +212,29 @@ const PuzzleOfGrowth = () => {
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 text-center">
             {score >= 3 ? (
               <div>
-                <div className="text-5xl mb-4">🎉</div>
-                <h3 className="text-2xl font-bold text-white mb-4">Great Job!</h3>
+                <div className="text-5xl mb-4">{gameContent?.resultGreatEmoji || "🎉"}</div>
+                <h3 className="text-2xl font-bold text-white mb-4">{gameContent?.resultGreatTitle || "Great Job!"}</h3>
                 <p className="text-white/90 text-lg mb-4">
-                  You correctly matched {score} out of {items.length} items with their outcomes!
+                  {t("financial-literacy.kids.puzzle-of-growth.resultGreatDescription", {
+                    score,
+                    total: items.length,
+                    defaultValue: "You correctly matched {{score}} out of {{total}} items.",
+                  })}
                 </p>
-                <div className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white py-3 px-6 rounded-full inline-flex items-center gap-2 mb-4">
-                  <span>+{score} Coins</span>
-                </div>
-                <p className="text-white/80">
-                  Lesson: Just like plants grow over time, your savings and investments can grow into something much bigger!
-                </p>
+                <p className="text-white/80">{gameContent?.resultLesson || "Lesson"}</p>
               </div>
             ) : (
               <div>
-                <div className="text-5xl mb-4">💪</div>
-                <h3 className="text-2xl font-bold text-white mb-4">Keep Practicing!</h3>
+                <div className="text-5xl mb-4">{gameContent?.resultKeepEmoji || "💪"}</div>
+                <h3 className="text-2xl font-bold text-white mb-4">{gameContent?.resultKeepTitle || "Keep Practicing!"}</h3>
                 <p className="text-white/90 text-lg mb-4">
-                  You matched {score} out of {items.length} items correctly.
+                  {t("financial-literacy.kids.puzzle-of-growth.resultKeepDescription", {
+                    score,
+                    total: items.length,
+                    defaultValue: "You matched {{score}} out of {{total}} items.",
+                  })}
                 </p>
-                <p className="text-white/80 text-sm">
-                  Tip: Think about what each item naturally grows into over time!
-                </p>
+                <p className="text-white/80 text-sm">{gameContent?.resultTip || "Tip"}</p>
               </div>
             )}
           </div>

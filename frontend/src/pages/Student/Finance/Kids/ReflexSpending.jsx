@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+﻿import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getGameDataById } from "../../../../utils/getGameData";
@@ -9,17 +10,18 @@ const ROUND_TIME = 10;
 
 const ReflexSpending = () => {
   const location = useLocation();
-  
+  const { t } = useTranslation("gamecontent");
+
   // Get game data from game category folder (source of truth)
   const gameId = "finance-kids-13";
   const gameData = getGameDataById(gameId);
-  
+
   // Get coinsPerLevel, totalCoins, and totalXp from game category data, fallback to location.state, then defaults
   const coinsPerLevel = gameData?.coins || location.state?.coinsPerLevel || 5;
   const totalCoins = gameData?.coins || location.state?.totalCoins || 5;
   const totalXp = gameData?.xp || location.state?.totalXp || 10;
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
-  
+
   const [gameState, setGameState] = useState("ready"); // ready, playing, finished
   const [score, setScore] = useState(0);
   const [currentRound, setCurrentRound] = useState(0);
@@ -28,63 +30,8 @@ const ReflexSpending = () => {
   const timerRef = useRef(null);
   const currentRoundRef = useRef(0);
 
-  const questions = [
-    {
-      id: 1,
-      question: "What should you do before making a big purchase?",
-      correctAnswer: "Plan Ahead",
-      options: [
-        { text: "Buy Immediately", isCorrect: false, emoji: "💸" },
-        { text: "Plan Ahead", isCorrect: true, emoji: "📋" },
-        { text: "Ask Friends", isCorrect: false, emoji: "👥" },
-        { text: "Ignore Cost", isCorrect: false, emoji: "🙈" }
-      ]
-    },
-    {
-      id: 2,
-      question: "What is the smartest way to spend your allowance?",
-      correctAnswer: "Save Some First",
-      options: [
-        { text: "Spend All", isCorrect: false, emoji: "🛍️" },
-        { text: "Buy Whatever", isCorrect: false, emoji: "🛒" },
-        { text: "Save Some First", isCorrect: true, emoji: "💰" },
-        { text: "Waste It", isCorrect: false, emoji: "🔥" }
-      ]
-    },
-    {
-      id: 3,
-      question: "What helps you avoid impulse purchases?",
-      correctAnswer: "Wait Before Buying",
-      options: [
-        { text: "Wait Before Buying", isCorrect: true, emoji: "⏳" },
-        { text: "Buy Immediately", isCorrect: false, emoji: "⚡" },
-        { text: "Shop Often", isCorrect: false, emoji: "🏪" },
-        { text: "Spend Without Thinking", isCorrect: false, emoji: "🤔" }
-      ]
-    },
-    {
-      id: 4,
-      question: "What should you compare when shopping?",
-      correctAnswer: "Prices and Quality",
-      options: [
-        { text: "Colors Only", isCorrect: false, emoji: "🎨" },
-        { text: "Brands Only", isCorrect: false, emoji: "🏷️" },
-        { text: "Packaging", isCorrect: false, emoji: "📦" },
-        { text: "Prices and Quality", isCorrect: true, emoji: "🔍" },
-      ]
-    },
-    {
-      id: 5,
-      question: "What is the first step in smart spending?",
-      correctAnswer: "Set a Budget",
-      options: [
-        { text: "Spend Freely", isCorrect: false, emoji: "💸" },
-        { text: "Set a Budget", isCorrect: true, emoji: "📊" },
-        { text: "Buy Everything", isCorrect: false, emoji: "🛍️" },
-        { text: "Ignore Limits", isCorrect: false, emoji: "🚫" }
-      ]
-    }
-  ];
+  const gameContent = t("financial-literacy.kids.reflex-spending", { returnObjects: true });
+  const questions = Array.isArray(gameContent?.questions) ? gameContent.questions : [];
 
   // Update ref when currentRound changes
   useEffect(() => {
@@ -103,9 +50,9 @@ const ReflexSpending = () => {
   const handleTimeUp = useCallback(() => {
     setAnswered(true);
     resetFeedback();
-    
+
     const isLastQuestion = currentRoundRef.current >= TOTAL_ROUNDS;
-    
+
     setTimeout(() => {
       if (isLastQuestion) {
         setGameState("finished");
@@ -209,8 +156,15 @@ const ReflexSpending = () => {
 
   return (
     <GameShell
-      title="Reflex Spending"
-      subtitle={gameState === "playing" ? `Round ${currentRound}/${TOTAL_ROUNDS}: Test your spending reflexes!` : "Test your spending reflexes!"}
+      title={gameContent?.title || "Reflex Spending"}
+      subtitle={
+        gameState === "playing"
+          ? t("financial-literacy.kids.reflex-spending.subtitlePlaying", {
+              current: currentRound,
+              total: TOTAL_ROUNDS,
+            })
+          : gameContent?.subtitleReady || "Test your spending reflexes!"
+      }
       currentLevel={currentRound}
       totalLevels={TOTAL_ROUNDS}
       coinsPerLevel={coinsPerLevel}
@@ -225,23 +179,30 @@ const ReflexSpending = () => {
       totalCoins={totalCoins}
       totalXp={totalXp}
       nextGamePathProp="/student/finance/kids/puzzle-smart-vs-waste"
-      nextGameIdProp="finance-kids-14">
+      nextGameIdProp="finance-kids-14"
+    >
       <div className="text-center text-white space-y-8">
         {gameState === "ready" && (
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 text-center">
             <div className="text-5xl mb-6">💸</div>
-            <h3 className="text-2xl font-bold text-white mb-4">Ready to Test Your Spending Skills?</h3>
+            <h3 className="text-2xl font-bold text-white mb-4">
+              {gameContent?.readyTitle || "Ready to Test Your Spending Skills?"}
+            </h3>
             <p className="text-white/90 text-lg mb-6">
-              Answer questions about smart spending and money management.
+              {gameContent?.readyDescription ||
+                "Answer questions about smart spending and money management."}
             </p>
             <p className="text-white/80 mb-6">
-              You have {TOTAL_ROUNDS} questions with {ROUND_TIME} seconds each!
+              {t("financial-literacy.kids.reflex-spending.readyInfo", {
+                total: TOTAL_ROUNDS,
+                seconds: ROUND_TIME,
+              })}
             </p>
             <button
               onClick={startGame}
               className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white py-4 px-8 rounded-full text-xl font-bold shadow-lg transition-all transform hover:scale-105"
             >
-              Start Game
+              {gameContent?.startButton || "Start Game"}
             </button>
           </div>
         )}
@@ -250,13 +211,17 @@ const ReflexSpending = () => {
           <div className="space-y-8">
             <div className="flex justify-between items-center bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
               <div className="text-white">
-                <span className="font-bold">Round:</span> {currentRound}/{TOTAL_ROUNDS}
+                <span className="font-bold">{gameContent?.roundLabel || "Round:"}</span> {currentRound}/{TOTAL_ROUNDS}
               </div>
-              <div className={`font-bold ${timeLeft <= 2 ? 'text-red-500' : timeLeft <= 3 ? 'text-yellow-500' : 'text-green-400'}`}>
-                <span className="text-white">Time:</span> {timeLeft}s
+              <div
+                className={`font-bold ${
+                  timeLeft <= 2 ? "text-red-500" : timeLeft <= 3 ? "text-yellow-500" : "text-green-400"
+                }`}
+              >
+                <span className="text-white">{gameContent?.timeLabel || "Time:"}</span> {timeLeft}s
               </div>
               <div className="text-white">
-                <span className="font-bold">Score:</span> {score}
+                <span className="font-bold">{gameContent?.scoreLabel || "Score:"}</span> {score}
               </div>
             </div>
 

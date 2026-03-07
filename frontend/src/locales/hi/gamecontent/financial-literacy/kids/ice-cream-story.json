@@ -1,0 +1,54 @@
+﻿{
+  "title": "आइसक्रीम स्टोरी",
+  "subtitleComplete": "स्टोरी पूरी हुई!",
+  "subtitleProgress": "प्रश्न {{current}} में से {{total}}",
+  "questionCounter": "प्रश्न {{current}}/{{total}}",
+  "scoreLabel": "स्कोर: {{score}}/{{total}}",
+  "questions": [
+    {
+      "id": 1,
+      "text": "आपके पास Rs 10 हैं। आप एक आइसक्रीम दुकान देखते हैं। क्या आप अभी आइसक्रीम पर खर्च करेंगे या उस खिलौने के लिए बचत करेंगे जो आपको चाहिए?",
+      "options": [
+        { "id": "save", "text": "खिलौने के लिए बचाएं", "emoji": "🧸", "isCorrect": true },
+        { "id": "spend", "text": "आइसक्रीम खरीदें", "emoji": "🍦", "isCorrect": false },
+        { "id": "split", "text": "आधा बचाएं, आधा खर्च करें", "emoji": "⚖️", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "आपके दोस्त ने महंगी आइसक्रीम खरीदी है और उसका आनंद ले रहा है। आपके पास केवल Rs 5 हैं। आप क्या करेंगे?",
+      "options": [
+        { "id": "spend", "text": "छोटी ट्रीट खरीदें", "emoji": "🍭", "isCorrect": false },
+        { "id": "save", "text": "बड़े लक्ष्य के लिए बचाएं", "emoji": "🎯", "isCorrect": true },
+        { "id": "borrow", "text": "दोस्त की आइसक्रीम साझा करने को कहें", "emoji": "🤝", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "आपने नई किताब के लिए Rs 50 बचाने की योजना बनाई थी, लेकिन आपको 'Buy 1 Get 1 Free' आइसक्रीम ऑफर दिखता है। समझदारी क्या है?",
+      "options": [
+        { "id": "save", "text": "बचत योजना पर टिके रहें", "emoji": "📚", "isCorrect": true },
+        { "id": "spend", "text": "ऑफर ले लें", "emoji": "🍦", "isCorrect": false },
+        { "id": "delay", "text": "अगर अतिरिक्त पैसे हों तो बाद में खरीदें", "emoji": "⏰", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "आपने साइकिल के लिए Rs 30 बचाए हैं। आपका भाई/बहन कहता है कि यदि आप आइसक्रीम खरीदें तो वह साझा करेगा। आप क्या चुनेंगे?",
+      "options": [
+        { "id": "spend", "text": "ट्रीट साझा करें", "emoji": "🍦", "isCorrect": false },
+        { "id": "save", "text": "साइकिल पर ध्यान दें", "emoji": "🚲", "isCorrect": true },
+        { "id": "negotiate", "text": "बाद में मदद करने का वादा करें", "emoji": "🤝", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "आज बहुत गर्म दिन है और सब आइसक्रीम खा रहे हैं। आपके पास Rs 15 की बचत है। सबसे समझदारी वाला विकल्प क्या है?",
+      "options": [
+        { "id": "save", "text": "बाद के लिए बचाएं", "emoji": "💰", "isCorrect": true },
+        { "id": "spend", "text": "अभी ठंडक लें", "emoji": "🍦", "isCorrect": false },
+        { "id": "alternative", "text": "मुफ़्त में ठंडक पाने का तरीका खोजें", "emoji": "🌳", "isCorrect": false }
+      ]
+    }
+  ]
+}

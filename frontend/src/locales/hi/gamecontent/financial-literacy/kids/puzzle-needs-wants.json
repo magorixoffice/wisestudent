@@ -1,0 +1,34 @@
+{
+  "title": "पहेली: ज़रूरत/चाहत",
+  "subtitleComplete": "पहेली पूरी हुई!",
+  "subtitleProgress": "आइटम और श्रेणियाँ मिलाएँ ({{matched}}/{{total}} मिलाए गए)",
+  "itemsTitle": "आइटम",
+  "categoriesTitle": "श्रेणियाँ",
+  "selectedLabel": "चयनित: {{name}}",
+  "selectItem": "एक आइटम चुनें",
+  "matchButton": "मिलाएँ",
+  "scoreLabel": "स्कोर:",
+  "matchedLabel": "मिलान:",
+  "resultGreatEmoji": "🎉",
+  "resultGreatTitle": "बहुत बढ़िया!",
+  "resultGreatDescription": "आपने {{total}} में से {{score}} आइटम सही मिलाए!",
+  "resultGreatLesson": "सीख: ज़रूरत और चाहत को समझना स्मार्ट वित्तीय फैसले लेने में मदद करता है।",
+  "resultKeepEmoji": "💪",
+  "resultKeepTitle": "अभ्यास जारी रखें!",
+  "resultKeepDescription": "आपने {{total}} में से {{score}} आइटम सही मिलाए।",
+  "resultKeepTip": "टिप: सोचें कि कौन सी चीज़ आवश्यक है और कौन सी वैकल्पिक।",
+  "items": [
+    { "id": 1, "name": "पीने का पानी", "emoji": "💧" },
+    { "id": 2, "name": "स्कूल के जूते", "emoji": "👟" },
+    { "id": 3, "name": "खिलौना कार", "emoji": "🚗" },
+    { "id": 4, "name": "पॉकेट मनी", "emoji": "💰" },
+    { "id": 5, "name": "वित्तीय ज्ञान", "emoji": "📚" }
+  ],
+  "categories": [
+    { "id": 6, "name": "ज़रूरत", "emoji": "✅", "description": "जीवन या पढ़ाई के लिए आवश्यक" },
+    { "id": 7, "name": "चाहत", "emoji": "🎁", "description": "अच्छी लगती है, पर जरूरी नहीं" },
+    { "id": 8, "name": "बचत", "emoji": "🏦", "description": "भविष्य के लिए अलग रखना" },
+    { "id": 9, "name": "निवेश", "emoji": "📈", "description": "पैसे को बढ़ाने के लिए उपयोग" },
+    { "id": 10, "name": "साझा", "emoji": "🤲", "description": "दूसरों की मदद के लिए उपयोग" }
+  ]
+}

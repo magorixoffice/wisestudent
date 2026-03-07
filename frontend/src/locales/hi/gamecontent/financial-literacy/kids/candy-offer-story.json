@@ -1,0 +1,54 @@
+﻿{
+  "title": "कैंडी ऑफर कहानी",
+  "subtitleComplete": "कहानी पूरी हुई!",
+  "subtitleProgress": "प्रश्न {{current}} में से {{total}}",
+  "questionCounter": "प्रश्न {{current}}/{{total}}",
+  "scoreLabel": "स्कोर: {{score}}/{{total}}",
+  "questions": [
+    {
+      "id": 1,
+      "text": "आप दुकान में कैंडी पर बड़ा डिस्काउंट देखते हैं, लेकिन आपको पहले से पेट भरा लगता है। सबसे अच्छा विकल्प क्या है?",
+      "options": [
+        { "id": "b", "text": "कैंडी खरीदें क्योंकि यह सस्ती है", "emoji": "🍬", "description": "", "isCorrect": false },
+        { "id": "a", "text": "अपनी सेहत के बारे में सोचें और कैंडी न खरीदें", "emoji": "🧠", "description": "", "isCorrect": true },
+        { "id": "c", "text": "कैंडी खरीदें क्योंकि बाकी लोग खरीद रहे हैं", "emoji": "👥", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "अगर आप ज्यादा खरीदें तो दुकान अतिरिक्त कैंडी देती है। फैसला लेने से पहले आपको क्या जांचना चाहिए?",
+      "options": [
+        { "id": "a", "text": "क्या आपको सच में इसकी जरूरत है या नहीं", "emoji": "🤔", "description": "", "isCorrect": true },
+        { "id": "b", "text": "पैकेट कितना रंगीन लगता है", "emoji": "🎨", "description": "", "isCorrect": false },
+        { "id": "c", "text": "कितने विज्ञापन इसे प्रमोट करते हैं", "emoji": "📢", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "आप कैंडी चाहते हैं, लेकिन आप स्कूल यात्रा के लिए पैसे भी बचाना चाहते हैं। समझदारी भरा फैसला क्या है?",
+      "options": [
+        { "id": "b", "text": "अभी पैसे खर्च करें और बाद में चिंता करें", "emoji": "💸", "description": "", "isCorrect": false },
+        { "id": "c", "text": "किसी और से कैंडी के पैसे देने को कहें", "emoji": "🙋", "description": "", "isCorrect": false },
+        { "id": "a", "text": "किसी जरूरी चीज के लिए पैसे बचाएं", "emoji": "🎒", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "आप चेकआउट काउंटर के पास कैंडी का ऑफर देखते हैं। दुकाने इसे वहां क्यों रखती हैं?",
+      "options": [
+        { "id": "b", "text": "ग्राहकों को पैसे बचाने में मदद करने के लिए", "emoji": "💰", "description": "", "isCorrect": false },
+        { "id": "a", "text": "जल्दी और बिना योजना के खरीदारी को बढ़ावा देने के लिए", "emoji": "⚡", "description": "", "isCorrect": true },
+        { "id": "c", "text": "स्वस्थ खाने के विकल्पों को बदलने के लिए", "emoji": "🥦", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "आप ऑफर के दौरान कैंडी न खरीदने का फैसला करते हैं। आप कौन सा कौशल अभ्यास कर रहे हैं?",
+      "options": [
+        { "id": "a", "text": "आत्म-नियंत्रण और समझदारी से निर्णय लेना", "emoji": "🎯", "description": "", "isCorrect": true },
+        { "id": "b", "text": "मज़ा खो देना", "emoji": "😞", "description": "", "isCorrect": false },
+        { "id": "c", "text": "हमेशा के लिए सभी ट्रीट्स से दूरी बनाना", "emoji": "🚫", "description": "", "isCorrect": false }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+﻿{
+  "title": "रिफ्लेक्स मनी प्लान",
+  "subtitlePlaying": "राउंड {{current}}/{{total}}: पैसे की योजना बनाने की स्किल्स जांचें!",
+  "subtitleReady": "पैसे की योजना बनाने की स्किल्स जांचें!",
+  "readyEmoji": "💰",
+  "readyTitle": "क्या आप अपनी मनी प्लानिंग स्किल्स जांचने के लिए तैयार हैं?",
+  "readyDescription": "स्मार्ट मनी प्लानिंग और बजटिंग पर सवालों के जवाब दें।",
+  "readyInfo": "आपके पास {{total}} प्रश्न हैं और हर प्रश्न के लिए {{seconds}} सेकंड हैं!",
+  "startButton": "खेल शुरू करें",
+  "roundLabel": "राउंड:",
+  "timeLabel": "समय:",
+  "scoreLabel": "स्कोर:",
+  "questions": [
+    {
+      "id": 1,
+      "question": "आप दुकान में नया पेंसिल बॉक्स देखते हैं। खरीदने से पहले आप क्या सोचेंगे?",
+      "correctAnswer": "क्या यह सच में जरूरी है",
+      "options": [
+        { "text": "क्योंकि अच्छा लगता है, इसलिए खरीद लें", "isCorrect": false, "emoji": "✨" },
+        { "text": "देखें कि वाकई इसकी जरूरत है या नहीं", "isCorrect": true, "emoji": "🤔" },
+        { "text": "इसके दो खरीद लें", "isCorrect": false, "emoji": "🛒" },
+        { "text": "कीमत को नजरअंदाज करें", "isCorrect": false, "emoji": "🙈" }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "आपको हर हफ्ते पॉकेट मनी मिलते हैं। अच्छी आदत क्या है?",
+      "correctAnswer": "कुछ पैसे अलग रखें",
+      "options": [
+        { "text": "कुछ पैसे अलग रखें", "isCorrect": true, "emoji": "🏦" },
+        { "text": "उसी दिन सब खर्च कर दें", "isCorrect": false, "emoji": "💸" },
+        { "text": "हिसाब खो दें", "isCorrect": false, "emoji": "😵" },
+        { "text": "सब किसी को दे दें", "isCorrect": false, "emoji": "🎁" }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "आप अगले महीने कुछ महंगा खरीदना चाहते हैं। सबसे ज्यादा मदद क्या करेगी?",
+      "correctAnswer": "अपने खर्च की योजना बनाना",
+      "options": [
+        { "text": "रोज़ छोटी चीजें खरीदना", "isCorrect": false, "emoji": "🍭" },
+        { "text": "किसी और से खरीदने को कहना", "isCorrect": false, "emoji": "🧍" },
+        { "text": "बचत के बारे में भूल जाना", "isCorrect": false, "emoji": "❌" },
+        { "text": "अपने खर्च की योजना बनाना", "isCorrect": true, "emoji": "📝" }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "आप जो पैसा खर्च करते हैं उसे लिखते हैं। इससे किसमें मदद मिलती है?",
+      "correctAnswer": "अपने खर्च को समझना",
+      "options": [
+        { "text": "और ज्यादा पैसे खर्च करना", "isCorrect": false, "emoji": "🛍️" },
+        { "text": "गलतियों को छिपाना", "isCorrect": false, "emoji": "🙈" },
+        { "text": "अपने खर्च को समझना", "isCorrect": true, "emoji": "📊" },
+        { "text": "और जल्दी खरीदना", "isCorrect": false, "emoji": "⚡" }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "आप हर दिन पैसे को लेकर सावधान रहना चाहते हैं। आपको क्या करना चाहिए?",
+      "correctAnswer": "खर्च करने से पहले सोचें",
+      "options": [
+        { "text": "बिना सोचे खर्च करें", "isCorrect": false, "emoji": "🎲" },
+        { "text": "खर्च करने से पहले सोचें", "isCorrect": true, "emoji": "🧠" },
+        { "text": "दोस्तों के खर्च की नकल करें", "isCorrect": false, "emoji": "👥" },
+        { "text": "पैसे जल्दी खर्च करें", "isCorrect": false, "emoji": "⏩" }
+      ]
+    }
+  ]
+}

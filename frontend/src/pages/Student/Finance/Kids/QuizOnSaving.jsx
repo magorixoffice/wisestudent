@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+﻿import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getGameDataById } from "../../../../utils/getGameData";
@@ -7,11 +8,12 @@ import { getGameDataById } from "../../../../utils/getGameData";
 const QuizOnSaving = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  
+  const { t } = useTranslation("gamecontent");
+
   // Get game data from game category folder (source of truth)
   const gameId = "finance-kids-2";
   const gameData = getGameDataById(gameId);
-  
+
   // Get coinsPerLevel, totalCoins, and totalXp from game category data, fallback to location.state, then defaults
   const coinsPerLevel = gameData?.coins || location.state?.coinsPerLevel || 5;
   const totalCoins = gameData?.coins || location.state?.totalCoins || 5;
@@ -23,133 +25,8 @@ const QuizOnSaving = () => {
   const [finalScore, setFinalScore] = useState(0);
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback } = useGameFeedback();
 
-  const questions = [
-    {
-      id: 1,
-      text: "Who is the best saver?",
-      options: [
-        { 
-          id: "a", 
-          text: "Someone who spends all their money", 
-          emoji: "💸", 
-          
-          isCorrect: false
-        },
-        { 
-          id: "b", 
-          text: "Someone who wastes money", 
-          emoji: "🗑️", 
-          
-          isCorrect: false
-        },
-        { 
-          id: "c", 
-          text: "Someone who saves part of their money", 
-          emoji: "💰", 
-          
-          isCorrect: true
-        }
-      ]
-    },
-    {
-      id: 2,
-      text: "What should you do with your pocket money?",
-      options: [
-        { 
-          id: "a", 
-          text: "Spend it all immediately", 
-          emoji: "🛍️", 
-          
-          isCorrect: false
-        },
-        { 
-          id: "b", 
-          text: "Save some and spend some", 
-          emoji: "⚖️", 
-          
-          isCorrect: true
-        },
-        { 
-          id: "c", 
-          text: "Hide it and never use it", 
-          emoji: "🙈", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 3,
-      text: "Why is saving money important?",
-      options: [
-        { 
-          id: "a", 
-          text: "So you can buy things you need later", 
-          emoji: "🎯", 
-          isCorrect: true
-        },
-        { 
-          id: "b", 
-          text: "So you can show off to friends", 
-          emoji: "😎", 
-          isCorrect: false
-        },
-        { 
-          id: "c", 
-          text: "It's not important at all", 
-          emoji: "❌", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 4,
-      text: "What is a money bank used for?",
-      options: [
-        { 
-          id: "a", 
-          text: "Keeping toys", 
-          emoji: "🧸", 
-          isCorrect: false
-        },
-        { 
-          id: "b", 
-          text: "Saving money", 
-          emoji: "🏦", 
-          isCorrect: true
-        },
-        { 
-          id: "c", 
-          text: "Storing food", 
-          emoji: "🍕", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 5,
-      text: "If you save ₹10 every week, how much will you have in 4 weeks?",
-      options: [
-        { 
-          id: "a", 
-          text: "₹20", 
-          emoji: "💰", 
-          isCorrect: false
-        },
-        { 
-          id: "b", 
-          text: "₹30", 
-          emoji: "💵", 
-          isCorrect: false
-        },
-        { 
-          id: "c", 
-          text: "₹40", 
-          emoji: "💴", 
-          isCorrect: true
-        }
-      ]
-    }
-  ];
+  const gameContent = t("financial-literacy.kids.quiz-on-saving", { returnObjects: true });
+  const questions = Array.isArray(gameContent?.questions) ? gameContent.questions : [];
 
   const handleChoice = (selectedChoice) => {
     if (currentQuestion < 0 || currentQuestion >= questions.length) {
@@ -161,29 +38,32 @@ const QuizOnSaving = () => {
       return;
     }
 
-    const newChoices = [...choices, { 
-      questionId: currentQ.id, 
-      choice: selectedChoice,
-      isCorrect: currentQ.options.find(opt => opt.id === selectedChoice)?.isCorrect
-    }];
-    
+    const newChoices = [
+      ...choices,
+      {
+        questionId: currentQ.id,
+        choice: selectedChoice,
+        isCorrect: currentQ.options.find((opt) => opt.id === selectedChoice)?.isCorrect,
+      },
+    ];
+
     setChoices(newChoices);
-    
+
     // If the choice is correct, add coins and show flash/confetti
-    const isCorrect = currentQ.options.find(opt => opt.id === selectedChoice)?.isCorrect;
+    const isCorrect = currentQ.options.find((opt) => opt.id === selectedChoice)?.isCorrect;
     if (isCorrect) {
-      setCoins(prev => prev + 1);
+      setCoins((prev) => prev + 1);
       showCorrectAnswerFeedback(1, true);
     }
-    
+
     // Move to next question or show results
     if (currentQuestion < questions.length - 1) {
       setTimeout(() => {
-        setCurrentQuestion(prev => prev + 1);
+        setCurrentQuestion((prev) => prev + 1);
       }, isCorrect ? 1000 : 800);
     } else {
       // Calculate final score
-      const correctAnswers = newChoices.filter(choice => choice.isCorrect).length;
+      const correctAnswers = newChoices.filter((choice) => choice.isCorrect).length;
       setFinalScore(correctAnswers);
       setTimeout(() => {
         setShowResult(true);
@@ -206,8 +86,15 @@ const QuizOnSaving = () => {
 
   return (
     <GameShell
-      title="Quiz on Saving"
-      subtitle={showResult ? "Quiz Complete!" : `Question ${currentQuestion + 1} of ${questions.length}`}
+      title={gameContent?.title || "Quiz on Saving"}
+      subtitle={
+        showResult
+          ? gameContent?.subtitleComplete || "Quiz Complete!"
+          : t("financial-literacy.kids.quiz-on-saving.subtitleProgress", {
+              current: currentQuestion + 1,
+              total: questions.length,
+            })
+      }
       currentLevel={5}
       totalLevels={5}
       coinsPerLevel={coinsPerLevel}
@@ -224,32 +111,44 @@ const QuizOnSaving = () => {
       totalXp={totalXp}
       nextGamePathProp="/student/finance/kids/reflex-savings"
       nextGameIdProp="finance-kids-3"
-      showConfetti={showResult && finalScore === 5}>
+      showConfetti={showResult && finalScore === 5}
+    >
       <div className="space-y-8">
         {!showResult && currentQuestionData ? (
           <div className="space-y-6">
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
               <div className="flex justify-between items-center mb-4">
-                <span className="text-white/80">Question {currentQuestion + 1}/{questions.length}</span>
-                <span className="text-yellow-400 font-bold">Score: {coins}/{questions.length}</span>
+                <span className="text-white/80">
+                  {t("financial-literacy.kids.quiz-on-saving.questionCounter", {
+                    current: currentQuestion + 1,
+                    total: questions.length,
+                  })}
+                </span>
+                <span className="text-yellow-400 font-bold">
+                  {t("financial-literacy.kids.quiz-on-saving.scoreLabel", {
+                    score: coins,
+                    total: questions.length,
+                  })}
+                </span>
               </div>
-              
-              <p className="text-white text-lg mb-6 text-center">
-                {currentQuestionData.text}
-              </p>
-              
+
+              <p className="text-white text-lg mb-6 text-center">{currentQuestionData.text}</p>
+
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {currentQuestionData.options && currentQuestionData.options.map(option => (
-                  <button
-                    key={option.id}
-                    onClick={() => handleChoice(option.id)}
-                    className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white p-6 rounded-xl text-lg font-semibold transition-all transform hover:scale-105"
-                  >
-                    <div className="text-2xl mb-2">{option.emoji}</div>
-                    <h3 className="font-bold text-xl mb-2">{option.text}</h3>
-                    <p className="text-white/90 text-sm">{option.description}</p>
-                  </button>
-                ))}
+                {currentQuestionData.options &&
+                  currentQuestionData.options.map((option) => (
+                    <button
+                      key={option.id}
+                      onClick={() => handleChoice(option.id)}
+                      className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white p-6 rounded-xl text-lg font-semibold transition-all transform hover:scale-105"
+                    >
+                      <div className="text-2xl mb-2">{option.emoji}</div>
+                      <h3 className="font-bold text-xl mb-2">{option.text}</h3>
+                      {option.description ? (
+                        <p className="text-white/90 text-sm">{option.description}</p>
+                      ) : null}
+                    </button>
+                  ))}
               </div>
             </div>
           </div>

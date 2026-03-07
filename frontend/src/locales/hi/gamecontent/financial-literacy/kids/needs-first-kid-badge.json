@@ -1,0 +1,96 @@
+{
+  "title": "बैज: ज़रूरत पहले किड",
+  "subtitleComplete": "बैज हासिल हुआ!",
+  "subtitleProgress": "चैलेंज {{current}} / {{total}}",
+  "resultGreatEmoji": "🏆",
+  "resultGreatTitle": "ज़रूरत पहले किड बैज हासिल!",
+  "resultGreatDescription": "आपने {{total}} में से {{score}} चुनौतियों में समझदारी से ज़रूरत को प्राथमिकता दी!",
+  "achievementTitle": "🎉 उपलब्धि अनलॉक!",
+  "achievementBadge": "बैज: ज़रूरत पहले किड",
+  "skillsTitle": "स्मार्ट चॉइस",
+  "skillsDescription": "आपने सीखा कि गेम और खिलौनों जैसी चाहतों से पहले किताबें, जूते और जरूरी चीज़ें चुननी चाहिए।",
+  "wisdomTitle": "वित्तीय समझ",
+  "wisdomDescription": "ये आदतें आपको बेहतर वित्तीय निर्णय लेने और लक्ष्यों तक पहुँचने में मदद करेंगी।",
+  "resultKeepEmoji": "💪",
+  "resultKeepTitle": "सीखते रहें!",
+  "resultKeepDescription": "आपने {{total}} में से {{score}} चुनौतियों में समझदारी से ज़रूरत को प्राथमिकता दी।",
+  "resultKeepTip": "याद रखें, वित्तीय निर्णय लेते समय चाहत से पहले ज़रूरत आती है।",
+  "tryAgainButton": "फिर से कोशिश करें",
+  "challenges": [
+    {
+      "id": 1,
+      "title": "स्मार्ट शॉपिंग",
+      "question": "आपके पास ₹20 हैं। कैंडी खरीदेंगे या स्कूल नोटबुक?",
+      "options": [
+        { "text": "नोटबुक", "emoji": "📓", "isCorrect": true },
+        { "text": "कैंडी", "emoji": "🍬", "isCorrect": false },
+        { "text": "खिलौने", "emoji": "🧸", "isCorrect": false },
+        { "text": "दोनों", "emoji": "🛍️", "isCorrect": false }
+      ],
+      "feedback": {
+        "correct": "बहुत अच्छा! स्कूल सामग्री आपकी ज़रूरत है और पढ़ाई में मदद करती है।",
+        "wrong": "याद रखें: कैंडी जैसी चाहत से पहले स्कूल सामग्री जैसी ज़रूरतें आती हैं।"
+      }
+    },
+    {
+      "id": 2,
+      "title": "पैसा प्रबंधन",
+      "question": "लंच के लिए ₹15 चाहिए, आपके पास ₹10 हैं। क्या समझदारी है?",
+      "options": [
+        { "text": "स्नैक्स खरीदें", "emoji": "🍟", "isCorrect": false },
+        { "text": "₹5 उधार लें", "emoji": "🙈", "isCorrect": false },
+        { "text": "₹5 और बचाएँ", "emoji": "💰", "isCorrect": true },
+        { "text": "लंच छोड़ दें", "emoji": "🍽️", "isCorrect": false }
+      ],
+      "feedback": {
+        "correct": "समझदारी भरा फैसला! और बचत करना अच्छी वित्तीय योजना है।",
+        "wrong": "उधार लेने या खाना छोड़ने से बेहतर है थोड़ा और बचत करना।"
+      }
+    },
+    {
+      "id": 3,
+      "title": "प्राथमिकता चयन",
+      "question": "आपको गेम चाहिए लेकिन जूते की ज़रूरत है। पहले क्या आएगा?",
+      "options": [
+        { "text": "जूते", "emoji": "👟", "isCorrect": true },
+        { "text": "गेम", "emoji": "🎮", "isCorrect": false },
+        { "text": "दोनों", "emoji": "🛍️", "isCorrect": false },
+        { "text": "कोई नहीं", "emoji": "❌", "isCorrect": false }
+      ],
+      "feedback": {
+        "correct": "सही! गेम जैसी चाहत से पहले जूते जैसी ज़रूरत आती है।",
+        "wrong": "हमेशा चाहत से पहले ज़रूरत की चीज़ खरीदें।"
+      }
+    },
+    {
+      "id": 4,
+      "title": "पैसे का चुनाव",
+      "question": "आपके पास ₹30 हैं। ज़रूरत पर खर्च करेंगे या चाहत पर?",
+      "options": [
+        { "text": "खिलौने जैसी चाहत", "emoji": "🧸", "isCorrect": false },
+        { "text": "किताब जैसी ज़रूरत", "emoji": "📚", "isCorrect": true },
+        { "text": "दूसरों को दे दें", "emoji": "🎁", "isCorrect": false },
+        { "text": "सब बचा लें", "emoji": "🏦", "isCorrect": false }
+      ],
+      "feedback": {
+        "correct": "बेहतरीन! चाहत से पहले ज़रूरत चुनना समझदारी है।",
+        "wrong": "पैसे खर्च करते समय चाहत से पहले ज़रूरतें पूरी करें।"
+      }
+    },
+    {
+      "id": 5,
+      "title": "ज़रूरत की समझ",
+      "question": "चाहत से पहले ज़रूरत क्यों चुननी चाहिए?",
+      "options": [
+        { "text": "ज्यादा खिलौने मिलते हैं", "emoji": "🛒", "isCorrect": false },
+        { "text": "लोकप्रिय बनने के लिए", "emoji": "👥", "isCorrect": false },
+        { "text": "कोई कारण नहीं", "emoji": "❓", "isCorrect": false },
+        { "text": "जरूरी चीज़ें पहले पूरी होती हैं", "emoji": "🥗", "isCorrect": true }
+      ],
+      "feedback": {
+        "correct": "बिल्कुल सही! ज़रूरतें जीवन की आवश्यकताओं को पूरा करती हैं।",
+        "wrong": "ज़रूरतें जीवन और भलाई के लिए आवश्यक हैं, चाहतें सिर्फ अच्छी लगती हैं।"
+      }
+    }
+  ]
+}

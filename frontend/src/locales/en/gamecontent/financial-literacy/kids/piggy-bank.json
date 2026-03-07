@@ -1,0 +1,55 @@
+{
+  "title": "Piggy Bank Story",
+  "subtitleComplete": "Story Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}",
+  "questionCounter": "Question {{current}}/{{total}}",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "stageEmoji": "🐷",
+  "questions": [
+    {
+      "id": 1,
+      "text": "Piggy bank earns no interest. Bank account does. Which is better?",
+      "options": [
+        { "id": "bank", "text": "Bank account", "emoji": "🏦", "description": "", "isCorrect": true },
+        { "id": "piggy", "text": "Piggy bank", "emoji": "🐷", "description": "", "isCorrect": false },
+        { "id": "mattress", "text": "Under mattress", "emoji": "🛏️", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "You have ₹50. Where should you save to help it grow?",
+      "options": [
+        { "id": "jar", "text": "Jar at home", "emoji": "🏺", "description": "", "isCorrect": false },
+        { "id": "bank", "text": "Bank savings account", "emoji": "💰", "description": "", "isCorrect": true },
+        { "id": "spend", "text": "Spend it now", "emoji": "🛍️", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "Bank offers 5% interest. Piggy bank offers 0%. Choose wisely.",
+      "options": [
+        { "id": "bank", "text": "Bank for interest", "emoji": "📈", "description": "", "isCorrect": true },
+        { "id": "piggy", "text": "Piggy bank for fun", "emoji": "🐷", "description": "", "isCorrect": false },
+        { "id": "give", "text": "Give it away", "emoji": "🎁", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "You save ₹100 in a bank. It grows to ₹105. Why?",
+      "options": [
+        { "id": "magic", "text": "Piggy bank magic", "emoji": "🪄", "description": "", "isCorrect": false },
+        { "id": "added", "text": "You added more money", "emoji": "💸", "description": "", "isCorrect": false },
+        { "id": "interest", "text": "Bank pays interest", "emoji": "📊", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "Why is a bank often better than a piggy bank?",
+      "options": [
+        { "id": "safe", "text": "It is safe and can grow money", "emoji": "🔒", "description": "", "isCorrect": true },
+        { "id": "cool", "text": "It only looks cooler", "emoji": "🐷", "description": "", "isCorrect": false },
+        { "id": "carry", "text": "It is easier to carry", "emoji": "🎒", "description": "", "isCorrect": false }
+      ]
+    }
+  ]
+}

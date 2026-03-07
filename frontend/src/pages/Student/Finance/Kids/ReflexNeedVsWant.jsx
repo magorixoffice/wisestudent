@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getGameDataById } from "../../../../utils/getGameData";
@@ -9,9 +10,11 @@ const ROUND_TIME = 10;
 
 const ReflexNeedVsWant = () => {
   const location = useLocation();
+  const { t } = useTranslation("gamecontent");
   
   // Get game data from game category folder (source of truth)
   const gameId = "finance-kids-33";
+  const gameContent = t("financial-literacy.kids.reflex-need-vs-want", { returnObjects: true });
   const gameData = getGameDataById(gameId);
   
   // Get coinsPerLevel, totalCoins, and totalXp from game category data, fallback to location.state, then defaults
@@ -28,7 +31,7 @@ const ReflexNeedVsWant = () => {
   const timerRef = useRef(null);
   const currentRoundRef = useRef(0);
 
-  const questions = [
+  const questions = gameContent.questions || [
     {
       id: 1,
       question: "Which one is a need?",
@@ -209,8 +212,8 @@ const ReflexNeedVsWant = () => {
 
   return (
     <GameShell
-      title="Reflex Need vs Want"
-      subtitle={gameState === "playing" ? `Round ${currentRound}/${TOTAL_ROUNDS}: Test your knowledge about needs vs wants!` : "Test your knowledge about needs vs wants!"}
+      title={gameContent.title || "Reflex Need vs Want"}
+      subtitle={gameState === "playing" ? t("financial-literacy.kids.reflex-need-vs-want.subtitlePlaying", { current: currentRound, total: TOTAL_ROUNDS, defaultValue: "Round {{current}}/{{total}}: Test your knowledge about needs vs wants!" }) : (gameContent.subtitleReady || "Test your knowledge about needs vs wants!")}
       currentLevel={currentRound}
       totalLevels={TOTAL_ROUNDS}
       coinsPerLevel={coinsPerLevel}
@@ -229,19 +232,25 @@ const ReflexNeedVsWant = () => {
       <div className="text-center text-white space-y-8">
         {gameState === "ready" && (
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 text-center">
-            <div className="text-5xl mb-6">📋</div>
-            <h3 className="text-2xl font-bold text-white mb-4">Ready to Test Your Needs vs Wants Knowledge?</h3>
+            <div className="text-5xl mb-6">{gameContent.readyEmoji || "📋"}</div>
+            <h3 className="text-2xl font-bold text-white mb-4">
+              {gameContent.readyTitle || "Ready to Test Your Needs vs Wants Knowledge?"}
+            </h3>
             <p className="text-white/90 text-lg mb-6">
-              Answer questions about the difference between needs and wants.
+              {gameContent.readyDescription || "Answer questions about the difference between needs and wants."}
             </p>
             <p className="text-white/80 mb-6">
-              You have {TOTAL_ROUNDS} questions with {ROUND_TIME} seconds each!
+              {t("financial-literacy.kids.reflex-need-vs-want.readyInfo", {
+                total: TOTAL_ROUNDS,
+                seconds: ROUND_TIME,
+                defaultValue: "You have {{total}} questions with {{seconds}} seconds each!",
+              })}
             </p>
             <button
               onClick={startGame}
               className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white py-4 px-8 rounded-full text-xl font-bold shadow-lg transition-all transform hover:scale-105"
             >
-              Start Game
+              {gameContent.startButton || "Start Game"}
             </button>
           </div>
         )}
@@ -250,13 +259,13 @@ const ReflexNeedVsWant = () => {
           <div className="space-y-8">
             <div className="flex justify-between items-center bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
               <div className="text-white">
-                <span className="font-bold">Round:</span> {currentRound}/{TOTAL_ROUNDS}
+                <span className="font-bold">{gameContent.roundLabel || "Round:"}</span> {currentRound}/{TOTAL_ROUNDS}
               </div>
               <div className={`font-bold ${timeLeft <= 2 ? 'text-red-500' : timeLeft <= 3 ? 'text-yellow-500' : 'text-green-400'}`}>
-                <span className="text-white">Time:</span> {timeLeft}s
+                <span className="text-white">{gameContent.timeLabel || "Time:"}</span> {timeLeft}s
               </div>
               <div className="text-white">
-                <span className="font-bold">Score:</span> {score}
+                <span className="font-bold">{gameContent.scoreLabel || "Score:"}</span> {score}
               </div>
             </div>
 
@@ -285,35 +294,45 @@ const ReflexNeedVsWant = () => {
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 text-center">
             {finalScore >= 3 ? (
               <div>
-                <div className="text-5xl mb-4">🎉</div>
-                <h3 className="text-2xl font-bold text-white mb-4">Great Job!</h3>
+                <div className="text-5xl mb-4">{gameContent.resultGreatEmoji || "🎉"}</div>
+                <h3 className="text-2xl font-bold text-white mb-4">
+                  {gameContent.resultGreatTitle || "Great Job!"}
+                </h3>
                 <p className="text-white/90 text-lg mb-4">
-                  You got {finalScore} out of {TOTAL_ROUNDS} questions correct!
-                  You understand the difference between needs and wants!
+                  {t("financial-literacy.kids.reflex-need-vs-want.resultGreatDescription", {
+                    score: finalScore,
+                    total: TOTAL_ROUNDS,
+                    defaultValue: "You got {{score}} out of {{total}} questions correct!",
+                  })}
                 </p>
                 <div className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white py-3 px-6 rounded-full inline-flex items-center gap-2 mb-4">
                   <span>+{finalScore} Coins</span>
                 </div>
                 <p className="text-white/80">
-                  Lesson: Needs are essential for survival and learning, while wants are things we'd like to have but don't need!
+                  {gameContent.resultGreatLesson || "Lesson: Needs are essential for survival and learning, while wants are things we'd like to have but don't need!"}
                 </p>
               </div>
             ) : (
               <div>
-                <div className="text-5xl mb-4">😔</div>
-                <h3 className="text-2xl font-bold text-white mb-4">Keep Learning!</h3>
+                <div className="text-5xl mb-4">{gameContent.resultKeepEmoji || "😔"}</div>
+                <h3 className="text-2xl font-bold text-white mb-4">
+                  {gameContent.resultKeepTitle || "Keep Learning!"}
+                </h3>
                 <p className="text-white/90 text-lg mb-4">
-                  You got {finalScore} out of {TOTAL_ROUNDS} questions correct.
-                  Remember, needs are essential items like food, clothes, and school supplies!
+                  {t("financial-literacy.kids.reflex-need-vs-want.resultKeepDescription", {
+                    score: finalScore,
+                    total: TOTAL_ROUNDS,
+                    defaultValue: "You got {{score}} out of {{total}} questions correct.",
+                  })}
                 </p>
                 <button
                   onClick={startGame}
                   className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white py-3 px-6 rounded-full font-bold transition-all mb-4"
                 >
-                  Try Again
+                  {gameContent.tryAgainButton || "Try Again"}
                 </button>
                 <p className="text-white/80 text-sm">
-                  Tip: Needs are things you must have to survive and learn, like food, clothes, and school supplies.
+                  {gameContent.resultKeepTip || "Tip: Needs are things you must have to survive and learn, like food, clothes, and school supplies."}
                 </p>
               </div>
             )}

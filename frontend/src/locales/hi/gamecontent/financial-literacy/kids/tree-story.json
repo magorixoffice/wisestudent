@@ -1,0 +1,55 @@
+{
+  "title": "पेड़ की कहानी",
+  "subtitleComplete": "कहानी पूरी हुई!",
+  "subtitleProgress": "प्रश्न {{current}} / {{total}}",
+  "questionCounter": "प्रश्न {{current}}/{{total}}",
+  "scoreLabel": "स्कोर: {{score}}/{{total}}",
+  "stageEmoji": "🌳",
+  "questions": [
+    {
+      "id": 1,
+      "text": "आज आपने छोटा पेड़ लगाया। समय के साथ उसे मजबूत क्या बनाएगा?",
+      "options": [
+        { "id": "care", "text": "नियमित पानी और देखभाल", "emoji": "💧", "description": "", "isCorrect": true },
+        { "id": "rush", "text": "जल्दी बड़ा करने के लिए खींचना", "emoji": "⚡", "description": "", "isCorrect": false },
+        { "id": "ignore", "text": "छोड़ देना और भूल जाना", "emoji": "😴", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "पैसा भी पेड़ जैसा है। उसे सुरक्षित तरीके से धीरे-धीरे क्या बढ़ाता है?",
+      "options": [
+        { "id": "spend", "text": "सब कुछ तुरंत खर्च करना", "emoji": "💸", "description": "", "isCorrect": false },
+        { "id": "hide", "text": "छिपाकर कभी उपयोग न करना", "emoji": "🙈", "description": "", "isCorrect": false },
+        { "id": "plan", "text": "समझदारी से उपयोग और बचत", "emoji": "📊", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "आपको अतिरिक्त पॉकेट मनी मिली। पेड़ जैसी समझदारी क्या है?",
+      "options": [
+        { "id": "waste", "text": "बिना सोचे खर्च करना", "emoji": "🔥", "description": "", "isCorrect": false },
+        { "id": "grow", "text": "कुछ बचाना ताकि बाद में बढ़े", "emoji": "🌱", "description": "", "isCorrect": true },
+        { "id": "lose", "text": "लापरवाही से रखना", "emoji": "📉", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "फल वाला पेड़ हर साल फल देता है। पैसे के बारे में इससे क्या सीख मिलती है?",
+      "options": [
+        { "id": "fast", "text": "पैसा केवल एक बार उपयोग होना चाहिए", "emoji": "⚡", "description": "", "isCorrect": false },
+        { "id": "luck", "text": "केवल किस्मत मायने रखती है", "emoji": "🍀", "description": "", "isCorrect": false },
+        { "id": "return", "text": "अच्छे निर्णय बार-बार लाभ देते हैं", "emoji": "🍎", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "अगर पेड़ को बहुत जल्दी काट दें तो क्या होगा?",
+      "options": [
+        { "id": "loss", "text": "भविष्य का लाभ छूट जाएगा", "emoji": "📉", "description": "", "isCorrect": true },
+        { "id": "gain", "text": "हमेशा अधिक फायदा होगा", "emoji": "💰", "description": "", "isCorrect": false },
+        { "id": "nothing", "text": "कुछ नहीं बदलेगा", "emoji": "😐", "description": "", "isCorrect": false }
+      ]
+    }
+  ]
+}

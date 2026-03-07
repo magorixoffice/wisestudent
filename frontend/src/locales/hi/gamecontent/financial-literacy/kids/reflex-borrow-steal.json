@@ -1,0 +1,70 @@
+{
+  "title": "रिफ्लेक्स: उधार या चोरी",
+  "subtitlePlaying": "राउंड {{current}}/{{total}}: उधार की समझ जाँचें!",
+  "subtitleReady": "उधार की समझ जाँचें!",
+  "readyEmoji": "🤝",
+  "readyTitle": "तैयार हो जाएँ!",
+  "readyDescription": "उधार से जुड़े सही जवाब चुनें।",
+  "readyInfo": "आपके पास {{total}} प्रश्न हैं, हर प्रश्न के लिए {{seconds}} सेकंड!",
+  "startButton": "गेम शुरू करें",
+  "roundLabel": "राउंड:",
+  "timeLabel": "समय:",
+  "scoreLabel": "स्कोर:",
+  "questions": [
+    {
+      "id": 1,
+      "question": "उधार ली चीज़ के साथ क्या करना चाहिए?",
+      "correctAnswer": "वापस करना",
+      "options": [
+        { "text": "वापस करना", "isCorrect": true, "emoji": "↩️" },
+        { "text": "हमेशा अपने पास रखना", "isCorrect": false, "emoji": "🚫" },
+        { "text": "छुपा देना", "isCorrect": false, "emoji": "🙈" },
+        { "text": "भूल जाना", "isCorrect": false, "emoji": "😴" }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "लोन के साथ सही काम क्या है?",
+      "correctAnswer": "पैसा चुकाना",
+      "options": [
+        { "text": "भुगतान से बचना", "isCorrect": false, "emoji": "🚫" },
+        { "text": "पैसा चुकाना", "isCorrect": true, "emoji": "💰" },
+        { "text": "नज़रअंदाज़ करना", "isCorrect": false, "emoji": "🙈" },
+        { "text": "भूल जाना", "isCorrect": false, "emoji": "😴" }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "कुछ उधार लेने पर क्या करना चाहिए?",
+      "correctAnswer": "वापस देना",
+      "options": [
+        { "text": "छुपा देना", "isCorrect": false, "emoji": "🙈" },
+        { "text": "अपने पास रखना", "isCorrect": false, "emoji": "🚫" },
+        { "text": "वापस देना", "isCorrect": true, "emoji": "↩️" },
+        { "text": "गुम कर देना", "isCorrect": false, "emoji": "❌" }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "उधार संभालने का ईमानदार तरीका क्या है?",
+      "correctAnswer": "ईमानदार रहना",
+      "options": [
+        { "text": "धोखा देना", "isCorrect": false, "emoji": "🚫" },
+        { "text": "ईमानदार रहना", "isCorrect": true, "emoji": "✅" },
+        { "text": "झूठ बोलना", "isCorrect": false, "emoji": "🤥" },
+        { "text": "दिखावा करना", "isCorrect": false, "emoji": "🎭" }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "उधार ली चीज़ कब लौटानी चाहिए?",
+      "correctAnswer": "समय पर",
+      "options": [
+        { "text": "देरी से", "isCorrect": false, "emoji": "⏰" },
+        { "text": "कभी नहीं", "isCorrect": false, "emoji": "🚫" },
+        { "text": "बाद में कभी", "isCorrect": false, "emoji": "🤷" },
+        { "text": "समय पर", "isCorrect": true, "emoji": "⏱️" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "title": "Quiz on Growth",
+  "subtitleComplete": "Quiz Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}",
+  "questionCounter": "Question {{current}}/{{total}}",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "stageEmoji": "📈",
+  "questions": [
+    {
+      "id": 1,
+      "text": "What helps money grow?",
+      "options": [
+        { "id": "spend", "text": "Spending all of it", "emoji": "💸", "description": "", "isCorrect": false },
+        { "id": "waste", "text": "Wasting it", "emoji": "🗑️", "description": "", "isCorrect": false },
+        { "id": "savings", "text": "Savings + interest", "emoji": "📈", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "How does a bank help money grow?",
+      "options": [
+        { "id": "toys", "text": "By giving toys", "emoji": "🧸", "description": "", "isCorrect": false },
+        { "id": "interest", "text": "By paying interest", "emoji": "💰", "description": "", "isCorrect": true },
+        { "id": "hide", "text": "By hiding your money", "emoji": "🫥", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "What is a safe way to grow money?",
+      "options": [
+        { "id": "candy", "text": "Buying candy", "emoji": "🍬", "description": "", "isCorrect": false },
+        { "id": "home", "text": "Keeping cash at home", "emoji": "🏠", "description": "", "isCorrect": false },
+        { "id": "bank", "text": "Using a bank savings account", "emoji": "🏦", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "What does investing do?",
+      "options": [
+        { "id": "grows", "text": "Grows your money", "emoji": "📊", "description": "", "isCorrect": true },
+        { "id": "spends", "text": "Spends your money", "emoji": "💸", "description": "", "isCorrect": false },
+        { "id": "loses", "text": "Always loses your money", "emoji": "📉", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "Why save money in a bank?",
+      "options": [
+        { "id": "toys", "text": "To buy toys immediately", "emoji": "🧸", "description": "", "isCorrect": false },
+        { "id": "interest", "text": "It can grow with interest", "emoji": "💹", "description": "", "isCorrect": true },
+        { "id": "fun", "text": "Only because it is fun", "emoji": "😊", "description": "", "isCorrect": false }
+      ]
+    }
+  ]
+}

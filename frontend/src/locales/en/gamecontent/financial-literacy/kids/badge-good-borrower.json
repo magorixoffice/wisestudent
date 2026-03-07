@@ -1,0 +1,96 @@
+{
+  "title": "Badge: Good Borrower",
+  "subtitleComplete": "Badge Earned!",
+  "subtitleProgress": "Challenge {{current}} of {{total}}",
+  "resultGreatEmoji": "🏆",
+  "resultGreatTitle": "Good Borrower Badge Earned!",
+  "resultGreatDescription": "You made {{score}} responsible borrowing decisions out of {{total}} challenges!",
+  "achievementTitle": "🎉 Achievement Unlocked!",
+  "achievementBadge": "Badge: Good Borrower",
+  "skillsTitle": "Borrowing Skills",
+  "skillsDescription": "You learned to return items on time, replace damaged items, and handle borrowed things with care!",
+  "wisdomTitle": "Trust Building",
+  "wisdomDescription": "These habits help you build trust and maintain good relationships!",
+  "resultKeepEmoji": "💪",
+  "resultKeepTitle": "Keep Learning!",
+  "resultKeepDescription": "You made {{score}} responsible borrowing decisions out of {{total}} challenges.",
+  "resultKeepTip": "Remember: return items on time, keep them safe, and treat borrowed things with care.",
+  "tryAgainButton": "Try Again",
+  "challenges": [
+    {
+      "id": 1,
+      "title": "Book Responsibility",
+      "question": "Your friend lent you a storybook last week. What should you do?",
+      "options": [
+        { "text": "Keep it forever", "emoji": "🔒", "isCorrect": false },
+        { "text": "Give it to someone else", "emoji": "🤝", "isCorrect": false },
+        { "text": "Return it clean and on time", "emoji": "📚", "isCorrect": true },
+        { "text": "Lend it to another friend", "emoji": "👥", "isCorrect": false }
+      ],
+      "feedback": {
+        "correct": "Excellent! Returning borrowed items on time builds trust!",
+        "wrong": "Always return what you borrow to show respect and responsibility."
+      }
+    },
+    {
+      "id": 2,
+      "title": "Pencil Care",
+      "question": "You borrowed a pencil from your classmate. It broke while using. What now?",
+      "options": [
+        { "text": "Replace it with a new pencil", "emoji": "✏️", "isCorrect": true },
+        { "text": "Return the broken pencil only", "emoji": "❌", "isCorrect": false },
+        { "text": "Do not return anything", "emoji": "🙈", "isCorrect": false },
+        { "text": "Blame someone else", "emoji": "🙅", "isCorrect": false }
+      ],
+      "feedback": {
+        "correct": "Perfect! Good borrowers replace damaged items.",
+        "wrong": "If you damage something borrowed, replace it."
+      }
+    },
+    {
+      "id": 3,
+      "title": "Phone Return",
+      "question": "Your cousin let you use their phone. How should you return it?",
+      "options": [
+        { "text": "Return with low battery", "emoji": "🔋", "isCorrect": false },
+        { "text": "Delete all their apps first", "emoji": "🗑️", "isCorrect": false },
+        { "text": "Add your own apps", "emoji": "📱", "isCorrect": false },
+        { "text": "Clean it and return with thanks", "emoji": "✨", "isCorrect": true }
+      ],
+      "feedback": {
+        "correct": "Amazing! Returning items in good condition shows trustworthiness.",
+        "wrong": "Return borrowed items in the same or better condition."
+      }
+    },
+    {
+      "id": 4,
+      "title": "Umbrella Etiquette",
+      "question": "Your neighbor lent you an umbrella. When should you return it?",
+      "options": [
+        { "text": "Wait until next rain", "emoji": "🌧️", "isCorrect": false },
+        { "text": "As soon as possible, dried and clean", "emoji": "✅", "isCorrect": true },
+        { "text": "Keep it for emergencies", "emoji": "🔒", "isCorrect": false },
+        { "text": "Return it whenever you remember", "emoji": "🧠", "isCorrect": false }
+      ],
+      "feedback": {
+        "correct": "Great! Prompt returns show appreciation.",
+        "wrong": "Return borrowed items quickly so others can use them."
+      }
+    },
+    {
+      "id": 5,
+      "title": "Toy Handling",
+      "question": "Your sibling lent you their favorite toy. How do you handle it?",
+      "options": [
+        { "text": "Take extra care and return it safely", "emoji": "🧸", "isCorrect": true },
+        { "text": "Play rough - it is just a toy", "emoji": "💥", "isCorrect": false },
+        { "text": "Trade it with friends", "emoji": "🤝", "isCorrect": false },
+        { "text": "Keep it longer than agreed", "emoji": "⏰", "isCorrect": false }
+      ],
+      "feedback": {
+        "correct": "Wonderful! Careful handling makes you a trusted borrower.",
+        "wrong": "Treat borrowed items even better than your own."
+      }
+    }
+  ]
+}

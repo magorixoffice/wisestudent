@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getGameDataById } from "../../../../utils/getGameData";
 
 const NeedsFirstKidBadge = () => {
   const location = useLocation();
+  const { t } = useTranslation("gamecontent");
   
   // Get game data from game category folder (source of truth)
   const gameId = "finance-kids-40";
+  const gameContent = t("financial-literacy.kids.needs-first-kid-badge", { returnObjects: true });
   const gameData = getGameDataById(gameId);
   
   // Get coinsPerLevel, totalCoins, and totalXp from game category data, fallback to location.state, then defaults
@@ -22,7 +25,7 @@ const NeedsFirstKidBadge = () => {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
-  const challenges = [
+  const challenges = gameContent.challenges || [
     {
       id: 1,
       title: "Smart Shopping",
@@ -221,8 +224,8 @@ const NeedsFirstKidBadge = () => {
 
   return (
     <GameShell
-      title="Badge: Needs First Kid"
-      subtitle={showResult ? "Badge Earned!" : `Challenge ${challenge + 1} of ${challenges.length}`}
+      title={gameContent.title || gameContent.achievementBadge || "Badge: Needs First Kid"}
+      subtitle={showResult ? (gameContent.subtitleComplete || "Badge Earned!") : t("financial-literacy.kids.needs-first-kid-badge.subtitleProgress", { current: challenge + 1, total: challenges.length, defaultValue: "Challenge {{current}} of {{total}}" })}
       showGameOver={showResult}
       score={finalScore}
       gameId={gameId}
@@ -288,28 +291,27 @@ const NeedsFirstKidBadge = () => {
             {finalScore >= 4 ? (
               <div>
                 <div className="text-6xl mb-4">🏆</div>
-                <h3 className="text-3xl font-bold text-white mb-4">Needs First Kid Badge Earned!</h3>
+                <h3 className="text-3xl font-bold text-white mb-4">{gameContent.resultGreatTitle || "Needs First Kid Badge Earned!"}</h3>
                 <p className="text-white/90 text-lg mb-6">
-                  You made {finalScore} smart need prioritization decisions out of {challenges.length} challenges!
+                  {t("financial-literacy.kids.needs-first-kid-badge.resultGreatDescription", { score: finalScore, total: challenges.length, defaultValue: "You made {{score}} smart need prioritization decisions out of {{total}} challenges!" })}
                 </p>
                 
                 <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-6 rounded-2xl mb-6">
-                  <h4 className="text-2xl font-bold mb-2">🎉 Achievement Unlocked!</h4>
-                  <p className="text-xl">Badge: Needs First Kid</p>
+                  <h4 className="text-2xl font-bold mb-2">{gameContent.achievementTitle || "Achievement Unlocked!"}</h4>
+                  <p className="text-xl">{gameContent.achievementBadge || "Badge: Needs First Kid"}</p>
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                   <div className="bg-green-500/20 p-4 rounded-xl">
-                    <h4 className="font-bold text-green-300 mb-2">Smart Choices</h4>
+                    <h4 className="font-bold text-green-300 mb-2">{gameContent.skillsTitle || "Smart Choices"}</h4>
                     <p className="text-white/90 text-sm">
-                      You learned to prioritize needs like school supplies, shoes, and essentials 
-                      over wants like games and toys!
+                      {gameContent.skillsDescription || "You learned to prioritize needs like school supplies, shoes, and essentials over wants like games and toys!"}
                     </p>
                   </div>
                   <div className="bg-blue-500/20 p-4 rounded-xl">
-                    <h4 className="font-bold text-blue-300 mb-2">Financial Wisdom</h4>
+                    <h4 className="font-bold text-blue-300 mb-2">{gameContent.wisdomTitle || "Financial Wisdom"}</h4>
                     <p className="text-white/90 text-sm">
-                      These habits will help you make better financial decisions and reach your goals!
+                      {gameContent.wisdomDescription || "These habits will help you make better financial decisions and reach your goals!"}
                     </p>
                   </div>
                 </div>
@@ -317,20 +319,17 @@ const NeedsFirstKidBadge = () => {
             ) : (
               <div>
                 <div className="text-5xl mb-4">💪</div>
-                <h3 className="text-2xl font-bold text-white mb-4">Keep Learning!</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">{gameContent.resultKeepTitle || "Keep Learning!"}</h3>
                 <p className="text-white/90 text-lg mb-4">
-                  You made {finalScore} smart need prioritization decisions out of {challenges.length} challenges.
+                  {t("financial-literacy.kids.needs-first-kid-badge.resultKeepDescription", { score: finalScore, total: challenges.length, defaultValue: "You made {{score}} smart need prioritization decisions out of {{total}} challenges." })}
                 </p>
                 <p className="text-white/90 mb-6">
-                  Remember, needs come before wants when making financial decisions. 
-                  This helps you build good financial habits!
+                  {gameContent.resultKeepTip || "Remember, needs come before wants when making financial decisions. This helps you build good financial habits!"}
                 </p>
                 <button
                   onClick={handleTryAgain}
                   className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white py-3 px-6 rounded-full font-bold transition-all mb-4"
-                >
-                  Try Again
-                </button>
+                >{gameContent.tryAgainButton || "Try Again"}</button>
               </div>
             )}
           </div>

@@ -1,0 +1,70 @@
+{
+  "title": "रिफ्लेक्स बैंक की बुनियाद",
+  "subtitlePlaying": "राउंड {{current}}/{{total}}: बैंकिंग ज्ञान की जाँच करें!",
+  "subtitleReady": "बैंकिंग ज्ञान की जाँच करें!",
+  "readyEmoji": "🏦",
+  "readyTitle": "क्या आप बैंकिंग रिफ्लेक्स गेम के लिए तैयार हैं?",
+  "readyDescription": "बैंक से जुड़े सही विकल्प जल्दी चुनें।",
+  "readyInfo": "आपके पास {{total}} सवाल हैं, हर सवाल के लिए {{seconds}} सेकंड!",
+  "startButton": "गेम शुरू करें",
+  "roundLabel": "राउंड:",
+  "timeLabel": "समय:",
+  "scoreLabel": "स्कोर:",
+  "questions": [
+    {
+      "id": 1,
+      "question": "बैंक में पैसे जमा करने के लिए क्या करना चाहिए?",
+      "correctAnswer": "जमा करना",
+      "options": [
+        { "text": "जमा करना", "isCorrect": true, "emoji": "💰" },
+        { "text": "चोरी करना", "isCorrect": false, "emoji": "🚫" },
+        { "text": "खो देना", "isCorrect": false, "emoji": "❌" },
+        { "text": "अनदेखा करना", "isCorrect": false, "emoji": "🙈" }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "पैसा सुरक्षित रखने का समझदारी भरा तरीका क्या है?",
+      "correctAnswer": "बचत करना",
+      "options": [
+        { "text": "खर्च करना", "isCorrect": false, "emoji": "💸" },
+        { "text": "बचत करना", "isCorrect": true, "emoji": "💵" },
+        { "text": "बरबाद करना", "isCorrect": false, "emoji": "🗑️" },
+        { "text": "भूल जाना", "isCorrect": false, "emoji": "😴" }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "बैंक खाते से पैसे निकालने को क्या कहते हैं?",
+      "correctAnswer": "निकासी",
+      "options": [
+        { "text": "खो देना", "isCorrect": false, "emoji": "❌" },
+        { "text": "चोरी करना", "isCorrect": false, "emoji": "🚫" },
+        { "text": "अनदेखा करना", "isCorrect": false, "emoji": "🙈" },
+        { "text": "निकासी", "isCorrect": true, "emoji": "🏦" }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "बैंक में बचत शुरू करने के लिए क्या करना चाहिए?",
+      "correctAnswer": "खाता खोलना",
+      "options": [
+        { "text": "अनदेखा करना", "isCorrect": false, "emoji": "🙈" },
+        { "text": "सब खर्च करना", "isCorrect": false, "emoji": "💸" },
+        { "text": "खाता खोलना", "isCorrect": true, "emoji": "📝" },
+        { "text": "भूल जाना", "isCorrect": false, "emoji": "😴" }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "यह जानने के लिए कि आपके पास कितना पैसा है, क्या करें?",
+      "correctAnswer": "बैलेंस जाँचें",
+      "options": [
+        { "text": "बैलेंस जाँचें", "isCorrect": true, "emoji": "📊" },
+        { "text": "भूल जाएँ", "isCorrect": false, "emoji": "😴" },
+        { "text": "सब खर्च करें", "isCorrect": false, "emoji": "💸" },
+        { "text": "अनदेखा करें", "isCorrect": false, "emoji": "🙈" }
+      ]
+    }
+  ]
+}

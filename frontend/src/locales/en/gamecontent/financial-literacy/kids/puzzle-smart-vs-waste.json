@@ -1,0 +1,35 @@
+{
+  "title": "Puzzle: Smart vs Waste",
+  "subtitleComplete": "Puzzle Complete!",
+  "subtitleProgress": "Match Items with Categories ({{matched}}/{{total}} matched)",
+  "itemsTitle": "Spending Items",
+  "categoriesTitle": "Categories",
+  "selectedLabel": "Selected: {{name}}",
+  "selectItem": "Select an Item",
+  "matchButton": "Match",
+  "scoreLabel": "Score:",
+  "matchedLabel": "Matched:",
+  "resultGreatEmoji": "🎉",
+  "resultGreatTitle": "Great Job!",
+  "resultGreatDescription": "You correctly matched {{score}} out of {{total}} items with their categories!",
+  "coinsLabel": "Coins",
+  "resultLesson": "Lesson: Understanding the difference between needs and wants helps make smart financial decisions!",
+  "resultKeepEmoji": "💪",
+  "resultKeepTitle": "Keep Practicing!",
+  "resultKeepDescription": "You matched {{score}} out of {{total}} items correctly.",
+  "resultTip": "Tip: Think about whether each item is essential or just nice to have!",
+  "items": [
+    { "id": 1, "name": "Library Books", "emoji": "📖" },
+    { "id": 2, "name": "Reusable Water Bottle", "emoji": "🥤" },
+    { "id": 3, "name": "Candy Pack", "emoji": "🍬" },
+    { "id": 4, "name": "Bandages & First Aid", "emoji": "🩹" },
+    { "id": 5, "name": "Fruit Basket", "emoji": "🍇" }
+  ],
+  "categories": [
+    { "id": 6, "name": "Smart Buy", "emoji": "💡", "description": "Wise spending choice" },
+    { "id": 7, "name": "Wasteful Purchase", "emoji": "🗑️", "description": "Not needed or frivolous" },
+    { "id": 8, "name": "Save Money", "emoji": "💰", "description": "Good for future" },
+    { "id": 9, "name": "Health Priority", "emoji": "❤️", "description": "Must-have for wellbeing" },
+    { "id": 10, "name": "Nutritious Choice", "emoji": "🍏", "description": "Healthy and beneficial" }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "title": "Puzzle: Borrow Match",
+  "subtitleComplete": "Puzzle Complete!",
+  "subtitleProgress": "Match Items with Actions ({{matched}}/{{total}} matched)",
+  "itemsTitle": "Borrowed Items",
+  "categoriesTitle": "Actions",
+  "selectedLabel": "Selected: {{name}}",
+  "selectItem": "Select an Item",
+  "matchButton": "Match",
+  "scoreLabel": "Score:",
+  "matchedLabel": "Matched:",
+  "resultGreatEmoji": "🎉",
+  "resultGreatTitle": "Great Job!",
+  "resultGreatDescription": "You correctly matched {{score}} out of {{total}} items with actions!",
+  "coinsLabel": "Coins",
+  "resultLesson": "Lesson: Borrowed things should be returned or handled responsibly.",
+  "resultKeepEmoji": "💪",
+  "resultKeepTitle": "Keep Practicing!",
+  "resultKeepDescription": "You matched {{score}} out of {{total}} items correctly.",
+  "resultTip": "Tip: Think about what responsible borrowing looks like in daily life.",
+  "items": [
+    { "id": 1, "name": "Notebook", "emoji": "📓" },
+    { "id": 2, "name": "Board Game", "emoji": "🎲" },
+    { "id": 3, "name": "Eraser", "emoji": "🩹" },
+    { "id": 4, "name": "Pocket Money", "emoji": "💰" },
+    { "id": 5, "name": "Lunchbox", "emoji": "🥪" }
+  ],
+  "categories": [
+    { "id": 6, "name": "Give Back", "emoji": "↩️", "description": "Return borrowed items" },
+    { "id": 7, "name": "Share with Friend", "emoji": "🤝", "description": "Share fairly while using" },
+    { "id": 8, "name": "Repay Money", "emoji": "💳", "description": "Return borrowed money" },
+    { "id": 9, "name": "Say Thank You", "emoji": "🙏", "description": "Show gratitude to lender" },
+    { "id": 10, "name": "Lend Carefully", "emoji": "🛡️", "description": "Handle with care and rules" }
+  ]
+}

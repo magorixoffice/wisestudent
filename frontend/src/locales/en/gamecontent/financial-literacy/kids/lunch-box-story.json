@@ -1,0 +1,55 @@
+{
+  "title": "Lunch Box Story",
+  "subtitleComplete": "Story Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}",
+  "questionCounter": "Question {{current}}/{{total}}",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "stageEmoji": "🍽️",
+  "questions": [
+    {
+      "id": 1,
+      "text": "You borrow a friend's lunch. What should you do next day?",
+      "options": [
+        { "id": "yes", "text": "Share or return", "emoji": "✅", "description": "", "isCorrect": true },
+        { "id": "no", "text": "Keep it for yourself", "emoji": "😐", "description": "", "isCorrect": false },
+        { "id": "forget", "text": "Forget about it", "emoji": "🙈", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "Your friend shares lunch. How should you respond?",
+      "options": [
+        { "id": "nothing", "text": "Say nothing", "emoji": "😶", "description": "", "isCorrect": false },
+        { "id": "share", "text": "Share something back", "emoji": "🤝", "description": "", "isCorrect": true },
+        { "id": "more", "text": "Take even more lunch", "emoji": "🍴", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "You have ₹10 for lunch. Friend needs ₹5. What is best?",
+      "options": [
+        { "id": "share", "text": "Share ₹5 with friend", "emoji": "💸", "description": "", "isCorrect": true },
+        { "id": "all", "text": "Spend all on yourself", "emoji": "🍔", "description": "", "isCorrect": false },
+        { "id": "hide", "text": "Hide your money", "emoji": "💰", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "You borrow lunch money. When should you repay?",
+      "options": [
+        { "id": "never", "text": "Never repay", "emoji": "😞", "description": "", "isCorrect": false },
+        { "id": "snacks", "text": "Spend it on snacks", "emoji": "🍟", "description": "", "isCorrect": false },
+        { "id": "next", "text": "Next day as promised", "emoji": "✅", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "Why is sharing lunch important?",
+      "options": [
+        { "id": "trust", "text": "It builds trust and kindness", "emoji": "😊", "description": "", "isCorrect": true },
+        { "id": "food", "text": "You get more food", "emoji": "🍽️", "description": "", "isCorrect": false },
+        { "id": "popular", "text": "It makes you popular", "emoji": "👥", "description": "", "isCorrect": false }
+      ]
+    }
+  ]
+}

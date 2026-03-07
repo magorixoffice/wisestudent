@@ -1,0 +1,70 @@
+{
+  "title": "रिफ्लेक्स वृद्धि जाँच",
+  "subtitlePlaying": "प्रश्न {{current}} / {{total}}: वृद्धि रिफ्लेक्स जाँचें!",
+  "subtitleReady": "वृद्धि रिफ्लेक्स जाँचें!",
+  "readyEmoji": "📈",
+  "readyTitle": "वृद्धि ज्ञान जाँचने के लिए तैयार?",
+  "readyDescription": "हर प्रश्न का सही वृद्धि परिणाम चुनें।",
+  "readyInfo": "आपके पास {{total}} प्रश्न हैं, हर प्रश्न के लिए {{seconds}} सेकंड!",
+  "startButton": "गेम शुरू करें",
+  "roundLabel": "प्रश्न:",
+  "timeLabel": "समय:",
+  "scoreLabel": "स्कोर:",
+  "questions": [
+    {
+      "id": 1,
+      "question": "जब पैसे पर ब्याज मिलता है तो क्या होता है?",
+      "correctAnswer": "ब्याज मिलता है",
+      "options": [
+        { "text": "पैसा घटता है", "isCorrect": false, "emoji": "💸" },
+        { "text": "ब्याज मिलता है", "isCorrect": true, "emoji": "💰" },
+        { "text": "कोई बदलाव नहीं", "isCorrect": false, "emoji": "😐" },
+        { "text": "पैसा चोरी हो जाता है", "isCorrect": false, "emoji": "😈" }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "समय के साथ बचत करने पर क्या होता है?",
+      "correctAnswer": "बचत बढ़ती है",
+      "options": [
+        { "text": "बचत बढ़ती है", "isCorrect": true, "emoji": "📈" },
+        { "text": "पैसा खर्च हो जाता है", "isCorrect": false, "emoji": "💸" },
+        { "text": "पैसा गायब हो जाता है", "isCorrect": false, "emoji": "👻" },
+        { "text": "कुछ नहीं होता", "isCorrect": false, "emoji": "😴" }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "निवेश सफल होने पर क्या होता है?",
+      "correctAnswer": "लाभ होता है",
+      "options": [
+        { "text": "नुकसान होता है", "isCorrect": false, "emoji": "📉" },
+        { "text": "पैसा फ्रीज़ हो जाता है", "isCorrect": false, "emoji": "🧊" },
+        { "text": "निवेश गायब हो जाता है", "isCorrect": false, "emoji": "💔" },
+        { "text": "लाभ होता है", "isCorrect": true, "emoji": "💵" }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "निवेश का मूल्य बढ़ने पर क्या होता है?",
+      "correctAnswer": "निवेश ऊपर जाता है",
+      "options": [
+        { "text": "निवेश ऊपर जाता है", "isCorrect": true, "emoji": "🚀" },
+        { "text": "पैसा नीचे जाता है", "isCorrect": false, "emoji": "📉" },
+        { "text": "निवेश अटक जाता है", "isCorrect": false, "emoji": "🔒" },
+        { "text": "मूल्य शून्य", "isCorrect": false, "emoji": "0️⃣" }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "लंबे समय तक समझदारी से निवेश करने पर क्या होता है?",
+      "correctAnswer": "धन बढ़ता है",
+      "options": [
+        { "text": "फंड घटते हैं", "isCorrect": false, "emoji": "💸" },
+        { "text": "धन समान रहता है", "isCorrect": false, "emoji": "➡️" },
+        { "text": "धन बढ़ता है", "isCorrect": true, "emoji": "🌳" },
+        { "text": "धन गायब हो जाता है", "isCorrect": false, "emoji": "👻" }
+      ]
+    }
+  ]
+}

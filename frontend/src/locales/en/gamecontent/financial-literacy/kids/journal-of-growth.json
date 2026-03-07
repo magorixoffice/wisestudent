@@ -1,0 +1,19 @@
+{
+  "title": "Journal of Growth",
+  "subtitleComplete": "Journal Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}: Reflect on growing your money!",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "stageEmoji": "📝",
+  "minLengthLabel": "Write at least {{count}} characters",
+  "placeholder": "Write your journal entry here...",
+  "characterCount": "{{count}}/{{required}} characters",
+  "submitContinueButton": "Submit & Continue",
+  "submitFinalButton": "Submit Final Entry",
+  "stages": [
+    { "question": "Write: \"If I invest ₹100, I want it to grow into ___.\"", "minLength": 10 },
+    { "question": "Write: \"Investing money makes me feel ___.\"", "minLength": 10 },
+    { "question": "Write: \"One thing I learned about investing is ___.\"", "minLength": 10 },
+    { "question": "Write: \"I would invest ₹100 to help ___.\"", "minLength": 10 },
+    { "question": "Write: \"Growing money taught me ___ about patience.\"", "minLength": 10 }
+  ]
+}

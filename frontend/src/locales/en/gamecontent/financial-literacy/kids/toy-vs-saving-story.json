@@ -1,0 +1,55 @@
+{
+  "title": "Toy vs Saving Story",
+  "subtitleComplete": "Story Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}",
+  "questionCounter": "Question {{current}}/{{total}}",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "stageEmoji": "🧸",
+  "questions": [
+    {
+      "id": 1,
+      "text": "Your favorite toy breaks after one week. What does this teach you?",
+      "options": [
+        { "id": "buy", "text": "Buy more toys quickly", "emoji": "🛍️", "description": "", "isCorrect": false },
+        { "id": "ignore", "text": "Money choices do not matter", "emoji": "🙈", "description": "", "isCorrect": false },
+        { "id": "value", "text": "Think before spending money", "emoji": "🧠", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "You save coins every week and see the amount grow. What do you learn?",
+      "options": [
+        { "id": "patience", "text": "Saving needs patience", "emoji": "⏳", "description": "", "isCorrect": true },
+        { "id": "boring", "text": "Saving is boring", "emoji": "😐", "description": "", "isCorrect": false },
+        { "id": "waste", "text": "Coins are useless", "emoji": "🪙", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "You want something expensive later. What is the best habit?",
+      "options": [
+        { "id": "rush", "text": "Buy anything you see", "emoji": "🏃", "description": "", "isCorrect": false },
+        { "id": "plan", "text": "Plan and save slowly", "emoji": "📊", "description": "", "isCorrect": true },
+        { "id": "borrow", "text": "Always borrow money", "emoji": "🤝", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "You compare prices before buying. What skill are you using?",
+      "options": [
+        { "id": "slow", "text": "Being too slow", "emoji": "🐢", "description": "", "isCorrect": false },
+        { "id": "lazy", "text": "Avoiding shopping", "emoji": "😴", "description": "", "isCorrect": false },
+        { "id": "smart", "text": "Smart money thinking", "emoji": "💡", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "You choose saving instead of buying every toy. What does this build?",
+      "options": [
+        { "id": "habit", "text": "Good saving habits", "emoji": "🏦", "description": "", "isCorrect": true },
+        { "id": "sad", "text": "No fun at all", "emoji": "😢", "description": "", "isCorrect": false },
+        { "id": "fear", "text": "Fear of spending", "emoji": "😨", "description": "", "isCorrect": false }
+      ]
+    }
+  ]
+}

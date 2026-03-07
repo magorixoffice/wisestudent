@@ -1,0 +1,126 @@
+{
+  "title": "Reflex Banking Symbols",
+  "subtitleComplete": "Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Riya goes with her parents to deposit money. She sees a building symbol used on passbooks and ATM cards. What does this symbol tell her?",
+      "options": [
+        {
+          "text": "A place to play games 🎮",
+          "isCorrect": false
+        },
+        {
+          "text": "A sweet shop 🍭",
+          "isCorrect": false
+        },
+        {
+          "text": "A place to keep and manage money safely 🏦",
+          "isCorrect": true
+        },
+        {
+          "text": "A school building 🏫",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "Aarav opens his piggy bank and wants to save his money in the future. Which symbol reminds him of saving money in a bank?",
+      "options": [
+        {
+          "text": "Broken coin 🚫",
+          "isCorrect": false
+        },
+        {
+          "text": "Flying money 💸",
+          "isCorrect": false
+        },
+        {
+          "text": "Trash bin 🗑️",
+          "isCorrect": false
+        },
+        {
+          "text": "Money with lock showing safety 🔐",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "Meena sees the ₹ sign written before prices at the bank counter. What does this symbol help her understand?",
+      "options": [
+        {
+          "text": "It is a math symbol ➕",
+          "isCorrect": false
+        },
+        {
+          "text": "It shows India’s money value 💵",
+          "isCorrect": true
+        },
+        {
+          "text": "It means free items 🎁",
+          "isCorrect": false
+        },
+        {
+          "text": "It shows a phone signal 📶",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "Kabir’s parents use an ATM card. Which symbol tells him that the card is connected to a bank?",
+      "options": [
+        {
+          "text": "Bank building sign 🏦",
+          "isCorrect": true
+        },
+        {
+          "text": "Shopping bag 🛍️",
+          "isCorrect": false
+        },
+        {
+          "text": "Game controller 🎮",
+          "isCorrect": false
+        },
+        {
+          "text": "Smiley face 🙂",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "Anaya learns that banks protect people’s money. Which symbol best shows safety and protection in a bank?",
+      "options": [
+        {
+          "text": "Open box 📦",
+          "isCorrect": false
+        },
+        {
+          "text": "Paper bag 🛍️",
+          "isCorrect": false
+        },
+        {
+          "text": "Strong lock 🔒",
+          "isCorrect": true
+        },
+        {
+          "text": "Ball ⚽",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "subtitlePlaying": "Round {{current}}/{{total}}",
+  "subtitleReady": "Get ready!",
+  "readyTitle": "Ready to Play?",
+  "readyDescription": "Answer quickly and choose the best option.",
+  "readyInfo": "You have {{total}} questions with {{seconds}} seconds each!",
+  "startButton": "Start Game",
+  "roundLabel": "Round:",
+  "timeLabel": "Time:"
+}

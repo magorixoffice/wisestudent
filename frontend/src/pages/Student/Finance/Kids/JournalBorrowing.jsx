@@ -1,89 +1,82 @@
-import React, { useState } from "react";
+﻿import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getGameDataById } from "../../../../utils/getGameData";
 
+const fallbackStages = [
+  { question: 'Write: "One thing I borrowed and returned was ___."', minLength: 10 },
+  { question: 'Write: "I felt ___ when I returned what I borrowed."', minLength: 10 },
+  { question: 'Write: "Borrowing responsibly means ___."', minLength: 10 },
+  { question: 'Write: "I made sure to return borrowed money by ___."', minLength: 10 },
+  { question: 'Write: "Borrowing taught me ___ about money."', minLength: 10 },
+];
+
 const JournalBorrowing = () => {
   const location = useLocation();
-  
-  // Get game data from game category folder (source of truth)
+  const { t } = useTranslation("gamecontent");
+
   const gameId = "finance-kids-57";
+  const gameContent = t("financial-literacy.kids.journal-borrowing", { returnObjects: true });
   const gameData = getGameDataById(gameId);
-  
-  // Get coinsPerLevel, totalCoins, and totalXp from game category data, fallback to location.state, then defaults
+
   const coinsPerLevel = gameData?.coins || location.state?.coinsPerLevel || 5;
   const totalCoins = gameData?.coins || location.state?.totalCoins || 5;
   const totalXp = gameData?.xp || location.state?.totalXp || 10;
-  const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } =
-    useGameFeedback();
+
+  const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
+
   const [currentStage, setCurrentStage] = useState(0);
   const [score, setScore] = useState(0);
   const [entry, setEntry] = useState("");
   const [showResult, setShowResult] = useState(false);
 
-  const stages = [
-    {
-      question: 'Write: "One thing I borrowed and returned was ___."',
-      minLength: 10,
-    },
-    {
-      question: 'Write: "I felt ___ when I returned what I borrowed."',
-      minLength: 10,
-    },
-    {
-      question: 'Write: "Borrowing responsibly means ___."',
-      minLength: 10,
-    },
-    {
-      question: 'Write: "I made sure to return borrowed money by ___."',
-      minLength: 10,
-    },
-    {
-      question: 'Write: "Borrowing taught me ___ about money."',
-      minLength: 10,
-    },
-  ];
+  const stages = Array.isArray(gameContent?.stages) && gameContent.stages.length > 0
+    ? gameContent.stages
+    : fallbackStages;
 
   const handleSubmit = () => {
-    if (showResult) return; // Prevent multiple submissions
-    
-    resetFeedback();
+    if (showResult) return;
+
+    const minLength = stages[currentStage]?.minLength || 10;
     const entryText = entry.trim();
-    
-    if (entryText.length >= stages[currentStage].minLength) {
-      setScore((prev) => prev + 1);
-      showCorrectAnswerFeedback(1, true);
-      
-      const isLastQuestion = currentStage === stages.length - 1;
-      
-      // Show feedback for 1.5 seconds, then move to next question or show results
-      setTimeout(() => {
-        if (isLastQuestion) {
-          // This is the last question (5th), show results
-          setShowResult(true);
-        } else {
-          // Move to next question
-          setEntry("");
-          setCurrentStage((prev) => prev + 1);
-        }
-      }, 1500);
-    }
+    if (entryText.length < minLength) return;
+
+    resetFeedback();
+    setScore((prev) => prev + 1);
+    showCorrectAnswerFeedback(1, true);
+
+    const isLast = currentStage === stages.length - 1;
+    setTimeout(() => {
+      if (isLast) {
+        setShowResult(true);
+      } else {
+        setEntry("");
+        setCurrentStage((prev) => prev + 1);
+      }
+    }, 1000);
   };
 
-  const finalScore = score;
+  const minLength = stages[currentStage]?.minLength || 10;
 
   return (
     <GameShell
-      title="Journal of Borrowing"
-      subtitle={!showResult ? `Question ${currentStage + 1} of ${stages.length}: Reflect on responsible borrowing!` : "Journal Complete!"}
+      title={gameContent?.title || "Journal of Borrowing"}
+      subtitle={!showResult
+        ? t("financial-literacy.kids.journal-borrowing.subtitleProgress", {
+            current: currentStage + 1,
+            total: stages.length,
+            defaultValue: "Question {{current}} of {{total}}",
+          })
+        : (gameContent?.subtitleComplete || "Journal Complete!")}
       currentLevel={currentStage + 1}
       totalLevels={5}
       coinsPerLevel={coinsPerLevel}
       showGameOver={showResult}
       flashPoints={flashPoints}
       showAnswerConfetti={showAnswerConfetti}
-      score={finalScore}
+      score={score}
       gameId={gameId}
       nextGamePathProp="/student/finance/kids/toy-story"
       nextGameIdProp="finance-kids-58"
@@ -91,39 +84,55 @@ const JournalBorrowing = () => {
       maxScore={5}
       totalCoins={totalCoins}
       totalXp={totalXp}
-      showConfetti={showResult && finalScore === 5}>
+      showConfetti={showResult && score === 5}
+    >
       <div className="text-center text-white space-y-8">
-        {!showResult && stages[currentStage] && (
+        {!showResult && stages[currentStage] ? (
           <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20">
-            <div className="text-4xl mb-4">📝</div>
+            <div className="text-4xl mb-4">{gameContent?.stageEmoji || "📝"}</div>
             <h3 className="text-2xl font-bold mb-4">{stages[currentStage].question}</h3>
-            <p className="text-white/70 mb-4">Score: {score}/{stages.length}</p>
+            <p className="text-white/70 mb-4">
+              {t("financial-literacy.kids.journal-borrowing.scoreLabel", {
+                score,
+                total: stages.length,
+                defaultValue: "Score: {{score}}/{{total}}",
+              })}
+            </p>
             <p className="text-white/60 text-sm mb-4">
-              Write at least {stages[currentStage].minLength} characters
+              {t("financial-literacy.kids.journal-borrowing.minLengthLabel", {
+                count: minLength,
+                defaultValue: "Write at least {{count}} characters",
+              })}
             </p>
             <textarea
               value={entry}
               onChange={(e) => setEntry(e.target.value)}
-              placeholder="Write your journal entry here..."
+              placeholder={gameContent?.placeholder || "Write your journal entry here..."}
               className="w-full max-w-xl p-4 rounded-xl text-black text-lg bg-white/90"
               disabled={showResult}
             />
             <div className="mt-2 text-white/50 text-sm">
-              {entry.trim().length}/{stages[currentStage].minLength} characters
+              {t("financial-literacy.kids.journal-borrowing.characterCount", {
+                count: entry.trim().length,
+                required: minLength,
+                defaultValue: "{{count}}/{{required}} characters",
+              })}
             </div>
             <button
               onClick={handleSubmit}
               className={`mt-4 px-8 py-4 rounded-full text-lg font-semibold transition-transform ${
-                entry.trim().length >= stages[currentStage].minLength && !showResult
-                  ? 'bg-green-500 hover:bg-green-600 hover:scale-105 text-white cursor-pointer'
-                  : 'bg-gray-500 text-gray-300 cursor-not-allowed opacity-50'
+                entry.trim().length >= minLength && !showResult
+                  ? "bg-green-500 hover:bg-green-600 hover:scale-105 text-white cursor-pointer"
+                  : "bg-gray-500 text-gray-300 cursor-not-allowed opacity-50"
               }`}
-              disabled={entry.trim().length < stages[currentStage].minLength || showResult}
+              disabled={entry.trim().length < minLength || showResult}
             >
-              {currentStage === stages.length - 1 ? 'Submit Final Entry' : 'Submit & Continue'}
+              {currentStage === stages.length - 1
+                ? (gameContent?.submitFinalButton || "Submit Final Entry")
+                : (gameContent?.submitContinueButton || "Submit & Continue")}
             </button>
           </div>
-        )}
+        ) : null}
       </div>
     </GameShell>
   );

@@ -1,0 +1,151 @@
+{
+  "title": "Reflex Bank Basics",
+  "subtitleComplete": "Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What should you do to put money in the bank?",
+      "correctAnswer": "Deposit",
+      "options": [
+        {
+          "text": "Deposit",
+          "isCorrect": true,
+          "emoji": "💰"
+        },
+        {
+          "text": "Steal",
+          "isCorrect": false,
+          "emoji": "🚫"
+        },
+        {
+          "text": "Lose",
+          "isCorrect": false,
+          "emoji": "❌"
+        },
+        {
+          "text": "Ignore",
+          "isCorrect": false,
+          "emoji": "🙈"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "What is the smart way to keep your money safe?",
+      "correctAnswer": "Save",
+      "options": [
+        {
+          "text": "Spend",
+          "isCorrect": false,
+          "emoji": "💸"
+        },
+        {
+          "text": "Save",
+          "isCorrect": true,
+          "emoji": "💵"
+        },
+        {
+          "text": "Waste",
+          "isCorrect": false,
+          "emoji": "🗑️"
+        },
+        {
+          "text": "Forget",
+          "isCorrect": false,
+          "emoji": "😴"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "How do you take money out of your bank account?",
+      "correctAnswer": "Withdraw",
+      "options": [
+        {
+          "text": "Lose",
+          "isCorrect": false,
+          "emoji": "❌"
+        },
+        {
+          "text": "Steal",
+          "isCorrect": false,
+          "emoji": "🚫"
+        },
+        {
+          "text": "Ignore",
+          "isCorrect": false,
+          "emoji": "🙈"
+        },
+        {
+          "text": "Withdraw",
+          "isCorrect": true,
+          "emoji": "🏦"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "What should you do to start saving money at a bank?",
+      "correctAnswer": "Open Account",
+      "options": [
+        {
+          "text": "Ignore",
+          "isCorrect": false,
+          "emoji": "🙈"
+        },
+        {
+          "text": "Spend All",
+          "isCorrect": false,
+          "emoji": "💸"
+        },
+        {
+          "text": "Open Account",
+          "isCorrect": true,
+          "emoji": "📝"
+        },
+        {
+          "text": "Forget",
+          "isCorrect": false,
+          "emoji": "😴"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "What should you do to know how much money you have?",
+      "correctAnswer": "Check Balance",
+      "options": [
+        {
+          "text": "Check Balance",
+          "isCorrect": true,
+          "emoji": "📊"
+        },
+        {
+          "text": "Forget",
+          "isCorrect": false,
+          "emoji": "😴"
+        },
+        {
+          "text": "Spend All",
+          "isCorrect": false,
+          "emoji": "💸"
+        },
+        {
+          "text": "Ignore",
+          "isCorrect": false,
+          "emoji": "🙈"
+        }
+      ]
+    }
+  ],
+  "subtitlePlaying": "Round {{current}}/{{total}}",
+  "subtitleReady": "Get ready!",
+  "readyTitle": "Ready to Play?",
+  "readyDescription": "Answer quickly and choose the best option.",
+  "readyInfo": "You have {{total}} questions with {{seconds}} seconds each!",
+  "startButton": "Start Game",
+  "roundLabel": "Round:",
+  "timeLabel": "Time:"
+}

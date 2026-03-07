@@ -1,0 +1,55 @@
+{
+  "title": "Toy Story",
+  "subtitleComplete": "Story Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}",
+  "questionCounter": "Question {{current}}/{{total}}",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "stageEmoji": "🧸",
+  "questions": [
+    {
+      "id": 1,
+      "text": "A friend lends you a toy. What should you do?",
+      "options": [
+        { "id": "safe", "text": "Keep it safe", "emoji": "🛡️", "description": "", "isCorrect": true },
+        { "id": "break", "text": "Break it", "emoji": "💔", "description": "", "isCorrect": false },
+        { "id": "ignore", "text": "Ignore it", "emoji": "😴", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "You borrowed a toy. What now?",
+      "options": [
+        { "id": "keep", "text": "Keep it", "emoji": "🙈", "description": "", "isCorrect": false },
+        { "id": "lose", "text": "Lose it", "emoji": "😞", "description": "", "isCorrect": false },
+        { "id": "return", "text": "Return the toy", "emoji": "🔁", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "You have your friend's toy. What is best?",
+      "options": [
+        { "id": "care", "text": "Take care of it", "emoji": "💝", "description": "", "isCorrect": true },
+        { "id": "lose", "text": "Lose it", "emoji": "😞", "description": "", "isCorrect": false },
+        { "id": "break", "text": "Break it", "emoji": "💔", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "The owner asks for the toy back. What do you do?",
+      "options": [
+        { "id": "hide", "text": "Hide it", "emoji": "🫥", "description": "", "isCorrect": false },
+        { "id": "give", "text": "Give it back", "emoji": "🤝", "description": "", "isCorrect": true },
+        { "id": "delay", "text": "Delay returning", "emoji": "⏰", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "When you borrow a toy, what is your duty?",
+      "options": [
+        { "id": "careless", "text": "Be careless", "emoji": "😓", "description": "", "isCorrect": false },
+        { "id": "forget", "text": "Forget about it", "emoji": "🤷", "description": "", "isCorrect": false },
+        { "id": "responsible", "text": "Be responsible", "emoji": "🔒", "description": "", "isCorrect": true }
+      ]
+    }
+  ]
+}

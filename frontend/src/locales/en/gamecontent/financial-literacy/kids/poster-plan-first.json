@@ -1,0 +1,47 @@
+{
+  "title": "Poster: Plan First",
+  "subtitleProgress": "Question {{current}} of {{total}}: Choose posters that promote good planning!",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "stages": [
+    {
+      "question": "Which poster would best teach kids the first step in financial planning?",
+      "choices": [
+        { "text": "Buy what you want immediately ⚡", "correct": false },
+        { "text": "Plan your spending before buying 📝", "correct": true },
+        { "text": "Spend all your money 💸", "correct": false }
+      ]
+    },
+    {
+      "question": "What poster would best show what to do when planning your money?",
+      "choices": [
+        { "text": "Ignore your spending 🙈", "correct": false },
+        { "text": "Plan more purchases 🛍️", "correct": false },
+        { "text": "Plan how to balance your money ⚖️", "correct": true }
+      ]
+    },
+    {
+      "question": "Which poster would best explain why planning your spending is important?",
+      "choices": [
+        { "text": "To know where your money goes 📊", "correct": true },
+        { "text": "To spend more freely 💥", "correct": false },
+        { "text": "To avoid planning 🚫", "correct": false }
+      ]
+    },
+    {
+      "question": "What poster would best illustrate a good strategy for planning your money?",
+      "choices": [
+        { "text": "Spend whenever you feel like it 🎲", "correct": false },
+        { "text": "Avoid planning your spending 🙃", "correct": false },
+        { "text": "Plan limits and review regularly ✅", "correct": true }
+      ]
+    },
+    {
+      "question": "Which poster would best show the benefit of planning before making purchases?",
+      "choices": [
+        { "text": "You can make thoughtful purchases 🎯", "correct": true },
+        { "text": "You can spend more money overall 💸", "correct": false },
+        { "text": "You will never enjoy anything 😞", "correct": false }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+﻿import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getGameDataById } from "../../../../utils/getGameData";
@@ -7,20 +8,52 @@ import { getGameDataById } from "../../../../utils/getGameData";
 const TOTAL_ROUNDS = 5;
 const ROUND_TIME = 10;
 
+const fallbackQuestions = [
+  { id: 1, question: "What should you do with money to make it grow?", options: [
+    { text: "Spend all", isCorrect: false, emoji: "💸" },
+    { text: "Hide it", isCorrect: false, emoji: "🙈" },
+    { text: "Forget about it", isCorrect: false, emoji: "😴" },
+    { text: "Save and grow", isCorrect: true, emoji: "🌱" },
+  ]},
+  { id: 2, question: "How should you handle money wisely?", options: [
+    { text: "Invest wisely", isCorrect: true, emoji: "💰" },
+    { text: "Spend fast", isCorrect: false, emoji: "⚡" },
+    { text: "Waste it", isCorrect: false, emoji: "🔥" },
+    { text: "Lose it", isCorrect: false, emoji: "📉" },
+  ]},
+  { id: 3, question: "What is the best way to build wealth?", options: [
+    { text: "Lose money", isCorrect: false, emoji: "💔" },
+    { text: "Grow wealth", isCorrect: true, emoji: "📈" },
+    { text: "Spend everything", isCorrect: false, emoji: "🛍️" },
+    { text: "Ignore savings", isCorrect: false, emoji: "😑" },
+  ]},
+  { id: 4, question: "How can your money work for you?", options: [
+    { text: "Waste cash", isCorrect: false, emoji: "🔥" },
+    { text: "Spend immediately", isCorrect: false, emoji: "⚡" },
+    { text: "Earn interest", isCorrect: true, emoji: "💵" },
+    { text: "Forget about it", isCorrect: false, emoji: "🤷" },
+  ]},
+  { id: 5, question: "What helps secure your future?", options: [
+    { text: "Build savings", isCorrect: true, emoji: "🏦" },
+    { text: "Spend now", isCorrect: false, emoji: "🛒" },
+    { text: "Waste money", isCorrect: false, emoji: "💸" },
+    { text: "Ignore future", isCorrect: false, emoji: "😴" },
+  ]},
+];
+
 const ReflexInvestmentBasics = () => {
   const location = useLocation();
-  
-  // Get game data from game category folder (source of truth)
+  const { t } = useTranslation("gamecontent");
   const gameId = "finance-kids-63";
+  const gameContent = t("financial-literacy.kids.reflex-investment-basics", { returnObjects: true });
   const gameData = getGameDataById(gameId);
-  
-  // Get coinsPerLevel, totalCoins, and totalXp from game category data, fallback to location.state, then defaults
+
   const coinsPerLevel = gameData?.coins || location.state?.coinsPerLevel || 5;
   const totalCoins = gameData?.coins || location.state?.totalCoins || 5;
   const totalXp = gameData?.xp || location.state?.totalXp || 10;
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
-  
-  const [gameState, setGameState] = useState("ready"); // ready, playing, finished
+
+  const [gameState, setGameState] = useState("ready");
   const [score, setScore] = useState(0);
   const [currentRound, setCurrentRound] = useState(0);
   const [timeLeft, setTimeLeft] = useState(ROUND_TIME);
@@ -28,70 +61,10 @@ const ReflexInvestmentBasics = () => {
   const timerRef = useRef(null);
   const currentRoundRef = useRef(0);
 
-  const questions = [
-    {
-      id: 1,
-      question: "What should you do with your money to make it grow?",
-      correctAnswer: "Save & Grow",
-      options: [
-        { text: "Spend All", isCorrect: false, emoji: "💸" },
-        { text: "Hide It", isCorrect: false, emoji: "🙈" },
-        { text: "Forget About It", isCorrect: false, emoji: "😴" },
-        { text: "Save & Grow", isCorrect: true, emoji: "🌱" },
-      ]
-    },
-    {
-      id: 2,
-      question: "How should you handle your money wisely?",
-      correctAnswer: "Invest Wisely",
-      options: [
-        { text: "Invest Wisely", isCorrect: true, emoji: "💰" },
-        { text: "Spend Fast", isCorrect: false, emoji: "⚡" },
-        { text: "Waste It", isCorrect: false, emoji: "🔥" },
-        { text: "Lose It", isCorrect: false, emoji: "📉" }
-      ]
-    },
-    {
-      id: 3,
-      question: "What is the best way to build your wealth?",
-      correctAnswer: "Grow Wealth",
-      options: [
-        { text: "Lose Money", isCorrect: false, emoji: "💔" },
-        { text: "Grow Wealth", isCorrect: true, emoji: "📈" },
-        { text: "Spend Everything", isCorrect: false, emoji: "🛍️" },
-        { text: "Ignore Savings", isCorrect: false, emoji: "😑" }
-      ]
-    },
-    {
-      id: 4,
-      question: "How can your money work for you?",
-      correctAnswer: "Earn Interest",
-      options: [
-        { text: "Waste Cash", isCorrect: false, emoji: "🔥" },
-        { text: "Spend Immediately", isCorrect: false, emoji: "⚡" },
-        { text: "Earn Interest", isCorrect: true, emoji: "💵" },
-        { text: "Forget About It", isCorrect: false, emoji: "🤷" }
-      ]
-    },
-    {
-      id: 5,
-      question: "What should you do to secure your future?",
-      correctAnswer: "Build Savings",
-      options: [
-        { text: "Build Savings", isCorrect: true, emoji: "🏦" },
-        { text: "Spend Now", isCorrect: false, emoji: "🛒" },
-        { text: "Waste Money", isCorrect: false, emoji: "💸" },
-        { text: "Ignore Future", isCorrect: false, emoji: "😴" }
-      ]
-    }
-  ];
+  const questions = Array.isArray(gameContent?.questions) && gameContent.questions.length > 0 ? gameContent.questions : fallbackQuestions;
 
-  // Update ref when currentRound changes
-  useEffect(() => {
-    currentRoundRef.current = currentRound;
-  }, [currentRound]);
+  useEffect(() => { currentRoundRef.current = currentRound; }, [currentRound]);
 
-  // Reset timer when round changes
   useEffect(() => {
     if (gameState === "playing" && currentRound > 0 && currentRound <= TOTAL_ROUNDS) {
       setTimeLeft(ROUND_TIME);
@@ -99,69 +72,42 @@ const ReflexInvestmentBasics = () => {
     }
   }, [currentRound, gameState]);
 
-  // Handle time up - move to next question or show results
   const handleTimeUp = useCallback(() => {
     setAnswered(true);
     resetFeedback();
-    
-    const isLastQuestion = currentRoundRef.current >= TOTAL_ROUNDS;
-    
+    const isLast = currentRoundRef.current >= TOTAL_ROUNDS;
     setTimeout(() => {
-      if (isLastQuestion) {
-        setGameState("finished");
-      } else {
-        setCurrentRound((prev) => prev + 1);
-        setAnswered(false);
-      }
+      if (isLast) setGameState("finished");
+      else setCurrentRound((prev) => prev + 1);
     }, 1000);
   }, [resetFeedback]);
 
-  // Timer effect - countdown from 10 seconds for each question
   useEffect(() => {
     if (gameState !== "playing") {
-      if (timerRef.current) {
-        clearInterval(timerRef.current);
-        timerRef.current = null;
-      }
-      return;
-    }
-
-    // Check if game should be finished
-    if (currentRoundRef.current > TOTAL_ROUNDS) {
-      setGameState("finished");
-      return;
-    }
-
-    // Clear any existing timer
-    if (timerRef.current) {
-      clearInterval(timerRef.current);
+      if (timerRef.current) clearInterval(timerRef.current);
       timerRef.current = null;
+      return;
     }
 
-    // Start countdown timer
+    if (timerRef.current) clearInterval(timerRef.current);
     timerRef.current = setInterval(() => {
       setTimeLeft((prev) => {
-        const newTime = prev - 1;
-        if (newTime <= 0) {
-          // Time's up for this round
-          if (timerRef.current) {
-            clearInterval(timerRef.current);
-            timerRef.current = null;
-          }
+        const next = prev - 1;
+        if (next <= 0) {
+          if (timerRef.current) clearInterval(timerRef.current);
+          timerRef.current = null;
           handleTimeUp();
           return 0;
         }
-        return newTime;
+        return next;
       });
     }, 1000);
 
     return () => {
-      if (timerRef.current) {
-        clearInterval(timerRef.current);
-        timerRef.current = null;
-      }
+      if (timerRef.current) clearInterval(timerRef.current);
+      timerRef.current = null;
     };
-  }, [gameState, handleTimeUp]);
+  }, [gameState, currentRound, handleTimeUp]);
 
   const startGame = () => {
     setGameState("playing");
@@ -174,72 +120,67 @@ const ReflexInvestmentBasics = () => {
 
   const handleAnswer = (option) => {
     if (answered || gameState !== "playing") return;
-    
-    // Clear the timer immediately when user answers
-    if (timerRef.current) {
-      clearInterval(timerRef.current);
-      timerRef.current = null;
-    }
-    
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = null;
+
     setAnswered(true);
     resetFeedback();
-    
-    const isCorrect = option.isCorrect;
-    const isLastQuestion = currentRound === questions.length;
-    
-    if (isCorrect) {
+
+    if (option.isCorrect) {
       setScore((prev) => prev + 1);
       showCorrectAnswerFeedback(1, true);
     }
-    
-    // Move to next round or show results after a short delay
+
     setTimeout(() => {
-      if (isLastQuestion) {
-        setGameState("finished");
-      } else {
+      if (currentRound >= TOTAL_ROUNDS) setGameState("finished");
+      else {
         setCurrentRound((prev) => prev + 1);
         setAnswered(false);
       }
     }, 500);
   };
 
-  const finalScore = score;
-
   return (
     <GameShell
-      title="Reflex Investment Basics"
-      subtitle={gameState === "playing" ? `Question ${currentRound} of ${questions.length}: Test your investment reflexes!` : "Test your investment reflexes!"}
+      title={gameContent?.title || "Reflex Investment Basics"}
+      subtitle={gameState === "playing"
+        ? t("financial-literacy.kids.reflex-investment-basics.subtitlePlaying", {
+            current: currentRound,
+            total: TOTAL_ROUNDS,
+            defaultValue: "Question {{current}} of {{total}}",
+          })
+        : (gameContent?.subtitleReady || "Test your investment reflexes!")}
       currentLevel={currentRound}
       totalLevels={TOTAL_ROUNDS}
       coinsPerLevel={coinsPerLevel}
       showGameOver={gameState === "finished"}
-      showConfetti={gameState === "finished" && finalScore === TOTAL_ROUNDS}
+      showConfetti={gameState === "finished" && score === TOTAL_ROUNDS}
       flashPoints={flashPoints}
       showAnswerConfetti={showAnswerConfetti}
-      score={finalScore}
+      score={score}
       gameId={gameId}
       gameType="finance"
       maxScore={TOTAL_ROUNDS}
       totalCoins={totalCoins}
       totalXp={totalXp}
       nextGamePathProp="/student/finance/kids/puzzle-of-growth"
-      nextGameIdProp="finance-kids-64">
+      nextGameIdProp="finance-kids-64"
+    >
       <div className="text-center text-white space-y-8">
         {gameState === "ready" && (
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 text-center">
-            <div className="text-5xl mb-6">💰</div>
-            <h3 className="text-2xl font-bold text-white mb-4">Ready to Learn About Investment Basics?</h3>
-            <p className="text-white/90 text-lg mb-6">
-              Choose the right investment action for each question.
-            </p>
+            <div className="text-5xl mb-6">{gameContent?.readyEmoji || "💰"}</div>
+            <h3 className="text-2xl font-bold text-white mb-4">{gameContent?.readyTitle || "Ready?"}</h3>
+            <p className="text-white/90 text-lg mb-6">{gameContent?.readyDescription || "Answer correctly."}</p>
             <p className="text-white/80 mb-6">
-              You have {TOTAL_ROUNDS} questions with {ROUND_TIME} seconds each!
+              {t("financial-literacy.kids.reflex-investment-basics.readyInfo", {
+                total: TOTAL_ROUNDS,
+                seconds: ROUND_TIME,
+                defaultValue: "You have {{total}} questions with {{seconds}} seconds each!",
+              })}
             </p>
-            <button
-              onClick={startGame}
-              className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white py-4 px-8 rounded-full text-xl font-bold shadow-lg transition-all transform hover:scale-105"
-            >
-              Start Game
+            <button onClick={startGame} className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white py-4 px-8 rounded-full text-xl font-bold shadow-lg transition-all transform hover:scale-105">
+              {gameContent?.startButton || "Start Game"}
             </button>
           </div>
         )}
@@ -247,30 +188,18 @@ const ReflexInvestmentBasics = () => {
         {gameState === "playing" && questions[currentRound - 1] && (
           <div className="space-y-8">
             <div className="flex justify-between items-center bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-              <div className="text-white">
-                <span className="font-bold">Question:</span> {currentRound}/{TOTAL_ROUNDS}
+              <div className="text-white"><span className="font-bold">{gameContent?.roundLabel || "Question:"}</span> {currentRound}/{TOTAL_ROUNDS}</div>
+              <div className={`font-bold ${timeLeft <= 2 ? "text-red-500" : timeLeft <= 3 ? "text-yellow-500" : "text-green-400"}`}>
+                <span className="text-white">{gameContent?.timeLabel || "Time:"}</span> {timeLeft}s
               </div>
-              <div className={`font-bold ${timeLeft <= 2 ? 'text-red-500' : timeLeft <= 3 ? 'text-yellow-500' : 'text-green-400'}`}>
-                <span className="text-white">Time:</span> {timeLeft}s
-              </div>
-              <div className="text-white">
-                <span className="font-bold">Score:</span> {score}
-              </div>
+              <div className="text-white"><span className="font-bold">{gameContent?.scoreLabel || "Score:"}</span> {score}</div>
             </div>
 
             <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20 text-center">
-              <h3 className="text-2xl md:text-3xl font-bold mb-6 text-white">
-                {questions[currentRound - 1].question}
-              </h3>
-              
+              <h3 className="text-2xl md:text-3xl font-bold mb-6 text-white">{questions[currentRound - 1].question}</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {questions[currentRound - 1].options.map((option, index) => (
-                  <button
-                    key={index}
-                    onClick={() => handleAnswer(option)}
-                    disabled={answered}
-                    className="w-full min-h-[80px] bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 px-6 py-4 rounded-xl text-white font-bold text-lg transition-transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
-                  >
+                  <button key={index} onClick={() => handleAnswer(option)} disabled={answered} className="w-full min-h-[80px] bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 px-6 py-4 rounded-xl text-white font-bold text-lg transition-transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center">
                     <span className="text-3xl mr-2">{option.emoji}</span> {option.text}
                   </button>
                 ))}

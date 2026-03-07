@@ -1,0 +1,53 @@
+{
+  "title": "Quiz on Needs",
+  "subtitleComplete": "Quiz Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}: Test your knowledge about needs!",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "questions": [
+    {
+      "id": 1,
+      "text": "Which item helps your body work every day?",
+      "options": [
+        { "id": "snack", "text": "Chips", "emoji": "🍟", "description": "", "isCorrect": false },
+        { "id": "water", "text": "Clean drinking water", "emoji": "🚰", "description": "", "isCorrect": true },
+        { "id": "toy", "text": "Remote control car", "emoji": "🚗", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "What do you need to learn properly in school?",
+      "options": [
+        { "id": "bag", "text": "School bag and books", "emoji": "🎒", "description": "", "isCorrect": true },
+        { "id": "game", "text": "Mobile games", "emoji": "🎮", "description": "", "isCorrect": false },
+        { "id": "cartoon", "text": "Cartoon videos", "emoji": "📺", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "Which choice helps you stay safe from heat and cold?",
+      "options": [
+        { "id": "cap", "text": "Fashion cap", "emoji": "🧢", "description": "", "isCorrect": false },
+        { "id": "shoes", "text": "Party shoes", "emoji": "👟", "description": "", "isCorrect": false },
+        { "id": "clothes", "text": "Proper clothes", "emoji": "👕", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "Which place is a basic need for resting and living?",
+      "options": [
+        { "id": "house", "text": "A safe home", "emoji": "🏠", "description": "", "isCorrect": true },
+        { "id": "mall", "text": "Shopping mall", "emoji": "🏬", "description": "", "isCorrect": false },
+        { "id": "park", "text": "Playground", "emoji": "🛝", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "Why do people choose needs before wants?",
+      "options": [
+        { "id": "fun", "text": "Wants are more fun", "emoji": "🎉", "description": "", "isCorrect": false },
+        { "id": "important", "text": "Needs are necessary for daily life", "emoji": "⭐", "description": "", "isCorrect": true },
+        { "id": "friends", "text": "Friends like wants", "emoji": "👫", "description": "", "isCorrect": false }
+      ]
+    }
+  ]
+}

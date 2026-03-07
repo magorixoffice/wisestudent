@@ -1,0 +1,54 @@
+﻿{
+  "title": "Shop Story",
+  "subtitleComplete": "Story Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}",
+  "questionCounter": "Question {{current}}/{{total}}",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "questions": [
+    {
+      "id": 1,
+      "text": "You spot your favorite candy. You have Rs 10, but you've been saving Rs 5 a week for a Rs 50 toy and currently have Rs 20 saved. What do you do?",
+      "options": [
+        { "id": "save", "text": "Save for Toy", "emoji": "🏦", "isCorrect": true },
+        { "id": "spend", "text": "Buy Candy", "emoji": "🍬", "isCorrect": false },
+        { "id": "ignore", "text": "Ignore Decision", "emoji": "😴", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "You see a cool sticker book that costs Rs 25. You have Rs 30 saved for a larger toy. What's the smart choice?",
+      "options": [
+        { "id": "spend", "text": "Buy sticker book", "emoji": "📚", "isCorrect": false },
+        { "id": "save", "text": "Continue saving", "emoji": "🎯", "isCorrect": true },
+        { "id": "borrow", "text": "Borrow Money", "emoji": "🤲", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "You see friends buying snacks at the shop. You have Rs 15 saved for a science kit. What should you do?",
+      "options": [
+        { "id": "spend", "text": "Join friends", "emoji": "🍟", "isCorrect": false },
+        { "id": "give", "text": "Give Up Saving", "emoji": "😞", "isCorrect": false },
+        { "id": "save", "text": "Stick to your goal", "emoji": "🔬", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "You see a 'Sale: 50% Off' sign on toys. You're saving Rs 100 for a bicycle. The sale toy costs Rs 40. What's wise?",
+      "options": [
+        { "id": "save", "text": "Focus on bicycle", "emoji": "🚲", "isCorrect": true },
+        { "id": "spend", "text": "Buy sale toy", "emoji": "🧸", "isCorrect": false },
+        { "id": "delay", "text": "Delay Decision", "emoji": "⏰", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "You've saved Rs 45 for a Rs 50 toy. You see candy that costs Rs 5. You're almost at your goal! What do you choose?",
+      "options": [
+        { "id": "spend", "text": "Buy candy", "emoji": "🍬", "isCorrect": false },
+        { "id": "save", "text": "Complete your goal", "emoji": "🎉", "isCorrect": true },
+        { "id": "waste", "text": "Waste Money", "emoji": "💸", "isCorrect": false }
+      ]
+    }
+  ]
+}

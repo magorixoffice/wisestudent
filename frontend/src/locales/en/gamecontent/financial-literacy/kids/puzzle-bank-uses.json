@@ -1,0 +1,38 @@
+{
+  "title": "Puzzle: Bank Uses",
+  "subtitleComplete": "Complete!",
+  "subtitleProgress": "Match Items ({{matched}}/{{total}} matched)",
+  "scoreLabel": "Score:",
+  "items": [
+    {
+      "id": 1,
+      "name": "Savings Account",
+      "emoji": "💰"
+    },
+    {
+      "id": 2,
+      "name": "Loan",
+      "emoji": "📝"
+    },
+    {
+      "id": 3,
+      "name": "ATM",
+      "emoji": "🏧"
+    },
+    {
+      "id": 4,
+      "name": "Interest",
+      "emoji": "📈"
+    },
+    {
+      "id": 5,
+      "name": "Financial Education",
+      "emoji": "📚"
+    }
+  ],
+  "itemsTitle": "Items",
+  "categoriesTitle": "Categories",
+  "matchedLabel": "Matched:",
+  "selectItem": "Select an Item",
+  "matchButton": "Match"
+}

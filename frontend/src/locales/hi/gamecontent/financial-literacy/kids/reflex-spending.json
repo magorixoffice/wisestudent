@@ -1,0 +1,69 @@
+﻿{
+  "title": "रिफ्लेक्स खर्च",
+  "subtitlePlaying": "राउंड {{current}}/{{total}}: अपने खर्च की रिफ्लेक्स जांचें!",
+  "subtitleReady": "अपने खर्च की रिफ्लेक्स जांचें!",
+  "readyTitle": "क्या आप अपने खर्च कौशल परखने के लिए तैयार हैं?",
+  "readyDescription": "स्मार्ट खर्च और पैसे के प्रबंधन पर सवालों के जवाब दें।",
+  "readyInfo": "आपके पास {{total}} प्रश्न हैं और प्रत्येक के लिए {{seconds}} सेकंड हैं!",
+  "startButton": "गेम शुरू करें",
+  "roundLabel": "राउंड:",
+  "timeLabel": "समय:",
+  "scoreLabel": "स्कोर:",
+  "questions": [
+    {
+      "id": 1,
+      "question": "किसी बड़े खरीद से पहले आपको क्या करना चाहिए?",
+      "correctAnswer": "पहले योजना बनाएं",
+      "options": [
+        { "text": "तुरंत खरीदें", "isCorrect": false, "emoji": "💸" },
+        { "text": "पहले योजना बनाएं", "isCorrect": true, "emoji": "📋" },
+        { "text": "दोस्तों से पूछें", "isCorrect": false, "emoji": "👥" },
+        { "text": "लागत को नजरअंदाज करें", "isCorrect": false, "emoji": "🙈" }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "अपनी पॉकेट मनी खर्च करने का सबसे समझदारी भरा तरीका क्या है?",
+      "correctAnswer": "पहले कुछ बचाएं",
+      "options": [
+        { "text": "सब खर्च करें", "isCorrect": false, "emoji": "🛍️" },
+        { "text": "जो चाहें खरीदें", "isCorrect": false, "emoji": "🛒" },
+        { "text": "पहले कुछ बचाएं", "isCorrect": true, "emoji": "💰" },
+        { "text": "बर्बाद करें", "isCorrect": false, "emoji": "🔥" }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "आवेग में खरीदारी से बचने में क्या मदद करता है?",
+      "correctAnswer": "खरीदने से पहले रुकें",
+      "options": [
+        { "text": "खरीदने से पहले रुकें", "isCorrect": true, "emoji": "⏳" },
+        { "text": "तुरंत खरीदें", "isCorrect": false, "emoji": "⚡" },
+        { "text": "बार-बार खरीदें", "isCorrect": false, "emoji": "🏪" },
+        { "text": "बिना सोचे खर्च करें", "isCorrect": false, "emoji": "🤔" }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "खरीदारी करते समय आपको किसकी तुलना करनी चाहिए?",
+      "correctAnswer": "कीमत और गुणवत्ता",
+      "options": [
+        { "text": "सिर्फ रंग", "isCorrect": false, "emoji": "🎨" },
+        { "text": "सिर्फ ब्रांड", "isCorrect": false, "emoji": "🏷️" },
+        { "text": "पैकेजिंग", "isCorrect": false, "emoji": "📦" },
+        { "text": "कीमत और गुणवत्ता", "isCorrect": true, "emoji": "🔍" }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "स्मार्ट खर्च का पहला कदम क्या है?",
+      "correctAnswer": "बजट बनाएं",
+      "options": [
+        { "text": "खुले हाथ खर्च करें", "isCorrect": false, "emoji": "💸" },
+        { "text": "बजट बनाएं", "isCorrect": true, "emoji": "📊" },
+        { "text": "सब कुछ खरीदें", "isCorrect": false, "emoji": "🛍️" },
+        { "text": "सीमा को नजरअंदाज करें", "isCorrect": false, "emoji": "🚫" }
+      ]
+    }
+  ]
+}
