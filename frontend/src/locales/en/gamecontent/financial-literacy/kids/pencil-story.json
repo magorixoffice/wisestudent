@@ -1,0 +1,55 @@
+{
+  "title": "Pencil Story",
+  "subtitleComplete": "Story Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}",
+  "questionCounter": "Question {{current}}/{{total}}",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "stageEmoji": "✏️",
+  "questions": [
+    {
+      "id": 1,
+      "text": "You borrow a pencil from a friend. What should you do?",
+      "options": [
+        { "id": "yes", "text": "Return it after use", "emoji": "✅", "description": "", "isCorrect": true },
+        { "id": "no", "text": "Keep it", "emoji": "❌", "description": "", "isCorrect": false },
+        { "id": "lose", "text": "Lose it", "emoji": "🙈", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "You need a pencil but do not have one. What is right?",
+      "options": [
+        { "id": "take", "text": "Take without asking", "emoji": "🤫", "description": "", "isCorrect": false },
+        { "id": "ask", "text": "Ask to borrow and return", "emoji": "🤝", "description": "", "isCorrect": true },
+        { "id": "skip", "text": "Skip writing", "emoji": "✍️", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "You break a borrowed pencil. What is honest?",
+      "options": [
+        { "id": "replace", "text": "Replace it with a new one", "emoji": "🆕", "description": "", "isCorrect": true },
+        { "id": "hide", "text": "Hide it", "emoji": "🙈", "description": "", "isCorrect": false },
+        { "id": "blame", "text": "Blame someone else", "emoji": "😶", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "Your friend lends you ₹5 for a pencil. What should you do?",
+      "options": [
+        { "id": "candy", "text": "Spend it on candy", "emoji": "🍬", "description": "", "isCorrect": false },
+        { "id": "forget", "text": "Forget to repay", "emoji": "😕", "description": "", "isCorrect": false },
+        { "id": "repay", "text": "Repay the ₹5 on time", "emoji": "💸", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "Why is returning borrowed items important?",
+      "options": [
+        { "id": "pencils", "text": "You get more pencils", "emoji": "✏️", "description": "", "isCorrect": false },
+        { "id": "trust", "text": "It builds trust", "emoji": "🤝", "description": "", "isCorrect": true },
+        { "id": "popular", "text": "It makes you popular", "emoji": "👥", "description": "", "isCorrect": false }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+﻿{
+  "title": "दुकान की कहानी 2",
+  "subtitleComplete": "कहानी पूरी हुई!",
+  "subtitleProgress": "प्रश्न {{current}} में से {{total}}",
+  "questionCounter": "प्रश्न {{current}}/{{total}}",
+  "scoreLabel": "स्कोर: {{score}}/{{total}}",
+  "questions": [
+    {
+      "id": 1,
+      "text": "आप दुकान में दो पेन देखते हैं। एक की कीमत Rs 50 है और दूसरे की कीमत Rs 15 है। दोनों समान रूप से काम करते हैं। आपको कौन सा खरीदना चाहिए?",
+      "options": [
+        { "id": "costly", "text": "महँगा पेन", "emoji": "🖋️", "description": "", "isCorrect": false },
+        { "id": "compare", "text": "पहले समीक्षा देखें", "emoji": "🔍", "description": "", "isCorrect": false },
+        { "id": "affordable", "text": "सस्ता पेन", "emoji": "✏️", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "आपके पास कपड़ों पर खर्च करने के लिए Rs 100 हैं। आपको एक शर्ट Rs 80 की पसंद आती है और एक इसी जैसी Rs 30 की। क्या स्मार्ट है?",
+      "options": [
+        { "id": "affordable", "text": "सस्ती शर्ट खरीदें", "emoji": "👕", "description": "", "isCorrect": true },
+        { "id": "costly", "text": "महँगी शर्ट खरीदें", "emoji": "👔", "description": "", "isCorrect": false },
+        { "id": "wait", "text": "सेल का इंतजार करें", "emoji": "📰", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "आप पार्टी के लिए स्नैक्स खरीद रहे हैं। ब्रांड A की कीमत Rs 200 है और ब्रांड B की कीमत Rs 120 है। दोनों का स्वाद समान है। कौन सा लें?",
+      "options": [
+        { "id": "costly", "text": "ब्रांड A खरीदें", "emoji": "🍫", "description": "", "isCorrect": false },
+        { "id": "affordable", "text": "ब्रांड B खरीदें", "emoji": "🍪", "description": "", "isCorrect": true },
+        { "id": "mix", "text": "दोनों में से थोड़ा-थोड़ा खरीदें", "emoji": "✌️", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "आपको स्कूल के लिए बैकपैक चाहिए। एक की कीमत Rs 800 है और दूसरे की कीमत Rs 400 है। दोनों अच्छी गुणवत्ता के हैं। क्या बुद्धिमानी है?",
+      "options": [
+        { "id": "affordable", "text": "Rs 400 वाला बैकपैक खरीदें", "emoji": "🎒", "description": "", "isCorrect": true },
+        { "id": "costly", "text": "Rs 800 वाला बैकपैक खरीदें", "emoji": "💼", "description": "", "isCorrect": false },
+        { "id": "borrow", "text": "अभी के लिए उधार लें", "emoji": "🤝", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "आप किराना खरीद रहे हैं। ऑर्गेनिक सब्जियों की कीमत Rs 300 है और सामान्य सब्जियों की कीमत Rs 150 है। दोनों पौष्टिक हैं। कौन सी लें?",
+      "options": [
+        { "id": "costly", "text": "ऑर्गेनिक सब्जियां खरीदें", "emoji": "🥦", "description": "", "isCorrect": false },
+        { "id": "selective", "text": "दोनों प्रकार मिलाएं", "emoji": "🥗", "description": "", "isCorrect": false },
+        { "id": "affordable", "text": "साधारण सब्जियां खरीदें", "emoji": "🥕", "description": "", "isCorrect": true }
+      ]
+    }
+  ]
+}

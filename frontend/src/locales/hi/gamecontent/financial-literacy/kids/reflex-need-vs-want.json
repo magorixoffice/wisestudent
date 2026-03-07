@@ -1,0 +1,79 @@
+{
+  "title": "रिफ्लेक्स: ज़रूरत बनाम चाहत",
+  "subtitlePlaying": "राउंड {{current}}/{{total}}: ज़रूरत और चाहत की पहचान करें!",
+  "subtitleReady": "ज़रूरत और चाहत की पहचान करें!",
+  "readyEmoji": "📋",
+  "readyTitle": "क्या आप ज़रूरत और चाहत की पहचान करने के लिए तैयार हैं?",
+  "readyDescription": "ऐसे सवालों के जवाब दें जिनमें ज़रूरत और चाहत का अंतर समझना है।",
+  "readyInfo": "आपके पास {{total}} सवाल हैं, हर सवाल के लिए {{seconds}} सेकंड!",
+  "startButton": "गेम शुरू करें",
+  "roundLabel": "राउंड:",
+  "timeLabel": "समय:",
+  "scoreLabel": "स्कोर:",
+  "resultGreatEmoji": "🎉",
+  "resultGreatTitle": "बहुत बढ़िया!",
+  "resultGreatDescription": "आपने {{total}} में से {{score}} सवाल सही किए!",
+  "resultGreatLesson": "सीख: ज़रूरतें जीवन और पढ़ाई के लिए आवश्यक होती हैं, जबकि चाहतें अच्छी लगती हैं लेकिन जरूरी नहीं होतीं।",
+  "resultKeepEmoji": "😔",
+  "resultKeepTitle": "सीखते रहें!",
+  "resultKeepDescription": "आपने {{total}} में से {{score}} सवाल सही किए। याद रखें, खाना, कपड़े और स्कूल की चीजें ज़रूरत हैं।",
+  "resultKeepTip": "टिप: ज़रूरतें वे चीजें हैं जो जीने और सीखने के लिए जरूरी हैं, जैसे भोजन, कपड़े और स्कूल सामग्री।",
+  "tryAgainButton": "फिर से कोशिश करें",
+  "questions": [
+    {
+      "id": 1,
+      "question": "इनमें से कौन सी चीज़ ज़रूरत है?",
+      "correctAnswer": "स्कूल के जूते",
+      "options": [
+        { "text": "स्कूल के जूते", "isCorrect": true, "emoji": "👟" },
+        { "text": "10वीं खिलौना कार", "isCorrect": false, "emoji": "🚗" },
+        { "text": "वीडियो गेम", "isCorrect": false, "emoji": "🎮" },
+        { "text": "फैंसी सनग्लासेस", "isCorrect": false, "emoji": "🕶️" }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "स्वस्थ रहने के लिए क्या ज़रूरी है?",
+      "correctAnswer": "पौष्टिक भोजन",
+      "options": [
+        { "text": "अतिरिक्त कैंडी", "isCorrect": false, "emoji": "🍬" },
+        { "text": "पौष्टिक भोजन", "isCorrect": true, "emoji": "🥗" },
+        { "text": "आइसक्रीम", "isCorrect": false, "emoji": "🍦" },
+        { "text": "सोडा", "isCorrect": false, "emoji": "🥤" }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "सीखने के लिए कौन सी चीज़ आवश्यक है?",
+      "correctAnswer": "स्कूल की किताबें",
+      "options": [
+        { "text": "वीडियो गेम", "isCorrect": false, "emoji": "🎮" },
+        { "text": "एक्शन फिगर", "isCorrect": false, "emoji": "🤖" },
+        { "text": "पज़ल गेम", "isCorrect": false, "emoji": "🧩" },
+        { "text": "स्कूल की किताबें", "isCorrect": true, "emoji": "📚" }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "ठंड के मौसम में क्या ज़रूरी है?",
+      "correctAnswer": "विंटर जैकेट",
+      "options": [
+        { "text": "फैंसी सनग्लासेस", "isCorrect": false, "emoji": "🕶️" },
+        { "text": "स्विमिंग पूल", "isCorrect": false, "emoji": "🏊" },
+        { "text": "विंटर जैकेट", "isCorrect": true, "emoji": "🧥" },
+        { "text": "बीच बॉल", "isCorrect": false, "emoji": "🏐" }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "स्कूल जाने के लिए क्या ज़रूरी है?",
+      "correctAnswer": "बस किराया",
+      "options": [
+        { "text": "बस किराया", "isCorrect": true, "emoji": "🚌" },
+        { "text": "नए हेडफोन", "isCorrect": false, "emoji": "🎧" },
+        { "text": "म्यूजिक प्लेयर", "isCorrect": false, "emoji": "🎵" },
+        { "text": "स्मार्ट वॉच", "isCorrect": false, "emoji": "⌚" }
+      ]
+    }
+  ]
+}

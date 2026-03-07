@@ -1,0 +1,35 @@
+{
+  "title": "पज़ल: स्मार्ट बनाम फिजूलखर्ची",
+  "subtitleComplete": "पज़ल पूरा हुआ!",
+  "subtitleProgress": "आइटम्स को श्रेणियों से मिलाएं ({{matched}}/{{total}} मेल हुए)",
+  "itemsTitle": "खर्च की चीज़ें",
+  "categoriesTitle": "श्रेणियां",
+  "selectedLabel": "चयनित: {{name}}",
+  "selectItem": "एक आइटम चुनें",
+  "matchButton": "मिलाएँ",
+  "scoreLabel": "स्कोर:",
+  "matchedLabel": "मेल हुए:",
+  "resultGreatEmoji": "🎉",
+  "resultGreatTitle": "बहुत बढ़िया!",
+  "resultGreatDescription": "आपने {{score}} में से {{total}} आइटम्स को सही श्रेणियों से मिलाया!",
+  "coinsLabel": "कॉइन्स",
+  "resultLesson": "सीख: जरूरत और इच्छा का फर्क समझना समझदारी भरे वित्तीय फैसले लेने में मदद करता है!",
+  "resultKeepEmoji": "💪",
+  "resultKeepTitle": "अभ्यास जारी रखें!",
+  "resultKeepDescription": "आपने {{score}} में से {{total}} आइटम्स सही मिलाए।",
+  "resultTip": "टिप: सोचें कि हर आइटम जरूरी है या बस अच्छा लगता है!",
+  "items": [
+    { "id": 1, "name": "पुस्तकालय की किताबें", "emoji": "📖" },
+    { "id": 2, "name": "पुन: उपयोग की जाने वाली पानी की बोतल", "emoji": "🥤" },
+    { "id": 3, "name": "कैंडी पैक", "emoji": "🍬" },
+    { "id": 4, "name": "पट्टियां और प्राथमिक उपचार", "emoji": "🩹" },
+    { "id": 5, "name": "फलों की टोकरी", "emoji": "🍇" }
+  ],
+  "categories": [
+    { "id": 6, "name": "स्मार्ट खरीद", "emoji": "💡", "description": "समझदारी भरा खर्च" },
+    { "id": 7, "name": "फिजूल खरीदारी", "emoji": "🗑️", "description": "जरूरी नहीं या दिखावे वाली" },
+    { "id": 8, "name": "पैसे बचाएं", "emoji": "💰", "description": "भविष्य के लिए अच्छा" },
+    { "id": 9, "name": "स्वास्थ्य प्राथमिकता", "emoji": "❤️", "description": "सेहत के लिए जरूरी" },
+    { "id": 10, "name": "पौष्टिक विकल्प", "emoji": "🍏", "description": "स्वस्थ और लाभदायक" }
+  ]
+}

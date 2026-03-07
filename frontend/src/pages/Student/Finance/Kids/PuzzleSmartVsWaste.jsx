@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from "react";
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import GameShell from "../../Finance/GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getFinanceKidsGames } from "../../../../pages/Games/GameCategories/Finance/kidGamesData";
@@ -7,6 +8,7 @@ import { getFinanceKidsGames } from "../../../../pages/Games/GameCategories/Fina
 const PuzzleSmartVsWaste = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { t } = useTranslation("gamecontent");
   
   const { nextGamePath, nextGameId } = useMemo(() => {
     if (location.state?.nextGamePath) {
@@ -45,39 +47,27 @@ const PuzzleSmartVsWaste = () => {
   const [gameFinished, setGameFinished] = useState(false);
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
-  const items = [
-  { id: 1, name: "Library Books", emoji: "📖" },        // Important for learning
-  { id: 2, name: "Reusable Water Bottle", emoji: "🥤" }, // Smart daily purchase
-  { id: 3, name: "Candy Pack", emoji: "🍬" },           // Fun but unnecessary
-  { id: 4, name: "Bandages & First Aid", emoji: "🩹" }, // Health safety item
-  { id: 5, name: "Fruit Basket", emoji: "🍇" }          // Nutritious food
-];
-
-const categories = [
-  { id: 6, name: "Smart Buy", emoji: "💡" },       // Wise spending
-  { id: 7, name: "Wasteful Purchase", emoji: "🗑️" }, // Not needed or frivolous
-  { id: 8, name: "Save Money", emoji: "💰" },      // Good for future
-  { id: 9, name: "Health Priority", emoji: "❤️" }, // Must-have for wellbeing
-  { id: 10, name: "Nutritious Choice", emoji: "🍏" } // Healthy & beneficial
-];
+  const gameContent = t("financial-literacy.kids.puzzle-smart-vs-waste", { returnObjects: true });
+  const items = Array.isArray(gameContent?.items) ? gameContent.items : [];
+  const categories = Array.isArray(gameContent?.categories) ? gameContent.categories : [];
 
 
   const rearrangedCategories = [
-  categories[0], // Save Money (id: 8)
-  categories[4], // Nutritious Choice (id: 10)
-  categories[3], // Wasteful Purchase (id: 7)
-  categories[2], // Smart Buy (id: 6)
-  categories[1]  // Health Priority (id: 9)
-];
+    categories[0], // Smart Buy (id: 6)
+    categories[4], // Nutritious Choice (id: 10)
+    categories[1], // Wasteful Purchase (id: 7)
+    categories[2], // Save Money (id: 8)
+    categories[3], // Health Priority (id: 9)
+  ].filter(Boolean);
 
 
   const correctMatches = [
-  { itemId: 1, categoryId: 8 },  // Library Books → Save Money
-  { itemId: 2, categoryId: 6 },  // Reusable Water Bottle → Smart Buy
-  { itemId: 3, categoryId: 7 },  // Candy Pack → Wasteful Purchase
-  { itemId: 4, categoryId: 9 },  // Bandages & First Aid → Health Priority
-  { itemId: 5, categoryId: 10 }  // Fruit Basket → Nutritious Choice
-];
+    { itemId: 1, categoryId: 8 }, // Library Books -> Save Money
+    { itemId: 2, categoryId: 6 }, // Reusable Water Bottle -> Smart Buy
+    { itemId: 3, categoryId: 7 }, // Candy Pack -> Wasteful Purchase
+    { itemId: 4, categoryId: 9 }, // Bandages & First Aid -> Health Priority
+    { itemId: 5, categoryId: 10 }, // Fruit Basket -> Nutritious Choice
+  ];
 
 
   const handleItemSelect = (item) => {
@@ -144,8 +134,15 @@ const categories = [
 
   return (
     <GameShell
-      title="Puzzle: Smart vs Waste"
-      subtitle={gameFinished ? "Puzzle Complete!" : `Match Items with Categories (${matches.length}/${items.length} matched)`}
+      title={gameContent?.title || "Puzzle: Smart vs Waste"}
+      subtitle={
+        gameFinished
+          ? gameContent?.subtitleComplete || "Puzzle Complete!"
+          : t("financial-literacy.kids.puzzle-smart-vs-waste.subtitleProgress", {
+              matched: matches.length,
+              total: items.length,
+            })
+      }
       showGameOver={gameFinished}
       score={score}
       gameId="finance-kids-14"
@@ -168,7 +165,9 @@ const categories = [
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Left column - Spending Items */}
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-              <h3 className="text-xl font-bold text-white mb-4 text-center">Spending Items</h3>
+              <h3 className="text-xl font-bold text-white mb-4 text-center">
+                {gameContent?.itemsTitle || "Spending Items"}
+              </h3>
               <div className="space-y-4">
                 {items.map(item => (
                   <button
@@ -201,9 +200,11 @@ const categories = [
             <div className="flex flex-col items-center justify-center">
               <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 text-center">
                 <p className="text-white/80 mb-4">
-                  {selectedItem 
-                    ? `Selected: ${selectedItem.name}` 
-                    : "Select an Item"}
+                  {selectedItem
+                    ? t("financial-literacy.kids.puzzle-smart-vs-waste.selectedLabel", {
+                        name: selectedItem.name,
+                      })
+                    : gameContent?.selectItem || "Select an Item"}
                 </p>
                 <button
                   onClick={handleMatch}
@@ -214,18 +215,24 @@ const categories = [
                       : "bg-gray-500/30 text-gray-400 cursor-not-allowed"
                   }`}
                 >
-                  Match
+                  {gameContent?.matchButton || "Match"}
                 </button>
                 <div className="mt-4 text-white/80">
-                  <p>Score: {score}/{items.length}</p>
-                  <p>Matched: {matches.length}/{items.length}</p>
+                  <p>
+                    {gameContent?.scoreLabel || "Score:"} {score}/{items.length}
+                  </p>
+                  <p>
+                    {gameContent?.matchedLabel || "Matched:"} {matches.length}/{items.length}
+                  </p>
                 </div>
               </div>
             </div>
 
             {/* Right column - Categories */}
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-              <h3 className="text-xl font-bold text-white mb-4 text-center">Categories</h3>
+              <h3 className="text-xl font-bold text-white mb-4 text-center">
+                {gameContent?.categoriesTitle || "Categories"}
+              </h3>
               <div className="space-y-4">
                 {rearrangedCategories.map(category => (
                   <button
@@ -244,7 +251,9 @@ const categories = [
                       <div className="text-2xl mr-3">{category.emoji}</div>
                       <div>
                         <h4 className="font-bold text-white">{category.name}</h4>
-                        <p className="text-white/80 text-sm">{category.description}</p>
+                        {category.description ? (
+                          <p className="text-white/80 text-sm">{category.description}</p>
+                        ) : null}
                       </div>
                     </div>
                   </button>
@@ -256,27 +265,41 @@ const categories = [
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 text-center">
             {score >= 3 ? (
               <div>
-                <div className="text-5xl mb-4">🎉</div>
-                <h3 className="text-2xl font-bold text-white mb-4">Great Job!</h3>
+                <div className="text-5xl mb-4">{gameContent?.resultGreatEmoji || "🎉"}</div>
+                <h3 className="text-2xl font-bold text-white mb-4">
+                  {gameContent?.resultGreatTitle || "Great Job!"}
+                </h3>
                 <p className="text-white/90 text-lg mb-4">
-                  You correctly matched {score} out of {items.length} items with their categories!
+                  {t("financial-literacy.kids.puzzle-smart-vs-waste.resultGreatDescription", {
+                    score,
+                    total: items.length,
+                  })}
                 </p>
                 <div className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white py-3 px-6 rounded-full inline-flex items-center gap-2 mb-4">
-                  <span>+{score} Coins</span>
+                  <span>
+                    +{score} {gameContent?.coinsLabel || "Coins"}
+                  </span>
                 </div>
                 <p className="text-white/80">
-                  Lesson: Understanding the difference between needs and wants helps make smart financial decisions!
+                  {gameContent?.resultLesson
+                    || "Lesson: Understanding the difference between needs and wants helps make smart financial decisions!"}
                 </p>
               </div>
             ) : (
               <div>
-                <div className="text-5xl mb-4">💪</div>
-                <h3 className="text-2xl font-bold text-white mb-4">Keep Practicing!</h3>
+                <div className="text-5xl mb-4">{gameContent?.resultKeepEmoji || "💪"}</div>
+                <h3 className="text-2xl font-bold text-white mb-4">
+                  {gameContent?.resultKeepTitle || "Keep Practicing!"}
+                </h3>
                 <p className="text-white/90 text-lg mb-4">
-                  You matched {score} out of {items.length} items correctly.
+                  {t("financial-literacy.kids.puzzle-smart-vs-waste.resultKeepDescription", {
+                    score,
+                    total: items.length,
+                  })}
                 </p>
                 <p className="text-white/80 text-sm">
-                  Tip: Think about whether each item is essential or just nice to have!
+                  {gameContent?.resultTip
+                    || "Tip: Think about whether each item is essential or just nice to have!"}
                 </p>
               </div>
             )}

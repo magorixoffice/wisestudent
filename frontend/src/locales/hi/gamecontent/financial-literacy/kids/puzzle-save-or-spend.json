@@ -1,0 +1,32 @@
+﻿{
+  "title": "पहेली: बचत या खर्च",
+  "subtitleComplete": "पहेली पूरी हुई!",
+  "subtitleProgress": "आइटम्स को क्रियाओं से मिलाएं ({{matched}}/{{total}} मिले)",
+  "itemsTitle": "आइटम्स",
+  "actionsTitle": "क्रियाएँ",
+  "selectedLabel": "चयनित: {{name}}",
+  "selectItem": "एक आइटम चुनें",
+  "matchButton": "मिलाएं",
+  "scoreLabel": "स्कोर:",
+  "matchedLabel": "मिले:",
+  "resultGreatTitle": "बहुत बढ़िया!",
+  "resultGreatDescription": "आपने {{total}} में से {{score}} आइटम्स को सही क्रियाओं से मिलाया!",
+  "resultLesson": "सबक: जरूरी चीजों के लिए बचत करना सुरक्षित भविष्य बनाता है!",
+  "resultKeepTitle": "अभ्यास जारी रखें!",
+  "resultKeepDescription": "आपने {{total}} में से {{score}} आइटम्स सही मिलाए।",
+  "resultTip": "टिप: सोचें कि हर आइटम जरूरी है या इच्छानुसार!",
+  "items": [
+    { "id": 1, "name": "मनी बैंक", "emoji": "💰" },
+    { "id": 2, "name": "आइसक्रीम", "emoji": "🍦" },
+    { "id": 3, "name": "नई साइकिल", "emoji": "🚲" },
+    { "id": 4, "name": "कैंडी", "emoji": "🍬" },
+    { "id": 5, "name": "स्कूल की किताबें", "emoji": "📚" }
+  ],
+  "actions": [
+    { "id": 6, "name": "बचाएं", "emoji": "📥" },
+    { "id": 7, "name": "खर्च करें", "emoji": "📤" },
+    { "id": 8, "name": "निवेश करें", "emoji": "📈" },
+    { "id": 9, "name": "दान करें", "emoji": "❤️" },
+    { "id": 10, "name": "बजट बनाएं", "emoji": "📋" }
+  ]
+}

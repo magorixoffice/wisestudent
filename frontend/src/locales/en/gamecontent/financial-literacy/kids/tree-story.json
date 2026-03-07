@@ -1,0 +1,55 @@
+{
+  "title": "Tree Story",
+  "subtitleComplete": "Story Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}",
+  "questionCounter": "Question {{current}}/{{total}}",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "stageEmoji": "🌳",
+  "questions": [
+    {
+      "id": 1,
+      "text": "You plant a small tree today. What helps it grow strong over time?",
+      "options": [
+        { "id": "care", "text": "Water and care regularly", "emoji": "💧", "description": "", "isCorrect": true },
+        { "id": "rush", "text": "Pull it to grow faster", "emoji": "⚡", "description": "", "isCorrect": false },
+        { "id": "ignore", "text": "Leave it and forget", "emoji": "😴", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "Money is like a tree. What makes it grow slowly and safely?",
+      "options": [
+        { "id": "spend", "text": "Spending everything quickly", "emoji": "💸", "description": "", "isCorrect": false },
+        { "id": "hide", "text": "Hiding it and never using it", "emoji": "🙈", "description": "", "isCorrect": false },
+        { "id": "plan", "text": "Using and saving wisely over time", "emoji": "📊", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "You get extra pocket money. What is the smart tree-style choice?",
+      "options": [
+        { "id": "waste", "text": "Spend it without thinking", "emoji": "🔥", "description": "", "isCorrect": false },
+        { "id": "grow", "text": "Save part so it grows later", "emoji": "🌱", "description": "", "isCorrect": true },
+        { "id": "lose", "text": "Keep it carelessly", "emoji": "📉", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "A fruit tree gives fruits every year. What does this teach about money?",
+      "options": [
+        { "id": "fast", "text": "Money should be used only once", "emoji": "⚡", "description": "", "isCorrect": false },
+        { "id": "luck", "text": "Only luck matters", "emoji": "🍀", "description": "", "isCorrect": false },
+        { "id": "return", "text": "Good choices give repeated rewards", "emoji": "🍎", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "If you cut a tree too early, what happens?",
+      "options": [
+        { "id": "loss", "text": "You lose future benefits", "emoji": "📉", "description": "", "isCorrect": true },
+        { "id": "gain", "text": "You always gain more", "emoji": "💰", "description": "", "isCorrect": false },
+        { "id": "nothing", "text": "Nothing changes", "emoji": "😐", "description": "", "isCorrect": false }
+      ]
+    }
+  ]
+}

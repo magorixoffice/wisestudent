@@ -1,16 +1,18 @@
-import React, { useState } from "react";
+﻿import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getGameDataById } from "../../../../utils/getGameData";
 
 const PosterSavingHabit = () => {
   const location = useLocation();
-  
+  const { t } = useTranslation("gamecontent");
+
   // Get game data from game category folder (source of truth)
   const gameId = "finance-kids-6";
   const gameData = getGameDataById(gameId);
-  
+
   // Get coinsPerLevel, totalCoins, and totalXp from game category data, fallback to location.state, then defaults
   const coinsPerLevel = gameData?.coins || location.state?.coinsPerLevel || 5;
   const totalCoins = gameData?.coins || location.state?.totalCoins || 5;
@@ -21,159 +23,22 @@ const PosterSavingHabit = () => {
   const [coins, setCoins] = useState(0);
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
-  const stages = [
-    {
-      question: "Which poster best promotes good saving habits?",
-      posters: [
-        {
-          id: 1,
-          title: "Save First, Spend Later",
-         
-          emoji: "💰→🎉",
-          isCorrect: true
-        },
-        {
-          id: 2,
-          title: "Spend First, Save Later",
-          
-          emoji: "🎉→💰",
-          isCorrect: false
-        },
-        {
-          id: 3,
-          title: "Save Nothing, Just Spend",
-          emoji: "🛍️🏦",
-          isCorrect: false
-        }
-      ],
-      correctFeedback: "Save First, Spend Later is the best message for building good financial habits!",
-      explanation: "This poster reminds us to save money first before spending on wants!"
-    },
-    {
-      question: "Which poster encourages setting savings goals?",
-      posters: [
-        {
-          id: 1,
-          title: "Spend Everything Today",
-          emoji: "💸🎯",
-          isCorrect: false
-        },
-        {
-          id: 2,
-          title: "Money Grows on Trees",
-          emoji: "🌳💵",
-          isCorrect: false
-        },
-        {
-          id: 3,
-          title: "Save for Your Dreams",
-          
-          emoji: "🎯💰",
-          isCorrect: true
-        }
-      ],
-      correctFeedback: "Save for Your Dreams encourages goal-setting!",
-      explanation: "Setting savings goals helps you stay focused and motivated!"
-    },
-    {
-      question: "Which poster shows the importance of a savings account?",
-      posters: [
-        {
-          id: 1,
-          title: "Bank = Safe Money",
-          
-          emoji: "🏦💰",
-          isCorrect: true
-        },
-        {
-          id: 2,
-          title: "Keep Money Under Bed",
-         
-          emoji: "🛏️💵",
-          isCorrect: false
-        },
-        {
-          id: 3,
-          title: "Spend It All Now",
-          
-          emoji: "💸🏦",
-          isCorrect: false
-        }
-      ],
-      correctFeedback: "Bank = Safe Money is the right choice!",
-      explanation: "Banks keep your money safe and can help it grow with interest!"
-    },
-    {
-      question: "Which poster teaches about emergency savings?",
-      posters: [
-        {
-          id: 1,
-          title: "Save for Rainy Days",
-         
-          emoji: "☔🛡️",
-          isCorrect: true
-        },
-        {
-          id: 2,
-          title: "Spend on Fun Only",
-         
-          emoji: "🎮🎉",
-          isCorrect: false
-        },
-        {
-          id: 3,
-          title: "Borrow When Needed",
-          
-          emoji: "💳💰",
-          isCorrect: false
-        }
-      ],
-      correctFeedback: "Save for Rainy Days teaches emergency savings!",
-      explanation: "Having emergency savings helps you handle unexpected situations!"
-    },
-    {
-      question: "Which poster promotes regular saving habits?",
-      posters: [
-        {
-          id: 2,
-          title: "Save Only on Special Days",
-          
-          emoji: "🎂💰",
-          isCorrect: false
-        },
-        {
-          id: 3,
-          title: "Never Save, Always Spend",
-          
-          emoji: "💸💰",
-          isCorrect: false
-        },
-        {
-          id: 1,
-          title: "Save a Little Every Day",
-         
-          emoji: "📅💰",
-          isCorrect: true
-        }
-      ],
-      correctFeedback: "Save a Little Every Day promotes good habits!",
-      explanation: "Regular saving, even small amounts, builds strong financial habits!"
-    }
-  ];
+  const gameContent = t("financial-literacy.kids.poster-saving-habit", { returnObjects: true });
+  const stages = Array.isArray(gameContent?.stages) ? gameContent.stages : [];
 
   const currentStageData = stages[currentStage];
   const posters = currentStageData?.posters || [];
 
   const handlePosterSelect = (poster) => {
     setSelectedPoster(poster.id);
-    
+
     if (poster.isCorrect) {
-      setCoins(prev => prev + 1);
+      setCoins((prev) => prev + 1);
       showCorrectAnswerFeedback(1, true);
-      
+
       // Check if this is the last stage
       const isLastStage = currentStage === stages.length - 1;
-      
+
       if (isLastStage) {
         // Last stage - show result and game over modal
         setShowResult(true);
@@ -209,13 +74,16 @@ const PosterSavingHabit = () => {
   };
 
   const isLastStage = currentStage === stages.length - 1;
-  const selectedPosterData = selectedPoster ? posters.find(p => p.id === selectedPoster) : null;
+  const selectedPosterData = selectedPoster ? posters.find((p) => p.id === selectedPoster) : null;
   const isCorrect = selectedPosterData?.isCorrect || false;
 
   return (
     <GameShell
-      title="Poster: Saving Habit"
-      subtitle={`Question ${currentStage + 1} of ${stages.length}`}
+      title={gameContent?.title || "Poster: Saving Habit"}
+      subtitle={t("financial-literacy.kids.poster-saving-habit.subtitleProgress", {
+        current: currentStage + 1,
+        total: stages.length,
+      })}
       currentLevel={currentStage + 1}
       totalLevels={stages.length}
       coinsPerLevel={coinsPerLevel}
@@ -238,11 +106,13 @@ const PosterSavingHabit = () => {
           <div className="space-y-6">
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
               <p className="text-white text-xl font-bold mb-6 text-center">
-                Question {currentStage + 1}: {currentStageData?.question}
+                {t("financial-literacy.kids.poster-saving-habit.questionPrefix", {
+                  current: currentStage + 1,
+                })} {currentStageData?.question}
               </p>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {posters.map(poster => (
+                {posters.map((poster) => (
                   <button
                     key={poster.id}
                     onClick={() => handlePosterSelect(poster)}
@@ -255,7 +125,9 @@ const PosterSavingHabit = () => {
                   >
                     <div className="text-4xl mb-4 text-center">{poster.emoji}</div>
                     <h3 className="font-bold text-xl text-white mb-2 text-center">{poster.title}</h3>
-                    <p className="text-white/90 text-center">{poster.description}</p>
+                    {poster.description ? (
+                      <p className="text-white/90 text-center">{poster.description}</p>
+                    ) : null}
                   </button>
                 ))}
               </div>
@@ -266,37 +138,44 @@ const PosterSavingHabit = () => {
             {isCorrect ? (
               <div>
                 <div className="text-5xl mb-4">🎨</div>
-                <h3 className="text-2xl font-bold text-white mb-4">Creative Choice!</h3>
-                <p className="text-white/90 text-lg mb-4">
-                  {currentStageData?.correctFeedback}
-                </p>
+                <h3 className="text-2xl font-bold text-white mb-4">
+                  {gameContent?.creativeTitle || "Creative Choice!"}
+                </h3>
+                <p className="text-white/90 text-lg mb-4">{currentStageData?.correctFeedback}</p>
                 <div className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white py-3 px-6 rounded-full inline-flex items-center gap-2 mb-4">
-                  <span>+1 Coin</span>
+                  <span>{gameContent?.coinReward || "+1 Coin"}</span>
                 </div>
-                <p className="text-white/80 mb-4">
-                  {currentStageData?.explanation}
-                </p>
+                <p className="text-white/80 mb-4">{currentStageData?.explanation}</p>
                 {!isLastStage && (
                   <p className="text-white/70 text-sm mt-4">
-                    Question {currentStage + 1} of {stages.length} completed!
+                    {t("financial-literacy.kids.poster-saving-habit.completedNote", {
+                      current: currentStage + 1,
+                      total: stages.length,
+                    })}
                   </p>
                 )}
               </div>
             ) : (
               <div>
                 <div className="text-5xl mb-4">🤔</div>
-                <h3 className="text-2xl font-bold text-white mb-4">Think About It!</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">
+                  {gameContent?.thinkTitle || "Think About It!"}
+                </h3>
                 <p className="text-white/90 text-lg mb-4">
-                  {currentStageData?.correctFeedback || "That's not quite right. Try again!"}
+                  {currentStageData?.correctFeedback ||
+                    gameContent?.fallbackIncorrect ||
+                    "That's not quite right. Try again!"}
                 </p>
                 <button
                   onClick={handleTryAgain}
                   className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white py-3 px-6 rounded-full font-bold transition-all mb-4"
                 >
-                  Try Again
+                  {gameContent?.tryAgain || "Try Again"}
                 </button>
                 <p className="text-white/80 text-sm">
-                  {currentStageData?.explanation || "Look for the poster that promotes good saving habits."}
+                  {currentStageData?.explanation ||
+                    gameContent?.fallbackTip ||
+                    "Look for the poster that promotes good saving habits."}
                 </p>
               </div>
             )}

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Paintbrush } from "lucide-react";
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
@@ -7,9 +8,11 @@ import { getGameDataById } from "../../../../utils/getGameData";
 
 const PosterNeedsFirst = () => {
   const location = useLocation();
+  const { t } = useTranslation("gamecontent");
   
   // Get game data from game category folder (source of truth)
   const gameId = "finance-kids-36";
+  const gameContent = t("financial-literacy.kids.poster-needs-first", { returnObjects: true });
   const gameData = getGameDataById(gameId);
   
   // Get coinsPerLevel, totalCoins, and totalXp from game category data, fallback to location.state, then defaults
@@ -22,7 +25,7 @@ const PosterNeedsFirst = () => {
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
 
-  const stages = [
+  const stages = gameContent.stages || [
     {
       question: "Which poster would best teach kids to prioritize needs over wants?",
       choices: [
@@ -82,8 +85,8 @@ const PosterNeedsFirst = () => {
 
   return (
     <GameShell
-      title="Poster: Needs First"
-      subtitle={`Question ${currentStage + 1} of ${stages.length}: Choose posters that promote smart financial choices!`}
+      title={gameContent.title || "Poster: Needs First"}
+      subtitle={t("financial-literacy.kids.poster-needs-first.subtitleProgress", { current: currentStage + 1, total: stages.length, defaultValue: "Question {{current}} of {{total}}: Choose posters that promote smart financial choices!" })}
       coins={score}
       currentLevel={currentStage + 1}
       totalLevels={5}
@@ -104,7 +107,7 @@ const PosterNeedsFirst = () => {
         <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20">
           <Paintbrush className="mx-auto mb-4 w-8 h-8 text-yellow-400" />
           <h3 className="text-2xl font-bold mb-4">{stages[currentStage].question}</h3>
-          <p className="text-white/70 mb-4">Score: {score}/{stages.length}</p>
+          <p className="text-white/70 mb-4">{t("financial-literacy.kids.poster-needs-first.scoreLabel", { score, total: stages.length, defaultValue: "Score: {{score}}/{{total}}" })}</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {stages[currentStage].choices.map((choice, idx) => (
               <button

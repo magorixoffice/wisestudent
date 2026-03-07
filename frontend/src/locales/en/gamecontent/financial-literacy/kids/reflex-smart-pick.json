@@ -1,0 +1,70 @@
+{
+  "title": "Reflex Smart Pick",
+  "subtitlePlaying": "Round {{current}}/{{total}}: Test your smart pick knowledge!",
+  "subtitleReady": "Test your smart pick knowledge!",
+  "readyEmoji": "🧠",
+  "readyTitle": "Ready to Test Your Smart Pick Skills?",
+  "readyDescription": "Answer questions about smart choices and decision making.",
+  "readyInfo": "You have {{total}} questions with {{seconds}} seconds each!",
+  "startButton": "Start Game",
+  "roundLabel": "Round:",
+  "timeLabel": "Time:",
+  "scoreLabel": "Score:",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the smart pick for staying healthy?",
+      "correctAnswer": "Food",
+      "options": [
+        { "text": "Food", "isCorrect": true, "emoji": "🍎" },
+        { "text": "Extra Ice Cream", "isCorrect": false, "emoji": "🍦" },
+        { "text": "Video Game", "isCorrect": false, "emoji": "🎮" },
+        { "text": "Fancy Toy", "isCorrect": false, "emoji": "🧸" }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "What should you choose for learning?",
+      "correctAnswer": "School Supplies",
+      "options": [
+        { "text": "New Game", "isCorrect": false, "emoji": "🎮" },
+        { "text": "School Supplies", "isCorrect": true, "emoji": "📚" },
+        { "text": "Candy", "isCorrect": false, "emoji": "🍬" },
+        { "text": "Cool Gadget", "isCorrect": false, "emoji": "⌚" }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "What is essential for daily life?",
+      "correctAnswer": "Clothes",
+      "options": [
+        { "text": "Fancy Toy", "isCorrect": false, "emoji": "🧸" },
+        { "text": "Clothes", "isCorrect": true, "emoji": "👕" },
+        { "text": "Ice Cream", "isCorrect": false, "emoji": "🍦" },
+        { "text": "Action Figure", "isCorrect": false, "emoji": "🤖" }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "What helps you gain knowledge?",
+      "correctAnswer": "Books",
+      "options": [
+        { "text": "Candy", "isCorrect": false, "emoji": "🍬" },
+        { "text": "Video Game", "isCorrect": false, "emoji": "🎮" },
+        { "text": "Puzzle Game", "isCorrect": false, "emoji": "🧩" },
+        { "text": "Books", "isCorrect": true, "emoji": "📖" }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "What do you need to get to school?",
+      "correctAnswer": "Bus Ticket",
+      "options": [
+        { "text": "Cool Gadget", "isCorrect": false, "emoji": "⌚" },
+        { "text": "Music Player", "isCorrect": false, "emoji": "🎵" },
+        { "text": "Bus Ticket", "isCorrect": true, "emoji": "🚌" },
+        { "text": "Smart Watch", "isCorrect": false, "emoji": "⌚" }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getGameDataById } from "../../../../utils/getGameData";
@@ -7,9 +8,11 @@ import { getGameDataById } from "../../../../utils/getGameData";
 const SnackStory = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { t } = useTranslation("gamecontent");
 
   // Get game data from game category folder (source of truth)
   const gameId = "finance-kids-35";
+  const gameContent = t("financial-literacy.kids.snack-story", { returnObjects: true });
   const gameData = getGameDataById(gameId);
 
   // Get coinsPerLevel, totalCoins, and totalXp from game category data, fallback to location.state, then defaults
@@ -23,7 +26,7 @@ const SnackStory = () => {
   const [finalScore, setFinalScore] = useState(0);
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback } = useGameFeedback();
 
-  const questions = [
+  const questions = gameContent.questions || [
     {
       id: 1,
       text: "You need lunch but want chips. What do you pick?",
@@ -205,8 +208,8 @@ const SnackStory = () => {
 
   return (
     <GameShell
-      title="Snack Story"
-      subtitle={showResult ? "Story Complete!" : `Question ${currentQuestion + 1} of ${questions.length}`}
+      title={gameContent.title || "Snack Story"}
+      subtitle={showResult ? (gameContent.subtitleComplete || "Story Complete!") : t("financial-literacy.kids.snack-story.subtitleProgress", { current: currentQuestion + 1, total: questions.length, defaultValue: "Question {{current}} of {{total}}" })}
       currentLevel={5}
       totalLevels={5}
       coinsPerLevel={coinsPerLevel}
@@ -229,8 +232,8 @@ const SnackStory = () => {
           <div className="space-y-6">
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
               <div className="flex justify-between items-center mb-4">
-                <span className="text-white/80">Question {currentQuestion + 1}/{questions.length}</span>
-                <span className="text-yellow-400 font-bold">Score: {coins}/{questions.length}</span>
+                <span className="text-white/80">{t("financial-literacy.kids.snack-story.questionCounter", { current: currentQuestion + 1, total: questions.length, defaultValue: "Question {{current}}/{{total}}" })}</span>
+                <span className="text-yellow-400 font-bold">{t("financial-literacy.kids.snack-story.scoreLabel", { score: coins, total: questions.length, defaultValue: "Score: {{score}}/{{total}}" })}</span>
               </div>
 
               <p className="text-white text-lg mb-6 text-center">

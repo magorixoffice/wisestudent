@@ -1,0 +1,35 @@
+{
+  "title": "Puzzle of Growth",
+  "subtitleComplete": "Puzzle Complete!",
+  "subtitleProgress": "Match Items with Outcomes ({{matched}}/{{total}} matched)",
+  "itemsTitle": "Growth Items",
+  "categoriesTitle": "Outcomes",
+  "selectedLabel": "Selected: {{name}}",
+  "selectItem": "Select an Item",
+  "matchButton": "Match",
+  "scoreLabel": "Score:",
+  "matchedLabel": "Matched:",
+  "resultGreatEmoji": "🎉",
+  "resultGreatTitle": "Great Job!",
+  "resultGreatDescription": "You correctly matched {{score}} out of {{total}} items with outcomes!",
+  "coinsLabel": "Coins",
+  "resultLesson": "Lesson: Just like plants, savings and investments grow over time.",
+  "resultKeepEmoji": "💪",
+  "resultKeepTitle": "Keep Practicing!",
+  "resultKeepDescription": "You matched {{score}} out of {{total}} items correctly.",
+  "resultTip": "Tip: Think about what each item naturally grows into.",
+  "items": [
+    { "id": 1, "name": "Seed", "emoji": "🌱" },
+    { "id": 2, "name": "Savings", "emoji": "💰" },
+    { "id": 3, "name": "Plant", "emoji": "🌿" },
+    { "id": 4, "name": "Sapling", "emoji": "🌳" },
+    { "id": 5, "name": "Bulb", "emoji": "🌻" }
+  ],
+  "categories": [
+    { "id": 6, "name": "Tree", "emoji": "🌲", "description": "Seed can become a tree" },
+    { "id": 7, "name": "Growth", "emoji": "📈", "description": "Savings can grow in value" },
+    { "id": 8, "name": "Flower", "emoji": "🌸", "description": "Plant can bloom into flower" },
+    { "id": 9, "name": "Forest", "emoji": "🌲", "description": "Many saplings can make a forest" },
+    { "id": 10, "name": "Wealth", "emoji": "🏦", "description": "Money habits can build wealth" }
+  ]
+}

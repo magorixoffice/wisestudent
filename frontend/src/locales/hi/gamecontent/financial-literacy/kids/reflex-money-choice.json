@@ -1,0 +1,69 @@
+﻿{
+  "title": "रिफ्लेक्स मनी चॉइस",
+  "subtitlePlaying": "प्रश्न {{current}} में से {{total}}: अपने पैसे के चुनाव की रिफ्लेक्स जांचें!",
+  "subtitleReady": "अपने पैसे के चुनाव की रिफ्लेक्स जांचें!",
+  "readyTitle": "क्या आप अपने पैसे के चुनाव परखने के लिए तैयार हैं?",
+  "readyDescription": "हर प्रश्न के लिए समझदारी वाला विकल्प चुनें।",
+  "readyInfo": "आपके पास {{total}} प्रश्न हैं और प्रत्येक के लिए {{seconds}} सेकंड हैं!",
+  "startButton": "गेम शुरू करें",
+  "questionLabel": "प्रश्न:",
+  "timeLabel": "समय:",
+  "scoreLabel": "स्कोर:",
+  "questions": [
+    {
+      "id": 1,
+      "question": "अपने पैसे को सुरक्षित रखने के लिए आपको क्या करना चाहिए?",
+      "correctAnswer": "जमा करें",
+      "options": [
+        { "text": "फेंक दें", "isCorrect": false, "emoji": "🗑️" },
+        { "text": "खो दें", "isCorrect": false, "emoji": "😞" },
+        { "text": "जमा करें", "isCorrect": true, "emoji": "📥" },
+        { "text": "इसे भूल जाएं", "isCorrect": false, "emoji": "😴" }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "अपने पैसे को संभालने का समझदारी भरा तरीका क्या है?",
+      "correctAnswer": "बचत",
+      "options": [
+        { "text": "बर्बाद करें", "isCorrect": false, "emoji": "❌" },
+        { "text": "बचत करें", "isCorrect": true, "emoji": "💰" },
+        { "text": "सब खर्च करें", "isCorrect": false, "emoji": "💸" },
+        { "text": "इसे नज़रअंदाज़ करें", "isCorrect": false, "emoji": "🤷" }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "आपको अपना पैसा सुरक्षित रूप से कहाँ रखना चाहिए?",
+      "correctAnswer": "बैंक",
+      "options": [
+        { "text": "बैंक", "isCorrect": true, "emoji": "🏦" },
+        { "text": "खर्च करें", "isCorrect": false, "emoji": "💸" },
+        { "text": "खो दें", "isCorrect": false, "emoji": "📉" },
+        { "text": "छिपाएँ", "isCorrect": false, "emoji": "🙈" }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "समय के साथ आपके पैसे को बढ़ने में क्या मदद करता है?",
+      "correctAnswer": "निवेश करें",
+      "options": [
+        { "text": "खो दें", "isCorrect": false, "emoji": "📉" },
+        { "text": "बर्बाद करें", "isCorrect": false, "emoji": "🔥" },
+        { "text": "जल्दी खर्च करें", "isCorrect": false, "emoji": "⚡" },
+        { "text": "निवेश करें", "isCorrect": true, "emoji": "📈" }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "आपके पैसे के लिए सबसे अच्छा विकल्प क्या है?",
+      "correctAnswer": "बचाएं और बढ़ाएं",
+      "options": [
+        { "text": "बचाएं और बढ़ाएं", "isCorrect": true, "emoji": "🌱" },
+        { "text": "सब खर्च करें", "isCorrect": false, "emoji": "💸" },
+        { "text": "पैसा बर्बाद करें", "isCorrect": false, "emoji": "🔥" },
+        { "text": "खो दें", "isCorrect": false, "emoji": "😞" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "title": "Poster: Needs First",
+  "subtitleProgress": "Question {{current}} of {{total}}: Choose posters that promote smart financial choices!",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "stages": [
+    {
+      "question": "Which poster would best teach kids to prioritize needs over wants?",
+      "choices": [
+        { "text": "Buy whatever you want first 🛒", "correct": false },
+        { "text": "Focus on needs before wants 📚", "correct": true },
+        { "text": "Spend all your money quickly 🚀", "correct": false }
+      ]
+    },
+    {
+      "question": "What poster would best show the difference between needs and wants?",
+      "choices": [
+        { "text": "Needs come before wants for financial health 🏠", "correct": true },
+        { "text": "Wants are more important than needs 💎", "correct": false },
+        { "text": "Ignore your basic needs 🙈", "correct": false }
+      ]
+    },
+    {
+      "question": "Which poster would best explain why needs should be prioritized?",
+      "choices": [
+        { "text": "To avoid having fun 🚫", "correct": false },
+        { "text": "To spend more money 💸", "correct": false },
+        { "text": "To ensure basic necessities are covered 🍎", "correct": true }
+      ]
+    },
+    {
+      "question": "What poster would best illustrate a good strategy for handling both needs and wants?",
+      "choices": [
+        { "text": "Buy needs first, then save for wants 💡", "correct": true },
+        { "text": "Buy only wants and ignore needs 🛍️", "correct": false },
+        { "text": "Avoid all purchases completely 🙅", "correct": false }
+      ]
+    },
+    {
+      "question": "Which poster would best show the benefit of prioritizing needs over wants?",
+      "choices": [
+        { "text": "You can spend more impulsively 🎢", "correct": false },
+        { "text": "You make smarter financial decisions 🤔", "correct": true },
+        { "text": "You feel more restricted 🚫", "correct": false }
+      ]
+    }
+  ]
+}

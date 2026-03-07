@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getGameDataById } from "../../../../utils/getGameData";
@@ -7,11 +8,12 @@ import { getGameDataById } from "../../../../utils/getGameData";
 const BirthdayMoney = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  
+  const { t } = useTranslation("gamecontent");
+
   // Get game data from game category folder (source of truth)
   const gameId = "finance-kids-25";
   const gameData = getGameDataById(gameId);
-  
+
   // Get coinsPerLevel, totalCoins, and totalXp from game category data, fallback to location.state, then defaults
   const coinsPerLevel = gameData?.coins || location.state?.coinsPerLevel || 5;
   const totalCoins = gameData?.coins || location.state?.totalCoins || 5;
@@ -23,129 +25,8 @@ const BirthdayMoney = () => {
   const [finalScore, setFinalScore] = useState(0);
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback } = useGameFeedback();
 
-  const questions = [
-    {
-      id: 1,
-      text: "You get ₹100 as birthday money. What will you do?",
-      options: [
-        { 
-          id: "spend", 
-          text: "Spend all on toys and candies", 
-          emoji: "🍬", 
-          
-          isCorrect: false
-        },
-        { 
-          id: "give", 
-          text: "Give it all to mom for safekeeping", 
-          emoji: "👩‍👧", 
-          isCorrect: false
-        },
-        { 
-          id: "split", 
-          text: "Split it: some for fun, some for saving", 
-          emoji: "💡", 
-          isCorrect: true
-        }
-      ]
-    },
-    {
-      id: 2,
-      text: "What does 'split wisely' mean?",
-      options: [
-        { 
-          id: "gifts", 
-          text: "Spend half on friends' gifts", 
-          emoji: "🎁", 
-          isCorrect: false
-        },
-        { 
-          id: "balance", 
-          text: "Keep some for savings and some for fun", 
-          emoji: "🎯", 
-          isCorrect: true
-        },
-        { 
-          id: "needs", 
-          text: "Buy only needs, no wants", 
-          emoji: "🛒", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 3,
-      text: "Saving a part of your gift money helps you…",
-      options: [
-        { 
-          id: "forget", 
-          text: "Forget about the money", 
-          emoji: "😅", 
-          isCorrect: false
-        },
-        { 
-          id: "spend", 
-          text: "Spend more now", 
-          emoji: "🛍️", 
-          isCorrect: false
-        },
-        {
-          id: "bigger",
-          text: "Buy bigger things later",
-          emoji: "🚀",
-          isCorrect: true
-        },
-      ]
-    },
-    {
-      id: 4,
-      text: "If you want to buy something big later, what's smart?",
-      options: [
-        { 
-          id: "save", 
-          text: "Save small amounts regularly", 
-          emoji: "💰", 
-          isCorrect: true
-        },
-        { 
-          id: "borrow", 
-          text: "Borrow from friends", 
-          emoji: "🙈", 
-          isCorrect: false
-        },
-        { 
-          id: "wait", 
-          text: "Wait for next birthday", 
-          emoji: "🎂", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 5,
-      text: "What's a balanced decision?",
-      options: [
-        { 
-          id: "all", 
-          text: "Spend all today", 
-          emoji: "🎉", 
-          isCorrect: false
-        },
-        {
-          id: "enjoy",
-          text: "Enjoy a treat and save the rest",
-          emoji: "🧁",
-          isCorrect: true
-        },
-        { 
-          id: "none", 
-          text: "Save everything, no fun", 
-          emoji: "😔", 
-          isCorrect: false
-        }
-      ]
-    }
-  ];
+  const gameContent = t("financial-literacy.kids.birthday-money", { returnObjects: true });
+  const questions = Array.isArray(gameContent?.questions) ? gameContent.questions : [];
 
   const handleChoice = (selectedChoice) => {
     if (currentQuestion < 0 || currentQuestion >= questions.length) {
@@ -157,29 +38,32 @@ const BirthdayMoney = () => {
       return;
     }
 
-    const newChoices = [...choices, { 
-      questionId: currentQ.id, 
-      choice: selectedChoice,
-      isCorrect: currentQ.options.find(opt => opt.id === selectedChoice)?.isCorrect
-    }];
-    
+    const newChoices = [
+      ...choices,
+      {
+        questionId: currentQ.id,
+        choice: selectedChoice,
+        isCorrect: currentQ.options.find((opt) => opt.id === selectedChoice)?.isCorrect,
+      },
+    ];
+
     setChoices(newChoices);
-    
+
     // If the choice is correct, add coins and show flash/confetti
-    const isCorrect = currentQ.options.find(opt => opt.id === selectedChoice)?.isCorrect;
+    const isCorrect = currentQ.options.find((opt) => opt.id === selectedChoice)?.isCorrect;
     if (isCorrect) {
-      setCoins(prev => prev + 1);
+      setCoins((prev) => prev + 1);
       showCorrectAnswerFeedback(1, true);
     }
-    
+
     // Move to next question or show results
     if (currentQuestion < questions.length - 1) {
       setTimeout(() => {
-        setCurrentQuestion(prev => prev + 1);
+        setCurrentQuestion((prev) => prev + 1);
       }, isCorrect ? 1000 : 800);
     } else {
       // Calculate final score
-      const correctAnswers = newChoices.filter(choice => choice.isCorrect).length;
+      const correctAnswers = newChoices.filter((choice) => choice.isCorrect).length;
       setFinalScore(correctAnswers);
       setTimeout(() => {
         setShowResult(true);
@@ -202,8 +86,15 @@ const BirthdayMoney = () => {
 
   return (
     <GameShell
-      title="Birthday Money Story"
-      subtitle={showResult ? "Story Complete!" : `Question ${currentQuestion + 1} of ${questions.length}`}
+      title={gameContent?.title || "Birthday Money Story"}
+      subtitle={
+        showResult
+          ? gameContent?.subtitleComplete || "Story Complete!"
+          : t("financial-literacy.kids.birthday-money.subtitleProgress", {
+              current: currentQuestion + 1,
+              total: questions.length,
+            })
+      }
       currentLevel={5}
       totalLevels={5}
       coinsPerLevel={coinsPerLevel}
@@ -220,32 +111,44 @@ const BirthdayMoney = () => {
       totalXp={totalXp}
       showConfetti={showResult && finalScore === 5}
       nextGamePathProp="/student/finance/kids/Poster-Plan-First"
-      nextGameIdProp="finance-kids-26">
+      nextGameIdProp="finance-kids-26"
+    >
       <div className="space-y-8 text-white">
         {!showResult && currentQuestionData ? (
           <div className="space-y-6">
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
               <div className="flex justify-between items-center mb-4">
-                <span className="text-white/80">Question {currentQuestion + 1}/{questions.length}</span>
-                <span className="text-yellow-400 font-bold">Score: {coins}/{questions.length}</span>
+                <span className="text-white/80">
+                  {t("financial-literacy.kids.birthday-money.questionCounter", {
+                    current: currentQuestion + 1,
+                    total: questions.length,
+                  })}
+                </span>
+                <span className="text-yellow-400 font-bold">
+                  {t("financial-literacy.kids.birthday-money.scoreLabel", {
+                    score: coins,
+                    total: questions.length,
+                  })}
+                </span>
               </div>
-              
-              <p className="text-white text-lg mb-6 text-center">
-                {currentQuestionData.text}
-              </p>
-              
+
+              <p className="text-white text-lg mb-6 text-center">{currentQuestionData.text}</p>
+
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {currentQuestionData.options && currentQuestionData.options.map(option => (
-                  <button
-                    key={option.id}
-                    onClick={() => handleChoice(option.id)}
-                    className="bg-gradient-to-r from-pink-500 to-red-500 hover:from-pink-600 hover:to-red-600 text-white p-6 rounded-xl text-lg font-semibold transition-all transform hover:scale-105"
-                  >
-                    <div className="text-2xl mb-2">{option.emoji}</div>
-                    <h3 className="font-bold text-xl mb-2">{option.text}</h3>
-                    <p className="text-white/90 text-sm">{option.description}</p>
-                  </button>
-                ))}
+                {currentQuestionData.options
+                  && currentQuestionData.options.map((option) => (
+                    <button
+                      key={option.id}
+                      onClick={() => handleChoice(option.id)}
+                      className="bg-gradient-to-r from-pink-500 to-red-500 hover:from-pink-600 hover:to-red-600 text-white p-6 rounded-xl text-lg font-semibold transition-all transform hover:scale-105"
+                    >
+                      <div className="text-2xl mb-2">{option.emoji}</div>
+                      <h3 className="font-bold text-xl mb-2">{option.text}</h3>
+                      {option.description ? (
+                        <p className="text-white/90 text-sm">{option.description}</p>
+                      ) : null}
+                    </button>
+                  ))}
               </div>
             </div>
           </div>

@@ -1,0 +1,79 @@
+{
+  "title": "Reflex Need vs Want",
+  "subtitlePlaying": "Round {{current}}/{{total}}: Test your knowledge about needs vs wants!",
+  "subtitleReady": "Test your knowledge about needs vs wants!",
+  "readyEmoji": "📋",
+  "readyTitle": "Ready to Test Your Needs vs Wants Knowledge?",
+  "readyDescription": "Answer questions about the difference between needs and wants.",
+  "readyInfo": "You have {{total}} questions with {{seconds}} seconds each!",
+  "startButton": "Start Game",
+  "roundLabel": "Round:",
+  "timeLabel": "Time:",
+  "scoreLabel": "Score:",
+  "resultGreatEmoji": "🎉",
+  "resultGreatTitle": "Great Job!",
+  "resultGreatDescription": "You got {{score}} out of {{total}} questions correct!",
+  "resultGreatLesson": "Lesson: Needs are essential for survival and learning, while wants are things we'd like to have but don't need!",
+  "resultKeepEmoji": "😔",
+  "resultKeepTitle": "Keep Learning!",
+  "resultKeepDescription": "You got {{score}} out of {{total}} questions correct. Remember, needs are essential items like food, clothes, and school supplies!",
+  "resultKeepTip": "Tip: Needs are things you must have to survive and learn, like food, clothes, and school supplies.",
+  "tryAgainButton": "Try Again",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which one is a need?",
+      "correctAnswer": "Shoes for School",
+      "options": [
+        { "text": "Shoes for School", "isCorrect": true, "emoji": "👟" },
+        { "text": "10th Toy Car", "isCorrect": false, "emoji": "🚗" },
+        { "text": "Video Game", "isCorrect": false, "emoji": "🎮" },
+        { "text": "Fancy Sunglasses", "isCorrect": false, "emoji": "🕶️" }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "What is a need for staying healthy?",
+      "correctAnswer": "Healthy Food",
+      "options": [
+        { "text": "Extra Candy", "isCorrect": false, "emoji": "🍬" },
+        { "text": "Healthy Food", "isCorrect": true, "emoji": "🥗" },
+        { "text": "Ice Cream", "isCorrect": false, "emoji": "🍦" },
+        { "text": "Soda", "isCorrect": false, "emoji": "🥤" }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "Which item is essential for learning?",
+      "correctAnswer": "School Books",
+      "options": [
+        { "text": "Video Game", "isCorrect": false, "emoji": "🎮" },
+        { "text": "Action Figure", "isCorrect": false, "emoji": "🤖" },
+        { "text": "Puzzle Game", "isCorrect": false, "emoji": "🧩" },
+        { "text": "School Books", "isCorrect": true, "emoji": "📚" }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "What do you need in cold weather?",
+      "correctAnswer": "Winter Jacket",
+      "options": [
+        { "text": "Fancy Sunglasses", "isCorrect": false, "emoji": "🕶️" },
+        { "text": "Swimming Pool", "isCorrect": false, "emoji": "🏊" },
+        { "text": "Winter Jacket", "isCorrect": true, "emoji": "🧥" },
+        { "text": "Beach Ball", "isCorrect": false, "emoji": "🏐" }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "What is needed to get to school?",
+      "correctAnswer": "Bus Fare",
+      "options": [
+        { "text": "Bus Fare", "isCorrect": true, "emoji": "🚌" },
+        { "text": "New Headphones", "isCorrect": false, "emoji": "🎧" },
+        { "text": "Music Player", "isCorrect": false, "emoji": "🎵" },
+        { "text": "Smart Watch", "isCorrect": false, "emoji": "⌚" }
+      ]
+    }
+  ]
+}

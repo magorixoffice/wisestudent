@@ -1,0 +1,70 @@
+{
+  "title": "Reflex Borrow/Steal",
+  "subtitlePlaying": "Round {{current}}/{{total}}: Test your borrowing reflexes!",
+  "subtitleReady": "Test your borrowing reflexes!",
+  "readyEmoji": "🤝",
+  "readyTitle": "Get Ready!",
+  "readyDescription": "Answer questions about borrowing correctly.",
+  "readyInfo": "You have {{total}} questions with {{seconds}} seconds each!",
+  "startButton": "Start Game",
+  "roundLabel": "Round:",
+  "timeLabel": "Time:",
+  "scoreLabel": "Score:",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What should you do with borrowed items?",
+      "correctAnswer": "Return borrowed items",
+      "options": [
+        { "text": "Return borrowed items", "isCorrect": true, "emoji": "↩️" },
+        { "text": "Keep them forever", "isCorrect": false, "emoji": "🚫" },
+        { "text": "Hide them", "isCorrect": false, "emoji": "🙈" },
+        { "text": "Forget about them", "isCorrect": false, "emoji": "😴" }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "What is the right thing to do with a loan?",
+      "correctAnswer": "Repay the loan",
+      "options": [
+        { "text": "Avoid payment", "isCorrect": false, "emoji": "🚫" },
+        { "text": "Repay the loan", "isCorrect": true, "emoji": "💰" },
+        { "text": "Ignore it", "isCorrect": false, "emoji": "🙈" },
+        { "text": "Forget it", "isCorrect": false, "emoji": "😴" }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "When you borrow something, what should you do?",
+      "correctAnswer": "Give it back",
+      "options": [
+        { "text": "Hide it", "isCorrect": false, "emoji": "🙈" },
+        { "text": "Keep it", "isCorrect": false, "emoji": "🚫" },
+        { "text": "Give it back", "isCorrect": true, "emoji": "↩️" },
+        { "text": "Lose it", "isCorrect": false, "emoji": "❌" }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "What is the honest way to handle borrowing?",
+      "correctAnswer": "Be honest",
+      "options": [
+        { "text": "Cheat", "isCorrect": false, "emoji": "🚫" },
+        { "text": "Be honest", "isCorrect": true, "emoji": "✅" },
+        { "text": "Lie", "isCorrect": false, "emoji": "🤥" },
+        { "text": "Pretend", "isCorrect": false, "emoji": "🎭" }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "When should you return borrowed items?",
+      "correctAnswer": "Return on time",
+      "options": [
+        { "text": "Delay", "isCorrect": false, "emoji": "⏰" },
+        { "text": "Never", "isCorrect": false, "emoji": "🚫" },
+        { "text": "Maybe later", "isCorrect": false, "emoji": "🤷" },
+        { "text": "Return on time", "isCorrect": true, "emoji": "⏱️" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+﻿{
+  "title": "Poster: Saving Habit",
+  "subtitleProgress": "Question {{current}} of {{total}}",
+  "questionPrefix": "Question {{current}}:",
+  "creativeTitle": "Creative Choice!",
+  "thinkTitle": "Think About It!",
+  "tryAgain": "Try Again",
+  "coinReward": "+1 Coin",
+  "completedNote": "Question {{current}} of {{total}} completed!",
+  "fallbackIncorrect": "That's not quite right. Try again!",
+  "fallbackTip": "Look for the poster that promotes good saving habits.",
+  "stages": [
+    {
+      "question": "Which poster best promotes good saving habits?",
+      "posters": [
+        { "id": 1, "title": "Save First, Spend Later", "emoji": "💰→🎉", "isCorrect": true },
+        { "id": 2, "title": "Spend First, Save Later", "emoji": "🎉→💰", "isCorrect": false },
+        { "id": 3, "title": "Save Nothing, Just Spend", "emoji": "🛍️🏦", "isCorrect": false }
+      ],
+      "correctFeedback": "Save First, Spend Later is the best message for building good financial habits!",
+      "explanation": "This poster reminds us to save money first before spending on wants!"
+    },
+    {
+      "question": "Which poster encourages setting savings goals?",
+      "posters": [
+        { "id": 1, "title": "Spend Everything Today", "emoji": "💸🎯", "isCorrect": false },
+        { "id": 2, "title": "Money Grows on Trees", "emoji": "🌳💵", "isCorrect": false },
+        { "id": 3, "title": "Save for Your Dreams", "emoji": "🎯💰", "isCorrect": true }
+      ],
+      "correctFeedback": "Save for Your Dreams encourages goal-setting!",
+      "explanation": "Setting savings goals helps you stay focused and motivated!"
+    },
+    {
+      "question": "Which poster shows the importance of a savings account?",
+      "posters": [
+        { "id": 1, "title": "Bank = Safe Money", "emoji": "🏦💰", "isCorrect": true },
+        { "id": 2, "title": "Keep Money Under Bed", "emoji": "🛏️💵", "isCorrect": false },
+        { "id": 3, "title": "Spend It All Now", "emoji": "💸🏦", "isCorrect": false }
+      ],
+      "correctFeedback": "Bank = Safe Money is the right choice!",
+      "explanation": "Banks keep your money safe and can help it grow with interest!"
+    },
+    {
+      "question": "Which poster teaches about emergency savings?",
+      "posters": [
+        { "id": 1, "title": "Save for Rainy Days", "emoji": "☔🛡️", "isCorrect": true },
+        { "id": 2, "title": "Spend on Fun Only", "emoji": "🎮🎉", "isCorrect": false },
+        { "id": 3, "title": "Borrow When Needed", "emoji": "💳💰", "isCorrect": false }
+      ],
+      "correctFeedback": "Save for Rainy Days teaches emergency savings!",
+      "explanation": "Having emergency savings helps you handle unexpected situations!"
+    },
+    {
+      "question": "Which poster promotes regular saving habits?",
+      "posters": [
+        { "id": 2, "title": "Save Only on Special Days", "emoji": "🎂💰", "isCorrect": false },
+        { "id": 3, "title": "Never Save, Always Spend", "emoji": "💸💰", "isCorrect": false },
+        { "id": 1, "title": "Save a Little Every Day", "emoji": "🗓️💰", "isCorrect": true }
+      ],
+      "correctFeedback": "Save a Little Every Day promotes good habits!",
+      "explanation": "Regular saving, even small amounts, builds strong financial habits!"
+    }
+  ]
+}

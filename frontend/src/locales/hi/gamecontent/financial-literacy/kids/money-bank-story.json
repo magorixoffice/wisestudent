@@ -1,0 +1,54 @@
+﻿{
+  "title": "मनी बैंक स्टोरी",
+  "subtitleComplete": "स्टोरी पूरी हुई!",
+  "subtitleProgress": "प्रश्न {{current}} में से {{total}}",
+  "questionCounter": "प्रश्न {{current}}/{{total}}",
+  "scoreLabel": "स्कोर: {{score}}/{{total}}",
+  "questions": [
+    {
+      "id": 1,
+      "text": "आपको अपनी दादी से उपहार में Rs 10 मिले। आप क्या करना चाहेंगे?",
+      "options": [
+        { "id": "spend", "text": "सब खर्च करें", "emoji": "🛍️", "isCorrect": false },
+        { "id": "save", "text": "Rs 5 बचाएं", "emoji": "💰", "isCorrect": true },
+        { "id": "save-all", "text": "Rs 10 पूरी तरह बचाएं", "emoji": "🏦", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "आपने Rs 20 बचा लिए हैं। आपका दोस्त आपको फिल्म के लिए बुलाता है जिसकी लागत Rs 15 है। आप क्या करेंगे?",
+      "options": [
+        { "id": "save", "text": "बाद के लिए बचाएं", "emoji": "🏦", "isCorrect": true },
+        { "id": "spend", "text": "फिल्म देखने जाएं", "emoji": "🎬", "isCorrect": false },
+        { "id": "split", "text": "खर्च बाँटें", "emoji": "🤝", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "आपको सड़क पर Rs 5 मिले। इसके साथ सबसे अच्छा क्या करना है?",
+      "options": [
+        { "id": "spend", "text": "कैंडी खरीदें", "emoji": "🍬", "isCorrect": false },
+        { "id": "give", "text": "माता-पिता को दें", "emoji": "👨‍👩‍👧", "isCorrect": false },
+        { "id": "save", "text": "इसे बचाएं", "emoji": "🫙", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "आपका जन्मदिन आने वाला है और आप Rs 500 की नई साइकिल चाहते हैं। आपके पास अभी Rs 200 हैं। आपको क्या करना चाहिए?",
+      "options": [
+        { "id": "save", "text": "और बचत करें", "emoji": "📈", "isCorrect": true },
+        { "id": "spend", "text": "अभी खरीदें", "emoji": "🛒", "isCorrect": false },
+        { "id": "borrow", "text": "पैसे उधार लें", "emoji": "💳", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "आपके पास Rs 30 बचत है और आपको Rs 25 का एक खिलौना बहुत पसंद है। समझदारी वाला विकल्प क्या है?",
+      "options": [
+        { "id": "spend", "text": "खिलौना खरीदें", "emoji": "🧸", "isCorrect": false },
+        { "id": "save", "text": "बड़ी चीज के लिए बचाएं", "emoji": "🎯", "isCorrect": true },
+        { "id": "wait", "text": "सेल का इंतज़ार करें", "emoji": "⏰", "isCorrect": false }
+      ]
+    }
+  ]
+}

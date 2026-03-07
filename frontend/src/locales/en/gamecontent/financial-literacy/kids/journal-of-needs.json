@@ -1,0 +1,18 @@
+{
+  "title": "Journal of Needs",
+  "subtitleComplete": "Journal Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}: Reflect on prioritizing your needs!",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "minLengthLabel": "Write at least {{minLength}} characters",
+  "charCounter": "{{current}}/{{minLength}} characters",
+  "placeholder": "Write your journal entry here...",
+  "submitButton": "Submit & Continue",
+  "submitFinalButton": "Submit Final Entry",
+  "stages": [
+    { "question": "Write: \"One need I always spend on is ___.\"", "minLength": 10 },
+    { "question": "Write: \"Spending on needs makes me feel ___.\"", "minLength": 10 },
+    { "question": "Write: \"A need I prioritized over a want was ___.\"", "minLength": 10 },
+    { "question": "Write: \"I learned ___ about choosing needs over wants.\"", "minLength": 10 },
+    { "question": "Write: \"Focusing on needs taught me ___ about money.\"", "minLength": 10 }
+  ]
+}

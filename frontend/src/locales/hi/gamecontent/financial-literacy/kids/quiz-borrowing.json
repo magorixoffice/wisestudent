@@ -1,0 +1,55 @@
+{
+  "title": "उधार पर क्विज़",
+  "subtitleComplete": "क्विज़ पूरा हुआ!",
+  "subtitleProgress": "प्रश्न {{current}} / {{total}}",
+  "questionCounter": "प्रश्न {{current}}/{{total}}",
+  "scoreLabel": "स्कोर: {{score}}/{{total}}",
+  "stageEmoji": "🤝",
+  "questions": [
+    {
+      "id": 1,
+      "text": "उधार लेने का मतलब क्या है?",
+      "options": [
+        { "id": "without", "text": "बिना पूछे लेना", "emoji": "🙈", "description": "", "isCorrect": false },
+        { "id": "return", "text": "इस्तेमाल करके वापस करना", "emoji": "🔁", "description": "", "isCorrect": true },
+        { "id": "steal", "text": "चोरी करना", "emoji": "😈", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "किताब उधार लेने के बाद क्या करना चाहिए?",
+      "options": [
+        { "id": "return", "text": "वापस करें", "emoji": "↩️", "description": "", "isCorrect": true },
+        { "id": "keep", "text": "हमेशा के लिए रख लें", "emoji": "📚", "description": "", "isCorrect": false },
+        { "id": "sell", "text": "बेच दें", "emoji": "💰", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "बैंक से पैसा उधार लेना ठीक क्यों है?",
+      "options": [
+        { "id": "repay", "text": "आप ब्याज सहित लौटाते हैं", "emoji": "💳", "description": "", "isCorrect": true },
+        { "id": "free", "text": "यह मुफ्त पैसा है", "emoji": "🎁", "description": "", "isCorrect": false },
+        { "id": "no", "text": "कभी वापस नहीं करना", "emoji": "🙃", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "उधार ली चीज़ वापस न करने पर क्या होता है?",
+      "options": [
+        { "id": "more", "text": "और चीज़ें मिलती हैं", "emoji": "🎁", "description": "", "isCorrect": false },
+        { "id": "rewards", "text": "इनाम मिलता है", "emoji": "🏆", "description": "", "isCorrect": false },
+        { "id": "trust", "text": "लोगों का विश्वास कम हो जाता है", "emoji": "😞", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "ईमानदार उधार लेना क्यों ज़रूरी है?",
+      "options": [
+        { "id": "toys", "text": "और खिलौने मिलते हैं", "emoji": "🧸", "description": "", "isCorrect": false },
+        { "id": "trust", "text": "लोगों के साथ विश्वास बनता है", "emoji": "🤝", "description": "", "isCorrect": true },
+        { "id": "fun", "text": "उधार लेना मज़ेदार बनता है", "emoji": "😊", "description": "", "isCorrect": false }
+      ]
+    }
+  ]
+}

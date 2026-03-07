@@ -1,0 +1,54 @@
+{
+  "title": "Gift Money Story",
+  "subtitleComplete": "Story Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}",
+  "questionCounter": "Question {{current}}/{{total}}",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "questions": [
+    {
+      "id": 1,
+      "text": "You receive gift money on your birthday. What is a smart first step?",
+      "options": [
+        { "id": "spend", "text": "Spend it immediately", "emoji": "💸", "description": "", "isCorrect": false },
+        { "id": "show", "text": "Show it to friends", "emoji": "👀", "description": "", "isCorrect": false },
+        { "id": "think", "text": "Think about needs and goals", "emoji": "🤔", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "You want a backpack that costs more than your gift money. What is a wise choice?",
+      "options": [
+        { "id": "borrow", "text": "Borrow money from friends", "emoji": "💳", "description": "", "isCorrect": false },
+        { "id": "wait", "text": "Wait and save more money", "emoji": "⏳", "description": "", "isCorrect": true },
+        { "id": "change", "text": "Buy something random instead", "emoji": "🎲", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "You see a small toy and a useful item. What helps you decide?",
+      "options": [
+        { "id": "use", "text": "Choose the item you need more", "emoji": "⭐", "description": "", "isCorrect": true },
+        { "id": "fun", "text": "Choose what looks fun", "emoji": "🎉", "description": "", "isCorrect": false },
+        { "id": "cheap", "text": "Choose the cheapest thing", "emoji": "💲", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "Your parents suggest saving part of your gift money. What do you do?",
+      "options": [
+        { "id": "refuse", "text": "Refuse and spend all", "emoji": "🙅", "description": "", "isCorrect": false },
+        { "id": "agree", "text": "Save a part and plan the rest", "emoji": "📊", "description": "", "isCorrect": true },
+        { "id": "forget", "text": "Forget about the money", "emoji": "😴", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "What does gift money teach you?",
+      "options": [
+        { "id": "showoff", "text": "How to show off purchases", "emoji": "😎", "description": "", "isCorrect": false },
+        { "id": "spend", "text": "How to spend without thinking", "emoji": "🔥", "description": "", "isCorrect": false },
+        { "id": "manage", "text": "How to manage money responsibly", "emoji": "🎯", "description": "", "isCorrect": true }
+      ]
+    }
+  ]
+}

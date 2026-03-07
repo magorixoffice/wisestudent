@@ -1,0 +1,55 @@
+{
+  "title": "Ice Cream vs School Book Story",
+  "subtitleComplete": "Story Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}",
+  "questionCounter": "Question {{current}}/{{total}}",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "stageEmoji": "📘",
+  "questions": [
+    {
+      "id": 1,
+      "text": "You finish school and feel hungry, but you also need a workbook. What is the best choice?",
+      "options": [
+        { "id": "icecream", "text": "Buy ice cream for now", "emoji": "🍦", "description": "", "isCorrect": false },
+        { "id": "book", "text": "Buy the workbook", "emoji": "📘", "description": "", "isCorrect": true },
+        { "id": "wait", "text": "Buy nothing and leave", "emoji": "🚶", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "You eat ice cream today and have no money left for a book tomorrow. What do you learn?",
+      "options": [
+        { "id": "lesson", "text": "Planning money is important", "emoji": "🧠", "description": "", "isCorrect": true },
+        { "id": "sad", "text": "Ice cream is always best", "emoji": "🍦", "description": "", "isCorrect": false },
+        { "id": "borrow", "text": "Borrow money next time", "emoji": "🙏", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "A book helps in exams, and ice cream melts quickly. What lasts longer?",
+      "options": [
+        { "id": "icecream", "text": "Ice cream happiness", "emoji": "🍨", "description": "", "isCorrect": false },
+        { "id": "book", "text": "Knowledge from a book", "emoji": "📚", "description": "", "isCorrect": true },
+        { "id": "both", "text": "Both last the same", "emoji": "🤷", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "You decide to buy a book today and enjoy ice cream another day. What skill do you show?",
+      "options": [
+        { "id": "luck", "text": "Good luck", "emoji": "🍀", "description": "", "isCorrect": false },
+        { "id": "speed", "text": "Fast decision-making", "emoji": "⚡", "description": "", "isCorrect": false },
+        { "id": "patience", "text": "Self-control", "emoji": "🧘", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "Your parents smile when you choose a book. Why do they feel happy?",
+      "options": [
+        { "id": "cheap", "text": "Books are cheaper", "emoji": "💸", "description": "", "isCorrect": false },
+        { "id": "smart", "text": "You make a responsible choice", "emoji": "✅", "description": "", "isCorrect": true },
+        { "id": "friends", "text": "Friends like books", "emoji": "👫", "description": "", "isCorrect": false }
+      ]
+    }
+  ]
+}

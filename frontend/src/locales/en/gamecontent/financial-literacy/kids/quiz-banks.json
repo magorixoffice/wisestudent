@@ -1,0 +1,128 @@
+{
+  "title": "Quiz on Banks",
+  "subtitleComplete": "Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "questions": [
+    {
+      "id": 1,
+      "text": "What is a bank?",
+      "options": [
+        {
+          "id": "toy",
+          "text": "Toy shop",
+          "emoji": "🧸",
+          "isCorrect": false
+        },
+        {
+          "id": "safe",
+          "text": "Place to keep money safe",
+          "emoji": "🏦",
+          "isCorrect": true
+        },
+        {
+          "id": "icecream",
+          "text": "Ice cream shop",
+          "emoji": "🍦",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "What does a bank's savings account do?",
+      "options": [
+        {
+          "id": "toys",
+          "text": "Gives you toys",
+          "emoji": "🧸",
+          "isCorrect": false
+        },
+        {
+          "id": "food",
+          "text": "Sells food",
+          "emoji": "🍕",
+          "isCorrect": false
+        },
+        {
+          "id": "grows",
+          "text": "Grows your money",
+          "emoji": "📈",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "What can you do at a bank's ATM?",
+      "options": [
+        {
+          "id": "clothes",
+          "text": "Buy clothes",
+          "emoji": "👕",
+          "isCorrect": false
+        },
+        {
+          "id": "withdraw",
+          "text": "Withdraw money",
+          "emoji": "💰",
+          "isCorrect": true
+        },
+        {
+          "id": "games",
+          "text": "Play games",
+          "emoji": "🎮",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "Why do banks offer loans?",
+      "options": [
+        {
+          "id": "borrow",
+          "text": "To help you borrow money",
+          "emoji": "💳",
+          "isCorrect": true
+        },
+        {
+          "id": "free",
+          "text": "To give free money",
+          "emoji": "🎁",
+          "isCorrect": false
+        },
+        {
+          "id": "toys",
+          "text": "To sell toys",
+          "emoji": "🧸",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "Why are banks safe for money?",
+      "options": [
+        {
+          "id": "candy",
+          "text": "They give you candy",
+          "emoji": "🍬",
+          "isCorrect": false
+        },
+        {
+          "id": "hide",
+          "text": "They hide money",
+          "emoji": "🫥",
+          "isCorrect": false
+        },
+        {
+          "id": "protect",
+          "text": "They protect your savings",
+          "emoji": "🛡️",
+          "isCorrect": true
+        }
+      ]
+    }
+  ]
+}

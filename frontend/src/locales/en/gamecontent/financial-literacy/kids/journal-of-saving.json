@@ -1,0 +1,18 @@
+﻿{
+  "title": "Journal of Saving",
+  "subtitleProgress": "Question {{current}} of {{total}}: Reflect on your saving habits!",
+  "subtitleComplete": "Journal Complete!",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "minChars": "Write at least {{count}} characters",
+  "placeholder": "Write your journal entry here...",
+  "charCount": "{{count}}/{{min}} characters",
+  "submitContinue": "Submit & Continue",
+  "submitFinal": "Submit Final Entry",
+  "stages": [
+    { "question": "Write: \"One thing I saved money for is ___.\"", "minLength": 10 },
+    { "question": "Write: \"The best way I save money is by ___.\"", "minLength": 10 },
+    { "question": "Write: \"When I save money, I feel ___.\"", "minLength": 10 },
+    { "question": "Write: \"My savings goal for this month is ___.\"", "minLength": 10 },
+    { "question": "Write: \"I will save money by ___.\"", "minLength": 10 }
+  ]
+}

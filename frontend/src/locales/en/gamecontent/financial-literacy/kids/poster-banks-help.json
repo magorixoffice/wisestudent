@@ -1,0 +1,93 @@
+{
+  "title": "Poster: Banks Help",
+  "subtitleComplete": "Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "stages": [
+    {
+      "question": "Which poster best shows how banks help protect your money?",
+      "choices": [
+        {
+          "text": "Spend Now, Worry Later! 🛍️",
+          "correct": false
+        },
+        {
+          "text": "Hide It Under Your Mattress 🛏️",
+          "correct": false
+        },
+        {
+          "text": "Your Money's Best Friend: Safe & Growing 🏦",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "question": "Which poster would best teach about saving for the future?",
+      "choices": [
+        {
+          "text": "Little by Little, Watch It Grow 🌱",
+          "correct": true
+        },
+        {
+          "text": "Spend It All Today! 🎉",
+          "correct": false
+        },
+        {
+          "text": "Money in a Shoebox Under the Bed �",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "Which poster shows the benefit of a savings account?",
+      "choices": [
+        {
+          "text": "Buy Now, Think Later! 🛒",
+          "correct": false
+        },
+        {
+          "text": "Your Money at Work: Earning While You Sleep �",
+          "correct": true
+        },
+        {
+          "text": "Keep It All in Your Piggy Bank 🐷",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "Which poster would best teach about financial security?",
+      "choices": [
+        {
+          "text": "Safe Today, Secure Tomorrow �",
+          "correct": true
+        },
+        {
+          "text": "Spend Fast Before It's Gone! �",
+          "correct": false
+        },
+        {
+          "text": "Money in a Jar Under the Tree �",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "question": "Which poster would best explain why we use banks?",
+      "choices": [
+        {
+          "text": "Spend Now, Save Never! �",
+          "correct": false
+        },
+        {
+          "text": "Banks: Your Money's Safety Net �️",
+          "correct": true
+        },
+        {
+          "text": "Keep It All in Your Pocket 👖",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}

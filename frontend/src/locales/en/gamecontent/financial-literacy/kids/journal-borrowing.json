@@ -1,0 +1,19 @@
+{
+  "title": "Journal of Borrowing",
+  "subtitleComplete": "Journal Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}: Reflect on responsible borrowing!",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "stageEmoji": "📝",
+  "minLengthLabel": "Write at least {{count}} characters",
+  "placeholder": "Write your journal entry here...",
+  "characterCount": "{{count}}/{{required}} characters",
+  "submitContinueButton": "Submit & Continue",
+  "submitFinalButton": "Submit Final Entry",
+  "stages": [
+    { "question": "Write: \"One thing I borrowed and returned was ___.\"", "minLength": 10 },
+    { "question": "Write: \"I felt ___ when I returned what I borrowed.\"", "minLength": 10 },
+    { "question": "Write: \"Borrowing responsibly means ___.\"", "minLength": 10 },
+    { "question": "Write: \"I made sure to return borrowed money by ___.\"", "minLength": 10 },
+    { "question": "Write: \"Borrowing taught me ___ about money.\"", "minLength": 10 }
+  ]
+}

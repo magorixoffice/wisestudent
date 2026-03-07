@@ -1,0 +1,53 @@
+{
+  "title": "एटीएम कहानी",
+  "subtitleComplete": "कहानी पूरी हुई!",
+  "subtitleProgress": "प्रश्न {{current}} / {{total}}",
+  "scoreLabel": "स्कोर: {{score}}/{{total}}",
+  "questions": [
+    {
+      "id": 1,
+      "text": "माता-पिता आपको अपना एटीएम कार्ड दिखाते हैं। आपको क्या करना चाहिए?",
+      "options": [
+        { "id": "ignore", "text": "अनदेखा करना", "emoji": "😐", "isCorrect": false },
+        { "id": "learn", "text": "समझना कि यह कैसे काम करता है", "emoji": "💳", "isCorrect": true },
+        { "id": "play", "text": "उससे खेलना", "emoji": "🎮", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "एटीएम पर माता-पिता पिन डाल रहे हैं। आपको क्या करना चाहिए?",
+      "options": [
+        { "id": "memorize", "text": "पिन याद करने की कोशिश करना", "emoji": "🧠", "isCorrect": false },
+        { "id": "tell", "text": "दोस्तों को बताना", "emoji": "💬", "isCorrect": false },
+        { "id": "away", "text": "गोपनीयता के लिए नज़र हटा लेना", "emoji": "👀", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "आपके पास ₹100 हैं। सबसे समझदारी वाला विकल्प क्या है?",
+      "options": [
+        { "id": "split", "text": "₹50 बचाएँ, ₹50 खर्च करें", "emoji": "💰", "isCorrect": true },
+        { "id": "toys", "text": "सब खिलौनों पर खर्च करें", "emoji": "🧸", "isCorrect": false },
+        { "id": "friends", "text": "सब दोस्तों को दे दें", "emoji": "🎁", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "एटीएम कार्ड मिलने के बाद कौन-सी आदत सही है?",
+      "options": [
+        { "id": "share", "text": "कार्ड नंबर सबको बताना", "emoji": "📣", "isCorrect": false },
+        { "id": "secure", "text": "कार्ड सुरक्षित रखना", "emoji": "🔒", "isCorrect": true },
+        { "id": "lose", "text": "लापरवाही से रखना", "emoji": "❌", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "एटीएम इस्तेमाल करते समय सबसे ज़रूरी क्या है?",
+      "options": [
+        { "id": "rush", "text": "जल्दी-जल्दी करना", "emoji": "🏃", "isCorrect": false },
+        { "id": "safety", "text": "सुरक्षा और गोपनीयता", "emoji": "🛡️", "isCorrect": true },
+        { "id": "fun", "text": "मज़ाक करना", "emoji": "😄", "isCorrect": false }
+      ]
+    }
+  ]
+}

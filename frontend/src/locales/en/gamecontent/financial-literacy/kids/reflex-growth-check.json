@@ -1,0 +1,70 @@
+{
+  "title": "Reflex Growth Check",
+  "subtitlePlaying": "Question {{current}} of {{total}}: Test your growth reflexes!",
+  "subtitleReady": "Test your growth reflexes!",
+  "readyEmoji": "📈",
+  "readyTitle": "Ready to Check Your Growth Knowledge?",
+  "readyDescription": "Choose the correct growth outcome for each question.",
+  "readyInfo": "You have {{total}} questions with {{seconds}} seconds each!",
+  "startButton": "Start Game",
+  "roundLabel": "Question:",
+  "timeLabel": "Time:",
+  "scoreLabel": "Score:",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What happens when your money earns interest?",
+      "correctAnswer": "Interest earned",
+      "options": [
+        { "text": "Money lost", "isCorrect": false, "emoji": "💸" },
+        { "text": "Interest earned", "isCorrect": true, "emoji": "💰" },
+        { "text": "No change", "isCorrect": false, "emoji": "😐" },
+        { "text": "Money stolen", "isCorrect": false, "emoji": "😈" }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "What happens when you save over time?",
+      "correctAnswer": "Savings grew",
+      "options": [
+        { "text": "Savings grew", "isCorrect": true, "emoji": "📈" },
+        { "text": "Money spent", "isCorrect": false, "emoji": "💸" },
+        { "text": "Money disappears", "isCorrect": false, "emoji": "👻" },
+        { "text": "Nothing happens", "isCorrect": false, "emoji": "😴" }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "What happens when your investment succeeds?",
+      "correctAnswer": "Profit made",
+      "options": [
+        { "text": "Loss incurred", "isCorrect": false, "emoji": "📉" },
+        { "text": "Money frozen", "isCorrect": false, "emoji": "🧊" },
+        { "text": "Investment gone", "isCorrect": false, "emoji": "💔" },
+        { "text": "Profit made", "isCorrect": true, "emoji": "💵" }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "What happens when investment value increases?",
+      "correctAnswer": "Investment up",
+      "options": [
+        { "text": "Investment up", "isCorrect": true, "emoji": "🚀" },
+        { "text": "Money down", "isCorrect": false, "emoji": "📉" },
+        { "text": "Investment stuck", "isCorrect": false, "emoji": "🔒" },
+        { "text": "Value zero", "isCorrect": false, "emoji": "0️⃣" }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "What happens when you invest wisely for long term?",
+      "correctAnswer": "Wealth grows",
+      "options": [
+        { "text": "Funds shrink", "isCorrect": false, "emoji": "💸" },
+        { "text": "Wealth stays same", "isCorrect": false, "emoji": "➡️" },
+        { "text": "Wealth grows", "isCorrect": true, "emoji": "🌳" },
+        { "text": "Wealth disappears", "isCorrect": false, "emoji": "👻" }
+      ]
+    }
+  ]
+}

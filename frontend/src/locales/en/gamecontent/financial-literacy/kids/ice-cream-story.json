@@ -1,0 +1,54 @@
+﻿{
+  "title": "Ice Cream Story",
+  "subtitleComplete": "Story Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}",
+  "questionCounter": "Question {{current}}/{{total}}",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "questions": [
+    {
+      "id": 1,
+      "text": "You have Rs 10. You see an ice cream shop. Do you spend on ice cream now or save for a toy you want?",
+      "options": [
+        { "id": "save", "text": "Save for toy", "emoji": "🧸", "isCorrect": true },
+        { "id": "spend", "text": "Buy ice cream", "emoji": "🍦", "isCorrect": false },
+        { "id": "split", "text": "Save half, spend half", "emoji": "⚖️", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "Your friend bought an expensive ice cream and is enjoying it. You only have Rs 5. What do you do?",
+      "options": [
+        { "id": "spend", "text": "Buy small treat", "emoji": "🍭", "isCorrect": false },
+        { "id": "save", "text": "Save for bigger goal", "emoji": "🎯", "isCorrect": true },
+        { "id": "borrow", "text": "Ask to share friend's", "emoji": "🤝", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "You planned to save Rs 50 for a new book, but see a 'Buy 1 Get 1 Free' ice cream offer. What's smart?",
+      "options": [
+        { "id": "save", "text": "Stick to savings plan", "emoji": "📚", "isCorrect": true },
+        { "id": "spend", "text": "Take the offer", "emoji": "🍦", "isCorrect": false },
+        { "id": "delay", "text": "Buy later if extra money", "emoji": "⏰", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "You've saved Rs 30 for a bicycle. Your sibling offers to share their ice cream if you buy some. What do you choose?",
+      "options": [
+        { "id": "spend", "text": "Share treat", "emoji": "🍦", "isCorrect": false },
+        { "id": "save", "text": "Focus on bicycle", "emoji": "🚲", "isCorrect": true },
+        { "id": "negotiate", "text": "Promise to help later", "emoji": "🤝", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "It's a hot day and everyone is eating ice cream. You have Rs 15 saved. What's the wisest choice?",
+      "options": [
+        { "id": "save", "text": "Save for later", "emoji": "💰", "isCorrect": true },
+        { "id": "spend", "text": "Cool off now", "emoji": "🍦", "isCorrect": false },
+        { "id": "alternative", "text": "Find free way to cool off", "emoji": "🌳", "isCorrect": false }
+      ]
+    }
+  ]
+}

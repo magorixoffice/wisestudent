@@ -1,0 +1,70 @@
+{
+  "title": "रिफ्लेक्स: सही उधार",
+  "subtitlePlaying": "प्रश्न {{current}} / {{total}}: उधार की समझ जाँचें!",
+  "subtitleReady": "उधार की समझ जाँचें!",
+  "readyEmoji": "🤝",
+  "readyTitle": "क्या आप सही उधार सीखने के लिए तैयार हैं?",
+  "readyDescription": "उधार लेते समय सही कदम चुनें।",
+  "readyInfo": "आपके पास {{total}} प्रश्न हैं, हर प्रश्न के लिए {{seconds}} सेकंड!",
+  "startButton": "गेम शुरू करें",
+  "roundLabel": "प्रश्न:",
+  "timeLabel": "समय:",
+  "scoreLabel": "स्कोर:",
+  "questions": [
+    {
+      "id": 1,
+      "question": "कुछ उधार लेने से पहले क्या करना चाहिए?",
+      "correctAnswer": "अनुमति माँगें",
+      "options": [
+        { "text": "सीधा उठा लें", "isCorrect": false, "emoji": "🤏" },
+        { "text": "बिना पूछे ले लें", "isCorrect": false, "emoji": "🙈" },
+        { "text": "अनुमति माँगें", "isCorrect": true, "emoji": "🙋" },
+        { "text": "मालिक को नज़रअंदाज़ करें", "isCorrect": false, "emoji": "😴" }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "उधार कैसे लेना चाहिए?",
+      "correctAnswer": "विनम्रता से",
+      "options": [
+        { "text": "विनम्रता से उधार लें", "isCorrect": true, "emoji": "🤝" },
+        { "text": "जबरदस्ती लें", "isCorrect": false, "emoji": "💪" },
+        { "text": "जल्दी से छीन लें", "isCorrect": false, "emoji": "⚡" },
+        { "text": "चोरी कर लें", "isCorrect": false, "emoji": "😈" }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "उधार ली वस्तु के साथ क्या करना चाहिए?",
+      "correctAnswer": "वापस करना",
+      "options": [
+        { "text": "अपने पास रखें", "isCorrect": false, "emoji": "🙈" },
+        { "text": "छुपा दें", "isCorrect": false, "emoji": "🫥" },
+        { "text": "भूल जाएँ", "isCorrect": false, "emoji": "😴" },
+        { "text": "वापस करें", "isCorrect": true, "emoji": "↩️" }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "लोन के साथ क्या करना चाहिए?",
+      "correctAnswer": "पैसा चुकाएँ",
+      "options": [
+        { "text": "भुगतान न करें", "isCorrect": false, "emoji": "🚫" },
+        { "text": "पैसा चुकाएँ", "isCorrect": true, "emoji": "💰" },
+        { "text": "बचकर निकल जाएँ", "isCorrect": false, "emoji": "🏃" },
+        { "text": "भूल जाएँ", "isCorrect": false, "emoji": "🤷" }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "उधार लेते समय आपका रवैया कैसा होना चाहिए?",
+      "correctAnswer": "ईमानदार",
+      "options": [
+        { "text": "ईमानदार रहें", "isCorrect": true, "emoji": "✅" },
+        { "text": "झूठ बोलें", "isCorrect": false, "emoji": "🤥" },
+        { "text": "धोखा दें", "isCorrect": false, "emoji": "🎭" },
+        { "text": "दिखावा करें", "isCorrect": false, "emoji": "😏" }
+      ]
+    }
+  ]
+}

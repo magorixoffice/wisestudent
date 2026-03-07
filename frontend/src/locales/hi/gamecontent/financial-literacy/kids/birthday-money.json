@@ -1,0 +1,54 @@
+﻿{
+  "title": "जन्मदिन का पैसा कहानी",
+  "subtitleComplete": "कहानी पूरी हुई!",
+  "subtitleProgress": "प्रश्न {{current}} में से {{total}}",
+  "questionCounter": "प्रश्न {{current}}/{{total}}",
+  "scoreLabel": "स्कोर: {{score}}/{{total}}",
+  "questions": [
+    {
+      "id": 1,
+      "text": "आपको जन्मदिन पर Rs 100 मिले हैं। आप क्या करेंगे?",
+      "options": [
+        { "id": "spend", "text": "सारे पैसे खिलौनों और कैंडी पर खर्च करें", "emoji": "🍬", "description": "", "isCorrect": false },
+        { "id": "give", "text": "सभी पैसे मम्मी को सुरक्षित रखने के लिए दे दें", "emoji": "👩‍👧", "description": "", "isCorrect": false },
+        { "id": "split", "text": "इसे बांटें: कुछ मज़े के लिए, कुछ बचत के लिए", "emoji": "💡", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "'समझदारी से बांटना' का क्या मतलब है?",
+      "options": [
+        { "id": "gifts", "text": "आधा दोस्तों के गिफ्ट पर खर्च करें", "emoji": "🎁", "description": "", "isCorrect": false },
+        { "id": "balance", "text": "कुछ बचत के लिए और कुछ मज़े के लिए रखें", "emoji": "🎯", "description": "", "isCorrect": true },
+        { "id": "needs", "text": "सिर्फ जरूरतें खरीदें, चाहतें नहीं", "emoji": "🛒", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "अपने उपहार के पैसे का एक हिस्सा बचाने से आपको मदद मिलती है...",
+      "options": [
+        { "id": "forget", "text": "पैसे को भूल जाना", "emoji": "😄", "description": "", "isCorrect": false },
+        { "id": "spend", "text": "अभी ज्यादा खर्च करना", "emoji": "🛍️", "description": "", "isCorrect": false },
+        { "id": "bigger", "text": "बाद में बड़ी चीजें खरीदना", "emoji": "🚀", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "अगर आप बाद में कुछ बड़ा खरीदना चाहते हैं, तो समझदारी क्या है?",
+      "options": [
+        { "id": "save", "text": "नियमित रूप से थोड़ी-थोड़ी बचत करें", "emoji": "💰", "description": "", "isCorrect": true },
+        { "id": "borrow", "text": "दोस्तों से उधार लें", "emoji": "🙈", "description": "", "isCorrect": false },
+        { "id": "wait", "text": "अगले जन्मदिन का इंतजार करें", "emoji": "🎂", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "संतुलित निर्णय कौन सा है?",
+      "options": [
+        { "id": "all", "text": "आज ही सब खर्च कर दें", "emoji": "🎉", "description": "", "isCorrect": false },
+        { "id": "enjoy", "text": "एक ट्रीट लें और बाकी बचाएं", "emoji": "🧁", "description": "", "isCorrect": true },
+        { "id": "none", "text": "सब बचाएं, कोई मज़ा नहीं", "emoji": "😔", "description": "", "isCorrect": false }
+      ]
+    }
+  ]
+}

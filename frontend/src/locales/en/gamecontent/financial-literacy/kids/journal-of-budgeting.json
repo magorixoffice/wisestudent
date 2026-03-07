@@ -1,0 +1,33 @@
+{
+  "title": "Journal of Budgeting",
+  "subtitleComplete": "Journal Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}: Reflect and write about your smart money use.",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "minLengthLabel": "Write at least {{min}} characters",
+  "placeholder": "Write your journal entry here...",
+  "charCounter": "{{current}}/{{min}} characters",
+  "submitFinalButton": "Submit Final Entry",
+  "submitContinueButton": "Submit & Continue",
+  "stages": [
+    {
+      "question": "Write: \"One time I planned my money wisely was ___.\"",
+      "minLength": 10
+    },
+    {
+      "question": "Write: \"Budgeting helps me because ___.\"",
+      "minLength": 10
+    },
+    {
+      "question": "Write: \"I saved money for ___ and felt ___.\"",
+      "minLength": 10
+    },
+    {
+      "question": "Write: \"A smart budgeting tip I learned is ___.\"",
+      "minLength": 10
+    },
+    {
+      "question": "Write: \"Planning my money makes me feel ___.\"",
+      "minLength": 10
+    }
+  ]
+}

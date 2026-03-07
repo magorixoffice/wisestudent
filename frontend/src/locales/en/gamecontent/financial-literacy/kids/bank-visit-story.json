@@ -1,0 +1,128 @@
+{
+  "title": "Bank Visit Story",
+  "subtitleComplete": "Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "questions": [
+    {
+      "id": 1,
+      "text": "Parents take you to bank. What do you do?",
+      "options": [
+        {
+          "id": "watch",
+          "text": "Watch and learn quietly",
+          "emoji": "👀",
+          "isCorrect": true
+        },
+        {
+          "id": "play",
+          "text": "Run around and play",
+          "emoji": "🏃",
+          "isCorrect": false
+        },
+        {
+          "id": "touch",
+          "text": "Touch everything",
+          "emoji": "👆",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "Bank staff greets you. How to respond?",
+      "options": [
+        {
+          "id": "ignore",
+          "text": "Ignore them completely",
+          "emoji": "😐",
+          "isCorrect": false
+        },
+        {
+          "id": "polite",
+          "text": "Be polite and respectful",
+          "emoji": "🙏",
+          "isCorrect": true
+        },
+        {
+          "id": "rude",
+          "text": "Be rude to them",
+          "emoji": "😠",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "Parent uses ATM. What should you do?",
+      "options": [
+        {
+          "id": "privacy",
+          "text": "Stand back and give privacy",
+          "emoji": "🔒",
+          "isCorrect": true
+        },
+        {
+          "id": "watch",
+          "text": "Watch the PIN closely",
+          "emoji": "👁️",
+          "isCorrect": false
+        },
+        {
+          "id": "buttons",
+          "text": "Press random buttons",
+          "emoji": "🔘",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "Security guard checks bags. Your reaction?",
+      "options": [
+        {
+          "id": "angry",
+          "text": "Get angry at guard",
+          "emoji": "😠",
+          "isCorrect": false
+        },
+        {
+          "id": "refuse",
+          "text": "Refuse the check",
+          "emoji": "❌",
+          "isCorrect": false
+        },
+        {
+          "id": "understand",
+          "text": "Understand it's for safety",
+          "emoji": "🛡️",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "Long queue at bank. What's best?",
+      "options": [
+        {
+          "id": "push",
+          "text": "Push to go first",
+          "emoji": "👊",
+          "isCorrect": false
+        },
+        {
+          "id": "wait",
+          "text": "Wait patiently in line",
+          "emoji": "⏳",
+          "isCorrect": true
+        },
+        {
+          "id": "complain",
+          "text": "Complain loudly",
+          "emoji": "😤",
+          "isCorrect": false
+        }
+      ]
+    }
+  ]
+}

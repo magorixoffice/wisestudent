@@ -1,0 +1,55 @@
+﻿{
+  "title": "आइसक्रीम बनाम स्कूल किताब कहानी",
+  "subtitleComplete": "कहानी पूरी हुई!",
+  "subtitleProgress": "प्रश्न {{current}} में से {{total}}",
+  "questionCounter": "प्रश्न {{current}}/{{total}}",
+  "scoreLabel": "स्कोर: {{score}}/{{total}}",
+  "stageEmoji": "📚🍦",
+  "questions": [
+    {
+      "id": 1,
+      "text": "आप स्कूल खत्म करते हैं और भूख लगती है, लेकिन आपको वर्कबुक भी चाहिए। सबसे अच्छा विकल्प क्या है?",
+      "options": [
+        { "id": "icecream", "text": "अभी के लिए आइसक्रीम खरीदें", "emoji": "🍦", "description": "", "isCorrect": false },
+        { "id": "book", "text": "वर्कबुक खरीदें", "emoji": "📘", "description": "", "isCorrect": true },
+        { "id": "wait", "text": "कुछ न खरीदें और चले जाएं", "emoji": "🚶", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "आज आप आइसक्रीम खा लेते हैं और कल किताब के लिए पैसे नहीं बचते। आप क्या सीखते हैं?",
+      "options": [
+        { "id": "lesson", "text": "पैसे की योजना बनाना जरूरी है", "emoji": "🧠", "description": "", "isCorrect": true },
+        { "id": "sad", "text": "आइसक्रीम हमेशा सबसे बेहतर है", "emoji": "🍨", "description": "", "isCorrect": false },
+        { "id": "borrow", "text": "अगली बार उधार लें", "emoji": "💳", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "किताब परीक्षाओं में मदद करती है और आइसक्रीम जल्दी पिघल जाती है। क्या ज्यादा समय तक रहता है?",
+      "options": [
+        { "id": "icecream", "text": "आइसक्रीम की खुशी", "emoji": "🍦", "description": "", "isCorrect": false },
+        { "id": "book", "text": "किताब से ज्ञान", "emoji": "📚", "description": "", "isCorrect": true },
+        { "id": "both", "text": "दोनों समान समय तक रहते हैं", "emoji": "⚖️", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "आप आज किताब खरीदने और किसी और दिन आइसक्रीम खाने का फैसला करते हैं। आप कौन सा कौशल दिखाते हैं?",
+      "options": [
+        { "id": "luck", "text": "अच्छी किस्मत", "emoji": "🍀", "description": "", "isCorrect": false },
+        { "id": "speed", "text": "तेज़ निर्णय लेना", "emoji": "⚡", "description": "", "isCorrect": false },
+        { "id": "patience", "text": "आत्म-नियंत्रण", "emoji": "⏳", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "जब आप किताब चुनते हैं तो आपके माता-पिता मुस्कुराते हैं। वे खुश क्यों होते हैं?",
+      "options": [
+        { "id": "cheap", "text": "किताबें सस्ती होती हैं", "emoji": "💸", "description": "", "isCorrect": false },
+        { "id": "smart", "text": "आप जिम्मेदार चुनाव करते हैं", "emoji": "⭐", "description": "", "isCorrect": true },
+        { "id": "friends", "text": "दोस्तों को किताबें पसंद हैं", "emoji": "👫", "description": "", "isCorrect": false }
+      ]
+    }
+  ]
+}

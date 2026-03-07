@@ -1,0 +1,96 @@
+{
+  "title": "बैज: मनी गार्डनर",
+  "subtitleComplete": "बैज प्राप्त हुआ!",
+  "subtitleProgress": "चुनौती {{current}} / {{total}}",
+  "resultGreatEmoji": "🏆",
+  "resultGreatTitle": "मनी गार्डनर बैज मिला!",
+  "resultGreatDescription": "आपने {{total}} में से {{score}} समझदार वित्तीय निर्णय लिए!",
+  "achievementTitle": "🎉 उपलब्धि अनलॉक!",
+  "achievementBadge": "बैज: मनी गार्डनर",
+  "skillsTitle": "मनी स्किल्स",
+  "skillsDescription": "आपने समझदारी से बचत, धैर्य और संतुलित खर्च करना सीखा!",
+  "wisdomTitle": "वित्तीय समझ",
+  "wisdomDescription": "ये आदतें आपके पैसे को बगीचे की तरह बढ़ने में मदद करती हैं।",
+  "resultKeepEmoji": "💪",
+  "resultKeepTitle": "सीखते रहें!",
+  "resultKeepDescription": "आपने {{total}} में से {{score}} समझदार वित्तीय निर्णय लिए।",
+  "resultKeepTip": "ज्यादा बचाएँ, धैर्य रखें, और योजना बनाकर खर्च करें।",
+  "tryAgainButton": "फिर से कोशिश करें",
+  "challenges": [
+    {
+      "id": 1,
+      "title": "जन्मदिन का पैसा",
+      "question": "आपको जन्मदिन पर ₹100 मिले। क्या करेंगे?",
+      "options": [
+        { "text": "आज ही सब कैंडी पर खर्च", "emoji": "🍬", "isCorrect": false },
+        { "text": "₹80 बचाओ, ₹20 खर्च करो", "emoji": "🌱", "isCorrect": true },
+        { "text": "सारा तुरंत दे दो", "emoji": "🎁", "isCorrect": false },
+        { "text": "तकिए के नीचे छिपा दो", "emoji": "🛌", "isCorrect": false }
+      ],
+      "feedback": {
+        "correct": "बहुत बढ़िया! ज्यादा बचत से पैसा बढ़ता है।",
+        "wrong": "बचत, बीज की तरह, समय के साथ बढ़ती है।"
+      }
+    },
+    {
+      "id": 2,
+      "title": "धैर्य अभ्यास",
+      "question": "दोस्त ने नया खिलौना लिया, पर आप बचत कर रहे हैं। क्या करेंगे?",
+      "options": [
+        { "text": "धैर्य रखकर बचत जारी", "emoji": "🧘", "isCorrect": true },
+        { "text": "अभी गुल्लक तोड़ दो", "emoji": "🐷", "isCorrect": false },
+        { "text": "उदास होकर बचत छोड़ दो", "emoji": "😢", "isCorrect": false },
+        { "text": "मम्मी-पापा से और पैसे माँगो", "emoji": "👨‍💼", "isCorrect": false }
+      ],
+      "feedback": {
+        "correct": "सही! धैर्य से आपका पैसा बढ़ता है।",
+        "wrong": "धैर्य रखें, बचत समय के साथ बढ़ती है।"
+      }
+    },
+    {
+      "id": 3,
+      "title": "खिलौना लक्ष्य",
+      "question": "₹500 का खिलौना चाहिए, पर ₹300 ही हैं। समझदारी क्या है?",
+      "options": [
+        { "text": "अभी खरीदने को उधार लें", "emoji": "💳", "isCorrect": false },
+        { "text": "₹200 और बचाकर खरीदें", "emoji": "🌲", "isCorrect": true },
+        { "text": "कोई सस्ता खिलौना ले लें", "emoji": "😞", "isCorrect": false },
+        { "text": "सब स्नैक्स पर खर्च", "emoji": "🍪", "isCorrect": false }
+      ],
+      "feedback": {
+        "correct": "शानदार! लक्ष्य तक बचत करना समझदारी है।",
+        "wrong": "लक्ष्य तक पहुँचने तक बचत जारी रखें।"
+      }
+    },
+    {
+      "id": 4,
+      "title": "दादी का ऑफर",
+      "question": "दादी कहती हैं एक महीने रुको तो 10% और मिलेंगे। क्या चुनेंगे?",
+      "options": [
+        { "text": "अभी पैसा निकाल लो", "emoji": "💨", "isCorrect": false },
+        { "text": "आधा अभी खर्च", "emoji": "⚖️", "isCorrect": false },
+        { "text": "ऑफर पर भरोसा न करो", "emoji": "🤔", "isCorrect": false },
+        { "text": "एक महीना इंतजार करो", "emoji": "🌸", "isCorrect": true }
+      ],
+      "feedback": {
+        "correct": "बहुत अच्छा! इंतजार से पैसा बढ़ सकता है।",
+        "wrong": "जब पैसा और पैसा बना सकता है, धैर्य रखें।"
+      }
+    },
+    {
+      "id": 5,
+      "title": "बड़ी बचत",
+      "question": "कई महीनों बाद ₹1000 हो गए। सबसे समझदार फैसला क्या है?",
+      "options": [
+        { "text": "सब एक साथ खर्च", "emoji": "💸", "isCorrect": false },
+        { "text": "कभी खर्च ही न करें", "emoji": "🔒", "isCorrect": false },
+        { "text": "₹800 बचाएँ, ₹200 समझदारी से खर्च", "emoji": "🏆", "isCorrect": true },
+        { "text": "सारा दान कर दें", "emoji": "💝", "isCorrect": false }
+      ],
+      "feedback": {
+        "correct": "बहुत बढ़िया! संतुलित बचत और खर्च ही स्मार्ट तरीका है।",
+        "wrong": "ज्यादा बचाएँ और थोड़ा सोच-समझकर खर्च करें।"
+      }
+    }
+  ]
+}

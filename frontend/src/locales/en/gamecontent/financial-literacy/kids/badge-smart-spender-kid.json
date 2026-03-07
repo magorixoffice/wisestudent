@@ -1,0 +1,96 @@
+{
+  "title": "Badge: Smart Spender Kid",
+  "subtitleComplete": "Badge Earned!",
+  "subtitleProgress": "Challenge {{current}} of {{total}}",
+  "resultGreatEmoji": "🏅",
+  "resultGreatTitle": "Smart Spender Badge Earned!",
+  "resultGreatDescription": "You made {{score}} smart spending decisions out of {{total}} challenges!",
+  "achievementTitle": "🏅 Achievement Unlocked!",
+  "achievementBadge": "Badge: Smart Spender Kid",
+  "skillsTitle": "Spending Skills",
+  "skillsDescription": "You learned to plan purchases, compare prices, and avoid impulse buying!",
+  "wisdomTitle": "Financial Wisdom",
+  "wisdomDescription": "These habits will help you make smart financial decisions!",
+  "resultKeepEmoji": "📘",
+  "resultKeepTitle": "Keep Learning!",
+  "resultKeepDescription": "You made {{score}} smart spending decisions out of {{total}} challenges.",
+  "resultKeepTip": "Remember, smart spending means planning purchases, comparing prices, and avoiding impulse buys!",
+  "tryAgainButton": "Try Again",
+  "challenges": [
+    {
+      "id": 1,
+      "title": "Birthday Money",
+      "question": "You received Rs 500 as a birthday gift. What do you do?",
+      "options": [
+        { "text": "Save Rs 300, spend Rs 200", "emoji": "💰", "isCorrect": true },
+        { "text": "Spend all on toys", "emoji": "🧸", "isCorrect": false },
+        { "text": "Save half, share half", "emoji": "🤝", "isCorrect": false },
+        { "text": "Buy expensive gifts for others", "emoji": "🎁", "isCorrect": false }
+      ],
+      "feedback": {
+        "correct": "Excellent! Saving most of your money while spending some wisely is a smart approach!",
+        "wrong": "Remember to save most of your money for future needs while spending some wisely!"
+      }
+    },
+    {
+      "id": 2,
+      "title": "Sale Offer",
+      "question": "Your favorite toy is on 50% off, but you already have similar toys. Do you buy it?",
+      "options": [
+        { "text": "Buy because it's cheap", "emoji": "🏷️", "isCorrect": false },
+        { "text": "Don't buy", "emoji": "🚫", "isCorrect": true },
+        { "text": "Buy as a gift", "emoji": "🎁", "isCorrect": false },
+        { "text": "Ask parents first", "emoji": "🙋", "isCorrect": false }
+      ],
+      "feedback": {
+        "correct": "Perfect! Just because something is on sale doesn't mean you should buy it if you don't need it!",
+        "wrong": "Only buy things you actually need, even if they're on sale!"
+      }
+    },
+    {
+      "id": 3,
+      "title": "Shopping List",
+      "question": "You're going to the market with Rs 300. What's the smart approach?",
+      "options": [
+        { "text": "Make a list first", "emoji": "📝", "isCorrect": true },
+        { "text": "Buy what looks good", "emoji": "🛍️", "isCorrect": false },
+        { "text": "Compare prices", "emoji": "⚖️", "isCorrect": false },
+        { "text": "Buy expensive items first", "emoji": "💸", "isCorrect": false }
+      ],
+      "feedback": {
+        "correct": "Amazing! Planning your purchases helps you spend wisely and avoid impulse buying!",
+        "wrong": "Planning your purchases before shopping helps you spend wisely and stick to your budget!"
+      }
+    },
+    {
+      "id": 4,
+      "title": "Comparing Prices",
+      "question": "The same notebook is Rs 50 at one store and Rs 40 at another. Which do you choose?",
+      "options": [
+        { "text": "Buy for Rs 50", "emoji": "💵", "isCorrect": false },
+        { "text": "Ask for advice", "emoji": "🗣️", "isCorrect": false },
+        { "text": "Buy from the familiar store", "emoji": "🏪", "isCorrect": false },
+        { "text": "Buy for Rs 40", "emoji": "✅", "isCorrect": true }
+      ],
+      "feedback": {
+        "correct": "Great! Comparing prices helps you save money on the same item!",
+        "wrong": "Always compare prices to get the best value for your money!"
+      }
+    },
+    {
+      "id": 5,
+      "title": "Impulse Purchase",
+      "question": "You planned to buy fruits for Rs 100 but see candy on the way. What do you do?",
+      "options": [
+        { "text": "Buy fruits and candy", "emoji": "🍎🍬", "isCorrect": false },
+        { "text": "Buy healthy snack", "emoji": "🥕", "isCorrect": false },
+        { "text": "Buy only fruits", "emoji": "🍎", "isCorrect": true },
+        { "text": "Forget the plan, buy what looks good", "emoji": "🛒", "isCorrect": false }
+      ],
+      "feedback": {
+        "correct": "Wonderful! Sticking to your plan helps you spend wisely and avoid unnecessary purchases!",
+        "wrong": "Sticking to your shopping plan helps you spend wisely and avoid impulse purchases!"
+      }
+    }
+  ]
+}

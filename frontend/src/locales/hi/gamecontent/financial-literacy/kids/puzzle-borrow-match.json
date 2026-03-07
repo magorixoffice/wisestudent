@@ -1,0 +1,35 @@
+{
+  "title": "पहेली: सही उधार मिलान",
+  "subtitleComplete": "पहेली पूरी हुई!",
+  "subtitleProgress": "वस्तुओं को सही क्रिया से मिलाएँ ({{matched}}/{{total}} मिलान)",
+  "itemsTitle": "उधार ली वस्तुएँ",
+  "categoriesTitle": "क्रियाएँ",
+  "selectedLabel": "चयनित: {{name}}",
+  "selectItem": "कोई वस्तु चुनें",
+  "matchButton": "मिलान करें",
+  "scoreLabel": "स्कोर:",
+  "matchedLabel": "मिलान:",
+  "resultGreatEmoji": "🎉",
+  "resultGreatTitle": "बहुत बढ़िया!",
+  "resultGreatDescription": "आपने {{total}} में से {{score}} वस्तुओं का सही मिलान किया!",
+  "coinsLabel": "कॉइन्स",
+  "resultLesson": "सीख: उधार ली चीज़ें जिम्मेदारी से संभालकर समय पर लौटानी चाहिए।",
+  "resultKeepEmoji": "💪",
+  "resultKeepTitle": "अभ्यास जारी रखें!",
+  "resultKeepDescription": "आपने {{total}} में से {{score}} सही मिलान किए।",
+  "resultTip": "टिप: सोचें कि उधार लेते समय कौन सा व्यवहार जिम्मेदार होता है।",
+  "items": [
+    { "id": 1, "name": "कॉपी", "emoji": "📓" },
+    { "id": 2, "name": "बोर्ड गेम", "emoji": "🎲" },
+    { "id": 3, "name": "रबर", "emoji": "🩹" },
+    { "id": 4, "name": "पॉकेट मनी", "emoji": "💰" },
+    { "id": 5, "name": "लंचबॉक्स", "emoji": "🥪" }
+  ],
+  "categories": [
+    { "id": 6, "name": "वापस दें", "emoji": "↩️", "description": "उधार की वस्तु लौटाएँ" },
+    { "id": 7, "name": "दोस्त के साथ साझा करें", "emoji": "🤝", "description": "सही तरीके से साझा करें" },
+    { "id": 8, "name": "पैसे लौटाएँ", "emoji": "💳", "description": "उधार पैसा चुकाएँ" },
+    { "id": 9, "name": "धन्यवाद कहें", "emoji": "🙏", "description": "आभार व्यक्त करें" },
+    { "id": 10, "name": "सावधानी से रखें", "emoji": "🛡️", "description": "नियम से संभालें" }
+  ]
+}

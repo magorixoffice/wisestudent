@@ -1,0 +1,54 @@
+﻿{
+  "title": "Money Bank Story",
+  "subtitleComplete": "Story Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}",
+  "questionCounter": "Question {{current}}/{{total}}",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "questions": [
+    {
+      "id": 1,
+      "text": "You received Rs 10 as a gift from your grandmother. What would you like to do?",
+      "options": [
+        { "id": "spend", "text": "Spend All", "emoji": "🛍️", "isCorrect": false },
+        { "id": "save", "text": "Save Rs 5", "emoji": "💰", "isCorrect": true },
+        { "id": "save-all", "text": "Save All Rs 10", "emoji": "🏦", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "You have Rs 20 saved up. Your friend invites you to the movies which costs Rs 15. What do you do?",
+      "options": [
+        { "id": "save", "text": "Save for Later", "emoji": "🏦", "isCorrect": true },
+        { "id": "spend", "text": "Go to Movies", "emoji": "🎬", "isCorrect": false },
+        { "id": "split", "text": "Split the Cost", "emoji": "🤝", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "You found Rs 5 on the street. What's the best thing to do with it?",
+      "options": [
+        { "id": "spend", "text": "Buy Candy", "emoji": "🍬", "isCorrect": false },
+        { "id": "give", "text": "Give to Parents", "emoji": "👨‍👩‍👧", "isCorrect": false },
+        { "id": "save", "text": "Save It", "emoji": "🫙", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "Your birthday is coming up and you want a new bicycle that costs Rs 500. You currently have Rs 200. What should you do?",
+      "options": [
+        { "id": "save", "text": "Save More", "emoji": "📈", "isCorrect": true },
+        { "id": "spend", "text": "Buy Now", "emoji": "🛒", "isCorrect": false },
+        { "id": "borrow", "text": "Borrow Money", "emoji": "💳", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "You have Rs 30 saved and see a toy you really want for Rs 25. What's the smart choice?",
+      "options": [
+        { "id": "spend", "text": "Buy the Toy", "emoji": "🧸", "isCorrect": false },
+        { "id": "save", "text": "Save for Bigger", "emoji": "🎯", "isCorrect": true },
+        { "id": "wait", "text": "Wait for Sale", "emoji": "⏰", "isCorrect": false }
+      ]
+    }
+  ]
+}

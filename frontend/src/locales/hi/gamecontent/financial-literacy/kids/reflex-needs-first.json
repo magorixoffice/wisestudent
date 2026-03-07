@@ -1,0 +1,70 @@
+﻿{
+  "title": "रिफ्लेक्स: ज़रूरत पहले",
+  "subtitlePlaying": "राउंड {{current}}/{{total}}: जरूरत और चाहत पहचानें!",
+  "subtitleReady": "जरूरत और चाहत पहचानें!",
+  "readyEmoji": "📋",
+  "readyTitle": "क्या आप जरूरत बनाम चाहत की परीक्षा के लिए तैयार हैं?",
+  "readyDescription": "जरूरतों और चाहतों की पहचान से जुड़े प्रश्नों के उत्तर दें।",
+  "readyInfo": "आपके पास {{total}} प्रश्न हैं और हर प्रश्न के लिए {{seconds}} सेकंड हैं!",
+  "startButton": "खेल शुरू करें",
+  "roundLabel": "राउंड:",
+  "timeLabel": "समय:",
+  "scoreLabel": "स्कोर:",
+  "questions": [
+    {
+      "id": 1,
+      "question": "इनमें से कौन सी एक बुनियादी जरूरत है?",
+      "correctAnswer": "भोजन",
+      "options": [
+        { "text": "वीडियो गेम्स", "isCorrect": false, "emoji": "🎮" },
+        { "text": "भोजन", "isCorrect": true, "emoji": "🍎" },
+        { "text": "डिज़ाइनर कपड़े", "isCorrect": false, "emoji": "👕" },
+        { "text": "लग्ज़री कार", "isCorrect": false, "emoji": "🚗" }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "शिक्षा के लिए जरूरत को कौन सा आइटम दर्शाता है?",
+      "correctAnswer": "स्कूल की किताबें",
+      "options": [
+        { "text": "स्कूल की किताबें", "isCorrect": true, "emoji": "📚" },
+        { "text": "महंगे खिलौने", "isCorrect": false, "emoji": "🧸" },
+        { "text": "गैजेट्स", "isCorrect": false, "emoji": "📱" },
+        { "text": "स्नैक्स", "isCorrect": false, "emoji": "🍪" }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "सेहत के लिए कौन सी चीज आवश्यक है?",
+      "correctAnswer": "दवाई",
+      "options": [
+        { "text": "कैंडी", "isCorrect": false, "emoji": "🍬" },
+        { "text": "सोडा", "isCorrect": false, "emoji": "🥤" },
+        { "text": "दवाई", "isCorrect": true, "emoji": "💊" },
+        { "text": "ज्वेलरी", "isCorrect": false, "emoji": "💍" }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "कौन सा आइटम एक बुनियादी आवश्यकता है?",
+      "correctAnswer": "आश्रय",
+      "options": [
+        { "text": "छुट्टियां", "isCorrect": false, "emoji": "✈️" },
+        { "text": "मनोरंजन", "isCorrect": false, "emoji": "🎬" },
+        { "text": "लग्ज़री डाइनिंग", "isCorrect": false, "emoji": "🍽️" },
+        { "text": "आश्रय", "isCorrect": true, "emoji": "🏠" }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "कौन सी एक मूलभूत जरूरत है?",
+      "correctAnswer": "साफ पानी",
+      "options": [
+        { "text": "साफ पानी", "isCorrect": true, "emoji": "💧" },
+        { "text": "आइसक्रीम", "isCorrect": false, "emoji": "🍦" },
+        { "text": "डिज़ाइनर बैग", "isCorrect": false, "emoji": "👝" },
+        { "text": "कॉन्सर्ट टिकट", "isCorrect": false, "emoji": "🎫" }
+      ]
+    }
+  ]
+}

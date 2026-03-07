@@ -1,0 +1,128 @@
+{
+  "title": "Savings Story",
+  "subtitleComplete": "Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "questions": [
+    {
+      "id": 1,
+      "text": "You received ₹1000 as a gift. What's the best way to keep it safe?",
+      "options": [
+        {
+          "id": "home",
+          "text": "Keep at Home",
+          "emoji": "🏠",
+          "isCorrect": false
+        },
+        {
+          "id": "bank",
+          "text": "Open a Bank Account",
+          "emoji": "🏦",
+          "isCorrect": true
+        },
+        {
+          "id": "wallet",
+          "text": "Carry in Wallet",
+          "emoji": "👛",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "What's the smartest way to use your birthday money?",
+      "options": [
+        {
+          "id": "split",
+          "text": "Split 50/50",
+          "emoji": "💵",
+          "isCorrect": true
+        },
+        {
+          "id": "spend",
+          "text": "Buy Latest Gadgets",
+          "emoji": "📱",
+          "isCorrect": false
+        },
+        {
+          "id": "spend_all",
+          "text": "Spend All Now",
+          "emoji": "💸",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "You get ₹200 weekly allowance. What's the best plan?",
+      "options": [
+        {
+          "id": "treats",
+          "text": "Buy Snacks",
+          "emoji": "🍫",
+          "isCorrect": false
+        },
+        {
+          "id": "save_half",
+          "text": "Save 50%",
+          "emoji": "💲",
+          "isCorrect": true
+        },
+        {
+          "id": "save_all",
+          "text": "Save Everything",
+          "emoji": "💰",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "Where should you keep money you've saved from chores?",
+      "options": [
+        {
+          "id": "piggy",
+          "text": "Piggy Bank",
+          "emoji": "🐷",
+          "isCorrect": false
+        },
+        {
+          "id": "pocket",
+          "text": "Your Pocket",
+          "emoji": "👖",
+          "isCorrect": false
+        },
+        {
+          "id": "bank",
+          "text": "Savings Account",
+          "emoji": "🏦",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "What's the best way to make your money grow?",
+      "options": [
+        {
+          "id": "save",
+          "text": "High-Interest Account",
+          "emoji": "💹",
+          "isCorrect": true
+        },
+        {
+          "id": "invest",
+          "text": "Invest in Stocks",
+          "emoji": "📊",
+          "isCorrect": false
+        },
+        {
+          "id": "spend",
+          "text": "Buy Collectibles",
+          "emoji": "🏀",
+          "isCorrect": false
+        }
+      ]
+    }
+  ]
+}

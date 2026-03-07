@@ -1,217 +1,101 @@
-import React, { useState } from "react";
+﻿import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getGameDataById } from "../../../../utils/getGameData";
 
+const fallbackQuestions = [
+  { id: 1, text: "Piggy bank earns no interest. Bank account does. Which is better?", options: [
+    { id: "bank", text: "Bank account", emoji: "🏦", description: "", isCorrect: true },
+    { id: "piggy", text: "Piggy bank", emoji: "🐷", description: "", isCorrect: false },
+    { id: "mattress", text: "Under mattress", emoji: "🛏️", description: "", isCorrect: false },
+  ]},
+  { id: 2, text: "You have ₹50. Where should you save to help it grow?", options: [
+    { id: "jar", text: "Jar at home", emoji: "🏺", description: "", isCorrect: false },
+    { id: "bank", text: "Bank savings account", emoji: "💰", description: "", isCorrect: true },
+    { id: "spend", text: "Spend now", emoji: "🛍️", description: "", isCorrect: false },
+  ]},
+  { id: 3, text: "Bank offers interest, piggy bank does not. Choose wisely.", options: [
+    { id: "bank", text: "Bank for interest", emoji: "📈", description: "", isCorrect: true },
+    { id: "piggy", text: "Piggy bank for fun", emoji: "🐷", description: "", isCorrect: false },
+    { id: "give", text: "Give away", emoji: "🎁", description: "", isCorrect: false },
+  ]},
+  { id: 4, text: "You save ₹100 in bank and get ₹105. Why?", options: [
+    { id: "magic", text: "Magic", emoji: "🪄", description: "", isCorrect: false },
+    { id: "added", text: "Added more money", emoji: "💸", description: "", isCorrect: false },
+    { id: "interest", text: "Bank paid interest", emoji: "📊", description: "", isCorrect: true },
+  ]},
+  { id: 5, text: "Why is bank better than piggy bank?", options: [
+    { id: "safe", text: "Safe and helps money grow", emoji: "🔒", description: "", isCorrect: true },
+    { id: "cool", text: "Looks cool", emoji: "🐷", description: "", isCorrect: false },
+    { id: "carry", text: "Easy to carry", emoji: "🎒", description: "", isCorrect: false },
+  ]},
+];
+
 const PiggyBank = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  
-  // Get game data from game category folder (source of truth)
+  const { t } = useTranslation("gamecontent");
+
   const gameId = "finance-kids-65";
+  const gameContent = t("financial-literacy.kids.piggy-bank", { returnObjects: true });
   const gameData = getGameDataById(gameId);
-  
-  // Get coinsPerLevel, totalCoins, and totalXp from game category data, fallback to location.state, then defaults
+
   const coinsPerLevel = gameData?.coins || location.state?.coinsPerLevel || 5;
   const totalCoins = gameData?.coins || location.state?.totalCoins || 5;
   const totalXp = gameData?.xp || location.state?.totalXp || 10;
+
   const [coins, setCoins] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [choices, setChoices] = useState([]);
   const [showResult, setShowResult] = useState(false);
   const [finalScore, setFinalScore] = useState(0);
+
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback } = useGameFeedback();
 
-  const questions = [
-    {
-      id: 1,
-      text: "Piggy bank earns no interest. Bank account does. Which is better?",
-      options: [
-        { 
-          id: "bank", 
-          text: "Bank account", 
-          emoji: "🏦", 
-          
-          isCorrect: true
-        },
-        { 
-          id: "piggy", 
-          text: "Piggy bank", 
-          emoji: "🐷", 
-          isCorrect: false
-        },
-        { 
-          id: "mattress", 
-          text: "Under mattress", 
-          emoji: "🛏️", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 2,
-      text: "You have ₹50. Where should you save to grow it?",
-      options: [
-        { 
-          id: "jar", 
-          text: "Jar at home", 
-          emoji: "🏺", 
-          isCorrect: false
-        },
-        {
-          id: "bank",
-          text: "Bank savings account",
-          emoji: "💰",
-          isCorrect: true
-        },
-        { 
-          id: "spend", 
-          text: "Spend it", 
-          emoji: "🛍️", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 3,
-      text: "Bank offers 5% interest. Piggy bank offers 0%. Choose wisely.",
-      options: [
-        { 
-          id: "bank", 
-          text: "Bank for interest", 
-          emoji: "📈", 
-          isCorrect: true
-        },
-        { 
-          id: "piggy", 
-          text: "Piggy bank for fun", 
-          emoji: "🐷", 
-          isCorrect: false
-        },
-        { 
-          id: "give", 
-          text: "Give it away", 
-          emoji: "🎁", 
-          isCorrect: false
-        }
-      ]
-    },
-    {
-      id: 4,
-      text: "You save ₹100 in a bank. It grows to ₹105. Why?",
-      options: [
-        { 
-          id: "magic", 
-          text: "Piggy bank magic", 
-          emoji: "🪄", 
-          isCorrect: false
-        },
-        { 
-          id: "added", 
-          text: "You added more money", 
-          emoji: "💸", 
-          isCorrect: false
-        },
-        {
-          id: "interest",
-          text: "Bank pays interest",
-          emoji: "📊",
-          isCorrect: true
-        },
-      ]
-    },
-    {
-      id: 5,
-      text: "Why is a bank better than a piggy bank?",
-      options: [
-        { 
-          id: "safe", 
-          text: "Safe and grows money", 
-          emoji: "🔒", 
-          isCorrect: true
-        },
-        { 
-          id: "cool", 
-          text: "Looks cooler", 
-          emoji: "🐷", 
-          isCorrect: false
-        },
-        { 
-          id: "carry", 
-          text: "Easier to carry", 
-          emoji: "🎒", 
-          isCorrect: false
-        }
-      ]
-    }
-  ];
+  const questions = Array.isArray(gameContent?.questions) && gameContent.questions.length > 0 ? gameContent.questions : fallbackQuestions;
 
   const handleChoice = (selectedChoice) => {
-    if (currentQuestion < 0 || currentQuestion >= questions.length) {
-      return;
-    }
-
     const currentQ = questions[currentQuestion];
-    if (!currentQ || !currentQ.options) {
-      return;
-    }
-
-    const newChoices = [...choices, { 
-      questionId: currentQ.id, 
-      choice: selectedChoice,
-      isCorrect: currentQ.options.find(opt => opt.id === selectedChoice)?.isCorrect
-    }];
-    
+    if (!currentQ?.options) return;
+    const isCorrect = currentQ.options.find((opt) => opt.id === selectedChoice)?.isCorrect;
+    const newChoices = [...choices, { questionId: currentQ.id, choice: selectedChoice, isCorrect }];
     setChoices(newChoices);
-    
-    // If the choice is correct, add coins and show flash/confetti
-    const isCorrect = currentQ.options.find(opt => opt.id === selectedChoice)?.isCorrect;
+
     if (isCorrect) {
-      setCoins(prev => prev + 1);
+      setCoins((prev) => prev + 1);
       showCorrectAnswerFeedback(1, true);
     }
-    
-    // Move to next question or show results
+
     if (currentQuestion < questions.length - 1) {
-      setTimeout(() => {
-        setCurrentQuestion(prev => prev + 1);
-      }, isCorrect ? 1000 : 800);
+      setTimeout(() => setCurrentQuestion((prev) => prev + 1), isCorrect ? 1000 : 800);
     } else {
-      // Calculate final score
-      const correctAnswers = newChoices.filter(choice => choice.isCorrect).length;
-      setFinalScore(correctAnswers);
-      setTimeout(() => {
-        setShowResult(true);
-      }, isCorrect ? 1000 : 800);
+      setFinalScore(newChoices.filter((c) => c.isCorrect).length);
+      setTimeout(() => setShowResult(true), isCorrect ? 1000 : 800);
     }
   };
 
-  const handleNext = () => {
-    navigate("/games/financial-literacy/kids");
-  };
-
-  const getCurrentQuestion = () => {
-    if (currentQuestion >= 0 && currentQuestion < questions.length) {
-      return questions[currentQuestion];
-    }
-    return null;
-  };
-
-  const currentQuestionData = getCurrentQuestion();
+  const currentQuestionData = questions[currentQuestion];
 
   return (
     <GameShell
-      title="Piggy Bank Story"
-      subtitle={showResult ? "Story Complete!" : `Question ${currentQuestion + 1} of ${questions.length}`}
+      title={gameContent?.title || "Piggy Bank Story"}
+      subtitle={showResult
+        ? (gameContent?.subtitleComplete || "Story Complete!")
+        : t("financial-literacy.kids.piggy-bank.subtitleProgress", {
+            current: currentQuestion + 1,
+            total: questions.length,
+            defaultValue: "Question {{current}} of {{total}}",
+          })}
       currentLevel={5}
       totalLevels={5}
       coinsPerLevel={coinsPerLevel}
-      onNext={handleNext}
+      onNext={() => navigate("/games/financial-literacy/kids")}
       nextEnabled={false}
       showGameOver={showResult}
       score={coins}
-      gameId="finance-kids-65"
+      gameId={gameId}
       gameType="finance"
       flashPoints={flashPoints}
       showAnswerConfetti={showAnswerConfetti}
@@ -220,22 +104,34 @@ const PiggyBank = () => {
       totalXp={totalXp}
       showConfetti={showResult && finalScore === 5}
       nextGamePathProp="/student/finance/kids/poster-grow-your-money"
-      nextGameIdProp="finance-kids-66">
+      nextGameIdProp="finance-kids-66"
+    >
       <div className="space-y-8">
         {!showResult && currentQuestionData ? (
           <div className="space-y-6">
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
               <div className="flex justify-between items-center mb-4">
-                <span className="text-white/80">Question {currentQuestion + 1}/{questions.length}</span>
-                <span className="text-yellow-400 font-bold">Score: {coins}/{questions.length}</span>
+                <span className="text-white/80">
+                  {t("financial-literacy.kids.piggy-bank.questionCounter", {
+                    current: currentQuestion + 1,
+                    total: questions.length,
+                    defaultValue: "Question {{current}}/{{total}}",
+                  })}
+                </span>
+                <span className="text-yellow-400 font-bold">
+                  {t("financial-literacy.kids.piggy-bank.scoreLabel", {
+                    score: coins,
+                    total: questions.length,
+                    defaultValue: "Score: {{score}}/{{total}}",
+                  })}
+                </span>
               </div>
-              
-              <p className="text-white text-lg mb-6 text-center">
-                {currentQuestionData.text}
-              </p>
-              
+
+              <div className="text-4xl mb-4 text-center">{gameContent?.stageEmoji || "🐷"}</div>
+              <p className="text-white text-lg mb-6 text-center">{currentQuestionData.text}</p>
+
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {currentQuestionData.options && currentQuestionData.options.map(option => (
+                {currentQuestionData.options?.map((option) => (
                   <button
                     key={option.id}
                     onClick={() => handleChoice(option.id)}

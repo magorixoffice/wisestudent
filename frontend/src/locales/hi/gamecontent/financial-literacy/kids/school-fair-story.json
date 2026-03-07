@@ -1,0 +1,54 @@
+﻿{
+  "title": "स्कूल फेयर कहानी",
+  "subtitleComplete": "कहानी पूरी हुई!",
+  "subtitleProgress": "प्रश्न {{current}} में से {{total}}",
+  "questionCounter": "प्रश्न {{current}}/{{total}}",
+  "scoreLabel": "स्कोर: {{score}}/{{total}}",
+  "questions": [
+    {
+      "id": 1,
+      "text": "फेयर शुरू होने वाला है और आप उत्साहित हैं। सबसे पहले आप क्या करते हैं?",
+      "options": [
+        { "id": "run", "text": "पहले स्टॉल की ओर दौड़ें", "emoji": "🏃", "description": "", "isCorrect": false },
+        { "id": "shout", "text": "उत्साह में चिल्लाएं", "emoji": "📣", "description": "", "isCorrect": false },
+        { "id": "look", "text": "फेयर को देखकर समझें", "emoji": "👀", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "आप एक लोकप्रिय गेम के लिए लंबी लाइन देखते हैं। सही विकल्प क्या है?",
+      "options": [
+        { "id": "push", "text": "लाइन में आगे धक्का दें", "emoji": "😠", "description": "", "isCorrect": false },
+        { "id": "wait", "text": "अपनी बारी का इंतजार करें", "emoji": "⏳", "description": "", "isCorrect": true },
+        { "id": "leave", "text": "गुस्से में चले जाएं", "emoji": "🚶", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "दुकानदार गलती से आपको ज्यादा पैसे लौटाता है। आप क्या करते हैं?",
+      "options": [
+        { "id": "return", "text": "अतिरिक्त पैसे वापस करें", "emoji": "🤝", "description": "", "isCorrect": true },
+        { "id": "keep", "text": "अतिरिक्त पैसे रख लें", "emoji": "🪙", "description": "", "isCorrect": false },
+        { "id": "ignore", "text": "चुपचाप चले जाएं", "emoji": "🙈", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "आप कई झूले लेना चाहते हैं लेकिन थकान महसूस करते हैं। समझदारी भरा कदम क्या है?",
+      "options": [
+        { "id": "force", "text": "खुद को जबरदस्ती झूला झुलाएं", "emoji": "😵", "description": "", "isCorrect": false },
+        { "id": "skip", "text": "सब कुछ छोड़ दें", "emoji": "😞", "description": "", "isCorrect": false },
+        { "id": "rest", "text": "थोड़ा आराम करें", "emoji": "🪑", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "फेयर खत्म होने वाला है और आपके पास एक टिकट बचा है। आप क्या चुनेंगे?",
+      "options": [
+        { "id": "favorite", "text": "अपनी पसंदीदा गतिविधि चुनें", "emoji": "⭐", "description": "", "isCorrect": true },
+        { "id": "random", "text": "बिना सोचे इस्तेमाल करें", "emoji": "🎲", "description": "", "isCorrect": false },
+        { "id": "waste", "text": "इसे फेंक दें", "emoji": "🗑️", "description": "", "isCorrect": false }
+      ]
+    }
+  ]
+}

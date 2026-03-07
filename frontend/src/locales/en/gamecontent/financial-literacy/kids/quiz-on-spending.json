@@ -1,0 +1,54 @@
+﻿{
+  "title": "Quiz on Spending",
+  "subtitleComplete": "Quiz Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}",
+  "questionCounter": "Question {{current}}/{{total}}",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "questions": [
+    {
+      "id": 1,
+      "text": "What is the best spending habit?",
+      "options": [
+        { "id": "a", "text": "Buy without thinking", "emoji": "💸", "isCorrect": false },
+        { "id": "b", "text": "Compare and choose", "emoji": "🤔", "isCorrect": true },
+        { "id": "c", "text": "Borrow for fun", "emoji": "💳", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "Which is a smart way to spend money?",
+      "options": [
+        { "id": "a", "text": "Budget first", "emoji": "📋", "isCorrect": true },
+        { "id": "b", "text": "Spend all at once", "emoji": "🛍️", "isCorrect": false },
+        { "id": "c", "text": "Buy what's popular", "emoji": "🔥", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "What should you do before a big purchase?",
+      "options": [
+        { "id": "a", "text": "Buy on credit", "emoji": "💳", "isCorrect": false },
+        { "id": "b", "text": "Ask friends", "emoji": "👥", "isCorrect": false },
+        { "id": "c", "text": "Save up first", "emoji": "🏦", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "Which spending habit helps you in the future?",
+      "options": [
+        { "id": "a", "text": "Spend on wants", "emoji": "🎯", "isCorrect": false },
+        { "id": "b", "text": "Save for needs", "emoji": "💰", "isCorrect": true },
+        { "id": "c", "text": "Buy expensive items", "emoji": "💎", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "What's the smartest approach to shopping?",
+      "options": [
+        { "id": "a", "text": "Make a list", "emoji": "📝", "isCorrect": true },
+        { "id": "b", "text": "Impulse buying", "emoji": "⚡", "isCorrect": false },
+        { "id": "c", "text": "Follow trends", "emoji": "📈", "isCorrect": false }
+      ]
+    }
+  ]
+}

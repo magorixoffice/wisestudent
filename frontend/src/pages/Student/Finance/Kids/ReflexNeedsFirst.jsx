@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getGameDataById } from "../../../../utils/getGameData";
@@ -10,17 +11,18 @@ const ROUND_TIME = 10;
 const ReflexNeedsFirst = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  
+  const { t } = useTranslation("gamecontent");
+
   // Get game data from game category folder (source of truth)
   const gameId = "finance-kids-19";
   const gameData = getGameDataById(gameId);
-  
+
   // Get coinsPerLevel, totalCoins, and totalXp from game category data, fallback to location.state, then defaults
   const coinsPerLevel = gameData?.coins || location.state?.coinsPerLevel || 5;
   const totalCoins = gameData?.coins || location.state?.totalCoins || 5;
   const totalXp = gameData?.xp || location.state?.totalXp || 10;
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
-  
+
   const [gameState, setGameState] = useState("ready"); // ready, playing, finished
   const [score, setScore] = useState(0);
   const [currentRound, setCurrentRound] = useState(0);
@@ -29,63 +31,8 @@ const ReflexNeedsFirst = () => {
   const timerRef = useRef(null);
   const currentRoundRef = useRef(0);
 
-  const questions = [
-    {
-      id: 1,
-      question: "Which of these is a basic need?",
-      correctAnswer: "Food",
-      options: [
-        { text: "Video Games", isCorrect: false, emoji: "🎮" },
-        { text: "Food", isCorrect: true, emoji: "🍎" },
-        { text: "Designer Clothes", isCorrect: false, emoji: "👕" },
-        { text: "Luxury Car", isCorrect: false, emoji: "🚗" }
-      ]
-    },
-    {
-      id: 2,
-      question: "Which item represents a need for education?",
-      correctAnswer: "School Books",
-      options: [
-        { text: "School Books", isCorrect: true, emoji: "📚" },
-        { text: "Expensive Toys", isCorrect: false, emoji: "🧸" },
-        { text: "Gadgets", isCorrect: false, emoji: "📱" },
-        { text: "Snacks", isCorrect: false, emoji: "🍪" }
-      ]
-    },
-    {
-      id: 3,
-      question: "Which is essential for health?",
-      correctAnswer: "Medicine",
-      options: [
-        { text: "Candy", isCorrect: false, emoji: "🍬" },
-        { text: "Soda", isCorrect: false, emoji: "🥤" },
-        { text: "Medicine", isCorrect: true, emoji: "💊" },
-        { text: "Jewelry", isCorrect: false, emoji: "💍" }
-      ]
-    },
-    {
-      id: 4,
-      question: "Which item is a basic necessity?",
-      correctAnswer: "Shelter",
-      options: [
-        { text: "Vacation", isCorrect: false, emoji: "✈️" },
-        { text: "Entertainment", isCorrect: false, emoji: "🎬" },
-        { text: "Luxury Dining", isCorrect: false, emoji: "🍽️" },
-        { text: "Shelter", isCorrect: true, emoji: "🏠" },
-      ]
-    },
-    {
-      id: 5,
-      question: "Which is a fundamental need?",
-      correctAnswer: "Clean Water",
-      options: [
-        { text: "Clean Water", isCorrect: true, emoji: "💧" },
-        { text: "Ice Cream", isCorrect: false, emoji: "🍦" },
-        { text: "Designer Bag", isCorrect: false, emoji: "👜" },
-        { text: "Concert Tickets", isCorrect: false, emoji: "🎫" }
-      ]
-    }
-  ];
+  const gameContent = t("financial-literacy.kids.reflex-needs-first", { returnObjects: true });
+  const questions = Array.isArray(gameContent?.questions) ? gameContent.questions : [];
 
   // Update ref when currentRound changes
   useEffect(() => {
@@ -104,9 +51,9 @@ const ReflexNeedsFirst = () => {
   const handleTimeUp = useCallback(() => {
     setAnswered(true);
     resetFeedback();
-    
+
     const isLastQuestion = currentRoundRef.current >= TOTAL_ROUNDS;
-    
+
     setTimeout(() => {
       if (isLastQuestion) {
         setGameState("finished");
@@ -214,8 +161,15 @@ const ReflexNeedsFirst = () => {
 
   return (
     <GameShell
-      title="Reflex Needs First"
-      subtitle={gameState === "playing" ? `Round ${currentRound}/${TOTAL_ROUNDS}: Identify needs vs wants!` : "Identify needs vs wants!"}
+      title={gameContent?.title || "Reflex Needs First"}
+      subtitle={
+        gameState === "playing"
+          ? t("financial-literacy.kids.reflex-needs-first.subtitlePlaying", {
+              current: currentRound,
+              total: TOTAL_ROUNDS,
+            })
+          : gameContent?.subtitleReady || "Identify needs vs wants!"
+      }
       onNext={handleNext}
       nextEnabled={false}
       showGameOver={gameState === "finished"}
@@ -237,19 +191,24 @@ const ReflexNeedsFirst = () => {
       <div className="text-center text-white space-y-8">
         {gameState === "ready" && (
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 text-center">
-            <div className="text-5xl mb-6">📋</div>
-            <h3 className="text-2xl font-bold text-white mb-4">Ready to Test Your Needs vs Wants Skills?</h3>
+            <div className="text-5xl mb-6">{gameContent?.readyEmoji || "??"}</div>
+            <h3 className="text-2xl font-bold text-white mb-4">
+              {gameContent?.readyTitle || "Ready to Test Your Needs vs Wants Skills?"}
+            </h3>
             <p className="text-white/90 text-lg mb-6">
-              Answer questions about identifying needs versus wants.
+              {gameContent?.readyDescription || "Answer questions about identifying needs versus wants."}
             </p>
             <p className="text-white/80 mb-6">
-              You have {TOTAL_ROUNDS} questions with {ROUND_TIME} seconds each!
+              {t("financial-literacy.kids.reflex-needs-first.readyInfo", {
+                total: TOTAL_ROUNDS,
+                seconds: ROUND_TIME,
+              })}
             </p>
             <button
               onClick={startGame}
               className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white py-4 px-8 rounded-full text-xl font-bold shadow-lg transition-all transform hover:scale-105"
             >
-              Start Game
+              {gameContent?.startButton || "Start Game"}
             </button>
           </div>
         )}
@@ -258,13 +217,17 @@ const ReflexNeedsFirst = () => {
           <div className="space-y-8">
             <div className="flex justify-between items-center bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
               <div className="text-white">
-                <span className="font-bold">Round:</span> {currentRound}/{TOTAL_ROUNDS}
+                <span className="font-bold">{gameContent?.roundLabel || "Round:"}</span> {currentRound}/{TOTAL_ROUNDS}
               </div>
-              <div className={`font-bold ${timeLeft <= 2 ? 'text-red-500' : timeLeft <= 3 ? 'text-yellow-500' : 'text-green-400'}`}>
-                <span className="text-white">Time:</span> {timeLeft}s
+              <div
+                className={`font-bold ${
+                  timeLeft <= 2 ? "text-red-500" : timeLeft <= 3 ? "text-yellow-500" : "text-green-400"
+                }`}
+              >
+                <span className="text-white">{gameContent?.timeLabel || "Time:"}</span> {timeLeft}s
               </div>
               <div className="text-white">
-                <span className="font-bold">Score:</span> {score}
+                <span className="font-bold">{gameContent?.scoreLabel || "Score:"}</span> {score}
               </div>
             </div>
 

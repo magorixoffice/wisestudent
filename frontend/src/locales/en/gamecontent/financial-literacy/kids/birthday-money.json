@@ -1,0 +1,54 @@
+{
+  "title": "Birthday Money Story",
+  "subtitleComplete": "Story Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}",
+  "questionCounter": "Question {{current}}/{{total}}",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "questions": [
+    {
+      "id": 1,
+      "text": "You get Rs 100 as birthday money. What will you do?",
+      "options": [
+        { "id": "spend", "text": "Spend all on toys and candies", "emoji": "🧸", "description": "", "isCorrect": false },
+        { "id": "give", "text": "Give it all to mom for safekeeping", "emoji": "👩", "description": "", "isCorrect": false },
+        { "id": "split", "text": "Split it: some for fun, some for saving", "emoji": "💰", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "What does 'split wisely' mean?",
+      "options": [
+        { "id": "gifts", "text": "Spend half on friends' gifts", "emoji": "🎁", "description": "", "isCorrect": false },
+        { "id": "balance", "text": "Keep some for savings and some for fun", "emoji": "⚖️", "description": "", "isCorrect": true },
+        { "id": "needs", "text": "Buy only needs, no wants", "emoji": "🧺", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "Saving a part of your gift money helps you...",
+      "options": [
+        { "id": "forget", "text": "Forget about the money", "emoji": "🙈", "description": "", "isCorrect": false },
+        { "id": "spend", "text": "Spend more now", "emoji": "💸", "description": "", "isCorrect": false },
+        { "id": "bigger", "text": "Buy bigger things later", "emoji": "🚲", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "If you want to buy something big later, what's smart?",
+      "options": [
+        { "id": "save", "text": "Save small amounts regularly", "emoji": "🐷", "description": "", "isCorrect": true },
+        { "id": "borrow", "text": "Borrow from friends", "emoji": "🙏", "description": "", "isCorrect": false },
+        { "id": "wait", "text": "Wait for next birthday", "emoji": "🎂", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "What's a balanced decision?",
+      "options": [
+        { "id": "all", "text": "Spend all today", "emoji": "🛍️", "description": "", "isCorrect": false },
+        { "id": "enjoy", "text": "Enjoy a treat and save the rest", "emoji": "🍦", "description": "", "isCorrect": true },
+        { "id": "none", "text": "Save everything, no fun", "emoji": "🔒", "description": "", "isCorrect": false }
+      ]
+    }
+  ]
+}

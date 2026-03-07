@@ -1,0 +1,70 @@
+{
+  "title": "Reflex Needs First",
+  "subtitlePlaying": "Round {{current}}/{{total}}: Identify needs vs wants!",
+  "subtitleReady": "Identify needs vs wants!",
+  "readyEmoji": "✅",
+  "readyTitle": "Ready to Test Your Needs vs Wants Skills?",
+  "readyDescription": "Answer questions about identifying needs versus wants.",
+  "readyInfo": "You have {{total}} questions with {{seconds}} seconds each!",
+  "startButton": "Start Game",
+  "roundLabel": "Round:",
+  "timeLabel": "Time:",
+  "scoreLabel": "Score:",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which of these is a basic need?",
+      "correctAnswer": "Food",
+      "options": [
+        { "text": "Video Games", "isCorrect": false, "emoji": "🎮" },
+        { "text": "Food", "isCorrect": true, "emoji": "🍲" },
+        { "text": "Designer Clothes", "isCorrect": false, "emoji": "👗" },
+        { "text": "Luxury Car", "isCorrect": false, "emoji": "🚗" }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "Which item represents a need for education?",
+      "correctAnswer": "School Books",
+      "options": [
+        { "text": "School Books", "isCorrect": true, "emoji": "📚" },
+        { "text": "Expensive Toys", "isCorrect": false, "emoji": "🧸" },
+        { "text": "Gadgets", "isCorrect": false, "emoji": "📱" },
+        { "text": "Snacks", "isCorrect": false, "emoji": "🍪" }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "Which is essential for health?",
+      "correctAnswer": "Medicine",
+      "options": [
+        { "text": "Candy", "isCorrect": false, "emoji": "🍬" },
+        { "text": "Soda", "isCorrect": false, "emoji": "🥤" },
+        { "text": "Medicine", "isCorrect": true, "emoji": "💊" },
+        { "text": "Jewelry", "isCorrect": false, "emoji": "💎" }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "Which item is a basic necessity?",
+      "correctAnswer": "Shelter",
+      "options": [
+        { "text": "Vacation", "isCorrect": false, "emoji": "✈️" },
+        { "text": "Entertainment", "isCorrect": false, "emoji": "🎬" },
+        { "text": "Luxury Dining", "isCorrect": false, "emoji": "🍽️" },
+        { "text": "Shelter", "isCorrect": true, "emoji": "🏠" }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "Which is a fundamental need?",
+      "correctAnswer": "Clean Water",
+      "options": [
+        { "text": "Clean Water", "isCorrect": true, "emoji": "🚰" },
+        { "text": "Ice Cream", "isCorrect": false, "emoji": "🍦" },
+        { "text": "Designer Bag", "isCorrect": false, "emoji": "👜" },
+        { "text": "Concert Tickets", "isCorrect": false, "emoji": "🎟️" }
+      ]
+    }
+  ]
+}

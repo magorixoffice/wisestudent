@@ -1,0 +1,19 @@
+{
+  "title": "उधार डायरी",
+  "subtitleComplete": "डायरी पूरी हुई!",
+  "subtitleProgress": "प्रश्न {{current}} / {{total}}: जिम्मेदार उधार पर सोचें!",
+  "scoreLabel": "स्कोर: {{score}}/{{total}}",
+  "stageEmoji": "📝",
+  "minLengthLabel": "कम से कम {{count}} अक्षर लिखें",
+  "placeholder": "अपनी डायरी यहाँ लिखें...",
+  "characterCount": "{{count}}/{{required}} अक्षर",
+  "submitContinueButton": "जमा करें और आगे बढ़ें",
+  "submitFinalButton": "अंतिम उत्तर जमा करें",
+  "stages": [
+    { "question": "लिखें: \"मैंने जो चीज़ उधार ली और लौटाई, वह ___ थी।\"", "minLength": 10 },
+    { "question": "लिखें: \"उधार लौटाकर मुझे ___ महसूस हुआ।\"", "minLength": 10 },
+    { "question": "लिखें: \"जिम्मेदारी से उधार लेना मतलब ___.\"", "minLength": 10 },
+    { "question": "लिखें: \"मैंने उधार पैसे वापस किए ___ करके।\"", "minLength": 10 },
+    { "question": "लिखें: \"उधार से मैंने पैसों के बारे में ___ सीखा।\"", "minLength": 10 }
+  ]
+}

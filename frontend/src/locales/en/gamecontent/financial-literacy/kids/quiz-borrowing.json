@@ -1,0 +1,55 @@
+{
+  "title": "Quiz on Borrowing",
+  "subtitleComplete": "Quiz Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}",
+  "questionCounter": "Question {{current}}/{{total}}",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "stageEmoji": "🤝",
+  "questions": [
+    {
+      "id": 1,
+      "text": "What does borrowing mean?",
+      "options": [
+        { "id": "without", "text": "Taking without asking", "emoji": "🙈", "description": "", "isCorrect": false },
+        { "id": "return", "text": "Using and returning", "emoji": "🔁", "description": "", "isCorrect": true },
+        { "id": "steal", "text": "Stealing", "emoji": "😈", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "After borrowing a book, what should you do?",
+      "options": [
+        { "id": "return", "text": "Return it", "emoji": "↩️", "description": "", "isCorrect": true },
+        { "id": "keep", "text": "Keep it forever", "emoji": "📚", "description": "", "isCorrect": false },
+        { "id": "sell", "text": "Sell it", "emoji": "💰", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "Why is borrowing money from a bank okay?",
+      "options": [
+        { "id": "repay", "text": "You repay with interest", "emoji": "💳", "description": "", "isCorrect": true },
+        { "id": "free", "text": "It is free money", "emoji": "🎁", "description": "", "isCorrect": false },
+        { "id": "no", "text": "You never repay", "emoji": "🙃", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "What happens if you do not return borrowed items?",
+      "options": [
+        { "id": "more", "text": "You get more items", "emoji": "🎁", "description": "", "isCorrect": false },
+        { "id": "rewards", "text": "You get rewards", "emoji": "🏆", "description": "", "isCorrect": false },
+        { "id": "trust", "text": "People lose trust in you", "emoji": "😞", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "Why is honest borrowing important?",
+      "options": [
+        { "id": "toys", "text": "You get more toys", "emoji": "🧸", "description": "", "isCorrect": false },
+        { "id": "trust", "text": "It builds trust with others", "emoji": "🤝", "description": "", "isCorrect": true },
+        { "id": "fun", "text": "It makes borrowing fun", "emoji": "😊", "description": "", "isCorrect": false }
+      ]
+    }
+  ]
+}

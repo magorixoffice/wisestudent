@@ -1,0 +1,55 @@
+{
+  "title": "वृद्धि पर क्विज़",
+  "subtitleComplete": "क्विज़ पूरा हुआ!",
+  "subtitleProgress": "प्रश्न {{current}} / {{total}}",
+  "questionCounter": "प्रश्न {{current}}/{{total}}",
+  "scoreLabel": "स्कोर: {{score}}/{{total}}",
+  "stageEmoji": "📈",
+  "questions": [
+    {
+      "id": 1,
+      "text": "पैसा बढ़ाने में क्या मदद करता है?",
+      "options": [
+        { "id": "spend", "text": "सब खर्च करना", "emoji": "💸", "description": "", "isCorrect": false },
+        { "id": "waste", "text": "बर्बाद करना", "emoji": "🗑️", "description": "", "isCorrect": false },
+        { "id": "savings", "text": "बचत + ब्याज", "emoji": "📈", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "बैंक पैसे को कैसे बढ़ाता है?",
+      "options": [
+        { "id": "toys", "text": "खिलौने देकर", "emoji": "🧸", "description": "", "isCorrect": false },
+        { "id": "interest", "text": "ब्याज देकर", "emoji": "💰", "description": "", "isCorrect": true },
+        { "id": "hide", "text": "पैसा छिपाकर", "emoji": "🫥", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "पैसा बढ़ाने का सुरक्षित तरीका क्या है?",
+      "options": [
+        { "id": "candy", "text": "कैंडी खरीदना", "emoji": "🍬", "description": "", "isCorrect": false },
+        { "id": "home", "text": "घर में नकद रखना", "emoji": "🏠", "description": "", "isCorrect": false },
+        { "id": "bank", "text": "बैंक सेविंग अकाउंट", "emoji": "🏦", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "निवेश क्या करता है?",
+      "options": [
+        { "id": "grows", "text": "पैसा बढ़ाता है", "emoji": "📊", "description": "", "isCorrect": true },
+        { "id": "spends", "text": "पैसा खर्च कराता है", "emoji": "💸", "description": "", "isCorrect": false },
+        { "id": "loses", "text": "हमेशा नुकसान कराता है", "emoji": "📉", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "पैसा बैंक में क्यों बचाना चाहिए?",
+      "options": [
+        { "id": "toys", "text": "तुरंत खिलौने खरीदने के लिए", "emoji": "🧸", "description": "", "isCorrect": false },
+        { "id": "interest", "text": "यह ब्याज से बढ़ सकता है", "emoji": "💹", "description": "", "isCorrect": true },
+        { "id": "fun", "text": "केवल मज़े के लिए", "emoji": "😊", "description": "", "isCorrect": false }
+      ]
+    }
+  ]
+}

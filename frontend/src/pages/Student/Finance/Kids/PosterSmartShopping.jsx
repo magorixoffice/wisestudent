@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getGameDataById } from "../../../../utils/getGameData";
@@ -7,11 +8,12 @@ import { getGameDataById } from "../../../../utils/getGameData";
 const PosterSmartShopping = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  
+  const { t } = useTranslation("gamecontent");
+
   // Get game data from game category folder (source of truth)
   const gameId = "finance-kids-16";
   const gameData = getGameDataById(gameId);
-  
+
   // Get coinsPerLevel, totalCoins, and totalXp from game category data, fallback to location.state, then defaults
   const coinsPerLevel = gameData?.coins || location.state?.coinsPerLevel || 5;
   const totalCoins = gameData?.coins || location.state?.totalCoins || 5;
@@ -21,48 +23,8 @@ const PosterSmartShopping = () => {
   const [showResult, setShowResult] = useState(false);
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback } = useGameFeedback();
 
-  const stages = [
-    {
-      question: 'Choose the best poster for smart shopping:',
-      choices: [
-        { text: "Spend All You Want", design: "💸", correct: false },
-        { text: "Think Before You Spend", design: "📝", correct: true },
-        { text: "Buy Everything Now", design: "🛒", correct: false },
-      ],
-    },
-    {
-      question: 'Which poster promotes smart shopping habits?',
-      choices: [
-        { text: "Make a Shopping List", design: "📋", correct: true },
-        { text: "Buy Without Thinking", design: "🎯", correct: false },
-        { text: "Spend Immediately", design: "⚡", correct: false },
-      ],
-    },
-    {
-      question: 'Select the best shopping poster:',
-      choices: [
-        { text: "Buy First, Think Later", design: "🛍️", correct: false },
-        { text: "Spend Without Plan", design: "💸", correct: false },
-        { text: "Compare Prices", design: "🔍", correct: true },
-      ],
-    },
-    {
-      question: 'Choose the smart shopping poster:',
-      choices: [
-        { text: "Buy What's on Sale", design: "🏷️", correct: true },
-        { text: "Pay Full Price Always", design: "💵", correct: false },
-        { text: "Never Save Money", design: "🎲", correct: false },
-      ],
-    },
-    {
-      question: 'Which is the best poster for smart shopping?',
-      choices: [
-        { text: "Impulse Buy Everything", design: "🎁", correct: false },
-        { text: "Spend Without Budget", design: "💳", correct: false },
-        { text: "Plan Purchases Ahead", design: "📅", correct: true },
-      ],
-    },
-  ];
+  const gameContent = t("financial-literacy.kids.poster-smart-shopping", { returnObjects: true });
+  const stages = Array.isArray(gameContent?.stages) ? gameContent.stages : [];
 
   const handleSelect = (isCorrect) => {
     if (isCorrect) {
@@ -70,7 +32,7 @@ const PosterSmartShopping = () => {
       setScore(newScore);
       showCorrectAnswerFeedback(1, true);
     }
-    
+
     if (currentStage < stages.length - 1) {
       setTimeout(() => setCurrentStage((prev) => prev + 1), 800);
     } else {
@@ -86,8 +48,15 @@ const PosterSmartShopping = () => {
 
   return (
     <GameShell
-      title="Poster: Smart Shopping"
-      subtitle={showResult ? "Activity Complete!" : `Question ${currentStage + 1} of ${stages.length}`}
+      title={gameContent?.title || "Poster: Smart Shopping"}
+      subtitle={
+        showResult
+          ? gameContent?.subtitleComplete || "Activity Complete!"
+          : t("financial-literacy.kids.poster-smart-shopping.subtitleProgress", {
+              current: currentStage + 1,
+              total: stages.length,
+            })
+      }
       onNext={handleNext}
       nextEnabled={false}
       showGameOver={showResult}
@@ -104,15 +73,16 @@ const PosterSmartShopping = () => {
       flashPoints={flashPoints}
       showAnswerConfetti={showAnswerConfetti}
       totalCoins={totalCoins}
-      totalXp={totalXp}>
+      totalXp={totalXp}
+    >
       <div className="space-y-8 max-w-4xl mx-auto">
-        {!showResult ? (
+        {!showResult && stages[currentStage] ? (
           <div className="space-y-6">
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
               <h3 className="text-xl font-bold text-white mb-6 text-center">
                 {stages[currentStage].question}
               </h3>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {stages[currentStage].choices.map((choice, index) => (
                   <button
@@ -125,9 +95,14 @@ const PosterSmartShopping = () => {
                   </button>
                 ))}
               </div>
-              
+
               <div className="mt-6 text-center text-white/80">
-                <p>Score: {score}/{stages.length}</p>
+                <p>
+                  {t("financial-literacy.kids.poster-smart-shopping.scoreLabel", {
+                    score,
+                    total: stages.length,
+                  })}
+                </p>
               </div>
             </div>
           </div>

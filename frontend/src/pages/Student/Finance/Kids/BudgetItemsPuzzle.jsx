@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getFinanceKidsGames } from "../../../../pages/Games/GameCategories/Finance/kidGamesData";
@@ -7,29 +8,30 @@ import { getFinanceKidsGames } from "../../../../pages/Games/GameCategories/Fina
 const BudgetItemsPuzzle = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  
+  const { t } = useTranslation("gamecontent");
+
   const { nextGamePath, nextGameId } = useMemo(() => {
     if (location.state?.nextGamePath) {
       return {
         nextGamePath: location.state.nextGamePath,
-        nextGameId: location.state.nextGameId || null
+        nextGameId: location.state.nextGameId || null,
       };
     }
-    
+
     try {
       const games = getFinanceKidsGames({});
-      const currentGame = games.find(g => g.id === "finance-kids-24");
+      const currentGame = games.find((g) => g.id === "finance-kids-24");
       if (currentGame && currentGame.index !== undefined) {
-        const nextGame = games.find(g => g.index === currentGame.index + 1 && g.isSpecial && g.path);
+        const nextGame = games.find((g) => g.index === currentGame.index + 1 && g.isSpecial && g.path);
         return {
           nextGamePath: nextGame ? nextGame.path : null,
-          nextGameId: nextGame ? nextGame.id : null
+          nextGameId: nextGame ? nextGame.id : null,
         };
       }
     } catch (error) {
       console.warn("Error finding next game:", error);
     }
-    
+
     return { nextGamePath: null, nextGameId: null };
   }, [location.state]);
 
@@ -45,44 +47,26 @@ const BudgetItemsPuzzle = () => {
   const [gameFinished, setGameFinished] = useState(false);
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
-  // Items (left side) - 5 items
-  const items = [
-  { id: 1, name: "Groceries", emoji: "🍎" },        // Everyday food items
-  { id: 2, name: "Birthday Gift", emoji: "🎁" },    // Fun or special purchase
-  { id: 3, name: "School Supplies", emoji: "✏️" },  // Needed for learning
-  { id: 4, name: "Video Game Console", emoji: "🎮" }, // Expensive luxury item
-  { id: 5, name: "Extra Snacks", emoji: "🍪" }       // Non-essential treat
-];
-
-
-  // Categories (right side) - 5 items
-  const categories = [
-  { id: 6, name: "Essential", emoji: "⚡" },      // Must-have for daily life
-  { id: 7, name: "Non-Essential", emoji: "🎯" }, // Optional, not required
-  { id: 8, name: "Necessary for School", emoji: "📚" }, // Needed for learning
-  { id: 9, name: "Luxury", emoji: "💎" },        // Nice-to-have, expensive
-  { id: 10, name: "Optional Treat", emoji: "✨" } // Small fun expense
-];
-
+  const gameContent = t("financial-literacy.kids.budget-items-puzzle", { returnObjects: true });
+  const items = Array.isArray(gameContent?.items) ? gameContent.items : [];
+  const categories = Array.isArray(gameContent?.categories) ? gameContent.categories : [];
 
   const rearrangedCategories = [
-  categories[3], // Necessary for School (id: 8)
-  categories[2], // Optional Treat (id: 10)
-  categories[1], // Non-Essential (id: 7)
-  categories[4], // Essential (id: 6)
-  categories[0]  // Luxury (id: 9)
-];
-
+    categories[3],
+    categories[2],
+    categories[1],
+    categories[4],
+    categories[0],
+  ].filter(Boolean);
 
   // Correct matches using proper IDs, not positional order
   const correctMatches = [
-  { itemId: 1, categoryId: 6 },  // Groceries → Essential
-  { itemId: 2, categoryId: 10 }, // Birthday Gift → Optional Treat
-  { itemId: 3, categoryId: 8 },  // School Supplies → Necessary for School
-  { itemId: 4, categoryId: 9 },  // Video Game Console → Luxury
-  { itemId: 5, categoryId: 7 }   // Extra Snacks → Non-Essential
-];
-
+    { itemId: 1, categoryId: 6 },
+    { itemId: 2, categoryId: 10 },
+    { itemId: 3, categoryId: 8 },
+    { itemId: 4, categoryId: 9 },
+    { itemId: 5, categoryId: 7 },
+  ];
 
   const handleItemSelect = (item) => {
     if (gameFinished) return;
@@ -103,8 +87,8 @@ const BudgetItemsPuzzle = () => {
       itemId: selectedItem.id,
       categoryId: selectedCategory.id,
       isCorrect: correctMatches.some(
-        match => match.itemId === selectedItem.id && match.categoryId === selectedCategory.id
-      )
+        (match) => match.itemId === selectedItem.id && match.categoryId === selectedCategory.id
+      ),
     };
 
     const newMatches = [...matches, newMatch];
@@ -112,7 +96,7 @@ const BudgetItemsPuzzle = () => {
 
     // If the match is correct, add score and show flash/confetti
     if (newMatch.isCorrect) {
-      setScore(prev => prev + 1);
+      setScore((prev) => prev + 1);
       showCorrectAnswerFeedback(1, true);
     } else {
       showCorrectAnswerFeedback(0, false);
@@ -132,24 +116,31 @@ const BudgetItemsPuzzle = () => {
 
   // Check if an item is already matched
   const isItemMatched = (itemId) => {
-    return matches.some(match => match.itemId === itemId);
+    return matches.some((match) => match.itemId === itemId);
   };
 
   // Check if a category is already matched
   const isCategoryMatched = (categoryId) => {
-    return matches.some(match => match.categoryId === categoryId);
+    return matches.some((match) => match.categoryId === categoryId);
   };
 
   // Get match result for an item
   const getMatchResult = (itemId) => {
-    const match = matches.find(m => m.itemId === itemId);
+    const match = matches.find((m) => m.itemId === itemId);
     return match ? match.isCorrect : null;
   };
 
   return (
     <GameShell
-      title="Puzzle: Budget Items"
-      subtitle={gameFinished ? "Puzzle Complete!" : `Match Items with Categories (${matches.length}/${items.length} matched)`}
+      title={gameContent?.title || "Puzzle: Budget Items"}
+      subtitle={
+        gameFinished
+          ? gameContent?.subtitleComplete || "Puzzle Complete!"
+          : t("financial-literacy.kids.budget-items-puzzle.subtitleProgress", {
+              matched: matches.length,
+              total: items.length,
+            })
+      }
       showGameOver={gameFinished}
       score={score}
       gameId="finance-kids-24"
@@ -172,9 +163,11 @@ const BudgetItemsPuzzle = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Left column - Items */}
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-              <h3 className="text-xl font-bold text-white mb-4 text-center">Items</h3>
+              <h3 className="text-xl font-bold text-white mb-4 text-center">
+                {gameContent?.itemsTitle || "Items"}
+              </h3>
               <div className="space-y-4">
-                {items.map(item => (
+                {items.map((item) => (
                   <button
                     key={item.id}
                     onClick={() => handleItemSelect(item)}
@@ -193,7 +186,6 @@ const BudgetItemsPuzzle = () => {
                       <div className="text-2xl mr-3">{item.emoji}</div>
                       <div>
                         <h4 className="font-bold text-white">{item.name}</h4>
-                        
                       </div>
                     </div>
                   </button>
@@ -205,9 +197,11 @@ const BudgetItemsPuzzle = () => {
             <div className="flex flex-col items-center justify-center">
               <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 text-center">
                 <p className="text-white/80 mb-4">
-                  {selectedItem 
-                    ? `Selected: ${selectedItem.name}` 
-                    : "Select an Item"}
+                  {selectedItem
+                    ? t("financial-literacy.kids.budget-items-puzzle.selectedLabel", {
+                        name: selectedItem.name,
+                      })
+                    : gameContent?.selectItem || "Select an Item"}
                 </p>
                 <button
                   onClick={handleMatch}
@@ -218,20 +212,26 @@ const BudgetItemsPuzzle = () => {
                       : "bg-gray-500/30 text-gray-400 cursor-not-allowed"
                   }`}
                 >
-                  Match
+                  {gameContent?.matchButton || "Match"}
                 </button>
                 <div className="mt-4 text-white/80">
-                  <p>Score: {score}/{items.length}</p>
-                  <p>Matched: {matches.length}/{items.length}</p>
+                  <p>
+                    {gameContent?.scoreLabel || "Score:"} {score}/{items.length}
+                  </p>
+                  <p>
+                    {gameContent?.matchedLabel || "Matched:"} {matches.length}/{items.length}
+                  </p>
                 </div>
               </div>
             </div>
 
             {/* Right column - Categories */}
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-              <h3 className="text-xl font-bold text-white mb-4 text-center">Categories</h3>
+              <h3 className="text-xl font-bold text-white mb-4 text-center">
+                {gameContent?.categoriesTitle || "Categories"}
+              </h3>
               <div className="space-y-4">
-                {rearrangedCategories.map(category => (
+                {rearrangedCategories.map((category) => (
                   <button
                     key={category.id}
                     onClick={() => handleCategorySelect(category)}
@@ -248,7 +248,9 @@ const BudgetItemsPuzzle = () => {
                       <div className="text-2xl mr-3">{category.emoji}</div>
                       <div>
                         <h4 className="font-bold text-white">{category.name}</h4>
-                        <p className="text-white/80 text-sm">{category.description}</p>
+                        {category.description ? (
+                          <p className="text-white/80 text-sm">{category.description}</p>
+                        ) : null}
                       </div>
                     </div>
                   </button>
@@ -260,27 +262,40 @@ const BudgetItemsPuzzle = () => {
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 text-center">
             {score >= 3 ? (
               <div>
-                <div className="text-5xl mb-4">🎉</div>
-                <h3 className="text-2xl font-bold text-white mb-4">Great Job!</h3>
+                <div className="text-5xl mb-4">{gameContent?.resultGreatEmoji || "??"}</div>
+                <h3 className="text-2xl font-bold text-white mb-4">
+                  {gameContent?.resultGreatTitle || "Great Job!"}
+                </h3>
                 <p className="text-white/90 text-lg mb-4">
-                  You correctly matched {score} out of {items.length} items with categories!
+                  {t("financial-literacy.kids.budget-items-puzzle.resultGreatDescription", {
+                    score,
+                    total: items.length,
+                  })}
                 </p>
                 <div className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white py-3 px-6 rounded-full inline-flex items-center gap-2 mb-4">
-                  <span>+{score} Coins</span>
+                  <span>
+                    +{score} {gameContent?.coinsLabel || "Coins"}
+                  </span>
                 </div>
                 <p className="text-white/80">
-                  Lesson: Understanding needs vs wants helps in budgeting!
+                  {gameContent?.resultLesson || "Lesson: Understanding needs vs wants helps in budgeting!"}
                 </p>
               </div>
             ) : (
               <div>
-                <div className="text-5xl mb-4">💪</div>
-                <h3 className="text-2xl font-bold text-white mb-4">Keep Practicing!</h3>
+                <div className="text-5xl mb-4">{gameContent?.resultKeepEmoji || "??"}</div>
+                <h3 className="text-2xl font-bold text-white mb-4">
+                  {gameContent?.resultKeepTitle || "Keep Practicing!"}
+                </h3>
                 <p className="text-white/90 text-lg mb-4">
-                  You matched {score} out of {items.length} items correctly.
+                  {t("financial-literacy.kids.budget-items-puzzle.resultKeepDescription", {
+                    score,
+                    total: items.length,
+                  })}
                 </p>
                 <p className="text-white/80 text-sm">
-                  Tip: Needs are essential for survival, wants are nice to have!
+                  {gameContent?.resultTip
+                    || "Tip: Needs are essential for survival, wants are nice to have!"}
                 </p>
               </div>
             )}

@@ -1,0 +1,59 @@
+{
+  "title": "Quiz on Budgeting",
+  "subtitleComplete": "Quiz Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}",
+  "questionCounter": "Question {{current}}/{{total}}",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "questions": [
+    {
+      "id": 1,
+      "iconKey": "calculator",
+      "text": "What is a budget?",
+      "options": [
+        { "id": "list", "text": "A shopping list", "emoji": "🛒", "description": "", "isCorrect": false },
+        { "id": "plan", "text": "A spending plan", "emoji": "🧾", "description": "", "isCorrect": true },
+        { "id": "free", "text": "Free money", "emoji": "💸", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 2,
+      "iconKey": "target",
+      "text": "Why make a budget?",
+      "options": [
+        { "id": "track", "text": "Track expenses and save", "emoji": "📊", "description": "", "isCorrect": true },
+        { "id": "spend", "text": "Spend all money fast", "emoji": "💥", "description": "", "isCorrect": false },
+        { "id": "fun", "text": "Just for fun", "emoji": "🎉", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "iconKey": "trendingUp",
+      "text": "Earn Rs 100, spend Rs 120. What happens?",
+      "options": [
+        { "id": "save", "text": "You save Rs 20", "emoji": "💰", "description": "", "isCorrect": false },
+        { "id": "prize", "text": "You win a prize", "emoji": "🏆", "description": "", "isCorrect": false },
+        { "id": "debt", "text": "You go into debt", "emoji": "⚠️", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 4,
+      "iconKey": "checkCircle",
+      "text": "Which is a good budgeting habit?",
+      "options": [
+        { "id": "guess", "text": "Guess and spend randomly", "emoji": "🎲", "description": "", "isCorrect": false },
+        { "id": "plan", "text": "List expenses and plan", "emoji": "📝", "description": "", "isCorrect": true },
+        { "id": "ignore", "text": "Ignore spending", "emoji": "🙈", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 5,
+      "iconKey": "piggyBank",
+      "text": "If you follow budget, you can...",
+      "options": [
+        { "id": "goals", "text": "Achieve goals stress-free", "emoji": "🎯", "description": "", "isCorrect": true },
+        { "id": "unnecessary", "text": "Buy unnecessary things", "emoji": "🛍️", "description": "", "isCorrect": false },
+        { "id": "lose", "text": "Lose track of money", "emoji": "🌀", "description": "", "isCorrect": false }
+      ]
+    }
+  ]
+}

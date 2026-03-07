@@ -1,0 +1,54 @@
+﻿{
+  "title": "बचत पर क्विज़",
+  "subtitleComplete": "क्विज़ पूरा हुआ!",
+  "subtitleProgress": "प्रश्न {{current}} में से {{total}}",
+  "questionCounter": "प्रश्न {{current}}/{{total}}",
+  "scoreLabel": "स्कोर: {{score}}/{{total}}",
+  "questions": [
+    {
+      "id": 1,
+      "text": "सबसे अच्छा बचतकर्ता कौन है?",
+      "options": [
+        { "id": "a", "text": "जो अपना सारा पैसा खर्च करता है", "emoji": "💸", "isCorrect": false },
+        { "id": "b", "text": "जो पैसा बर्बाद करता है", "emoji": "🗑️", "isCorrect": false },
+        { "id": "c", "text": "जो अपने पैसे का एक हिस्सा बचाता है", "emoji": "💰", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "आपको अपनी पॉकेट मनी के साथ क्या करना चाहिए?",
+      "options": [
+        { "id": "a", "text": "तुरंत सब खर्च कर देना", "emoji": "🛍️", "isCorrect": false },
+        { "id": "b", "text": "कुछ बचाना और कुछ खर्च करना", "emoji": "⚖️", "isCorrect": true },
+        { "id": "c", "text": "इसे छिपाकर कभी उपयोग न करना", "emoji": "🙈", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "पैसा बचाना क्यों महत्वपूर्ण है?",
+      "options": [
+        { "id": "a", "text": "ताकि बाद में जरूरी चीजें खरीद सकें", "emoji": "🎯", "isCorrect": true },
+        { "id": "b", "text": "ताकि दोस्तों को दिखा सकें", "emoji": "😎", "isCorrect": false },
+        { "id": "c", "text": "यह बिल्कुल महत्वपूर्ण नहीं है", "emoji": "❌", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "मनी बैंक का उपयोग किस लिए होता है?",
+      "options": [
+        { "id": "a", "text": "खिलौने रखने के लिए", "emoji": "🧸", "isCorrect": false },
+        { "id": "b", "text": "पैसा बचाने के लिए", "emoji": "🏦", "isCorrect": true },
+        { "id": "c", "text": "खाना रखने के लिए", "emoji": "🍕", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "यदि आप हर सप्ताह Rs 10 बचाते हैं, तो 4 सप्ताह में आपके पास कितना होगा?",
+      "options": [
+        { "id": "a", "text": "Rs 20", "emoji": "💰", "isCorrect": false },
+        { "id": "b", "text": "Rs 30", "emoji": "💵", "isCorrect": false },
+        { "id": "c", "text": "Rs 40", "emoji": "💴", "isCorrect": true }
+      ]
+    }
+  ]
+}

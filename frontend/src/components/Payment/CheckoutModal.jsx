@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+﻿import React, { useState, useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion'; // eslint-disable-line no-unused-vars
 import { X, Loader2, CheckCircle, AlertCircle, CreditCard, Shield, Lock, UserPlus, Users, GraduationCap } from 'lucide-react';

@@ -1,0 +1,49 @@
+{
+  "title": "Candy Story",
+  "subtitleComplete": "Story Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "stageEmoji": "🍬",
+  "stages": [
+    {
+      "question": "You have Rs 20. Spend all on candy or plan for 2 days?",
+      "choices": [
+        { "text": "Spend all on candy 🍬", "correct": false },
+        { "text": "Plan for 2 days 🗓️", "correct": true },
+        { "text": "Give it to a friend 🤝", "correct": false }
+      ]
+    },
+    {
+      "question": "You can buy 1 candy for Rs 5. How many can you get with Rs 15?",
+      "choices": [
+        { "text": "3 candies 🍬🍬🍬", "correct": true },
+        { "text": "2 candies 🍬🍬", "correct": false },
+        { "text": "4 candies 🍬🍬🍬🍬", "correct": false }
+      ]
+    },
+    {
+      "question": "A candy costs Rs 10, but you have Rs 8. What's the best choice?",
+      "choices": [
+        { "text": "Borrow Rs 2 🙏", "correct": false },
+        { "text": "Save Rs 2 more 💡", "correct": true },
+        { "text": "Ask for a discount 🏷️", "correct": false }
+      ]
+    },
+    {
+      "question": "You saved Rs 10 for candy. A sale offers 2 for Rs 15. What do you do?",
+      "choices": [
+        { "text": "Buy two candies 🍬🍬", "correct": false },
+        { "text": "Spend all on snacks 🍿", "correct": false },
+        { "text": "Stick to one candy ✅", "correct": true }
+      ]
+    },
+    {
+      "question": "Why is planning your candy budget smart?",
+      "choices": [
+        { "text": "Lets you spend everything 💸", "correct": false },
+        { "text": "Ensures you enjoy longer ⏳", "correct": true },
+        { "text": "Makes you buy more candy 🍬", "correct": false }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "title": "Puzzle of Needs/Wants",
+  "subtitleComplete": "Puzzle Complete!",
+  "subtitleProgress": "Match Items with Categories ({{matched}}/{{total}} matched)",
+  "itemsTitle": "Items",
+  "categoriesTitle": "Categories",
+  "selectedLabel": "Selected: {{name}}",
+  "selectItem": "Select an Item",
+  "matchButton": "Match",
+  "scoreLabel": "Score:",
+  "matchedLabel": "Matched:",
+  "resultGreatEmoji": "🎉",
+  "resultGreatTitle": "Great Job!",
+  "resultGreatDescription": "You correctly matched {{score}} out of {{total}} items with their categories!",
+  "resultGreatLesson": "Lesson: Understanding needs vs wants helps make smart money decisions!",
+  "resultKeepEmoji": "💪",
+  "resultKeepTitle": "Keep Practicing!",
+  "resultKeepDescription": "You matched {{score}} out of {{total}} items correctly.",
+  "resultKeepTip": "Tip: Think about whether each item is essential or discretionary!",
+  "items": [
+    { "id": 1, "name": "Drinking Water", "emoji": "💧" },
+    { "id": 2, "name": "School Shoes", "emoji": "👟" },
+    { "id": 3, "name": "Toy Car", "emoji": "🚗" },
+    { "id": 4, "name": "Pocket Money", "emoji": "💰" },
+    { "id": 5, "name": "Financial Knowledge", "emoji": "📚" }
+  ],
+  "categories": [
+    { "id": 6, "name": "Need", "emoji": "✅", "description": "Essential for life or learning" },
+    { "id": 7, "name": "Want", "emoji": "🎁", "description": "Nice to have, not essential" },
+    { "id": 8, "name": "Save", "emoji": "🏦", "description": "Set aside for future use" },
+    { "id": 9, "name": "Invest", "emoji": "📈", "description": "Use money to grow value" },
+    { "id": 10, "name": "Share", "emoji": "🤲", "description": "Use to support others" }
+  ]
+}

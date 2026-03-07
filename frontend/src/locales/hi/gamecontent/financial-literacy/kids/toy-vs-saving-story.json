@@ -1,0 +1,55 @@
+{
+  "title": "खिलौना बनाम बचत कहानी",
+  "subtitleComplete": "कहानी पूरी हुई!",
+  "subtitleProgress": "प्रश्न {{current}} / {{total}}",
+  "questionCounter": "प्रश्न {{current}}/{{total}}",
+  "scoreLabel": "स्कोर: {{score}}/{{total}}",
+  "stageEmoji": "🧸",
+  "questions": [
+    {
+      "id": 1,
+      "text": "आपका पसंदीदा खिलौना एक हफ्ते में टूट गया। इससे क्या सीख मिलती है?",
+      "options": [
+        { "id": "buy", "text": "जल्दी-जल्दी और खिलौने खरीदो", "emoji": "🛍️", "description": "", "isCorrect": false },
+        { "id": "ignore", "text": "पैसे के फैसले मायने नहीं रखते", "emoji": "🙈", "description": "", "isCorrect": false },
+        { "id": "value", "text": "खर्च से पहले सोचना चाहिए", "emoji": "🧠", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "आप हर हफ्ते सिक्के बचाते हैं और राशि बढ़ती दिखती है। क्या सीखते हैं?",
+      "options": [
+        { "id": "patience", "text": "बचत में धैर्य चाहिए", "emoji": "⏳", "description": "", "isCorrect": true },
+        { "id": "boring", "text": "बचत उबाऊ है", "emoji": "😐", "description": "", "isCorrect": false },
+        { "id": "waste", "text": "सिक्के बेकार हैं", "emoji": "🪙", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "भविष्य में महंगी चीज़ लेनी है। सबसे अच्छी आदत क्या है?",
+      "options": [
+        { "id": "rush", "text": "जो दिखे वही खरीद लो", "emoji": "🏃", "description": "", "isCorrect": false },
+        { "id": "plan", "text": "योजना बनाकर धीरे-धीरे बचत करो", "emoji": "📊", "description": "", "isCorrect": true },
+        { "id": "borrow", "text": "हमेशा उधार लो", "emoji": "🤝", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "खरीदने से पहले दाम तुलना करते हैं। यह कौन-सी कौशल है?",
+      "options": [
+        { "id": "slow", "text": "बहुत धीमे होना", "emoji": "🐢", "description": "", "isCorrect": false },
+        { "id": "lazy", "text": "शॉपिंग से बचना", "emoji": "😴", "description": "", "isCorrect": false },
+        { "id": "smart", "text": "समझदार वित्तीय सोच", "emoji": "💡", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "हर खिलौना खरीदने की जगह बचत चुनते हैं। इससे क्या बनता है?",
+      "options": [
+        { "id": "habit", "text": "अच्छी बचत आदतें", "emoji": "🏦", "description": "", "isCorrect": true },
+        { "id": "sad", "text": "कोई मज़ा नहीं", "emoji": "😢", "description": "", "isCorrect": false },
+        { "id": "fear", "text": "खर्च का डर", "emoji": "😨", "description": "", "isCorrect": false }
+      ]
+    }
+  ]
+}

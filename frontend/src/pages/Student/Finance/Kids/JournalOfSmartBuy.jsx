@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getGameDataById } from "../../../../utils/getGameData";
@@ -7,11 +8,12 @@ import { getGameDataById } from "../../../../utils/getGameData";
 const JournalOfSmartBuy = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  
+  const { t } = useTranslation("gamecontent");
+
   // Get game data from game category folder (source of truth)
   const gameId = "finance-kids-17";
   const gameData = getGameDataById(gameId);
-  
+
   // Get coinsPerLevel, totalCoins, and totalXp from game category data, fallback to location.state, then defaults
   const coinsPerLevel = gameData?.coins || location.state?.coinsPerLevel || 5;
   const totalCoins = gameData?.coins || location.state?.totalCoins || 5;
@@ -22,28 +24,8 @@ const JournalOfSmartBuy = () => {
   const [showResult, setShowResult] = useState(false);
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback } = useGameFeedback();
 
-  const stages = [
-    {
-      question: 'Write: "One smart purchase I made was ___."',
-      minLength: 10,
-    },
-    {
-      question: 'Write: "Comparing prices helped me because ___."',
-      minLength: 10,
-    },
-    {
-      question: 'Write: "I saved money by ___ and felt ___."',
-      minLength: 10,
-    },
-    {
-      question: 'Write: "A smart shopping tip I learned is ___."',
-      minLength: 10,
-    },
-    {
-      question: 'Write: "Making smart buying choices makes me feel ___."',
-      minLength: 10,
-    },
-  ];
+  const gameContent = t("financial-literacy.kids.journal-of-smart-buy", { returnObjects: true });
+  const stages = Array.isArray(gameContent?.stages) ? gameContent.stages : [];
 
   const handleSubmit = () => {
     if (entry.trim().length >= stages[currentStage].minLength) {
@@ -69,8 +51,15 @@ const JournalOfSmartBuy = () => {
 
   return (
     <GameShell
-      title="Journal of Smart Buy"
-      subtitle={showResult ? "Journal Complete!" : `Question ${currentStage + 1} of ${stages.length}`}
+      title={gameContent?.title || "Journal of Smart Buy"}
+      subtitle={
+        showResult
+          ? gameContent?.subtitleComplete || "Journal Complete!"
+          : t("financial-literacy.kids.journal-of-smart-buy.subtitleProgress", {
+              current: currentStage + 1,
+              total: stages.length,
+            })
+      }
       onNext={handleNext}
       nextEnabled={false}
       showGameOver={showResult}
@@ -87,24 +76,28 @@ const JournalOfSmartBuy = () => {
       totalCoins={totalCoins}
       totalXp={totalXp}
       nextGamePathProp="/student/finance/kids/candy-offer-story"
-      nextGameIdProp="finance-kids-18">
+      nextGameIdProp="finance-kids-18"
+    >
       <div className="space-y-8 max-w-3xl mx-auto">
-        {!showResult ? (
+        {!showResult && stages[currentStage] ? (
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
             <h3 className="text-2xl font-bold text-white mb-6 text-center">
               {stages[currentStage].question}
             </h3>
-            
+
             <textarea
               value={entry}
               onChange={(e) => setEntry(e.target.value)}
-              placeholder="Write your journal entry here..."
+              placeholder={gameContent?.placeholder || "Write your journal entry here..."}
               className="w-full h-40 p-4 rounded-xl bg-white/10 border border-white/30 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-emerald-400"
             />
-            
+
             <div className="mt-4 flex justify-between items-center">
               <span className="text-white/80">
-                {entry.length}/{stages[currentStage].minLength} characters
+                {t("financial-literacy.kids.journal-of-smart-buy.charCounter", {
+                  current: entry.length,
+                  min: stages[currentStage].minLength,
+                })}
               </span>
               <button
                 onClick={handleSubmit}
@@ -115,12 +108,17 @@ const JournalOfSmartBuy = () => {
                     : "bg-gray-500/30 text-gray-400 cursor-not-allowed"
                 }`}
               >
-                Submit Entry
+                {gameContent?.submitButton || "Submit Entry"}
               </button>
             </div>
-            
+
             <div className="mt-6 text-center text-white/80">
-              <p>Score: {score}/{stages.length}</p>
+              <p>
+                {t("financial-literacy.kids.journal-of-smart-buy.scoreLabel", {
+                  score,
+                  total: stages.length,
+                })}
+              </p>
             </div>
           </div>
         ) : null}

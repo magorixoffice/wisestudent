@@ -1,0 +1,69 @@
+﻿{
+  "title": "रिफ्लेक्स बचत",
+  "subtitlePlaying": "राउंड {{current}}/{{total}}: अपनी बचत जानकारी परखें!",
+  "subtitleReady": "अपनी बचत जानकारी परखें!",
+  "readyTitle": "क्या आप अपनी बचत कौशल परखने के लिए तैयार हैं?",
+  "readyDescription": "स्मार्ट बचत रणनीतियों पर सवालों के जवाब दें।",
+  "readyInfo": "आपके पास {{total}} प्रश्न हैं और प्रत्येक के लिए {{seconds}} सेकंड हैं!",
+  "startButton": "गेम शुरू करें",
+  "roundLabel": "राउंड:",
+  "timeLabel": "समय:",
+  "scoreLabel": "स्कोर:",
+  "questions": [
+    {
+      "id": 1,
+      "question": "पैसा बचाने का सबसे अच्छा तरीका क्या है?",
+      "correctAnswer": "बचत का लक्ष्य तय करें",
+      "options": [
+        { "text": "बिना सोचे खर्च करें", "isCorrect": false, "emoji": "💸" },
+        { "text": "बचत का लक्ष्य तय करें", "isCorrect": true, "emoji": "🎯" },
+        { "text": "पैसे उधार लें", "isCorrect": false, "emoji": "💳" },
+        { "text": "बचत को नजरअंदाज करें", "isCorrect": false, "emoji": "🙈" }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "अतिरिक्त पैसे के साथ क्या करना चाहिए?",
+      "correctAnswer": "इसे बचाएं",
+      "options": [
+        { "text": "इसे बचाएं", "isCorrect": true, "emoji": "💰" },
+        { "text": "सब खर्च कर दें", "isCorrect": false, "emoji": "🛍️" },
+        { "text": "इसे खो दें", "isCorrect": false, "emoji": "📉" },
+        { "text": "इसे भूल जाएं", "isCorrect": false, "emoji": "😴" }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "निरंतर बचत करने में क्या मदद करता है?",
+      "correctAnswer": "स्वचालित ट्रांसफर",
+      "options": [
+        { "text": "आवेग में खर्च करें", "isCorrect": false, "emoji": "🛒" },
+        { "text": "स्वचालित ट्रांसफर", "isCorrect": true, "emoji": "🔄" },
+        { "text": "कोई योजना नहीं", "isCorrect": false, "emoji": "📋" },
+        { "text": "प्रेरणा का इंतज़ार करें", "isCorrect": false, "emoji": "⏳" }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "अच्छी बचत की आदत क्या है?",
+      "correctAnswer": "पहले बचाएं, बाद में खर्च करें",
+      "options": [
+        { "text": "पहले खर्च करें, बाद में बचाएं", "isCorrect": false, "emoji": "💸" },
+        { "text": "कभी न बचाएं", "isCorrect": false, "emoji": "🚫" },
+        { "text": "पहले बचाएं, बाद में खर्च करें", "isCorrect": true, "emoji": "🏦" },
+        { "text": "कभी-कभी बचाएं", "isCorrect": false, "emoji": "⏰" }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "पैसा बचाना क्यों महत्वपूर्ण है?",
+      "correctAnswer": "आपातकालीन तैयारी",
+      "options": [
+        { "text": "दिखावा करना", "isCorrect": false, "emoji": "🏆" },
+        { "text": "आवेग में खरीदारी", "isCorrect": false, "emoji": "🛒" },
+        { "text": "कोई कारण नहीं", "isCorrect": false, "emoji": "❓" },
+        { "text": "आपातकालीन तैयारी", "isCorrect": true, "emoji": "🚑" }
+      ]
+    }
+  ]
+}

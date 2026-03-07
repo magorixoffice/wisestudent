@@ -1,0 +1,31 @@
+{
+  "title": "Journal of Smart Buy",
+  "subtitleComplete": "Journal Complete!",
+  "subtitleProgress": "Question {{current}} of {{total}}",
+  "placeholder": "Write your journal entry here...",
+  "charCounter": "{{current}}/{{min}} characters",
+  "scoreLabel": "Score: {{score}}/{{total}}",
+  "submitButton": "Submit Entry",
+  "stages": [
+    {
+      "question": "Write: \"One smart purchase I made was ___.\"",
+      "minLength": 10
+    },
+    {
+      "question": "Write: \"Comparing prices helped me because ___.\"",
+      "minLength": 10
+    },
+    {
+      "question": "Write: \"I saved money by ___ and felt ___.\"",
+      "minLength": 10
+    },
+    {
+      "question": "Write: \"A smart shopping tip I learned is ___.\"",
+      "minLength": 10
+    },
+    {
+      "question": "Write: \"Making smart buying choices makes me feel ___.\"",
+      "minLength": 10
+    }
+  ]
+}

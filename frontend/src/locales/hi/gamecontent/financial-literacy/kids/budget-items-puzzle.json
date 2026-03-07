@@ -1,0 +1,35 @@
+﻿{
+  "title": "पज़ल: बजट आइटम्स",
+  "subtitleComplete": "पज़ल पूरा हुआ!",
+  "subtitleProgress": "आइटम्स को श्रेणियों से मिलाएं ({{matched}}/{{total}} मेल हुए)",
+  "itemsTitle": "आइटम्स",
+  "categoriesTitle": "श्रेणियां",
+  "selectedLabel": "चयनित: {{name}}",
+  "selectItem": "एक आइटम चुनें",
+  "matchButton": "मिलाएँ",
+  "scoreLabel": "स्कोर:",
+  "matchedLabel": "मेल हुए:",
+  "resultGreatEmoji": "🎉",
+  "resultGreatTitle": "बहुत बढ़िया!",
+  "resultGreatDescription": "आपने {{score}} में से {{total}} आइटम्स को सही श्रेणियों से मिलाया!",
+  "coinsLabel": "कॉइन्स",
+  "resultLesson": "सीख: जरूरत और चाहत समझना बजट बनाने में मदद करता है!",
+  "resultKeepEmoji": "💪",
+  "resultKeepTitle": "अभ्यास जारी रखें!",
+  "resultKeepDescription": "आपने {{score}} में से {{total}} आइटम्स सही मिलाए।",
+  "resultTip": "टिप: जरूरतें जीवन के लिए जरूरी हैं, चाहतें सिर्फ अच्छा लगती हैं!",
+  "items": [
+    { "id": 1, "name": "किराना", "emoji": "🍎" },
+    { "id": 2, "name": "जन्मदिन का तोहफा", "emoji": "🎁" },
+    { "id": 3, "name": "स्कूल की सामग्री", "emoji": "✏️" },
+    { "id": 4, "name": "वीडियो गेम कंसोल", "emoji": "🎮" },
+    { "id": 5, "name": "अतिरिक्त स्नैक्स", "emoji": "🍪" }
+  ],
+  "categories": [
+    { "id": 6, "name": "जरूरी", "emoji": "⚡", "description": "दैनिक जीवन के लिए आवश्यक" },
+    { "id": 7, "name": "अनावश्यक", "emoji": "🎯", "description": "वैकल्पिक, जरूरी नहीं" },
+    { "id": 8, "name": "स्कूल के लिए जरूरी", "emoji": "📚", "description": "सीखने के लिए आवश्यक" },
+    { "id": 9, "name": "लक्ज़री", "emoji": "💎", "description": "अच्छा तो है, लेकिन महंगा" },
+    { "id": 10, "name": "वैकल्पिक ट्रीट", "emoji": "✨", "description": "छोटी मजेदार खरीद" }
+  ]
+}

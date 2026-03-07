@@ -1,0 +1,70 @@
+{
+  "title": "Reflex Investment Basics",
+  "subtitlePlaying": "Question {{current}} of {{total}}: Test your investment reflexes!",
+  "subtitleReady": "Test your investment reflexes!",
+  "readyEmoji": "💰",
+  "readyTitle": "Ready to Learn Investment Basics?",
+  "readyDescription": "Choose the right investment action for each question.",
+  "readyInfo": "You have {{total}} questions with {{seconds}} seconds each!",
+  "startButton": "Start Game",
+  "roundLabel": "Question:",
+  "timeLabel": "Time:",
+  "scoreLabel": "Score:",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What should you do with money to make it grow?",
+      "correctAnswer": "Save and grow",
+      "options": [
+        { "text": "Spend all", "isCorrect": false, "emoji": "💸" },
+        { "text": "Hide it", "isCorrect": false, "emoji": "🙈" },
+        { "text": "Forget about it", "isCorrect": false, "emoji": "😴" },
+        { "text": "Save and grow", "isCorrect": true, "emoji": "🌱" }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "How should you handle money wisely?",
+      "correctAnswer": "Invest wisely",
+      "options": [
+        { "text": "Invest wisely", "isCorrect": true, "emoji": "💰" },
+        { "text": "Spend fast", "isCorrect": false, "emoji": "⚡" },
+        { "text": "Waste it", "isCorrect": false, "emoji": "🔥" },
+        { "text": "Lose it", "isCorrect": false, "emoji": "📉" }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "What is the best way to build wealth?",
+      "correctAnswer": "Grow wealth",
+      "options": [
+        { "text": "Lose money", "isCorrect": false, "emoji": "💔" },
+        { "text": "Grow wealth", "isCorrect": true, "emoji": "📈" },
+        { "text": "Spend everything", "isCorrect": false, "emoji": "🛍️" },
+        { "text": "Ignore savings", "isCorrect": false, "emoji": "😑" }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "How can your money work for you?",
+      "correctAnswer": "Earn interest",
+      "options": [
+        { "text": "Waste cash", "isCorrect": false, "emoji": "🔥" },
+        { "text": "Spend immediately", "isCorrect": false, "emoji": "⚡" },
+        { "text": "Earn interest", "isCorrect": true, "emoji": "💵" },
+        { "text": "Forget about it", "isCorrect": false, "emoji": "🤷" }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "What helps secure your future?",
+      "correctAnswer": "Build savings",
+      "options": [
+        { "text": "Build savings", "isCorrect": true, "emoji": "🏦" },
+        { "text": "Spend now", "isCorrect": false, "emoji": "🛒" },
+        { "text": "Waste money", "isCorrect": false, "emoji": "💸" },
+        { "text": "Ignore future", "isCorrect": false, "emoji": "😴" }
+      ]
+    }
+  ]
+}

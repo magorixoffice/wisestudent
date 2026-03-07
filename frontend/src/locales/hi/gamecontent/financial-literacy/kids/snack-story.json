@@ -1,0 +1,54 @@
+{
+  "title": "स्नैक कहानी",
+  "subtitleComplete": "कहानी पूरी हुई!",
+  "subtitleProgress": "प्रश्न {{current}} / {{total}}",
+  "questionCounter": "प्रश्न {{current}}/{{total}}",
+  "scoreLabel": "स्कोर: {{score}}/{{total}}",
+  "questions": [
+    {
+      "id": 1,
+      "text": "आपको लंच चाहिए लेकिन चिप्स खाने का मन है। क्या चुनेंगे?",
+      "options": [
+        { "id": "chips", "text": "सिर्फ चिप्स", "emoji": "🍟", "description": "", "isCorrect": false },
+        { "id": "lunch", "text": "संतुलित लंच", "emoji": "🍱", "description": "", "isCorrect": true },
+        { "id": "sweets", "text": "सिर्फ मिठाई", "emoji": "🍰", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "आपको भूख लगी है। समझदारी वाला विकल्प क्या है?",
+      "options": [
+        { "id": "healthy", "text": "पौष्टिक स्नैक", "emoji": "🥗", "description": "", "isCorrect": true },
+        { "id": "candy", "text": "कैंडी बार", "emoji": "🍫", "description": "", "isCorrect": false },
+        { "id": "chips", "text": "आलू चिप्स", "emoji": "🥔", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "आपको प्यास लगी है। क्या चुनेंगे?",
+      "options": [
+        { "id": "soda", "text": "सोडा", "emoji": "🥤", "description": "", "isCorrect": false },
+        { "id": "water", "text": "पानी", "emoji": "💧", "description": "", "isCorrect": true },
+        { "id": "juice", "text": "फ्लेवर जूस", "emoji": "🧃", "description": "", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "आप स्नैक लेना चाहते हैं। सबसे हेल्दी विकल्प क्या है?",
+      "options": [
+        { "id": "cookies", "text": "पैकेट कुकीज़", "emoji": "🍪", "description": "", "isCorrect": false },
+        { "id": "candy", "text": "गमी कैंडी", "emoji": "🐻", "description": "", "isCorrect": false },
+        { "id": "fruit", "text": "ताज़ा फल", "emoji": "🍎", "description": "", "isCorrect": true }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "आपके पास खाने के लिए पैसे हैं। सबसे अच्छा फैसला क्या है?",
+      "options": [
+        { "id": "balanced", "text": "पूरा भोजन", "emoji": "🍽️", "description": "", "isCorrect": true },
+        { "id": "icecream", "text": "सिर्फ आइसक्रीम", "emoji": "🍦", "description": "", "isCorrect": false },
+        { "id": "sweets", "text": "कैंडी और सोडा", "emoji": "🍭", "description": "", "isCorrect": false }
+      ]
+    }
+  ]
+}

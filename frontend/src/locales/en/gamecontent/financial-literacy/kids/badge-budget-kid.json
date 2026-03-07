@@ -1,0 +1,96 @@
+{
+  "title": "Badge: Budget Kid",
+  "subtitleComplete": "Badge Earned!",
+  "subtitleProgress": "Challenge {{current}} of {{total}}",
+  "resultGreatEmoji": "??",
+  "resultGreatTitle": "Budget Kid Badge Earned!",
+  "resultGreatDescription": "You made {{score}} smart budgeting decisions out of {{total}} challenges!",
+  "achievementTitle": "?? Achievement Unlocked!",
+  "achievementBadge": "Badge: Budget Kid",
+  "skillsTitle": "Budget Skills",
+  "skillsDescription": "You learned to plan your spending, track your money, do budget math, and stick to your budget!",
+  "wisdomTitle": "Financial Wisdom",
+  "wisdomDescription": "These habits will help you manage your money wisely and reach your goals!",
+  "resultKeepEmoji": "??",
+  "resultKeepTitle": "Keep Learning!",
+  "resultKeepDescription": "You made {{score}} smart budgeting decisions out of {{total}} challenges.",
+  "resultKeepTip": "Remember, budgeting means planning your spending, tracking your money, and making thoughtful financial decisions.",
+  "tryAgainButton": "Try Again",
+  "challenges": [
+    {
+      "id": 1,
+      "title": "Smart Choice Badge",
+      "question": "You get Rs 100 as pocket money for a week. What is the smartest first step?",
+      "options": [
+        { "text": "Decide how much to save and spend", "emoji": "??", "isCorrect": true },
+        { "text": "Spend it on the first day", "emoji": "?", "isCorrect": false },
+        { "text": "Buy snacks every day", "emoji": "??", "isCorrect": false },
+        { "text": "Forget how much you have", "emoji": "??", "isCorrect": false }
+      ],
+      "feedback": {
+        "correct": "Excellent! Thinking before spending earns you a smart badge!",
+        "wrong": "Planning how to save and spend helps you use money wisely!"
+      }
+    },
+    {
+      "id": 2,
+      "title": "Needs vs Wants",
+      "question": "You see a notebook you need and a toy you want. You can buy only one. What do you choose?",
+      "options": [
+        { "text": "Buy the toy", "emoji": "??", "isCorrect": false },
+        { "text": "Buy nothing and leave", "emoji": "??", "isCorrect": false },
+        { "text": "Buy the notebook first", "emoji": "??", "isCorrect": true },
+        { "text": "Ask someone else to pay", "emoji": "??", "isCorrect": false }
+      ],
+      "feedback": {
+        "correct": "Great choice! Needs always come before wants!",
+        "wrong": "Buying what you need first is a smart money habit!"
+      }
+    },
+    {
+      "id": 3,
+      "title": "Saving Power",
+      "question": "You save Rs 10 every day. How much do you save in 5 days?",
+      "options": [
+        { "text": "Rs 50", "emoji": "??", "isCorrect": true },
+        { "text": "Rs 10", "emoji": "1??", "isCorrect": false },
+        { "text": "Rs 100", "emoji": "??", "isCorrect": false },
+        { "text": "Rs 5", "emoji": "5??", "isCorrect": false }
+      ],
+      "feedback": {
+        "correct": "Awesome math! Small savings grow fast!",
+        "wrong": "Rs 10 saved for 5 days becomes Rs 50!"
+      }
+    },
+    {
+      "id": 4,
+      "title": "Spending Control",
+      "question": "You plan to buy snacks for Rs 20 but see a bigger pack for Rs 40. What is the best move?",
+      "options": [
+        { "text": "Buy the bigger pack", "emoji": "??", "isCorrect": false },
+        { "text": "Spend without thinking", "emoji": "??", "isCorrect": false },
+        { "text": "Borrow extra money", "emoji": "??", "isCorrect": false },
+        { "text": "Stick to your plan", "emoji": "??", "isCorrect": true }
+      ],
+      "feedback": {
+        "correct": "Well done! Following your plan shows great control!",
+        "wrong": "Sticking to your plan keeps your budget safe!"
+      }
+    },
+    {
+      "id": 5,
+      "title": "Goal Achiever",
+      "question": "You want to buy a book next month. What helps you reach this goal?",
+      "options": [
+        { "text": "Spending daily on treats", "emoji": "??", "isCorrect": false },
+        { "text": "Saving a little every week", "emoji": "??", "isCorrect": true },
+        { "text": "Waiting for someone else to buy it", "emoji": "?", "isCorrect": false },
+        { "text": "Forgetting about the goal", "emoji": "??", "isCorrect": false }
+      ],
+      "feedback": {
+        "correct": "Fantastic! Saving regularly helps you reach goals!",
+        "wrong": "Small weekly savings help you buy things you plan for!"
+      }
+    }
+  ]
+}
