@@ -55,8 +55,8 @@ const stages = Array.isArray(gameContent?.stages) ? gameContent.stages: [];
 
   return (
     <GameShell
-      title="Journal of Ethics"
-      subtitle={!showResult ? `Question ${currentStage + 1} of ${stages.length}: Reflect on ethical money choices!` : "Journal Complete!"}
+      title={gameContent?.title || "Journal of Ethics"}
+      subtitle={showResult ? (gameContent?.subtitleComplete || "Journal Complete!") : (gameContent?.subtitleProgress ? t("financial-literacy.kids.ethics-journal.subtitleProgress", { current: currentStage + 1, total: stages.length }) : `Question ${currentStage + 1} of ${stages.length}`)}
       currentLevel={currentStage + 1}
       totalLevels={5}
       coinsPerLevel={coinsPerLevel}
@@ -77,19 +77,19 @@ const stages = Array.isArray(gameContent?.stages) ? gameContent.stages: [];
           <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20">
             <PenSquare className="mx-auto mb-4 w-10 h-10 text-yellow-300" />
             <h3 className="text-2xl font-bold mb-4">{stages[currentStage].question}</h3>
-            <p className="text-white/70 mb-4">Score: {score}/{stages.length}</p>
+            <p className="text-white/70 mb-4">{t("financial-literacy.kids.ethics-journal.scoreLabel", { score: score, total: stages.length })}</p>
             <p className="text-white/60 text-sm mb-4">
-              Write at least {stages[currentStage].minLength} characters
+              {gameContent?.minLengthPrompt ? t("financial-literacy.kids.ethics-journal.minLengthPrompt", { minLength: stages[currentStage].minLength }) : `Write at least ${stages[currentStage].minLength} characters`}
             </p>
             <textarea
               value={entry}
               onChange={(e) => setEntry(e.target.value)}
-              placeholder="Write your journal entry here..."
+              placeholder={gameContent?.textareaPlaceholder || "Write your journal entry here..."}
               className="w-full max-w-xl p-4 rounded-xl text-black text-lg bg-white/90"
               disabled={showResult}
             />
             <div className="mt-2 text-white/50 text-sm">
-              {entry.trim().length}/{stages[currentStage].minLength} characters
+              {entry.trim().length}/{stages[currentStage].minLength} {gameContent?.charactersLabel || "characters"}
             </div>
             <button
               onClick={handleSubmit}
@@ -100,7 +100,7 @@ const stages = Array.isArray(gameContent?.stages) ? gameContent.stages: [];
               }`}
               disabled={entry.trim().length < stages[currentStage].minLength || showResult}
             >
-              {currentStage === stages.length - 1 ? 'Submit Final Entry' : 'Submit & Continue'}
+              {currentStage === stages.length - 1 ? (gameContent?.submitFinalButton || 'Submit Final Entry') : (gameContent?.submitContinueButton || 'Submit & Continue')}
             </button>
           </div>
         )}

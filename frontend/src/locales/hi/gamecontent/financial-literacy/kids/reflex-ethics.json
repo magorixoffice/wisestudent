@@ -21,7 +21,7 @@
         { "text": "सच्चाई", "isCorrect": true, "emoji": "🗣️" },
         { "text": "धोखा", "isCorrect": false, "emoji": "🚫" },
         { "text": "झूठ", "isCorrect": false, "emoji": "🤥" },
-        { "text": "देceive", "isCorrect": false, "emoji": "😈" }
+        { "text": "छल", "isCorrect": false, "emoji": "😈" }
       ]
     },
     {

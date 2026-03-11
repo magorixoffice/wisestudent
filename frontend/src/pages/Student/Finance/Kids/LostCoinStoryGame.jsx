@@ -83,8 +83,8 @@ const LostCoinStoryGame= () => {
 
   return (
     <GameShell
-      title="Lost Coin Story"
-      subtitle={showResult ? "Story Complete!" : `Question ${currentQuestion + 1} of ${questions.length}`}
+      title={gameContent?.title || "Lost Coin Story"}
+      subtitle={showResult ? (gameContent?.subtitleComplete || "Story Complete!") : (gameContent?.subtitleProgress ? t("financial-literacy.kids.lost-coin-story.subtitleProgress", { current: currentQuestion + 1, total: questions.length }) : `Question ${currentQuestion + 1} of ${questions.length}`)}
       currentLevel={5}
       totalLevels={5}
       coinsPerLevel={coinsPerLevel}
