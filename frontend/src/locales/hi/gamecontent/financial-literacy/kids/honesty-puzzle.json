@@ -1,8 +1,35 @@
 {
   "title": "ईमानदारी पज़ल",
   "subtitleComplete": "पज़ल पूरा हुआ!",
-  "subtitleProgress": "मिलान {{current}} में से {{total}}",
+  "subtitleProgress": "श्रेणियों से मिलाएं ({{current}}/{{total}} मिलान हुए)",
   "instruction": "ईमानदार परिदृश्यों को उनके परिणामों से मिलाएं!",
+  "itemsHeading": "ईमानदार परिदृश्य",
+  "categoriesHeading": "भावनात्मक प्रतिक्रियाएं",
+  "selectItem": "एक आइटम चुनें",
+  "selected": "चयनित: {{name}}",
+  "matchButton": "मिलान करें",
+  "scoreLabel": "स्कोर",
+  "matchedLabel": "मिलान",
+  "greatJob": "बहुत बढ़िया!",
+  "greatJobMessage": "आपने {{total}} में से {{score}} परिदृश्यों को सही भावनाओं से मिलाया!",
+  "lesson": "सीख: ईमानदारी अच्छी भावनाएं और विश्वास लाती है!",
+  "keepPracticing": "अभ्यास जारी रखें!",
+  "keepPracticingMessage": "आपने {{total}} में से {{score}} परिदृश्यों को सही मिलाया।",
+  "tip": "सुझाव: वित्तीय मामलों में हमेशा ईमानदारी चुनें!",
+  "items": [
+    { "id": 1, "name": "खोया हुआ पैसा वापस करें", "emoji": "💸" },
+    { "id": 2, "name": "अतिरिक्त छुट्टा रखें", "emoji": "🪙" },
+    { "id": 3, "name": "खर्च के बारे में सच बोलें", "emoji": "🗣️" },
+    { "id": 4, "name": "बिना पूछे उधार लें", "emoji": "❌" },
+    { "id": 5, "name": "ईमानदारी से पैसे बचाएं", "emoji": "🏦" }
+  ],
+  "categories": [
+    { "id": 7, "name": "बेईमान विकल्प", "emoji": "⚠️" },
+    { "id": 8, "name": "विश्वास निर्माण", "emoji": "🤝" },
+    { "id": 9, "name": "नियम तोड़ना", "emoji": "🚫" },
+    { "id": 10, "name": "जिम्मेदार आदत", "emoji": "😊" },
+    { "id": 6, "name": "ईमानदार कार्य", "emoji": "🌟" }
+  ],
   "scenarios": [
     {
       "id": 1,

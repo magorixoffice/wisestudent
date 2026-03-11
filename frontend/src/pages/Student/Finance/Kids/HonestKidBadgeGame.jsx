@@ -66,8 +66,8 @@ const challenges = Array.isArray(gameContent?.challenges) ? gameContent.challeng
 
   return (
     <GameShell
-      title="Badge: Honest Kid"
-      subtitle={showResult ? "Badge Earned!" : `Challenge ${challenge + 1} of ${challenges.length}`}
+      title={gameContent?.title || "Badge: Honest Kid"}
+      subtitle={showResult ? (gameContent?.subtitleComplete || "Badge Earned!") : (gameContent?.subtitleProgress ? t("financial-literacy.kids.honest-kid-badge.subtitleProgress", { current: challenge + 1, total: challenges.length }) : `Challenge ${challenge + 1} of ${challenges.length}`)}
       showGameOver={showResult}
       score={finalScore}
       gameId={gameId}

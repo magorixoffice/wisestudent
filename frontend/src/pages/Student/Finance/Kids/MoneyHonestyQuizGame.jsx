@@ -83,8 +83,8 @@ const MoneyHonestyQuizGame= () => {
 
   return (
     <GameShell
-      title="Quiz on Money Honesty"
-      subtitle={showResult ? "Quiz Complete!" : `Question ${currentQuestion + 1} of ${questions.length}`}
+      title={gameContent?.title || "Quiz on Money Honesty"}
+      subtitle={showResult ? (gameContent?.subtitleComplete || "Quiz Complete!") : (gameContent?.subtitleProgress ? t("financial-literacy.kids.money-honesty-quiz.subtitleProgress", { current: currentQuestion + 1, total: questions.length }) : `Question ${currentQuestion + 1} of ${questions.length}`)}
       currentLevel={5}
       totalLevels={5}
       coinsPerLevel={coinsPerLevel}
@@ -107,8 +107,8 @@ const MoneyHonestyQuizGame= () => {
           <div className="space-y-6">
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
               <div className="flex justify-between items-center mb-4">
-                <span className="text-white/80">Question {currentQuestion + 1}/{questions.length}</span>
-                <span className="text-yellow-400 font-bold">Score: {coins}/{questions.length}</span>
+                <span className="text-white/80">{t("financial-literacy.kids.money-honesty-quiz.questionLabel", { current: currentQuestion + 1, total: questions.length })}</span>
+                <span className="text-yellow-400 font-bold">{t("financial-literacy.kids.money-honesty-quiz.scoreLabel", { score: coins, total: questions.length })}</span>
               </div>
               
               <p className="text-white text-lg mb-6 text-center">

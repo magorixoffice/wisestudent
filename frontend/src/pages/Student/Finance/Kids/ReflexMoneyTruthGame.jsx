@@ -118,12 +118,12 @@ const QUESTIONS_DATA = Array.isArray(gameContent?.questions) ? gameContent.quest
 
   const finalScore = score;
 
-  const currentQuestion = questions[currentRound - 1];
+  const currentQuestion = QUESTIONS_DATA[currentRound - 1];
 
   return (
     <GameShell
-      title="Reflex Money Truth"
-      subtitle={gameState === "playing" ? `Round ${currentRound}/${TOTAL_ROUNDS}: Test your truth and fairness reflexes!` : "Test your truth and fairness reflexes!"}
+      title={gameContent?.title || "Reflex Money Truth"}
+      subtitle={gameState === "playing" ? (gameContent?.roundLabel?.replace("{{current}}", currentRound).replace("{{total}}", TOTAL_ROUNDS) || `Round ${currentRound}/${TOTAL_ROUNDS}`) : (gameContent?.subtitleComplete || "Test your truth and fairness reflexes!")}
       currentLevel={currentRound}
       totalLevels={TOTAL_ROUNDS}
       coinsPerLevel={coinsPerLevel}
@@ -142,20 +142,20 @@ const QUESTIONS_DATA = Array.isArray(gameContent?.questions) ? gameContent.quest
       <div className="text-center text-white space-y-8">
         {gameState === "ready" && (
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 text-center">
-            <div className="text-5xl mb-6">🤑</div>
-            <h3 className="text-2xl font-bold text-white mb-4">Get Ready!</h3>
+            <div className="text-5xl mb-6">{gameContent?.readyEmoji || "🤑"}</div>
+            <h3 className="text-2xl font-bold text-white mb-4">{gameContent?.readyTitle || "Get Ready!"}</h3>
             <p className="text-white/90 text-lg mb-6">
-              Answer questions about being fair and truthful with money!<br />
-              You have {ROUND_TIME} seconds for each question.
+              {gameContent?.readyDescription || "Answer questions about being fair and truthful with money!"}<br />
+              {gameContent?.readyTimeInfo?.replace("{{time}}", ROUND_TIME) || `You have ${ROUND_TIME} seconds for each question.`}
             </p>
             <p className="text-white/80 mb-6">
-              You have {TOTAL_ROUNDS} questions with {ROUND_TIME} seconds each!
+              {gameContent?.readyQuestionInfo?.replace("{{total}}", TOTAL_ROUNDS).replace("{{time}}", ROUND_TIME) || `You have ${TOTAL_ROUNDS} questions with ${ROUND_TIME} seconds each!`}
             </p>
             <button
               onClick={startGame}
               className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white py-4 px-8 rounded-full text-xl font-bold shadow-lg transition-all transform hover:scale-105"
             >
-              Start Game
+              {gameContent?.startButton || "Start Game"}
             </button>
           </div>
         )}
@@ -164,13 +164,13 @@ const QUESTIONS_DATA = Array.isArray(gameContent?.questions) ? gameContent.quest
           <div className="space-y-8">
             <div className="flex justify-between items-center bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
               <div className="text-white">
-                <span className="font-bold">Round:</span> {currentRound}/{TOTAL_ROUNDS}
+                <span className="font-bold">{gameContent?.gameRoundLabel || "Round:"}</span> {currentRound}/{TOTAL_ROUNDS}
               </div>
               <div className={`font-bold ${timeLeft <= 2 ? 'text-red-500 animate-pulse' : timeLeft <= 3 ? 'text-yellow-500' : 'text-green-400'}`}>
-                <span className="text-white">Time:</span> {timeLeft}s
+                <span className="text-white">{gameContent?.gameTimeLabel || "Time:"}</span> {timeLeft}s
               </div>
               <div className="text-white">
-                <span className="font-bold">Score:</span> {score}/{TOTAL_ROUNDS}
+                <span className="font-bold">{gameContent?.gameScoreLabel || "Score:"}</span> {score}/{TOTAL_ROUNDS}
               </div>
             </div>
 

@@ -44,8 +44,8 @@ const stages = Array.isArray(gameContent?.stages) ? gameContent.stages : [];
 
   return (
     <GameShell
-      title="Poster: Honesty Pays"
-      subtitle={`Question ${currentStage + 1} of ${stages.length}: Choose posters that promote honest money choices!`}
+      title={gameContent?.title || "Poster: Honesty Pays"}
+      subtitle={gameContent?.subtitleProgress ? t("financial-literacy.kids.honesty-poster.subtitleProgress", { current: currentStage + 1, total: stages.length }) : `Question ${currentStage + 1} of ${stages.length}`}
       coins={score}
       currentLevel={currentStage + 1}
       totalLevels={5}
@@ -66,7 +66,7 @@ const stages = Array.isArray(gameContent?.stages) ? gameContent.stages : [];
         <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20">
           <Paintbrush className="mx-auto mb-4 w-8 h-8 text-yellow-400" />
           <h3 className="text-2xl font-bold mb-4">{stages[currentStage].question}</h3>
-          <p className="text-white/70 mb-4">Score: {score}/{stages.length}</p>
+          <p className="text-white/70 mb-4">{t("financial-literacy.kids.honesty-poster.scoreLabel", { score: score, total: stages.length })}</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {stages[currentStage].choices.map((choice, idx) => (
               <button

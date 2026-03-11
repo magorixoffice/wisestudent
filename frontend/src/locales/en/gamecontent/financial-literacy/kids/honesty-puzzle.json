@@ -1,8 +1,35 @@
 {
-  "title": "Honesty Puzzle",
+  "title": "Puzzle of Honesty",
   "subtitleComplete": "Puzzle Complete!",
-  "subtitleProgress": "Match {{current}} of {{total}}",
+  "subtitleProgress": "Match Items with Categories ({{current}}/{{total}} matched)",
   "instruction": "Match honest scenarios with their outcomes!",
+  "itemsHeading": "Honest Scenarios",
+  "categoriesHeading": "Emotional Responses",
+  "selectItem": "Select an Item",
+  "selected": "Selected: {{name}}",
+  "matchButton": "Match",
+  "scoreLabel": "Score",
+  "matchedLabel": "Matched",
+  "greatJob": "Great Job!",
+  "greatJobMessage": "You correctly matched {{score}} out of {{total}} scenarios with emotions!",
+  "lesson": "Lesson: Being honest brings good feelings and trust!",
+  "keepPracticing": "Keep Practicing!",
+  "keepPracticingMessage": "You matched {{score}} out of {{total}} scenarios correctly.",
+  "tip": "Tip: Always choose honesty in financial matters!",
+  "items": [
+    { "id": 1, "name": "Return Lost Money", "emoji": "💸" },
+    { "id": 2, "name": "Keep Extra Change", "emoji": "🪙" },
+    { "id": 3, "name": "Tell the Truth About Spending", "emoji": "🗣️" },
+    { "id": 4, "name": "Borrow Without Asking", "emoji": "❌" },
+    { "id": 5, "name": "Save Money Honestly", "emoji": "🏦" }
+  ],
+  "categories": [
+    { "id": 7, "name": "Dishonest Choice", "emoji": "⚠️" },
+    { "id": 8, "name": "Trust Building", "emoji": "🤝" },
+    { "id": 9, "name": "Breaks Rules", "emoji": "🚫" },
+    { "id": 10, "name": "Responsible Habit", "emoji": "😊" },
+    { "id": 6, "name": "Honest Action", "emoji": "🌟" }
+  ],
   "scenarios": [
     {
       "id": 1,

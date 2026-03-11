@@ -48,26 +48,24 @@ const { t } = useTranslation("gamecontent");
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
   const gameContent = t("financial-literacy.kids.honesty-puzzle", { returnObjects: true });
-const scenarios = Array.isArray(gameContent?.scenarios) ? gameContent.scenarios : [];
-  
-  // Items (left side) - 5 items
-  const items = [
-  { id: 1, name: "Return Lost Money", emoji: "💸" },
-  { id: 2, name: "Keep Extra Change", emoji: "🪙" },
-  { id: 3, name: "Tell the Truth About Spending", emoji: "🗣️" },
-  { id: 4, name: "Borrow Without Asking", emoji: "❌" },
-  { id: 5, name: "Save Money Honestly", emoji: "🏦" },
-];
 
+  // Items (left side) - from translation
+  const items = Array.isArray(gameContent?.items) ? gameContent.items : [
+    { id: 1, name: "Return Lost Money", emoji: "💸" },
+    { id: 2, name: "Keep Extra Change", emoji: "🪙" },
+    { id: 3, name: "Tell the Truth About Spending", emoji: "🗣️" },
+    { id: 4, name: "Borrow Without Asking", emoji: "❌" },
+    { id: 5, name: "Save Money Honestly", emoji: "🏦" },
+  ];
 
-  // Categories (right side) - 5 items
-  const categories = [
+  // Categories (right side) - from translation
+  const categories = Array.isArray(gameContent?.categories) ? gameContent.categories : [
     { id: 7, name: "Dishonest Choice", emoji: "⚠️" },
     { id: 8, name: "Trust Building", emoji: "🤝" },
     { id: 9, name: "Breaks Rules", emoji: "🚫" },
     { id: 10, name: "Responsible Habit", emoji: "😊" },
     { id: 6, name: "Honest Action", emoji: "🌟" },
-];
+  ];
 
 const correctMatches = [
   { itemId: 1, categoryId: 6 },  // Return Lost Money → Honest Action
@@ -144,8 +142,8 @@ const correctMatches = [
 
   return (
     <GameShell
-      title="Puzzle of Honesty"
-      subtitle={gameFinished ? "Puzzle Complete!" : `Match Items with Categories (${matches.length}/${items.length} matched)`}
+      title={gameContent?.title || "Puzzle of Honesty"}
+      subtitle={gameFinished ? (gameContent?.subtitleComplete || "Puzzle Complete!") : (gameContent?.subtitleProgress?.replace("{{current}}", matches.length).replace("{{total}}", items.length) || `Match Items with Categories (${matches.length}/${items.length} matched)`)}
       showGameOver={gameFinished}
       score={score}
       gameId="finance-kids-94"
@@ -168,7 +166,7 @@ const correctMatches = [
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Left column - Items */}
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-              <h3 className="text-xl font-bold text-white mb-4 text-center">Honest Scenarios</h3>
+              <h3 className="text-xl font-bold text-white mb-4 text-center">{gameContent?.itemsHeading || "Honest Scenarios"}</h3>
               <div className="space-y-4">
                 {items.map(item => (
                   <button
@@ -189,7 +187,6 @@ const correctMatches = [
                       <div className="text-2xl mr-3">{item.emoji}</div>
                       <div>
                         <h4 className="font-bold text-white">{item.name}</h4>
-                        {/* <p className="text-white/80 text-sm">Select to match</p> */}
                       </div>
                     </div>
                   </button>
@@ -202,8 +199,8 @@ const correctMatches = [
               <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 text-center">
                 <p className="text-white/80 mb-4">
                   {selectedItem 
-                    ? `Selected: ${selectedItem.name}` 
-                    : "Select an Item"}
+                    ? (gameContent?.selected?.replace("{{name}}", selectedItem.name) || `Selected: ${selectedItem.name}`)
+                    : (gameContent?.selectItem || "Select an Item")}
                 </p>
                 <button
                   onClick={handleMatch}
@@ -214,18 +211,18 @@ const correctMatches = [
                       : "bg-gray-500/30 text-gray-400 cursor-not-allowed"
                   }`}
                 >
-                  Match
+                  {gameContent?.matchButton || "Match"}
                 </button>
                 <div className="mt-4 text-white/80">
-                  <p>Score: {score}/{items.length}</p>
-                  <p>Matched: {matches.length}/{items.length}</p>
+                  <p>{gameContent?.scoreLabel || "Score"}: {score}/{items.length}</p>
+                  <p>{gameContent?.matchedLabel || "Matched"}: {matches.length}/{items.length}</p>
                 </div>
               </div>
             </div>
 
             {/* Right column - Categories */}
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-              <h3 className="text-xl font-bold text-white mb-4 text-center">Emotional Responses</h3>
+              <h3 className="text-xl font-bold text-white mb-4 text-center">{gameContent?.categoriesHeading || "Emotional Responses"}</h3>
               <div className="space-y-4">
                 {categories.map(category => (
                   <button
@@ -244,7 +241,6 @@ const correctMatches = [
                       <div className="text-2xl mr-3">{category.emoji}</div>
                       <div>
                         <h4 className="font-bold text-white">{category.name}</h4>
-                        {/* <p className="text-white/80 text-sm">Match with scenario</p> */}
                       </div>
                     </div>
                   </button>
@@ -257,26 +253,26 @@ const correctMatches = [
             {score >= 3 ? (
               <div>
                 <div className="text-5xl mb-4">🎉</div>
-                <h3 className="text-2xl font-bold text-white mb-4">Great Job!</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">{gameContent?.greatJob || "Great Job!"}</h3>
                 <p className="text-white/90 text-lg mb-4">
-                  You correctly matched {score} out of {items.length} scenarios with emotions!
+                  {gameContent?.greatJobMessage?.replace("{{score}}", score).replace("{{total}}", items.length) || `You correctly matched ${score} out of ${items.length} scenarios with emotions!`}
                 </p>
                 <div className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white py-3 px-6 rounded-full inline-flex items-center gap-2 mb-4">
                   <span>+{score} Coins</span>
                 </div>
                 <p className="text-white/80">
-                  Lesson: Being honest brings good feelings and trust!
+                  {gameContent?.lesson || "Lesson: Being honest brings good feelings and trust!"}
                 </p>
               </div>
             ) : (
               <div>
                 <div className="text-5xl mb-4">💪</div>
-                <h3 className="text-2xl font-bold text-white mb-4">Keep Practicing!</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">{gameContent?.keepPracticing || "Keep Practicing!"}</h3>
                 <p className="text-white/90 text-lg mb-4">
-                  You matched {score} out of {items.length} scenarios correctly.
+                  {gameContent?.keepPracticingMessage?.replace("{{score}}", score).replace("{{total}}", items.length) || `You matched ${score} out of ${items.length} scenarios correctly.`}
                 </p>
                 <p className="text-white/80 text-sm">
-                  Tip: Always choose honesty in financial matters!
+                  {gameContent?.tip || "Tip: Always choose honesty in financial matters!"}
                 </p>
               </div>
             )}

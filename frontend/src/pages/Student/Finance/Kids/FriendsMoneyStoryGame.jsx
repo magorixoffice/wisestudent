@@ -83,8 +83,8 @@ const questions = Array.isArray(gameContent?.questions) ? gameContent.questions 
 
   return (
     <GameShell
-      title="Friend's Money Story"
-      subtitle={showResult ? "Story Complete!" : `Question ${currentQuestion + 1} of ${questions.length}`}
+      title={gameContent?.title || "Friend's Money Story"}
+      subtitle={showResult ? (gameContent?.subtitleComplete || "Story Complete!") : (gameContent?.subtitleProgress ? t("financial-literacy.kids.friends-money-story.subtitleProgress", { current: currentQuestion + 1, total: questions.length }) : `Question ${currentQuestion + 1} of ${questions.length}`)}
       currentLevel={5}
       totalLevels={5}
       coinsPerLevel={coinsPerLevel}
@@ -107,8 +107,8 @@ const questions = Array.isArray(gameContent?.questions) ? gameContent.questions 
           <div className="space-y-6">
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
               <div className="flex justify-between items-center mb-4">
-                <span className="text-white/80">Question {currentQuestion + 1}/{questions.length}</span>
-                <span className="text-yellow-400 font-bold">Score: {coins}/{questions.length}</span>
+                <span className="text-white/80">{t("financial-literacy.kids.friends-money-story.questionLabel", { current: currentQuestion + 1, total: questions.length })}</span>
+                <span className="text-yellow-400 font-bold">{t("financial-literacy.kids.friends-money-story.scoreLabel", { score: coins, total: questions.length })}</span>
               </div>
               
               <div className="text-4xl mb-4 text-center">🤝</div>
