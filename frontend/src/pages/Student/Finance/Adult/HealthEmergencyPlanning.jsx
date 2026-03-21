@@ -1,183 +1,35 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import { Trophy } from "lucide-react";
+import { useTranslation } from "react-i18next";
+
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getGameDataById } from "../../../../utils/getGameData";
 
-const HEALTH_EMERGENCY_PLANNING_STAGES = [
-  {
-    id: 1,
-    prompt: "Scenario: Which reduces medical borrowing risk?",
-    options: [
-      {
-        id: "ignore",
-        label: "Ignoring health planning",
-        reflection: "Ignoring health planning leaves you completely vulnerable to medical emergencies. Without preparation, you're likely to face expensive medical debt during health crises.",
-        isCorrect: false,
-      },
-     
-      {
-        id: "hope",
-        label: "Relying on family help",
-        reflection: "While family support is valuable, it's not a reliable strategy for medical emergencies. Not all families can provide sufficient financial assistance, and you shouldn't count on it.",
-        isCorrect: false,
-      },
-       {
-        id: "insurance",
-        label: "Basic insurance or savings",
-        reflection: "Exactly! Basic insurance or savings significantly reduces medical borrowing risk by providing financial protection when health emergencies occur unexpectedly.",
-        isCorrect: true,
-      },
-      {
-        id: "delay",
-        label: "Delaying all medical care until you can afford it",
-        reflection: "Delaying necessary medical care often leads to worse health outcomes and can actually increase overall costs as minor problems become serious emergencies.",
-        isCorrect: false,
-      },
-    ],
-    reward: 4,
-  },
-  {
-    id: 2,
-    prompt: "What's the main purpose of health emergency planning?",
-    options: [
-      
-      {
-        id: "insurance",
-        label: "Only buying expensive medical insurance",
-        reflection: "Health emergency planning is about comprehensive protection that includes, but is not limited to, insurance. Savings and budgeting also play important roles in financial protection.",
-        isCorrect: false,
-      },
-      {
-        id: "protection",
-        label: "Financial protection during medical emergencies",
-        reflection: "Perfect! The main purpose of health emergency planning is to provide financial protection when medical emergencies occur unexpectedly.",
-        isCorrect: true,
-      },
-      {
-        id: "invincibility",
-        label: "Assuming you're financially invincible",
-        reflection: "No one is financially invincible - anyone can face unexpected medical expenses. Health emergency planning is about being prepared for the unexpected, not assuming invincibility.",
-        isCorrect: false,
-      },
-      {
-        id: "avoidance",
-        label: "Avoiding all medical care to save money",
-        reflection: "Avoiding medical care to save money is dangerous and counterproductive. It can lead to more serious health problems and higher costs in the long run.",
-        isCorrect: false,
-      },
-    ],
-    reward: 4,
-  },
-  {
-    id: 3,
-    prompt: "How should you prioritize health emergency preparations?",
-    options: [
-      {
-        id: "insurance",
-        label: "Start with basic insurance, then build emergency savings",
-        reflection: "Excellent! Starting with basic insurance provides immediate protection, while building emergency savings creates additional financial security for medical expenses.",
-        isCorrect: true,
-      },
-      {
-        id: "savings",
-        label: "Build emergency savings only, skip insurance",
-        reflection: "While emergency savings are important, they may not be sufficient for major medical emergencies. Insurance provides additional protection that savings alone cannot offer.",
-        isCorrect: false,
-      },
-      {
-        id: "nothing",
-        label: "Do nothing and hope for the best",
-        reflection: "Doing nothing and hoping for the best is financially risky. Medical emergencies are common enough that preparation is essential for financial security.",
-        isCorrect: false,
-      },
-      {
-        id: "everything",
-        label: "Buy the most expensive coverage available",
-        reflection: "Buying the most expensive coverage isn't always the best approach. It's better to find a balance between adequate protection and affordability based on your specific needs.",
-        isCorrect: false,
-      },
-    ],
-    reward: 4,
-  },
-  {
-    id: 4,
-    prompt: "What's a warning sign of poor health emergency planning?",
-    options: [
-      
-      {
-        id: "coverage",
-        label: "Having comprehensive health coverage",
-        reflection: "Having comprehensive health coverage is actually a sign of good health emergency planning, not poor planning. It shows you're taking proactive steps to protect yourself.",
-        isCorrect: false,
-      },
-      {
-        id: "savings",
-        label: "Maintaining dedicated health emergency savings",
-        reflection: "Maintaining dedicated health emergency savings is a positive sign of good financial planning, not a warning sign. It demonstrates preparedness for medical expenses.",
-        isCorrect: false,
-      },
-      {
-        id: "prevention",
-        label: "Investing in preventive health measures",
-        reflection: "Investing in preventive health measures is excellent planning that can reduce future medical costs. It's a sign of good health management, not poor emergency planning.",
-        isCorrect: false,
-      },
-      {
-        id: "panic",
-        label: "Panic about medical bills without a plan",
-        reflection: "Exactly! Panicking about medical bills without a plan indicates poor health emergency planning. Good preparation should provide peace of mind, not financial anxiety.",
-        isCorrect: true,
-      },
-    ],
-    reward: 4,
-  },
-  {
-    id: 5,
-    prompt: "What's the long-term benefit of health emergency planning?",
-    options: [
-      
-      {
-        id: "spending",
-        label: "Ability to spend more on non-essentials",
-        reflection: "Health emergency planning is about security, not enabling more spending on non-essentials. Its value is in protection, not increased consumption.",
-        isCorrect: false,
-      },
-      {
-        id: "risk",
-        label: "Increased risk-taking with health decisions",
-        reflection: "Good health emergency planning actually reduces risk by providing financial protection. It doesn't encourage risk-taking with health decisions.",
-        isCorrect: false,
-      },
-      {
-        id: "security",
-        label: "Financial security and peace of mind",
-        reflection: "Exactly! Health emergency planning provides financial security and peace of mind by ensuring you can handle medical expenses without creating financial hardship or debt.",
-        isCorrect: true,
-      },
-      {
-        id: "avoidance",
-        label: "Ability to avoid all medical expenses",
-        reflection: "Health emergency planning doesn't help you avoid all medical expenses - it helps you manage them financially. Some medical expenses are unavoidable and necessary for good health.",
-        isCorrect: false,
-      },
-    ],
-    reward: 4,
-  },
-];
-
-const totalStages = HEALTH_EMERGENCY_PLANNING_STAGES.length;
-const successThreshold = totalStages;
-
 const HealthEmergencyPlanning = () => {
   const location = useLocation();
+  const { t } = useTranslation("gamecontent");
+
   const gameId = "finance-adults-87";
+  const baseKey = "financial-literacy.adults.health-emergency-planning";
+
+  const gameContent = t(baseKey, { returnObjects: true });
+  const localizedStages = Array.isArray(gameContent?.stages) ? gameContent.stages : [];
+  const reflectionPrompts = Array.isArray(gameContent?.reflectionPrompts)
+    ? gameContent.reflectionPrompts
+    : [];
+
   const gameData = getGameDataById(gameId);
   const coinsPerLevel = gameData?.coins || location.state?.coinsPerLevel || 20;
   const totalCoins = gameData?.coins || location.state?.totalCoins || 20;
   const totalXp = gameData?.xp || location.state?.totalXp || 40;
-  const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
+
+  const {
+    flashPoints,
+    showAnswerConfetti,
+    showCorrectAnswerFeedback,
+    resetFeedback,
+  } = useGameFeedback();
 
   const [currentStage, setCurrentStage] = useState(0);
   const [coins, setCoins] = useState(0);
@@ -189,37 +41,61 @@ const HealthEmergencyPlanning = () => {
   const [selectedReflection, setSelectedReflection] = useState(null);
   const [canProceed, setCanProceed] = useState(false);
 
-  const reflectionPrompts = useMemo(
-    () => [
-      "How can you assess your current health emergency preparedness?",
-      "What steps will you take to improve your health financial planning?",
-    ],
-    []
-  );
+  const totalStages = localizedStages.length;
+  const successThreshold = totalStages;
+
+  if (!totalStages) return null;
+
+  const subtitle = t(`${baseKey}.subtitleProgress`, {
+    current: Math.min(currentStage + 1, totalStages),
+    total: totalStages,
+    defaultValue: "Stage {{current}} of {{total}}",
+  });
+
+  const stage = localizedStages[Math.min(currentStage, totalStages - 1)];
+  const hasPassed = finalScore === successThreshold;
+
+  const title = gameContent?.title || "Health Emergency Planning";
+  const headerLeft = t(`${baseKey}.sectionHeaderLeft`, { defaultValue: "" });
+  const headerRight = t(`${baseKey}.sectionHeaderRight`, { defaultValue: "" });
+  const reflectionTitle = t(`${baseKey}.reflectionTitle`, { defaultValue: "Reflection" });
+  const continueButton = t(`${baseKey}.continueButton`, { defaultValue: "Continue" });
+  const readingLabel = t(`${baseKey}.readingLabel`, { defaultValue: "Reading..." });
+  const reflectionPromptsTitle = t(`${baseKey}.reflectionPromptsTitle`, {
+    defaultValue: "Reflection Prompts",
+  });
+  const skillUnlockedLabel = t(`${baseKey}.skillUnlockedLabel`, { defaultValue: "Skill unlocked:" });
+  const skillName = t(`${baseKey}.skillName`, { defaultValue: "" });
+  const fullRewardHint = t(`${baseKey}.fullRewardHint`, {
+    total: totalStages,
+    defaultValue: "Answer all {{total}} choices correctly to earn the full reward.",
+  });
+  const tryAgainButton = t(`${baseKey}.tryAgainButton`, { defaultValue: "Try Again" });
 
   const handleChoice = (option) => {
     if (selectedOption || showResult) return;
 
     resetFeedback();
-    const currentStageData = HEALTH_EMERGENCY_PLANNING_STAGES[currentStage];
+    const currentStageData = localizedStages[currentStage];
     const updatedHistory = [
       ...history,
       { stageId: currentStageData.id, isCorrect: option.isCorrect },
     ];
+
     setHistory(updatedHistory);
     setSelectedOption(option.id);
     setSelectedReflection(option.reflection);
     setShowFeedback(true);
     setCanProceed(false);
-    
+
     if (option.isCorrect) {
-      setCoins(prevCoins => prevCoins + 1);
+      setCoins((prevCoins) => prevCoins + 1);
     }
-    
+
     setTimeout(() => {
       setCanProceed(true);
     }, 1500);
-    
+
     if (currentStage === totalStages - 1) {
       setTimeout(() => {
         const correctCount = updatedHistory.filter((item) => item.isCorrect).length;
@@ -229,7 +105,7 @@ const HealthEmergencyPlanning = () => {
         setShowResult(true);
       }, 5500);
     }
-    
+
     if (option.isCorrect) {
       showCorrectAnswerFeedback(1, true);
     } else {
@@ -242,27 +118,26 @@ const HealthEmergencyPlanning = () => {
     setCurrentStage(0);
     setHistory([]);
     setSelectedOption(null);
+    setSelectedReflection(null);
+    setShowFeedback(false);
+    setCanProceed(false);
     setCoins(0);
     setFinalScore(0);
     setShowResult(false);
   };
 
-  const subtitle = `Stage ${Math.min(currentStage + 1, totalStages)} of ${totalStages}`;
-  const stage = HEALTH_EMERGENCY_PLANNING_STAGES[Math.min(currentStage, totalStages - 1)];
-  const hasPassed = finalScore === successThreshold;
-
   return (
     <GameShell
-      title="Health Emergency Planning"
+      title={title}
       subtitle={subtitle}
       score={showResult ? finalScore : coins}
       coins={coins}
       coinsPerLevel={coinsPerLevel}
       totalCoins={totalCoins}
       totalXp={totalXp}
-      maxScore={HEALTH_EMERGENCY_PLANNING_STAGES.length}
-      currentLevel={Math.min(currentStage + 1, HEALTH_EMERGENCY_PLANNING_STAGES.length)}
-      totalLevels={HEALTH_EMERGENCY_PLANNING_STAGES.length}
+      maxScore={totalStages}
+      currentLevel={Math.min(currentStage + 1, totalStages)}
+      totalLevels={totalStages}
       gameId={gameId}
       gameType="finance"
       showGameOver={showResult}
@@ -274,8 +149,8 @@ const HealthEmergencyPlanning = () => {
       <div className="space-y-5 text-white">
         <div className="bg-white/10 border border-white/20 rounded-3xl p-8 shadow-2xl max-w-4xl mx-auto">
           <div className="flex justify-between items-center mb-4 text-sm uppercase tracking-[0.3em] text-white/60">
-            <span>Scenario</span>
-            <span>Health Emergency</span>
+            <span>{headerLeft}</span>
+            <span>{headerRight}</span>
           </div>
           <p className="text-lg text-white/90 mb-6">{stage.prompt}</p>
           <div className="grid grid-cols-2 gap-4">
@@ -286,29 +161,38 @@ const HealthEmergencyPlanning = () => {
                   key={option.id}
                   onClick={() => handleChoice(option)}
                   disabled={!!selectedOption}
-                  className={`rounded-2xl border-2 p-5 text-left transition ${isSelected
+                  className={`rounded-2xl border-2 p-5 text-left transition ${
+                    isSelected
                       ? option.isCorrect
                         ? "border-emerald-400 bg-emerald-500/20"
                         : "border-rose-400 bg-rose-500/10"
                       : "border-white/30 bg-white/5 hover:border-white/60 hover:bg-white/10"
-                    }`}
+                  }`}
                 >
                   <div className="flex justify-between items-center mb-2 text-sm text-white/70">
-                    <span>Choice {option.id.toUpperCase()}</span>
+                    <span>
+                      {t(`${baseKey}.choiceLabel`, {
+                        id: String(option.id).toUpperCase(),
+                        defaultValue: "Choice {{id}}",
+                      })}
+                    </span>
                   </div>
                   <p className="text-white font-semibold">{option.label}</p>
                 </button>
               );
             })}
           </div>
+
           {(showResult || showFeedback) && (
             <div className="bg-white/5 border border-white/20 rounded-3xl p-6 shadow-xl max-w-4xl mx-auto space-y-3">
-              <h4 className="text-lg font-semibold text-white">Reflection</h4>
+              <h4 className="text-lg font-semibold text-white">{reflectionTitle}</h4>
+
               {selectedReflection && (
                 <div className="max-h-24 overflow-y-auto pr-2">
                   <p className="text-sm text-white/90">{selectedReflection}</p>
                 </div>
               )}
+
               {showFeedback && !showResult && (
                 <div className="mt-4 flex justify-center">
                   {canProceed ? (
@@ -324,18 +208,18 @@ const HealthEmergencyPlanning = () => {
                       }}
                       className="rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 px-6 font-semibold shadow-lg hover:opacity-90"
                     >
-                      Continue
+                      {continueButton}
                     </button>
                   ) : (
-                    <div className="py-2 px-6 text-white font-semibold">Reading...</div>
+                    <div className="py-2 px-6 text-white font-semibold">{readingLabel}</div>
                   )}
                 </div>
               )}
+
               {!showResult && currentStage === totalStages - 1 && canProceed && (
-                <div className="mt-4 flex justify-center">
-                  
-                </div>
+                <div className="mt-4 flex justify-center" />
               )}
+
               {showResult && (
                 <>
                   <ul className="text-sm list-disc list-inside space-y-1">
@@ -343,50 +227,48 @@ const HealthEmergencyPlanning = () => {
                       <li key={prompt}>{prompt}</li>
                     ))}
                   </ul>
+
                   <p className="text-sm text-white/70">
-                    Skill unlocked: <strong>Health Emergency Financial Planning</strong>
+                    {skillUnlockedLabel} <strong>{skillName}</strong>
                   </p>
-                  {!hasPassed && (
-                    <p className="text-xs text-amber-300">
-                      Answer all {totalStages} choices correctly to earn the full reward.
-                    </p>
-                  )}
+
+                  {!hasPassed && <p className="text-xs text-amber-300">{fullRewardHint}</p>}
+
                   {!hasPassed && (
                     <button
                       onClick={handleRetry}
                       className="w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 font-semibold shadow-lg hover:opacity-90"
                     >
-                      Try Again
+                      {tryAgainButton}
                     </button>
                   )}
                 </>
               )}
             </div>
           )}
-          
         </div>
+
         {showResult && (
           <div className="bg-white/5 border border-white/20 rounded-3xl p-6 shadow-xl max-w-4xl mx-auto space-y-3">
-            <h4 className="text-lg font-semibold text-white">Reflection Prompts</h4>
+            <h4 className="text-lg font-semibold text-white">{reflectionPromptsTitle}</h4>
             <ul className="text-sm list-disc list-inside space-y-1">
               {reflectionPrompts.map((prompt) => (
                 <li key={prompt}>{prompt}</li>
               ))}
             </ul>
+
             <p className="text-sm text-white/70">
-              Skill unlocked: <strong>Health Emergency Financial Planning</strong>
+              {skillUnlockedLabel} <strong>{skillName}</strong>
             </p>
-            {!hasPassed && (
-              <p className="text-xs text-amber-300">
-                Answer all {totalStages} choices correctly to earn the full reward.
-              </p>
-            )}
+
+            {!hasPassed && <p className="text-xs text-amber-300">{fullRewardHint}</p>}
+
             {!hasPassed && (
               <button
                 onClick={handleRetry}
                 className="w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 font-semibold shadow-lg hover:opacity-90"
               >
-                Try Again
+                {tryAgainButton}
               </button>
             )}
           </div>

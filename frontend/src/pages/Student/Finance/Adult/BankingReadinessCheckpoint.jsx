@@ -1,179 +1,20 @@
 import React, { useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Trophy } from "lucide-react";
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getGameDataById } from "../../../../utils/getGameData";
 
-const STAGES = [
-  {
-    id: 1,
-    prompt: "Which is safer for storing money?",
-    options: [
-         {
-        id: "bank",
-        label: "In a bank account",
-        reflection: "Exactly! Bank accounts provide security, insurance, and protection for your money.",
-        isCorrect: true,
-      },
-      {
-        id: "mattress",
-        label: "Under your mattress at home",
-        reflection: "Storing money at home is risky as it can be stolen, lost, or damaged without any protection.",
-        isCorrect: false,
-      },
-     
-      {
-        id: "friend",
-        label: "With a trusted friend or family member",
-        reflection: "Relying on others to hold your money creates potential relationship issues and lacks proper protection.",
-        isCorrect: false,
-      },
-      {
-        id: "wallet",
-        label: "In your wallet or purse",
-        reflection: "Carrying large amounts of cash is risky and impractical for long-term storage.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 2,
-    prompt: "What should you do if someone calls claiming to be from your bank asking for your OTP?",
-    options: [
-      {
-        id: "provide",
-        label: "Provide the OTP as requested",
-        reflection: "Banks will never ask for your OTP. Providing it to strangers enables fraud and financial loss.",
-        isCorrect: false,
-      },
-      
-      {
-        id: "verify",
-        label: "Ask for their employee ID to verify",
-        reflection: "Scammers can fabricate credentials. Banks never ask for OTPs, so don't engage in verification.",
-        isCorrect: false,
-      },
-      {
-        id: "refuse",
-        label: "Refuse and hang up immediately",
-        reflection: "Exactly! Legitimate banks never ask for your OTP. Always refuse and hang up if someone requests it.",
-        isCorrect: true,
-      },
-      {
-        id: "listen",
-        label: "Listen to their explanation first",
-        reflection: "Scammers may provide convincing stories. Banks never ask for OTPs, so don't engage.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 3,
-    prompt: "Which is better for long-term savings?",
-    options: [
-      {
-        id: "wallet",
-        label: "Digital wallet",
-        reflection: "Digital wallets are primarily designed for transactions and everyday spending, not for long-term savings.",
-        isCorrect: false,
-      },
-      {
-        id: "bank",
-        label: "Bank account",
-        reflection: "Exactly! Bank accounts offer better security, interest, and protection for long-term savings.",
-        isCorrect: true,
-      },
-      {
-        id: "same",
-        label: "Both are equally good for savings",
-        reflection: "Bank accounts typically offer better interest rates, security features, and regulatory protection for savings.",
-        isCorrect: false,
-      },
-      {
-        id: "neither",
-        label: "Neither is good for savings",
-        reflection: "Bank accounts are designed to safely store money and often provide interest, making them suitable for savings.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 4,
-    prompt: "What is the safest way to download a banking app?",
-    options: [
-      {
-        id: "thirdparty",
-        label: "From third-party app stores or websites",
-        reflection: "Third-party sources may host malicious versions of banking apps that steal your data.",
-        isCorrect: false,
-      },
-      
-      {
-        id: "link",
-        label: "From links in emails or messages",
-        reflection: "Links in emails or messages may lead to fake apps designed to steal your banking credentials.",
-        isCorrect: false,
-      },
-      {
-        id: "search",
-        label: "From general search engines",
-        reflection: "Search engines may direct you to fake apps. Always use official app stores or bank websites.",
-        isCorrect: false,
-      },
-      {
-        id: "official",
-        label: "From the official app store or bank's website",
-        reflection: "Exactly! Official sources provide authentic apps with security measures in place.",
-        isCorrect: true,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 5,
-    prompt: "Why are digital transactions useful for budgeting?",
-    options: [
-        {
-        id: "track",
-        label: "They make it easier to track spending patterns",
-        reflection: "Exactly! Digital records provide detailed information about spending habits, which helps in budgeting.",
-        isCorrect: true,
-      },
-      {
-        id: "complicate",
-        label: "They complicate the budgeting process",
-        reflection: "Actually, digital records simplify budgeting by providing clear, organized data about spending.",
-        isCorrect: false,
-      },
-      
-      {
-        id: "reduce",
-        label: "They reduce the need to budget",
-        reflection: "Digital records help with budgeting, they don't eliminate the need for it.",
-        isCorrect: false,
-      },
-      {
-        id: "manual",
-        label: "They require manual recording",
-        reflection: "Digital transactions automatically create records, eliminating the need for manual recording.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-  
-];
-
-const totalStages = STAGES.length;
-const successThreshold = totalStages; // All 7 must be correct
-
 const BankingReadinessCheckpoint = () => {
   const location = useLocation();
+  const { t } = useTranslation("gamecontent");
   const gameId = "finance-adults-20";
+  const baseKey = "financial-literacy.adults.banking-readiness-checkpoint";
+  const gameContent = t(baseKey, { returnObjects: true });
+  const localizedStages = Array.isArray(gameContent?.stages) ? gameContent.stages : [];
+  const totalStages = localizedStages.length;
+  const successThreshold = totalStages;
   const gameData = getGameDataById(gameId);
   const coinsPerLevel = gameData?.coins || location.state?.coinsPerLevel || 5;
   const totalCoins = gameData?.coins || location.state?.totalCoins || 5;
@@ -191,20 +32,15 @@ const BankingReadinessCheckpoint = () => {
   const [selectedReflection, setSelectedReflection] = useState(null);
   const [canProceed, setCanProceed] = useState(false);
 
-  const reflectionPrompts = useMemo(
-    () => [
-      "How do these banking decisions prepare you for credit and loans?",
-      "What habits will help you maintain financial discipline going forward?",
-    ],
-    []
-  );
+  const reflectionPrompts = useMemo(() => gameContent?.reflectionPrompts || [], [gameContent]);
 
   const handleSelect = (option) => {
     if (selectedOption || showResult) return;
+    if (!localizedStages.length) return;
     resetFeedback();
     const updatedHistory = [
       ...history,
-      { stageId: STAGES[stageIndex].id, isCorrect: option.isCorrect },
+      { stageId: localizedStages[stageIndex].id, isCorrect: option.isCorrect },
     ];
     setHistory(updatedHistory);
     setSelectedOption(option.id);
@@ -247,13 +83,17 @@ const BankingReadinessCheckpoint = () => {
     setShowResult(false);
   };
 
-  const subtitle = `Stage ${Math.min(stageIndex + 1, totalStages)} of ${totalStages}`;
-  const stage = STAGES[Math.min(stageIndex, totalStages - 1)];
+  const subtitle = t(`${baseKey}.subtitleProgress`, {
+    current: Math.min(stageIndex + 1, totalStages),
+    total: totalStages,
+    defaultValue: "Stage {{current}} of {{total}}",
+  });
+  const stage = localizedStages[Math.min(stageIndex, totalStages - 1)];
   const hasPassed = finalScore === successThreshold;
 
   return (
     <GameShell
-      title="Banking Readiness Checkpoint"
+      title={gameContent?.title || "Banking Readiness Checkpoint"}
       subtitle={subtitle}
       score={showResult ? finalScore : coins}
       coins={coins}
@@ -279,7 +119,7 @@ const BankingReadinessCheckpoint = () => {
           </div>
           <p className="text-lg text-white/90 mb-6">{stage.prompt}</p>
           <div className="grid grid-cols-2 gap-4">
-            {stage.options.map((option) => {
+            {stage?.options?.map((option) => {
               const isSelected = selectedOption === option.id;
               return (
                 <button
@@ -295,7 +135,7 @@ const BankingReadinessCheckpoint = () => {
                   }`}
                 >
                   <div className="text-sm text-white/70 mb-2">
-                    Choice {option.id.toUpperCase()}
+                    {t(`${baseKey}.choiceLabel`, { id: option.id, defaultValue: "Choice {{id}}" })}
                   </div>
                   <p className="text-white font-semibold">{option.label}</p>
                   
@@ -307,7 +147,7 @@ const BankingReadinessCheckpoint = () => {
         </div>
         {(showResult || showFeedback) && (
           <div className="bg-white/5 border border-white/20 rounded-3xl p-6 shadow-xl max-w-4xl mx-auto space-y-3">
-            <h4 className="text-lg font-semibold text-white">Reflection</h4>
+            <h4 className="text-lg font-semibold text-white">{t(`${baseKey}.reflectionTitle`, { defaultValue: "Reflection" })}</h4>
             {selectedReflection && (
               <div className="max-h-24 overflow-y-auto pr-2">
                 <p className="text-sm text-white/90">{selectedReflection}</p>
@@ -331,7 +171,7 @@ const BankingReadinessCheckpoint = () => {
                     Continue
                   </button>
                 ) : (
-                  <div className="py-2 px-6 text-white font-semibold">Reading...</div>
+                  <div className="py-2 px-6 text-white font-semibold">{t(`${baseKey}.readingLabel`, { defaultValue: "Reading..." })}</div>
                 )}
               </div>
             )}
@@ -349,17 +189,12 @@ const BankingReadinessCheckpoint = () => {
                   ))}
                 </ul>
                 <p className="text-sm text-white/70">
-                  {hasPassed ? (
-                    <>
-                      <strong>Congratulations!</strong> You are now ready to understand credit and loans responsibly.
-                    </>
-                  ) : (
-                    <>Skill unlocked: <strong>Banking readiness</strong></>
-                  )}
+                  {t(`${baseKey}.skillUnlockedLabel`, { defaultValue: "Skill unlocked:" })}{" "}
+                  <strong>{t(`${baseKey}.skillName`, { defaultValue: "Financial decision making" })}</strong>
                 </p>
                 {!hasPassed && (
                   <p className="text-xs text-amber-300">
-                    Answer every stage sharply to earn the full reward.
+                    {t(`${baseKey}.fullRewardHint`, { total: totalStages, defaultValue: "Answer all {{total}} choices correctly to earn the full reward." })}
                   </p>
                 )}
                 {!hasPassed && (

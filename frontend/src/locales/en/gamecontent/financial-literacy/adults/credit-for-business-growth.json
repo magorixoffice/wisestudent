@@ -1,0 +1,176 @@
+{
+  "title": "Credit for Business Growth",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Business Credit",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Business credit management",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you evaluate if business credit is appropriate for your growth plans?",
+    "What financial projections should you prepare before taking business credit?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "When is business borrowing safer?",
+      "options": [
+        {
+          "id": "losses",
+          "label": "To cover losses",
+          "reflection": "Using credit to cover losses can create a dangerous cycle of debt. This approach doesn't address underlying business problems and can lead to insolvency.",
+          "isCorrect": false
+        },
+        {
+          "id": "daily",
+          "label": "For daily operational expenses",
+          "reflection": "Using credit for daily operational expenses without a clear repayment plan can lead to accumulating debt. Planned growth investments are safer.",
+          "isCorrect": false
+        },
+        {
+          "id": "personnel",
+          "label": "To hire additional personnel",
+          "reflection": "While hiring might be part of growth, borrowing should be based on planned growth with clear cash flow projections, not just for staffing.",
+          "isCorrect": false
+        },
+        {
+          "id": "growth",
+          "label": "To support planned growth with cash flow",
+          "reflection": "Exactly! Borrowing is safer when it supports planned growth initiatives and you have a clear cash flow to repay the debt.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 2,
+      "prompt": "What makes business borrowing appropriate?",
+      "options": [
+        {
+          "id": "desperation",
+          "label": "When you're desperate for money",
+          "reflection": "Making borrowing decisions out of desperation often leads to poor financial choices. Borrowing should be planned and strategic.",
+          "isCorrect": false
+        },
+        {
+          "id": "pressure",
+          "label": "When suppliers pressure you to buy now",
+          "reflection": "Making borrowing decisions under pressure from suppliers might not align with your business needs. Planned borrowing is safer.",
+          "isCorrect": false
+        },
+        {
+          "id": "planned",
+          "label": "When it's for planned growth with projected returns",
+          "reflection": "Right! Borrowing is most appropriate when it's part of a planned growth strategy with clear projections for returns and repayment.",
+          "isCorrect": true
+        },
+        {
+          "id": "opportunity",
+          "label": "For any business opportunity that arises",
+          "reflection": "While opportunities are important, not all require borrowing. The safest approach is planned borrowing for growth with clear cash flows.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 3,
+      "prompt": "Why is using credit to cover losses problematic?",
+      "options": [
+        {
+          "id": "temporary",
+          "label": "Losses are always temporary",
+          "reflection": "This is incorrect. Losses can be persistent, and using credit to cover them without addressing underlying issues creates dangerous debt cycles.",
+          "isCorrect": false
+        },
+        {
+          "id": "cycle",
+          "label": "It creates a cycle of debt without addressing root causes",
+          "reflection": "Correct! Using credit to cover losses doesn't solve the underlying business problems and can lead to an unsustainable debt cycle.",
+          "isCorrect": true
+        },
+        {
+          "id": "expensive",
+          "label": "Credit is too expensive",
+          "reflection": "While credit has costs, the main issue with using it to cover losses is that it doesn't address the root cause of the losses, creating a dangerous cycle.",
+          "isCorrect": false
+        },
+        {
+          "id": "available",
+          "label": "Credit is not always available",
+          "reflection": "While credit availability can vary, the main problem with using credit to cover losses is that it doesn't address underlying business issues.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 4,
+      "prompt": "What should you have before taking business credit for growth?",
+      "options": [
+        {
+          "id": "projection",
+          "label": "Clear revenue projections and repayment plan",
+          "reflection": "Exactly! Before taking credit for growth, you need clear revenue projections and a solid repayment plan based on expected returns.",
+          "isCorrect": true
+        },
+        {
+          "id": "confidence",
+          "label": "Just confidence in your business",
+          "reflection": "While confidence is important, taking business credit requires more than just confidence. You need concrete plans and projections.",
+          "isCorrect": false
+        },
+        {
+          "id": "equipment",
+          "label": "Equipment to collateralize the loan",
+          "reflection": "While collateral can help secure credit, the most important factor is having a clear plan for how the credit will generate returns to repay it.",
+          "isCorrect": false
+        },
+        {
+          "id": "partners",
+          "label": "Business partners to share responsibility",
+          "reflection": "Partners can be helpful, but the key is having a clear business plan with revenue projections and repayment strategy.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 5,
+      "prompt": "What is the outcome of using credit appropriately for business growth?",
+      "options": [
+        {
+          "id": "problems",
+          "label": "It hides existing business problems",
+          "reflection": "Actually, using credit appropriately for growth should address problems by expanding the business in a planned way, not hiding issues.",
+          "isCorrect": false
+        },
+        {
+          "id": "debt",
+          "label": "It inevitably leads to more debt",
+          "reflection": "When used appropriately for planned growth with clear repayment sources, credit can be managed effectively without creating problematic debt cycles.",
+          "isCorrect": false
+        },
+        {
+          "id": "risk",
+          "label": "It eliminates all business risks",
+          "reflection": "Credit doesn't eliminate business risks. When used properly, it should support growth initiatives with clear projections and plans.",
+          "isCorrect": false
+        },
+        {
+          "id": "growth",
+          "label": "Credit should support growth, not hide problems",
+          "reflection": "Perfect! Credit is most effective when it supports planned growth initiatives with clear returns, rather than masking underlying business problems.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 5
+    }
+  ]
+}

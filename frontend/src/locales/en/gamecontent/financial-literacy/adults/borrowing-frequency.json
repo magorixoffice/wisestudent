@@ -1,0 +1,176 @@
+{
+  "title": "Borrowing Frequency",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Borrowing Patterns",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Borrowing Frequency Awareness",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you assess your borrowing frequency and its impact on your finances?",
+    "What strategies can help reduce the need for frequent borrowing?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Scenario: Frequent borrowing usually signals: (A) Smart money use or (B) Poor financial planning",
+      "options": [
+        {
+          "id": "a",
+          "label": "Smart money use",
+          "reflection": "Actually, frequent borrowing often indicates poor financial planning rather than smart money use.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "Good investment strategy",
+          "reflection": "While some borrowing can be strategic, frequent borrowing typically indicates financial mismanagement.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "No impact on financial health",
+          "reflection": "Frequent borrowing definitely impacts financial health by increasing debt obligations.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Poor financial planning",
+          "reflection": "Correct! Frequent borrowing often indicates poor financial planning and deeper financial issues.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 2,
+      "prompt": "What does frequent borrowing typically indicate about your financial situation?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Strong financial management",
+          "reflection": "Frequent borrowing usually indicates the opposite of strong financial management.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "Successful investment strategy",
+          "reflection": "While some investments require borrowing, frequent borrowing often indicates mismanagement.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "Poor financial planning and potential deeper issues",
+          "reflection": "Exactly! Frequent borrowing often signals underlying financial management problems.",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "label": "No correlation with financial planning",
+          "reflection": "There's a strong correlation between frequent borrowing and poor financial planning.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 3,
+      "prompt": "How should you approach borrowing frequency for healthy financial habits?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Borrow regularly as part of financial strategy",
+          "reflection": "Regular borrowing is not a healthy financial strategy and indicates poor planning.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "Borrow only occasionally and for genuine needs",
+          "reflection": "Perfect! Occasional borrowing for genuine needs is healthier than frequent borrowing.",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "label": "Borrow as frequently as possible",
+          "reflection": "Frequent borrowing is a sign of poor financial health and planning.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Frequency doesn't matter as long as you repay",
+          "reflection": "Frequency matters greatly as it indicates underlying financial planning issues.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 4,
+      "prompt": "What's the relationship between borrowing frequency and financial stability?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Frequent borrowing reduces financial stability",
+          "reflection": "Yes! Frequent borrowing creates multiple debt obligations that reduce financial stability.",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "label": "Frequent borrowing increases financial stability",
+          "reflection": "Actually, frequent borrowing decreases stability by creating multiple debt obligations.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "No relationship between borrowing frequency and stability",
+          "reflection": "There's a clear negative relationship between frequent borrowing and stability.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Stability only depends on repayment ability",
+          "reflection": "While repayment matters, frequency of borrowing also significantly impacts stability.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 5,
+      "prompt": "What should you do if you find yourself borrowing frequently?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Continue borrowing as it's working fine",
+          "reflection": "Continuing frequent borrowing without addressing the root cause is not advisable.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "Borrow even more to consolidate debts",
+          "reflection": "Borrowing more to consolidate existing debt often creates a worse financial situation.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "Change lenders frequently to avoid detection",
+          "reflection": "Avoiding detection doesn't solve the underlying problem of frequent borrowing.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Assess your financial planning and create a budget",
+          "reflection": "Excellent! Assessing your financial planning and creating a budget can help reduce frequent borrowing.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 3
+    }
+  ]
+}

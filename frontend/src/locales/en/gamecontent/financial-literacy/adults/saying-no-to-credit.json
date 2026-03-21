@@ -1,0 +1,176 @@
+{
+  "title": "Saying No to Credit",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Credit Rejection",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Credit Rejection Strength",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you evaluate whether a loan offer aligns with your financial goals?",
+    "What factors should you consider before accepting a loan offer?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Scenario: Is it okay to reject a loan offer? ",
+      "options": [
+        {
+          "id": "a",
+          "label": "No",
+          "reflection": "Actually, rejecting unnecessary or risky loans is a sign of financial wisdom.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "Only if the interest rate is too high",
+          "reflection": "While interest rate matters, there are other factors like necessity and risk that also matter.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "Yes, if it's unnecessary or risky",
+          "reflection": "Correct! Rejecting loans that are unnecessary or pose financial risk is a sign of financial strength.",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "label": "Always accept if you qualify",
+          "reflection": "Qualifying for a loan doesn't necessarily mean you should accept it.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 2,
+      "prompt": "What does rejecting an unnecessary loan application demonstrate?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Financial weakness",
+          "reflection": "Rejecting unnecessary loans is actually a sign of financial strength, not weakness.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "Financial discipline and strength",
+          "reflection": "Exactly! Rejecting unnecessary loans shows financial discipline and strength.",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "label": "Poor credit management",
+          "reflection": "Rejecting unnecessary loans is a sign of good credit management, not poor.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Lack of financial opportunities",
+          "reflection": "Rejecting unnecessary loans is about exercising discipline, not lack of opportunities.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 3,
+      "prompt": "When might it be appropriate to say no to a loan offer?",
+      "options": [
+        {
+          "id": "a",
+          "label": "When it's not aligned with your financial goals",
+          "reflection": "Yes! Saying no to loans that don't align with your goals is financially prudent.",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "label": "Only if the lender has a bad reputation",
+          "reflection": "While lender reputation matters, the alignment with your goals and needs is more important.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "When the loan amount is too small",
+          "reflection": "The appropriateness of a loan isn't determined by the amount alone.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Never, always accept if offered",
+          "reflection": "Always accepting loans can lead to over-indebtedness and financial problems.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 4,
+      "prompt": "What is the relationship between saying no to credit and financial health?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Saying no to credit harms financial health",
+          "reflection": "Saying no to unnecessary credit actually protects financial health, not harms it.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "Saying no has no impact on financial health",
+          "reflection": "Being selective about credit has a significant positive impact on financial health.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "Saying yes to credit always improves financial health",
+          "reflection": "Accepting credit without consideration can harm financial health.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Saying no to unnecessary credit protects financial health",
+          "reflection": "Perfect! Being selective about credit helps maintain financial stability and health.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 5,
+      "prompt": "What should guide your decision when considering a loan offer?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Your actual need and repayment capacity",
+          "reflection": "Excellent! Deciding based on actual need and ability to repay is financially responsible.",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "label": "How easy it is to get the loan",
+          "reflection": "Ease of getting a loan shouldn't be the primary factor in deciding whether to accept it.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "Peer pressure to take the loan",
+          "reflection": "Decisions about loans should be based on personal financial situation, not peer pressure.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Marketing tactics of the lender",
+          "reflection": "Marketing tactics shouldn't influence your loan decisions - focus on your actual needs.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    }
+  ]
+}

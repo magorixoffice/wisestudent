@@ -1,0 +1,176 @@
+{
+  "title": "Higher Loan, Higher Cost",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Loan Sizing",
+  "sectionHeaderRight": "Cost Analysis",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Loan size optimization",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you calculate the true cost difference between loan sizes before borrowing?",
+    "What strategies help you determine the minimum loan amount needed for your specific situation?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "If you borrow more money:",
+      "options": [
+        {
+          "id": "increases",
+          "label": "Total interest usually increases proportionally",
+          "reflection": "Exactly! Bigger loans mean higher principal amounts, resulting in more total interest paid over the life of the loan.",
+          "isCorrect": true
+        },
+        {
+          "id": "same",
+          "label": "Interest stays the same regardless of loan size",
+          "reflection": "Actually, larger loans typically generate more total interest because you're paying interest on a bigger principal amount over time.",
+          "isCorrect": false
+        },
+        {
+          "id": "decreases",
+          "label": "Interest rates decrease for larger loans",
+          "reflection": "While some large loans may have better rates, the total interest cost still increases because you're borrowing more money overall.",
+          "isCorrect": false
+        },
+        {
+          "id": "negotiable",
+          "label": "Interest depends entirely on negotiation skills",
+          "reflection": "Negotiation can help, but loan size fundamentally affects total interest - larger amounts mean more money subject to interest charges.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 2,
+      "prompt": "Why does borrowing more create higher costs?",
+      "options": [
+        {
+          "id": "complexity",
+          "label": "Larger loans are more administratively complex",
+          "reflection": "Administrative complexity affects processing, but the core reason is mathematical - more principal means more interest accumulates over time.",
+          "isCorrect": false
+        },
+        {
+          "id": "risk",
+          "label": "Lenders perceive bigger loans as higher risk",
+          "reflection": "Risk perception affects interest rates, but even with the same rate, larger principals generate more total interest dollars.",
+          "isCorrect": false
+        },
+        {
+          "id": "duration",
+          "label": "Large loans typically have longer repayment terms",
+          "reflection": "Extended terms are common but not universal. The fundamental issue is that more borrowed money equals more interest regardless of term length.",
+          "isCorrect": false
+        },
+        {
+          "id": "principal",
+          "label": "More principal amount means more interest accumulation",
+          "reflection": "Correct! Interest is calculated on the outstanding principal, so larger loans have more money accruing interest throughout the repayment period.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 3,
+      "prompt": "How does loan size affect monthly payments?",
+      "options": [
+        {
+          "id": "unchanged",
+          "label": "Monthly payments stay the same regardless of loan amount",
+          "reflection": "Monthly payments typically increase with loan size because you're repaying more principal plus the corresponding interest charges.",
+          "isCorrect": false
+        },
+        {
+          "id": "negligible",
+          "label": "The difference is negligible for small loan increases",
+          "reflection": "Even small increases compound over time. Each additional rupee borrowed adds to both immediate payments and total interest costs.",
+          "isCorrect": false
+        },
+        {
+          "id": "proportional",
+          "label": "Payments increase proportionally with borrowed amount",
+          "reflection": "Perfect! Larger loans require higher monthly payments to repay both the increased principal and accumulated interest within the same timeframe.",
+          "isCorrect": true
+        },
+        {
+          "id": "flexible",
+          "label": "You can always adjust payments based on affordability",
+          "reflection": "Payment flexibility varies by lender terms. The mathematical reality is that larger loans require larger payments to maintain the same repayment schedule.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 4,
+      "prompt": "What's the relationship between loan size and total repayment?",
+      "options": [
+        {
+          "id": "linear",
+          "label": "Total repayment increases linearly with loan size",
+          "reflection": "Close! Total repayment typically increases more than linearly because interest compounds on the larger principal amount over time.",
+          "isCorrect": false
+        },
+        {
+          "id": "exponential",
+          "label": "Larger loans create exponentially higher total costs",
+          "reflection": "Exactly! The combination of larger principal and compound interest creates disproportionately higher total repayment amounts for bigger loans.",
+          "isCorrect": true
+        },
+        {
+          "id": "inverse",
+          "label": "Smaller loans actually cost more in total",
+          "reflection": "This is backwards - smaller loans cost less overall. The principle is straightforward: borrow less, pay less in total interest and principal.",
+          "isCorrect": false
+        },
+        {
+          "id": "unrelated",
+          "label": "Loan size and total cost are unrelated factors",
+          "reflection": "These are directly related - loan size is the foundation for calculating all interest charges and determines your total repayment obligation.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 5,
+      "prompt": "What's the golden rule for loan sizing?",
+      "options": [
+        {
+          "id": "minimum",
+          "label": "Borrow only what you truly need and can repay",
+          "reflection": "Perfect! This principle minimizes both your monthly payment burden and total interest costs over the life of the loan.",
+          "isCorrect": true
+        },
+        {
+          "id": "maximum",
+          "label": "Borrow the maximum amount you're approved for",
+          "reflection": "Maximum borrowing creates maximum debt. The wise approach is borrowing only what you actually need and can comfortably repay.",
+          "isCorrect": false
+        },
+        {
+          "id": "future",
+          "label": "Consider future needs when determining loan size",
+          "reflection": "Future planning is important, but borrowing for anticipated needs often leads to unnecessary debt. Stick to current, verified requirements.",
+          "isCorrect": false
+        },
+        {
+          "id": "comparison",
+          "label": "Match what others are borrowing for similar purposes",
+          "reflection": "Others' borrowing decisions don't reflect your financial situation. Base loan amounts on your actual needs and repayment capacity.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    }
+  ]
+}

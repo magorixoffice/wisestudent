@@ -1,0 +1,171 @@
+{
+  "title": "Multiple Emergencies",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Multiple Emergencies",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Multiple Emergency Management",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you identify patterns in your financial emergencies?",
+    "What specific steps will you take to improve your emergency preparedness?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Scenario: Facing repeated emergencies usually means:",
+      "options": [
+        {
+          "id": "preparedness",
+          "label": "Lack of preparedness",
+          "reflection": "Exactly! Repeated emergencies usually indicate lack of preparedness. Good planning, emergency funds, and proper financial management can significantly reduce the frequency and impact of financial shocks.",
+          "isCorrect": true
+        },
+        {
+          "id": "luck",
+          "label": "Bad luck only",
+          "reflection": "While bad luck can contribute to emergencies, repeated emergencies often indicate systemic issues like lack of financial planning or poor preparedness rather than just luck.",
+          "isCorrect": false
+        },
+        {
+          "id": "control",
+          "label": "Things completely outside your control",
+          "reflection": "While some factors are beyond control, financial preparedness and good habits can mitigate many emergencies. Assuming complete lack of control prevents you from taking preventive action.",
+          "isCorrect": false
+        },
+        {
+          "id": "spending",
+          "label": "Spending too much on unnecessary things",
+          "reflection": "While excessive spending can contribute to emergencies, it's not the complete picture. Even those who spend carefully can face emergencies without proper preparedness strategies in place.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "What's the main cause of repeated financial emergencies?",
+      "options": [
+        {
+          "id": "wealth",
+          "label": "Having too much wealth to manage properly",
+          "reflection": "Having too much wealth isn't typically the cause of repeated emergencies. In fact, greater wealth often provides better protection against emergencies when managed properly.",
+          "isCorrect": false
+        },
+        {
+          "id": "nothing",
+          "label": "Doing nothing about financial management",
+          "reflection": "While doing nothing is problematic, it's more accurate to say that lack of proper emergency preparation and planning causes repeated emergencies, even if you're actively managing other aspects of your finances.",
+          "isCorrect": false
+        },
+        {
+          "id": "unprepared",
+          "label": "Insufficient emergency preparation and planning",
+          "reflection": "Perfect! Insufficient emergency preparation and planning is the main cause of repeated financial emergencies. Without proper preparation, you're vulnerable to repeated financial shocks.",
+          "isCorrect": true
+        },
+        {
+          "id": "investment",
+          "label": "Poor investment decisions exclusively",
+          "reflection": "Poor investment decisions can contribute to emergencies, but they're not the main cause of repeated financial emergencies. The broader issue is inadequate preparation for various types of financial shocks.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "How can you break the cycle of repeated emergencies?",
+      "options": [
+        {
+          "id": "ignore",
+          "label": "Ignore financial problems and hope they stop",
+          "reflection": "Ignoring financial problems and hoping they stop doesn't break the cycle. It's a passive approach that allows emergencies to continue without addressing the underlying causes or improving your preparedness.",
+          "isCorrect": false
+        },
+        {
+          "id": "build",
+          "label": "Build comprehensive emergency preparedness",
+          "reflection": "Excellent! Building comprehensive emergency preparedness, including adequate savings, insurance, and financial plans, helps break the cycle of repeated emergencies by providing resources and strategies for handling crises.",
+          "isCorrect": true
+        },
+        {
+          "id": "blame",
+          "label": "Blame external circumstances entirely",
+          "reflection": "While external circumstances can contribute, completely blaming them prevents you from taking control and improving your financial resilience. Personal preparation and planning play crucial roles in preventing repeated emergencies.",
+          "isCorrect": false
+        },
+        {
+          "id": "debt",
+          "label": "Take on more debt to solve current problems",
+          "reflection": "Taking on more debt to solve current problems often creates more financial stress and can lead to even more emergencies. It's a temporary solution that can worsen your long-term financial situation.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "What's a warning sign of poor emergency preparedness?",
+      "options": [
+        {
+          "id": "plan",
+          "label": "Having a written emergency financial plan",
+          "reflection": "Having a written emergency financial plan is actually a sign of good preparation, not poor preparedness. It shows you're actively planning for potential financial challenges.",
+          "isCorrect": false
+        },
+        {
+          "id": "fund",
+          "label": "Maintaining adequate emergency fund balances",
+          "reflection": "Maintaining adequate emergency fund balances is a positive indicator of good financial management, not a warning sign. It demonstrates that you're prepared for financial emergencies.",
+          "isCorrect": false
+        },
+        {
+          "id": "insurance",
+          "label": "Having appropriate insurance coverage",
+          "reflection": "Having appropriate insurance coverage is a sign of good financial planning, not poor emergency preparedness. Insurance is a key component of comprehensive emergency preparation.",
+          "isCorrect": false
+        },
+        {
+          "id": "repeat",
+          "label": "Frequently facing the same type of financial crisis",
+          "reflection": "Exactly! Frequently facing the same type of financial crisis is a clear warning sign of poor emergency preparedness. It indicates that you haven't learned from past experiences or implemented adequate preventive measures.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "What's the long-term benefit of proper emergency preparation?",
+      "options": [
+        {
+          "id": "reduce",
+          "label": "Reduced frequency and impact of financial emergencies",
+          "reflection": "Exactly! Proper emergency preparation reduces both the frequency and impact of financial emergencies by providing resources, strategies, and resilience to handle unexpected financial challenges effectively.",
+          "isCorrect": true
+        },
+        {
+          "id": "spending",
+          "label": "Ability to spend more freely on non-essentials",
+          "reflection": "Proper emergency preparation is about security and stability, not enabling more spending on non-essentials. Its value is in protection and peace of mind, not increased consumption.",
+          "isCorrect": false
+        },
+        {
+          "id": "risk",
+          "label": "Increased willingness to take financial risks",
+          "reflection": "Good emergency preparation actually reduces the need to take financial risks by providing a safety net. It gives you confidence to make decisions without the pressure of immediate financial crisis.",
+          "isCorrect": false
+        },
+        {
+          "id": "avoid",
+          "label": "Ability to completely avoid all financial problems",
+          "reflection": "While proper emergency preparation significantly reduces financial stress, it doesn't eliminate all financial problems. Some emergencies are unavoidable, but preparation helps you handle them better.",
+          "isCorrect": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "title": "Loan Restructuring Awareness",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Financial Hardship",
+  "sectionHeaderRight": "Restructuring Solutions",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Financial hardship management",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you prepare documentation to support your restructuring request?",
+    "What are the key points to communicate when discussing financial hardship with lenders?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "If income drops suddenly, what should you do?",
+      "options": [
+        {
+          "id": "ignore",
+          "label": "Ignore EMIs and hope for improvement",
+          "reflection": "Actually, ignoring payment obligations leads to missed payments, penalties, credit damage, and potential legal action. Proactive communication with lenders is essential for finding viable solutions.",
+          "isCorrect": false
+        },
+        {
+          "id": "communicate",
+          "label": "Talk to lender early for restructuring options",
+          "reflection": "Exactly! Early communication prevents defaults and opens doors to payment holidays, reduced EMIs, extended tenures, or other restructuring options that protect your financial situation.",
+          "isCorrect": true
+        },
+        {
+          "id": "delay",
+          "label": "Delay payments until income stabilizes naturally",
+          "reflection": "Unilateral payment delays without lender agreement create missed payment reporting, penalties, and credit damage. Formal restructuring requires proactive communication and documented arrangements.",
+          "isCorrect": false
+        },
+        {
+          "id": "borrow",
+          "label": "Take another loan to cover existing EMIs",
+          "reflection": "Taking on additional debt to pay existing obligations creates a dangerous debt cycle. The solution is communicating with current lenders for structured relief rather than adding more financial burden.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 2,
+      "prompt": "What lenders typically offer during income disruption?",
+      "options": [
+        {
+          "id": "options",
+          "label": "Payment holidays, reduced EMIs, or tenure extensions",
+          "reflection": "Correct! Most lenders have restructuring programs including payment moratoriums, EMI reductions, tenure extensions, or temporary interest-only payments to help borrowers during genuine financial hardship.",
+          "isCorrect": true
+        },
+        {
+          "id": "nothing",
+          "label": "Nothing - contracts must be honored regardless of circumstances",
+          "reflection": "While contracts are important, most responsible lenders offer restructuring options for temporary hardships. Regulatory frameworks and business practices encourage working with customers facing genuine difficulties.",
+          "isCorrect": false
+        },
+        {
+          "id": "penalties",
+          "label": "Additional penalties and higher interest rates",
+          "reflection": "Adding penalties during hardship would worsen the situation. Reputable lenders focus on sustainable solutions that help borrowers recover rather than imposing additional financial burdens during difficulties.",
+          "isCorrect": false
+        },
+        {
+          "id": "forgiveness",
+          "label": "Complete loan forgiveness for temporary setbacks",
+          "reflection": "While some assistance programs exist, complete forgiveness is rare and typically reserved for extreme circumstances. More commonly, lenders offer temporary relief measures that maintain the loan structure while providing breathing room.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 3,
+      "prompt": "When should you approach lenders for restructuring?",
+      "options": [
+        {
+          "id": "missed",
+          "label": "After missing several payments to prove hardship",
+          "reflection": "Waiting until after missed payments creates credit damage and limits available options. Proactive communication before defaults occur typically yields better restructuring terms and preserves your credit standing.",
+          "isCorrect": false
+        },
+        {
+          "id": "desperate",
+          "label": "Only when facing desperate financial circumstances",
+          "reflection": "Waiting for desperation limits your negotiating position. Early intervention with documented financial challenges typically results in more favorable restructuring terms and preserves lender relationships.",
+          "isCorrect": false
+        },
+        {
+          "id": "early",
+          "label": "As soon as you anticipate payment difficulties",
+          "reflection": "Perfect! Early communication gives lenders time to process applications and implement solutions before missed payments occur, protecting your credit record and demonstrating financial responsibility.",
+          "isCorrect": true
+        },
+        {
+          "id": "legal",
+          "label": "When legal notices arrive from the lender",
+          "reflection": "Legal action represents the final stage of delinquency resolution. Early restructuring discussions should happen well before formal notices to maintain control over the solution and avoid legal complications.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 4,
+      "prompt": "What documentation should you prepare for loan restructuring?",
+      "options": [
+        {
+          "id": "nothing",
+          "label": "Just explain verbally without any documentation",
+          "reflection": "Verbal explanations alone aren't sufficient for formal restructuring. Lenders need documented financial information to assess your situation objectively and comply with regulatory requirements for hardship programs.",
+          "isCorrect": false
+        },
+        {
+          "id": "proof",
+          "label": "Income proof, expense details, and hardship documentation",
+          "reflection": "Exactly! Lenders require documented evidence of financial hardship including salary slips, bank statements, expense breakdowns, and proof of circumstances affecting your income to evaluate restructuring eligibility.",
+          "isCorrect": true
+        },
+        {
+          "id": "future",
+          "label": "Proof of future income recovery projections",
+          "reflection": "While future projections help, lenders primarily focus on current financial reality and documented hardship. Concrete evidence of present circumstances is more important than optimistic future predictions for restructuring approval.",
+          "isCorrect": false
+        },
+        {
+          "id": "personal",
+          "label": "Personal letters explaining your difficult situation",
+          "reflection": "Personal explanations are helpful but insufficient alone. Formal restructuring requires standardized documentation that lenders can evaluate systematically according to their policies and regulatory guidelines.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 5,
+      "prompt": "What's the golden rule for loan restructuring?",
+      "options": [
+        {
+          "id": "wait",
+          "label": "Wait to see if the financial situation improves on its own",
+          "reflection": "Waiting without communication risks missed payments, credit damage, and limited restructuring options. The key is taking control through early dialogue rather than hoping problems resolve themselves.",
+          "isCorrect": false
+        },
+        {
+          "id": "multiple",
+          "label": "Approach multiple lenders simultaneously for better deals",
+          "reflection": "Simultaneous approaches can create conflicts and appear desperate. Focus on transparent communication with your current lenders who already understand your financial history and are best positioned to help.",
+          "isCorrect": false
+        },
+        {
+          "id": "avoid",
+          "label": "Avoid discussing financial difficulties to prevent embarrassment",
+          "reflection": "Avoiding communication creates bigger problems than temporary embarrassment. Professional lenders routinely handle hardship cases, and honest dialogue is the path to sustainable financial solutions.",
+          "isCorrect": false
+        },
+        {
+          "id": "proactive",
+          "label": "Communicate proactively before missing any payments",
+          "reflection": "Perfect! Proactive communication demonstrates financial responsibility and gives you maximum options for favorable restructuring terms while protecting your credit history from negative reporting.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 10
+    }
+  ]
+}

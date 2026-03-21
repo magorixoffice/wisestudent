@@ -1,177 +1,22 @@
 import React, { useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { Trophy } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getGameDataById } from "../../../../utils/getGameData";
 
-const STAGES = [
-  {
-    id: 1,
-    prompt: "You receive income regularly. Where is it safest to keep?",
-    options: [
-      {
-        id: "home",
-        label: "At home in a safe place",
-        reflection: "Keeping money at home is risky as it can be stolen, lost, or damaged without any protection.",
-        isCorrect: false,
-      },
-      
-      {
-        id: "wallet",
-        label: "In your wallet or purse",
-        reflection: "Carrying large amounts of cash is risky and impractical for regular income deposits.",
-        isCorrect: false,
-      },
-      {
-        id: "friend",
-        label: "With a trusted friend or family member",
-        reflection: "Relying on others to hold your money creates potential relationship issues and lacks proper protection.",
-        isCorrect: false,
-      },
-      {
-        id: "bank",
-        label: "In a bank account",
-        reflection: "Exactly! Bank accounts provide security, insurance, and protection for your money.",
-        isCorrect: true,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 2,
-    prompt: "What is a key advantage of having a bank account?",
-    options: [
-      {
-        id: "interest",
-        label: "Earn interest on your deposits",
-        reflection: "Yes, banks typically pay interest on deposits, helping your money grow over time.",
-        isCorrect: true,
-      },
-      {
-        id: "access",
-        label: "Easy access to ATMs only",
-        reflection: "While ATMs provide convenient access, bank accounts offer many more advantages beyond just ATM access.",
-        isCorrect: false,
-      },
-      {
-        id: "gifts",
-        label: "Receive free gifts from banks",
-        reflection: "While banks sometimes offer promotions, the primary benefit is secure money management, not gifts.",
-        isCorrect: false,
-      },
-      {
-        id: "prestige",
-        label: "Show prestige to others",
-        reflection: "The primary benefit of a bank account is practical financial security, not social status.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 3,
-    prompt: "How do bank accounts help with budgeting?",
-    options: [
-      {
-        id: "spend",
-        label: "They encourage spending more",
-        reflection: "Bank accounts are designed to help manage money, not necessarily encourage spending.",
-        isCorrect: false,
-      },
-      
-      {
-        id: "save",
-        label: "They automatically save money for you",
-        reflection: "While banks offer savings tools, they don't automatically save money without your instruction.",
-        isCorrect: false,
-      },
-      {
-        id: "track",
-        label: "They provide records of deposits and withdrawals",
-        reflection: "Exactly! Bank statements help you track your spending and monitor your financial habits.",
-        isCorrect: true,
-      },
-      {
-        id: "hide",
-        label: "They hide your money from taxes",
-        reflection: "Bank accounts create transparency with financial records, not tax evasion.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 4,
-    prompt: "What happens if your physical cash is stolen?",
-    options: [
-      {
-        id: "recover",
-        label: "You can easily recover the money",
-        reflection: "Unfortunately, stolen cash is typically unrecoverable since there's no record of who had it.",
-        isCorrect: false,
-      },
-      {
-        id: "bank",
-        label: "You lose it permanently with no recourse",
-        reflection: "Exactly! Cash has no recovery mechanism if lost or stolen, unlike money in insured bank accounts.",
-        isCorrect: true,
-      },
-      {
-        id: "insure",
-        label: "Your homeowner's insurance covers it",
-        reflection: "Most homeowner's insurance has very limited coverage for cash, and theft must often be proven.",
-        isCorrect: false,
-      },
-      
-      {
-        id: "police",
-        label: "Police will always find the thief",
-        reflection: "Police efforts may not always result in recovering stolen cash.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 5,
-    prompt: "Which service is available only through formal banking?",
-    options: [
-      {
-        id: "savings",
-        label: "Simple savings",
-        reflection: "Basic saving can be done without a bank, though banks offer better protection and interest.",
-        isCorrect: false,
-      },
-      {
-        id: "loans",
-        label: "Access to loans and credit facilities",
-        reflection: "Exactly! Formal banking relationships enable access to loans, credit cards, and other financial services.",
-        isCorrect: true,
-      },
-      {
-        id: "exchange",
-        label: "Currency exchange",
-        reflection: "Currency exchange can be done through various channels, not exclusively through banks.",
-        isCorrect: false,
-      },
-      {
-        id: "transfer",
-        label: "Sending money to others",
-        reflection: "Money transfers can be done through various services, not exclusively through banks.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-];
-
-const totalStages = STAGES.length;
-const successThreshold = totalStages;
-
 const WhyABankAccountMatters = () => {
   const location = useLocation();
+  const { t } = useTranslation("gamecontent");
   const gameId = "finance-adults-11";
+  const baseKey = "financial-literacy.adults.why-a-bank-account-matters";
+  const gameContent = t(baseKey, { returnObjects: true });
+  const localizedStages = Array.isArray(gameContent?.stages)
+    ? gameContent.stages
+    : [];
+  const totalStages = localizedStages.length;
+  const successThreshold = totalStages;
+  if (!localizedStages.length) return null;
   const gameData = getGameDataById(gameId);
   const coinsPerLevel = gameData?.coins || location.state?.coinsPerLevel || 5;
   const totalCoins = gameData?.coins || location.state?.totalCoins || 5;
@@ -190,19 +35,17 @@ const WhyABankAccountMatters = () => {
   const [canProceed, setCanProceed] = useState(false);
 
   const reflectionPrompts = useMemo(
-    () => [
-      "How do bank accounts protect money from theft or loss?",
-      "What formal financial services become accessible through banking?",
-    ],
-    []
+    () => gameContent?.reflectionPrompts || [],
+    [gameContent]
   );
 
   const handleSelect = (option) => {
     if (selectedOption || showResult) return;
+    if (!localizedStages.length) return;
     resetFeedback();
     const updatedHistory = [
       ...history,
-      { stageId: STAGES[stageIndex].id, isCorrect: option.isCorrect },
+      { stageId: localizedStages[stageIndex].id, isCorrect: option.isCorrect },
     ];
     setHistory(updatedHistory);
     setSelectedOption(option.id);
@@ -243,15 +86,22 @@ const WhyABankAccountMatters = () => {
     setHistory([]);
     setFinalScore(0);
     setShowResult(false);
+    setShowFeedback(false);
+    setSelectedReflection(null);
+    setCanProceed(false);
   };
 
-  const subtitle = `Stage ${Math.min(stageIndex + 1, totalStages)} of ${totalStages}`;
-  const stage = STAGES[Math.min(stageIndex, totalStages - 1)];
+  const subtitle = t(`${baseKey}.subtitleProgress`, {
+    current: Math.min(stageIndex + 1, totalStages),
+    total: totalStages,
+    defaultValue: "Stage {{current}} of {{total}}",
+  });
+  const stage = localizedStages[Math.min(stageIndex, totalStages - 1)];
   const hasPassed = finalScore === successThreshold;
 
   return (
     <GameShell
-      title="Why a Bank Account Matters"
+      title={gameContent?.title || "Why a Bank Account Matters"}
       subtitle={subtitle}
       score={showResult ? finalScore : coins}
       coins={coins}
@@ -272,16 +122,27 @@ const WhyABankAccountMatters = () => {
       <div className="space-y-5 text-white">
         <div className="bg-white/10 border border-white/20 rounded-3xl p-8 shadow-2xl max-w-4xl mx-auto">
           <div className="flex justify-between items-center mb-4 text-sm uppercase tracking-[0.3em] text-white/60">
-            <span>Scenario</span>
-            <span>Banking Security</span>
+            <span>
+              {t(`${baseKey}.scenarioLabel`, {
+                defaultValue: t(`${baseKey}.sectionHeaderLeft`, { defaultValue: "Scenario" }),
+              })}
+            </span>
+            <span>
+              {t(`${baseKey}.scenarioValue`, {
+                defaultValue: t(`${baseKey}.sectionHeaderRight`, {
+                  defaultValue: "Banking Security",
+                }),
+              })}
+            </span>
           </div>
           <p className="text-lg text-white/90 mb-6">{stage.prompt}</p>
           <div className="grid grid-cols-2 gap-4">
-            {stage.options.map((option) => {
+            {stage?.options?.map((option) => {
               const isSelected = selectedOption === option.id;
               return (
                 <button
                   key={option.id}
+                  type="button"
                   onClick={() => handleSelect(option)}
                   disabled={!!selectedOption}
                   className={`rounded-2xl border-2 p-5 text-left transition ${
@@ -293,7 +154,10 @@ const WhyABankAccountMatters = () => {
                   }`}
                 >
                   <div className="text-sm text-white/70 mb-2">
-                    Choice {option.id.toUpperCase()}
+                    {t(`${baseKey}.choiceLabel`, {
+                      id: option.id,
+                      defaultValue: "Choice {{id}}",
+                    })}
                   </div>
                   <p className="text-white font-semibold">{option.label}</p>
                   
@@ -305,7 +169,9 @@ const WhyABankAccountMatters = () => {
         </div>
         {(showResult || showFeedback) && (
           <div className="bg-white/5 border border-white/20 rounded-3xl p-6 shadow-xl max-w-4xl mx-auto space-y-3">
-            <h4 className="text-lg font-semibold text-white">Reflection</h4>
+            <h4 className="text-lg font-semibold text-white">
+              {t(`${baseKey}.reflectionTitle`, { defaultValue: "Reflection" })}
+            </h4>
             {selectedReflection && (
               <div className="max-h-24 overflow-y-auto pr-2">
                 <p className="text-sm text-white/90">{selectedReflection}</p>
@@ -315,6 +181,7 @@ const WhyABankAccountMatters = () => {
               <div className="mt-4 flex justify-center">
                 {canProceed ? (
                   <button
+                    type="button"
                     onClick={() => {
                       if (stageIndex < totalStages - 1) {
                         setStageIndex((prev) => prev + 1);
@@ -326,10 +193,12 @@ const WhyABankAccountMatters = () => {
                     }}
                     className="rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 px-6 font-semibold shadow-lg hover:opacity-90"
                   >
-                    Continue
+                    {t(`${baseKey}.continueButton`, { defaultValue: "Continue" })}
                   </button>
                 ) : (
-                  <div className="py-2 px-6 text-white font-semibold">Reading...</div>
+                  <div className="py-2 px-6 text-white font-semibold">
+                    {t(`${baseKey}.readingLabel`, { defaultValue: "Reading..." })}
+                  </div>
                 )}
               </div>
             )}
@@ -347,25 +216,25 @@ const WhyABankAccountMatters = () => {
                   ))}
                 </ul>
                 <p className="text-sm text-white/70">
-                  {hasPassed ? (
-                    <>
-                      <strong>Congratulations!</strong> Bank accounts protect money and enable access to formal services.
-                    </>
-                  ) : (
-                    <>Skill unlocked: <strong>Understanding of banking security</strong></>
-                  )}
+                  {t(`${baseKey}.skillUnlockedLabel`, { defaultValue: "Skill unlocked:" })}{" "}
+                  <strong>{t(`${baseKey}.skillName`, { defaultValue: "Financial decision making" })}</strong>
                 </p>
                 {!hasPassed && (
                   <p className="text-xs text-amber-300">
-                    Answer every stage sharply to earn the full reward.
+                    {t(`${baseKey}.fullRewardHint`, {
+                      total: totalStages,
+                      defaultValue:
+                        "Answer all {{total}} choices correctly to earn the full reward.",
+                    })}
                   </p>
                 )}
                 {!hasPassed && (
                   <button
+                    type="button"
                     onClick={handleRetry}
                     className="w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 font-semibold shadow-lg hover:opacity-90"
                   >
-                    Try Again
+                    {t(`${baseKey}.tryAgainButton`, { defaultValue: "Try Again" })}
                   </button>
                 )}
               </>

@@ -1,0 +1,176 @@
+{
+  "title": "Financial Discipline Checkpoint",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "scenarioLabel": "Scenario",
+  "scenarioValue": "Financial Literacy",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Basic financial discipline",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How do these financial decisions demonstrate discipline?",
+    "What habits will help you maintain financial discipline going forward?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "When you receive your salary, what should you do first?",
+      "options": [
+        {
+          "id": "spend",
+          "label": "Spend freely on wants and desires",
+          "reflection": "Spending freely without planning often leads to running out of money before month-end.",
+          "isCorrect": false
+        },
+        {
+          "id": "invest",
+          "label": "Immediately invest all available funds",
+          "reflection": "While investing is important, you need to plan for expenses first before investing.",
+          "isCorrect": false
+        },
+        {
+          "id": "debt",
+          "label": "Pay off all debts before anything else",
+          "reflection": "Paying debts is important, but first you need to plan for essential expenses and savings.",
+          "isCorrect": false
+        },
+        {
+          "id": "plan",
+          "label": "Plan expenses and set aside savings",
+          "reflection": "Exactly! Planning first and setting aside savings prevents overspending and builds financial discipline.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 2,
+      "prompt": "Your expenses have increased slightly this month. What is the safest first step?",
+      "options": [
+        {
+          "id": "loan",
+          "label": "Take a loan to cover the gap",
+          "reflection": "Taking a loan for small expense increases creates unnecessary debt and interest payments.",
+          "isCorrect": false
+        },
+        {
+          "id": "adjust",
+          "label": "Reduce or adjust spending to match income",
+          "reflection": "Exactly! Adjusting spending to match income is the safest first step to maintain financial discipline.",
+          "isCorrect": true
+        },
+        {
+          "id": "borrow",
+          "label": "Borrow from friends or family",
+          "reflection": "Even informal borrowing should not be the first response to small expense increases.",
+          "isCorrect": false
+        },
+        {
+          "id": "credit",
+          "label": "Use credit card for the additional expenses",
+          "reflection": "Using credit cards for ongoing expenses can lead to accumulating high-interest debt.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 3,
+      "prompt": "Which habit helps most with financial discipline?",
+      "options": [
+        {
+          "id": "ignore",
+          "label": "Ignoring expenses",
+          "reflection": "Ignoring expenses makes it impossible to understand where your money goes or identify spending patterns.",
+          "isCorrect": false
+        },
+        {
+          "id": "estimate",
+          "label": "Estimating expenses at the end of the month",
+          "reflection": "Estimating at the end of the month is imprecise and often misses small but significant expenses that add up.",
+          "isCorrect": false
+        },
+        {
+          "id": "track",
+          "label": "Tracking daily spending",
+          "reflection": "Exactly! Tracking spending reveals hidden money leaks and helps develop financial discipline.",
+          "isCorrect": true
+        },
+        {
+          "id": "review",
+          "label": "Reviewing bank statements occasionally",
+          "reflection": "While reviewing bank statements is helpful, daily tracking gives more detailed insight into spending patterns.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 4,
+      "prompt": "You have a small emergency. Which option is safer?",
+      "options": [
+        {
+          "id": "savings",
+          "label": "Use savings if available",
+          "reflection": "Exactly! Using savings for emergencies is safer as it avoids debt and demonstrates financial discipline.",
+          "isCorrect": true
+        },
+        {
+          "id": "borrow",
+          "label": "Borrow immediately",
+          "reflection": "Borrowing immediately for small emergencies can create unnecessary debt and interest payments.",
+          "isCorrect": false
+        },
+        {
+          "id": "credit",
+          "label": "Use credit card for the emergency",
+          "reflection": "Using credit for emergencies creates debt and potentially high interest charges if not paid immediately.",
+          "isCorrect": false
+        },
+        {
+          "id": "friends",
+          "label": "Borrow from friends or family",
+          "reflection": "Even informal borrowing should be avoided when savings are available as it can strain relationships.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 5,
+      "prompt": "Your income is fixed. Which action keeps you financially disciplined?",
+      "options": [
+        {
+          "id": "increase",
+          "label": "Increase spending to match feelings",
+          "reflection": "Increasing spending beyond fixed income creates a gap that often leads to debt or financial stress.",
+          "isCorrect": false
+        },
+        {
+          "id": "balance",
+          "label": "Balance expenses within income",
+          "reflection": "Exactly! Balancing expenses within your fixed income maintains financial discipline and prevents debt cycles.",
+          "isCorrect": true
+        },
+        {
+          "id": "borrow",
+          "label": "Borrow to maintain desired lifestyle",
+          "reflection": "Borrowing to maintain lifestyle beyond your income creates debt cycles that become increasingly difficult to escape.",
+          "isCorrect": false
+        },
+        {
+          "id": "save",
+          "label": "Save all excess income immediately",
+          "reflection": "While saving is important, it's more about balancing expenses within income rather than saving all excess immediately.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    }
+  ]
+}

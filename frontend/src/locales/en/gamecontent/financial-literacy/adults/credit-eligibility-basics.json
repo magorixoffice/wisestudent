@@ -1,0 +1,176 @@
+{
+  "title": "Credit Eligibility Basics",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "scenarioLabel": "Scenario",
+  "scenarioValue": "Credit Eligibility",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Credit eligibility fundamentals",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you build a strong repayment history over time?",
+    "What daily financial habits support long-term credit eligibility?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "What improves loan eligibility?",
+      "options": [
+        {
+          "id": "many",
+          "label": "Borrowing from many sources",
+          "reflection": "Borrowing from multiple sources often indicates financial stress and can hurt your credit eligibility.",
+          "isCorrect": false
+        },
+        {
+          "id": "regular",
+          "label": "Regular income and repayment history",
+          "reflection": "Exactly! Steady income and good repayment history demonstrate financial reliability to lenders.",
+          "isCorrect": true
+        },
+        {
+          "id": "assets",
+          "label": "Owning expensive assets only",
+          "reflection": "While assets help, lenders focus more on income stability and repayment behavior for eligibility.",
+          "isCorrect": false
+        },
+        {
+          "id": "connections",
+          "label": "Having influential connections",
+          "reflection": "Formal lending relies on documented financial behavior rather than personal connections.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 2,
+      "prompt": "Why does repayment history matter for eligibility?",
+      "options": [
+        {
+          "id": "trust",
+          "label": "It builds lender trust in your reliability",
+          "reflection": "Exactly! Consistent repayment history shows lenders you're likely to repay new loans responsibly.",
+          "isCorrect": true
+        },
+        {
+          "id": "speed",
+          "label": "It makes loan processing faster",
+          "reflection": "While good history may help with processing, the primary benefit is demonstrating repayment capability.",
+          "isCorrect": false
+        },
+        {
+          "id": "amount",
+          "label": "It increases the loan amount automatically",
+          "reflection": "Repayment history helps with eligibility and terms, but loan amounts depend on multiple factors.",
+          "isCorrect": false
+        },
+        {
+          "id": "fees",
+          "label": "It reduces all loan processing fees",
+          "reflection": "Good repayment history may help with terms, but fee structures vary by lender and loan type.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 3,
+      "prompt": "How does regular income affect loan eligibility?",
+      "options": [
+        {
+          "id": "stability",
+          "label": "It demonstrates ability to make consistent payments",
+          "reflection": "Exactly! Regular income shows lenders you have ongoing means to meet repayment obligations.",
+          "isCorrect": true
+        },
+        {
+          "id": "luxury",
+          "label": "It allows borrowing for luxury purchases",
+          "reflection": "Income stability is about repayment capacity, not spending categories or purchase types.",
+          "isCorrect": false
+        },
+        {
+          "id": "freedom",
+          "label": "It eliminates need for collateral",
+          "reflection": "Regular income helps eligibility but doesn't necessarily eliminate collateral requirements for all loans.",
+          "isCorrect": false
+        },
+        {
+          "id": "approval",
+          "label": "It guarantees automatic loan approval",
+          "reflection": "Regular income improves chances but lenders consider multiple factors including credit history and debt levels.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 4,
+      "prompt": "What hurts credit eligibility the most?",
+      "options": [
+        {
+          "id": "inquiry",
+          "label": "Checking your own credit report",
+          "reflection": "Self-checks are soft inquiries that don't affect your credit score or eligibility.",
+          "isCorrect": false
+        },
+        {
+          "id": "cards",
+          "label": "Having multiple credit cards",
+          "reflection": "Number of cards matters less than how responsibly you use and repay credit.",
+          "isCorrect": false
+        },
+        {
+          "id": "balance",
+          "label": "Maintaining low account balances",
+          "reflection": "Low balances actually help credit utilization ratios and support eligibility rather than hurt it.",
+          "isCorrect": false
+        },
+        {
+          "id": "late",
+          "label": "Late or missed payments",
+          "reflection": "Exactly! Payment history is typically the most important factor in credit eligibility decisions.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 5,
+      "prompt": "How does financial discipline improve credit access?",
+      "options": [
+        {
+          "id": "spending",
+          "label": "It allows spending on anything desired",
+          "reflection": "Financial discipline is about responsible management, not unrestricted spending freedom.",
+          "isCorrect": false
+        },
+        {
+          "id": "debt",
+          "label": "It eliminates all existing debts immediately",
+          "reflection": "Discipline helps manage debt responsibly but doesn't magically eliminate existing obligations.",
+          "isCorrect": false
+        },
+        {
+          "id": "behavior",
+          "label": "It creates positive borrowing behavior patterns",
+          "reflection": "Exactly! Discipline in managing finances builds the track record that lenders look for in eligibility decisions.",
+          "isCorrect": true
+        },
+        {
+          "id": "lenders",
+          "label": "It forces lenders to compete for your business",
+          "reflection": "Discipline improves your profile but doesn't guarantee competitive bidding from lenders.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    }
+  ]
+}

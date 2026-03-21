@@ -1,0 +1,171 @@
+{
+  "title": "Emergency Preparedness Checkpoint",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Emergency Preparedness",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Emergency Preparedness Mastery",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you build a comprehensive emergency preparedness plan?",
+    "What specific scenarios should you prepare for based on your life situation?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Scenario: You discover a major leak in your apartment that needs immediate repair, estimated at $1,500.",
+      "options": [
+        {
+          "id": "panic",
+          "label": "Panic and immediately take out a high-interest loan",
+          "reflection": "Panic borrowing for home repairs creates unnecessary debt. It's better to assess your emergency fund, insurance coverage, and payment plan options before making any financial decisions.",
+          "isCorrect": false
+        },
+        {
+          "id": "ignore",
+          "label": "Ignore it hoping it will resolve itself",
+          "reflection": "Ignoring home repair needs can lead to much larger problems and costs down the line. Even small leaks can cause significant damage if not addressed promptly.",
+          "isCorrect": false
+        },
+        {
+          "id": "spend",
+          "label": "Spend on temporary fixes to delay the real problem",
+          "reflection": "Temporary fixes often waste money while delaying proper repairs. It's better to address the root cause systematically with proper financial planning.",
+          "isCorrect": false
+        },
+        {
+          "id": "assess",
+          "label": "Assess emergency fund, check insurance, and create a payment plan",
+          "reflection": "Exactly! Assessing your resources first, checking insurance coverage, and creating a realistic payment plan shows good emergency preparedness and prevents unnecessary debt.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Scenario: You lose your job unexpectedly and have two weeks of income replacement before unemployment benefits begin.",
+      "options": [
+        {
+          "id": "lifestyle",
+          "label": "Maintain your current lifestyle and emergency fund spending",
+          "reflection": "Maintaining your current lifestyle during job loss quickly depletes emergency funds. It's essential to adjust spending to match your reduced income period.",
+          "isCorrect": false
+        },
+        {
+          "id": "debt",
+          "label": "Take on new credit cards to maintain lifestyle temporarily",
+          "reflection": "Taking on new credit card debt during job loss creates additional financial obligations right when you can least afford them. This approach increases financial stress significantly.",
+          "isCorrect": false
+        },
+        {
+          "id": "budget",
+          "label": "Review and reduce essential expenses to extend emergency fund coverage",
+          "reflection": "Perfect! Reviewing and adjusting essential expenses to make your emergency fund last longer is smart financial management during temporary income loss.",
+          "isCorrect": true
+        },
+        {
+          "id": "desperate",
+          "label": "Take any job immediately regardless of pay or fit",
+          "reflection": "While employment is important, taking any job immediately might not be the best long-term strategy. It's worth balancing immediate needs with reasonable career considerations.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Scenario: Unexpected major medical expense of $3,000 that your insurance partially covers ($1,500 out of pocket).",
+      "options": [
+        {
+          "id": "immediate",
+          "label": "Put the full amount on a credit card to pay immediately",
+          "reflection": "Putting a large medical expense immediately on credit card creates unnecessary debt. Even with insurance coverage, it's better to use available savings and budget for the remaining costs.",
+          "isCorrect": false
+        },
+        {
+          "id": "planned",
+          "label": "Use dedicated medical savings first, then emergency fund if needed",
+          "reflection": "Excellent! Using dedicated medical savings first and then the emergency fund is the planned approach that minimizes the need for credit while properly allocating your prepared resources.",
+          "isCorrect": true
+        },
+        {
+          "id": "payment",
+          "label": "Set up a payment plan with the medical provider",
+          "reflection": "Setting up a payment plan with the medical provider is actually a good strategy that avoids debt while ensuring you get proper care. Many providers offer interest-free payment options.",
+          "isCorrect": false
+        },
+        {
+          "id": "postpone",
+          "label": "Postpone non-emergency treatment to avoid immediate costs",
+          "reflection": "Postponing necessary medical treatment can lead to worse health outcomes and higher costs later. It's better to use prepared funds or arrange payments for required medical care.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Scenario: Car breaks down requiring $2,000 repair that affects your ability to work and commute.",
+      "options": [
+        {
+          "id": "evaluate",
+          "label": "Evaluate cost vs. replacement value and use transportation budget",
+          "reflection": "Perfect! Evaluating the repair cost versus car replacement value and using your designated transportation budget shows good financial judgment and proper emergency planning.",
+          "isCorrect": true
+        },
+        {
+          "id": "loan",
+          "label": "Immediately finance a new car or take out auto repair loan",
+          "reflection": "Immediately financing a new car or taking an auto repair loan can lead to multiple large payments during an emergency. It's better to assess your budget and make a well-informed decision.",
+          "isCorrect": false
+        },
+        {
+          "id": "scrap",
+          "label": "Scrap the car immediately and find alternative transport",
+          "reflection": "Scrapping the car immediately without considering the repair costs and alternatives might not be the most economical choice. Sometimes repairs are more cost-effective than replacement.",
+          "isCorrect": false
+        },
+        {
+          "id": "ignore",
+          "label": "Ignore the problem and hope for the best",
+          "reflection": "Ignoring car problems that affect your ability to work can lead to job loss and much larger financial problems. Transportation is often essential for maintaining income.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Scenario: Family emergency requires immediate travel and $800 in unexpected costs.",
+      "options": [
+        {
+          "id": "credit",
+          "label": "Put all travel costs on credit cards to handle immediately",
+          "reflection": "Putting all travel costs on credit cards creates debt that compounds your financial stress during an already difficult time. It's better to use prepared funds and budget carefully.",
+          "isCorrect": false
+        },
+        {
+          "id": "borrow",
+          "label": "Borrow from family or friends to cover immediate costs",
+          "reflection": "While borrowing from family or friends might seem helpful, it can strain relationships and create obligations. It's better to use your own prepared emergency funds when available.",
+          "isCorrect": false
+        },
+        {
+          "id": "minimum",
+          "label": "Travel with minimum essentials to reduce costs",
+          "reflection": "Traveling with minimum essentials might reduce costs but could be inadequate for handling the family emergency properly. It's important to balance cost considerations with the actual needs of the situation.",
+          "isCorrect": false
+        },
+        {
+          "id": "emergency",
+          "label": "Use emergency fund allocation and adjust other budget categories",
+          "reflection": "Exactly! Using emergency fund allocation and adjusting other budget categories shows good financial planning and ensures you can handle the emergency without creating additional debt.",
+          "isCorrect": true
+        }
+      ]
+    }
+  ]
+}

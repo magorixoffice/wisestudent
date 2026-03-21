@@ -1,0 +1,176 @@
+{
+  "title": "Safe Exit Decision",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Safe Exit",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Safe exit strategies",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you identify if a loan app is unsafe before using it?",
+    "What steps should you take to safely exit an unsafe loan app?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "You realize a loan app is unsafe. What should you do?",
+      "options": [
+        {
+          "id": "continue",
+          "label": "Continue using it",
+          "reflection": "Continuing to use an unsafe app puts you at greater risk of financial harm, privacy breaches, and potential harassment. It's better to discontinue use immediately.",
+          "isCorrect": false
+        },
+        {
+          "id": "exit",
+          "label": "Stop, repay safely, and uninstall",
+          "reflection": "Exactly! When you identify an app as unsafe, the best course of action is to stop using it, repay any outstanding obligations safely, and uninstall the app to protect yourself.",
+          "isCorrect": true
+        },
+        {
+          "id": "wait",
+          "label": "Wait to see if problems develop",
+          "reflection": "Waiting increases your exposure to risks. Once you've identified an app as unsafe, it's better to act quickly to minimize potential harm.",
+          "isCorrect": false
+        },
+        {
+          "id": "share",
+          "label": "Tell friends to use it too",
+          "reflection": "Sharing an unsafe app with friends puts them at risk. The responsible action is to stop using it yourself and warn others about the risks.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 2,
+      "prompt": "What is the benefit of early exit from an unsafe loan app?",
+      "options": [
+        {
+          "id": "worse",
+          "label": "It makes the situation worse",
+          "reflection": "Actually, early exit typically reduces the potential damage compared to continuing to engage with an unsafe platform.",
+          "isCorrect": false
+        },
+        {
+          "id": "nothing",
+          "label": "It doesn't make any difference",
+          "reflection": "Early exit does make a significant difference by limiting your exposure to the risks associated with unsafe loan apps.",
+          "isCorrect": false
+        },
+        {
+          "id": "reduce",
+          "label": "Early exit reduces damage",
+          "reflection": "Correct! Exiting early minimizes your exposure to risks like excessive fees, privacy breaches, harassment, and other potential harms.",
+          "isCorrect": true
+        },
+        {
+          "id": "complications",
+          "label": "It creates more complications",
+          "reflection": "While exiting may involve some steps, it's generally simpler than dealing with the consequences of continued engagement with an unsafe app.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 3,
+      "prompt": "How should you repay an unsafe loan app safely?",
+      "options": [
+        {
+          "id": "safe",
+          "label": "Using secure payment methods and keeping records",
+          "reflection": "Right! When repaying an unsafe app, use secure payment methods and keep detailed records of all transactions for your protection.",
+          "isCorrect": true
+        },
+        {
+          "id": "direct",
+          "label": "Through the app only",
+          "reflection": "If the app itself is unsafe, continuing to use it for payments might expose you to additional risks. Consider safer payment methods.",
+          "isCorrect": false
+        },
+        {
+          "id": "avoid",
+          "label": "Avoid making payments",
+          "reflection": "Avoiding payments can lead to serious consequences including legal action and credit damage. It's better to repay safely while taking protective measures.",
+          "isCorrect": false
+        },
+        {
+          "id": "ignore",
+          "label": "Ignore the obligation",
+          "reflection": "Ignoring the obligation can result in serious consequences. It's important to address the debt responsibly while protecting yourself.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 4,
+      "prompt": "Why is it important to keep records when exiting an unsafe loan app?",
+      "options": [
+        {
+          "id": "unnecessary",
+          "label": "It's unnecessary paperwork",
+          "reflection": "Records are important for proving repayment and protecting yourself if disputes arise, especially with unsafe apps that might not maintain reliable records.",
+          "isCorrect": false
+        },
+        {
+          "id": "storage",
+          "label": "To save storage space",
+          "reflection": "Records aren't about saving storage space. They serve as important documentation for your protection.",
+          "isCorrect": false
+        },
+        {
+          "id": "sharing",
+          "label": "To share with other users",
+          "reflection": "While sharing experiences can help others, the primary purpose of records is to protect you legally and financially.",
+          "isCorrect": false
+        },
+        {
+          "id": "protection",
+          "label": "It provides proof of repayment for legal protection",
+          "reflection": "Exactly! Keeping records protects you in case the app disappears, loses your data, or tries to claim you haven't repaid when you have.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 5,
+      "prompt": "What is the most important step after identifying an unsafe loan app?",
+      "options": [
+        {
+          "id": "recommend",
+          "label": "Recommend it to others",
+          "reflection": "Recommending an unsafe app to others would put them at risk. This is definitely not the right approach.",
+          "isCorrect": false
+        },
+        {
+          "id": "invest",
+          "label": "Invest more money to secure your account",
+          "reflection": "Adding more money to an unsafe app would increase your risk exposure rather than securing your account.",
+          "isCorrect": false
+        },
+        {
+          "id": "early",
+          "label": "Early exit to minimize potential harm",
+          "reflection": "Perfect! Identifying and acting quickly to exit an unsafe app is the most important step to minimize potential financial and privacy harm.",
+          "isCorrect": true
+        },
+        {
+          "id": "negotiate",
+          "label": "Negotiate special terms",
+          "reflection": "While negotiating might seem helpful, the priority should be safely exiting an unsafe platform as quickly as possible.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    }
+  ]
+}

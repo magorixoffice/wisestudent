@@ -1,0 +1,176 @@
+{
+  "title": "Instant Loan Temptation",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Digital Lending",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Digital Lending Caution",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you verify the legitimacy of digital lending platforms?",
+    "What red flags should you watch for in instant loan offers?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Scenario: An app offers 'Instant loan in 5 minutes.' What should you do first? ",
+      "options": [
+        {
+          "id": "a",
+          "label": "Check legitimacy and terms",
+          "reflection": "Correct! Verifying legitimacy and understanding terms is essential before any loan agreement.",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "label": "Accept immediately",
+          "reflection": "Accepting immediately without checking details can lead to hidden risks and unfavorable terms.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "Apply for the maximum amount offered",
+          "reflection": "Applying without checking terms can expose you to unfavorable conditions and excessive debt.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Share with friends who might need money",
+          "reflection": "Sharing unverified loan offers can spread potentially risky financial products to others.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 2,
+      "prompt": "Why might instant loan offers be risky despite their convenience?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They are always government-approved",
+          "reflection": "Instant loans are not necessarily government-approved and may come from unregulated sources.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "They offer the best terms due to competition",
+          "reflection": "Fast loans don't necessarily offer the best terms; speed often comes with higher costs.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "They require extensive documentation",
+          "reflection": "Instant loans typically promise minimal documentation, not extensive paperwork.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "They often have hidden fees and high interest rates",
+          "reflection": "Exactly! Speed-focused lenders may hide costs that significantly increase the loan burden.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 3,
+      "prompt": "What should be your priority when evaluating a digital lending platform?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Focus on the speed of disbursement",
+          "reflection": "Speed is not a priority compared to verifying legitimacy and terms of the loan.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "Check only the interest rate",
+          "reflection": "While interest rate matters, verifying legitimacy and all terms is more important than just the rate.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "Verify the platform's license and regulatory compliance",
+          "reflection": "Perfect! Ensuring the platform is licensed and regulated protects you from fraudulent operators.",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "label": "Look for celebrity endorsements",
+          "reflection": "Celebrity endorsements don't guarantee legitimacy or favorable terms for borrowers.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 4,
+      "prompt": "What is the relationship between loan processing speed and risk?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Faster loans are always safer",
+          "reflection": "Speed doesn't correlate with safety; fast loans can hide significant risks.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "Speed often correlates with higher risk in digital lending",
+          "reflection": "Yes! Fast loans often come with less scrutiny and potentially hidden risks.",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "label": "Speed has no bearing on loan risk",
+          "reflection": "Speed can indicate less scrutiny and potentially more risk, especially with digital platforms.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Slow processing always means high risk",
+          "reflection": "Processing time alone doesn't determine risk; verification and terms are more important.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 5,
+      "prompt": "How should you approach promotional offers from digital lending apps?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Carefully evaluate terms before accepting any offer",
+          "reflection": "Excellent! Thorough evaluation helps identify potential risks and ensures suitable borrowing.",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "label": "Accept if the initial offer looks attractive",
+          "reflection": "Initial offers might not represent the full terms; comprehensive evaluation is necessary.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "Trust the app rating on the store",
+          "reflection": "App ratings don't guarantee fair lending terms or protection against hidden risks.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Focus only on the approval speed",
+          "reflection": "Approval speed is less important than understanding the terms and conditions of the loan.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    }
+  ]
+}

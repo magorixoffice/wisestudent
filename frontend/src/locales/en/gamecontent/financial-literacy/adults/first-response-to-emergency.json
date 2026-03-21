@@ -1,0 +1,176 @@
+{
+  "title": "First Response to Emergency",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Emergency Response",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Emergency Financial Response",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you build an effective emergency response plan?",
+    "What resources should you prioritize in different emergency scenarios?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Scenario: You face an unexpected expense. What should you check first?",
+      "options": [
+        {
+          "id": "savings",
+          "label": "Savings or emergency fund",
+          "reflection": "Exactly! Checking your savings or emergency fund first is the right approach. It helps you avoid unnecessary debt and reduces financial stress.",
+          "isCorrect": true
+        },
+        {
+          "id": "loan",
+          "label": "Loan apps",
+          "reflection": "Checking loan apps first creates a dependency on borrowing. It's better to check your own resources before considering debt options.",
+          "isCorrect": false
+        },
+        {
+          "id": "ignore",
+          "label": "Ignore the expense and hope it goes away",
+          "reflection": "Ignoring unexpected expenses usually makes them worse. It's important to address them proactively using your available resources.",
+          "isCorrect": false
+        },
+        {
+          "id": "credit",
+          "label": "Credit card limits",
+          "reflection": "Checking credit card limits first leads to debt accumulation. It's better to use your own money before considering borrowed funds.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 2,
+      "prompt": "What's the best immediate action during a financial emergency?",
+      "options": [
+        {
+          "id": "panic",
+          "label": "Panic and make quick decisions",
+          "reflection": "Panicking leads to poor financial decisions. Taking time to assess your situation helps you respond more effectively to emergencies.",
+          "isCorrect": false
+        },
+        {
+          "id": "borrow",
+          "label": "Immediately borrow money from anywhere",
+          "reflection": "Immediately borrowing without assessing your situation can lead to unnecessary debt and financial problems that make the emergency worse.",
+          "isCorrect": false
+        },
+        {
+          "id": "delay",
+          "label": "Delay dealing with it as long as possible",
+          "reflection": "Delaying financial emergencies usually increases their cost and stress. It's better to address them promptly with a clear plan.",
+          "isCorrect": false
+        },
+        {
+          "id": "assess",
+          "label": "Assess your available resources first",
+          "reflection": "Perfect! Assessing your available resources first gives you a clear picture of your options and helps you make informed decisions without panic.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 3,
+      "prompt": "How should you prioritize using your resources in an emergency?",
+      "options": [
+        {
+          "id": "everything",
+          "label": "Use everything you have immediately",
+          "reflection": "Using everything immediately leaves you vulnerable to future emergencies. It's better to be strategic about which resources to use first.",
+          "isCorrect": false
+        },
+        {
+          "id": "nothing",
+          "label": "Use nothing and just wait it out",
+          "reflection": "Using nothing and waiting it out isn't practical for real emergencies. You need to address urgent financial needs with available resources.",
+          "isCorrect": false
+        },
+        {
+          "id": "savings_first",
+          "label": "Use emergency savings first, then other options",
+          "reflection": "Excellent! Using emergency savings first preserves your financial stability and avoids the cost and stress of borrowing for immediate needs.",
+          "isCorrect": true
+        },
+        {
+          "id": "random",
+          "label": "Use resources randomly without a plan",
+          "reflection": "Using resources randomly without a plan leads to inefficient use of your money and can make the emergency situation worse.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 4,
+      "prompt": "What's a warning sign of poor emergency response?",
+      "options": [
+        {
+          "id": "planning",
+          "label": "Having a clear emergency response plan",
+          "reflection": "Having a clear emergency response plan is actually a positive sign of good financial preparation, not a warning sign of poor response.",
+          "isCorrect": false
+        },
+        {
+          "id": "borrowing",
+          "label": "Immediately reaching for loans without checking savings",
+          "reflection": "Exactly! Immediately reaching for loans without checking savings indicates poor emergency response planning and can lead to unnecessary debt.",
+          "isCorrect": true
+        },
+        {
+          "id": "fund",
+          "label": "Maintaining an adequate emergency fund",
+          "reflection": "Maintaining an adequate emergency fund shows good financial planning and preparedness, which is the opposite of poor emergency response.",
+          "isCorrect": false
+        },
+        {
+          "id": "assessment",
+          "label": "Taking time to assess the situation",
+          "reflection": "Taking time to assess the situation is a good practice that helps you respond effectively to emergencies, not a warning sign of poor response.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 5,
+      "prompt": "What's the long-term benefit of proper emergency response?",
+      "options": [
+        {
+          "id": "stability",
+          "label": "Financial stability and reduced stress",
+          "reflection": "Exactly! Proper emergency response leads to financial stability and reduced stress by helping you handle unexpected expenses without creating additional financial problems.",
+          "isCorrect": true
+        },
+        {
+          "id": "debt",
+          "label": "Increased debt and financial complexity",
+          "reflection": "Increased debt and financial complexity are outcomes of poor emergency response, not benefits of proper emergency response.",
+          "isCorrect": false
+        },
+        {
+          "id": "panic",
+          "label": "More panic and impulsive decisions",
+          "reflection": "More panic and impulsive decisions result from poor emergency response. Good preparation actually reduces panic and helps you make better decisions.",
+          "isCorrect": false
+        },
+        {
+          "id": "problems",
+          "label": "Bigger financial problems over time",
+          "reflection": "Bigger financial problems over time are consequences of poor emergency response. Proper response prevents problems from escalating.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    }
+  ]
+}

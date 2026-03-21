@@ -1,0 +1,176 @@
+{
+  "title": "Missed EMI Consequence",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "EMI Responsibility",
+  "sectionHeaderRight": "Payment Consequences",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "EMI payment discipline",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you prepare for potential income disruptions to avoid missing EMIs?",
+    "What steps should you take immediately if you anticipate difficulty making an EMI payment?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "What happens if you miss EMIs?",
+      "options": [
+        {
+          "id": "nothing",
+          "label": "Nothing serious, just a minor inconvenience",
+          "reflection": "Actually, missed EMIs have significant consequences including penalties, credit score damage, and potential legal action that can severely impact your financial future.",
+          "isCorrect": false
+        },
+        {
+          "id": "penalties",
+          "label": "Penalties and credit damage that affect future borrowing",
+          "reflection": "Exactly! Missed payments trigger late fees, damage your credit score, and create barriers to future loan approvals, affecting your borrowing ability for years.",
+          "isCorrect": true
+        },
+        {
+          "id": "warning",
+          "label": "Just a warning letter from the lender",
+          "reflection": "While initial notices may be warnings, repeated missed payments lead to serious penalties, credit reporting, and potential legal consequences beyond simple notifications.",
+          "isCorrect": false
+        },
+        {
+          "id": "extension",
+          "label": "Automatic payment extension with no consequences",
+          "reflection": "Lenders don't automatically extend payments without consequences. Missed payments require proactive communication and often involve fees or modified terms with potential credit impact.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 2,
+      "prompt": "What's the immediate consequence of missing an EMI?",
+      "options": [
+        {
+          "id": "notification",
+          "label": "You receive a friendly reminder notification",
+          "reflection": "While reminders are sent, the immediate consequence is typically late payment fees and the beginning of negative credit reporting that affects your financial standing.",
+          "isCorrect": false
+        },
+        {
+          "id": "fees",
+          "label": "Late payment fees and penalty charges apply",
+          "reflection": "Correct! Missed EMIs immediately trigger penalty fees, typically 2-3% of the overdue amount, plus potential processing charges that increase your total debt burden.",
+          "isCorrect": true
+        },
+        {
+          "id": "interest",
+          "label": "Interest rates automatically increase on your loan",
+          "reflection": "While some loans may have penalty rate provisions, the immediate consequence is late fees rather than automatic interest rate increases on the entire loan balance.",
+          "isCorrect": false
+        },
+        {
+          "id": "grace",
+          "label": "You get a automatic grace period with no charges",
+          "reflection": "Grace periods, when available, are typically short (7-15 days) and may still incur fees. They're not automatic forgiveness of missed payments without consequences.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 3,
+      "prompt": "How does missing EMIs affect your credit score?",
+      "options": [
+        {
+          "id": "significant",
+          "label": "Significant damage that stays on credit reports for years",
+          "reflection": "Exactly! Payment history comprises 35% of credit scores. Missed EMIs create long-term damage that can prevent future loan approvals and increase borrowing costs.",
+          "isCorrect": true
+        },
+        {
+          "id": "slight",
+          "label": "Slight temporary dip that recovers quickly",
+          "reflection": "Missed payments cause significant, lasting damage to credit scores. Even one missed payment can drop scores by 50-100 points and remain on credit reports for years.",
+          "isCorrect": false
+        },
+        {
+          "id": "immediate",
+          "label": "Immediate improvement due to reduced debt",
+          "reflection": "Missed payments increase, not decrease, debt through penalties and fees. The financial burden grows rather than improving your debt-to-income ratio or credit position.",
+          "isCorrect": false
+        },
+        {
+          "id": "unaffected",
+          "label": "Credit score remains completely unaffected",
+          "reflection": "Credit bureaus are notified of missed payments, creating immediate negative reporting. Payment history is the most important factor in credit scoring algorithms.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 4,
+      "prompt": "What long-term impact do missed EMIs create?",
+      "options": [
+        {
+          "id": "approval",
+          "label": "Future loan approvals become more difficult and expensive",
+          "reflection": "Perfect! Poor payment history leads to higher interest rates, stricter approval criteria, or outright rejection for future loans, credit cards, and financial products.",
+          "isCorrect": true
+        },
+        {
+          "id": "forgiveness",
+          "label": "Lenders eventually forgive and forget past misses",
+          "reflection": "While some hardship programs exist, credit reporting agencies maintain payment history records for 7 years, affecting borrowing capacity long after the original loan is resolved.",
+          "isCorrect": false
+        },
+        {
+          "id": "opportunity",
+          "label": "Creates opportunities for better loan terms later",
+          "reflection": "Missed payments damage rather than improve your financial profile. Good payment history, not poor performance, creates opportunities for favorable lending terms.",
+          "isCorrect": false
+        },
+        {
+          "id": "neutral",
+          "label": "Has no meaningful impact on long-term financial goals",
+          "reflection": "Payment history fundamentally affects financial opportunities. Missed EMIs create cascading effects that impact housing, employment, insurance rates, and major purchase financing.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 5,
+      "prompt": "What's the golden rule for EMI management?",
+      "options": [
+        {
+          "id": "flexible",
+          "label": "Treat EMIs flexibly based on monthly cash flow",
+          "reflection": "Flexible treatment of essential obligations creates financial instability. EMIs require consistent, planned allocation to avoid the serious consequences of missed payments.",
+          "isCorrect": false
+        },
+        {
+          "id": "minimum",
+          "label": "Pay minimum amounts when facing financial difficulty",
+          "reflection": "Minimum payments on missed amounts still incur penalties and credit damage. Proactive communication with lenders is better than partial payments that don't satisfy obligations.",
+          "isCorrect": false
+        },
+        {
+          "id": "postpone",
+          "label": "Postpone payments during challenging months",
+          "reflection": "Postponement without formal arrangement creates missed payment reporting. Structured deferment or modification programs are necessary to avoid credit and penalty consequences.",
+          "isCorrect": false
+        },
+        {
+          "id": "prioritize",
+          "label": "Prioritize EMI payments above discretionary spending",
+          "reflection": "Perfect! Treating EMIs as essential obligations like rent or utilities ensures consistent payments that protect your credit and maintain future borrowing capacity.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 10
+    }
+  ]
+}

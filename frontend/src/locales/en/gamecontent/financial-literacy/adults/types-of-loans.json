@@ -1,0 +1,176 @@
+{
+  "title": "Types of Loans",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "scenarioLabel": "Scenario",
+  "scenarioValue": "Loan Comparison",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Loan type comparison",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you identify formal vs informal lending opportunities?",
+    "What factors should you consider when evaluating loan options?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Which loan usually has lower interest?",
+      "options": [
+        {
+          "id": "informal",
+          "label": "Informal money lender",
+          "reflection": "Informal lenders typically charge much higher interest rates due to lack of regulation and higher risk perception.",
+          "isCorrect": false
+        },
+        {
+          "id": "same",
+          "label": "Both have the same interest rates",
+          "reflection": "Formal and informal lenders operate under different frameworks, resulting in significantly different interest rates.",
+          "isCorrect": false
+        },
+        {
+          "id": "unclear",
+          "label": "It varies randomly for both",
+          "reflection": "While individual rates vary, formal lenders follow regulated frameworks that generally provide more predictable pricing.",
+          "isCorrect": false
+        },
+        {
+          "id": "formal",
+          "label": "Formal bank loan",
+          "reflection": "Exactly! Formal bank loans follow regulated pricing and typically offer lower, more transparent interest rates.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 2,
+      "prompt": "What protects borrowers in formal lending?",
+      "options": [
+        {
+          "id": "word",
+          "label": "Lender's verbal promise only",
+          "reflection": "Verbal promises lack legal protection and enforcement mechanisms available in formal lending agreements.",
+          "isCorrect": false
+        },
+        {
+          "id": "trust",
+          "label": "Personal trust between parties",
+          "reflection": "While trust is valuable, formal lending provides documented agreements and regulatory frameworks for protection.",
+          "isCorrect": false
+        },
+        {
+          "id": "regulation",
+          "label": "Regulatory oversight and legal contracts",
+          "reflection": "Exactly! Formal lending provides regulatory protection, standardized contracts, and legal recourse for borrowers.",
+          "isCorrect": true
+        },
+        {
+          "id": "nothing",
+          "label": "Nothing protects borrowers",
+          "reflection": "Formal lending includes multiple protections like regulation, contracts, and consumer rights frameworks.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 3,
+      "prompt": "How do informal lenders typically operate?",
+      "options": [
+        {
+          "id": "transparent",
+          "label": "With transparent terms and fixed rates",
+          "reflection": "Informal lenders often lack transparency and may change terms without notice or proper documentation.",
+          "isCorrect": false
+        },
+        {
+          "id": "flexible",
+          "label": "Through flexible, undocumented arrangements",
+          "reflection": "Exactly! Informal lending often relies on personal relationships and undocumented agreements that can be risky.",
+          "isCorrect": true
+        },
+        {
+          "id": "regulated",
+          "label": "Under strict government regulation",
+          "reflection": "Informal lending operates outside formal regulatory frameworks, lacking the protections of regulated institutions.",
+          "isCorrect": false
+        },
+        {
+          "id": "standard",
+          "label": "With standardized loan agreements",
+          "reflection": "Informal lending typically lacks standardized documentation and formal agreement structures.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 4,
+      "prompt": "What is a key advantage of formal loans?",
+      "options": [
+        {
+          "id": "predictability",
+          "label": "Predictable terms and regulated rates",
+          "reflection": "Exactly! Formal loans provide transparent, predictable terms with regulated interest rates and clear repayment schedules.",
+          "isCorrect": true
+        },
+        {
+          "id": "speed",
+          "label": "Faster approval process",
+          "reflection": "Formal loans often require more documentation and review, making them slower than informal alternatives.",
+          "isCorrect": false
+        },
+        {
+          "id": "accessibility",
+          "label": "Accessible to everyone regardless of credit",
+          "reflection": "Formal lenders typically require credit checks and documentation, making them less accessible to some borrowers.",
+          "isCorrect": false
+        },
+        {
+          "id": "simplicity",
+          "label": "Simple verbal agreements only",
+          "reflection": "Formal loans require detailed documentation and standardized agreements, not simple verbal arrangements.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 5,
+      "prompt": "Why do formal loans follow regulated pricing?",
+      "options": [
+        {
+          "id": "profit",
+          "label": "To maximize lender profits",
+          "reflection": "Regulation actually limits excessive profit-taking and ensures fair pricing for consumers.",
+          "isCorrect": false
+        },
+        {
+          "id": "competition",
+          "label": "Because of intense market competition",
+          "reflection": "While competition plays a role, regulation specifically aims to protect consumers from unfair lending practices.",
+          "isCorrect": false
+        },
+        {
+          "id": "tradition",
+          "label": "Due to traditional banking practices",
+          "reflection": "Regulated pricing stems from consumer protection laws, not merely traditional banking customs.",
+          "isCorrect": false
+        },
+        {
+          "id": "protection",
+          "label": "To protect consumers from exploitation",
+          "reflection": "Exactly! Regulated pricing prevents predatory lending practices and ensures fair treatment of borrowers.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 5
+    }
+  ]
+}

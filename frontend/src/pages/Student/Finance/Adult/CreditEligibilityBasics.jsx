@@ -1,180 +1,25 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import { Trophy } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getGameDataById } from "../../../../utils/getGameData";
 
-const STAGES = [
-  {
-    id: 1,
-    prompt: "What improves loan eligibility?",
-    options: [
-      {
-        id: "many",
-        label: "Borrowing from many sources",
-        reflection: "Borrowing from multiple sources often indicates financial stress and can hurt your credit eligibility.",
-        isCorrect: false,
-      },
-      {
-        id: "regular",
-        label: "Regular income and repayment history",
-        reflection: "Exactly! Steady income and good repayment history demonstrate financial reliability to lenders.",
-        isCorrect: true,
-      },
-      {
-        id: "assets",
-        label: "Owning expensive assets only",
-        reflection: "While assets help, lenders focus more on income stability and repayment behavior for eligibility.",
-        isCorrect: false,
-      },
-      {
-        id: "connections",
-        label: "Having influential connections",
-        reflection: "Formal lending relies on documented financial behavior rather than personal connections.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 2,
-    prompt: "Why does repayment history matter for eligibility?",
-    options: [
-      {
-        id: "trust",
-        label: "It builds lender trust in your reliability",
-        reflection: "Exactly! Consistent repayment history shows lenders you're likely to repay new loans responsibly.",
-        isCorrect: true,
-      },
-      {
-        id: "speed",
-        label: "It makes loan processing faster",
-        reflection: "While good history may help with processing, the primary benefit is demonstrating repayment capability.",
-        isCorrect: false,
-      },
-      {
-        id: "amount",
-        label: "It increases the loan amount automatically",
-        reflection: "Repayment history helps with eligibility and terms, but loan amounts depend on multiple factors.",
-        isCorrect: false,
-      },
-      {
-        id: "fees",
-        label: "It reduces all loan processing fees",
-        reflection: "Good repayment history may help with terms, but fee structures vary by lender and loan type.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 3,
-    prompt: "How does regular income affect loan eligibility?",
-    options: [
-      {
-        id: "stability",
-        label: "It demonstrates ability to make consistent payments",
-        reflection: "Exactly! Regular income shows lenders you have ongoing means to meet repayment obligations.",
-        isCorrect: true,
-      },
-      {
-        id: "luxury",
-        label: "It allows borrowing for luxury purchases",
-        reflection: "Income stability is about repayment capacity, not spending categories or purchase types.",
-        isCorrect: false,
-      },
-      {
-        id: "freedom",
-        label: "It eliminates need for collateral",
-        reflection: "Regular income helps eligibility but doesn't necessarily eliminate collateral requirements for all loans.",
-        isCorrect: false,
-      },
-      {
-        id: "approval",
-        label: "It guarantees automatic loan approval",
-        reflection: "Regular income improves chances but lenders consider multiple factors including credit history and debt levels.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 4,
-    prompt: "What hurts credit eligibility the most?",
-    options: [
-      
-      {
-        id: "inquiry",
-        label: "Checking your own credit report",
-        reflection: "Self-checks are soft inquiries that don't affect your credit score or eligibility.",
-        isCorrect: false,
-      },
-      {
-        id: "cards",
-        label: "Having multiple credit cards",
-        reflection: "Number of cards matters less than how responsibly you use and repay credit.",
-        isCorrect: false,
-      },
-      {
-        id: "balance",
-        label: "Maintaining low account balances",
-        reflection: "Low balances actually help credit utilization ratios and support eligibility rather than hurt it.",
-        isCorrect: false,
-      },
-      {
-        id: "late",
-        label: "Late or missed payments",
-        reflection: "Exactly! Payment history is typically the most important factor in credit eligibility decisions.",
-        isCorrect: true,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 5,
-    prompt: "How does financial discipline improve credit access?",
-    options: [
-      
-      {
-        id: "spending",
-        label: "It allows spending on anything desired",
-        reflection: "Financial discipline is about responsible management, not unrestricted spending freedom.",
-        isCorrect: false,
-      },
-      {
-        id: "debt",
-        label: "It eliminates all existing debts immediately",
-        reflection: "Discipline helps manage debt responsibly but doesn't magically eliminate existing obligations.",
-        isCorrect: false,
-      },
-      {
-        id: "behavior",
-        label: "It creates positive borrowing behavior patterns",
-        reflection: "Exactly! Discipline in managing finances builds the track record that lenders look for in eligibility decisions.",
-        isCorrect: true,
-      },
-      {
-        id: "lenders",
-        label: "It forces lenders to compete for your business",
-        reflection: "Discipline improves your profile but doesn't guarantee competitive bidding from lenders.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-];
-
-const totalStages = STAGES.length;
-const successThreshold = totalStages;
-
 const CreditEligibilityBasics = () => {
   const location = useLocation();
+  const { t } = useTranslation("gamecontent");
+
   const gameId = "finance-adults-25";
+  const baseKey = "financial-literacy.adults.credit-eligibility-basics";
+  const gameContent = t(baseKey, { returnObjects: true });
+  const localizedStages = Array.isArray(gameContent?.stages) ? gameContent.stages : [];
+  const reflectionPrompts = gameContent?.reflectionPrompts || [];
+
   const gameData = getGameDataById(gameId);
   const coinsPerLevel = gameData?.coins || location.state?.coinsPerLevel || 5;
   const totalCoins = gameData?.coins || location.state?.totalCoins || 5;
   const totalXp = gameData?.xp || location.state?.totalXp || 10;
+
   const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } =
     useGameFeedback();
 
@@ -188,48 +33,43 @@ const CreditEligibilityBasics = () => {
   const [selectedReflection, setSelectedReflection] = useState(null);
   const [canProceed, setCanProceed] = useState(false);
 
-  const reflectionPrompts = useMemo(
-    () => [
-      "How can you build a strong repayment history over time?",
-      "What daily financial habits support long-term credit eligibility?",
-    ],
-    []
-  );
+  const totalStages = localizedStages.length;
+  const successThreshold = totalStages;
+
+  if (!localizedStages.length) return null;
 
   const handleSelect = (option) => {
     if (selectedOption || showResult) return;
     resetFeedback();
+
     const updatedHistory = [
       ...history,
-      { stageId: STAGES[stageIndex].id, isCorrect: option.isCorrect },
+      { stageId: localizedStages[stageIndex].id, isCorrect: option.isCorrect },
     ];
     setHistory(updatedHistory);
     setSelectedOption(option.id);
-    setSelectedReflection(option.reflection); // Set the reflection for the selected option
-    setShowFeedback(true); // Show feedback after selection
-    setCanProceed(false); // Disable proceeding initially
-    
-    // Update coins if the answer is correct
+    setSelectedReflection(option.reflection);
+    setShowFeedback(true);
+    setCanProceed(false);
+
     if (option.isCorrect) {
-      setCoins(prevCoins => prevCoins + 1);
+      setCoins((prevCoins) => prevCoins + 1);
     }
-    
-    // Wait for the reflection period before allowing to proceed
+
     setTimeout(() => {
-      setCanProceed(true); // Enable proceeding after showing reflection
-    }, 1500); // Wait 1.5 seconds before allowing to proceed
-    
-    // Handle the final stage separately
+      setCanProceed(true);
+    }, 1500);
+
     if (stageIndex === totalStages - 1) {
       setTimeout(() => {
         const correctCount = updatedHistory.filter((item) => item.isCorrect).length;
         const passed = correctCount === successThreshold;
         setFinalScore(correctCount);
-        setCoins(passed ? totalCoins : 0); // Set final coins based on performance
+        setCoins(passed ? totalCoins : 0);
         setShowResult(true);
-      }, 5500); // Wait longer before showing final results
+      }, 5500);
     }
-    
+
     const points = option.isCorrect ? 1 : 0;
     showCorrectAnswerFeedback(points, option.isCorrect);
   };
@@ -244,13 +84,17 @@ const CreditEligibilityBasics = () => {
     setShowResult(false);
   };
 
-  const subtitle = `Stage ${Math.min(stageIndex + 1, totalStages)} of ${totalStages}`;
-  const stage = STAGES[Math.min(stageIndex, totalStages - 1)];
+  const subtitle = t(`${baseKey}.subtitleProgress`, {
+    current: Math.min(stageIndex + 1, totalStages),
+    total: totalStages,
+    defaultValue: "Stage {{current}} of {{total}}",
+  });
+  const stage = localizedStages[Math.min(stageIndex, totalStages - 1)];
   const hasPassed = finalScore === successThreshold;
 
   return (
     <GameShell
-      title="Credit Eligibility Basics"
+      title={gameContent?.title || "Credit Eligibility Basics"}
       subtitle={subtitle}
       score={showResult ? finalScore : coins}
       coins={coins}
@@ -271,12 +115,16 @@ const CreditEligibilityBasics = () => {
       <div className="space-y-5 text-white">
         <div className="bg-white/10 border border-white/20 rounded-3xl p-8 shadow-2xl max-w-4xl mx-auto">
           <div className="flex justify-between items-center mb-4 text-sm uppercase tracking-[0.3em] text-white/60">
-            <span>Scenario</span>
-            <span>Credit Eligibility</span>
+            <span>
+              {t(`${baseKey}.scenarioLabel`, { defaultValue: "Scenario" })}
+            </span>
+            <span>
+              {t(`${baseKey}.scenarioValue`, { defaultValue: "Credit Eligibility" })}
+            </span>
           </div>
           <p className="text-lg text-white/90 mb-6">{stage.prompt}</p>
           <div className="grid grid-cols-2 gap-4">
-            {stage.options.map((option) => {
+            {stage.options?.map((option) => {
               const isSelected = selectedOption === option.id;
               return (
                 <button
@@ -288,28 +136,34 @@ const CreditEligibilityBasics = () => {
                       ? option.isCorrect
                         ? "border-emerald-400 bg-emerald-500/20"
                         : "border-red-400 bg-red-500/10 text-white"
-                        : "border-white/30 bg-white/5 hover:border-white/60 hover:bg-white/10"
+                      : "border-white/30 bg-white/5 hover:border-white/60 hover:bg-white/10"
                   }`}
                 >
                   <div className="text-sm text-white/70 mb-2">
-                    Choice {option.id.toUpperCase()}
+                    {t(`${baseKey}.choiceLabel`, {
+                      id: option.id,
+                      defaultValue: "Choice {{id}}",
+                    })}
                   </div>
                   <p className="text-white font-semibold">{option.label}</p>
-                  
                 </button>
               );
             })}
           </div>
-          
         </div>
+
         {(showResult || showFeedback) && (
           <div className="bg-white/5 border border-white/20 rounded-3xl p-6 shadow-xl max-w-4xl mx-auto space-y-3">
-            <h4 className="text-lg font-semibold text-white">Reflection</h4>
+            <h4 className="text-lg font-semibold text-white">
+              {t(`${baseKey}.reflectionTitle`, { defaultValue: "Reflection" })}
+            </h4>
+
             {selectedReflection && (
               <div className="max-h-24 overflow-y-auto pr-2">
                 <p className="text-sm text-white/90">{selectedReflection}</p>
               </div>
             )}
+
             {showFeedback && !showResult && (
               <div className="mt-4 flex justify-center">
                 {canProceed ? (
@@ -325,19 +179,16 @@ const CreditEligibilityBasics = () => {
                     }}
                     className="rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 px-6 font-semibold shadow-lg hover:opacity-90"
                   >
-                    Continue
+                    {t(`${baseKey}.continueButton`, { defaultValue: "Continue" })}
                   </button>
                 ) : (
-                  <div className="py-2 px-6 text-white font-semibold">Reading...</div>
+                  <div className="py-2 px-6 text-white font-semibold">
+                    {t(`${baseKey}.readingLabel`, { defaultValue: "Reading..." })}
+                  </div>
                 )}
               </div>
             )}
-            {/* Automatically advance if we're in the last stage and the timeout has passed */}
-            {!showResult && stageIndex === totalStages - 1 && canProceed && (
-              <div className="mt-4 flex justify-center">
-                
-              </div>
-            )}
+
             {showResult && (
               <>
                 <ul className="text-sm list-disc list-inside space-y-1">
@@ -345,36 +196,42 @@ const CreditEligibilityBasics = () => {
                     <li key={prompt}>{prompt}</li>
                   ))}
                 </ul>
+
                 <p className="text-sm text-white/70">
-                  {hasPassed ? (
-                    <>
-                      <strong>Congratulations!</strong> Discipline improves access to formal credit.
-                    </>
-                  ) : (
-                    <>Skill unlocked: <strong>Credit eligibility fundamentals</strong></>
-                  )}
+                  {t(`${baseKey}.skillUnlockedLabel`, { defaultValue: "Skill unlocked:" })}{" "}
+                  <strong>
+                    {t(`${baseKey}.skillName`, {
+                      defaultValue: "Credit eligibility fundamentals",
+                    })}
+                  </strong>
                 </p>
+
                 {!hasPassed && (
                   <p className="text-xs text-amber-300">
-                    Answer every stage sharply to earn the full reward.
+                    {t(`${baseKey}.fullRewardHint`, {
+                      total: totalStages,
+                      defaultValue:
+                        "Answer all {{total}} choices correctly to earn the full reward.",
+                    })}
                   </p>
                 )}
+
                 {!hasPassed && (
                   <button
                     onClick={handleRetry}
                     className="w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 font-semibold shadow-lg hover:opacity-90"
                   >
-                    Try Again
+                    {t(`${baseKey}.tryAgainButton`, { defaultValue: "Try Again" })}
                   </button>
                 )}
               </>
             )}
           </div>
         )}
-
       </div>
     </GameShell>
   );
 };
 
 export default CreditEligibilityBasics;
+

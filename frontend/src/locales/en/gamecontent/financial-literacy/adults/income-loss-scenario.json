@@ -1,0 +1,176 @@
+{
+  "title": "Income Loss Scenario",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Income Loss",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Income Loss Management",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you create a plan for managing temporary income loss?",
+    "What specific expenses would you reduce and by how much?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Scenario: You lose income temporarily. What helps most?",
+      "options": [
+        {
+          "id": "borrowing",
+          "label": "Immediate borrowing",
+          "reflection": "Immediate borrowing creates debt obligations that compound your financial problems. It's better to use your own resources first before considering debt options.",
+          "isCorrect": false
+        },
+        {
+          "id": "ignore",
+          "label": "Ignore the problem and hope it resolves",
+          "reflection": "Ignoring the problem and hoping it resolves is financially dangerous. Income loss requires immediate action to prevent serious financial consequences.",
+          "isCorrect": false
+        },
+        {
+          "id": "expenses",
+          "label": "Reduced expenses + emergency fund",
+          "reflection": "Exactly! Reducing expenses and using your emergency fund gives you time to find new income without creating additional debt obligations.",
+          "isCorrect": true
+        },
+        {
+          "id": "luxury",
+          "label": "Continue spending on non-essentials",
+          "reflection": "Continuing to spend on non-essentials during income loss accelerates financial problems. It's essential to prioritize necessary expenses and reduce discretionary spending.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 2,
+      "prompt": "What's the first step when facing temporary income loss?",
+      "options": [
+        {
+          "id": "panic",
+          "label": "Panic and make impulsive financial decisions",
+          "reflection": "Panic leads to poor financial decisions that can make the situation worse. It's important to stay calm and methodical when dealing with income loss.",
+          "isCorrect": false
+        },
+        {
+          "id": "assess",
+          "label": "Assess your financial situation and resources",
+          "reflection": "Perfect! The first step is to assess your financial situation, including available savings, emergency funds, and essential expenses to determine how long you can manage.",
+          "isCorrect": true
+        },
+        {
+          "id": "spending",
+          "label": "Immediately increase spending to feel better",
+          "reflection": "Increasing spending during income loss creates additional financial stress. The goal should be to reduce financial pressure, not increase it.",
+          "isCorrect": false
+        },
+        {
+          "id": "debt",
+          "label": "Take on new debt to maintain lifestyle",
+          "reflection": "Taking on new debt to maintain lifestyle during income loss is financially dangerous. It creates obligations you may not be able to meet when income is reduced.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 3,
+      "prompt": "How should you prioritize expenses during income loss?",
+      "options": [
+        {
+          "id": "essential",
+          "label": "Focus on essential expenses first",
+          "reflection": "Excellent! During income loss, prioritize essential expenses like housing, utilities, food, and healthcare. Non-essential expenses should be reduced or eliminated.",
+          "isCorrect": true
+        },
+        {
+          "id": "everything",
+          "label": "Try to maintain all previous spending levels",
+          "reflection": "Trying to maintain all previous spending levels during income loss is financially unsustainable and leads to debt accumulation or asset depletion.",
+          "isCorrect": false
+        },
+        {
+          "id": "random",
+          "label": "Cut expenses randomly without planning",
+          "reflection": "Cutting expenses randomly without planning is inefficient and may eliminate necessary expenses while keeping unnecessary ones. A systematic approach is more effective.",
+          "isCorrect": false
+        },
+        {
+          "id": "habits",
+          "label": "Don't change spending habits at all",
+          "reflection": "Not changing spending habits during income loss typically leads to financial crisis. Adjustment is necessary to match spending with reduced income capacity.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 4,
+      "prompt": "What's a warning sign of poor income loss planning?",
+      "options": [
+        {
+          "id": "plan",
+          "label": "Having a written financial contingency plan",
+          "reflection": "Having a written financial contingency plan is actually a sign of good financial preparation, not poor planning. It shows you're proactively preparing for potential challenges.",
+          "isCorrect": false
+        },
+        {
+          "id": "fund",
+          "label": "Maintaining adequate emergency fund levels",
+          "reflection": "Maintaining adequate emergency fund levels is a positive indicator of good financial management, not a warning sign. It demonstrates preparation for financial challenges.",
+          "isCorrect": false
+        },
+        {
+          "id": "tracking",
+          "label": "Tracking expenses during reduced income periods",
+          "reflection": "Tracking expenses during reduced income periods is good financial management that helps maintain control. It's not a warning sign of poor planning but rather a sign of good financial discipline.",
+          "isCorrect": false
+        },
+        {
+          "id": "anxiety",
+          "label": "Feeling anxious about paying essential bills",
+          "reflection": "Exactly! Feeling anxious about paying essential bills indicates inadequate planning for income loss. Good preparation should provide confidence in handling temporary income reductions.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 5,
+      "prompt": "What's the long-term benefit of handling income loss properly?",
+      "options": [
+        {
+          "id": "spending",
+          "label": "Ability to continue spending on all wants and desires",
+          "reflection": "Proper income loss handling is about security and survival, not continuing to spend on all wants. It's focused on meeting essential needs, not maintaining all previous consumption.",
+          "isCorrect": false
+        },
+        {
+          "id": "debt_exp",
+          "label": "Building experience with various debt instruments",
+          "reflection": "Good income loss handling focuses on avoiding debt, not gaining experience with it. The goal is to minimize financial stress and debt accumulation during income reduction.",
+          "isCorrect": false
+        },
+        {
+          "id": "security",
+          "label": "Maintaining financial stability and avoiding debt",
+          "reflection": "Exactly! Handling income loss properly helps you maintain financial stability and avoid accumulating debt during temporary income reductions, protecting your long-term financial health.",
+          "isCorrect": true
+        },
+        {
+          "id": "avoidance",
+          "label": "Avoiding all necessary expenses during loss",
+          "reflection": "Proper handling of income loss doesn't mean avoiding necessary expenses. It's about prioritizing and adjusting spending appropriately to maintain basic financial security.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    }
+  ]
+}

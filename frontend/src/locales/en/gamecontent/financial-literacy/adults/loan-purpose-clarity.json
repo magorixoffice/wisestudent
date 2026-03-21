@@ -1,0 +1,176 @@
+{
+  "title": "Loan Purpose Clarity",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Loan Purpose",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Loan Purpose Clarity",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you ensure your loan purpose is specific and achievable?",
+    "What steps should you take to monitor proper use of borrowed funds?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Scenario: Why should loan purpose be clear? (A) For lender only or (B) To ensure money is used wisely",
+      "options": [
+        {
+          "id": "a",
+          "label": "For lender only",
+          "reflection": "While lenders need to know the purpose, clarity is equally important for the borrower to ensure responsible use.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "To ensure money is used wisely",
+          "reflection": "Correct! Clear purpose helps ensure the borrowed money is used as intended and improves repayment success.",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "label": "It doesn't matter as long as you repay",
+          "reflection": "Clear purpose is important for ensuring the loan serves its intended function and improves success rates.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Only for documentation purposes",
+          "reflection": "The purpose is important beyond documentation - it guides how the funds are used effectively.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 2,
+      "prompt": "How does having a clear loan purpose benefit you as a borrower?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ensures funds are used for intended purpose",
+          "reflection": "Exactly! Clear purpose helps ensure the loan money is used appropriately for its intended goal.",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "label": "Allows you to use funds for anything",
+          "reflection": "Having a clear purpose means the funds should be used specifically for that purpose, not anything.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "Eliminates the need to repay",
+          "reflection": "Clear purpose doesn't eliminate repayment obligations - it helps ensure proper use of funds.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Reduces the interest rate automatically",
+          "reflection": "Clear purpose doesn't necessarily reduce interest rates - it helps ensure proper fund utilization.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 3,
+      "prompt": "What happens when loan purpose is not clearly defined?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It guarantees higher returns",
+          "reflection": "Unclear purpose doesn't guarantee higher returns - it increases risk of fund misallocation.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "It simplifies the repayment process",
+          "reflection": "Unclear purpose doesn't simplify repayment - it may actually complicate it due to misused funds.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "It reduces the loan amount",
+          "reflection": "Unclear purpose doesn't directly reduce the loan amount but can lead to improper fund usage.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "It may lead to misuse of funds",
+          "reflection": "Yes! Unclear purpose can result in funds being diverted to unintended uses, reducing loan success.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 4,
+      "prompt": "How does clear loan purpose contribute to repayment success?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It eliminates the need for repayment planning",
+          "reflection": "Clear purpose doesn't eliminate repayment planning - it actually supports better planning.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "It allows skipping payments when needed",
+          "reflection": "Clear purpose doesn't allow skipping payments - it helps ensure funds are used productively.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "It ensures the loan generates the expected value or benefit",
+          "reflection": "Perfect! When funds are used as intended, they're more likely to generate expected returns, aiding repayment.",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "label": "It prevents interest from accruing",
+          "reflection": "Clear purpose doesn't prevent interest accrual - it helps ensure productive use of funds.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 5,
+      "prompt": "What is the best approach to defining loan purpose before borrowing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Keep it general so you can use funds flexibly",
+          "reflection": "General purposes may lead to fund misallocation - specific purposes improve loan success.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "Clearly define specific use and expected outcomes",
+          "reflection": "Excellent! Specific definition with expected outcomes helps ensure funds are used productively.",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "label": "Define purpose after taking the loan",
+          "reflection": "Purpose should be defined before borrowing to ensure proper fund allocation and use.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Don't define purpose, trust your instincts",
+          "reflection": "Without a clear purpose, funds may be misallocated, reducing the effectiveness of the loan.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    }
+  ]
+}

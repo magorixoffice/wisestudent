@@ -1,0 +1,176 @@
+{
+  "title": "Reading Terms Carefully",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Loan Terms",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Careful loan evaluation",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you ensure you're reading loan terms thoroughly before signing?",
+    "What strategies help you understand complex financial terms in loan agreements?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Before accepting a digital loan, what must you read?",
+      "options": [
+        {
+          "id": "amount",
+          "label": "Only the loan amount",
+          "reflection": "Focusing only on the loan amount can lead to unexpected costs and repayment challenges. You need to understand the full terms of the agreement.",
+          "isCorrect": false
+        },
+        {
+          "id": "terms",
+          "label": "Interest, fees, and repayment terms",
+          "reflection": "Exactly! Reading all terms including interest, fees, and repayment conditions helps you understand the true cost and your obligations.",
+          "isCorrect": true
+        },
+        {
+          "id": "duration",
+          "label": "Only the repayment duration",
+          "reflection": "While repayment duration is important, it's just one factor. You need to understand all terms including interest rates and fees to make an informed decision.",
+          "isCorrect": false
+        },
+        {
+          "id": "approval",
+          "label": "Only the approval speed",
+          "reflection": "Approval speed is convenient but not the most important factor. Understanding the full terms of the loan is crucial for making responsible borrowing decisions.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 2,
+      "prompt": "What hidden cost is often overlooked in loan agreements?",
+      "options": [
+        {
+          "id": "interest",
+          "label": "Interest rate",
+          "reflection": "Interest rate is usually prominently displayed, but other fees and charges may be hidden in the fine print.",
+          "isCorrect": false
+        },
+        {
+          "id": "amount",
+          "label": "Principal amount",
+          "reflection": "The principal amount is the main loan amount and is typically clearly stated in the agreement.",
+          "isCorrect": false
+        },
+        {
+          "id": "duration",
+          "label": "Repayment period",
+          "reflection": "The repayment period is usually clearly stated in the main terms of the agreement.",
+          "isCorrect": false
+        },
+        {
+          "id": "fees",
+          "label": "Processing fees, late fees, and prepayment penalties",
+          "reflection": "Great! These hidden fees can significantly increase the total cost of your loan beyond what's obvious in the main terms.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 3,
+      "prompt": "Why is reading the fine print important in loan agreements?",
+      "options": [
+        {
+          "id": "unnecessary",
+          "label": "It's unnecessary and just legal jargon",
+          "reflection": "The fine print contains critical information about your obligations, fees, and rights that could significantly impact your financial situation.",
+          "isCorrect": false
+        },
+        {
+          "id": "complex",
+          "label": "It's too complex to understand",
+          "reflection": "While legal language can be complex, understanding the key terms is crucial for protecting your financial interests.",
+          "isCorrect": false
+        },
+        {
+          "id": "protection",
+          "label": "It contains important terms that protect your interests",
+          "reflection": "Correct! The fine print includes critical details about fees, penalties, and your rights that can save you from financial surprises.",
+          "isCorrect": true
+        },
+        {
+          "id": "ignored",
+          "label": "Most people ignore it anyway",
+          "reflection": "Just because others ignore it doesn't mean it's safe to do so. Reading terms protects you from potential financial harm.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 4,
+      "prompt": "What should you do if loan terms seem unclear?",
+      "options": [
+        {
+          "id": "sign",
+          "label": "Sign quickly before they change the offer",
+          "reflection": "Signing without understanding the terms puts you at significant risk. Never rush into a loan agreement without clarity.",
+          "isCorrect": false
+        },
+        {
+          "id": "ask",
+          "label": "Ask questions and clarify before signing",
+          "reflection": "Perfect! Getting clarification on unclear terms protects you from misunderstandings and potential financial problems later.",
+          "isCorrect": true
+        },
+        {
+          "id": "assume",
+          "label": "Assume the best case scenario",
+          "reflection": "Making assumptions about unclear terms can lead to serious financial consequences. Always seek clarification.",
+          "isCorrect": false
+        },
+        {
+          "id": "skip",
+          "label": "Skip reading and trust the lender",
+          "reflection": "Trusting without verification can lead to hidden obligations and financial surprises. Always read and understand the terms.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 5,
+      "prompt": "What is the consequence of not reading loan terms carefully?",
+      "options": [
+        {
+          "id": "shock",
+          "label": "Hidden terms cause repayment shock",
+          "reflection": "Exactly! Hidden terms and fees can cause repayment shock when you discover the true cost of your loan.",
+          "isCorrect": true
+        },
+        {
+          "id": "happy",
+          "label": "More happiness and freedom",
+          "reflection": "Not reading terms carefully often leads to unexpected costs and obligations, which create stress and financial hardship.",
+          "isCorrect": false
+        },
+        {
+          "id": "simple",
+          "label": "Simpler repayment process",
+          "reflection": "Without understanding terms, the repayment process can become complex and stressful when unexpected fees or conditions arise.",
+          "isCorrect": false
+        },
+        {
+          "id": "benefit",
+          "label": "Unexpected benefits",
+          "reflection": "Loans rarely contain unexpected benefits. More commonly, unread terms hide unexpected costs and obligations.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    }
+  ]
+}

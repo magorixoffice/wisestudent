@@ -1,0 +1,176 @@
+{
+  "title": "आपात कोष का उद्देश्य",
+  "subtitleProgress": "चरण {{current}} का {{total}}",
+  "sectionHeaderLeft": "परिदृश्य",
+  "sectionHeaderRight": "आपात कोष",
+  "choiceLabel": "पसंद {{id}}",
+  "reflectionTitle": "चिंतन",
+  "continueButton": "जारी रखें",
+  "readingLabel": "पढ़ रहे हैं...",
+  "reflectionPromptsTitle": "परावर्तन संकेत",
+  "skillUnlockedLabel": "अनलॉक किया गया कौशल:",
+  "skillName": "आपात कोष प्रबंधन",
+  "fullRewardHint": "पूरा रिवॉर्ड पाने के लिए सभी {{total}} विकल्पों का सही जवाब दें।",
+  "tryAgainButton": "पुन: प्रयास करें",
+  "reflectionPrompts": [
+    "उचित आपात कोष कैसे बनाएं और बनाए रखें?",
+    "आपात कोष कब उपयोग करें—क्या मापदंड रखेंगे?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "परिदृश्य: आपात कोष का उद्देश्य है:",
+      "options": [
+        {
+          "id": "unexpected",
+          "label": "अचानक गंभीर जरूरतें",
+          "reflection": "बिल्कुल! चिकित्सा, नौकरी खोना आदि; स्थिरता।",
+          "isCorrect": true
+        },
+        {
+          "id": "daily",
+          "label": "रोज़मर्रा खर्च",
+          "reflection": "रोज़ के लिए नहीं; असली आपात में कमजोर।",
+          "isCorrect": false
+        },
+        {
+          "id": "luxury",
+          "label": "लग्ज़री/छुट्टी",
+          "reflection": "गंभीर आपात के लिए रखें, विलासिता नहीं।",
+          "isCorrect": false
+        },
+        {
+          "id": "investments",
+          "label": "निवेश मौके",
+          "reflection": "सुरक्षा के लिए, रिटर्न के लिए नहीं।",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 2,
+      "prompt": "आपात कोष का मुख्य लक्ष्य क्या है?",
+      "options": [
+        {
+          "id": "growth",
+          "label": "निवेश रिटर्न",
+          "reflection": "तरलता और सुरक्षा, वृद्धि नहीं।",
+          "isCorrect": false
+        },
+        {
+          "id": "spending",
+          "label": "इच्छाओं पर अतिरिक्त खर्च",
+          "reflection": "आपात सुरक्षा के लिए, इच्छाओं के लिए नहीं।",
+          "isCorrect": false
+        },
+        {
+          "id": "status",
+          "label": "दिखावे के लिए",
+          "reflection": "शांति और सुरक्षा, प्रदर्शन नहीं।",
+          "isCorrect": false
+        },
+        {
+          "id": "security",
+          "label": "अचानक घटनाओं में सुरक्षा",
+          "reflection": "बिल्कुल! कर्ज बिना संकट सहना।",
+          "isCorrect": true
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 3,
+      "prompt": "आपात कोष का आकार कैसे तय करें?",
+      "options": [
+        {
+          "id": "income",
+          "label": "आय का निश्चित %",
+          "reflection": "खर्च और परिस्थिति आधार बेहतर।",
+          "isCorrect": false
+        },
+        {
+          "id": "friends",
+          "label": "दोस्तों की राय",
+          "reflection": "आपकी स्थिति अलग; अपनी जरूरत।",
+          "isCorrect": false
+        },
+        {
+          "id": "expenses",
+          "label": "मासिक खर्च व नौकरी स्थिरता",
+          "reflection": "शानदार! आमतौर पर 3-6 महीने।",
+          "isCorrect": true
+        },
+        {
+          "id": "minimum",
+          "label": "न्यूनतम से न्यूनतम",
+          "reflection": "असुरक्षित; वास्तविक आपात ध्यान में।",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 4,
+      "prompt": "गलत आपात कोष उपयोग का चेतावनी संकेत क्या है?",
+      "options": [
+        {
+          "id": "growth",
+          "label": "नियमित बढ़त",
+          "reflection": "अच्छा संकेत।",
+          "isCorrect": false
+        },
+        {
+          "id": "frequent",
+          "label": "गैर-आपात पर बार-बार निकासी",
+          "reflection": "बिल्कुल! गलत उपयोग।",
+          "isCorrect": true
+        },
+        {
+          "id": "separate",
+          "label": "अलग खाता",
+          "reflection": "अच्छा अभ्यास।",
+          "isCorrect": false
+        },
+        {
+          "id": "planning",
+          "label": "उपयोग की स्पष्ट योजना",
+          "reflection": "अनुशासन।",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 5,
+      "prompt": "आपात कोष का सही उपयोग करने का लाभ क्या है?",
+      "options": [
+        {
+          "id": "stability",
+          "label": "संकट में स्थिरता",
+          "reflection": "बिल्कुल! बिना नई समस्या संसाधन।",
+          "isCorrect": true
+        },
+        {
+          "id": "spending",
+          "label": "ज्यादा रोज़ खर्च",
+          "reflection": "संरक्षण के लिए, न कि खपत बढ़ाने।",
+          "isCorrect": false
+        },
+        {
+          "id": "debt",
+          "label": "क्रेडिट पर ज्यादा निर्भरता",
+          "reflection": "सही उपयोग से कर्ज कम।",
+          "isCorrect": false
+        },
+        {
+          "id": "stress",
+          "label": "ज्यादा तनाव",
+          "reflection": "सही उपयोग से तनाव कम।",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    }
+  ]
+}

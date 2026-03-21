@@ -1,0 +1,176 @@
+{
+  "title": "Emergency Business Expenses",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Business Emergency",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Business Emergency Preparedness",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you build an effective emergency fund for your business?",
+    "What preventive measures can reduce business emergency expenses?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Scenario: A machine breaks down. What's safer first?",
+      "options": [
+        {
+          "id": "loan",
+          "label": "Immediate high-interest loan",
+          "reflection": "Taking an immediate high-interest loan creates debt pressure and financial stress. It's expensive and puts you in a difficult position.",
+          "isCorrect": false
+        },
+        {
+          "id": "ignore",
+          "label": "Ignore the problem temporarily",
+          "reflection": "Ignoring equipment problems usually makes them worse and more expensive to fix. It's not a sustainable solution for business operations.",
+          "isCorrect": false
+        },
+        {
+          "id": "savings",
+          "label": "Savings or planned repair fund",
+          "reflection": "Exactly! Using savings or a planned repair fund is the safest approach. It avoids debt and maintains financial stability during emergencies.",
+          "isCorrect": true
+        },
+        {
+          "id": "credit",
+          "label": "Use business credit card for everything",
+          "reflection": "Using credit cards for emergency repairs can lead to high-interest debt and financial strain. It's better to have dedicated emergency funds.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 2,
+      "prompt": "What's the best way to prepare for business emergencies?",
+      "options": [
+        {
+          "id": "hope",
+          "label": "Hope nothing breaks down",
+          "reflection": "Relying on hope is not a strategy. Business equipment will inevitably need repairs or replacement, so planning is essential.",
+          "isCorrect": false
+        },
+        {
+          "id": "fund",
+          "label": "Set aside money regularly for emergencies",
+          "reflection": "Perfect! Regularly setting aside money for emergencies creates a financial cushion that protects your business from unexpected costs.",
+          "isCorrect": true
+        },
+        {
+          "id": "loan",
+          "label": "Keep loan options available",
+          "reflection": "While having loan options is good, relying on them for every emergency creates debt dependency. It's better to prevent emergencies through preparation.",
+          "isCorrect": false
+        },
+        {
+          "id": "insurance",
+          "label": "Rely solely on insurance coverage",
+          "reflection": "Insurance helps, but it doesn't cover everything and often has deductibles. Having your own emergency fund provides more comprehensive protection.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 3,
+      "prompt": "How much should you save for business emergencies?",
+      "options": [
+        {
+          "id": "minimum",
+          "label": "At least 3-6 months of operating expenses",
+          "reflection": "Excellent! Having 3-6 months of operating expenses saved provides a solid buffer for most business emergencies without creating financial stress.",
+          "isCorrect": true
+        },
+        {
+          "id": "nothing",
+          "label": "Nothing, I'll handle emergencies as they come",
+          "reflection": "Handling emergencies without preparation often leads to expensive borrowing and financial instability. It's risky for business sustainability.",
+          "isCorrect": false
+        },
+        {
+          "id": "everything",
+          "label": "Save everything, stop all other investments",
+          "reflection": "Saving everything can paralyze business growth. It's better to find a balance between emergency preparedness and continued investment in your business.",
+          "isCorrect": false
+        },
+        {
+          "id": "small",
+          "label": "Just enough for small repairs",
+          "reflection": "Small emergency funds may not cover major breakdowns or extended periods. It's better to plan for significant emergencies that could seriously impact operations.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 4,
+      "prompt": "What's a red flag in emergency expense management?",
+      "options": [
+        {
+          "id": "planning",
+          "label": "Having a well-planned emergency response",
+          "reflection": "Having a well-planned emergency response is actually a positive sign of good financial management, not a red flag.",
+          "isCorrect": false
+        },
+        {
+          "id": "fund",
+          "label": "Maintaining an adequate emergency fund",
+          "reflection": "Maintaining an adequate emergency fund is excellent financial practice and indicates responsible business management.",
+          "isCorrect": false
+        },
+        {
+          "id": "prevention",
+          "label": "Investing in regular equipment maintenance",
+          "reflection": "Regular equipment maintenance is proactive and cost-effective. It prevents many emergencies and is a sign of good business practices.",
+          "isCorrect": false
+        },
+        {
+          "id": "borrowing",
+          "label": "Regularly needing high-interest loans for emergencies",
+          "reflection": "Exactly! Regularly relying on high-interest loans for emergencies indicates poor planning and creates a dangerous cycle of debt that threatens business stability.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 5,
+      "prompt": "What's the long-term benefit of emergency preparedness?",
+      "options": [
+        {
+          "id": "spending",
+          "label": "Ability to spend more freely on non-essentials",
+          "reflection": "Emergency preparedness is about financial security, not increased spending on non-essentials. It actually promotes disciplined financial management.",
+          "isCorrect": false
+        },
+        {
+          "id": "risk",
+          "label": "Increased risk-taking in business decisions",
+          "reflection": "Emergency preparedness reduces risk rather than increasing it. It provides a safety net that allows for more confident business decision-making.",
+          "isCorrect": false
+        },
+        {
+          "id": "stability",
+          "label": "Business stability and peace of mind",
+          "reflection": "Exactly! Emergency preparedness provides business stability and peace of mind, allowing you to focus on growth rather than worrying about unexpected costs.",
+          "isCorrect": true
+        },
+        {
+          "id": "growth",
+          "label": "Guaranteed business growth and success",
+          "reflection": "While emergency preparedness helps business stability, it doesn't guarantee growth and success. Many other factors contribute to business outcomes.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    }
+  ]
+}

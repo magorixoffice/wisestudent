@@ -1,0 +1,176 @@
+{
+  "title": "Ignoring Warning Signs",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Warning Signs",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Warning Sign Recognition",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you identify early warning signs of financial difficulty?",
+    "What steps should you take when you notice potential repayment issues?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Scenario: Which is a warning sign? ",
+      "options": [
+        {
+          "id": "a",
+          "label": "Comfortable repayment",
+          "reflection": "Actually, comfortable repayment is a positive sign, not a warning sign.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "Paying EMIs on time regularly",
+          "reflection": "Regular on-time payments are a positive sign, not a warning sign.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "Having surplus income after EMIs",
+          "reflection": "Surplus income after EMIs is a positive sign of good financial management.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Difficulty paying EMIs",
+          "reflection": "Correct! Difficulty paying EMIs is a clear warning sign that needs immediate attention.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 2,
+      "prompt": "What should you do when you notice difficulty in paying EMIs?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ignore it hoping it resolves itself",
+          "reflection": "Ignoring warning signs typically leads to worsening financial problems.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "Delay payments until next month",
+          "reflection": "Delaying payments can result in penalties and credit score damage.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "Address the issue immediately",
+          "reflection": "Exactly! Early intervention can prevent bigger financial problems.",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "label": "Take another loan to cover the EMI",
+          "reflection": "Taking additional loans to cover EMIs can create a debt spiral.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 3,
+      "prompt": "What are early warning signs of loan repayment difficulty?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Having money left after paying EMIs",
+          "reflection": "Having money left after EMIs is a positive sign, not a warning sign.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "Struggling to meet other expenses after EMIs",
+          "reflection": "Yes! Struggling with other expenses after EMIs indicates potential repayment stress.",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "label": "Paying EMIs early each month",
+          "reflection": "Paying EMIs early is a positive sign of good financial management.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Having a stable income that covers EMIs",
+          "reflection": "Stable income covering EMIs is a positive sign, not a warning sign.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 4,
+      "prompt": "Why is it important to address warning signs early?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To prevent escalation into major financial problems",
+          "reflection": "Perfect! Addressing warnings early can prevent minor issues from becoming major crises.",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "label": "Early action is not necessary",
+          "reflection": "Early action is crucial to prevent minor issues from becoming major problems.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "Warning signs always resolve themselves",
+          "reflection": "Warning signs typically worsen if ignored, not resolve themselves.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "There's no benefit to early intervention",
+          "reflection": "Early intervention is often the key to preventing financial difficulties from escalating.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 5,
+      "prompt": "What is the best approach to handling early warning signs of repayment difficulty?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Wait to see if they disappear on their own",
+          "reflection": "Waiting can allow minor issues to develop into major financial problems.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "Deny that warning signs exist",
+          "reflection": "Denying warning signs prevents you from taking necessary corrective action.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "Ignore them until they become critical issues",
+          "reflection": "Waiting until issues become critical makes them much harder to address.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Acknowledge them promptly and take corrective action",
+          "reflection": "Excellent! Prompt acknowledgment and action can prevent minor issues from becoming major problems.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 3
+    }
+  ]
+}

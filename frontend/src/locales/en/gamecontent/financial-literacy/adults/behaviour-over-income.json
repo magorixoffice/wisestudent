@@ -1,0 +1,171 @@
+{
+  "title": "Behaviour Over Income",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Financial Behavior",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Behavior-Based Financial Planning",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you prioritize financial discipline in your own life?",
+    "What specific habits will help you focus on behavior over income?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Scenario: What matters more for financial health?",
+      "options": [
+        {
+          "id": "income",
+          "label": "Income alone",
+          "reflection": "While income is important, it's not the sole determinant of financial health. People with high incomes can still face financial difficulties if they don't manage their money well.",
+          "isCorrect": false
+        },
+        {
+          "id": "lifestyle",
+          "label": "Lifestyle matching income level",
+          "reflection": "Matching lifestyle to income level is important but it's still just one aspect of financial behavior. The broader discipline of managing money wisely is more critical to financial health.",
+          "isCorrect": false
+        },
+        {
+          "id": "behaviour",
+          "label": "Financial behaviour and discipline",
+          "reflection": "Exactly! Financial behavior and discipline matter more for financial health. Good habits like budgeting, saving, and responsible spending protect your financial well-being regardless of income level.",
+          "isCorrect": true
+        },
+        {
+          "id": "investments",
+          "label": "Investment returns only",
+          "reflection": "While investments can contribute to wealth, focusing solely on investment returns ignores the fundamental importance of spending less than you earn and building good financial habits.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "How does financial discipline protect against income fluctuations?",
+      "options": [
+        {
+          "id": "debt",
+          "label": "By taking on more debt during low income periods",
+          "reflection": "Taking on more debt during low income periods increases financial stress rather than providing protection. This approach compounds financial problems during difficult times.",
+          "isCorrect": false
+        },
+        {
+          "id": "habits",
+          "label": "Through established saving and spending habits",
+          "reflection": "Perfect! Financial discipline protects against income fluctuations through established saving and spending habits. These habits help you maintain stability even when income varies.",
+          "isCorrect": true
+        },
+        {
+          "id": "spending",
+          "label": "By maintaining the same spending levels regardless of income",
+          "reflection": "Maintaining the same spending levels regardless of income changes is financially risky. Discipline involves adjusting spending based on income availability.",
+          "isCorrect": false
+        },
+        {
+          "id": "avoidance",
+          "label": "By avoiding all financial planning",
+          "reflection": "Avoiding financial planning leaves you vulnerable to income fluctuations. Financial discipline requires active planning and management, not avoidance.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Why can someone with modest income achieve better financial health than someone with high income?",
+      "options": [
+        {
+          "id": "discipline",
+          "label": "Because of superior financial discipline",
+          "reflection": "Excellent! Someone with modest income can achieve better financial health than someone with high income due to superior financial discipline. Good habits matter more than income level.",
+          "isCorrect": true
+        },
+        {
+          "id": "inheritance",
+          "label": "Because of family wealth inheritance",
+          "reflection": "While inheritance might help, it doesn't represent financial discipline. The question is about comparing individuals' own financial management abilities.",
+          "isCorrect": false
+        },
+        {
+          "id": "location",
+          "label": "Because of living in a cheaper area",
+          "reflection": "Location might affect expenses, but it's not the primary reason someone with modest income could outperform someone with high income. The key is disciplined financial behavior.",
+          "isCorrect": false
+        },
+        {
+          "id": "job",
+          "label": "Because of having a more secure job",
+          "reflection": "Job security is helpful, but it doesn't address the core principle that disciplined financial behavior matters more than income level. The comparison is about financial habits, not job types.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "What's a warning sign of prioritizing income over behavior?",
+      "options": [
+        {
+          "id": "budgeting",
+          "label": "Creating and following a detailed budget",
+          "reflection": "Creating and following a budget is a sign of good financial discipline, not a warning sign. It shows proper prioritization of behavior over income.",
+          "isCorrect": false
+        },
+        {
+          "id": "saving",
+          "label": "Automatically saving a percentage of income",
+          "reflection": "Automatically saving a percentage of income is a healthy financial behavior, not a warning sign. It demonstrates prioritizing discipline over income level.",
+          "isCorrect": false
+        },
+        {
+          "id": "tracking",
+          "label": "Monitoring expenses regularly",
+          "reflection": "Monitoring expenses regularly is a positive financial behavior, not a warning sign. It shows attention to financial discipline rather than just focusing on income.",
+          "isCorrect": false
+        },
+        {
+          "id": "lifestyle",
+          "label": "Consistently matching lifestyle to rising income",
+          "reflection": "Exactly! Consistently matching lifestyle to rising income (lifestyle inflation) is a warning sign of prioritizing income over behavior. This leads to spending all additional income rather than building financial discipline.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "What's the long-term benefit of focusing on financial behavior over income?",
+      "options": [
+        {
+          "id": "spending",
+          "label": "Ability to spend more freely on wants",
+          "reflection": "Focusing on financial behavior doesn't primarily enable more spending on wants. The benefit is financial stability and security, not increased consumption.",
+          "isCorrect": false
+        },
+        {
+          "id": "income",
+          "label": "Automatic increase in income level",
+          "reflection": "Focusing on financial behavior doesn't automatically increase income. The benefit is better management of whatever income you have, not necessarily earning more.",
+          "isCorrect": false
+        },
+        {
+          "id": "stability",
+          "label": "Financial stability regardless of income level",
+          "reflection": "Exactly! Focusing on financial behavior over income leads to financial stability regardless of income level. Good habits protect and grow wealth at all income levels.",
+          "isCorrect": true
+        },
+        {
+          "id": "avoidance",
+          "label": "Ability to avoid all financial responsibilities",
+          "reflection": "Focusing on financial behavior doesn't help avoid responsibilities. It helps you manage responsibilities better and build financial security.",
+          "isCorrect": false
+        }
+      ]
+    }
+  ]
+}

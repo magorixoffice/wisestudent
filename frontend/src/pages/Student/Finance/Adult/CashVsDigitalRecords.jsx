@@ -1,177 +1,20 @@
 import React, { useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Trophy } from "lucide-react";
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getGameDataById } from "../../../../utils/getGameData";
 
-const STAGES = [
-  {
-    id: 1,
-    prompt: "Why are digital transactions useful?",
-    options: [
-      {
-        id: "hide",
-        label: "They hide spending",
-        reflection: "Digital transactions actually create a visible record of spending, not hiding it.",
-        isCorrect: false,
-      },
-      {
-        id: "record",
-        label: "They leave a record",
-        reflection: "Exactly! Digital transactions create a permanent record that helps with budgeting and financial tracking.",
-        isCorrect: true,
-      },
-      {
-        id: "fast",
-        label: "They are faster than cash",
-        reflection: "While digital transactions can be fast, the main benefit highlighted here is the record-keeping capability.",
-        isCorrect: false,
-      },
-      {
-        id: "free",
-        label: "They are always free",
-        reflection: "Digital transactions may have fees associated with them, but the main benefit is record-keeping.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 2,
-    prompt: "How do digital transaction records help with budgeting?",
-    options: [
-      {
-        id: "complicate",
-        label: "They complicate the budgeting process",
-        reflection: "Actually, digital records simplify budgeting by providing clear, organized data about spending.",
-        isCorrect: false,
-      },
-     
-      {
-        id: "reduce",
-        label: "They reduce the need to budget",
-        reflection: "Digital records help with budgeting, they don't eliminate the need for it.",
-        isCorrect: false,
-      },
-      {
-        id: "manual",
-        label: "They require manual recording",
-        reflection: "Digital transactions automatically create records, eliminating the need for manual recording.",
-        isCorrect: false,
-      },
-       {
-        id: "track",
-        label: "They make it easier to track spending patterns",
-        reflection: "Exactly! Digital records provide detailed information about spending habits, which helps in budgeting.",
-        isCorrect: true,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 3,
-    prompt: "What is an advantage of having digital transaction records for credit eligibility?",
-    options: [
-      {
-        id: "secret",
-        label: "They keep your finances secret",
-        reflection: "Digital records actually provide transparency that lenders need to evaluate creditworthiness.",
-        isCorrect: false,
-      },
-      
-      {
-        id: "optional",
-        label: "They are optional for credit evaluation",
-        reflection: "Financial records are often required for credit evaluation, not optional.",
-        isCorrect: false,
-      },
-      {
-        id: "proof",
-        label: "They provide proof of financial stability",
-        reflection: "Exactly! Digital records can demonstrate consistent financial behavior, which helps with credit eligibility.",
-        isCorrect: true,
-      },
-      {
-        id: "negative",
-        label: "They always have a negative impact",
-        reflection: "Well-managed digital records typically have a positive impact on credit evaluation.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 4,
-    prompt: "How do digital records help identify unnecessary expenses?",
-    options: [
-        {
-        id: "analyze",
-        label: "They allow analysis of spending patterns over time",
-        reflection: "Exactly! Digital records make it possible to analyze spending patterns and identify areas for improvement.",
-        isCorrect: true,
-      },
-      {
-        id: "guess",
-        label: "They require guessing where money is spent",
-        reflection: "Digital records provide actual data about spending, eliminating the need for guessing.",
-        isCorrect: false,
-      },
-      
-      {
-        id: "hide",
-        label: "They hide recurring charges",
-        reflection: "Digital records actually reveal recurring charges that might otherwise go unnoticed.",
-        isCorrect: false,
-      },
-      {
-        id: "ignore",
-        label: "They let you ignore spending habits",
-        reflection: "Digital records help you understand spending habits, not ignore them.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 5,
-    prompt: "What happens when you rely only on cash transactions?",
-    options: [
-      {
-        id: "records",
-        label: "You have detailed digital records",
-        reflection: "Cash transactions don't automatically create digital records unless manually tracked.",
-        isCorrect: false,
-      },
-      {
-        id: "tracking",
-        label: "It becomes harder to track spending accurately",
-        reflection: "Exactly! Without digital records, tracking spending becomes more difficult and prone to errors.",
-        isCorrect: true,
-      },
-      {
-        id: "simple",
-        label: "It makes budgeting much simpler",
-        reflection: "Without records, budgeting becomes more difficult, not simpler.",
-        isCorrect: false,
-      },
-      {
-        id: "visible",
-        label: "All transactions remain visible",
-        reflection: "Cash transactions are not automatically recorded in digital systems, making them less visible.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-];
-
-const totalStages = STAGES.length;
-const successThreshold = totalStages;
-
 const CashVsDigitalRecords = () => {
   const location = useLocation();
+  const { t } = useTranslation("gamecontent");
   const gameId = "finance-adults-18";
+  const baseKey = "financial-literacy.adults.cash-vs-digital-records";
+  const gameContent = t(baseKey, { returnObjects: true });
+  const localizedStages = Array.isArray(gameContent?.stages) ? gameContent.stages : [];
+  const totalStages = localizedStages.length;
+  const successThreshold = totalStages;
   const gameData = getGameDataById(gameId);
   const coinsPerLevel = gameData?.coins || location.state?.coinsPerLevel || 5;
   const totalCoins = gameData?.coins || location.state?.totalCoins || 5;
@@ -189,20 +32,15 @@ const CashVsDigitalRecords = () => {
   const [selectedReflection, setSelectedReflection] = useState(null);
   const [canProceed, setCanProceed] = useState(false);
 
-  const reflectionPrompts = useMemo(
-    () => [
-      "How do digital records contribute to better financial planning?",
-      "What other benefits do digital transactions offer beyond record-keeping?",
-    ],
-    []
-  );
+  const reflectionPrompts = useMemo(() => gameContent?.reflectionPrompts || [], [gameContent]);
 
   const handleSelect = (option) => {
     if (selectedOption || showResult) return;
+    if (!localizedStages.length) return;
     resetFeedback();
     const updatedHistory = [
       ...history,
-      { stageId: STAGES[stageIndex].id, isCorrect: option.isCorrect },
+      { stageId: localizedStages[stageIndex].id, isCorrect: option.isCorrect },
     ];
     setHistory(updatedHistory);
     setSelectedOption(option.id);
@@ -245,13 +83,17 @@ const CashVsDigitalRecords = () => {
     setShowResult(false);
   };
 
-  const subtitle = `Stage ${Math.min(stageIndex + 1, totalStages)} of ${totalStages}`;
-  const stage = STAGES[Math.min(stageIndex, totalStages - 1)];
+  const subtitle = t(`${baseKey}.subtitleProgress`, {
+    current: Math.min(stageIndex + 1, totalStages),
+    total: totalStages,
+    defaultValue: "Stage {{current}} of {{total}}",
+  });
+  const stage = localizedStages[Math.min(stageIndex, totalStages - 1)];
   const hasPassed = finalScore === successThreshold;
 
   return (
     <GameShell
-      title="Cash vs Digital Records"
+      title={gameContent?.title || "Cash vs Digital Records"}
       subtitle={subtitle}
       score={showResult ? finalScore : coins}
       coins={coins}
@@ -272,12 +114,12 @@ const CashVsDigitalRecords = () => {
       <div className="space-y-5 text-white">
         <div className="bg-white/10 border border-white/20 rounded-3xl p-8 shadow-2xl max-w-4xl mx-auto">
           <div className="flex justify-between items-center mb-4 text-sm uppercase tracking-[0.3em] text-white/60">
-            <span>Scenario</span>
-            <span>Digital Records</span>
+            <span>{t(`${baseKey}.scenarioLabel`, { defaultValue: "Scenario" })}</span>
+            <span>{t(`${baseKey}.scenarioValue`, { defaultValue: "Digital Records" })}</span>
           </div>
           <p className="text-lg text-white/90 mb-6">{stage.prompt}</p>
           <div className="grid grid-cols-2 gap-4">
-            {stage.options.map((option) => {
+            {stage?.options?.map((option) => {
               const isSelected = selectedOption === option.id;
               return (
                 <button
@@ -293,7 +135,7 @@ const CashVsDigitalRecords = () => {
                   }`}
                 >
                   <div className="text-sm text-white/70 mb-2">
-                    Choice {option.id.toUpperCase()}
+                    {t(`${baseKey}.choiceLabel`, { id: option.id, defaultValue: "Choice {{id}}" })}
                   </div>
                   <p className="text-white font-semibold">{option.label}</p>
                   
@@ -305,7 +147,7 @@ const CashVsDigitalRecords = () => {
         </div>
         {(showResult || showFeedback) && (
           <div className="bg-white/5 border border-white/20 rounded-3xl p-6 shadow-xl max-w-4xl mx-auto space-y-3">
-            <h4 className="text-lg font-semibold text-white">Reflection</h4>
+            <h4 className="text-lg font-semibold text-white">{t(`${baseKey}.reflectionTitle`, { defaultValue: "Reflection" })}</h4>
             {selectedReflection && (
               <div className="max-h-24 overflow-y-auto pr-2">
                 <p className="text-sm text-white/90">{selectedReflection}</p>
@@ -326,10 +168,10 @@ const CashVsDigitalRecords = () => {
                     }}
                     className="rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 px-6 font-semibold shadow-lg hover:opacity-90"
                   >
-                    Continue
+                    {t(`${baseKey}.continueButton`, { defaultValue: "Continue" })}
                   </button>
                 ) : (
-                  <div className="py-2 px-6 text-white font-semibold">Reading...</div>
+                  <div className="py-2 px-6 text-white font-semibold">{t(`${baseKey}.readingLabel`, { defaultValue: "Reading..." })}</div>
                 )}
               </div>
             )}
@@ -347,17 +189,12 @@ const CashVsDigitalRecords = () => {
                   ))}
                 </ul>
                 <p className="text-sm text-white/70">
-                  {hasPassed ? (
-                    <>
-                      <strong>Congratulations!</strong> Records help with budgeting and future credit eligibility.
-                    </>
-                  ) : (
-                    <>Skill unlocked: <strong>Understanding of digital transaction benefits</strong></>
-                  )}
+                  {t(`${baseKey}.skillUnlockedLabel`, { defaultValue: "Skill unlocked:" })}{" "}
+                  <strong>{t(`${baseKey}.skillName`, { defaultValue: "Financial decision making" })}</strong>
                 </p>
                 {!hasPassed && (
                   <p className="text-xs text-amber-300">
-                    Answer every stage sharply to earn the full reward.
+                    {t(`${baseKey}.fullRewardHint`, { total: totalStages, defaultValue: "Answer all {{total}} choices correctly to earn the full reward." })}
                   </p>
                 )}
                 {!hasPassed && (
@@ -365,7 +202,7 @@ const CashVsDigitalRecords = () => {
                     onClick={handleRetry}
                     className="w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 font-semibold shadow-lg hover:opacity-90"
                   >
-                    Try Again
+                    {t(`${baseKey}.tryAgainButton`, { defaultValue: "Try Again" })}
                   </button>
                 )}
               </>

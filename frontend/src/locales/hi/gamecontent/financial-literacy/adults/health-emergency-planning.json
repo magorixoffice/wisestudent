@@ -1,0 +1,176 @@
+{
+  "title": "स्वास्थ्य आपात योजना",
+  "subtitleProgress": "चरण {{current}} का {{total}}",
+  "sectionHeaderLeft": "परिदृश्य",
+  "sectionHeaderRight": "स्वास्थ्य आपात",
+  "choiceLabel": "पसंद {{id}}",
+  "reflectionTitle": "चिंतन",
+  "continueButton": "जारी रखें",
+  "readingLabel": "पढ़ रहे हैं...",
+  "reflectionPromptsTitle": "परावर्तन संकेत",
+  "skillUnlockedLabel": "अनलॉक किया गया कौशल:",
+  "skillName": "स्वास्थ्य आपात वित्त योजना",
+  "fullRewardHint": "पूरा रिवॉर्ड पाने के लिए सभी {{total}} विकल्पों का सही जवाब दें।",
+  "tryAgainButton": "पुन: प्रयास करें",
+  "reflectionPrompts": [
+    "वर्तमान स्वास्थ्य वित्त तैयारी का मूल्यांकन कैसे करें?",
+    "सुधार के लिए क्या कदम उठाएंगे?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "परिदृश्य: कौन सा चिकित्सा कर्ज जोखिम कम करता है?",
+      "options": [
+        {
+          "id": "ignore",
+          "label": "योजना न करना",
+          "reflection": "पूरी तरह असुरक्षित; चिकित्सा कर्ज।",
+          "isCorrect": false
+        },
+        {
+          "id": "hope",
+          "label": "परिवार पर भरोसा",
+          "reflection": "भरोसेमंद नहीं; अपनी तैयारी।",
+          "isCorrect": false
+        },
+        {
+          "id": "insurance",
+          "label": "बुनियादी बीमा या बचत",
+          "reflection": "बिल्कुल! उधार जोखिम कम।",
+          "isCorrect": true
+        },
+        {
+          "id": "delay",
+          "label": "सारी देखभाल टालना",
+          "reflection": "स्वास्थ्य और लागत दोनों बिगड़ते हैं।",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 2,
+      "prompt": "स्वास्थ्य आपात योजना का मुख्य उद्देश्य क्या है?",
+      "options": [
+        {
+          "id": "expensive_insurance",
+          "label": "केवल महंगा बीमा",
+          "reflection": "बीमा+बचत+बजट—समग्र।",
+          "isCorrect": false
+        },
+        {
+          "id": "protection",
+          "label": "चिकित्सा आपात में सुरक्षा",
+          "reflection": "बिल्कुल! अचानक खर्च।",
+          "isCorrect": true
+        },
+        {
+          "id": "invincibility",
+          "label": "अजेय मानना",
+          "reflection": "कोई अजेय नहीं।",
+          "isCorrect": false
+        },
+        {
+          "id": "avoidance",
+          "label": "देखभाल से बचना",
+          "reflection": "खतरनाक; लागत बढ़ सकती है।",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 3,
+      "prompt": "स्वास्थ्य आपात की तैयारी में प्राथमिकता कैसे दें?",
+      "options": [
+        {
+          "id": "insurance_then_savings",
+          "label": "पहले बुनियादी बीमा, फिर बचत",
+          "reflection": "शानदार! तुरंत सुरक्षा+अतिरिक्त।",
+          "isCorrect": true
+        },
+        {
+          "id": "savings_only",
+          "label": "केवल बचत, बीमा नहीं",
+          "reflection": "बड़े आपात में बीमा जरूरी।",
+          "isCorrect": false
+        },
+        {
+          "id": "nothing",
+          "label": "कुछ नहीं",
+          "reflection": "जोखिम भरा।",
+          "isCorrect": false
+        },
+        {
+          "id": "everything",
+          "label": "सबसे महंगा कवर",
+          "reflection": "संतुलन—जरूरत व किफायत।",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 4,
+      "prompt": "खराब स्वास्थ्य आपात योजना का चेतावनी संकेत क्या है?",
+      "options": [
+        {
+          "id": "coverage",
+          "label": "व्यापक कवरेज",
+          "reflection": "अच्छी योजना।",
+          "isCorrect": false
+        },
+        {
+          "id": "health_savings",
+          "label": "स्वास्थ्य आपात बचत",
+          "reflection": "सकारात्मक।",
+          "isCorrect": false
+        },
+        {
+          "id": "prevention",
+          "label": "रोकथाम पर निवेश",
+          "reflection": "लागत कम कर सकता है।",
+          "isCorrect": false
+        },
+        {
+          "id": "panic",
+          "label": "योजना बिना बिलों की चिंता",
+          "reflection": "बिल्कुल! खराब योजना।",
+          "isCorrect": true
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 5,
+      "prompt": "स्वास्थ्य आपात योजना का दीर्घकालिक लाभ क्या है?",
+      "options": [
+        {
+          "id": "spending",
+          "label": "गैर-जरूरी पर ज्यादा",
+          "reflection": "सुरक्षा के लिए।",
+          "isCorrect": false
+        },
+        {
+          "id": "risk",
+          "label": "स्वास्थ्य जोखिम बढ़ाना",
+          "reflection": "योजना जोखिम कम करती है।",
+          "isCorrect": false
+        },
+        {
+          "id": "security",
+          "label": "सुरक्षा व शांति",
+          "reflection": "बिल्कुल! कर्ज बिना खर्च।",
+          "isCorrect": true
+        },
+        {
+          "id": "avoidance",
+          "label": "सारे चिकित्सा खर्च टालना",
+          "reflection": "कुछ अनिवार्य और जरूरी।",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    }
+  ]
+}

@@ -1,177 +1,21 @@
 import React, { useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Trophy } from "lucide-react";
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getGameDataById } from "../../../../utils/getGameData";
 
-const STAGES = [
-  {
-    id: 1,
-    prompt: "You fear banks will 'take your money.' What's the truth?",
-    options: [
-      {
-        id: "misuse",
-        label: "Banks freely misuse deposits",
-        reflection: "Banks are heavily regulated and misusing deposits would violate numerous laws and regulations.",
-        isCorrect: false,
-      },
-      
-      {
-        id: "hidden",
-        label: "Banks hide how they use your money",
-        reflection: "Banks provide statements and are required to be transparent about how they handle deposits.",
-        isCorrect: false,
-      },
-      {
-        id: "unsafe",
-        label: "Banking is inherently unsafe",
-        reflection: "Banks are among the most regulated industries with multiple safeguards to protect deposits.",
-        isCorrect: false,
-      },
-      {
-        id: "regulated",
-        label: "Banks are regulated and monitored",
-        reflection: "Exactly! Banks operate under strict regulations and oversight to protect customer deposits.",
-        isCorrect: true,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 2,
-    prompt: "What protects your money in banks?",
-    options: [
-      {
-        id: "size",
-        label: "The bank's physical size",
-        reflection: "Physical size doesn't protect your money; regulatory frameworks and deposit insurance do.",
-        isCorrect: false,
-      },
-      {
-        id: "insurance",
-        label: "Deposit insurance and regulatory oversight",
-        reflection: "Exactly! Deposit insurance and regulatory oversight provide key protections for your money.",
-        isCorrect: true,
-      },
-      {
-        id: "promise",
-        label: "The bank manager's verbal promise",
-        reflection: "Verbal promises aren't sufficient protection; regulatory frameworks and insurance provide real security.",
-        isCorrect: false,
-      },
-      {
-        id: "location",
-        label: "The bank's location in a safe area",
-        reflection: "Location doesn't protect your money; regulatory protections and insurance do that.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 3,
-    prompt: "How often are banks audited and monitored?",
-    options: [
-      {
-        id: "never",
-        label: "Never, banks self-regulate",
-        reflection: "Banks undergo regular audits by both internal and external agencies, as well as regulators.",
-        isCorrect: false,
-      },
-      
-      {
-        id: "yearly",
-        label: "Only once per year",
-        reflection: "Banks are monitored much more frequently than annually through various oversight mechanisms.",
-        isCorrect: false,
-      },
-      {
-        id: "regularly",
-        label: "Regularly by regulatory authorities",
-        reflection: "Exactly! Banks are subject to regular audits and supervision by regulatory authorities.",
-        isCorrect: true,
-      },
-      {
-        id: "customers",
-        label: "Only by customer complaints",
-        reflection: "Banks have formal regulatory oversight that goes beyond customer complaints.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 4,
-    prompt: "What happens if a regulated bank faces financial trouble?",
-    options: [
-        {
-        id: "protected",
-        label: "Customer deposits are protected up to certain limits",
-        reflection: "Exactly! Deposit insurance schemes protect customer deposits up to specified limits during bank failures.",
-        isCorrect: true,
-      },
-      {
-        id: "immediate",
-        label: "Customers immediately lose all their money",
-        reflection: "Regulatory frameworks exist to protect customers, often including deposit insurance and bank resolution processes.",
-        isCorrect: false,
-      },
-      
-      {
-        id: "nothing",
-        label: "Nothing happens to customer deposits",
-        reflection: "While deposit insurance provides protection, there are formal processes that occur during bank troubles.",
-        isCorrect: false,
-      },
-      {
-        id: "loss",
-        label: "Customers always lose some money",
-        reflection: "Deposit insurance typically covers customer deposits up to certain limits during bank failures.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 5,
-    prompt: "Why are regulated institutions safer than informal storage?",
-    options: [
-      {
-        id: "cost",
-        label: "They cost less to use",
-        reflection: "The safety of regulated institutions comes from oversight and insurance, not lower costs.",
-        isCorrect: false,
-      },
-      {
-        id: "oversight",
-        label: "They have regulatory oversight and customer protections",
-        reflection: "Exactly! Regulatory oversight, licensing requirements, and customer protections make regulated institutions safer.",
-        isCorrect: true,
-      },
-      {
-        id: "convenience",
-        label: "They're more convenient to access",
-        reflection: "While regulated institutions may be convenient, their safety comes from regulatory protections.",
-        isCorrect: false,
-      },
-      {
-        id: "returns",
-        label: "They always offer higher returns",
-        reflection: "Safety of regulated institutions comes from oversight and protections, not necessarily higher returns.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-];
-
-const totalStages = STAGES.length;
-const successThreshold = totalStages;
-
 const TrustingTheSystem = () => {
   const location = useLocation();
+  const { t } = useTranslation("gamecontent");
   const gameId = "finance-adults-19";
+  const baseKey = "financial-literacy.adults.trusting-the-system";
+  const gameContent = t(baseKey, { returnObjects: true });
+  const localizedStages = Array.isArray(gameContent?.stages) ? gameContent.stages : [];
+  const totalStages = localizedStages.length;
+  const successThreshold = totalStages;
+  if (!localizedStages.length) return null;
   const gameData = getGameDataById(gameId);
   const coinsPerLevel = gameData?.coins || location.state?.coinsPerLevel || 5;
   const totalCoins = gameData?.coins || location.state?.totalCoins || 5;
@@ -189,20 +33,15 @@ const TrustingTheSystem = () => {
   const [selectedReflection, setSelectedReflection] = useState(null);
   const [canProceed, setCanProceed] = useState(false);
 
-  const reflectionPrompts = useMemo(
-    () => [
-      "How do regulations protect your money in banks?",
-      "What should you look for when choosing a financial institution?",
-    ],
-    []
-  );
+  const reflectionPrompts = useMemo(() => gameContent?.reflectionPrompts || [], [gameContent]);
 
   const handleSelect = (option) => {
     if (selectedOption || showResult) return;
+    if (!localizedStages.length) return;
     resetFeedback();
     const updatedHistory = [
       ...history,
-      { stageId: STAGES[stageIndex].id, isCorrect: option.isCorrect },
+      { stageId: localizedStages[stageIndex].id, isCorrect: option.isCorrect },
     ];
     setHistory(updatedHistory);
     setSelectedOption(option.id);
@@ -245,13 +84,17 @@ const TrustingTheSystem = () => {
     setShowResult(false);
   };
 
-  const subtitle = `Stage ${Math.min(stageIndex + 1, totalStages)} of ${totalStages}`;
-  const stage = STAGES[Math.min(stageIndex, totalStages - 1)];
+  const subtitle = t(`${baseKey}.subtitleProgress`, {
+    current: Math.min(stageIndex + 1, totalStages),
+    total: totalStages,
+    defaultValue: "Stage {{current}} of {{total}}",
+  });
+  const stage = localizedStages[Math.min(stageIndex, totalStages - 1)];
   const hasPassed = finalScore === successThreshold;
 
   return (
     <GameShell
-      title="Trusting the System"
+      title={gameContent?.title || "Trusting the System"}
       subtitle={subtitle}
       score={showResult ? finalScore : coins}
       coins={coins}
@@ -272,12 +115,12 @@ const TrustingTheSystem = () => {
       <div className="space-y-5 text-white">
         <div className="bg-white/10 border border-white/20 rounded-3xl p-8 shadow-2xl max-w-4xl mx-auto">
           <div className="flex justify-between items-center mb-4 text-sm uppercase tracking-[0.3em] text-white/60">
-            <span>Scenario</span>
-            <span>Banking Trust</span>
+            <span>{t(`${baseKey}.scenarioLabel`, { defaultValue: "Scenario" })}</span>
+            <span>{t(`${baseKey}.scenarioValue`, { defaultValue: "Banking Trust" })}</span>
           </div>
           <p className="text-lg text-white/90 mb-6">{stage.prompt}</p>
           <div className="grid grid-cols-2 gap-4">
-            {stage.options.map((option) => {
+            {stage?.options?.map((option) => {
               const isSelected = selectedOption === option.id;
               return (
                 <button
@@ -293,7 +136,7 @@ const TrustingTheSystem = () => {
                   }`}
                 >
                   <div className="text-sm text-white/70 mb-2">
-                    Choice {option.id.toUpperCase()}
+                    {t(`${baseKey}.choiceLabel`, { id: option.id, defaultValue: "Choice {{id}}" })}
                   </div>
                   <p className="text-white font-semibold">{option.label}</p>
                   
@@ -305,7 +148,7 @@ const TrustingTheSystem = () => {
         </div>
         {(showResult || showFeedback) && (
           <div className="bg-white/5 border border-white/20 rounded-3xl p-6 shadow-xl max-w-4xl mx-auto space-y-3">
-            <h4 className="text-lg font-semibold text-white">Reflection</h4>
+            <h4 className="text-lg font-semibold text-white">{t(`${baseKey}.reflectionTitle`, { defaultValue: "Reflection" })}</h4>
             {selectedReflection && (
               <div className="max-h-24 overflow-y-auto pr-2">
                 <p className="text-sm text-white/90">{selectedReflection}</p>
@@ -326,10 +169,10 @@ const TrustingTheSystem = () => {
                     }}
                     className="rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 px-6 font-semibold shadow-lg hover:opacity-90"
                   >
-                    Continue
+                    {t(`${baseKey}.continueButton`, { defaultValue: "Continue" })}
                   </button>
                 ) : (
-                  <div className="py-2 px-6 text-white font-semibold">Reading...</div>
+                  <div className="py-2 px-6 text-white font-semibold">{t(`${baseKey}.readingLabel`, { defaultValue: "Reading..." })}</div>
                 )}
               </div>
             )}
@@ -347,17 +190,12 @@ const TrustingTheSystem = () => {
                   ))}
                 </ul>
                 <p className="text-sm text-white/70">
-                  {hasPassed ? (
-                    <>
-                      <strong>Congratulations!</strong> Regulated institutions are safer than informal storage.
-                    </>
-                  ) : (
-                    <>Skill unlocked: <strong>Understanding of banking regulation</strong></>
-                  )}
+                  {t(`${baseKey}.skillUnlockedLabel`, { defaultValue: "Skill unlocked:" })}{" "}
+                  <strong>{t(`${baseKey}.skillName`, { defaultValue: "Financial decision making" })}</strong>
                 </p>
                 {!hasPassed && (
                   <p className="text-xs text-amber-300">
-                    Answer every stage sharply to earn the full reward.
+                    {t(`${baseKey}.fullRewardHint`, { total: totalStages, defaultValue: "Answer all {{total}} choices correctly to earn the full reward." })}
                   </p>
                 )}
                 {!hasPassed && (
@@ -365,7 +203,7 @@ const TrustingTheSystem = () => {
                     onClick={handleRetry}
                     className="w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 font-semibold shadow-lg hover:opacity-90"
                   >
-                    Try Again
+                    {t(`${baseKey}.tryAgainButton`, { defaultValue: "Try Again" })}
                   </button>
                 )}
               </>

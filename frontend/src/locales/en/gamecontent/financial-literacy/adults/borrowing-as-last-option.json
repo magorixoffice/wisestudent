@@ -1,0 +1,176 @@
+{
+  "title": "Borrowing as Last Option",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Responsible Borrowing",
+  "sectionHeaderRight": "Debt Management",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Responsible borrowing judgment",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you build emergency funds to avoid unnecessary borrowing?",
+    "What expense reduction strategies should you implement before considering debt?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "You face a temporary cash gap. What should come first?",
+      "options": [
+        {
+          "id": "loan",
+          "label": "Immediate loan to cover the gap",
+          "reflection": "Actually, borrowing should be the last resort after exhausting other options. Taking on debt for temporary gaps creates unnecessary interest costs and financial obligations that could be avoided through better planning.",
+          "isCorrect": false
+        },
+        {
+          "id": "adjust",
+          "label": "Expense adjustment or using existing savings",
+          "reflection": "Exactly! Adjusting expenses or using emergency savings should always come before borrowing. This approach avoids debt costs and maintains financial flexibility for genuine emergencies that truly require external funding.",
+          "isCorrect": true
+        },
+        {
+          "id": "ignore",
+          "label": "Ignore the gap and hope it resolves itself",
+          "reflection": "Ignoring financial gaps without planning creates stress and potential missed opportunities or obligations. Proactive management through expense adjustment or savings use provides better control and financial stability.",
+          "isCorrect": false
+        },
+        {
+          "id": "credit",
+          "label": "Use credit card for convenience and pay later",
+          "reflection": "Credit card usage for temporary gaps often leads to high-interest debt and minimum payment traps. The disciplined approach is adjusting spending or using designated emergency funds rather than shifting expenses to expensive credit.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 2,
+      "prompt": "What's the fundamental principle of responsible borrowing?",
+      "options": [
+        {
+          "id": "last",
+          "label": "Borrow only when all other options are exhausted",
+          "reflection": "Correct! Responsible borrowing means using debt only after exhausting savings, expense reduction, income generation, and other non-debt solutions. Debt should supplement, not replace, financial planning.",
+          "isCorrect": true
+        },
+        {
+          "id": "available",
+          "label": "Borrow whenever credit is available and approved",
+          "reflection": "Availability and approval don't indicate necessity or wisdom. Responsible borrowing requires evaluating whether the expense is essential, whether alternatives exist, and whether you can comfortably repay without financial stress.",
+          "isCorrect": false
+        },
+        {
+          "id": "convenient",
+          "label": "Choose borrowing when it's the easiest option",
+          "reflection": "Ease of access shouldn't drive financial decisions. The most convenient option is often the most expensive long-term. Responsible borrowing requires effort to evaluate alternatives and ensure debt serves genuine needs rather than convenience.",
+          "isCorrect": false
+        },
+        {
+          "id": "competitive",
+          "label": "Borrow when interest rates are historically low",
+          "reflection": "While rate environment matters, timing shouldn't override fundamental need assessment. The principle is matching borrowing to actual requirements after exhausting non-debt alternatives, regardless of current rate levels.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 3,
+      "prompt": "Before considering a loan, you should evaluate:",
+      "options": [
+        {
+          "id": "lenders",
+          "label": "Which lenders offer the quickest approval",
+          "reflection": "Speed of approval focuses on access rather than necessity. Proper evaluation prioritizes whether borrowing is truly needed after considering all alternatives, not which lender provides fastest access to funds.",
+          "isCorrect": false
+        },
+        {
+          "id": "maximum",
+          "label": "Maximum amount you qualify to borrow",
+          "reflection": "Qualification amounts represent lending capacity, not financial need. Responsible evaluation focuses on actual requirements and repayment capability rather than maximum approved amounts that may exceed genuine needs.",
+          "isCorrect": false
+        },
+        {
+          "id": "terms",
+          "label": "Loan terms and interest rates only",
+          "reflection": "Terms and rates are important but secondary considerations. Primary evaluation should determine if borrowing is necessary after exhausting alternatives, then assess whether terms make the genuine need financially viable.",
+          "isCorrect": false
+        },
+        {
+          "id": "alternatives",
+          "label": "All non-debt alternatives including savings and expense cuts",
+          "reflection": "Perfect! Thorough evaluation means examining emergency funds, reducing discretionary spending, delaying non-essential purchases, generating additional income, or negotiating payment terms before debt becomes necessary.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 4,
+      "prompt": "What indicates you're ready to consider borrowing?",
+      "options": [
+        {
+          "id": "desire",
+          "label": "Strong desire to make a particular purchase",
+          "reflection": "Desire alone doesn't create borrowing readiness. Genuine need assessment requires determining whether the expense is essential, whether alternatives exist, and whether you can maintain financial stability while repaying the debt obligation.",
+          "isCorrect": false
+        },
+        {
+          "id": "approval",
+          "label": "Getting preliminary approval from multiple lenders",
+          "reflection": "Approval indicates borrowing capacity but not readiness. True readiness requires exhausting alternatives and confirming that debt is necessary for essential needs rather than wants, regardless of lender willingness to lend.",
+          "isCorrect": false
+        },
+        {
+          "id": "exhausted",
+          "label": "All personal resources and alternatives are exhausted",
+          "reflection": "Exactly! Readiness means you've genuinely evaluated and utilized emergency savings, reduced expenses to essential levels, explored income opportunities, and negotiated alternatives before determining that external funding is the only viable solution.",
+          "isCorrect": true
+        },
+        {
+          "id": "convenience",
+          "label": "Borrowing seems more convenient than saving",
+          "reflection": "Convenience creates poor financial decisions. Readiness requires demonstrating that saving or alternative approaches aren't feasible, not simply that borrowing appears easier or faster than building financial resources.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 5,
+      "prompt": "What's the golden rule for borrowing decisions?",
+      "options": [
+        {
+          "id": "opportunity",
+          "label": "Borrow to take advantage of investment opportunities",
+          "reflection": "Investment borrowing adds risk layers and should be approached cautiously. The fundamental rule is exhausting personal resources first, then carefully evaluating whether debt-financed opportunities provide returns exceeding borrowing costs with acceptable risk levels.",
+          "isCorrect": false
+        },
+        {
+          "id": "necessity",
+          "label": "Borrow only for genuine necessities after exhausting alternatives",
+          "reflection": "Perfect! The golden rule is reserving debt for authentic needs that cannot be addressed through savings, expense management, income generation, or other non-debt solutions, ensuring borrowing serves financial goals rather than substituting for planning.",
+          "isCorrect": true
+        },
+        {
+          "id": "flexibility",
+          "label": "Maintain borrowing flexibility for future opportunities",
+          "reflection": "Preserving borrowing capacity is secondary to financial discipline. The priority is building savings and managing expenses efficiently, using debt strategically only when alternatives are genuinely exhausted and needs are essential.",
+          "isCorrect": false
+        },
+        {
+          "id": "timing",
+          "label": "Time borrowing to coincide with favorable market conditions",
+          "reflection": "Market timing is less important than fundamental need assessment. The principle is matching borrowing to actual requirements after exhausting alternatives, rather than attempting to optimize timing for rate or market conditions.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    }
+  ]
+}

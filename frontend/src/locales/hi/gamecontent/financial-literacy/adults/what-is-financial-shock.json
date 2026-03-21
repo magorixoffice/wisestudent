@@ -1,0 +1,176 @@
+{
+  "title": "वित्तीय झटका क्या है?",
+  "subtitleProgress": "चरण {{current}} का {{total}}",
+  "sectionHeaderLeft": "परिदृश्य",
+  "sectionHeaderRight": "वित्तीय झटका",
+  "choiceLabel": "पसंद {{id}}",
+  "reflectionTitle": "चिंतन",
+  "continueButton": "जारी रखें",
+  "readingLabel": "पढ़ रहे हैं...",
+  "reflectionPromptsTitle": "परावर्तन संकेत",
+  "skillUnlockedLabel": "अनलॉक किया गया कौशल:",
+  "skillName": "वित्तीय झटके की पहचान",
+  "fullRewardHint": "पूरा रिवॉर्ड पाने के लिए सभी {{total}} विकल्पों का सही जवाब दें।",
+  "tryAgainButton": "पुन: प्रयास करें",
+  "reflectionPrompts": [
+    "अपने जीवन में संभावित वित्तीय झटके कैसे पहचानें?",
+    "आपकी स्थिति के लिए आपात कोष कितना उचित हो?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "परिदृश्य: इनमें से कौन वित्तीय झटका है?",
+      "options": [
+        {
+          "id": "planned",
+          "label": "योजनाबद्ध मासिक किराया",
+          "reflection": "किराया नियमित और पूर्वानुमेय; बजट में—झटका नहीं।",
+          "isCorrect": false
+        },
+        {
+          "id": "sudden",
+          "label": "अचानक चिकित्सा खर्च",
+          "reflection": "बिल्कुल! अप्रत्याशित, जरूरी, महंगा—सामान्य योजना बिगाड़ता है।",
+          "isCorrect": true
+        },
+        {
+          "id": "budgeted",
+          "label": "बजट वाली किराना खरीद",
+          "reflection": "योजनाबद्ध खर्च; पूर्वानुमेय, झटका नहीं।",
+          "isCorrect": false
+        },
+        {
+          "id": "scheduled",
+          "label": "नियत कार रखरखाव",
+          "reflection": "योजनाबद्ध; पहले से बजट—झटका नहीं।",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 2,
+      "prompt": "वित्तीय झटके की पहचान क्या है?",
+      "options": [
+        {
+          "id": "unexpected",
+          "label": "अप्रत्याशित समय और लागत",
+          "reflection": "बिल्कुल! अचानक और अक्सर अप्रत्याशित राशि—तैयारी के बिना।",
+          "isCorrect": true
+        },
+        {
+          "id": "planned",
+          "label": "बहुत पहले से योजना",
+          "reflection": "अच्छी योजना हो तो झटका नहीं; मुख्य बात अप्रत्याशितपन।",
+          "isCorrect": false
+        },
+        {
+          "id": "small",
+          "label": "हमेशा राशि छोटी",
+          "reflection": "हमेशा छोटा नहीं; परिभाषा अनिश्चितता, आकार नहीं।",
+          "isCorrect": false
+        },
+        {
+          "id": "frequent",
+          "label": "बार-बार होते हैं",
+          "reflection": "अक्सर हो तो अपेक्षा और योजना—झटका नहीं रहता।",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 3,
+      "prompt": "वित्तीय झटकों की तैयारी कैसे?",
+      "options": [
+        {
+          "id": "ignore",
+          "label": "नज़रअंदाज़, न होगी उम्मीद",
+          "reflection": "रणनीति नहीं; आपात में असहाय।",
+          "isCorrect": false
+        },
+        {
+          "id": "credit",
+          "label": "हर आपात पर क्रेडिट कार्ड",
+          "reflection": "ब्याज सहित कर्ज; बचत बेहतर।",
+          "isCorrect": false
+        },
+        {
+          "id": "spend",
+          "label": "चोरी से बचने को सब खर्च कर दें",
+          "reflection": "तर्कहीन; आपात के प्रति और कमजोर।",
+          "isCorrect": false
+        },
+        {
+          "id": "emergency",
+          "label": "अप्रत्याशित खर्च के लिए आपात कोष",
+          "reflection": "शानदार! अचानक खर्च पर तकिया।",
+          "isCorrect": true
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 4,
+      "prompt": "वित्तीय झटके का सामान्य उदाहरण?",
+      "options": [
+        {
+          "id": "car",
+          "label": "दुर्घटना से कार मरम्मत",
+          "reflection": "बिल्कुल! अचानक, जरूरी, महंगा—क्लासिक झटका।",
+          "isCorrect": true
+        },
+        {
+          "id": "rent",
+          "label": "मासिक किराया",
+          "reflection": "नियमित, योजनाबद्ध—झटका नहीं।",
+          "isCorrect": false
+        },
+        {
+          "id": "groceries",
+          "label": "साप्ताहिक किराना",
+          "reflection": "सामान्य बजट का हिस्सा—झटका नहीं।",
+          "isCorrect": false
+        },
+        {
+          "id": "salary",
+          "label": "नियमित वेतन जमा",
+          "reflection": "अपेक्षित आय, झटका नहीं।",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 5,
+      "prompt": "वित्तीय झटकों का प्रभाव?",
+      "options": [
+        {
+          "id": "helpful",
+          "label": "धन बनाने में मददगार",
+          "reflection": "आमतौर पर नहीं; प्रगति पीछे धकेलते हैं।",
+          "isCorrect": false
+        },
+        {
+          "id": "predictable",
+          "label": "आसानी से पूर्वानुमेय",
+          "reflection": "पूर्वानुमेय हो तो झटका नहीं; अस्थिरता अप्रत्याशितपन से।",
+          "isCorrect": false
+        },
+        {
+          "id": "disruptive",
+          "label": "सामान्य वित्तीय योजना बिगाड़ते हैं",
+          "reflection": "बिल्कुल! अप्रत्याशित बजट और लक्ष्य तोड़ सकते हैं।",
+          "isCorrect": true
+        },
+        {
+          "id": "beneficial",
+          "label": "लंबे समय में हमेशा फायदेमंद",
+          "reflection": "हमेशा नहीं; अक्सर तनाव और कठिनाई।",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    }
+  ]
+}

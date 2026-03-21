@@ -1,0 +1,176 @@
+{
+  "title": "Official vs Fake Apps",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "App Verification",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "App Authentication Awareness",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you verify the authenticity of financial apps before downloading?",
+    "What indicators should you look for to ensure app safety?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Scenario: How do you identify a safer app?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Random download link",
+          "reflection": "Random download links are often sources of fake or malicious apps that can compromise your security.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "Official app store + verified developer",
+          "reflection": "Correct! Official app stores have verification processes and verified developers are more trustworthy.",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "label": "Most downloaded app",
+          "reflection": "Most downloaded doesn't guarantee safety; fake apps can also gain downloads through manipulation.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Best rated app",
+          "reflection": "Ratings can be manipulated; official sources and verified developers are more reliable indicators.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 2,
+      "prompt": "What is the safest way to download a financial app?",
+      "options": [
+        {
+          "id": "a",
+          "label": "From official app stores like Google Play or Apple App Store",
+          "reflection": "Exactly! Official app stores have security measures to verify app authenticity and safety.",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "label": "From third-party websites offering faster downloads",
+          "reflection": "Third-party sites may host modified or malicious versions of the app.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "From social media links shared by friends",
+          "reflection": "Links shared on social media could lead to fake or malicious apps.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Directly from the company's website",
+          "reflection": "While company websites may be legitimate, official app stores provide additional verification layers.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 3,
+      "prompt": "What should you look for to verify a financial app's authenticity?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Verified developer badge and official company name",
+          "reflection": "Perfect! Verified developer badges and official company names help confirm authenticity.",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "label": "Number of downloads only",
+          "reflection": "Download numbers don't guarantee authenticity; verification factors are more important.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "High ratings only",
+          "reflection": "Ratings can be manipulated; verified developer status is a more reliable indicator.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Colorful app icon",
+          "reflection": "Visual appearance doesn't indicate authenticity; verification markers are what matter.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 4,
+      "prompt": "Why might an official app store be safer than alternative sources?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They always provide free apps",
+          "reflection": "Official stores contain both free and paid apps; cost doesn't indicate safety.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "They have review processes and security checks for apps",
+          "reflection": "Yes! Official stores review apps and check for known security threats before listing them.",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "label": "They have more apps available",
+          "reflection": "Quantity of apps doesn't indicate safety; verification processes do.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "They have better graphics",
+          "reflection": "Visual quality doesn't indicate safety; verification processes and developer checks do.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 5,
+      "prompt": "What is the best approach to avoid fake financial apps?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Search for the app name online and download from the first link",
+          "reflection": "The first search result may be a fake site hosting malicious apps.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "Download any app with the company's logo",
+          "reflection": "Logos can be copied; official stores and verified developers are more reliable indicators.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "Only download from official app stores and verify developer identity",
+          "reflection": "Excellent! This combination provides the best protection against fake financial apps.",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "label": "Choose the app with the most positive reviews",
+          "reflection": "Reviews can be fabricated; official verification is more reliable than review counts.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    }
+  ]
+}

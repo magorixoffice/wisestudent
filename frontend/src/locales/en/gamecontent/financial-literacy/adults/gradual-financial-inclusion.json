@@ -1,0 +1,171 @@
+{
+  "title": "Gradual Financial Inclusion",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Financial Inclusion",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Gradual Financial Inclusion",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you create a personal plan for gradual financial inclusion?",
+    "What specific financial services should you consider first?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Scenario: What is a safer path to financial inclusion?",
+      "options": [
+        {
+          "id": "large",
+          "label": "Taking large loans immediately",
+          "reflection": "Taking large loans immediately without experience can lead to financial stress and defaults. This approach carries high risk for newcomers to the financial system.",
+          "isCorrect": false
+        },
+        {
+          "id": "gradual",
+          "label": "Gradual use of banking and small credit",
+          "reflection": "Exactly! Gradual use of banking and small credit is the safer path to financial inclusion. This approach allows you to build experience, establish credit history, and learn financial management skills progressively.",
+          "isCorrect": true
+        },
+        {
+          "id": "informal",
+          "label": "Using only informal financial networks",
+          "reflection": "While informal networks have their place, they don't provide the protections, regulatory oversight, and credit-building opportunities that formal financial inclusion offers.",
+          "isCorrect": false
+        },
+        {
+          "id": "avoid",
+          "label": "Avoiding all financial services",
+          "reflection": "Avoiding all financial services prevents you from accessing the benefits of the formal financial system, including savings protection, credit building, and other financial tools for growth.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "What's the main advantage of gradual financial inclusion?",
+      "options": [
+        {
+          "id": "learning",
+          "label": "Learning financial management skills step-by-step",
+          "reflection": "Perfect! Learning financial management skills step-by-step is the main advantage of gradual financial inclusion. This approach builds competence and confidence over time.",
+          "isCorrect": true
+        },
+        {
+          "id": "speed",
+          "label": "Getting to financial goals faster",
+          "reflection": "While gradual inclusion might take longer initially, it's more sustainable long-term. The focus is on building skills and reducing risk rather than speed.",
+          "isCorrect": false
+        },
+        {
+          "id": "cost",
+          "label": "Lower overall financial costs",
+          "reflection": "Gradual inclusion doesn't necessarily mean lower costs from the start. The main benefit is risk reduction and skill building rather than immediate cost savings.",
+          "isCorrect": false
+        },
+        {
+          "id": "access",
+          "label": "Access to all services immediately",
+          "reflection": "Gradual inclusion is about building access over time, not getting immediate access to everything. The approach is to start with basic services and expand access as you build experience.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "How should someone begin their journey toward financial inclusion?",
+      "options": [
+        {
+          "id": "credit",
+          "label": "Begin with credit products immediately",
+          "reflection": "Starting with credit products immediately is risky without first establishing financial habits and understanding basic banking. It's better to start with simpler services first.",
+          "isCorrect": false
+        },
+        {
+          "id": "investments",
+          "label": "Open investment accounts right away",
+          "reflection": "Opening investment accounts immediately is premature without first mastering basic banking and credit services. It's better to build foundational skills first.",
+          "isCorrect": false
+        },
+        {
+          "id": "loans",
+          "label": "Apply for a loan as the first step",
+          "reflection": "Applying for a loan as the first step is risky without an established financial history or relationship with the institution. Basic services should come first.",
+          "isCorrect": false
+        },
+        {
+          "id": "basic",
+          "label": "Start with basic banking services like savings accounts",
+          "reflection": "Excellent! Starting with basic banking services like savings accounts is the ideal way to begin financial inclusion. This provides a foundation for learning and building experience safely.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "What's a warning sign of rushing financial inclusion?",
+      "options": [
+        {
+          "id": "savings",
+          "label": "Building savings consistently over time",
+          "reflection": "Building savings consistently is actually a positive sign of good financial management, not a warning sign of rushing inclusion. It shows responsible behavior.",
+          "isCorrect": false
+        },
+        {
+          "id": "education",
+          "label": "Taking time to learn about financial products",
+          "reflection": "Taking time to learn about financial products is a sign of responsible inclusion, not rushing. Education is an important part of gradual financial inclusion.",
+          "isCorrect": false
+        },
+        {
+          "id": "defaults",
+          "label": "Missing payments or defaulting on early obligations",
+          "reflection": "Exactly! Missing payments or defaulting on early obligations is a warning sign of rushing financial inclusion. This indicates taking on more financial responsibility than your current skill level can handle.",
+          "isCorrect": true
+        },
+        {
+          "id": "simple",
+          "label": "Starting with simple financial products",
+          "reflection": "Starting with simple financial products is the correct approach to gradual inclusion, not a warning sign. It shows appropriate caution and planning.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "What's the long-term benefit of gradual financial inclusion?",
+      "options": [
+        {
+          "id": "spending",
+          "label": "Increased ability to spend on non-essentials",
+          "reflection": "While financial inclusion might increase spending capacity, the benefit isn't about spending more on non-essentials. The value is in building financial stability and skills.",
+          "isCorrect": false
+        },
+        {
+          "id": "foundation",
+          "label": "Strong financial foundation and reduced mistakes",
+          "reflection": "Exactly! Gradual financial inclusion creates a strong financial foundation and reduces mistakes by allowing progressive learning and experience building with manageable risk levels.",
+          "isCorrect": true
+        },
+        {
+          "id": "debt",
+          "label": "Easier access to large amounts of debt",
+          "reflection": "Easy access to large amounts of debt isn't the goal of responsible financial inclusion. The benefit is building financial skills and stability, not increasing leverage.",
+          "isCorrect": false
+        },
+        {
+          "id": "avoidance",
+          "label": "Ability to avoid all financial responsibilities",
+          "reflection": "Financial inclusion is about taking on appropriate financial responsibilities, not avoiding them. The goal is to manage responsibilities effectively.",
+          "isCorrect": false
+        }
+      ]
+    }
+  ]
+}

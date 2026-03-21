@@ -1,0 +1,176 @@
+{
+  "title": "Hidden Charges",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Total Loan Cost",
+  "sectionHeaderRight": "Beyond EMIs",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Loan cost transparency",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you identify and calculate all potential fees before signing a loan agreement?",
+    "What questions should you ask lenders to uncover hidden charges in loan offers?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Loan cost includes:",
+      "options": [
+        {
+          "id": "emi",
+          "label": "Only EMI payments as advertised",
+          "reflection": "Actually, loan costs typically include various fees and charges beyond the monthly EMI. Focusing only on EMI can lead to underestimating the true total cost of borrowing.",
+          "isCorrect": false
+        },
+        {
+          "id": "full",
+          "label": "Processing fees, penalties, and additional charges",
+          "reflection": "Exactly! Always check the full cost breakdown including processing fees, documentation charges, prepayment penalties, and other applicable fees that significantly increase the total loan expense.",
+          "isCorrect": true
+        },
+        {
+          "id": "interest",
+          "label": "Just the interest component of the loan",
+          "reflection": "While interest is a major component, loan costs also include various fees and charges. The complete cost picture requires examining all applicable fees in addition to interest payments.",
+          "isCorrect": false
+        },
+        {
+          "id": "principal",
+          "label": "Principal amount plus standard interest rates",
+          "reflection": "Principal and interest are core components, but lenders typically add various processing fees, administrative charges, and potential penalty fees that substantially increase the total borrowing cost.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 2,
+      "prompt": "What's typically included in total loan cost beyond EMIs?",
+      "options": [
+        {
+          "id": "fees",
+          "label": "Processing fees, documentation charges, and insurance",
+          "reflection": "Correct! These additional costs can add 2-5% to the loan amount and significantly impact the true cost of borrowing, making it essential to factor them into your financial planning.",
+          "isCorrect": true
+        },
+        {
+          "id": "interest",
+          "label": "Only the interest portion of monthly payments",
+          "reflection": "Interest is included in EMIs, but the additional costs are separate fees charged upfront or periodically. Total loan cost requires examining both EMI components and separate fee structures.",
+          "isCorrect": false
+        },
+        {
+          "id": "taxes",
+          "label": "Government taxes and regulatory compliance fees",
+          "reflection": "While some government fees may apply, the primary hidden costs are lender-imposed processing fees, documentation charges, and service fees that aren't always clearly disclosed upfront.",
+          "isCorrect": false
+        },
+        {
+          "id": "maintenance",
+          "label": "Account maintenance and annual service charges",
+          "reflection": "These ongoing charges are less common for standard loans. The main hidden costs are upfront processing fees and potential prepayment penalties rather than regular maintenance fees.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 3,
+      "prompt": "Why do lenders advertise low EMIs but charge additional fees?",
+      "options": [
+        {
+          "id": "regulatory",
+          "label": "Regulatory requirements mandate separate fee disclosure",
+          "reflection": "While regulations require transparency, the practice of emphasizing low EMIs while burying fee information in fine print is a marketing tactic rather than regulatory compliance necessity.",
+          "isCorrect": false
+        },
+        {
+          "id": "competitive",
+          "label": "To remain competitive with other lending institutions",
+          "reflection": "Competitive pressure actually drives transparency about total costs. The EMI-focused advertising is more about creating perceived affordability than responding to competitive market forces.",
+          "isCorrect": false
+        },
+        {
+          "id": "administrative",
+          "label": "To cover legitimate administrative processing costs",
+          "reflection": "While administrative costs exist, the disconnect between advertised EMIs and actual total costs serves marketing purposes rather than simply covering operational expenses for loan processing.",
+          "isCorrect": false
+        },
+        {
+          "id": "attract",
+          "label": "To attract borrowers with seemingly affordable payments",
+          "reflection": "Perfect! Low EMI advertising creates the impression of affordability while additional fees increase total costs. This marketing strategy can mislead borrowers about the true financial commitment required.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 4,
+      "prompt": "What should you always check before accepting a loan offer?",
+      "options": [
+        {
+          "id": "emi",
+          "label": "Monthly EMI amount and payment schedule only",
+          "reflection": "EMI focus alone can be misleading. The complete picture requires examining all associated costs, fee structures, and potential penalties that significantly impact the total financial commitment.",
+          "isCorrect": false
+        },
+        {
+          "id": "interest",
+          "label": "Interest rate and comparison with market rates",
+          "reflection": "Interest rate comparison is important, but total cost assessment requires examining all fees, charges, and penalty structures that can substantially increase the effective borrowing cost beyond headline rates.",
+          "isCorrect": false
+        },
+        {
+          "id": "breakdown",
+          "label": "Complete cost breakdown including all fees and charges",
+          "reflection": "Exactly! Review the loan agreement thoroughly for processing fees, documentation charges, prepayment penalties, late payment fees, and any other applicable costs that affect the total borrowing expense.",
+          "isCorrect": true
+        },
+        {
+          "id": "tenure",
+          "label": "Loan tenure and total repayment period",
+          "reflection": "Tenure affects total interest, but doesn't reveal additional fees. Complete cost evaluation requires examining all applicable charges, processing fees, and penalty structures regardless of loan term length.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 5,
+      "prompt": "What's the golden rule for loan cost evaluation?",
+      "options": [
+        {
+          "id": "lowest",
+          "label": "Choose the loan with the lowest advertised EMI",
+          "reflection": "Lowest EMI focus ignores hidden costs. The best loan balances reasonable monthly payments with minimal total fees and charges, requiring comprehensive cost analysis rather than EMI-only comparison.",
+          "isCorrect": false
+        },
+        {
+          "id": "comprehensive",
+          "label": "Calculate total cost including all fees, not just EMIs",
+          "reflection": "Perfect! The golden rule is to compute the complete financial obligation by adding all fees, charges, and potential penalties to the principal and interest, ensuring you understand the true cost of borrowing.",
+          "isCorrect": true
+        },
+        {
+          "id": "flexible",
+          "label": "Select loans with flexible payment options",
+          "reflection": "Payment flexibility addresses cash flow needs but doesn't solve hidden cost issues. The fundamental principle is transparency about total costs rather than payment structure flexibility.",
+          "isCorrect": false
+        },
+        {
+          "id": "quick",
+          "label": "Opt for fastest loan approval and disbursement",
+          "reflection": "Speed of approval shouldn't override cost considerations. Proper loan evaluation requires time to examine all fees, terms, and conditions to avoid costly surprises that outweigh quick access benefits.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    }
+  ]
+}

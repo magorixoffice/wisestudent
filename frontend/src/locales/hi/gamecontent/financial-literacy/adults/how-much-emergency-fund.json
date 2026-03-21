@@ -1,0 +1,176 @@
+{
+  "title": "आपात कोष कितना?",
+  "subtitleProgress": "चरण {{current}} का {{total}}",
+  "sectionHeaderLeft": "परिदृश्य",
+  "sectionHeaderRight": "आपात कोष का आकार",
+  "choiceLabel": "पसंद {{id}}",
+  "reflectionTitle": "चिंतन",
+  "continueButton": "जारी रखें",
+  "readingLabel": "पढ़ रहे हैं...",
+  "reflectionPromptsTitle": "परावर्तन संकेत",
+  "skillUnlockedLabel": "अनलॉक किया गया कौशल:",
+  "skillName": "आपात कोष आकार तय करना",
+  "fullRewardHint": "पूरा रिवॉर्ड पाने के लिए सभी {{total}} विकल्पों का सही जवाब दें।",
+  "tryAgainButton": "पुन: प्रयास करें",
+  "reflectionPrompts": [
+    "अपना व्यक्तिगत लक्ष्य कैसे गिनें?",
+    "कोष बनाने के कदम क्या होंगे?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "परिदृश्य: एक सुरक्षित आपात कोष आमतौर पर क्या कवर करता है?",
+      "options": [
+        {
+          "id": "days",
+          "label": "1-2 दिन का खर्च",
+          "reflection": "अपर्याप्त; आपात लंबे चलते हैं।",
+          "isCorrect": false
+        },
+        {
+          "id": "week",
+          "label": "1 सप्ताह लग्ज़री",
+          "reflection": "बुनियादी जरूरतें; एक सप्ताह कम।",
+          "isCorrect": false
+        },
+        {
+          "id": "year",
+          "label": "1 साल सारा खर्च",
+          "reflection": "अच्छा पर अनिवार्य नहीं; 3-6 माह मानक।",
+          "isCorrect": false
+        },
+        {
+          "id": "months",
+          "label": "3-6 माह बुनियादी खर्च",
+          "reflection": "बिल्कुल! समय मिलता है।",
+          "isCorrect": true
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 2,
+      "prompt": "आपात कोष के आकार को कौन से कारक प्रभावित करने चाहिए?",
+      "options": [
+        {
+          "id": "job",
+          "label": "नौकरी सुरक्षा व आय स्थिरता",
+          "reflection": "बिल्कुल! अस्थिर नौकरी=बड़ा कोष।",
+          "isCorrect": true
+        },
+        {
+          "id": "spending",
+          "label": "खुलकर खर्च की इच्छा",
+          "reflection": "जोखिम व जरूरत पर आधार, इच्छा नहीं।",
+          "isCorrect": false
+        },
+        {
+          "id": "friends",
+          "label": "दोस्तों की राय",
+          "reflection": "आपकी स्थिति अलग।",
+          "isCorrect": false
+        },
+        {
+          "id": "minimum",
+          "label": "केवल न्यूनतम",
+          "reflection": "जोखिम; वास्तविक आपात सोचें।",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 3,
+      "prompt": "आपात कोष योजना के लिए बुनियादी खर्च कैसे निकालें?",
+      "options": [
+        {
+          "id": "everything",
+          "label": "मनोरंजन सहित सब",
+          "reflection": "लक्ष्य अनावश्यक ऊँचा; गैर-जरूरी कम।",
+          "isCorrect": false
+        },
+        {
+          "id": "income",
+          "label": "कुल आय पर",
+          "reflection": "खर्च पर आधार; जीने की लागत।",
+          "isCorrect": false
+        },
+        {
+          "id": "essentials",
+          "label": "केवल जरूरी—घर, भोजन, स्वास्थ्य",
+          "reflection": "शानदार! बुनियादी जरूरतें।",
+          "isCorrect": true
+        },
+        {
+          "id": "savings",
+          "label": "वर्तमान बचत आधार",
+          "reflection": "लक्ष्य खर्च/जोखिम से।",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 4,
+      "prompt": "What's a warning sign that your emergency fund is inadequate?",
+      "options": [
+        {
+          "id": "growth",
+          "label": "नियमित बढ़त",
+          "reflection": "अच्छा संकेत।",
+          "isCorrect": false
+        },
+        {
+          "id": "panic",
+          "label": "छोटे खर्च पर घबराहट",
+          "reflection": "बिल्कुल! कोष अपर्याप्त।",
+          "isCorrect": true
+        },
+        {
+          "id": "separate",
+          "label": "अलग उच्च ब्याज खाता",
+          "reflection": "अच्छा अभ्यास।",
+          "isCorrect": false
+        },
+        {
+          "id": "automatic",
+          "label": "स्वतः ट्रांसफर",
+          "reflection": "अनुशासन।",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 5,
+      "prompt": "पर्याप्त आपात कोष रखने का लाभ क्या है?",
+      "options": [
+        {
+          "id": "peace",
+          "label": "मन की शांति, कम तनाव",
+          "reflection": "बिल्कुल! कर्ज बिना संभाल।",
+          "isCorrect": true
+        },
+        {
+          "id": "spending",
+          "label": "गैर-जरूरी पर ज्यादा खर्च",
+          "reflection": "सुरक्षा, खपत नहीं।",
+          "isCorrect": false
+        },
+        {
+          "id": "investments",
+          "label": "निवेश के लिए ज्यादा",
+          "reflection": "मुख्य उद्देश्य सुरक्षा।",
+          "isCorrect": false
+        },
+        {
+          "id": "lifestyle",
+          "label": "हर संकट में पूरी जीवनशैली",
+          "reflection": "बुनियादी जरूरतें; समायोजन हो सकता है।",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    }
+  ]
+}

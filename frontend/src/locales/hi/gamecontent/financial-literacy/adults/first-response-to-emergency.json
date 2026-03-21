@@ -1,0 +1,176 @@
+{
+  "title": "आपात स्थिति में पहली प्रतिक्रिया",
+  "subtitleProgress": "चरण {{current}} का {{total}}",
+  "sectionHeaderLeft": "परिदृश्य",
+  "sectionHeaderRight": "आपात प्रतिक्रिया",
+  "choiceLabel": "पसंद {{id}}",
+  "reflectionTitle": "चिंतन",
+  "continueButton": "जारी रखें",
+  "readingLabel": "पढ़ रहे हैं...",
+  "reflectionPromptsTitle": "परावर्तन संकेत",
+  "skillUnlockedLabel": "अनलॉक किया गया कौशल:",
+  "skillName": "आपात वित्तीय प्रतिक्रिया",
+  "fullRewardHint": "पूरा रिवॉर्ड पाने के लिए सभी {{total}} विकल्पों का सही जवाब दें।",
+  "tryAgainButton": "पुन: प्रयास करें",
+  "reflectionPrompts": [
+    "प्रभावी आपात प्रतिक्रिया योजना कैसे बनाएं?",
+    "विभिन्न आपात परिदृश्यों में किन संसाधनों को प्राथमिकता दें?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "परिदृश्य: आपको अचानक खर्च आ जाता है। सबसे पहले क्या देखें?",
+      "options": [
+        {
+          "id": "savings",
+          "label": "बचत या आपात कोष",
+          "reflection": "बिल्कुल! पहले बचत देखें—अनावश्यक कर्ज और तनाव कम।",
+          "isCorrect": true
+        },
+        {
+          "id": "loan",
+          "label": "लोन ऐप्स",
+          "reflection": "पहले लोन से कर्ज की आदत; पहले अपने संसाधन।",
+          "isCorrect": false
+        },
+        {
+          "id": "ignore",
+          "label": "खर्च नज़रअंदाज़",
+          "reflection": "नज़रअंदाज़ से समस्या बढ़ती है।",
+          "isCorrect": false
+        },
+        {
+          "id": "credit",
+          "label": "क्रेडिट कार्ड लिमिट",
+          "reflection": "पहले कार्ड से कर्ज बढ़ता है; पहले अपनी नकदी।",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 2,
+      "prompt": "वित्तीय आपात के दौरान तुरंत सबसे अच्छा कदम क्या है?",
+      "options": [
+        {
+          "id": "panic",
+          "label": "घबराकर जल्दबाज़ी",
+          "reflection": "घबराहट से गलत निर्णय।",
+          "isCorrect": false
+        },
+        {
+          "id": "borrow",
+          "label": "तुरंत कहीं उधार",
+          "reflection": "बिना आकलन उधार समस्या बढ़ा सकता है।",
+          "isCorrect": false
+        },
+        {
+          "id": "delay",
+          "label": "जितना हो सके टालें",
+          "reflection": "टालने से लागत और तनाव बढ़ता है।",
+          "isCorrect": false
+        },
+        {
+          "id": "assess",
+          "label": "पहले संसाधनों का आकलन",
+          "reflection": "बिल्कुल! विकल्प स्पष्ट, बिना घबराए निर्णय।",
+          "isCorrect": true
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 3,
+      "prompt": "आपात में अपने संसाधनों का उपयोग कैसे प्राथमिकता दें?",
+      "options": [
+        {
+          "id": "everything",
+          "label": "सब तुरंत खर्च",
+          "reflection": "सब एक साथ—भविष्य के आपात के लिए जोखिम।",
+          "isCorrect": false
+        },
+        {
+          "id": "nothing",
+          "label": "कुछ न करें",
+          "reflection": "वास्तविक आपात में कार्रवाई जरूरी।",
+          "isCorrect": false
+        },
+        {
+          "id": "savings_first",
+          "label": "पहले आपात बचत, फिर अन्य",
+          "reflection": "शानदार! पहले बचत से स्थिरता।",
+          "isCorrect": true
+        },
+        {
+          "id": "random",
+          "label": "बिना योजना यादृच्छिक",
+          "reflection": "अकुशल और खतरनाक।",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 4,
+      "prompt": "खराब आपात प्रतिक्रिया का चेतावनी संकेत क्या है?",
+      "options": [
+        {
+          "id": "planning",
+          "label": "स्पष्ट आपात योजना",
+          "reflection": "अच्छी तैयारी, चेतावनी नहीं।",
+          "isCorrect": false
+        },
+        {
+          "id": "borrowing",
+          "label": "बचत न देखे तुरंत उधार",
+          "reflection": "बिल्कुल! खराब योजना का संकेत।",
+          "isCorrect": true
+        },
+        {
+          "id": "fund",
+          "label": "पर्याप्त आपात कोष",
+          "reflection": "सकारात्मक संकेत।",
+          "isCorrect": false
+        },
+        {
+          "id": "assessment",
+          "label": "स्थिति समझने का समय",
+          "reflection": "अच्छा अभ्यास।",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 5,
+      "prompt": "उचित आपात प्रतिक्रिया का दीर्घकालिक लाभ क्या है?",
+      "options": [
+        {
+          "id": "stability",
+          "label": "स्थिरता, कम तनाव",
+          "reflection": "बिल्कुल! बिना नई समस्या खर्च संभालना।",
+          "isCorrect": true
+        },
+        {
+          "id": "debt",
+          "label": "ज्यादा कर्ज",
+          "reflection": "खराब प्रतिक्रिया का परिणाम।",
+          "isCorrect": false
+        },
+        {
+          "id": "panic",
+          "label": "ज्यादा घबराहट",
+          "reflection": "खराब प्रतिक्रिया से।",
+          "isCorrect": false
+        },
+        {
+          "id": "problems",
+          "label": "बड़ी समस्याएँ",
+          "reflection": "खराब प्रतिक्रिया; सही रोकती है।",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    }
+  ]
+}

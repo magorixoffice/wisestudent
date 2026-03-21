@@ -1,188 +1,33 @@
 import React, { useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { Trophy } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getGameDataById } from "../../../../utils/getGameData";
 
-const THINKING_STYLES_STAGES = [
-  {
-    id: 1,
-    prompt: "Scenario: Which choice supports long-term stability?",
-    options: [
-      {
-        id: "today",
-        label: "Solving only today's problem",
-        reflection: "Solving only today's problem provides temporary relief but doesn't address underlying issues. This short-term approach often leads to the same problems recurring and creates long-term financial instability.",
-        isCorrect: false,
-      },
-      
-      {
-        id: "ignore",
-        label: "Ignoring both current and future problems",
-        reflection: "Ignoring both current and future problems leads to mounting issues and financial crisis. Neither short-term nor long-term thinking is beneficial when problems are completely ignored.",
-        isCorrect: false,
-      },
-      {
-        id: "spend",
-        label: "Spending all available resources immediately",
-        reflection: "Spending all available resources immediately depletes your financial buffer and leaves you vulnerable to future emergencies. This approach undermines both short-term and long-term stability.",
-        isCorrect: false,
-      },
-      {
-        id: "future",
-        label: "Planning for future needs",
-        reflection: "Exactly! Planning for future needs supports long-term stability by addressing root causes and preventing problems from recurring. This approach builds financial resilience over time.",
-        isCorrect: true,
-      },
-    ],
-    reward: 4,
-  },
-  {
-    id: 2,
-    prompt: "What's the main benefit of long-term financial thinking?",
-    options: [
-      
-      {
-        id: "immediate",
-        label: "Provides immediate gratification",
-        reflection: "While long-term thinking might occasionally provide satisfaction from progress, its main benefit isn't immediate gratification. The value comes from sustained financial security and stability over time.",
-        isCorrect: false,
-      },
-      {
-        id: "complexity",
-        label: "Makes financial decisions more complex",
-        reflection: "Long-term thinking can make some decisions more complex, but this isn't the main benefit. The complexity is a trade-off for better outcomes, not the primary advantage of long-term planning.",
-        isCorrect: false,
-      },
-      {
-        id: "prevention",
-        label: "Prevents problems from recurring",
-        reflection: "Perfect! The main benefit of long-term financial thinking is preventing problems from recurring by addressing root causes and building sustainable financial habits and systems.",
-        isCorrect: true,
-      },
-      {
-        id: "delay",
-        label: "Delays all financial enjoyment indefinitely",
-        reflection: "Long-term financial thinking doesn't delay all financial enjoyment indefinitely. It's about balancing current needs with future security, allowing for both responsible spending and sustainable planning.",
-        isCorrect: false,
-      },
-    ],
-    reward: 4,
-  },
-  {
-    id: 3,
-    prompt: "How should you balance short-term and long-term financial decisions?",
-    options: [
-      {
-        id: "balance",
-        label: "Address immediate needs while building long-term foundations",
-        reflection: "Excellent! The best approach is to address immediate needs while simultaneously building long-term foundations. This creates stability in both the present and future without neglecting either timeframe.",
-        isCorrect: true,
-      },
-      {
-        id: "ignore",
-        label: "Ignore short-term needs to focus completely on long-term goals",
-        reflection: "Ignoring short-term needs to focus completely on long-term goals can lead to immediate financial crisis and stress. This imbalance often undermines long-term progress due to urgent short-term problems.",
-        isCorrect: false,
-      },
-      {
-        id: "opposite",
-        label: "Focus only on short-term needs and let long-term handle itself",
-        reflection: "Focusing only on short-term needs while letting long-term handle itself often leads to repeated financial stress and missed opportunities for building wealth and security over time.",
-        isCorrect: false,
-      },
-      {
-        id: "separate",
-        label: "Keep short-term and long-term finances completely separate",
-        reflection: "While it can be helpful to categorize finances, keeping short-term and long-term finances completely separate isn't practical. They're interconnected, and decisions in one area affect the other.",
-        isCorrect: false,
-      },
-    ],
-    reward: 4,
-  },
-  {
-    id: 4,
-    prompt: "What's a warning sign of poor long-term financial thinking?",
-    options: [
-      
-      {
-        id: "plan",
-        label: "Having detailed long-term financial plans",
-        reflection: "Having detailed long-term financial plans is actually a sign of good long-term thinking, not poor thinking. It shows you're actively planning for future stability and growth.",
-        isCorrect: false,
-      },
-      {
-        id: "savings",
-        label: "Maintaining consistent long-term savings habits",
-        reflection: "Maintaining consistent long-term savings habits is a positive indicator of good financial management, not a warning sign. It demonstrates commitment to future financial security.",
-        isCorrect: false,
-      },
-      {
-        id: "review",
-        label: "Regularly reviewing and adjusting financial strategies",
-        reflection: "Regularly reviewing and adjusting financial strategies is a sign of good long-term thinking. It shows you're actively managing your financial future and adapting to changing circumstances.",
-        isCorrect: false,
-      },
-      {
-        id: "repeat",
-        label: "Repeatedly facing the same financial problems",
-        reflection: "Exactly! Repeatedly facing the same financial problems is a clear warning sign of poor long-term financial thinking. It indicates that root causes aren't being addressed and sustainable solutions aren't being implemented.",
-        isCorrect: true,
-      },
-    ],
-    reward: 4,
-  },
-  {
-    id: 5,
-    prompt: "What's the outcome of consistently applying long-term financial thinking?",
-    options: [
-      
-      {
-        id: "spending",
-        label: "Ability to spend more freely on immediate wants",
-        reflection: "While long-term financial thinking can eventually provide more financial freedom, its primary outcome isn't enabling more immediate spending. The focus is on stability and security, not increased consumption.",
-        isCorrect: false,
-      },
-      {
-        id: "stability",
-        label: "Reduced financial stress and increased stability",
-        reflection: "Exactly! Consistently applying long-term financial thinking leads to reduced financial stress and increased stability by building resilient financial systems and addressing problems at their source rather than just treating symptoms.",
-        isCorrect: true,
-      },
-      {
-        id: "complexity",
-        label: "More complex financial decision-making processes",
-        reflection: "While long-term thinking can add complexity to some decisions, this isn't the primary outcome. The goal is better financial outcomes, not necessarily more complex processes for their own sake.",
-        isCorrect: false,
-      },
-      {
-        id: "avoidance",
-        label: "Ability to avoid all financial responsibilities",
-        reflection: "Long-term financial thinking doesn't help you avoid responsibilities - it helps you manage them better. It's about taking responsibility for your financial future in a sustainable way.",
-        isCorrect: false,
-      },
-    ],
-    reward: 4,
-  },
-];
-
-const totalStages = THINKING_STYLES_STAGES.length;
-const successThreshold = totalStages;
-
 const ShortTermVsLongTermThinking = () => {
   const location = useLocation();
+  const { t } = useTranslation("gamecontent");
   const gameId = "finance-adults-93";
+  const baseKey = "financial-literacy.adults.short-term-vs-long-term-thinking";
+  const gameContent = t(baseKey, { returnObjects: true });
+  const localizedStages = Array.isArray(gameContent?.stages)
+    ? gameContent.stages
+    : [];
+  const totalStages = localizedStages.length;
+  const successThreshold = totalStages;
+  if (!localizedStages.length) return null;
   const gameData = getGameDataById(gameId);
-  const coinsPerLevel = gameData?.coins || location.state?.coinsPerLevel || 20;
-  const totalCoins = gameData?.coins || location.state?.totalCoins || 20;
-  const totalXp = gameData?.xp || location.state?.totalXp || 40;
-  const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
+  const coinsPerLevel = gameData?.coins || location.state?.coinsPerLevel || 5;
+  const totalCoins = gameData?.coins || location.state?.totalCoins || 5;
+  const totalXp = gameData?.xp || location.state?.totalXp || 10;
+  const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } =
+    useGameFeedback();
 
-  const [currentStage, setCurrentStage] = useState(0);
+  const [stageIndex, setStageIndex] = useState(0);
+  const [selectedOption, setSelectedOption] = useState(null);
   const [coins, setCoins] = useState(0);
   const [history, setHistory] = useState([]);
-  const [selectedOption, setSelectedOption] = useState(null);
   const [showResult, setShowResult] = useState(false);
   const [finalScore, setFinalScore] = useState(0);
   const [showFeedback, setShowFeedback] = useState(false);
@@ -190,37 +35,33 @@ const ShortTermVsLongTermThinking = () => {
   const [canProceed, setCanProceed] = useState(false);
 
   const reflectionPrompts = useMemo(
-    () => [
-      "How can you develop better long-term financial thinking habits?",
-      "What specific strategies will you implement to balance short-term needs with long-term goals?",
-    ],
-    []
+    () => gameContent?.reflectionPrompts || [],
+    [gameContent]
   );
 
-  const handleChoice = (option) => {
+  const handleSelect = (option) => {
     if (selectedOption || showResult) return;
-
+    if (!localizedStages.length) return;
     resetFeedback();
-    const currentStageData = THINKING_STYLES_STAGES[currentStage];
     const updatedHistory = [
       ...history,
-      { stageId: currentStageData.id, isCorrect: option.isCorrect },
+      { stageId: localizedStages[stageIndex].id, isCorrect: option.isCorrect },
     ];
     setHistory(updatedHistory);
     setSelectedOption(option.id);
     setSelectedReflection(option.reflection);
     setShowFeedback(true);
     setCanProceed(false);
-    
+
     if (option.isCorrect) {
-      setCoins(prevCoins => prevCoins + 1);
+      setCoins((prevCoins) => prevCoins + 1);
     }
-    
+
     setTimeout(() => {
       setCanProceed(true);
     }, 1500);
-    
-    if (currentStage === totalStages - 1) {
+
+    if (stageIndex === totalStages - 1) {
       setTimeout(() => {
         const correctCount = updatedHistory.filter((item) => item.isCorrect).length;
         const passed = correctCount === successThreshold;
@@ -229,40 +70,44 @@ const ShortTermVsLongTermThinking = () => {
         setShowResult(true);
       }, 5500);
     }
-    
-    if (option.isCorrect) {
-      showCorrectAnswerFeedback(1, true);
-    } else {
-      showCorrectAnswerFeedback(0, false);
-    }
+
+    const points = option.isCorrect ? 1 : 0;
+    showCorrectAnswerFeedback(points, option.isCorrect);
   };
 
   const handleRetry = () => {
     resetFeedback();
-    setCurrentStage(0);
-    setHistory([]);
+    setStageIndex(0);
     setSelectedOption(null);
     setCoins(0);
+    setHistory([]);
     setFinalScore(0);
     setShowResult(false);
+    setShowFeedback(false);
+    setSelectedReflection(null);
+    setCanProceed(false);
   };
 
-  const subtitle = `Stage ${Math.min(currentStage + 1, totalStages)} of ${totalStages}`;
-  const stage = THINKING_STYLES_STAGES[Math.min(currentStage, totalStages - 1)];
+  const subtitle = t(`${baseKey}.subtitleProgress`, {
+    current: Math.min(stageIndex + 1, totalStages),
+    total: totalStages,
+    defaultValue: "Stage {{current}} of {{total}}",
+  });
+  const stage = localizedStages[Math.min(stageIndex, totalStages - 1)];
   const hasPassed = finalScore === successThreshold;
 
   return (
     <GameShell
-      title="Short-Term vs Long-Term Thinking"
+      title={gameContent?.title || "Short-Term vs Long-Term Thinking"}
       subtitle={subtitle}
       score={showResult ? finalScore : coins}
       coins={coins}
       coinsPerLevel={coinsPerLevel}
       totalCoins={totalCoins}
       totalXp={totalXp}
-      maxScore={THINKING_STYLES_STAGES.length}
-      currentLevel={Math.min(currentStage + 1, THINKING_STYLES_STAGES.length)}
-      totalLevels={THINKING_STYLES_STAGES.length}
+      maxScore={totalStages}
+      currentLevel={Math.min(stageIndex + 1, totalStages)}
+      totalLevels={totalStages}
       gameId={gameId}
       gameType="finance"
       showGameOver={showResult}
@@ -274,120 +119,117 @@ const ShortTermVsLongTermThinking = () => {
       <div className="space-y-5 text-white">
         <div className="bg-white/10 border border-white/20 rounded-3xl p-8 shadow-2xl max-w-4xl mx-auto">
           <div className="flex justify-between items-center mb-4 text-sm uppercase tracking-[0.3em] text-white/60">
-            <span>Scenario</span>
-            <span>Thinking Styles</span>
+            <span>
+              {t(`${baseKey}.scenarioLabel`, {
+                defaultValue: t(`${baseKey}.sectionHeaderLeft`, { defaultValue: "Scenario" }),
+              })}
+            </span>
+            <span>
+              {t(`${baseKey}.scenarioValue`, {
+                defaultValue: t(`${baseKey}.sectionHeaderRight`, { defaultValue: "" }),
+              })}
+            </span>
           </div>
           <p className="text-lg text-white/90 mb-6">{stage.prompt}</p>
           <div className="grid grid-cols-2 gap-4">
-            {stage.options.map((option) => {
+            {stage?.options?.map((option) => {
               const isSelected = selectedOption === option.id;
               return (
                 <button
                   key={option.id}
-                  onClick={() => handleChoice(option)}
+                  type="button"
+                  onClick={() => handleSelect(option)}
                   disabled={!!selectedOption}
-                  className={`rounded-2xl border-2 p-5 text-left transition ${isSelected
+                  className={`rounded-2xl border-2 p-5 text-left transition ${
+                    isSelected
                       ? option.isCorrect
                         ? "border-emerald-400 bg-emerald-500/20"
-                        : "border-rose-400 bg-rose-500/10"
-                      : "border-white/30 bg-white/5 hover:border-white/60 hover:bg-white/10"
-                    }`}
+                        : "border-red-400 bg-red-500/10 text-white"
+                        : "border-white/30 bg-white/5 hover:border-white/60 hover:bg-white/10"
+                  }`}
                 >
-                  <div className="flex justify-between items-center mb-2 text-sm text-white/70">
-                    <span>Choice {option.id.toUpperCase()}</span>
+                  <div className="text-sm text-white/70 mb-2">
+                    {t(`${baseKey}.choiceLabel`, {
+                      id: option.id,
+                      defaultValue: "Choice {{id}}",
+                    })}
                   </div>
                   <p className="text-white font-semibold">{option.label}</p>
                 </button>
               );
             })}
           </div>
-          {(showResult || showFeedback) && (
-            <div className="bg-white/5 border border-white/20 rounded-3xl p-6 shadow-xl max-w-4xl mx-auto space-y-3">
-              <h4 className="text-lg font-semibold text-white">Reflection</h4>
-              {selectedReflection && (
-                <div className="max-h-24 overflow-y-auto pr-2">
-                  <p className="text-sm text-white/90">{selectedReflection}</p>
-                </div>
-              )}
-              {showFeedback && !showResult && (
-                <div className="mt-4 flex justify-center">
-                  {canProceed ? (
-                    <button
-                      onClick={() => {
-                        if (currentStage < totalStages - 1) {
-                          setCurrentStage((prev) => prev + 1);
-                          setSelectedOption(null);
-                          setSelectedReflection(null);
-                          setShowFeedback(false);
-                          setCanProceed(false);
-                        }
-                      }}
-                      className="rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 px-6 font-semibold shadow-lg hover:opacity-90"
-                    >
-                      Continue
-                    </button>
-                  ) : (
-                    <div className="py-2 px-6 text-white font-semibold">Reading...</div>
-                  )}
-                </div>
-              )}
-              {!showResult && currentStage === totalStages - 1 && canProceed && (
-                <div className="mt-4 flex justify-center">
-                  
-                </div>
-              )}
-              {showResult && (
-                <>
-                  <ul className="text-sm list-disc list-inside space-y-1">
-                    {reflectionPrompts.map((prompt) => (
-                      <li key={prompt}>{prompt}</li>
-                    ))}
-                  </ul>
-                  <p className="text-sm text-white/70">
-                    Skill unlocked: <strong>Long-Term Financial Planning</strong>
-                  </p>
-                  {!hasPassed && (
-                    <p className="text-xs text-amber-300">
-                      Answer all {totalStages} choices correctly to earn the full reward.
-                    </p>
-                  )}
-                  {!hasPassed && (
-                    <button
-                      onClick={handleRetry}
-                      className="w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 font-semibold shadow-lg hover:opacity-90"
-                    >
-                      Try Again
-                    </button>
-                  )}
-                </>
-              )}
-            </div>
-          )}
-          
         </div>
-        {showResult && (
+        {(showResult || showFeedback) && (
           <div className="bg-white/5 border border-white/20 rounded-3xl p-6 shadow-xl max-w-4xl mx-auto space-y-3">
-            <h4 className="text-lg font-semibold text-white">Reflection Prompts</h4>
-            <ul className="text-sm list-disc list-inside space-y-1">
-              {reflectionPrompts.map((prompt) => (
-                <li key={prompt}>{prompt}</li>
-              ))}
-            </ul>
-            <p className="text-sm text-white/70">
-              Skill unlocked: <strong>Long-Term Financial Planning</strong>
-            </p>
-            {!hasPassed && (
-              <p className="text-xs text-amber-300">
-                Answer all {totalStages} choices correctly to earn the full reward.
-              </p>
+            <h4 className="text-lg font-semibold text-white">
+              {t(`${baseKey}.reflectionTitle`, { defaultValue: "Reflection" })}
+            </h4>
+            {selectedReflection && (
+              <div className="max-h-24 overflow-y-auto pr-2">
+                <p className="text-sm text-white/90">{selectedReflection}</p>
+              </div>
             )}
-            {!hasPassed && (
-              <button
-                onClick={handleRetry}
-                className="w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 font-semibold shadow-lg hover:opacity-90"
-              >
-                Try Again
-              </button>
+            {showFeedback && !showResult && (
+              <div className="mt-4 flex justify-center">
+                {canProceed ? (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (stageIndex < totalStages - 1) {
+                        setStageIndex((prev) => prev + 1);
+                        setSelectedOption(null);
+                        setSelectedReflection(null);
+                        setShowFeedback(false);
+                        setCanProceed(false);
+                      }
+                    }}
+                    className="rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 px-6 font-semibold shadow-lg hover:opacity-90"
+                  >
+                    {t(`${baseKey}.continueButton`, { defaultValue: "Continue" })}
+                  </button>
+                ) : (
+                  <div className="py-2 px-6 text-white font-semibold">
+                    {t(`${baseKey}.readingLabel`, { defaultValue: "Reading..." })}
+                  </div>
+                )}
+              </div>
+            )}
+            {!showResult && stageIndex === totalStages - 1 && canProceed && (
+              <div className="mt-4 flex justify-center" />
+            )}
+            {showResult && (
+              <>
+                <ul className="text-sm list-disc list-inside space-y-1">
+                  {reflectionPrompts.map((prompt) => (
+                    <li key={prompt}>{prompt}</li>
+                  ))}
+                </ul>
+                <p className="text-sm text-white/70">
+                  {t(`${baseKey}.skillUnlockedLabel`, { defaultValue: "Skill unlocked:" })}{" "}
+                  <strong>
+                    {t(`${baseKey}.skillName`, { defaultValue: "Financial decision making" })}
+                  </strong>
+                </p>
+                {!hasPassed && (
+                  <p className="text-xs text-amber-300">
+                    {t(`${baseKey}.fullRewardHint`, {
+                      total: totalStages,
+                      defaultValue:
+                        "Answer all {{total}} choices correctly to earn the full reward.",
+                    })}
+                  </p>
+                )}
+                {!hasPassed && (
+                  <button
+                    type="button"
+                    onClick={handleRetry}
+                    className="w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 font-semibold shadow-lg hover:opacity-90"
+                  >
+                    {t(`${baseKey}.tryAgainButton`, { defaultValue: "Try Again" })}
+                  </button>
+                )}
+              </>
             )}
           </div>
         )}

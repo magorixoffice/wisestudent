@@ -1,0 +1,176 @@
+{
+  "title": "Fixed vs Variable Interest",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Interest Rate Types",
+  "sectionHeaderRight": "Payment Predictability",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Interest rate risk assessment",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you evaluate whether you can handle potential payment increases with variable rate loans?",
+    "What factors should determine your choice between fixed and variable interest rates for different loan purposes?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Which loan has predictable EMIs?",
+      "options": [
+        {
+          "id": "variable",
+          "label": "Variable interest loan with fluctuating payments",
+          "reflection": "Variable interest loans have rates that change with market conditions, causing EMIs to fluctuate up and down, making long-term budgeting challenging and unpredictable.",
+          "isCorrect": false
+        },
+        {
+          "id": "hybrid",
+          "label": "Hybrid loan combining both features",
+          "reflection": "While hybrid loans exist, they typically still involve some variable components that create payment uncertainty. Pure fixed-rate loans provide the most predictable payment structure.",
+          "isCorrect": false
+        },
+        {
+          "id": "floating",
+          "label": "Floating rate loan with market-linked payments",
+          "reflection": "Floating rates are directly tied to market benchmarks, causing immediate payment fluctuations with any rate changes. This creates significant budgeting uncertainty compared to fixed rates.",
+          "isCorrect": false
+        },
+        {
+          "id": "fixed",
+          "label": "Fixed interest loan with consistent payments",
+          "reflection": "Exactly! Fixed interest loans maintain the same interest rate throughout the loan term, providing predictable, consistent EMIs that make budgeting straightforward.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 2,
+      "prompt": "What's the main advantage of fixed interest loans?",
+      "options": [
+        {
+          "id": "lower",
+          "label": "Consistently lower interest rates than market",
+          "reflection": "Fixed rates aren't necessarily lower - they often include a premium for the predictability benefit. The advantage is stability, not guaranteed lower costs compared to variable rates.",
+          "isCorrect": false
+        },
+        {
+          "id": "flexibility",
+          "label": "Greater flexibility to take advantage of rate drops",
+          "reflection": "Fixed rates actually limit flexibility to benefit from rate decreases. Variable rates provide that flexibility but at the cost of payment uncertainty.",
+          "isCorrect": false
+        },
+        {
+          "id": "predictability",
+          "label": "Payment predictability for reliable budgeting",
+          "reflection": "Correct! Fixed rates eliminate interest rate risk, allowing you to plan your finances with confidence knowing exactly what your monthly payments will be throughout the loan term.",
+          "isCorrect": true
+        },
+        {
+          "id": "conversion",
+          "label": "Easy conversion to variable rates when beneficial",
+          "reflection": "Most fixed-rate loans don't offer easy conversion options. The trade-off for predictability is typically reduced flexibility to change loan structures mid-term.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 3,
+      "prompt": "When do variable interest loans make sense?",
+      "options": [
+        {
+          "id": "rising",
+          "label": "When interest rates are expected to rise significantly",
+          "reflection": "Rising rate expectations make variable loans risky since your payments would increase along with rates, potentially becoming unaffordable and defeating the purpose of predictable budgeting.",
+          "isCorrect": false
+        },
+        {
+          "id": "declining",
+          "label": "When interest rates are expected to decline",
+          "reflection": "Perfect! Variable rates can provide savings when market rates fall, making them attractive if you believe rates will decrease during your loan term and you can handle potential increases.",
+          "isCorrect": true
+        },
+        {
+          "id": "stable",
+          "label": "When market rates remain completely stable",
+          "reflection": "While stable rates would make variable loans predictable, perfect rate stability is rare. Fixed rates provide certainty regardless of market conditions.",
+          "isCorrect": false
+        },
+        {
+          "id": "emergency",
+          "label": "When facing immediate financial emergencies",
+          "reflection": "Emergency situations require stable, predictable payments rather than variable ones. Financial emergencies demand certainty in monthly obligations, making fixed rates more appropriate.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 4,
+      "prompt": "What risk do variable interest loans present?",
+      "options": [
+        {
+          "id": "payment",
+          "label": "Payment shock from sudden rate increases",
+          "reflection": "Exactly! Variable rates can jump unexpectedly, creating payment shocks that may strain your budget, reduce financial flexibility, and potentially lead to default if payments become unaffordable.",
+          "isCorrect": true
+        },
+        {
+          "id": "approval",
+          "label": "Difficulty getting loan approval initially",
+          "reflection": "Variable rate loans are often easier to qualify for since lenders face less risk. The main risk is post-approval payment volatility rather than initial approval challenges.",
+          "isCorrect": false
+        },
+        {
+          "id": "prepayment",
+          "label": "Higher prepayment penalties typically apply",
+          "reflection": "Prepayment terms are usually similar between fixed and variable loans. The primary risk with variable rates is ongoing payment uncertainty rather than prepayment restrictions.",
+          "isCorrect": false
+        },
+        {
+          "id": "tenure",
+          "label": "Shorter loan tenure options available",
+          "reflection": "Loan tenure options are generally comparable between fixed and variable products. The distinguishing factor is payment predictability, not loan term availability.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 5,
+      "prompt": "What's the golden rule for interest rate selection?",
+      "options": [
+        {
+          "id": "speculation",
+          "label": "Choose variable rates to speculate on market movements",
+          "reflection": "Speculative rate betting can backfire significantly. Essential financial obligations require stability rather than gambling on uncertain market movements that could create payment hardships.",
+          "isCorrect": false
+        },
+        {
+          "id": "lowest",
+          "label": "Always select whichever rate is lowest today",
+          "reflection": "Today's lowest rate isn't necessarily tomorrow's best choice. The key is matching loan structure to your risk tolerance and financial planning needs rather than chasing current rate levels.",
+          "isCorrect": false
+        },
+        {
+          "id": "complex",
+          "label": "Opt for complex hybrid structures for maximum benefit",
+          "reflection": "Complex loan structures often create confusion and hidden risks. Simple, transparent fixed-rate loans typically provide better long-term outcomes for most borrowers' financial stability needs.",
+          "isCorrect": false
+        },
+        {
+          "id": "stability",
+          "label": "Choose fixed rates for financial stability and planning",
+          "reflection": "Perfect! Fixed rates provide the foundation for reliable financial planning, especially for essential expenses like housing where payment predictability protects against budget disruption and financial stress.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 10
+    }
+  ]
+}

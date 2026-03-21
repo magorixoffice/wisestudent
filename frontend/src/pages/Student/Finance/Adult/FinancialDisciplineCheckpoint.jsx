@@ -1,177 +1,20 @@
 import React, { useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Trophy } from "lucide-react";
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getGameDataById } from "../../../../utils/getGameData";
 
-const STAGES = [
-  {
-    id: 1,
-    prompt: "When you receive your salary, what should you do first?",
-    options: [
-      {
-        id: "spend",
-        label: "Spend freely on wants and desires",
-        reflection: "Spending freely without planning often leads to running out of money before month-end.",
-        isCorrect: false,
-      },
-      
-      {
-        id: "invest",
-        label: "Immediately invest all available funds",
-        reflection: "While investing is important, you need to plan for expenses first before investing.",
-        isCorrect: false,
-      },
-      {
-        id: "debt",
-        label: "Pay off all debts before anything else",
-        reflection: "Paying debts is important, but first you need to plan for essential expenses and savings.",
-        isCorrect: false,
-      },
-      {
-        id: "plan",
-        label: "Plan expenses and set aside savings",
-        reflection: "Exactly! Planning first and setting aside savings prevents overspending and builds financial discipline.",
-        isCorrect: true,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 2,
-    prompt: "Your expenses have increased slightly this month. What is the safest first step?",
-    options: [
-      {
-        id: "loan",
-        label: "Take a loan to cover the gap",
-        reflection: "Taking a loan for small expense increases creates unnecessary debt and interest payments.",
-        isCorrect: false,
-      },
-      {
-        id: "adjust",
-        label: "Reduce or adjust spending to match income",
-        reflection: "Exactly! Adjusting spending to match income is the safest first step to maintain financial discipline.",
-        isCorrect: true,
-      },
-      {
-        id: "borrow",
-        label: "Borrow from friends or family",
-        reflection: "Even informal borrowing should not be the first response to small expense increases.",
-        isCorrect: false,
-      },
-      {
-        id: "credit",
-        label: "Use credit card for the additional expenses",
-        reflection: "Using credit cards for ongoing expenses can lead to accumulating high-interest debt.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 3,
-    prompt: "Which habit helps most with financial discipline?",
-    options: [
-      {
-        id: "ignore",
-        label: "Ignoring expenses",
-        reflection: "Ignoring expenses makes it impossible to understand where your money goes or identify spending patterns.",
-        isCorrect: false,
-      },
-      
-      {
-        id: "estimate",
-        label: "Estimating expenses at the end of the month",
-        reflection: "Estimating at the end of the month is imprecise and often misses small but significant expenses that add up.",
-        isCorrect: false,
-      },
-      {
-        id: "track",
-        label: "Tracking daily spending",
-        reflection: "Exactly! Tracking spending reveals hidden money leaks and helps develop financial discipline.",
-        isCorrect: true,
-      },
-      {
-        id: "review",
-        label: "Reviewing bank statements occasionally",
-        reflection: "While reviewing bank statements is helpful, daily tracking gives more detailed insight into spending patterns.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 4,
-    prompt: "You have a small emergency. Which option is safer?",
-    options: [
-        {
-        id: "savings",
-        label: "Use savings if available",
-        reflection: "Exactly! Using savings for emergencies is safer as it avoids debt and demonstrates financial discipline.",
-        isCorrect: true,
-      },
-      {
-        id: "borrow",
-        label: "Borrow immediately",
-        reflection: "Borrowing immediately for small emergencies can create unnecessary debt and interest payments.",
-        isCorrect: false,
-      },
-      
-      {
-        id: "credit",
-        label: "Use credit card for the emergency",
-        reflection: "Using credit for emergencies creates debt and potentially high interest charges if not paid immediately.",
-        isCorrect: false,
-      },
-      {
-        id: "friends",
-        label: "Borrow from friends or family",
-        reflection: "Even informal borrowing should be avoided when savings are available as it can strain relationships.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 5,
-    prompt: "Your income is fixed. Which action keeps you financially disciplined?",
-    options: [
-      {
-        id: "increase",
-        label: "Increase spending to match feelings",
-        reflection: "Increasing spending beyond fixed income creates a gap that often leads to debt or financial stress.",
-        isCorrect: false,
-      },
-      {
-        id: "balance",
-        label: "Balance expenses within income",
-        reflection: "Exactly! Balancing expenses within your fixed income maintains financial discipline and prevents debt cycles.",
-        isCorrect: true,
-      },
-      {
-        id: "borrow",
-        label: "Borrow to maintain desired lifestyle",
-        reflection: "Borrowing to maintain lifestyle beyond your income creates debt cycles that become increasingly difficult to escape.",
-        isCorrect: false,
-      },
-      {
-        id: "save",
-        label: "Save all excess income immediately",
-        reflection: "While saving is important, it's more about balancing expenses within income rather than saving all excess immediately.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-];
-
-const totalStages = STAGES.length;
-const successThreshold = totalStages; // All 7 must be correct
-
 const FinancialDisciplineCheckpoint = () => {
   const location = useLocation();
+  const { t } = useTranslation("gamecontent");
   const gameId = "finance-adults-10";
+  const baseKey = "financial-literacy.adults.financial-discipline-checkpoint";
+  const gameContent = t(baseKey, { returnObjects: true });
+  const localizedStages = Array.isArray(gameContent?.stages) ? gameContent.stages : [];
+  const totalStages = localizedStages.length;
+  const successThreshold = totalStages;
   const gameData = getGameDataById(gameId);
   const coinsPerLevel = gameData?.coins || location.state?.coinsPerLevel || 5;
   const totalCoins = gameData?.coins || location.state?.totalCoins || 5;
@@ -189,20 +32,15 @@ const FinancialDisciplineCheckpoint = () => {
   const [selectedReflection, setSelectedReflection] = useState(null);
   const [canProceed, setCanProceed] = useState(false);
 
-  const reflectionPrompts = useMemo(
-    () => [
-      "How do these financial decisions demonstrate discipline?",
-      "What habits will help you maintain financial discipline going forward?",
-    ],
-    []
-  );
+  const reflectionPrompts = useMemo(() => gameContent?.reflectionPrompts || [], [gameContent]);
 
   const handleSelect = (option) => {
     if (selectedOption || showResult) return;
+    if (!localizedStages.length) return;
     resetFeedback();
     const updatedHistory = [
       ...history,
-      { stageId: STAGES[stageIndex].id, isCorrect: option.isCorrect },
+      { stageId: localizedStages[stageIndex].id, isCorrect: option.isCorrect },
     ];
     setHistory(updatedHistory);
     setSelectedOption(option.id);
@@ -245,13 +83,17 @@ const FinancialDisciplineCheckpoint = () => {
     setShowResult(false);
   };
 
-  const subtitle = `Stage ${Math.min(stageIndex + 1, totalStages)} of ${totalStages}`;
-  const stage = STAGES[Math.min(stageIndex, totalStages - 1)];
+  const subtitle = t(`${baseKey}.subtitleProgress`, {
+    current: Math.min(stageIndex + 1, totalStages),
+    total: totalStages,
+    defaultValue: "Stage {{current}} of {{total}}",
+  });
+  const stage = localizedStages[Math.min(stageIndex, totalStages - 1)];
   const hasPassed = finalScore === successThreshold;
 
   return (
     <GameShell
-      title="Financial Discipline Checkpoint"
+      title={gameContent?.title || "Financial Discipline Checkpoint"}
       subtitle={subtitle}
       score={showResult ? finalScore : coins}
       coins={coins}
@@ -272,12 +114,12 @@ const FinancialDisciplineCheckpoint = () => {
       <div className="space-y-5 text-white">
         <div className="bg-white/10 border border-white/20 rounded-3xl p-8 shadow-2xl max-w-4xl mx-auto">
           <div className="flex justify-between items-center mb-4 text-sm uppercase tracking-[0.3em] text-white/60">
-            <span>Decision</span>
-            <span>Financial Discipline</span>
+            <span>{t(`${baseKey}.scenarioLabel`, { defaultValue: "Decision" })}</span>
+            <span>{t(`${baseKey}.scenarioValue`, { defaultValue: "Financial Discipline" })}</span>
           </div>
           <p className="text-lg text-white/90 mb-6">{stage.prompt}</p>
           <div className="grid grid-cols-2 gap-4">
-            {stage.options.map((option) => {
+            {stage?.options?.map((option) => {
               const isSelected = selectedOption === option.id;
               return (
                 <button
@@ -293,7 +135,7 @@ const FinancialDisciplineCheckpoint = () => {
                   }`}
                 >
                   <div className="text-sm text-white/70 mb-2">
-                    Choice {option.id.toUpperCase()}
+                    {t(`${baseKey}.choiceLabel`, { id: option.id, defaultValue: "Choice {{id}}" })}
                   </div>
                   <p className="text-white font-semibold">{option.label}</p>
                   
@@ -305,7 +147,7 @@ const FinancialDisciplineCheckpoint = () => {
         </div>
         {(showResult || showFeedback) && (
           <div className="bg-white/5 border border-white/20 rounded-3xl p-6 shadow-xl max-w-4xl mx-auto space-y-3">
-            <h4 className="text-lg font-semibold text-white">Reflection</h4>
+            <h4 className="text-lg font-semibold text-white">{t(`${baseKey}.reflectionTitle`, { defaultValue: "Reflection" })}</h4>
             {selectedReflection && (
               <div className="max-h-24 overflow-y-auto pr-2">
                 <p className="text-sm text-white/90">{selectedReflection}</p>
@@ -326,10 +168,10 @@ const FinancialDisciplineCheckpoint = () => {
                     }}
                     className="rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 px-6 font-semibold shadow-lg hover:opacity-90"
                   >
-                    Continue
+                    {t(`${baseKey}.continueButton`, { defaultValue: "Continue" })}
                   </button>
                 ) : (
-                  <div className="py-2 px-6 text-white font-semibold">Reading...</div>
+                  <div className="py-2 px-6 text-white font-semibold">{t(`${baseKey}.readingLabel`, { defaultValue: "Reading..." })}</div>
                 )}
               </div>
             )}
@@ -347,17 +189,12 @@ const FinancialDisciplineCheckpoint = () => {
                   ))}
                 </ul>
                 <p className="text-sm text-white/70">
-                  {hasPassed ? (
-                    <>
-                      <strong>Congratulations!</strong> You now understand basic money discipline and are ready to learn about banking and credit.
-                    </>
-                  ) : (
-                    <>Skill unlocked: <strong>Basic financial discipline</strong></>
-                  )}
+                  {t(`${baseKey}.skillUnlockedLabel`, { defaultValue: "Skill unlocked:" })}{" "}
+                  <strong>{t(`${baseKey}.skillName`, { defaultValue: "Financial decision making" })}</strong>
                 </p>
                 {!hasPassed && (
                   <p className="text-xs text-amber-300">
-                    Answer every stage sharply to earn the full reward.
+                    {t(`${baseKey}.fullRewardHint`, { total: totalStages, defaultValue: "Answer all {{total}} choices correctly to earn the full reward." })}
                   </p>
                 )}
                 {!hasPassed && (
@@ -365,7 +202,7 @@ const FinancialDisciplineCheckpoint = () => {
                     onClick={handleRetry}
                     className="w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 font-semibold shadow-lg hover:opacity-90"
                   >
-                    Try Again
+                    {t(`${baseKey}.tryAgainButton`, { defaultValue: "Try Again" })}
                   </button>
                 )}
               </>

@@ -1,182 +1,35 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import { Trophy } from "lucide-react";
+import { useTranslation } from "react-i18next";
+
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getGameDataById } from "../../../../utils/getGameData";
 
-const LOAN_APP_REVIEWS_STAGES = [
-  {
-    id: 1,
-    prompt: "Why should you check reviews for a loan app?",
-    options: [
-      {
-        id: "entertainment",
-        label: "For entertainment",
-        reflection: "Reviews are not meant for entertainment. They provide important information about user experiences and potential risks with the loan app.",
-        isCorrect: false,
-      },
-      
-      {
-        id: "rating",
-        label: "Just to check the rating number",
-        reflection: "While ratings matter, reading the actual reviews gives you more detailed insights into user experiences and potential issues.",
-        isCorrect: false,
-      },
-      {
-        id: "features",
-        label: "To learn about app features only",
-        reflection: "Reviews do share information about features, but more importantly, they reveal user complaints and risks that are crucial for your financial safety.",
-        isCorrect: false,
-      },
-      {
-        id: "risks",
-        label: "To identify user complaints and risks",
-        reflection: "Exactly! Reviews help you understand potential problems and risks other users have experienced with the loan app.",
-        isCorrect: true,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 2,
-    prompt: "What can past user experiences reveal about a loan app?",
-    options: [
-      {
-        id: "fun",
-        label: "How entertaining the app is",
-        reflection: "Loan apps should be evaluated based on safety and reliability, not entertainment value.",
-        isCorrect: false,
-      },
-      {
-        id: "problems",
-        label: "Hidden problems and red flags",
-        reflection: "Correct! Past user experiences often reveal hidden problems that aren't apparent from the app's marketing materials.",
-        isCorrect: true,
-      },
-      {
-        id: "design",
-        label: "Only about the app's design",
-        reflection: "While design is important, user experiences reveal much more significant information about potential risks and problems.",
-        isCorrect: false,
-      },
-      {
-        id: "speed",
-        label: "How fast the app works",
-        reflection: "Speed is just one aspect. Reviews reveal more important information about hidden problems and risks.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 3,
-    prompt: "Which type of review should you pay most attention to?",
-    options: [
-      {
-        id: "positive",
-        label: "Only positive reviews",
-        reflection: "Positive reviews are helpful, but they might not reveal potential problems or risks you should be aware of.",
-        isCorrect: false,
-      },
-      
-      {
-        id: "old",
-        label: "Only older reviews",
-        reflection: "Both old and recent reviews are important, but focusing on reviews that mention complaints and issues is most valuable for identifying risks.",
-        isCorrect: false,
-      },
-      {
-        id: "complaints",
-        label: "Reviews mentioning complaints and issues",
-        reflection: "Right! Paying attention to complaints and issues helps you identify potential risks before using the app.",
-        isCorrect: true,
-      },
-      {
-        id: "new",
-        label: "Only newest reviews",
-        reflection: "Recent reviews are important, but the key is to focus on reviews that mention complaints and issues, regardless of when they were posted.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 4,
-    prompt: "What is the main benefit of reading multiple reviews?",
-    options: [
-      {
-        id: "time",
-        label: "It wastes your time",
-        reflection: "Actually, reading reviews saves you from potential financial problems by helping you avoid risky apps.",
-        isCorrect: false,
-      },
-      {
-        id: "pattern",
-        label: "Identifying patterns of user complaints",
-        reflection: "Exactly! Looking for patterns in reviews helps you spot recurring issues and potential risks with the loan app.",
-        isCorrect: true,
-      },
-      {
-        id: "rating",
-        label: "Calculating average rating",
-        reflection: "While calculating averages is helpful, the main benefit is identifying patterns of complaints and issues that could affect you.",
-        isCorrect: false,
-      },
-      {
-        id: "writing",
-        label: "Improving your writing skills",
-        reflection: "Reading reviews is primarily about understanding potential risks, not improving writing skills.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 5,
-    prompt: "How do past user experiences help you?",
-    options: [
-      {
-        id: "reveal",
-        label: "Reveal hidden problems before you use the app",
-        reflection: "Perfect! Past user experiences reveal hidden problems so you can make informed decisions before encountering them yourself.",
-        isCorrect: true,
-      },
-      {
-        id: "guess",
-        label: "Make better guesses about the app",
-        reflection: "Reviews provide concrete information, not just material for guessing.",
-        isCorrect: false,
-      },
-      
-      {
-        id: "follow",
-        label: "Follow others' decisions blindly",
-        reflection: "Reviews should inform your decision-making, not encourage blind following of others' choices.",
-        isCorrect: false,
-      },
-      {
-        id: "copy",
-        label: "Copy others' borrowing strategies",
-        reflection: "Reviews help you identify risks and problems, not copy others' strategies which may not be suitable for your situation.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-];
-
-const totalStages = LOAN_APP_REVIEWS_STAGES.length;
-const successThreshold = totalStages;
-
 const LoanAppReviews = () => {
   const location = useLocation();
+  const { t } = useTranslation("gamecontent");
+
   const gameId = "finance-adults-66";
+  const baseKey = "financial-literacy.adults.loan-app-reviews";
+
+  const gameContent = t(baseKey, { returnObjects: true });
+  const localizedStages = Array.isArray(gameContent?.stages) ? gameContent.stages : [];
+  const reflectionPrompts = Array.isArray(gameContent?.reflectionPrompts)
+    ? gameContent.reflectionPrompts
+    : [];
+
   const gameData = getGameDataById(gameId);
   const coinsPerLevel = gameData?.coins || location.state?.coinsPerLevel || 15;
   const totalCoins = gameData?.coins || location.state?.totalCoins || 15;
   const totalXp = gameData?.xp || location.state?.totalXp || 30;
-  const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
+
+  const {
+    flashPoints,
+    showAnswerConfetti,
+    showCorrectAnswerFeedback,
+    resetFeedback,
+  } = useGameFeedback();
 
   const [currentStage, setCurrentStage] = useState(0);
   const [coins, setCoins] = useState(0);
@@ -188,52 +41,76 @@ const LoanAppReviews = () => {
   const [selectedReflection, setSelectedReflection] = useState(null);
   const [canProceed, setCanProceed] = useState(false);
 
-  const reflectionPrompts = useMemo(
-    () => [
-      "How can you identify trustworthy reviews about loan apps?",
-      "What specific patterns should you look for when reading loan app reviews?",
-    ],
-    []
-  );
+  const totalStages = localizedStages.length;
+  const successThreshold = totalStages;
+
+  // Guard placed after hooks (Rule of Hooks safe).
+  if (!totalStages) return null;
+
+  const subtitle = t(`${baseKey}.subtitleProgress`, {
+    current: Math.min(currentStage + 1, totalStages),
+    total: totalStages,
+    defaultValue: "Stage {{current}} of {{total}}",
+  });
+
+  const stage = localizedStages[Math.min(currentStage, totalStages - 1)];
+  const hasPassed = finalScore === successThreshold;
+
+  const title = gameContent?.title || "Loan App Reviews";
+  const headerLeft = t(`${baseKey}.sectionHeaderLeft`, { defaultValue: "" });
+  const headerRight = t(`${baseKey}.sectionHeaderRight`, { defaultValue: "" });
+  const reflectionTitle = t(`${baseKey}.reflectionTitle`, { defaultValue: "Reflection" });
+  const continueButton = t(`${baseKey}.continueButton`, { defaultValue: "Continue" });
+  const readingLabel = t(`${baseKey}.readingLabel`, { defaultValue: "Reading..." });
+  const reflectionPromptsTitle = t(`${baseKey}.reflectionPromptsTitle`, {
+    defaultValue: "Reflection Prompts",
+  });
+  const skillUnlockedLabel = t(`${baseKey}.skillUnlockedLabel`, {
+    defaultValue: "Skill unlocked:",
+  });
+  const skillName = t(`${baseKey}.skillName`, { defaultValue: "" });
+  const fullRewardHint = t(`${baseKey}.fullRewardHint`, {
+    total: totalStages,
+    defaultValue: "Answer all {{total}} choices correctly to earn the full reward.",
+  });
+  const tryAgainButton = t(`${baseKey}.tryAgainButton`, { defaultValue: "Try Again" });
 
   const handleChoice = (option) => {
     if (selectedOption || showResult) return;
 
     resetFeedback();
-    const currentStageData = LOAN_APP_REVIEWS_STAGES[currentStage];
+    const currentStageData = localizedStages[currentStage];
     const updatedHistory = [
       ...history,
       { stageId: currentStageData.id, isCorrect: option.isCorrect },
     ];
+
     setHistory(updatedHistory);
     setSelectedOption(option.id);
-    setSelectedReflection(option.reflection); // Set the reflection for the selected option
-    setShowFeedback(true); // Show feedback after selection
-    setCanProceed(false); // Disable proceeding initially
-    
-    // Update coins if the answer is correct
+    setSelectedReflection(option.reflection);
+    setShowFeedback(true);
+    setCanProceed(false);
+
     if (option.isCorrect) {
-      setCoins(prevCoins => prevCoins + 1);
+      setCoins((prevCoins) => prevCoins + 1);
     }
-    
-    // Wait for the reflection period before allowing to proceed
+
     setTimeout(() => {
-      setCanProceed(true); // Enable proceeding after showing reflection
-    }, 1500); // Wait 1.5 seconds before allowing to proceed
-    
-    // Handle the final stage separately
+      setCanProceed(true);
+    }, 1500);
+
     if (currentStage === totalStages - 1) {
       setTimeout(() => {
         const correctCount = updatedHistory.filter((item) => item.isCorrect).length;
         const passed = correctCount === successThreshold;
         setFinalScore(correctCount);
-        setCoins(passed ? totalCoins : 0); // Set final coins based on performance
+        setCoins(passed ? totalCoins : 0);
         setShowResult(true);
-      }, 5500); // Wait longer before showing final results
+      }, 5500);
     }
-    
+
     if (option.isCorrect) {
-      showCorrectAnswerFeedback(1, true); // Show +1 feedback, coins are added separately
+      showCorrectAnswerFeedback(1, true);
     } else {
       showCorrectAnswerFeedback(0, false);
     }
@@ -244,27 +121,26 @@ const LoanAppReviews = () => {
     setCurrentStage(0);
     setHistory([]);
     setSelectedOption(null);
+    setSelectedReflection(null);
+    setShowFeedback(false);
+    setCanProceed(false);
     setCoins(0);
     setFinalScore(0);
     setShowResult(false);
   };
 
-  const subtitle = `Stage ${Math.min(currentStage + 1, totalStages)} of ${totalStages}`;
-  const stage = LOAN_APP_REVIEWS_STAGES[Math.min(currentStage, totalStages - 1)];
-  const hasPassed = finalScore === successThreshold;
-
   return (
     <GameShell
-      title="Loan App Reviews"
+      title={title}
       subtitle={subtitle}
       score={showResult ? finalScore : coins}
       coins={coins}
       coinsPerLevel={coinsPerLevel}
       totalCoins={totalCoins}
       totalXp={totalXp}
-      maxScore={LOAN_APP_REVIEWS_STAGES.length}
-      currentLevel={Math.min(currentStage + 1, LOAN_APP_REVIEWS_STAGES.length)}
-      totalLevels={LOAN_APP_REVIEWS_STAGES.length}
+      maxScore={totalStages}
+      currentLevel={Math.min(currentStage + 1, totalStages)}
+      totalLevels={totalStages}
       gameId={gameId}
       gameType="finance"
       showGameOver={showResult}
@@ -276,8 +152,8 @@ const LoanAppReviews = () => {
       <div className="space-y-5 text-white">
         <div className="bg-white/10 border border-white/20 rounded-3xl p-8 shadow-2xl max-w-4xl mx-auto">
           <div className="flex justify-between items-center mb-4 text-sm uppercase tracking-[0.3em] text-white/60">
-            <span>Scenario</span>
-            <span>App Reviews</span>
+            <span>{headerLeft}</span>
+            <span>{headerRight}</span>
           </div>
           <p className="text-lg text-white/90 mb-6">{stage.prompt}</p>
           <div className="grid grid-cols-2 gap-4">
@@ -288,31 +164,38 @@ const LoanAppReviews = () => {
                   key={option.id}
                   onClick={() => handleChoice(option)}
                   disabled={!!selectedOption}
-                  className={`rounded-2xl border-2 p-5 text-left transition ${isSelected
+                  className={`rounded-2xl border-2 p-5 text-left transition ${
+                    isSelected
                       ? option.isCorrect
                         ? "border-emerald-400 bg-emerald-500/20"
                         : "border-rose-400 bg-rose-500/10"
                       : "border-white/30 bg-white/5 hover:border-white/60 hover:bg-white/10"
-                    }`}
+                  }`}
                 >
                   <div className="flex justify-between items-center mb-2 text-sm text-white/70">
-                    <span>Choice {option.id.toUpperCase()}</span>
-                    
+                    <span>
+                      {t(`${baseKey}.choiceLabel`, {
+                        id: option.id.toUpperCase(),
+                        defaultValue: "Choice {{id}}",
+                      })}
+                    </span>
                   </div>
                   <p className="text-white font-semibold">{option.label}</p>
-                  
                 </button>
               );
             })}
           </div>
+
           {(showResult || showFeedback) && (
             <div className="bg-white/5 border border-white/20 rounded-3xl p-6 shadow-xl max-w-4xl mx-auto space-y-3">
-              <h4 className="text-lg font-semibold text-white">Reflection</h4>
+              <h4 className="text-lg font-semibold text-white">{reflectionTitle}</h4>
+
               {selectedReflection && (
                 <div className="max-h-24 overflow-y-auto pr-2">
                   <p className="text-sm text-white/90">{selectedReflection}</p>
                 </div>
               )}
+
               {showFeedback && !showResult && (
                 <div className="mt-4 flex justify-center">
                   {canProceed ? (
@@ -328,19 +211,18 @@ const LoanAppReviews = () => {
                       }}
                       className="rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 px-6 font-semibold shadow-lg hover:opacity-90"
                     >
-                      Continue
+                      {continueButton}
                     </button>
                   ) : (
-                    <div className="py-2 px-6 text-white font-semibold">Reading...</div>
+                    <div className="py-2 px-6 text-white font-semibold">{readingLabel}</div>
                   )}
                 </div>
               )}
-              {/* Automatically advance if we're in the last stage and the timeout has passed */}
+
               {!showResult && currentStage === totalStages - 1 && canProceed && (
-                <div className="mt-4 flex justify-center">
-                  
-                </div>
+                <div className="mt-4 flex justify-center" />
               )}
+
               {showResult && (
                 <>
                   <ul className="text-sm list-disc list-inside space-y-1">
@@ -348,50 +230,48 @@ const LoanAppReviews = () => {
                       <li key={prompt}>{prompt}</li>
                     ))}
                   </ul>
+
                   <p className="text-sm text-white/70">
-                    Skill unlocked: <strong>Review analysis for financial safety</strong>
+                    {skillUnlockedLabel} <strong>{skillName}</strong>
                   </p>
-                  {!hasPassed && (
-                    <p className="text-xs text-amber-300">
-                      Answer all {totalStages} choices correctly to earn the full reward.
-                    </p>
-                  )}
+
+                  {!hasPassed && <p className="text-xs text-amber-300">{fullRewardHint}</p>}
+
                   {!hasPassed && (
                     <button
                       onClick={handleRetry}
                       className="w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 font-semibold shadow-lg hover:opacity-90"
                     >
-                      Try Again
+                      {tryAgainButton}
                     </button>
                   )}
                 </>
               )}
             </div>
           )}
-         
         </div>
+
         {showResult && (
           <div className="bg-white/5 border border-white/20 rounded-3xl p-6 shadow-xl max-w-4xl mx-auto space-y-3">
-            <h4 className="text-lg font-semibold text-white">Reflection Prompts</h4>
+            <h4 className="text-lg font-semibold text-white">{reflectionPromptsTitle}</h4>
             <ul className="text-sm list-disc list-inside space-y-1">
               {reflectionPrompts.map((prompt) => (
                 <li key={prompt}>{prompt}</li>
               ))}
             </ul>
+
             <p className="text-sm text-white/70">
-              Skill unlocked: <strong>Review analysis for financial safety</strong>
+              {skillUnlockedLabel} <strong>{skillName}</strong>
             </p>
-            {!hasPassed && (
-              <p className="text-xs text-amber-300">
-                Answer all {totalStages} choices correctly to earn the full reward.
-              </p>
-            )}
+
+            {!hasPassed && <p className="text-xs text-amber-300">{fullRewardHint}</p>}
+
             {!hasPassed && (
               <button
                 onClick={handleRetry}
                 className="w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 font-semibold shadow-lg hover:opacity-90"
               >
-                Try Again
+                {tryAgainButton}
               </button>
             )}
           </div>
@@ -402,3 +282,4 @@ const LoanAppReviews = () => {
 };
 
 export default LoanAppReviews;
+

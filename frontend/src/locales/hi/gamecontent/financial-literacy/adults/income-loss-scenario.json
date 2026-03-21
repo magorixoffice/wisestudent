@@ -1,0 +1,176 @@
+{
+  "title": "आय हानि परिदृश्य",
+  "subtitleProgress": "चरण {{current}} का {{total}}",
+  "sectionHeaderLeft": "परिदृश्य",
+  "sectionHeaderRight": "आय हानि",
+  "choiceLabel": "पसंद {{id}}",
+  "reflectionTitle": "चिंतन",
+  "continueButton": "जारी रखें",
+  "readingLabel": "पढ़ रहे हैं...",
+  "reflectionPromptsTitle": "परावर्तन संकेत",
+  "skillUnlockedLabel": "अनलॉक किया गया कौशल:",
+  "skillName": "आय हानि प्रबंधन",
+  "fullRewardHint": "पूरा रिवॉर्ड पाने के लिए सभी {{total}} विकल्पों का सही जवाब दें।",
+  "tryAgainButton": "पुन: प्रयास करें",
+  "reflectionPrompts": [
+    "अस्थायी आय हानि की योजना कैसे बनाएं?",
+    "कौन से खर्च कितना कम करेंगे?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "परिदृश्य: आपकी आय अस्थायी रूप से कम हो जाती है। सबसे ज्यादा क्या मदद करता है?",
+      "options": [
+        {
+          "id": "borrowing",
+          "label": "तुरंत उधार",
+          "reflection": "कर्ज दबाव बढ़ता है; पहले अपने संसाधन।",
+          "isCorrect": false
+        },
+        {
+          "id": "ignore",
+          "label": "समस्या नज़रअंदाज़",
+          "reflection": "खतरनाक; तुरंत कदम।",
+          "isCorrect": false
+        },
+        {
+          "id": "expenses",
+          "label": "खर्च कम + आपात कोष",
+          "reflection": "बिल्कुल! समय बिना नए कर्ज।",
+          "isCorrect": true
+        },
+        {
+          "id": "luxury",
+          "label": "गैर-जरूरी जारी",
+          "reflection": "संकट तेज़; जरूरी प्राथमिकता।",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 2,
+      "prompt": "अस्थायी आय हानि का पहला कदम क्या है?",
+      "options": [
+        {
+          "id": "panic",
+          "label": "घबराकर फैसले",
+          "reflection": "गलत निर्णय; शांति।",
+          "isCorrect": false
+        },
+        {
+          "id": "assess",
+          "label": "स्थिति व संसाधन आकलन",
+          "reflection": "बिल्कुल! पहला कदम।",
+          "isCorrect": true
+        },
+        {
+          "id": "spending",
+          "label": "खर्च बढ़ाना",
+          "reflection": "दबाव बढ़ता है।",
+          "isCorrect": false
+        },
+        {
+          "id": "debt",
+          "label": "जीवनशैली के लिए नया कर्ज",
+          "reflection": "खतरनाक दायित्व।",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 3,
+      "prompt": "आय हानि के दौरान खर्चों में प्राथमिकता कैसी हो?",
+      "options": [
+        {
+          "id": "essential",
+          "label": "पहले जरूरी खर्च",
+          "reflection": "शानदार! गैर-जरूरी कम।",
+          "isCorrect": true
+        },
+        {
+          "id": "everything",
+          "label": "पुराना स्तर बनाए रखें",
+          "reflection": "टिकाऊ नहीं।",
+          "isCorrect": false
+        },
+        {
+          "id": "random",
+          "label": "यादृच्छिक कटौती",
+          "reflection": "अकुशल; व्यवस्थित बेहतर।",
+          "isCorrect": false
+        },
+        {
+          "id": "habits",
+          "label": "आदतें न बदलें",
+          "reflection": "संकट; आय के अनुरूप समायोजन।",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 4,
+      "prompt": "खराब आय हानि योजना का चेतावनी संकेत क्या है?",
+      "options": [
+        {
+          "id": "plan",
+          "label": "लिखित आपात योजना",
+          "reflection": "अच्छी तैयारी।",
+          "isCorrect": false
+        },
+        {
+          "id": "fund",
+          "label": "पर्याप्त आपात कोष",
+          "reflection": "सकारात्मक।",
+          "isCorrect": false
+        },
+        {
+          "id": "tracking",
+          "label": "खर्च ट्रैकिंग",
+          "reflection": "अनुशासन।",
+          "isCorrect": false
+        },
+        {
+          "id": "anxiety",
+          "label": "जरूरी बिलों की चिंता",
+          "reflection": "बिल्कुल! तैयारी कम।",
+          "isCorrect": true
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 5,
+      "prompt": "आय हानि को सही ढंग से संभालने का दीर्घकालिक लाभ क्या है?",
+      "options": [
+        {
+          "id": "spending",
+          "label": "सभी इच्छाएँ जारी",
+          "reflection": "जरूरतें, विलासिता नहीं।",
+          "isCorrect": false
+        },
+        {
+          "id": "debt_exp",
+          "label": "कर्ज अनुभव",
+          "reflection": "कर्ज से बचना लक्ष्य।",
+          "isCorrect": false
+        },
+        {
+          "id": "security",
+          "label": "स्थिरता, कर्ज से बचना",
+          "reflection": "बिल्कुल! दीर्घकाल स्वास्थ्य।",
+          "isCorrect": true
+        },
+        {
+          "id": "avoidance",
+          "label": "जरूरी खर्च टालना",
+          "reflection": "प्राथमिकता व समायोजन।",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    }
+  ]
+}

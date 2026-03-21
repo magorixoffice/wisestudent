@@ -126,7 +126,6 @@ const MainFooter = () => {
                 <img
                   src="/icons/icon.png"
                   alt="WiseStudent logo"
-                  className="w-28 h-28 sm:w-32 sm:h-32 lg:w-40 lg:h-40 object-contain mb-4"
                 />
                 <p className="text-gray-600 leading-relaxed text-sm mb-8">
                   Empowering education with innovative management and wellness

@@ -1,0 +1,176 @@
+{
+  "title": "Business Finance Checkpoint",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Task",
+  "sectionHeaderRight": "Financial Decisions",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Business Financial Management",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "What systems will you implement to maintain financial discipline?",
+    "How can you prepare for financial challenges in your business?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Task: Make 8 safe financial decisions for a small business.",
+      "options": [
+        {
+          "id": "ignore",
+          "label": "Ignore small expenses to save time",
+          "reflection": "Ignoring small expenses is risky. Small expenses can add up significantly and proper tracking helps identify areas for cost reduction and better financial control.",
+          "isCorrect": false
+        },
+        {
+          "id": "spend",
+          "label": "Spend first, worry about records later",
+          "reflection": "Spending first and worrying about records later creates financial chaos. It's difficult to track expenses accurately and can lead to overspending and budget problems.",
+          "isCorrect": false
+        },
+        {
+          "id": "records",
+          "label": "Keep detailed financial records of all transactions",
+          "reflection": "Excellent! Keeping detailed financial records is fundamental to business success. It helps with tax compliance, financial planning, and making informed decisions.",
+          "isCorrect": true
+        },
+        {
+          "id": "estimate",
+          "label": "Estimate expenses instead of tracking them",
+          "reflection": "Estimating expenses instead of tracking them accurately leads to poor financial decisions. Actual data is essential for effective budgeting and financial planning.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 2,
+      "prompt": "What's the best approach to business cash flow management?",
+      "options": [
+        {
+          "id": "spend",
+          "label": "Spend as needed without checking account balances",
+          "reflection": "Spending without checking account balances can lead to overdrafts, missed payments, and financial stress. It's essential to know your cash position before making spending decisions.",
+          "isCorrect": false
+        },
+        {
+          "id": "monitor",
+          "label": "Monitor cash flow regularly and forecast future needs",
+          "reflection": "Perfect! Regular cash flow monitoring and forecasting help you anticipate financial challenges and opportunities, ensuring you have enough money when you need it.",
+          "isCorrect": true
+        },
+        {
+          "id": "borrow",
+          "label": "Rely on credit when cash runs low",
+          "reflection": "Relying on credit when cash runs low creates debt dependency and interest expenses. It's better to plan ahead and maintain adequate cash reserves.",
+          "isCorrect": false
+        },
+        {
+          "id": "ignore",
+          "label": "Ignore cash flow until there's a problem",
+          "reflection": "Ignoring cash flow until problems arise means you're always reacting rather than planning. Proactive cash flow management prevents financial crises.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 3,
+      "prompt": "How should you handle business debt?",
+      "options": [
+        {
+          "id": "plan",
+          "label": "Borrow only for productive investments with clear repayment plans",
+          "reflection": "Excellent! Productive investments that generate returns can justify borrowing. Having clear repayment plans ensures debt doesn't become overwhelming.",
+          "isCorrect": true
+        },
+        {
+          "id": "any",
+          "label": "Borrow for any business need without planning",
+          "reflection": "Borrowing for any need without planning creates financial risk. It's important to evaluate whether borrowing is necessary and ensure you can repay comfortably.",
+          "isCorrect": false
+        },
+        {
+          "id": "avoid",
+          "label": "Avoid all debt completely",
+          "reflection": "While avoiding debt reduces risk, it can also limit growth opportunities. Strategic borrowing for investments with good returns can be beneficial for business development.",
+          "isCorrect": false
+        },
+        {
+          "id": "maximize",
+          "label": "Maximize debt to show business growth",
+          "reflection": "Maximizing debt to show growth is dangerous. High debt levels create financial stress and can lead to insolvency if business conditions change.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 4,
+      "prompt": "What's essential for business financial planning?",
+      "options": [
+        {
+          "id": "spend",
+          "label": "Spend based on available cash without a plan",
+          "reflection": "Spending based on available cash without a plan leads to financial instability. It's difficult to achieve long-term goals without a structured financial plan.",
+          "isCorrect": false
+        },
+        {
+          "id": "ignore",
+          "label": "Ignore planning and deal with finances as they come",
+          "reflection": "Ignoring financial planning and dealing with finances as they come creates chaos and missed opportunities. Planning provides direction and financial security.",
+          "isCorrect": false
+        },
+        {
+          "id": "overbudget",
+          "label": "Create unrealistic budgets that are impossible to follow",
+          "reflection": "Unrealistic budgets that can't be followed are counterproductive. They lead to frustration and abandonment of financial planning altogether.",
+          "isCorrect": false
+        },
+        {
+          "id": "budget",
+          "label": "Create and stick to a realistic budget with regular reviews",
+          "reflection": "Perfect! A realistic budget with regular reviews provides financial discipline and helps you track performance against your financial goals.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 5,
+      "prompt": "What's the best practice for business financial separation?",
+      "options": [
+        {
+          "id": "mix",
+          "label": "Mix business and personal expenses for convenience",
+          "reflection": "Mixing business and personal expenses creates financial confusion, makes tax preparation difficult, and can lead to poor financial decisions for both areas.",
+          "isCorrect": false
+        },
+        {
+          "id": "same",
+          "label": "Use the same bank account for everything",
+          "reflection": "Using the same account for business and personal finances makes it impossible to track business performance accurately and can lead to legal and tax complications.",
+          "isCorrect": false
+        },
+        {
+          "id": "separate",
+          "label": "Keep business and personal finances completely separate",
+          "reflection": "Exactly! Keeping business and personal finances separate ensures clear financial management, easier tax preparation, and better business decision-making.",
+          "isCorrect": true
+        },
+        {
+          "id": "occasional",
+          "label": "Separate finances only occasionally when it's convenient",
+          "reflection": "Occasional separation isn't sufficient. Consistent separation is necessary for proper financial management and to maintain the integrity of both business and personal finances.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    }
+  ]
+}

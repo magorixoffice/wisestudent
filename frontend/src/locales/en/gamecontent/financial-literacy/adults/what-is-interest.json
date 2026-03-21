@@ -1,0 +1,176 @@
+{
+  "title": "What Is Interest?",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Interest Basics",
+  "sectionHeaderRight": "Borrowing Costs",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Interest calculation awareness",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can understanding interest calculations help you make better borrowing decisions?",
+    "What factors should you research before accepting any loan offer?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Interest is:",
+      "options": [
+        {
+          "id": "penalty",
+          "label": "A penalty for borrowing money",
+          "reflection": "While interest feels like a cost, it's not a punishment but the legitimate price lenders charge for providing financial resources when you need them.",
+          "isCorrect": false
+        },
+        {
+          "id": "cost",
+          "label": "The cost of borrowing money",
+          "reflection": "Exactly! Interest represents the fee you pay lenders for using their money, compensating them for the risk and opportunity cost of lending.",
+          "isCorrect": true
+        },
+        {
+          "id": "fee",
+          "label": "A service fee for financial transactions",
+          "reflection": "Interest is specifically the cost of borrowing, not a general transaction fee. It's the price paid for accessing funds that belong to someone else.",
+          "isCorrect": false
+        },
+        {
+          "id": "tax",
+          "label": "A government tax on financial products",
+          "reflection": "Interest is a private market mechanism between borrowers and lenders, not a government-imposed tax on financial activities.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 2,
+      "prompt": "What determines how much interest you pay?",
+      "options": [
+        {
+          "id": "factors",
+          "label": "Credit score, loan terms, and market rates",
+          "reflection": "Correct! Your creditworthiness, agreed-upon terms, and prevailing market conditions determine the interest cost of borrowing money.",
+          "isCorrect": true
+        },
+        {
+          "id": "amount",
+          "label": "The loan amount and time period",
+          "reflection": "While loan size and duration matter, the key factors are your creditworthiness, market rates, and the specific terms negotiated with your lender.",
+          "isCorrect": false
+        },
+        {
+          "id": "lender",
+          "label": "Which bank or lender you choose",
+          "reflection": "Lender choice influences rates, but the fundamental determinants are your financial profile and broader economic conditions affecting all lenders.",
+          "isCorrect": false
+        },
+        {
+          "id": "speed",
+          "label": "How quickly you need the funds",
+          "reflection": "Urgency may affect approval chances, but interest rates are primarily determined by credit risk and market conditions, not processing speed.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 3,
+      "prompt": "Why do lenders charge interest?",
+      "options": [
+        {
+          "id": "profit",
+          "label": "To make profit from borrowers",
+          "reflection": "While lenders do profit, the primary reason is compensation for risk, administrative costs, and the opportunity cost of not using their money elsewhere.",
+          "isCorrect": false
+        },
+        {
+          "id": "compensation",
+          "label": "To compensate for risk and opportunity cost",
+          "reflection": "Perfect! Interest compensates lenders for default risk, operational costs, and the fact that they can't use their money for other investments while it's lent to you.",
+          "isCorrect": true
+        },
+        {
+          "id": "regulation",
+          "label": "Because regulations require interest charges",
+          "reflection": "Regulations govern lending practices but don't mandate interest. Lenders charge interest based on market forces and risk assessment.",
+          "isCorrect": false
+        },
+        {
+          "id": "competition",
+          "label": "To stay competitive with other lenders",
+          "reflection": "Competition affects rates, but the fundamental reason for charging interest is economic necessity - compensating for risk and lost opportunities.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 4,
+      "prompt": "How does interest affect your total repayment?",
+      "options": [
+        {
+          "id": "addition",
+          "label": "You repay only the original borrowed amount",
+          "reflection": "Actually, interest adds to your total obligation. You must repay both the principal amount borrowed plus the interest charges accumulated over time.",
+          "isCorrect": false
+        },
+        {
+          "id": "discount",
+          "label": "Interest reduces your total payment obligation",
+          "reflection": "Interest increases, not decreases, your total payment. It represents additional cost beyond the original borrowed amount.",
+          "isCorrect": false
+        },
+        {
+          "id": "principal",
+          "label": "You repay principal plus accumulated interest",
+          "reflection": "Exactly! The total repayment includes both the original amount borrowed (principal) and all interest charges that accrue according to your loan terms.",
+          "isCorrect": true
+        },
+        {
+          "id": "waiver",
+          "label": "Interest can be waived for good borrowers",
+          "reflection": "While some promotional offers waive interest temporarily, standard loans require interest payment as compensation for the lending risk and service provided.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 5,
+      "prompt": "What's the golden rule for managing interest costs?",
+      "options": [
+        {
+          "id": "comparison",
+          "label": "Always compare rates from multiple lenders",
+          "reflection": "Rate comparison is valuable, but the fundamental principle is understanding that lower interest rates save you money over the loan's lifetime.",
+          "isCorrect": false
+        },
+        {
+          "id": "accept",
+          "label": "Accept the first interest rate offered",
+          "reflection": "Accepting the first offer without comparison often means paying more than necessary. Shopping around typically reveals better interest rate options.",
+          "isCorrect": false
+        },
+        {
+          "id": "ignore",
+          "label": "Focus on monthly payments, not total interest",
+          "reflection": "Monthly payment focus can be misleading. The total interest paid over the loan term is often more important for long-term financial planning.",
+          "isCorrect": false
+        },
+        {
+          "id": "minimize",
+          "label": "Minimize interest by choosing lower rates and shorter terms",
+          "reflection": "Perfect! Lower interest rates and shorter repayment periods reduce the total cost of borrowing, saving you money over time.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 10
+    }
+  ]
+}

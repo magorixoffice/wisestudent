@@ -1,183 +1,37 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import { Trophy } from "lucide-react";
+import { useTranslation } from "react-i18next";
+
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getGameDataById } from "../../../../utils/getGameData";
 
-const EMI_MEANING_STAGES = [
-  {
-    id: 1,
-    prompt: "EMI stands for:",
-    options: [
-        {
-        id: "instalment",
-        label: "Equated Monthly Instalment",
-        reflection: "Exactly! EMI is the fixed amount you pay each month to gradually repay your loan principal plus accumulated interest over the loan term.",
-        isCorrect: true,
-      },
-      {
-        id: "income",
-        label: "Easy Monthly Income",
-        reflection: "Actually, EMI refers to loan repayment, not income generation. It's about systematically paying back borrowed money in manageable monthly amounts.",
-        isCorrect: false,
-      },
-    
-      {
-        id: "investment",
-        label: "Monthly Investment Option",
-        reflection: "EMI is about debt repayment, not investment. While some loans fund investments, EMI specifically refers to the structured repayment mechanism.",
-        isCorrect: false,
-      },
-      {
-        id: "insurance",
-        label: "Emergency Money Insurance",
-        reflection: "EMI relates to loan repayment schedules, not insurance products. It's a systematic approach to paying back borrowed funds over time.",
-        isCorrect: false,
-      },
-    ],
-    reward: 10,
-  },
-  {
-    id: 2,
-    prompt: "What's the main purpose of EMI structure?",
-    options: [
-      {
-        id: "flexibility",
-        label: "To provide payment flexibility for borrowers",
-        reflection: "While EMIs offer predictability, the primary purpose is dividing large loan amounts into manageable, scheduled payments over time.",
-        isCorrect: false,
-      },
-      {
-        id: "division",
-        label: "To divide large loan repayment into monthly amounts",
-        reflection: "Correct! EMIs break down substantial loan obligations into regular, predictable monthly payments that fit within borrowers' budget constraints.",
-        isCorrect: true,
-      },
-      {
-        id: "profit",
-        label: "To maximize lender profits from borrowers",
-        reflection: "Profit maximization isn't the purpose - EMIs serve to make large loan repayments affordable and predictable for both parties involved.",
-        isCorrect: false,
-      },
-      {
-        id: "convenience",
-        label: "To make borrowing more convenient for consumers",
-        reflection: "Convenience is a benefit, but the core purpose is structuring loan repayment into systematic, manageable monthly installments over the loan term.",
-        isCorrect: false,
-      },
-    ],
-    reward: 10,
-  },
-  {
-    id: 3,
-    prompt: "How is EMI amount calculated?",
-    options: [
-      {
-        id: "simple",
-        label: "Principal divided by number of months",
-        reflection: "Simple division doesn't account for interest charges. EMI calculations include both principal repayment and accumulated interest over the loan period.",
-        isCorrect: false,
-      },
-      
-      {
-        id: "negotiation",
-        label: "Through negotiation between borrower and lender",
-        reflection: "While terms can be negotiated, EMI amounts are calculated using standardized formulas that factor in principal, interest rate, and loan duration.",
-        isCorrect: false,
-      },
-      {
-        id: "formula",
-        label: "Using a formula that includes principal, interest, and tenure",
-        reflection: "Perfect! EMI uses a mathematical formula incorporating loan amount, interest rate, and repayment period to determine the fixed monthly payment.",
-        isCorrect: true,
-      },
-      {
-        id: "standard",
-        label: "Based on industry standard percentages",
-        reflection: "Industry benchmarks provide guidance, but actual EMI calculations use precise mathematical formulas specific to each loan's principal, rate, and term.",
-        isCorrect: false,
-      },
-    ],
-    reward: 10,
-  },
-  {
-    id: 4,
-    prompt: "What happens to EMI payments over time?",
-    options: [
-      {
-        id: "decreasing",
-        label: "The payment amount decreases each month",
-        reflection: "EMI payments remain constant throughout the loan term. What changes is the principal-interest ratio within each payment.",
-        isCorrect: false,
-      },
-      
-      {
-        id: "increasing",
-        label: "Payments increase as loan balance decreases",
-        reflection: "This would be counterproductive - EMIs provide predictability by keeping payments constant while the underlying principal-interest mix evolves.",
-        isCorrect: false,
-      },
-      {
-        id: "variable",
-        label: "Amount varies based on monthly income fluctuations",
-        reflection: "EMI structure provides stability with fixed payments. Variable payments would defeat the purpose of predictable, scheduled loan repayment.",
-        isCorrect: false,
-      },
-      {
-        id: "constant",
-        label: "The amount stays the same, but composition changes",
-        reflection: "Exactly! While your EMI amount remains fixed, early payments are mostly interest with small principal portions, gradually shifting toward more principal over time.",
-        isCorrect: true,
-      },
-    ],
-    reward: 10,
-  },
-  {
-    id: 5,
-    prompt: "What's the golden rule for EMI management?",
-    options: [
-      {
-        id: "affordable",
-        label: "Select an EMI that fits comfortably in your monthly budget",
-        reflection: "Perfect! The ideal EMI allows consistent, stress-free payments while maintaining your financial stability and other important financial commitments.",
-        isCorrect: true,
-      },
-      {
-        id: "maximum",
-        label: "Choose the highest EMI you can afford for faster repayment",
-        reflection: "While higher EMIs reduce total interest, the key is selecting an EMI that fits comfortably within your budget without causing financial stress.",
-        isCorrect: false,
-      },
-      
-      {
-        id: "minimum",
-        label: "Always choose the minimum EMI to preserve cash flow",
-        reflection: "Minimum EMIs extend loan terms and increase total interest costs. Balance affordability with reasonable repayment timelines for optimal financial health.",
-        isCorrect: false,
-      },
-      {
-        id: "flexible",
-        label: "Opt for flexible EMI options that can be adjusted monthly",
-        reflection: "Flexibility sounds appealing, but consistent, predictable EMIs provide better financial planning and often more favorable interest terms.",
-        isCorrect: false,
-      },
-    ],
-    reward: 10,
-  },
-];
-
-const totalStages = EMI_MEANING_STAGES.length;
-const successThreshold = totalStages;
-
 const EMIMeaning = () => {
   const location = useLocation();
+  const { t } = useTranslation("gamecontent");
+
   const gameId = "finance-adults-35";
+  const baseKey = "financial-literacy.adults.emi-meaning";
+  const gameContent = t(baseKey, { returnObjects: true });
+
+  const localizedStages = Array.isArray(gameContent?.stages)
+    ? gameContent.stages
+    : [];
+  const reflectionPrompts = Array.isArray(gameContent?.reflectionPrompts)
+    ? gameContent.reflectionPrompts
+    : [];
+
   const gameData = getGameDataById(gameId);
   const coinsPerLevel = gameData?.coins || location.state?.coinsPerLevel || 10;
   const totalCoins = gameData?.coins || location.state?.totalCoins || 10;
   const totalXp = gameData?.xp || location.state?.totalXp || 20;
-  const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
+
+  const {
+    flashPoints,
+    showAnswerConfetti,
+    showCorrectAnswerFeedback,
+    resetFeedback,
+  } = useGameFeedback();
 
   const [currentStage, setCurrentStage] = useState(0);
   const [coins, setCoins] = useState(0);
@@ -189,50 +43,85 @@ const EMIMeaning = () => {
   const [selectedReflection, setSelectedReflection] = useState(null);
   const [canProceed, setCanProceed] = useState(false);
 
-  const reflectionPrompts = useMemo(
-    () => [
-      "How can you calculate if an EMI fits within your monthly budget before taking a loan?",
-      "What factors should you consider when choosing between different EMI options for the same loan amount?",
-    ],
-    []
-  );
+  const totalStages = localizedStages.length;
+  const successThreshold = totalStages;
+  if (!totalStages) return null;
+
+  const subtitle = t(`${baseKey}.subtitleProgress`, {
+    current: Math.min(currentStage + 1, totalStages),
+    total: totalStages,
+    defaultValue: "Stage {{current}} of {{total}}",
+  });
+
+  const stage = localizedStages[Math.min(currentStage, totalStages - 1)];
+  const hasPassed = finalScore === successThreshold;
+
+  const headerLeft = t(`${baseKey}.sectionHeaderLeft`, {
+    defaultValue: "EMI Basics",
+  });
+  const headerRight = t(`${baseKey}.sectionHeaderRight`, {
+    defaultValue: "Repayment Structure",
+  });
+  const reflectionTitle = t(`${baseKey}.reflectionTitle`, {
+    defaultValue: "Reflection",
+  });
+  const continueButton = t(`${baseKey}.continueButton`, {
+    defaultValue: "Continue",
+  });
+  const readingLabel = t(`${baseKey}.readingLabel`, {
+    defaultValue: "Reading...",
+  });
+  const reflectionPromptsTitle = t(`${baseKey}.reflectionPromptsTitle`, {
+    defaultValue: "Reflection Prompts",
+  });
+  const skillUnlockedLabel = t(`${baseKey}.skillUnlockedLabel`, {
+    defaultValue: "Skill unlocked:",
+  });
+  const skillName = t(`${baseKey}.skillName`, { defaultValue: "" });
+  const fullRewardHint = t(`${baseKey}.fullRewardHint`, {
+    total: totalStages,
+    defaultValue: "Answer all {{total}} choices correctly to earn the full reward.",
+  });
+  const tryAgainButton = t(`${baseKey}.tryAgainButton`, {
+    defaultValue: "Try Again",
+  });
 
   const handleChoice = (option) => {
     if (selectedOption || showResult) return;
 
     resetFeedback();
-    const currentStageData = EMI_MEANING_STAGES[currentStage];
+
+    const currentStageData = localizedStages[currentStage];
     const updatedHistory = [
       ...history,
       { stageId: currentStageData.id, isCorrect: option.isCorrect },
     ];
+
     setHistory(updatedHistory);
     setSelectedOption(option.id);
-    setSelectedReflection(option.reflection); // Set the reflection for the selected option
-    setShowFeedback(true); // Show feedback after selection
-    setCanProceed(false); // Disable proceeding initially
-    
-    // Update coins if the answer is correct
+    setSelectedReflection(option.reflection);
+    setShowFeedback(true);
+    setCanProceed(false);
+
     if (option.isCorrect) {
-      setCoins(prevCoins => prevCoins + 1);
+      setCoins((prevCoins) => prevCoins + 1);
     }
-    
-    // Wait for the reflection period before allowing to proceed
+
     setTimeout(() => {
-      setCanProceed(true); // Enable proceeding after showing reflection
-    }, 1500); // Wait 2.5 seconds before allowing to proceed
-    
-    // Handle the final stage separately
+      setCanProceed(true);
+    }, 1500);
+
     if (currentStage === totalStages - 1) {
       setTimeout(() => {
-        const correctCount = updatedHistory.filter((item) => item.isCorrect).length;
+        const correctCount = updatedHistory.filter((item) => item.isCorrect)
+          .length;
         const passed = correctCount === successThreshold;
         setFinalScore(correctCount);
-        setCoins(passed ? totalCoins : 0); // Set final coins based on performance
+        setCoins(passed ? totalCoins : 0);
         setShowResult(true);
-      }, 5500); // Wait longer before showing final results
+      }, 5500);
     }
-    
+
     if (option.isCorrect) {
       showCorrectAnswerFeedback(currentStageData.reward, true);
     } else {
@@ -243,29 +132,28 @@ const EMIMeaning = () => {
   const handleRetry = () => {
     resetFeedback();
     setCurrentStage(0);
+    setCoins(0);
     setHistory([]);
     setSelectedOption(null);
-    setCoins(0);
+    setSelectedReflection(null);
+    setShowFeedback(false);
+    setCanProceed(false);
     setFinalScore(0);
     setShowResult(false);
   };
 
-  const subtitle = `Stage ${Math.min(currentStage + 1, totalStages)} of ${totalStages}`;
-  const stage = EMI_MEANING_STAGES[Math.min(currentStage, totalStages - 1)];
-  const hasPassed = finalScore === successThreshold;
-
   return (
     <GameShell
-      title="EMI Meaning"
+      title={gameContent?.title || "EMI Meaning"}
       subtitle={subtitle}
       score={showResult ? finalScore : coins}
       coins={coins}
       coinsPerLevel={coinsPerLevel}
       totalCoins={totalCoins}
       totalXp={totalXp}
-      maxScore={EMI_MEANING_STAGES.length}
-      currentLevel={Math.min(currentStage + 1, EMI_MEANING_STAGES.length)}
-      totalLevels={EMI_MEANING_STAGES.length}
+      maxScore={totalStages}
+      currentLevel={Math.min(currentStage + 1, totalStages)}
+      totalLevels={totalStages}
       gameId={gameId}
       gameType="finance"
       showGameOver={showResult}
@@ -277,10 +165,11 @@ const EMIMeaning = () => {
       <div className="space-y-5 text-white">
         <div className="bg-white/10 border border-white/20 rounded-3xl p-8 shadow-2xl max-w-4xl mx-auto">
           <div className="flex justify-between items-center mb-4 text-sm uppercase tracking-[0.3em] text-white/60">
-            <span>EMI Basics</span>
-            <span>Repayment Structure</span>
+            <span>{headerLeft}</span>
+            <span>{headerRight}</span>
           </div>
           <p className="text-lg text-white/90 mb-6">{stage.prompt}</p>
+
           <div className="grid grid-cols-2 gap-4">
             {stage.options.map((option) => {
               const isSelected = selectedOption === option.id;
@@ -289,31 +178,40 @@ const EMIMeaning = () => {
                   key={option.id}
                   onClick={() => handleChoice(option)}
                   disabled={!!selectedOption}
-                  className={`rounded-2xl border-2 p-5 text-left transition ${isSelected
+                  className={`rounded-2xl border-2 p-5 text-left transition ${
+                    isSelected
                       ? option.isCorrect
                         ? "border-emerald-400 bg-emerald-500/20"
                         : "border-rose-400 bg-rose-500/10"
                       : "border-white/30 bg-white/5 hover:border-white/60 hover:bg-white/10"
-                    }`}
+                  }`}
                 >
                   <div className="flex justify-between items-center mb-2 text-sm text-white/70">
-                    <span>Choice {option.id.toUpperCase()}</span>
-                    
+                    <span>
+                      {t(`${baseKey}.choiceLabel`, {
+                        id: option.id.toUpperCase(),
+                        defaultValue: "Choice {{id}}",
+                      })}
+                    </span>
                   </div>
                   <p className="text-white font-semibold">{option.label}</p>
-                  
                 </button>
               );
             })}
           </div>
+
           {(showResult || showFeedback) && (
             <div className="bg-white/5 border border-white/20 rounded-3xl p-6 shadow-xl max-w-4xl mx-auto space-y-3">
-              <h4 className="text-lg font-semibold text-white">Reflection</h4>
+              <h4 className="text-lg font-semibold text-white">
+                {reflectionTitle}
+              </h4>
+
               {selectedReflection && (
                 <div className="max-h-24 overflow-y-auto pr-2">
                   <p className="text-sm text-white/90">{selectedReflection}</p>
                 </div>
               )}
+
               {showFeedback && !showResult && (
                 <div className="mt-4 flex justify-center">
                   {canProceed ? (
@@ -329,19 +227,20 @@ const EMIMeaning = () => {
                       }}
                       className="rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 px-6 font-semibold shadow-lg hover:opacity-90"
                     >
-                      Continue
+                      {continueButton}
                     </button>
                   ) : (
-                    <div className="py-2 px-6 text-white font-semibold">Reading...</div>
+                    <div className="py-2 px-6 text-white font-semibold">
+                      {readingLabel}
+                    </div>
                   )}
                 </div>
               )}
-              {/* Automatically advance if we're in the last stage and the timeout has passed */}
-              {!showResult && currentStage === totalStages - 1 && canProceed && (
-                <div className="mt-4 flex justify-center">
-                  
-                </div>
-              )}
+
+              {!showResult &&
+                currentStage === totalStages - 1 &&
+                canProceed && <div className="mt-4 flex justify-center" />}
+
               {showResult && (
                 <>
                   <ul className="text-sm list-disc list-inside space-y-1">
@@ -349,57 +248,62 @@ const EMIMeaning = () => {
                       <li key={prompt}>{prompt}</li>
                     ))}
                   </ul>
+
                   <p className="text-sm text-white/70">
-                    Skill unlocked: <strong>EMI calculation and management</strong>
+                    {skillUnlockedLabel} <strong>{skillName}</strong>
                   </p>
+
                   {!hasPassed && (
-                    <p className="text-xs text-amber-300">
-                      Answer all {totalStages} choices correctly to earn the full reward.
-                    </p>
+                    <p className="text-xs text-amber-300">{fullRewardHint}</p>
                   )}
+
                   {!hasPassed && (
                     <button
                       onClick={handleRetry}
                       className="w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 font-semibold shadow-lg hover:opacity-90"
                     >
-                      Try Again
+                      {tryAgainButton}
                     </button>
                   )}
                 </>
               )}
             </div>
           )}
-          
-        </div>
-        {showResult && (
-          <div className="bg-white/5 border border-white/20 rounded-3xl p-6 shadow-xl max-w-4xl mx-auto space-y-3">
-            <h4 className="text-lg font-semibold text-white">Reflection Prompts</h4>
-            <ul className="text-sm list-disc list-inside space-y-1">
-              {reflectionPrompts.map((prompt) => (
-                <li key={prompt}>{prompt}</li>
-              ))}
-            </ul>
-            <p className="text-sm text-white/70">
-              Skill unlocked: <strong>EMI calculation and management</strong>
-            </p>
-            {!hasPassed && (
-              <p className="text-xs text-amber-300">
-                Answer all {totalStages} choices correctly to earn the full reward.
+
+          {showResult && (
+            <div className="bg-white/5 border border-white/20 rounded-3xl p-6 shadow-xl max-w-4xl mx-auto space-y-3">
+              <h4 className="text-lg font-semibold text-white">
+                {reflectionPromptsTitle}
+              </h4>
+              <ul className="text-sm list-disc list-inside space-y-1">
+                {reflectionPrompts.map((prompt) => (
+                  <li key={prompt}>{prompt}</li>
+                ))}
+              </ul>
+
+              <p className="text-sm text-white/70">
+                {skillUnlockedLabel} <strong>{skillName}</strong>
               </p>
-            )}
-            {!hasPassed && (
-              <button
-                onClick={handleRetry}
-                className="w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 font-semibold shadow-lg hover:opacity-90"
-              >
-                Try Again
-              </button>
-            )}
-          </div>
-        )}
+
+              {!hasPassed && (
+                <p className="text-xs text-amber-300">{fullRewardHint}</p>
+              )}
+
+              {!hasPassed && (
+                <button
+                  onClick={handleRetry}
+                  className="w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 font-semibold shadow-lg hover:opacity-90"
+                >
+                  {tryAgainButton}
+                </button>
+              )}
+            </div>
+          )}
+        </div>
       </div>
     </GameShell>
   );
 };
 
 export default EMIMeaning;
+

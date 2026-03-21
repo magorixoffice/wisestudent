@@ -1,0 +1,176 @@
+{
+  "title": "EMI Discipline",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Payment Reliability",
+  "sectionHeaderRight": "Credit Protection",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Payment discipline mastery",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you set up automatic payment systems to ensure consistent EMI fulfillment?",
+    "What backup plans should you have if automatic payments fail or accounts have insufficient funds?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Best habit for EMI safety:",
+      "options": [
+        {
+          "id": "whenever",
+          "label": "Pay whenever possible based on cash flow",
+          "reflection": "Actually, irregular payment timing can lead to missed due dates, late fees, and credit score damage. Consistent, timely payments are essential for financial discipline and credit protection.",
+          "isCorrect": false
+        },
+        {
+          "id": "timely",
+          "label": "Pay on or before due date every month",
+          "reflection": "Exactly! Timely payment is the cornerstone of EMI discipline. It protects your credit history, avoids penalties, and demonstrates financial reliability to lenders and future creditors.",
+          "isCorrect": true
+        },
+        {
+          "id": "minimum",
+          "label": "Pay minimum amount when facing financial difficulty",
+          "reflection": "While minimum payments prevent default, they don't protect your credit score and can lead to accumulating interest. Proactive communication with lenders is better than partial payments.",
+          "isCorrect": false
+        },
+        {
+          "id": "extra",
+          "label": "Pay extra amounts whenever extra money is available",
+          "reflection": "Extra payments are beneficial for reducing interest, but the fundamental discipline is making required payments on time. Extra payments complement, not replace, timely EMI fulfillment.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 2,
+      "prompt": "What happens when you consistently pay EMIs on time?",
+      "options": [
+        {
+          "id": "credit",
+          "label": "Builds positive credit history and improves credit score",
+          "reflection": "Correct! Timely payments comprise 35% of credit scores. Consistent on-time payments demonstrate reliability and significantly improve your borrowing capacity and future loan terms.",
+          "isCorrect": true
+        },
+        {
+          "id": "flexibility",
+          "label": "Increases monthly payment flexibility automatically",
+          "reflection": "Timely payments don't automatically increase flexibility - they protect your current terms and demonstrate reliability that may lead to better offers, but don't change existing payment structures.",
+          "isCorrect": false
+        },
+        {
+          "id": "interest",
+          "label": "Reduces interest rates on existing loans immediately",
+          "reflection": "While good payment history may qualify you for better rates on future products, existing loan interest rates typically remain fixed according to original contract terms regardless of payment performance.",
+          "isCorrect": false
+        },
+        {
+          "id": "approval",
+          "label": "Guarantees approval for all future loan applications",
+          "reflection": "Good payment history improves approval chances significantly, but lenders consider multiple factors including income, debt-to-income ratio, and current financial obligations, not just payment history alone.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 3,
+      "prompt": "What's the consequence of missing EMI due dates?",
+      "options": [
+        {
+          "id": "extension",
+          "label": "Automatic payment extension with no consequences",
+          "reflection": "Lenders don't automatically extend payments without formal arrangements. Missed payments require proactive communication and typically involve fees, credit reporting, and potential legal consequences.",
+          "isCorrect": false
+        },
+        {
+          "id": "forgiveness",
+          "label": "Lenders usually forgive first-time misses",
+          "reflection": "While some hardship programs exist, consistent on-time payment is the expectation. First-time misses still typically incur fees and credit reporting, making prevention the better strategy.",
+          "isCorrect": false
+        },
+        {
+          "id": "negotiation",
+          "label": "Easy negotiation for new payment terms",
+          "reflection": "Negotiation is possible but requires proactive communication before missing payments. Post-miss negotiations are more difficult and may involve higher costs or stricter terms than preventive arrangements.",
+          "isCorrect": false
+        },
+        {
+          "id": "penalties",
+          "label": "Late fees, credit score damage, and future borrowing impact",
+          "reflection": "Perfect! Missed payments trigger immediate penalties, negative credit reporting, and create barriers to future financial opportunities including loans, credit cards, and even employment or housing prospects.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 4,
+      "prompt": "How can you ensure you never miss an EMI payment?",
+      "options": [
+        {
+          "id": "reminder",
+          "label": "Rely on calendar reminders and personal memory",
+          "reflection": "While reminders help, they depend on consistent action and can fail during busy periods. Systematic automation provides more reliable protection than memory-dependent methods prone to human error.",
+          "isCorrect": false
+        },
+        {
+          "id": "manual",
+          "label": "Manually pay each month when you remember",
+          "reflection": "Manual payment relies entirely on memory and timing, creating significant risk of missed payments during busy periods, vacations, or life transitions when routine changes occur unexpectedly.",
+          "isCorrect": false
+        },
+        {
+          "id": "automation",
+          "label": "Set up automatic payments from your bank account",
+          "reflection": "Exactly! Automatic payments eliminate human error and timing issues. Setting up autopay ensures payments are made on time even when you're busy, traveling, or forgetful, protecting your credit consistently.",
+          "isCorrect": true
+        },
+        {
+          "id": "spare",
+          "label": "Keep extra money aside for emergency payment situations",
+          "reflection": "Emergency funds are important financial buffers, but they don't prevent missed payments. The key is systematic payment methods that ensure timely fulfillment regardless of cash flow variations.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 5,
+      "prompt": "What's the golden rule for EMI management discipline?",
+      "options": [
+        {
+          "id": "flexible",
+          "label": "Maintain flexible payment schedules based on monthly cash flow",
+          "reflection": "Flexibility sounds appealing but creates inconsistency that damages credit. Essential obligations require systematic, reliable fulfillment regardless of varying monthly circumstances.",
+          "isCorrect": false
+        },
+        {
+          "id": "priority",
+          "label": "Treat EMI payments as non-negotiable financial priorities",
+          "reflection": "Perfect! EMI payments should rank alongside essential expenses like rent and utilities. This mindset ensures consistent fulfillment and protects your financial reputation and future borrowing capacity.",
+          "isCorrect": true
+        },
+        {
+          "id": "minimum",
+          "label": "Focus on making minimum payments to preserve cash flow",
+          "reflection": "Minimum payments prevent default but don't build positive credit history. The discipline goal is consistent, complete payment fulfillment that demonstrates financial reliability and responsibility.",
+          "isCorrect": false
+        },
+        {
+          "id": "postpone",
+          "label": "Postpone payments during challenging financial months",
+          "reflection": "Postponement without formal arrangement creates missed payment reporting. Proper discipline involves proactive communication with lenders for structured alternatives rather than unilateral payment delays.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    }
+  ]
+}

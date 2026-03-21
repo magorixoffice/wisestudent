@@ -1,0 +1,171 @@
+{
+  "title": "Learning from Past Mistakes",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Learning from Mistakes",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Reflective Financial Decision-Making",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you create a personal system for learning from financial mistakes?",
+    "What specific steps will you take to avoid repeating similar errors?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Scenario: You made a poor financial decision earlier. What helps now?",
+      "options": [
+        {
+          "id": "ignore",
+          "label": "Ignoring it",
+          "reflection": "Ignoring past financial mistakes means you're likely to repeat them. Without acknowledging and learning from errors, you miss the opportunity to improve your financial decision-making skills.",
+          "isCorrect": false
+        },
+        {
+          "id": "blame",
+          "label": "Blaming external factors",
+          "reflection": "While external factors may have contributed, focusing only on blame doesn't help you improve your financial decision-making. Learning requires examining your own choices and thought processes.",
+          "isCorrect": false
+        },
+        {
+          "id": "avoid",
+          "label": "Avoiding all financial decisions",
+          "reflection": "Avoiding all financial decisions won't help you build financial capability. The goal is to learn from mistakes and make better decisions in the future, not to stop making decisions altogether.",
+          "isCorrect": false
+        },
+        {
+          "id": "learn",
+          "label": "Learning and adjusting behaviour",
+          "reflection": "Exactly! Learning and adjusting behavior is the best response to past financial mistakes. This approach helps you avoid repeating errors and strengthens your financial decision-making skills for the future.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "What's the first step in learning from a financial mistake?",
+      "options": [
+        {
+          "id": "analyze",
+          "label": "Analyzing what went wrong and why",
+          "reflection": "Perfect! Analyzing what went wrong and why is the first step in learning from a financial mistake. Understanding the root cause helps prevent similar errors in the future.",
+          "isCorrect": true
+        },
+        {
+          "id": "hide",
+          "label": "Hiding the mistake from others",
+          "reflection": "Hiding the mistake might feel safer, but it doesn't help you learn from it. Learning requires honest examination of your decisions and their consequences.",
+          "isCorrect": false
+        },
+        {
+          "id": "rush",
+          "label": "Making another financial decision immediately",
+          "reflection": "Rushing to make another decision without reflecting on the previous mistake could compound your problems. Taking time to understand the error is more important.",
+          "isCorrect": false
+        },
+        {
+          "id": "deny",
+          "label": "Denying that it was really a mistake",
+          "reflection": "Denying that it was a mistake prevents learning from occurring. Acknowledging the error is necessary before you can learn from it.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "How can you use past financial mistakes to improve future decisions?",
+      "options": [
+        {
+          "id": "checkpoints",
+          "label": "Creating checkpoints to evaluate decisions",
+          "reflection": "Excellent! Creating checkpoints to evaluate decisions helps you apply lessons from past mistakes. This systematic approach incorporates what you've learned into your decision-making process.",
+          "isCorrect": true
+        },
+        {
+          "id": "avoidance",
+          "label": "Avoiding similar situations entirely",
+          "reflection": "While avoiding problematic situations might seem safe, it limits your financial growth. Learning involves developing skills to navigate similar situations better in the future.",
+          "isCorrect": false
+        },
+        {
+          "id": "fear",
+          "label": "Developing fear of making any financial decisions",
+          "reflection": "Developing fear of financial decisions is counterproductive. Learning from mistakes should build confidence in making better decisions, not create paralysis.",
+          "isCorrect": false
+        },
+        {
+          "id": "risk",
+          "label": "Taking higher risks to recover losses",
+          "reflection": "Taking higher risks to recover losses often leads to bigger problems. Learning from mistakes involves developing more thoughtful decision-making, not riskier behavior.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "What's a sign that you're not learning from financial mistakes?",
+      "options": [
+        {
+          "id": "reflect",
+          "label": "Taking time to reflect on decisions",
+          "reflection": "Taking time to reflect on decisions is actually a positive sign of learning from mistakes, not a sign of not learning. Reflection is an important part of the learning process.",
+          "isCorrect": false
+        },
+        {
+          "id": "plan",
+          "label": "Creating financial plans before acting",
+          "reflection": "Creating financial plans before acting is a sign that you're applying lessons from past mistakes, not ignoring them. Planning is a positive behavior that indicates learning.",
+          "isCorrect": false
+        },
+        {
+          "id": "repeat",
+          "label": "Repeatedly making similar mistakes",
+          "reflection": "Exactly! Repeatedly making similar mistakes is a clear sign that you're not learning from financial errors. True learning prevents the recurrence of the same types of mistakes.",
+          "isCorrect": true
+        },
+        {
+          "id": "seek",
+          "label": "Seeking advice before making decisions",
+          "reflection": "Seeking advice before making decisions is a sign of learning from mistakes, not ignoring them. It shows humility and desire to make better choices.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "What's the long-term benefit of learning from financial mistakes?",
+      "options": [
+        {
+          "id": "risk",
+          "label": "Increased willingness to take financial risks",
+          "reflection": "Learning from mistakes doesn't necessarily increase willingness to take risks. The benefit is making more informed and thoughtful decisions, not riskier ones.",
+          "isCorrect": false
+        },
+        {
+          "id": "confidence",
+          "label": "Increased confidence in financial decision-making",
+          "reflection": "Exactly! Learning from financial mistakes leads to increased confidence in financial decision-making. As you successfully apply lessons learned, you become more capable and self-assured.",
+          "isCorrect": true
+        },
+        {
+          "id": "complexity",
+          "label": "Ability to engage in more complex financial products",
+          "reflection": "While learning might eventually lead to understanding complex products, the primary benefit is better decision-making overall, not just complexity. Learning helps with all types of financial decisions.",
+          "isCorrect": false
+        },
+        {
+          "id": "income",
+          "label": "Automatic increase in income level",
+          "reflection": "Learning from mistakes doesn't automatically increase income. The benefit is better financial management and decision-making, which may indirectly support better financial outcomes.",
+          "isCorrect": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "title": "How Much Emergency Fund?",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Emergency Fund Size",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Emergency Fund Sizing",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you calculate your personal emergency fund target?",
+    "What steps will you take to build your emergency fund?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Scenario: A safe emergency fund usually covers:",
+      "options": [
+        {
+          "id": "days",
+          "label": "1–2 days of expenses",
+          "reflection": "1-2 days of expenses is insufficient for a true emergency fund. Real emergencies like job loss or major medical expenses last much longer than a couple of days.",
+          "isCorrect": false
+        },
+        {
+          "id": "week",
+          "label": "1 week of luxury spending",
+          "reflection": "Emergency funds should cover basic necessities, not luxury spending. And one week is generally too short a period for most financial emergencies.",
+          "isCorrect": false
+        },
+        {
+          "id": "year",
+          "label": "1 year of all expenses",
+          "reflection": "While having a year's worth of expenses saved is excellent, it's not necessary for an emergency fund. 3-6 months is the standard recommendation for most people.",
+          "isCorrect": false
+        },
+        {
+          "id": "months",
+          "label": "3–6 months of basic expenses",
+          "reflection": "Exactly! Financial experts recommend 3-6 months of basic expenses for emergency funds. This provides adequate time to find new employment or resolve financial difficulties.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 2,
+      "prompt": "What factors should influence your emergency fund size?",
+      "options": [
+        {
+          "id": "job",
+          "label": "Job security and income stability",
+          "reflection": "Perfect! Job security and income stability are key factors. If your job is less stable, you should aim for a larger emergency fund (closer to 6 months).",
+          "isCorrect": true
+        },
+        {
+          "id": "spending",
+          "label": "Your desire to spend more freely",
+          "reflection": "Your desire to spend more freely shouldn't influence emergency fund size. The fund should be based on practical needs and risk factors, not spending preferences.",
+          "isCorrect": false
+        },
+        {
+          "id": "friends",
+          "label": "What your friends think is appropriate",
+          "reflection": "Your emergency fund should be based on your personal financial situation, not on what others think. Everyone's circumstances and risk factors are different.",
+          "isCorrect": false
+        },
+        {
+          "id": "minimum",
+          "label": "The absolute minimum required",
+          "reflection": "Aiming for the absolute minimum leaves you vulnerable. It's better to build a fund that can actually cover the emergencies you're likely to face.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 3,
+      "prompt": "How should you calculate your basic expenses for emergency fund planning?",
+      "options": [
+        {
+          "id": "everything",
+          "label": "Include all expenses including entertainment and dining out",
+          "reflection": "Including all expenses makes your emergency fund target unnecessarily high. During emergencies, you can typically reduce non-essential spending temporarily.",
+          "isCorrect": false
+        },
+        {
+          "id": "income",
+          "label": "Base it on your total income",
+          "reflection": "Emergency funds should be based on expenses, not income. You need to know how much money you actually need to live, not how much you earn.",
+          "isCorrect": false
+        },
+        {
+          "id": "essentials",
+          "label": "Include only essential expenses like housing, food, and healthcare",
+          "reflection": "Excellent! For emergency fund calculations, focus on essential expenses. This includes housing, utilities, food, healthcare, transportation, and minimum debt payments.",
+          "isCorrect": true
+        },
+        {
+          "id": "savings",
+          "label": "Use your current savings as the baseline",
+          "reflection": "Your current savings level shouldn't determine your emergency fund target. The target should be based on your actual expenses and risk factors, regardless of current savings.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 4,
+      "prompt": "What's a warning sign that your emergency fund is inadequate?",
+      "options": [
+        {
+          "id": "growth",
+          "label": "Regular growth in your emergency fund balance",
+          "reflection": "Regular growth in your emergency fund balance is actually a positive sign of good financial management, not a warning of inadequacy.",
+          "isCorrect": false
+        },
+        {
+          "id": "panic",
+          "label": "Feeling panicked about small unexpected expenses",
+          "reflection": "Exactly! Feeling panicked about small unexpected expenses is a warning sign that your emergency fund is inadequate. A proper fund should provide peace of mind.",
+          "isCorrect": true
+        },
+        {
+          "id": "separate",
+          "label": "Keeping it in a separate high-yield savings account",
+          "reflection": "Keeping your emergency fund in a separate high-yield savings account is good practice, not a warning sign. It shows you're managing it properly.",
+          "isCorrect": false
+        },
+        {
+          "id": "automatic",
+          "label": "Having automatic transfers to build the fund",
+          "reflection": "Automatic transfers to build your emergency fund is excellent financial discipline, not a warning sign. It shows you're committed to proper emergency preparedness.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 5,
+      "prompt": "What's the benefit of having an adequate emergency fund?",
+      "options": [
+        {
+          "id": "peace",
+          "label": "Peace of mind and reduced financial stress",
+          "reflection": "Exactly! An adequate emergency fund provides peace of mind and reduces financial stress by ensuring you can handle unexpected expenses without going into debt or financial distress.",
+          "isCorrect": true
+        },
+        {
+          "id": "spending",
+          "label": "Ability to spend more on non-essentials",
+          "reflection": "An emergency fund is for security, not for enabling more spending on non-essentials. Its value is in protection, not in increased consumption.",
+          "isCorrect": false
+        },
+        {
+          "id": "investments",
+          "label": "More money available for investments",
+          "reflection": "While having an emergency fund frees up money that might otherwise go to debt payments, it's not specifically for investments. The fund's purpose is financial security.",
+          "isCorrect": false
+        },
+        {
+          "id": "lifestyle",
+          "label": "Ability to maintain lifestyle during any crisis",
+          "reflection": "An emergency fund helps maintain basic necessities during crises, but it's not meant to maintain your full lifestyle. Some lifestyle adjustments may be necessary during emergencies.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "title": "Health Emergency Planning",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Health Emergency",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Health Emergency Financial Planning",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you assess your current health emergency preparedness?",
+    "What steps will you take to improve your health financial planning?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Scenario: Which reduces medical borrowing risk?",
+      "options": [
+        {
+          "id": "ignore",
+          "label": "Ignoring health planning",
+          "reflection": "Ignoring health planning leaves you completely vulnerable to medical emergencies. Without preparation, you're likely to face expensive medical debt during health crises.",
+          "isCorrect": false
+        },
+        {
+          "id": "hope",
+          "label": "Relying on family help",
+          "reflection": "While family support is valuable, it's not a reliable strategy for medical emergencies. Not all families can provide sufficient financial assistance, and you shouldn't count on it.",
+          "isCorrect": false
+        },
+        {
+          "id": "insurance",
+          "label": "Basic insurance or savings",
+          "reflection": "Exactly! Basic insurance or savings significantly reduces medical borrowing risk by providing financial protection when health emergencies occur unexpectedly.",
+          "isCorrect": true
+        },
+        {
+          "id": "delay",
+          "label": "Delaying all medical care until you can afford it",
+          "reflection": "Delaying necessary medical care often leads to worse health outcomes and can actually increase overall costs as minor problems become serious emergencies.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 2,
+      "prompt": "What's the main purpose of health emergency planning?",
+      "options": [
+        {
+          "id": "expensive_insurance",
+          "label": "Only buying expensive medical insurance",
+          "reflection": "Health emergency planning is about comprehensive protection that includes, but is not limited to, insurance. Savings and budgeting also play important roles in financial protection.",
+          "isCorrect": false
+        },
+        {
+          "id": "protection",
+          "label": "Financial protection during medical emergencies",
+          "reflection": "Perfect! The main purpose of health emergency planning is to provide financial protection when medical emergencies occur unexpectedly.",
+          "isCorrect": true
+        },
+        {
+          "id": "invincibility",
+          "label": "Assuming you're financially invincible",
+          "reflection": "No one is financially invincible - anyone can face unexpected medical expenses. Health emergency planning is about being prepared for the unexpected, not assuming invincibility.",
+          "isCorrect": false
+        },
+        {
+          "id": "avoidance",
+          "label": "Avoiding all medical care to save money",
+          "reflection": "Avoiding medical care to save money is dangerous and counterproductive. It can lead to more serious health problems and higher costs in the long run.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 3,
+      "prompt": "How should you prioritize health emergency preparations?",
+      "options": [
+        {
+          "id": "insurance_then_savings",
+          "label": "Start with basic insurance, then build emergency savings",
+          "reflection": "Excellent! Starting with basic insurance provides immediate protection, while building emergency savings creates additional financial security for medical expenses.",
+          "isCorrect": true
+        },
+        {
+          "id": "savings_only",
+          "label": "Build emergency savings only, skip insurance",
+          "reflection": "While emergency savings are important, they may not be sufficient for major medical emergencies. Insurance provides additional protection that savings alone cannot offer.",
+          "isCorrect": false
+        },
+        {
+          "id": "nothing",
+          "label": "Do nothing and hope for the best",
+          "reflection": "Doing nothing and hoping for the best is financially risky. Medical emergencies are common enough that preparation is essential for financial security.",
+          "isCorrect": false
+        },
+        {
+          "id": "everything",
+          "label": "Buy the most expensive coverage available",
+          "reflection": "Buying the most expensive coverage isn't always the best approach. It's better to find a balance between adequate protection and affordability based on your specific needs.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 4,
+      "prompt": "What's a warning sign of poor health emergency planning?",
+      "options": [
+        {
+          "id": "coverage",
+          "label": "Having comprehensive health coverage",
+          "reflection": "Having comprehensive health coverage is actually a sign of good health emergency planning, not poor planning. It shows you're taking proactive steps to protect yourself.",
+          "isCorrect": false
+        },
+        {
+          "id": "health_savings",
+          "label": "Maintaining dedicated health emergency savings",
+          "reflection": "Maintaining dedicated health emergency savings is a positive sign of good financial planning, not a warning sign. It demonstrates preparedness for medical expenses.",
+          "isCorrect": false
+        },
+        {
+          "id": "prevention",
+          "label": "Investing in preventive health measures",
+          "reflection": "Investing in preventive health measures is excellent planning that can reduce future medical costs. It's a sign of good health management, not poor emergency planning.",
+          "isCorrect": false
+        },
+        {
+          "id": "panic",
+          "label": "Panic about medical bills without a plan",
+          "reflection": "Exactly! Panicking about medical bills without a plan indicates poor health emergency planning. Good preparation should provide peace of mind, not financial anxiety.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 5,
+      "prompt": "What's the long-term benefit of health emergency planning?",
+      "options": [
+        {
+          "id": "spending",
+          "label": "Ability to spend more on non-essentials",
+          "reflection": "Health emergency planning is about security, not enabling more spending on non-essentials. Its value is in protection, not increased consumption.",
+          "isCorrect": false
+        },
+        {
+          "id": "risk",
+          "label": "Increased risk-taking with health decisions",
+          "reflection": "Good health emergency planning actually reduces risk by providing financial protection. It doesn't encourage risk-taking with health decisions.",
+          "isCorrect": false
+        },
+        {
+          "id": "security",
+          "label": "Financial security and peace of mind",
+          "reflection": "Exactly! Health emergency planning provides financial security and peace of mind by ensuring you can handle medical expenses without creating financial hardship or debt.",
+          "isCorrect": true
+        },
+        {
+          "id": "avoidance",
+          "label": "Ability to avoid all medical expenses",
+          "reflection": "Health emergency planning doesn't help you avoid all medical expenses - it helps you manage them financially. Some medical expenses are unavoidable and necessary for good health.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    }
+  ]
+}

@@ -1,0 +1,171 @@
+{
+  "title": "Financial Inclusion Mastery Checkpoint",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Task",
+  "sectionHeaderRight": "Financial Mastery",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Financial Inclusion Mastery",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you continue developing your financial knowledge and discipline?",
+    "What specific steps will you take to participate responsibly in financial systems?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Task: Demonstrate safe financial behaviour across multiple scenarios. Which approach shows readiness for formal financial participation?",
+      "options": [
+        {
+          "id": "risky",
+          "label": "Taking financial risks without understanding consequences",
+          "reflection": "Taking financial risks without understanding consequences shows unpreparedness for formal financial participation. This approach can lead to serious financial problems.",
+          "isCorrect": false
+        },
+        {
+          "id": "knowledge",
+          "label": "Using knowledge to make informed financial decisions",
+          "reflection": "Exactly! Using knowledge to make informed financial decisions shows readiness for formal financial participation. Understanding the implications of your choices is key to safe participation.",
+          "isCorrect": true
+        },
+        {
+          "id": "copying",
+          "label": "Copying others' financial decisions without analysis",
+          "reflection": "Copying others' financial decisions without analysis is risky. Everyone's financial situation is different, so you need to understand the rationale behind decisions.",
+          "isCorrect": false
+        },
+        {
+          "id": "avoiding",
+          "label": "Avoiding all financial services to stay safe",
+          "reflection": "Avoiding all financial services prevents you from building financial experience and accessing benefits of the formal system. Learning to navigate safely is better than avoiding entirely.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "How do you demonstrate responsible borrowing behavior?",
+      "options": [
+        {
+          "id": "capacity",
+          "label": "Assessing repayment capacity before borrowing",
+          "reflection": "Perfect! Assessing repayment capacity before borrowing demonstrates responsible borrowing behavior. This approach ensures you don't overextend financially.",
+          "isCorrect": true
+        },
+        {
+          "id": "max",
+          "label": "Borrowing the maximum amount offered",
+          "reflection": "Borrowing the maximum amount offered without considering your repayment capacity is irresponsible. Responsible borrowing means only borrowing what you can comfortably repay.",
+          "isCorrect": false
+        },
+        {
+          "id": "urgent",
+          "label": "Borrowing for any urgent need regardless of cost",
+          "reflection": "Borrowing for any urgent need without considering the cost and your ability to repay is not responsible. Even urgent needs should be evaluated against your financial capacity.",
+          "isCorrect": false
+        },
+        {
+          "id": "multiple",
+          "label": "Taking multiple loans from different sources",
+          "reflection": "Taking multiple loans without careful consideration can lead to over-indebtedness. Responsible borrowing requires understanding your total debt burden.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "What indicates financial discipline in managing credit?",
+      "options": [
+        {
+          "id": "max",
+          "label": "Maximizing credit utilization to build credit history",
+          "reflection": "Maximizing credit utilization is not a sign of discipline. High utilization can negatively impact your credit score and indicate financial stress.",
+          "isCorrect": false
+        },
+        {
+          "id": "min",
+          "label": "Paying only the minimum amount due",
+          "reflection": "Paying only the minimum amount due can lead to accumulating high interest charges. True discipline involves paying more than the minimum when possible.",
+          "isCorrect": false
+        },
+        {
+          "id": "avoid",
+          "label": "Avoiding credit entirely",
+          "reflection": "While avoiding credit might seem safe, it doesn't build credit history. Managing credit responsibly demonstrates discipline and builds positive credit history.",
+          "isCorrect": false
+        },
+        {
+          "id": "repay",
+          "label": "Making payments on time and keeping balances low",
+          "reflection": "Excellent! Making payments on time and keeping balances low indicates financial discipline in managing credit. This demonstrates responsible credit management.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "How do you verify the legitimacy of a financial service provider?",
+      "options": [
+        {
+          "id": "ads",
+          "label": "Based on attractive advertisements",
+          "reflection": "Attractive advertisements don't guarantee legitimacy. Scammers often use appealing ads to lure victims. Verification requires checking official credentials.",
+          "isCorrect": false
+        },
+        {
+          "id": "speed",
+          "label": "By how quickly they approve applications",
+          "reflection": "Fast approval doesn't indicate legitimacy. Legitimate providers follow proper verification procedures. Be wary of unusually fast approvals.",
+          "isCorrect": false
+        },
+        {
+          "id": "credentials",
+          "label": "Checking official licenses and regulatory approvals",
+          "reflection": "Exactly! Checking official licenses and regulatory approvals is how you verify the legitimacy of a financial service provider. This ensures you're dealing with a regulated entity.",
+          "isCorrect": true
+        },
+        {
+          "id": "referrals",
+          "label": "Based solely on friend referrals",
+          "reflection": "While referrals can be helpful, relying solely on them for verification isn't wise. Even well-meaning friends might not know about fraudulent schemes.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "What demonstrates financial preparedness for emergencies?",
+      "options": [
+        {
+          "id": "credit",
+          "label": "Reliance on credit cards for all emergencies",
+          "reflection": "Reliance on credit cards for all emergencies shows poor preparedness. This approach can lead to debt accumulation and doesn't address the root issue of lacking savings.",
+          "isCorrect": false
+        },
+        {
+          "id": "savings",
+          "label": "Having dedicated emergency funds separate from regular expenses",
+          "reflection": "Exactly! Having dedicated emergency funds separate from regular expenses demonstrates financial preparedness for emergencies. This provides a buffer without disrupting normal financial operations.",
+          "isCorrect": true
+        },
+        {
+          "id": "borrowing",
+          "label": "Ability to quickly borrow money when needed",
+          "reflection": "Relying on borrowing for emergencies isn't true preparedness. Emergency funds provide more reliable and cost-effective protection than borrowing.",
+          "isCorrect": false
+        },
+        {
+          "id": "insurance",
+          "label": "Only depending on insurance for protection",
+          "reflection": "While insurance is important, depending only on it without emergency savings isn't complete preparedness. Both insurance and savings provide comprehensive protection.",
+          "isCorrect": false
+        }
+      ]
+    }
+  ]
+}

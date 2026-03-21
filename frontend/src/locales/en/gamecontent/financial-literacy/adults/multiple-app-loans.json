@@ -1,0 +1,176 @@
+{
+  "title": "Multiple App Loans",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Multiple Loans",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Understanding loan stacking dangers",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you assess if you're taking on too many loan obligations?",
+    "What strategies help you avoid the temptation of multiple app loans?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Taking loans from many apps leads to:",
+      "options": [
+        {
+          "id": "flexibility",
+          "label": "Flexibility",
+          "reflection": "Actually, taking loans from multiple apps creates complexity and stress rather than flexibility. Managing multiple loans simultaneously is challenging.",
+          "isCorrect": false
+        },
+        {
+          "id": "options",
+          "label": "More borrowing options",
+          "reflection": "While you might have more options, this also means more obligations and complexity which leads to stress rather than benefits.",
+          "isCorrect": false
+        },
+        {
+          "id": "stress",
+          "label": "Severe repayment stress",
+          "reflection": "Exactly! Multiple app loans create severe repayment stress as you have to track different due dates, interest rates, and terms across various platforms.",
+          "isCorrect": true
+        },
+        {
+          "id": "benefits",
+          "label": "Better financial benefits",
+          "reflection": "Multiple loans actually increase your financial burden and stress rather than providing benefits. Each loan adds to your obligations.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 2,
+      "prompt": "What is the danger of app-based loan stacking?",
+      "options": [
+        {
+          "id": "easy",
+          "label": "It's easier to manage",
+          "reflection": "Actually, managing multiple app loans is more difficult due to different terms, interest rates, and repayment schedules across various platforms.",
+          "isCorrect": false
+        },
+        {
+          "id": "dangerous",
+          "label": "It's dangerous and creates repayment chaos",
+          "reflection": "Correct! App-based loan stacking is dangerous as it creates repayment chaos, making it difficult to track obligations and increasing the risk of default.",
+          "isCorrect": true
+        },
+        {
+          "id": "safe",
+          "label": "It's a safe financial strategy",
+          "reflection": "No, taking multiple loans from different apps is not safe. It significantly increases financial risk and stress.",
+          "isCorrect": false
+        },
+        {
+          "id": "simple",
+          "label": "It simplifies your finances",
+          "reflection": "Multiple loans from different apps actually complicate rather than simplify your financial situation.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 3,
+      "prompt": "How does taking loans from multiple apps affect your repayment capacity?",
+      "options": [
+        {
+          "id": "improve",
+          "label": "It improves your repayment capacity",
+          "reflection": "Taking multiple loans actually stretches your repayment capacity thin, making it harder to meet all obligations.",
+          "isCorrect": false
+        },
+        {
+          "id": "maintain",
+          "label": "It maintains your repayment capacity",
+          "reflection": "Multiple loans strain rather than maintain your repayment capacity as more of your income gets committed to loan payments.",
+          "isCorrect": false
+        },
+        {
+          "id": "double",
+          "label": "It doubles your repayment capacity",
+          "reflection": "That's incorrect. Multiple loans don't increase your income, so they don't double your repayment capacity.",
+          "isCorrect": false
+        },
+        {
+          "id": "reduce",
+          "label": "It reduces your effective repayment capacity",
+          "reflection": "Right! When you have multiple loans, each repayment takes a portion of your income, reducing your effective capacity to handle each obligation.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 4,
+      "prompt": "What happens when you have multiple loan due dates to track?",
+      "options": [
+        {
+          "id": "organized",
+          "label": "You become more organized",
+          "reflection": "While it might seem like it promotes organization, multiple due dates across different apps often lead to confusion and missed payments.",
+          "isCorrect": false
+        },
+        {
+          "id": "confusion",
+          "label": "It creates confusion and possible missed payments",
+          "reflection": "Exactly! Multiple due dates across different apps create confusion, increasing the risk of missing payments and incurring penalties.",
+          "isCorrect": true
+        },
+        {
+          "id": "reminder",
+          "label": "All apps remind you perfectly",
+          "reflection": "Relying on app reminders isn't foolproof. Different systems, potential technical issues, and human error can still lead to missed payments.",
+          "isCorrect": false
+        },
+        {
+          "id": "calendar",
+          "label": "Calendar apps solve all problems",
+          "reflection": "While calendar apps help, the complexity of multiple loans from different apps still increases the risk of confusion and missed payments.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 5,
+      "prompt": "Why is app-based loan stacking particularly risky?",
+      "options": [
+        {
+          "id": "stacking",
+          "label": "App-based loan stacking is dangerous",
+          "reflection": "Perfect! App-based loan stacking is dangerous because it compounds risks, creates multiple repayment obligations, and makes financial management extremely difficult.",
+          "isCorrect": true
+        },
+        {
+          "id": "technology",
+          "label": "Because of advanced technology",
+          "reflection": "Technology itself isn't the problem. The issue is the cumulative effect of multiple obligations across different platforms.",
+          "isCorrect": false
+        },
+        {
+          "id": "access",
+          "label": "Easy access to loans",
+          "reflection": "While easy access might seem beneficial, it's the stacking of multiple loans that creates the danger, not the accessibility itself.",
+          "isCorrect": false
+        },
+        {
+          "id": "competition",
+          "label": "Due to competition between apps",
+          "reflection": "Competition between apps doesn't create the risk; the accumulation of multiple loan obligations does.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    }
+  ]
+}

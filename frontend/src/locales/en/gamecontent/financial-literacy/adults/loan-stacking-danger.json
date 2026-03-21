@@ -1,0 +1,176 @@
+{
+  "title": "Loan Stacking Danger",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Debt Management",
+  "sectionHeaderRight": "Credit Risk",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Strategic debt consolidation",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you consolidate multiple financial needs into single appropriate loans?",
+    "What warning signs indicate you're taking on too many concurrent obligations?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Taking multiple loans at the same time causes:",
+      "options": [
+        {
+          "id": "flexibility",
+          "label": "Better flexibility and financial options",
+          "reflection": "Actually, multiple simultaneous loans reduce rather than enhance flexibility. Managing multiple payment schedules, due dates, and varying interest rates creates complexity that constrains financial maneuverability and increases stress rather than providing genuine flexibility.",
+          "isCorrect": false
+        },
+        {
+          "id": "efficiency",
+          "label": "More efficient debt management and lower costs",
+          "reflection": "Multiple loans actually decrease efficiency through fragmented payments, varied terms, and coordination challenges. The administrative burden and increased risk of missed payments typically result in higher overall costs rather than improved management efficiency.",
+          "isCorrect": false
+        },
+        {
+          "id": "opportunity",
+          "label": "Enhanced borrowing capacity for future opportunities",
+          "reflection": "Taking multiple loans simultaneously demonstrates over-leverage rather than financial strength. Lenders view high concurrent debt obligations as risk factors, potentially reducing rather than enhancing future borrowing capacity for genuine opportunities.",
+          "isCorrect": false
+        },
+        {
+          "id": "confusion",
+          "label": "Confusing repayments and increased default risk",
+          "reflection": "Exactly! Multiple loans create payment confusion with different due dates, varying interest rates, and complex tracking requirements. This complexity significantly increases the likelihood of missed payments, late fees, and eventual defaults that can severely damage credit scores.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 2,
+      "prompt": "What makes loan stacking particularly dangerous?",
+      "options": [
+        {
+          "id": "simplicity",
+          "label": "The apparent simplicity of managing multiple small loans",
+          "reflection": "Multiple small loans are actually more complex to manage than single larger loans. Different lenders, varying terms, multiple due dates, and diverse communication channels create administrative burden that often leads to oversight and missed payments.",
+          "isCorrect": false
+        },
+        {
+          "id": "approval",
+          "label": "Easier approval process for smaller individual amounts",
+          "reflection": "Easy approval for smaller amounts can be deceptive. While individual approvals may seem simpler, the cumulative debt burden and multiple obligations create greater overall financial strain than a single, properly sized loan for legitimate needs.",
+          "isCorrect": false
+        },
+        {
+          "id": "coordination",
+          "label": "Difficulty coordinating multiple payment schedules and terms",
+          "reflection": "Correct! Coordinating multiple loans requires tracking various due dates, interest rates, payment amounts, and lender requirements. This complexity increases the probability of payment errors, missed deadlines, and administrative oversights that can trigger cascading financial problems.",
+          "isCorrect": true
+        },
+        {
+          "id": "rates",
+          "label": "Lower interest rates on smaller loan amounts",
+          "reflection": "Smaller loans don't necessarily mean lower rates—in fact, they often carry higher rates due to administrative costs and risk premiums. The total cost of multiple small loans frequently exceeds that of a single appropriately sized loan with better terms.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 3,
+      "prompt": "How does loan stacking affect your credit profile?",
+      "options": [
+        {
+          "id": "improves",
+          "label": "Improves credit mix and demonstrates borrowing capacity",
+          "reflection": "Multiple active loans actually harm credit profiles by increasing credit utilization ratios and debt-to-income metrics. The appearance of borrowing capacity is outweighed by the demonstrated over-leverage and increased default risk that lenders view negatively.",
+          "isCorrect": false
+        },
+        {
+          "id": "deteriorates",
+          "label": "Deteriorates credit scores through increased utilization and risk",
+          "reflection": "Exactly! Multiple concurrent loans increase credit utilization percentages, debt-to-income ratios, and payment complexity. The elevated risk profile and potential for missed payments create negative reporting that significantly damages credit scores and future borrowing prospects.",
+          "isCorrect": true
+        },
+        {
+          "id": "neutral",
+          "label": "Has minimal impact on established credit history",
+          "reflection": "Multiple concurrent loans create measurable negative impacts regardless of existing credit history. The increased debt burden, payment complexity, and heightened default risk generate adverse credit reporting that affects scores and lending decisions across all credit profiles.",
+          "isCorrect": false
+        },
+        {
+          "id": "diversifies",
+          "label": "Diversifies credit portfolio and reduces concentration risk",
+          "reflection": "Credit diversification refers to different types of credit (mortgage, auto, credit cards), not multiple similar loans. Multiple concurrent personal loans actually increase concentration risk by creating redundant debt obligations with similar risk characteristics and correlated default probabilities.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 4,
+      "prompt": "What's the smarter approach to multiple financial needs?",
+      "options": [
+        {
+          "id": "separate",
+          "label": "Take separate loans for each distinct financial requirement",
+          "reflection": "Separate loans multiply complexity and risk unnecessarily. The administrative burden of multiple payments, varying terms, and coordination challenges typically outweighs any perceived benefits of addressing needs individually rather than holistically.",
+          "isCorrect": false
+        },
+        {
+          "id": "consolidated",
+          "label": "Consolidate needs into single appropriate loan when possible",
+          "reflection": "Perfect! Consolidation simplifies management through single payment, unified terms, and clearer financial oversight. This approach reduces administrative burden, minimizes default risk, and provides better visibility into total debt obligations and repayment progress.",
+          "isCorrect": true
+        },
+        {
+          "id": "sequential",
+          "label": "Take loans one at a time as each need arises",
+          "reflection": "Sequential borrowing can work but may not address urgent concurrent needs effectively. The key is evaluating whether needs can be consolidated into a single appropriate loan or whether genuine separation is necessary based on timing and purpose differences.",
+          "isCorrect": false
+        },
+        {
+          "id": "maximum",
+          "label": "Borrow maximum available to cover all potential future needs",
+          "reflection": "Maximum borrowing for potential future needs creates unnecessary debt burden and financial strain. Smart approach is consolidating current actual needs while maintaining financial flexibility for genuine future requirements through disciplined saving rather than speculative borrowing.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 5,
+      "prompt": "What's the fundamental danger of loan stacking?",
+      "options": [
+        {
+          "id": "multiplicative",
+          "label": "Multiplicative risk of payment failures and credit damage",
+          "reflection": "Exactly! Loan stacking creates multiplicative risk where each additional loan exponentially increases the probability of missed payments, late fees, and credit reporting issues. The interconnected nature of multiple obligations means one failure can trigger cascading defaults and severe credit deterioration.",
+          "isCorrect": true
+        },
+        {
+          "id": "management",
+          "label": "Increased administrative burden and paperwork",
+          "reflection": "While administrative complexity is problematic, it's not the fundamental danger. The core issue is the multiplicative financial risk—multiple obligations create exponentially increasing probability of payment failures, credit damage, and cascading financial consequences that overwhelm borrowers.",
+          "isCorrect": false
+        },
+        {
+          "id": "approval",
+          "label": "Difficulty getting approval for additional loans later",
+          "reflection": "Future approval challenges are consequences rather than fundamental dangers. The primary risk is the immediate multiplicative probability of payment failures and credit damage from managing multiple concurrent obligations, which creates the conditions that lead to restricted future borrowing capacity.",
+          "isCorrect": false
+        },
+        {
+          "id": "rates",
+          "label": "Higher average interest rates across multiple small loans",
+          "reflection": "Rate disadvantages are significant but secondary to the core multiplicative risk. The fundamental danger is the exponential increase in payment failure probability and credit damage potential from multiple concurrent obligations, which creates systemic financial vulnerability beyond mere cost considerations.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    }
+  ]
+}

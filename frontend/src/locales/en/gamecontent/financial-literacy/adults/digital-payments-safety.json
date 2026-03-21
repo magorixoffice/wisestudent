@@ -1,0 +1,176 @@
+{
+  "title": "Digital Payments Safety",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "scenarioLabel": "Scenario",
+  "scenarioValue": "Financial Literacy",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Digital payment safety awareness",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "Why is it important to keep OTPs and PINs private?",
+    "What steps should you take to protect your digital payments?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "You use UPI regularly. What is a safe habit?",
+      "options": [
+        {
+          "id": "share",
+          "label": "Sharing OTPs",
+          "reflection": "Sharing OTPs gives others access to your money and enables fraud. OTPs should always be kept private.",
+          "isCorrect": false
+        },
+        {
+          "id": "store",
+          "label": "Storing OTPs in phone notes",
+          "reflection": "Storing OTPs digitally makes them accessible to hackers. OTPs are temporary and should be used immediately.",
+          "isCorrect": false
+        },
+        {
+          "id": "forward",
+          "label": "Forwarding OTPs to family members",
+          "reflection": "Even sharing OTPs with family members is unsafe as it gives them access to your money.",
+          "isCorrect": false
+        },
+        {
+          "id": "private",
+          "label": "Keeping OTPs private",
+          "reflection": "Exactly! OTPs are meant to be private and protect your money. Never share them with anyone.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 2,
+      "prompt": "What should you do if someone calls claiming to be from your bank asking for your OTP?",
+      "options": [
+        {
+          "id": "provide",
+          "label": "Provide the OTP as requested",
+          "reflection": "Banks will never ask for your OTP. Providing it to strangers enables fraud and financial loss.",
+          "isCorrect": false
+        },
+        {
+          "id": "refuse",
+          "label": "Refuse and hang up immediately",
+          "reflection": "Exactly! Legitimate banks never ask for your OTP. Always refuse and hang up if someone requests it.",
+          "isCorrect": true
+        },
+        {
+          "id": "verify",
+          "label": "Ask for their employee ID to verify",
+          "reflection": "Scammers can fabricate credentials. Banks never ask for OTPs, so don't engage in verification.",
+          "isCorrect": false
+        },
+        {
+          "id": "listen",
+          "label": "Listen to their explanation first",
+          "reflection": "Scammers may provide convincing stories. Banks never ask for OTPs, so don't engage.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 3,
+      "prompt": "When is it appropriate to share your UPI PIN?",
+      "options": [
+        {
+          "id": "customer",
+          "label": "When a customer care representative requests it",
+          "reflection": "Legitimate customer care will never ask for your UPI PIN. It should always remain private.",
+          "isCorrect": false
+        },
+        {
+          "id": "trusted",
+          "label": "With trusted friends or family",
+          "reflection": "UPI PIN should never be shared with anyone, even trusted contacts, to maintain security.",
+          "isCorrect": false
+        },
+        {
+          "id": "never",
+          "label": "Never share it with anyone",
+          "reflection": "Exactly! Your UPI PIN should remain confidential at all times to protect your money.",
+          "isCorrect": true
+        },
+        {
+          "id": "setup",
+          "label": "During initial app setup only",
+          "reflection": "UPI PINs are stored securely on your device and should never be shared with anyone.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 4,
+      "prompt": "What is the safest way to use digital payment apps?",
+      "options": [
+        {
+          "id": "public",
+          "label": "Use them on public Wi-Fi networks",
+          "reflection": "Public Wi-Fi is insecure and can expose your transactions to hackers. Use secure connections.",
+          "isCorrect": false
+        },
+        {
+          "id": "secure",
+          "label": "Use them on secure, private networks",
+          "reflection": "Exactly! Using digital payment apps on secure, private networks minimizes the risk of interception.",
+          "isCorrect": true
+        },
+        {
+          "id": "shared",
+          "label": "On shared devices with multiple users",
+          "reflection": "Shared devices increase risk of unauthorized access to your payment information.",
+          "isCorrect": false
+        },
+        {
+          "id": "browser",
+          "label": "Through browsers instead of apps",
+          "reflection": "Official apps are typically more secure than browser-based transactions.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 5,
+      "prompt": "What should you do if you suspect fraudulent activity on your account?",
+      "options": [
+        {
+          "id": "report",
+          "label": "Contact your bank immediately to report it",
+          "reflection": "Exactly! Reporting suspected fraud immediately helps minimize losses and secure your account.",
+          "isCorrect": true
+        },
+        {
+          "id": "ignore",
+          "label": "Ignore it, hoping it resolves itself",
+          "reflection": "Ignoring suspected fraud allows further unauthorized transactions and losses to occur.",
+          "isCorrect": false
+        },
+        {
+          "id": "wait",
+          "label": "Wait for the next statement to confirm",
+          "reflection": "Waiting allows more fraudulent transactions to occur. Immediate reporting is essential.",
+          "isCorrect": false
+        },
+        {
+          "id": "check",
+          "label": "Check other accounts before taking action",
+          "reflection": "Delaying action allows more fraud to occur. Report immediately when suspicious activity is detected.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    }
+  ]
+}

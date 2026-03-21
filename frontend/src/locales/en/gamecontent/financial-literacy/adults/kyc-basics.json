@@ -1,0 +1,176 @@
+{
+  "title": "KYC Basics",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "scenarioLabel": "Scenario",
+  "scenarioValue": "Financial Literacy",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Understanding of KYC procedures",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How does KYC protect both you and the financial system?",
+    "What documents should you keep ready for banking procedures?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "A bank asks for ID and address proof. Why?",
+      "options": [
+        {
+          "id": "trouble",
+          "label": "To trouble customers",
+          "reflection": "Banks don't ask for documents just to inconvenience customers; there are important regulatory reasons behind these requirements.",
+          "isCorrect": false
+        },
+        {
+          "id": "profit",
+          "label": "To generate revenue from document processing",
+          "reflection": "Banks don't profit from document verification; KYC is a regulatory requirement designed for security purposes.",
+          "isCorrect": false
+        },
+        {
+          "id": "storage",
+          "label": "To store customer information",
+          "reflection": "While banks do store customer information, KYC specifically focuses on verifying identity and preventing fraud.",
+          "isCorrect": false
+        },
+        {
+          "id": "kyc",
+          "label": "To verify identity and prevent fraud",
+          "reflection": "Exactly! KYC (Know Your Customer) procedures help banks verify identity and prevent fraudulent activities.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 2,
+      "prompt": "What does KYC stand for?",
+      "options": [
+        {
+          "id": "know",
+          "label": "Know Your Customer",
+          "reflection": "Exactly! KYC stands for Know Your Customer, a process to verify customer identity and assess risks.",
+          "isCorrect": true
+        },
+        {
+          "id": "keep",
+          "label": "Keep Your Cash",
+          "reflection": "KYC is not about keeping your cash; it refers to Know Your Customer procedures.",
+          "isCorrect": false
+        },
+        {
+          "id": "key",
+          "label": "Key to Your Credit",
+          "reflection": "KYC stands for Know Your Customer, not Key to Your Credit.",
+          "isCorrect": false
+        },
+        {
+          "id": "credit-score",
+          "label": "Know Your Credit Score",
+          "reflection": "KYC stands for Know Your Customer, not Know Your Credit Score.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 3,
+      "prompt": "Which document is commonly required for KYC verification?",
+      "options": [
+        {
+          "id": "receipt",
+          "label": "Receipts from recent purchases",
+          "reflection": "Receipts don't verify identity; official government-issued documents are required for KYC.",
+          "isCorrect": false
+        },
+        {
+          "id": "passport",
+          "label": "Passport or government-issued ID",
+          "reflection": "Exactly! Government-issued IDs like passports, driver's licenses, or national ID cards are standard KYC documents.",
+          "isCorrect": true
+        },
+        {
+          "id": "letter",
+          "label": "Letter from employer",
+          "reflection": "While employment letters might be requested for other purposes, official ID is what's required for KYC verification.",
+          "isCorrect": false
+        },
+        {
+          "id": "photo",
+          "label": "Any photo with your face",
+          "reflection": "Photos alone aren't sufficient; official government-issued documents are required for KYC verification.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 4,
+      "prompt": "How does KYC protect customers?",
+      "options": [
+        {
+          "id": "fees",
+          "label": "By reducing banking fees",
+          "reflection": "KYC doesn't directly reduce banking fees; its purpose is to prevent fraud and protect identities.",
+          "isCorrect": false
+        },
+        {
+          "id": "speed",
+          "label": "By making transactions faster",
+          "reflection": "KYC might initially slow down account opening, but it protects against fraud in the long term.",
+          "isCorrect": false
+        },
+        {
+          "id": "passport",
+          "label": "Passport or government-issued ID",
+          "reflection": "Exactly! Government-issued IDs like passports, driver's licenses, or national ID cards are standard KYC documents.",
+          "isCorrect": true
+        },
+        {
+          "id": "credit",
+          "label": "By improving credit scores",
+          "reflection": "KYC doesn't directly improve credit scores; its purpose is identity verification and fraud prevention.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 5,
+      "prompt": "What happens if someone opens an account with fake documents?",
+      "options": [
+        {
+          "id": "benefit",
+          "label": "They get better banking services",
+          "reflection": "Using fake documents is illegal and results in serious consequences, not better services.",
+          "isCorrect": false
+        },
+        {
+          "id": "risk",
+          "label": "It increases risk of fraud for everyone",
+          "reflection": "Exactly! Fake documents enable fraud, which increases costs and risks for the entire financial system.",
+          "isCorrect": true
+        },
+        {
+          "id": "reward",
+          "label": "They receive rewards for creativity",
+          "reflection": "Using fake documents is a criminal offense with serious legal consequences, not a rewarded activity.",
+          "isCorrect": false
+        },
+        {
+          "id": "access",
+          "label": "They gain easier access to loans",
+          "reflection": "Fake documents lead to legal issues and account closures, not easier loan access.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    }
+  ]
+}

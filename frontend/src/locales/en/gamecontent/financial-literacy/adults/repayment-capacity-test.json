@@ -1,0 +1,176 @@
+{
+  "title": "Repayment Capacity Test",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "EMI Capacity",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "EMI Capacity Assessment",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you calculate your EMI capacity before taking a loan?",
+    "What factors should influence your EMI affordability decisions?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Scenario: Which EMI is risky? ",
+      "options": [
+        {
+          "id": "a",
+          "label": "EMI below 20-30% of income",
+          "reflection": "Correct! EMIs below 20-30% of income are generally considered safe and manageable.",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "label": "EMI above 50% of income",
+          "reflection": "EMI above 50% of income is very risky and leaves little room for other expenses.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "Both are equally safe",
+          "reflection": "EMI percentages vary greatly in risk level - higher percentages are more risky.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Income percentage doesn't matter for EMIs",
+          "reflection": "Income percentage is crucial for determining EMI affordability and financial safety.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 2,
+      "prompt": "What percentage of income is considered safe for EMI payments?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Between 40-50% of income",
+          "reflection": "EMIs in this range are quite risky and leave little room for other expenses.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "More than 50% of income",
+          "reflection": "EMIs above 50% are extremely risky and can lead to financial distress.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "Any percentage is fine as long as you pay on time",
+          "reflection": "Percentage matters greatly for financial safety and ability to handle emergencies.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Less than 30% of income",
+          "reflection": "Exactly! Keeping EMIs below 30% of income provides financial stability and flexibility.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 3,
+      "prompt": "What happens when EMI exceeds 50% of your income?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Increases financial safety",
+          "reflection": "Actually, high EMIs decrease financial safety by limiting your ability to handle other expenses.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "Has no impact on financial safety",
+          "reflection": "High EMIs significantly impact financial safety by consuming most of your income.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "Reduces financial safety and flexibility",
+          "reflection": "Yes! High EMIs leave little room for other expenses and emergencies.",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "label": "Makes it easier to save money",
+          "reflection": "High EMIs make it much harder to save money as most income goes to EMI payments.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 4,
+      "prompt": "Why is it important to consider your income percentage when taking a loan?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Income percentage doesn't matter for loan eligibility",
+          "reflection": "Income percentage is crucial for determining your ability to repay without financial stress.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "To ensure you can meet EMI obligations without compromising other needs",
+          "reflection": "Absolutely! This ensures financial stability and ability to handle other expenses.",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "label": "Only the loan amount matters, not the EMI percentage",
+          "reflection": "The EMI percentage relative to income is critical for determining affordability.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "To maximize the loan amount you can take",
+          "reflection": "The goal should be affordability, not maximizing loan amount beyond your capacity.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 5,
+      "prompt": "What is the best approach to determine your EMI capacity?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Keep EMIs below 30% of your gross income",
+          "reflection": "Perfect! This ensures financial safety and leaves room for other expenses and savings.",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "label": "Take loans with EMIs up to 60% of income",
+          "reflection": "EMIs at 60% are extremely risky and can lead to financial distress.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "Match EMIs to your highest earning month",
+          "reflection": "EMIs should be based on average income, not peak earnings to ensure consistency.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Focus only on the loan tenure, not EMI percentage",
+          "reflection": "EMI percentage is crucial regardless of tenure to ensure affordability.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    }
+  ]
+}

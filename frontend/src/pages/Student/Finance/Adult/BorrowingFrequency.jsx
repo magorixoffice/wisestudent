@@ -1,183 +1,37 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import { Trophy } from "lucide-react";
+import { useTranslation } from "react-i18next";
+
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getGameDataById } from "../../../../utils/getGameData";
 
-const BORROWING_FREQUENCY_STAGES = [
-  {
-    id: 1,
-    prompt: "Scenario: Frequent borrowing usually signals: (A) Smart money use or (B) Poor financial planning",
-    options: [
-      {
-        id: "a",
-        label: "Smart money use",
-        reflection: "Actually, frequent borrowing often indicates poor financial planning rather than smart money use.",
-        isCorrect: false,
-      },
-      
-      {
-        id: "b",
-        label: "Good investment strategy",
-        reflection: "While some borrowing can be strategic, frequent borrowing typically indicates financial mismanagement.",
-        isCorrect: false,
-      },
-      {
-        id: "c",
-        label: "No impact on financial health",
-        reflection: "Frequent borrowing definitely impacts financial health by increasing debt obligations.",
-        isCorrect: false,
-      },
-      {
-        id: "d",
-        label: "Poor financial planning",
-        reflection: "Correct! Frequent borrowing often indicates poor financial planning and deeper financial issues.",
-        isCorrect: true,
-      },
-    ],
-    reward: 3,
-  },
-  {
-    id: 2,
-    prompt: "What does frequent borrowing typically indicate about your financial situation?",
-    options: [
-      
-      {
-        id: "a",
-        label: "Strong financial management",
-        reflection: "Frequent borrowing usually indicates the opposite of strong financial management.",
-        isCorrect: false,
-      },
-      {
-        id: "b",
-        label: "Successful investment strategy",
-        reflection: "While some investments require borrowing, frequent borrowing often indicates mismanagement.",
-        isCorrect: false,
-      },
-      {
-        id: "c",
-        label: "Poor financial planning and potential deeper issues",
-        reflection: "Exactly! Frequent borrowing often signals underlying financial management problems.",
-        isCorrect: true,
-      },
-      {
-        id: "d",
-        label: "No correlation with financial planning",
-        reflection: "There's a strong correlation between frequent borrowing and poor financial planning.",
-        isCorrect: false,
-      },
-    ],
-    reward: 3,
-  },
-  {
-    id: 3,
-    prompt: "How should you approach borrowing frequency for healthy financial habits?",
-    options: [
-      
-      {
-        id: "a",
-        label: "Borrow regularly as part of financial strategy",
-        reflection: "Regular borrowing is not a healthy financial strategy and indicates poor planning.",
-        isCorrect: false,
-      },
-      {
-        id: "b",
-        label: "Borrow only occasionally and for genuine needs",
-        reflection: "Perfect! Occasional borrowing for genuine needs is healthier than frequent borrowing.",
-        isCorrect: true,
-      },
-      {
-        id: "c",
-        label: "Borrow as frequently as possible",
-        reflection: "Frequent borrowing is a sign of poor financial health and planning.",
-        isCorrect: false,
-      },
-      {
-        id: "d",
-        label: "Frequency doesn't matter as long as you repay",
-        reflection: "Frequency matters greatly as it indicates underlying financial planning issues.",
-        isCorrect: false,
-      },
-    ],
-    reward: 3,
-  },
-  {
-    id: 4,
-    prompt: "What's the relationship between borrowing frequency and financial stability?",
-    options: [
-      {
-        id: "a",
-        label: "Frequent borrowing reduces financial stability",
-        reflection: "Yes! Frequent borrowing creates multiple debt obligations that reduce financial stability.",
-        isCorrect: true,
-      },
-      {
-        id: "b",
-        label: "Frequent borrowing increases financial stability",
-        reflection: "Actually, frequent borrowing decreases stability by creating multiple debt obligations.",
-        isCorrect: false,
-      },
-      {
-        id: "c",
-        label: "No relationship between borrowing frequency and stability",
-        reflection: "There's a clear negative relationship between frequent borrowing and stability.",
-        isCorrect: false,
-      },
-      {
-        id: "d",
-        label: "Stability only depends on repayment ability",
-        reflection: "While repayment matters, frequency of borrowing also significantly impacts stability.",
-        isCorrect: false,
-      },
-    ],
-    reward: 3,
-  },
-  {
-    id: 5,
-    prompt: "What should you do if you find yourself borrowing frequently?",
-    options: [
-      
-      {
-        id: "a",
-        label: "Continue borrowing as it's working fine",
-        reflection: "Continuing frequent borrowing without addressing the root cause is not advisable.",
-        isCorrect: false,
-      },
-      {
-        id: "b",
-        label: "Borrow even more to consolidate debts",
-        reflection: "Borrowing more to consolidate existing debt often creates a worse financial situation.",
-        isCorrect: false,
-      },
-      {
-        id: "c",
-        label: "Change lenders frequently to avoid detection",
-        reflection: "Avoiding detection doesn't solve the underlying problem of frequent borrowing.",
-        isCorrect: false,
-      },
-      {
-        id: "d",
-        label: "Assess your financial planning and create a budget",
-        reflection: "Excellent! Assessing your financial planning and creating a budget can help reduce frequent borrowing.",
-        isCorrect: true,
-      },
-    ],
-    reward: 3,
-  },
-];
-
-const totalStages = BORROWING_FREQUENCY_STAGES.length;
-const successThreshold = totalStages;
-
 const BorrowingFrequency = () => {
   const location = useLocation();
+  const { t } = useTranslation("gamecontent");
+
   const gameId = "finance-adults-53";
+  const baseKey = "financial-literacy.adults.borrowing-frequency";
+  const gameContent = t(baseKey, { returnObjects: true });
+
+  const localizedStages = Array.isArray(gameContent?.stages)
+    ? gameContent.stages
+    : [];
+  const reflectionPrompts = Array.isArray(gameContent?.reflectionPrompts)
+    ? gameContent.reflectionPrompts
+    : [];
+
   const gameData = getGameDataById(gameId);
-  const coinsPerLevel = gameData?.coins || location.state?.coinsPerLevel || 3;
-  const totalCoins = gameData?.coins || location.state?.totalCoins || 15;
-  const totalXp = gameData?.xp || location.state?.totalXp || 30;
-  const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
+  const coinsPerLevel = gameData?.coins || location.state?.coinsPerLevel || 10;
+  const totalCoins = gameData?.coins || location.state?.totalCoins || 10;
+  const totalXp = gameData?.xp || location.state?.totalXp || 20;
+
+  const {
+    flashPoints,
+    showAnswerConfetti,
+    showCorrectAnswerFeedback,
+    resetFeedback,
+  } = useGameFeedback();
 
   const [currentStage, setCurrentStage] = useState(0);
   const [coins, setCoins] = useState(0);
@@ -189,52 +43,90 @@ const BorrowingFrequency = () => {
   const [selectedReflection, setSelectedReflection] = useState(null);
   const [canProceed, setCanProceed] = useState(false);
 
-  const reflectionPrompts = useMemo(
-    () => [
-      "How can you assess your borrowing frequency and its impact on your finances?",
-      "What strategies can help reduce the need for frequent borrowing?",
-    ],
-    []
-  );
+  const totalStages = localizedStages.length;
+  const successThreshold = totalStages;
+
+  // Guard placed after hooks (Rule of Hooks safe).
+  if (!totalStages) return null;
+
+  const subtitle = t(`${baseKey}.subtitleProgress`, {
+    current: Math.min(currentStage + 1, totalStages),
+    total: totalStages,
+    defaultValue: "Stage {{current}} of {{total}}",
+  });
+
+  const stage = localizedStages[Math.min(currentStage, totalStages - 1)];
+  const hasPassed = finalScore === successThreshold;
+
+  const headerLeft = t(`${baseKey}.sectionHeaderLeft`, {
+    defaultValue: "",
+  });
+  const headerRight = t(`${baseKey}.sectionHeaderRight`, {
+    defaultValue: "",
+  });
+
+  const reflectionTitle = t(`${baseKey}.reflectionTitle`, {
+    defaultValue: "Reflection",
+  });
+  const continueButton = t(`${baseKey}.continueButton`, {
+    defaultValue: "Continue",
+  });
+  const readingLabel = t(`${baseKey}.readingLabel`, {
+    defaultValue: "Reading...",
+  });
+  const reflectionPromptsTitle = t(`${baseKey}.reflectionPromptsTitle`, {
+    defaultValue: "Reflection Prompts",
+  });
+  const skillUnlockedLabel = t(`${baseKey}.skillUnlockedLabel`, {
+    defaultValue: "Skill unlocked:",
+  });
+  const skillName = t(`${baseKey}.skillName`, { defaultValue: "" });
+  const fullRewardHint = t(`${baseKey}.fullRewardHint`, {
+    total: totalStages,
+    defaultValue: "Answer all {{total}} choices correctly to earn the full reward.",
+  });
+  const tryAgainButton = t(`${baseKey}.tryAgainButton`, {
+    defaultValue: "Try Again",
+  });
 
   const handleChoice = (option) => {
     if (selectedOption || showResult) return;
 
     resetFeedback();
-    const currentStageData = BORROWING_FREQUENCY_STAGES[currentStage];
+
+    const currentStageData = localizedStages[currentStage];
     const updatedHistory = [
       ...history,
       { stageId: currentStageData.id, isCorrect: option.isCorrect },
     ];
+
     setHistory(updatedHistory);
     setSelectedOption(option.id);
-    setSelectedReflection(option.reflection); // Set the reflection for the selected option
-    setShowFeedback(true); // Show feedback after selection
-    setCanProceed(false); // Disable proceeding initially
-    
-    // Update coins if the answer is correct
+    setSelectedReflection(option.reflection);
+    setShowFeedback(true);
+    setCanProceed(false);
+
     if (option.isCorrect) {
-      setCoins(prevCoins => prevCoins + 3); // 3 coins per correct answer
+      setCoins((prevCoins) => prevCoins + 1);
     }
-    
-    // Wait for the reflection period before allowing to proceed
+
     setTimeout(() => {
-      setCanProceed(true); // Enable proceeding after showing reflection
-    }, 1500); // Wait 1.5 seconds before allowing to proceed
-    
-    // Handle the final stage separately
+      setCanProceed(true);
+    }, 1500);
+
     if (currentStage === totalStages - 1) {
       setTimeout(() => {
-        const correctCount = updatedHistory.filter((item) => item.isCorrect).length;
+        const correctCount = updatedHistory.filter((item) => item.isCorrect)
+          .length;
         const passed = correctCount === successThreshold;
         setFinalScore(correctCount);
-        setCoins(passed ? totalCoins : Math.floor(totalCoins * correctCount / totalStages)); // Proportional coins based on performance
+        setCoins(passed ? totalCoins : 0);
         setShowResult(true);
-      }, 5500); // Wait longer before showing final results
+      }, 5500);
     }
-    
+
     if (option.isCorrect) {
-      showCorrectAnswerFeedback(1, true); // Show +1 feedback, coins are added separately
+      showCorrectAnswerFeedback(currentStageData.reward, true);
     } else {
       showCorrectAnswerFeedback(0, false);
     }
@@ -243,29 +135,28 @@ const BorrowingFrequency = () => {
   const handleRetry = () => {
     resetFeedback();
     setCurrentStage(0);
+    setCoins(0);
     setHistory([]);
     setSelectedOption(null);
-    setCoins(0);
+    setSelectedReflection(null);
+    setShowFeedback(false);
+    setCanProceed(false);
     setFinalScore(0);
     setShowResult(false);
   };
 
-  const subtitle = `Stage ${Math.min(currentStage + 1, totalStages)} of ${totalStages}`;
-  const stage = BORROWING_FREQUENCY_STAGES[Math.min(currentStage, totalStages - 1)];
-  const hasPassed = finalScore === successThreshold;
-
   return (
     <GameShell
-      title="Borrowing Frequency"
+      title={gameContent?.title || "Borrowing Frequency"}
       subtitle={subtitle}
       score={showResult ? finalScore : coins}
       coins={coins}
       coinsPerLevel={coinsPerLevel}
       totalCoins={totalCoins}
       totalXp={totalXp}
-      maxScore={BORROWING_FREQUENCY_STAGES.length}
-      currentLevel={Math.min(currentStage + 1, BORROWING_FREQUENCY_STAGES.length)}
-      totalLevels={BORROWING_FREQUENCY_STAGES.length}
+      maxScore={totalStages}
+      currentLevel={Math.min(currentStage + 1, totalStages)}
+      totalLevels={totalStages}
       gameId={gameId}
       gameType="finance"
       showGameOver={showResult}
@@ -277,10 +168,11 @@ const BorrowingFrequency = () => {
       <div className="space-y-5 text-white">
         <div className="bg-white/10 border border-white/20 rounded-3xl p-8 shadow-2xl max-w-4xl mx-auto">
           <div className="flex justify-between items-center mb-4 text-sm uppercase tracking-[0.3em] text-white/60">
-            <span>Scenario</span>
-            <span>Borrowing Patterns</span>
+            <span>{headerLeft}</span>
+            <span>{headerRight}</span>
           </div>
           <p className="text-lg text-white/90 mb-6">{stage.prompt}</p>
+
           <div className="grid grid-cols-2 gap-4">
             {stage.options.map((option) => {
               const isSelected = selectedOption === option.id;
@@ -289,29 +181,40 @@ const BorrowingFrequency = () => {
                   key={option.id}
                   onClick={() => handleChoice(option)}
                   disabled={!!selectedOption}
-                  className={`rounded-2xl border-2 p-5 text-left transition ${isSelected
+                  className={`rounded-2xl border-2 p-5 text-left transition ${
+                    isSelected
                       ? option.isCorrect
                         ? "border-emerald-400 bg-emerald-500/20"
                         : "border-rose-400 bg-rose-500/10"
                       : "border-white/30 bg-white/5 hover:border-white/60 hover:bg-white/10"
-                    }`}
+                  }`}
                 >
                   <div className="flex justify-between items-center mb-2 text-sm text-white/70">
-                    <span>Choice {option.id.toUpperCase()}</span>
+                    <span>
+                      {t(`${baseKey}.choiceLabel`, {
+                        id: option.id.toUpperCase(),
+                        defaultValue: "Choice {{id}}",
+                      })}
+                    </span>
                   </div>
                   <p className="text-white font-semibold">{option.label}</p>
                 </button>
               );
             })}
           </div>
+
           {(showResult || showFeedback) && (
             <div className="bg-white/5 border border-white/20 rounded-3xl p-6 shadow-xl max-w-4xl mx-auto space-y-3">
-              <h4 className="text-lg font-semibold text-white">Reflection</h4>
+              <h4 className="text-lg font-semibold text-white">
+                {reflectionTitle}
+              </h4>
+
               {selectedReflection && (
                 <div className="max-h-24 overflow-y-auto pr-2">
                   <p className="text-sm text-white/90">{selectedReflection}</p>
                 </div>
               )}
+
               {showFeedback && !showResult && (
                 <div className="mt-4 flex justify-center">
                   {canProceed ? (
@@ -327,19 +230,20 @@ const BorrowingFrequency = () => {
                       }}
                       className="rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 px-6 font-semibold shadow-lg hover:opacity-90"
                     >
-                      Continue
+                      {continueButton}
                     </button>
                   ) : (
-                    <div className="py-2 px-6 text-white font-semibold">Reading...</div>
+                    <div className="py-2 px-6 text-white font-semibold">
+                      {readingLabel}
+                    </div>
                   )}
                 </div>
               )}
-              {/* Automatically advance if we're in the last stage and the timeout has passed */}
-              {!showResult && currentStage === totalStages - 1 && canProceed && (
-                <div className="mt-4 flex justify-center">
-                  
-                </div>
-              )}
+
+              {!showResult &&
+                currentStage === totalStages - 1 &&
+                canProceed && <div className="mt-4 flex justify-center" />}
+
               {showResult && (
                 <>
                   <ul className="text-sm list-disc list-inside space-y-1">
@@ -347,50 +251,55 @@ const BorrowingFrequency = () => {
                       <li key={prompt}>{prompt}</li>
                     ))}
                   </ul>
+
                   <p className="text-sm text-white/70">
-                    Skill unlocked: <strong>Borrowing Frequency Awareness</strong>
+                    {skillUnlockedLabel} <strong>{skillName}</strong>
                   </p>
+
                   {!hasPassed && (
-                    <p className="text-xs text-amber-300">
-                      Answer all {totalStages} choices correctly to earn the full reward.
-                    </p>
+                    <p className="text-xs text-amber-300">{fullRewardHint}</p>
                   )}
+
                   {!hasPassed && (
                     <button
                       onClick={handleRetry}
                       className="w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 font-semibold shadow-lg hover:opacity-90"
                     >
-                      Try Again
+                      {tryAgainButton}
                     </button>
                   )}
                 </>
               )}
             </div>
           )}
-          
         </div>
+
         {showResult && (
           <div className="bg-white/5 border border-white/20 rounded-3xl p-6 shadow-xl max-w-4xl mx-auto space-y-3">
-            <h4 className="text-lg font-semibold text-white">Reflection Prompts</h4>
+            <h4 className="text-lg font-semibold text-white">
+              {reflectionPromptsTitle}
+            </h4>
+
             <ul className="text-sm list-disc list-inside space-y-1">
               {reflectionPrompts.map((prompt) => (
                 <li key={prompt}>{prompt}</li>
               ))}
             </ul>
+
             <p className="text-sm text-white/70">
-              Skill unlocked: <strong>Borrowing Frequency Awareness</strong>
+              {skillUnlockedLabel} <strong>{skillName}</strong>
             </p>
+
             {!hasPassed && (
-              <p className="text-xs text-amber-300">
-                Answer all {totalStages} choices correctly to earn the full reward.
-              </p>
+              <p className="text-xs text-amber-300">{fullRewardHint}</p>
             )}
+
             {!hasPassed && (
               <button
                 onClick={handleRetry}
                 className="w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 font-semibold shadow-lg hover:opacity-90"
               >
-                Try Again
+                {tryAgainButton}
               </button>
             )}
           </div>
@@ -401,3 +310,4 @@ const BorrowingFrequency = () => {
 };
 
 export default BorrowingFrequency;
+

@@ -1,238 +1,77 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import { Trophy } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getGameDataById } from "../../../../utils/getGameData";
 
-const CREDIT_EMERGENCIES_STAGES = [
-  {
-    id: 1,
-    prompt: "Is credit the first solution for emergencies?",
-    options: [
-      {
-        id: "yes",
-        label: "Yes, credit provides immediate access to funds",
-        reflection: "While credit offers quick access, it creates debt obligations with interest that compound financial stress during emergencies.",
-        isCorrect: false,
-      },
-    
-      {
-        id: "sometimes",
-        label: "Sometimes, depending on the emergency size",
-        reflection: "The priority should always be existing emergency funds first. Credit should be a last resort when savings are insufficient.",
-        isCorrect: false,
-      },
-        {
-        id: "no",
-        label: "No, savings should come first if possible",
-        reflection: "Exactly! Emergency savings provide immediate access without debt obligations, protecting your financial stability during crises.",
-        isCorrect: true,
-      },
-      {
-        id: "alternative",
-        label: "Only if traditional savings aren't available",
-        reflection: "Emergency funds should be built specifically for this purpose. Relying on credit as primary emergency funding creates long-term financial problems.",
-        isCorrect: false,
-      },
-    ],
-    reward: 10,
-  },
-  {
-    id: 2,
-    prompt: "What's the main problem with using credit for emergencies?",
-    options: [
-      {
-        id: "approval",
-        label: "Credit approval might be delayed during crises",
-        reflection: "While approval timing can be an issue, the fundamental problem is creating debt obligations that persist long after the emergency passes.",
-        isCorrect: false,
-      },
-      {
-        id: "debt",
-        label: "You create debt obligations with interest charges",
-        reflection: "Correct! Emergency credit creates ongoing financial obligations that compound stress during already difficult times.",
-        isCorrect: true,
-      },
-      {
-        id: "limits",
-        label: "Credit limits may not cover full emergency costs",
-        reflection: "Coverage limitations are practical concerns, but the core issue is the debt creation that undermines long-term financial recovery.",
-        isCorrect: false,
-      },
-      {
-        id: "tracking",
-        label: "It's harder to track emergency spending on credit",
-        reflection: "Spending tracking is a management issue, not the primary concern. The real problem is the debt burden that hinders financial healing.",
-        isCorrect: false,
-      },
-    ],
-    reward: 10,
-  },
-  {
-    id: 3,
-    prompt: "How do emergency funds differ from emergency credit?",
-    options: [
-      {
-        id: "ownership",
-        label: "Funds are yours to keep, credit must be repaid with interest",
-        reflection: "Perfect! Emergency funds provide liquidity you own outright, while credit creates obligations that drain future financial resources.",
-        isCorrect: true,
-      },
-      {
-        id: "access",
-        label: "Funds are harder to access than credit lines",
-        reflection: "Actually, emergency funds provide immediate access without applications, approvals, or waiting periods that credit often requires.",
-        isCorrect: false,
-      },
-      
-      {
-        id: "flexibility",
-        label: "Credit offers more spending flexibility than funds",
-        reflection: "Both provide flexibility, but credit flexibility comes at the cost of interest and repayment obligations that can devastate financial recovery.",
-        isCorrect: false,
-      },
-      {
-        id: "amount",
-        label: "Funds typically cover smaller emergencies than credit",
-        reflection: "The amount difference isn't the key distinction. The fundamental difference is ownership - funds are assets, credit is debt.",
-        isCorrect: false,
-      },
-    ],
-    reward: 10,
-  },
-  {
-    id: 4,
-    prompt: "What should you prioritize when building emergency preparedness?",
-    options: [
-      {
-        id: "credit",
-        label: "Establishing multiple credit lines for backup",
-        reflection: "Credit lines create debt risks. Priority should be building actual emergency savings that provide protection without financial obligations.",
-        isCorrect: false,
-      },
-      
-      {
-        id: "insurance",
-        label: "Getting comprehensive insurance coverage first",
-        reflection: "Insurance is important but addresses specific risks. Emergency funds provide universal protection for any unexpected financial crisis.",
-        isCorrect: false,
-      },
-      {
-        id: "investment",
-        label: "Creating emergency investment portfolios",
-        reflection: "Investments fluctuate in value and may be illiquid during emergencies. Dedicated emergency funds provide stable, immediate access when needed.",
-        isCorrect: false,
-      },
-      {
-        id: "savings",
-        label: "Building emergency savings before relying on credit",
-        reflection: "Exactly! Emergency funds should be the foundation of crisis preparedness, with credit as only a secondary backup option.",
-        isCorrect: true,
-      },
-    ],
-    reward: 10,
-  },
-  {
-    id: 5,
-    prompt: "What's the golden rule for emergency financial planning?",
-    options: [
-      {
-        id: "diversify",
-        label: "Diversify emergency funding across multiple sources",
-        reflection: "Diversification helps, but the fundamental principle is prioritizing self-owned emergency funds over debt-based solutions.",
-        isCorrect: false,
-      },
-      
-      {
-        id: "minimal",
-        label: "Keep minimal emergency reserves to maximize investments",
-        reflection: "Minimal reserves increase vulnerability to emergencies. Adequate emergency funds protect your ability to maintain other financial goals.",
-        isCorrect: false,
-      },
-      {
-        id: "preparation",
-        label: "Prepare emergency funds before crises occur",
-        reflection: "Perfect! Proactive emergency fund building prevents the need for harmful borrowing and maintains financial stability during unexpected events.",
-        isCorrect: true,
-      },
-      {
-        id: "reactive",
-        label: "Build emergency funds reactively as situations arise",
-        reflection: "Reactive building defeats the purpose of emergency preparation. Funds must exist before emergencies to provide effective protection.",
-        isCorrect: false,
-      },
-    ],
-    reward: 10,
-  },
-];
-
-const totalStages = CREDIT_EMERGENCIES_STAGES.length;
-const successThreshold = totalStages;
-
 const CreditForEmergencies = () => {
   const location = useLocation();
+  const { t } = useTranslation("gamecontent");
+
   const gameId = "finance-adults-30";
+  const baseKey = "financial-literacy.adults.credit-for-emergencies";
+  const gameContent = t(baseKey, { returnObjects: true });
+  const localizedStages = Array.isArray(gameContent?.stages) ? gameContent.stages : [];
+  const reflectionPrompts = gameContent?.reflectionPrompts || [];
+
+  const totalStages = localizedStages.length;
+  const successThreshold = totalStages;
+
+  if (!localizedStages.length) return null;
+
   const gameData = getGameDataById(gameId);
   const coinsPerLevel = gameData?.coins || location.state?.coinsPerLevel || 10;
   const totalCoins = gameData?.coins || location.state?.totalCoins || 10;
   const totalXp = gameData?.xp || location.state?.totalXp || 20;
-  const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
 
-  const [currentStage, setCurrentStage] = useState(0);
+  const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } =
+    useGameFeedback();
+
+  const [stageIndex, setStageIndex] = useState(0);
+  const [selectedOption, setSelectedOption] = useState(null);
   const [coins, setCoins] = useState(0);
   const [history, setHistory] = useState([]);
-  const [selectedOption, setSelectedOption] = useState(null);
   const [showResult, setShowResult] = useState(false);
   const [finalScore, setFinalScore] = useState(0);
   const [showFeedback, setShowFeedback] = useState(false);
   const [selectedReflection, setSelectedReflection] = useState(null);
   const [canProceed, setCanProceed] = useState(false);
 
-  const reflectionPrompts = useMemo(
-    () => [
-      "How can you start building emergency funds even with limited income?",
-      "What's the minimum emergency fund size that would prevent harmful borrowing?",
-    ],
-    []
-  );
-
   const handleChoice = (option) => {
     if (selectedOption || showResult) return;
-
     resetFeedback();
-    const currentStageData = CREDIT_EMERGENCIES_STAGES[currentStage];
+
+    const currentStageData = localizedStages[stageIndex];
     const updatedHistory = [
       ...history,
       { stageId: currentStageData.id, isCorrect: option.isCorrect },
     ];
+
     setHistory(updatedHistory);
     setSelectedOption(option.id);
-    setSelectedReflection(option.reflection); // Set the reflection for the selected option
-    setShowFeedback(true); // Show feedback after selection
-    setCanProceed(false); // Disable proceeding initially
-    
-    // Update coins if the answer is correct
+    setSelectedReflection(option.reflection);
+    setShowFeedback(true);
+    setCanProceed(false);
+
     if (option.isCorrect) {
-      setCoins(prevCoins => prevCoins + 1);
+      setCoins((prevCoins) => prevCoins + 1);
     }
-    
-    // Wait for the reflection period before allowing to proceed
+
     setTimeout(() => {
-      setCanProceed(true); // Enable proceeding after showing reflection
-    }, 1500); // Wait 2.5 seconds before allowing to proceed
-    
-    // Handle the final stage separately
-    if (currentStage === totalStages - 1) {
+      setCanProceed(true);
+    }, 1500);
+
+    if (stageIndex === totalStages - 1) {
       setTimeout(() => {
         const correctCount = updatedHistory.filter((item) => item.isCorrect).length;
         const passed = correctCount === successThreshold;
         setFinalScore(correctCount);
-        setCoins(passed ? totalCoins : 0); // Set final coins based on performance
+        setCoins(passed ? totalCoins : 0);
         setShowResult(true);
-      }, 5500); // Wait longer before showing final results
+      }, 5500);
     }
-    
+
     if (option.isCorrect) {
       showCorrectAnswerFeedback(currentStageData.reward, true);
     } else {
@@ -242,30 +81,38 @@ const CreditForEmergencies = () => {
 
   const handleRetry = () => {
     resetFeedback();
-    setCurrentStage(0);
-    setHistory([]);
+    setStageIndex(0);
     setSelectedOption(null);
     setCoins(0);
+    setHistory([]);
     setFinalScore(0);
     setShowResult(false);
+    setSelectedReflection(null);
+    setShowFeedback(false);
+    setCanProceed(false);
   };
 
-  const subtitle = `Stage ${Math.min(currentStage + 1, totalStages)} of ${totalStages}`;
-  const stage = CREDIT_EMERGENCIES_STAGES[Math.min(currentStage, totalStages - 1)];
+  const subtitle = t(`${baseKey}.subtitleProgress`, {
+    current: Math.min(stageIndex + 1, totalStages),
+    total: totalStages,
+    defaultValue: "Stage {{current}} of {{total}}",
+  });
+
+  const stage = localizedStages[Math.min(stageIndex, totalStages - 1)];
   const hasPassed = finalScore === successThreshold;
 
   return (
     <GameShell
-      title="Credit for Emergencies"
+      title={gameContent?.title || "Credit for Emergencies"}
       subtitle={subtitle}
       score={showResult ? finalScore : coins}
       coins={coins}
       coinsPerLevel={coinsPerLevel}
       totalCoins={totalCoins}
       totalXp={totalXp}
-      maxScore={CREDIT_EMERGENCIES_STAGES.length}
-      currentLevel={Math.min(currentStage + 1, CREDIT_EMERGENCIES_STAGES.length)}
-      totalLevels={CREDIT_EMERGENCIES_STAGES.length}
+      maxScore={totalStages}
+      currentLevel={Math.min(stageIndex + 1, totalStages)}
+      totalLevels={totalStages}
       gameId={gameId}
       gameType="finance"
       showGameOver={showResult}
@@ -277,123 +124,107 @@ const CreditForEmergencies = () => {
       <div className="space-y-5 text-white">
         <div className="bg-white/10 border border-white/20 rounded-3xl p-8 shadow-2xl max-w-4xl mx-auto">
           <div className="flex justify-between items-center mb-4 text-sm uppercase tracking-[0.3em] text-white/60">
-            <span>Scenario</span>
-            <span>Emergency Funding</span>
+            <span>{t(`${baseKey}.scenarioLabel`, { defaultValue: "Scenario" })}</span>
+            <span>{t(`${baseKey}.scenarioValue`, { defaultValue: "Emergency Funding" })}</span>
           </div>
           <p className="text-lg text-white/90 mb-6">{stage.prompt}</p>
+
           <div className="grid grid-cols-2 gap-4">
-            {stage.options.map((option) => {
+            {stage?.options?.map((option) => {
               const isSelected = selectedOption === option.id;
               return (
                 <button
                   key={option.id}
                   onClick={() => handleChoice(option)}
                   disabled={!!selectedOption}
-                  className={`rounded-2xl border-2 p-5 text-left transition ${isSelected
+                  className={`rounded-2xl border-2 p-5 text-left transition ${
+                    isSelected
                       ? option.isCorrect
                         ? "border-emerald-400 bg-emerald-500/20"
-                        : "border-rose-400 bg-rose-500/10"
+                        : "border-rose-400 bg-rose-500/10 text-white"
                       : "border-white/30 bg-white/5 hover:border-white/60 hover:bg-white/10"
-                    }`}
+                  }`}
                 >
-                  <div className="flex justify-between items-center mb-2 text-sm text-white/70">
-                    <span>Choice {option.id.toUpperCase()}</span>
-                    
+                  <div className="text-sm text-white/70 mb-2">
+                    {t(`${baseKey}.choiceLabel`, { id: option.id, defaultValue: "Choice {{id}}" })}
                   </div>
                   <p className="text-white font-semibold">{option.label}</p>
-                  
                 </button>
               );
             })}
           </div>
-          {(showResult || showFeedback) && (
-            <div className="bg-white/5 border border-white/20 rounded-3xl p-6 shadow-xl max-w-4xl mx-auto space-y-3">
-              <h4 className="text-lg font-semibold text-white">Reflection</h4>
-              {selectedReflection && (
-                <div className="max-h-24 overflow-y-auto pr-2">
-                  <p className="text-sm text-white/90">{selectedReflection}</p>
-                </div>
-              )}
-              {showFeedback && !showResult && (
-                <div className="mt-4 flex justify-center">
-                  {canProceed ? (
-                    <button
-                      onClick={() => {
-                        if (currentStage < totalStages - 1) {
-                          setCurrentStage((prev) => prev + 1);
-                          setSelectedOption(null);
-                          setSelectedReflection(null);
-                          setShowFeedback(false);
-                          setCanProceed(false);
-                        }
-                      }}
-                      className="rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 px-6 font-semibold shadow-lg hover:opacity-90"
-                    >
-                      Continue
-                    </button>
-                  ) : (
-                    <div className="py-2 px-6 text-white font-semibold">Reading...</div>
-                  )}
-                </div>
-              )}
-              {/* Automatically advance if we're in the last stage and the timeout has passed */}
-              {!showResult && currentStage === totalStages - 1 && canProceed && (
-                <div className="mt-4 flex justify-center">
-                 
-                </div>
-              )}
-              {showResult && (
-                <>
-                  <ul className="text-sm list-disc list-inside space-y-1">
-                    {reflectionPrompts.map((prompt) => (
-                      <li key={prompt}>{prompt}</li>
-                    ))}
-                  </ul>
-                  <p className="text-sm text-white/70">
-                    Skill unlocked: <strong>Emergency fund planning</strong>
-                  </p>
-                  {!hasPassed && (
-                    <p className="text-xs text-amber-300">
-                      Answer all {totalStages} choices correctly to earn the full reward.
-                    </p>
-                  )}
-                  {!hasPassed && (
-                    <button
-                      onClick={handleRetry}
-                      className="w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 font-semibold shadow-lg hover:opacity-90"
-                    >
-                      Try Again
-                    </button>
-                  )}
-                </>
-              )}
-            </div>
-          )}
-          
         </div>
-        {showResult && (
+
+        {(showResult || showFeedback) && (
           <div className="bg-white/5 border border-white/20 rounded-3xl p-6 shadow-xl max-w-4xl mx-auto space-y-3">
-            <h4 className="text-lg font-semibold text-white">Reflection Prompts</h4>
-            <ul className="text-sm list-disc list-inside space-y-1">
-              {reflectionPrompts.map((prompt) => (
-                <li key={prompt}>{prompt}</li>
-              ))}
-            </ul>
-            <p className="text-sm text-white/70">
-              Skill unlocked: <strong>Emergency fund planning</strong>
-            </p>
-            {!hasPassed && (
-              <p className="text-xs text-amber-300">
-                Answer all {totalStages} choices correctly to earn the full reward.
-              </p>
+            <h4 className="text-lg font-semibold text-white">
+              {t(`${baseKey}.reflectionTitle`, { defaultValue: "Reflection" })}
+            </h4>
+
+            {selectedReflection && (
+              <div className="max-h-24 overflow-y-auto pr-2">
+                <p className="text-sm text-white/90">{selectedReflection}</p>
+              </div>
             )}
-            {!hasPassed && (
-              <button
-                onClick={handleRetry}
-                className="w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 font-semibold shadow-lg hover:opacity-90"
-              >
-                Try Again
-              </button>
+
+            {showFeedback && !showResult && (
+              <div className="mt-4 flex justify-center">
+                {canProceed ? (
+                  <button
+                    onClick={() => {
+                      if (stageIndex < totalStages - 1) {
+                        setStageIndex((prev) => prev + 1);
+                        setSelectedOption(null);
+                        setSelectedReflection(null);
+                        setShowFeedback(false);
+                        setCanProceed(false);
+                      }
+                    }}
+                    className="rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 px-6 font-semibold shadow-lg hover:opacity-90"
+                  >
+                    {t(`${baseKey}.continueButton`, { defaultValue: "Continue" })}
+                  </button>
+                ) : (
+                  <div className="py-2 px-6 text-white font-semibold">
+                    {t(`${baseKey}.readingLabel`, { defaultValue: "Reading..." })}
+                  </div>
+                )}
+              </div>
+            )}
+
+            {showResult && (
+              <>
+                <ul className="text-sm list-disc list-inside space-y-1">
+                  {reflectionPrompts.map((prompt) => (
+                    <li key={prompt}>{prompt}</li>
+                  ))}
+                </ul>
+
+                <p className="text-sm text-white/70">
+                  {t(`${baseKey}.skillUnlockedLabel`, { defaultValue: "Skill unlocked:" })}{" "}
+                  <strong>
+                    {t(`${baseKey}.skillName`, { defaultValue: "Emergency fund planning" })}
+                  </strong>
+                </p>
+
+                {!hasPassed && (
+                  <p className="text-xs text-amber-300">
+                    {t(`${baseKey}.fullRewardHint`, {
+                      total: totalStages,
+                      defaultValue: "Answer all {{total}} choices correctly to earn the full reward.",
+                    })}
+                  </p>
+                )}
+
+                {!hasPassed && (
+                  <button
+                    onClick={handleRetry}
+                    className="w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 font-semibold shadow-lg hover:opacity-90"
+                  >
+                    {t(`${baseKey}.tryAgainButton`, { defaultValue: "Try Again" })}
+                  </button>
+                )}
+              </>
             )}
           </div>
         )}
@@ -403,3 +234,4 @@ const CreditForEmergencies = () => {
 };
 
 export default CreditForEmergencies;
+

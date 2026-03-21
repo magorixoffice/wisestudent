@@ -1,0 +1,176 @@
+{
+  "title": "Emergency Fund Purpose",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Emergency Fund",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Emergency Fund Management",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you build and maintain an appropriate emergency fund?",
+    "What criteria will you use to determine when to use your emergency fund?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Scenario: Emergency funds are meant for:",
+      "options": [
+        {
+          "id": "unexpected",
+          "label": "Unexpected critical needs",
+          "reflection": "Exactly! Emergency funds are specifically meant for unexpected critical needs like medical emergencies, job loss, or major repairs. They protect your financial stability.",
+          "isCorrect": true
+        },
+        {
+          "id": "daily",
+          "label": "Daily spending",
+          "reflection": "Emergency funds are not meant for daily spending. Using them for regular expenses defeats their purpose and leaves you vulnerable when real emergencies occur.",
+          "isCorrect": false
+        },
+        {
+          "id": "luxury",
+          "label": "Luxury purchases and vacations",
+          "reflection": "Using emergency funds for luxury purchases defeats their purpose. These funds should be reserved for genuine emergencies that threaten your financial stability.",
+          "isCorrect": false
+        },
+        {
+          "id": "investments",
+          "label": "Investment opportunities",
+          "reflection": "Emergency funds should not be used for investments. They're meant to provide financial security, not to generate returns. Investments belong in separate accounts.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 2,
+      "prompt": "What's the primary goal of an emergency fund?",
+      "options": [
+        {
+          "id": "growth",
+          "label": "Generate investment returns",
+          "reflection": "Emergency funds are not meant for investment returns. Their purpose is security and liquidity, not growth. Investment returns come with risk that emergency funds should avoid.",
+          "isCorrect": false
+        },
+        {
+          "id": "spending",
+          "label": "Enable extra spending on wants",
+          "reflection": "Emergency funds are not for enabling extra spending on wants. They're specifically for protecting against financial emergencies that could disrupt your life.",
+          "isCorrect": false
+        },
+        {
+          "id": "status",
+          "label": "Show financial status to others",
+          "reflection": "Emergency funds are for personal financial security, not for showing status to others. Their value is in providing peace of mind and protection, not in display.",
+          "isCorrect": false
+        },
+        {
+          "id": "security",
+          "label": "Provide financial security during unexpected events",
+          "reflection": "Perfect! The primary goal is to provide financial security during unexpected events, ensuring you can handle emergencies without going into debt or financial distress.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 3,
+      "prompt": "How should you determine the size of your emergency fund?",
+      "options": [
+        {
+          "id": "income",
+          "label": "A fixed percentage of your income",
+          "reflection": "While a percentage of income might be a starting point, it's better to base your emergency fund on actual expenses and circumstances rather than just income.",
+          "isCorrect": false
+        },
+        {
+          "id": "friends",
+          "label": "What your friends think is appropriate",
+          "reflection": "Your emergency fund should be based on your personal financial situation and needs, not on what others think. Everyone's circumstances are different.",
+          "isCorrect": false
+        },
+        {
+          "id": "expenses",
+          "label": "Based on your monthly expenses and job security",
+          "reflection": "Excellent! Your emergency fund should be based on your monthly expenses and job security. Typically, 3-6 months of expenses is recommended, adjusted for your specific situation.",
+          "isCorrect": true
+        },
+        {
+          "id": "minimum",
+          "label": "The absolute minimum possible",
+          "reflection": "Setting the minimum possible emergency fund leaves you vulnerable. It's better to build a fund that can actually cover real emergencies you might face.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 4,
+      "prompt": "What's a warning sign of improper emergency fund use?",
+      "options": [
+        {
+          "id": "growth",
+          "label": "Regular growth in fund balance",
+          "reflection": "Regular growth in fund balance is actually a positive sign of good financial management, not improper use. It shows you're consistently saving for emergencies.",
+          "isCorrect": false
+        },
+        {
+          "id": "frequent",
+          "label": "Frequent withdrawals for non-emergencies",
+          "reflection": "Exactly! Frequent withdrawals for non-emergencies indicate improper use. Emergency funds should be touched only for genuine emergencies, not for regular expenses.",
+          "isCorrect": true
+        },
+        {
+          "id": "separate",
+          "label": "Keeping it in a separate account",
+          "reflection": "Keeping emergency funds in a separate account is good practice, not a warning sign. It helps prevent accidental spending and ensures the money is available when needed.",
+          "isCorrect": false
+        },
+        {
+          "id": "planning",
+          "label": "Having a clear plan for when to use it",
+          "reflection": "Having a clear plan for emergency fund use shows good financial discipline, not improper use. It helps you make appropriate decisions during real emergencies.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 5,
+      "prompt": "What's the benefit of using emergency funds properly?",
+      "options": [
+        {
+          "id": "stability",
+          "label": "Maintains financial stability during crises",
+          "reflection": "Exactly! Proper use of emergency funds maintains financial stability during crises by providing the resources needed to handle emergencies without creating additional financial problems.",
+          "isCorrect": true
+        },
+        {
+          "id": "spending",
+          "label": "Enables more regular spending",
+          "reflection": "Emergency funds are not meant to enable more regular spending. Their purpose is protection during emergencies, not increasing everyday consumption.",
+          "isCorrect": false
+        },
+        {
+          "id": "debt",
+          "label": "Increases reliance on credit and loans",
+          "reflection": "Proper emergency fund use actually reduces reliance on credit and loans during emergencies. It's the improper use that leads to increased debt dependency.",
+          "isCorrect": false
+        },
+        {
+          "id": "stress",
+          "label": "Creates more financial stress and uncertainty",
+          "reflection": "Proper emergency fund use reduces financial stress and uncertainty by providing a safety net. It's the lack of emergency funds or improper use that creates stress.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    }
+  ]
+}

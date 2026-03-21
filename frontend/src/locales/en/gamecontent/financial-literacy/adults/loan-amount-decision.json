@@ -1,0 +1,176 @@
+{
+  "title": "Loan Amount Decision",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "scenarioLabel": "Scenario",
+  "scenarioValue": "Loan Amount",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Responsible borrowing mindset",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can borrowing only what you need prevent future financial stress?",
+    "What factors should guide your loan amount decisions beyond lender approval?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "You qualify for ₹1,00,000 but only need ₹40,000. What should you take?",
+      "options": [
+        {
+          "id": "full",
+          "label": "Take the full ₹1,00,000 amount",
+          "reflection": "Taking more than you need increases your debt burden and monthly payments, making it harder to manage your finances responsibly.",
+          "isCorrect": false
+        },
+        {
+          "id": "needed",
+          "label": "Take only the ₹40,000 you actually need",
+          "reflection": "Exactly! Borrowing only what you need ensures manageable repayments and reduces financial stress.",
+          "isCorrect": true
+        },
+        {
+          "id": "little-extra",
+          "label": "Take ₹60,000 to have some extra cushion",
+          "reflection": "While having a cushion seems wise, extra borrowed money still accrues interest and increases your debt obligation unnecessarily.",
+          "isCorrect": false
+        },
+        {
+          "id": "minimum",
+          "label": "Take the minimum possible amount",
+          "reflection": "Borrowing the minimum ensures you're not over-leveraged, but make sure it covers your actual needs completely.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 2,
+      "prompt": "What's the main risk of borrowing more than you need?",
+      "options": [
+        {
+          "id": "interest",
+          "label": "You'll pay interest on money you don't use",
+          "reflection": "Correct! Extra borrowed amount means extra interest payments over the loan term, increasing your total cost significantly.",
+          "isCorrect": true
+        },
+        {
+          "id": "approval",
+          "label": "Banks might not approve larger amounts",
+          "reflection": "If you qualify for the larger amount, approval isn't the issue. The problem is the unnecessary financial burden you create.",
+          "isCorrect": false
+        },
+        {
+          "id": "flexibility",
+          "label": "You lose flexibility in choosing lenders",
+          "reflection": "Having extra borrowed money doesn't limit lender choices - it creates unnecessary debt that you'll struggle to repay.",
+          "isCorrect": false
+        },
+        {
+          "id": "process",
+          "label": "The application process becomes more complex",
+          "reflection": "Loan application complexity doesn't depend on amount borrowed - it depends on your financial documentation and credit profile.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 3,
+      "prompt": "How does borrowing only what you need affect your monthly payments?",
+      "options": [
+        {
+          "id": "higher",
+          "label": "Monthly payments become unaffordable",
+          "reflection": "Actually, borrowing less makes payments more affordable and manageable within your budget.",
+          "isCorrect": false
+        },
+        {
+          "id": "manageable",
+          "label": "Payments remain comfortably within your budget",
+          "reflection": "Perfect! Lower loan amounts mean lower EMIs, reducing financial stress and freeing up money for other needs.",
+          "isCorrect": true
+        },
+        {
+          "id": "same",
+          "label": "Payments stay the same regardless of amount borrowed",
+          "reflection": "Loan payments are directly proportional to the amount borrowed - less borrowed means lower monthly obligations.",
+          "isCorrect": false
+        },
+        {
+          "id": "complex",
+          "label": "Payment calculations become more complicated",
+          "reflection": "Smaller loans actually simplify financial planning since you have lower, more predictable monthly obligations.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 4,
+      "prompt": "What should you consider before deciding how much to borrow?",
+      "options": [
+        {
+          "id": "friends",
+          "label": "What your friends are borrowing",
+          "reflection": "Your borrowing decisions should be based on your personal financial situation, not peer behavior or social pressure.",
+          "isCorrect": false
+        },
+        {
+          "id": "lender",
+          "label": "Which lender offers the quickest approval",
+          "reflection": "While quick approval is convenient, focus on terms that match your actual needs and repayment capacity.",
+          "isCorrect": false
+        },
+        {
+          "id": "maximum",
+          "label": "The maximum amount you're eligible for",
+          "reflection": "Eligibility doesn't equal necessity. Always borrow based on actual needs, not maximum approval limits.",
+          "isCorrect": false
+        },
+        {
+          "id": "future",
+          "label": "Your future income potential and stability",
+          "reflection": "Absolutely! Your ability to repay should be based on realistic future income expectations, not just current qualification.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 5,
+      "prompt": "What's the golden rule for responsible borrowing?",
+      "options": [
+        {
+          "id": "available",
+          "label": "Borrow whatever amount is available to you",
+          "reflection": "Availability doesn't determine appropriateness. Responsible borrowing requires matching loans to actual needs and repayment capacity.",
+          "isCorrect": false
+        },
+        {
+          "id": "emergency",
+          "label": "Keep some extra for emergency situations",
+          "reflection": "While emergency funds are important, they shouldn't come from unnecessary borrowing. Build emergency savings separately.",
+          "isCorrect": false
+        },
+        {
+          "id": "comfortable",
+          "label": "Borrow only what you can repay comfortably",
+          "reflection": "Exactly! This fundamental principle ensures financial stability and prevents debt-related stress.",
+          "isCorrect": true
+        },
+        {
+          "id": "investment",
+          "label": "Borrow to invest in potential opportunities",
+          "reflection": "Speculative borrowing for investments is risky. Only borrow for clear, immediate needs you can confidently repay.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    }
+  ]
+}

@@ -1,177 +1,22 @@
 import React, { useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Trophy } from "lucide-react";
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getGameDataById } from "../../../../utils/getGameData";
 
-const STAGES = [
-  {
-    id: 1,
-    prompt: "Credit means:",
-    options: [
-      {
-        id: "free",
-        label: "Free money",
-        reflection: "Credit is not free money - it must be repaid with interest, making it costly if not managed properly.",
-        isCorrect: false,
-      },
-      {
-        id: "borrowed",
-        label: "Borrowed money that must be repaid",
-        reflection: "Exactly! Credit is borrowed money that must be repaid, usually with interest charges.",
-        isCorrect: true,
-      },
-      {
-        id: "gift",
-        label: "A gift from the lender",
-        reflection: "Credit is a loan that must be repaid, not a gift. Lenders expect repayment with interest.",
-        isCorrect: false,
-      },
-      {
-        id: "investment",
-        label: "An investment in your future",
-        reflection: "While credit can enable investments, it's fundamentally borrowed money that requires repayment.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 2,
-    prompt: "When is credit helpful?",
-    options: [
-      {
-        id: "anytime",
-        label: "Anytime you want to buy something",
-        reflection: "Using credit for unnecessary purchases can lead to debt problems and financial stress.",
-        isCorrect: false,
-      },
-      
-      {
-        id: "emergency",
-        label: "Only during emergencies",
-        reflection: "While emergencies may require credit, it's most helpful when you plan for repayment in advance.",
-        isCorrect: false,
-      },
-      {
-        id: "luxury",
-        label: "For luxury items you can't afford",
-        reflection: "Using credit for unaffordable luxury items often leads to financial difficulties and debt.",
-        isCorrect: false,
-      },
-      {
-        id: "planned",
-        label: "When repayment is planned",
-        reflection: "Exactly! Credit is helpful when you have a clear plan for repayment and can afford the payments.",
-        isCorrect: true,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 3,
-    prompt: "What determines your creditworthiness?",
-    options: [
-      {
-        id: "income",
-        label: "Your income level only",
-        reflection: "While income matters, creditworthiness depends on multiple factors including payment history and debt levels.",
-        isCorrect: false,
-      },
-     
-      {
-        id: "assets",
-        label: "Your physical assets only",
-        reflection: "Assets are one factor, but creditworthiness is primarily determined by how you manage debt and make payments.",
-        isCorrect: false,
-      },
-       {
-        id: "history",
-        label: "Your payment history and debt management",
-        reflection: "Exactly! Payment history, debt-to-income ratio, and responsible debt management determine creditworthiness.",
-        isCorrect: true,
-      },
-      {
-        id: "age",
-        label: "Your age and life stage",
-        reflection: "Age alone doesn't determine creditworthiness - responsible financial behavior is what matters most.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 4,
-    prompt: "What is interest on credit?",
-    options: [
-      {
-        id: "free",
-        label: "Free service charge",
-        reflection: "Interest is not free - it's the cost of borrowing money that you must pay to the lender.",
-        isCorrect: false,
-      },
-      {
-        id: "cost",
-        label: "The cost of borrowing money",
-        reflection: "Exactly! Interest is the fee you pay for the privilege of borrowing money over time.",
-        isCorrect: true,
-      },
-      {
-        id: "bonus",
-        label: "Bonus money from the lender",
-        reflection: "Interest is an expense for borrowers, not a bonus. It's the price of using borrowed funds.",
-        isCorrect: false,
-      },
-      {
-        id: "discount",
-        label: "Discount for early repayment",
-        reflection: "Interest is the ongoing cost of borrowing, separate from any early repayment discounts or fees.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 5,
-    prompt: "How does credit affect your financial future?",
-    options: [
-        {
-        id: "opportunity",
-        label: "It can create opportunities when used wisely",
-        reflection: "Exactly! Responsible credit use builds credit history and can enable important financial milestones.",
-        isCorrect: true,
-      },
-      {
-        id: "negative",
-        label: "It always creates financial problems",
-        reflection: "When used responsibly, credit can build financial opportunities and improve your financial standing.",
-        isCorrect: false,
-      },
-      
-      {
-        id: "neutral",
-        label: "It has no impact on your future",
-        reflection: "Credit usage significantly impacts your financial future through credit scores and borrowing capacity.",
-        isCorrect: false,
-      },
-      {
-        id: "automatic",
-        label: "It automatically makes you wealthy",
-        reflection: "Credit is a tool that requires responsible management - it doesn't automatically create wealth.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-];
-
-const totalStages = STAGES.length;
-const successThreshold = totalStages;
-
 const WhatIsCredit = () => {
   const location = useLocation();
+  const { t } = useTranslation("gamecontent");
   const gameId = "finance-adults-21";
+  const baseKey = "financial-literacy.adults.what-is-credit";
+  const gameContent = t(baseKey, { returnObjects: true });
+  const localizedStages = Array.isArray(gameContent?.stages) ? gameContent.stages : [];
+  const totalStages = localizedStages.length;
+  const successThreshold = totalStages;
+  if (!localizedStages.length) return null;
+
   const gameData = getGameDataById(gameId);
   const coinsPerLevel = gameData?.coins || location.state?.coinsPerLevel || 5;
   const totalCoins = gameData?.coins || location.state?.totalCoins || 5;
@@ -190,19 +35,17 @@ const WhatIsCredit = () => {
   const [canProceed, setCanProceed] = useState(false);
 
   const reflectionPrompts = useMemo(
-    () => [
-      "How can credit be used as a financial tool rather than a burden?",
-      "What steps can you take to build good credit habits?",
-    ],
-    []
+    () => gameContent?.reflectionPrompts || [],
+    [gameContent]
   );
 
   const handleSelect = (option) => {
     if (selectedOption || showResult) return;
+    if (!localizedStages.length) return;
     resetFeedback();
     const updatedHistory = [
       ...history,
-      { stageId: STAGES[stageIndex].id, isCorrect: option.isCorrect },
+      { stageId: localizedStages[stageIndex].id, isCorrect: option.isCorrect },
     ];
     setHistory(updatedHistory);
     setSelectedOption(option.id);
@@ -245,13 +88,17 @@ const WhatIsCredit = () => {
     setShowResult(false);
   };
 
-  const subtitle = `Stage ${Math.min(stageIndex + 1, totalStages)} of ${totalStages}`;
-  const stage = STAGES[Math.min(stageIndex, totalStages - 1)];
+  const subtitle = t(`${baseKey}.subtitleProgress`, {
+    current: Math.min(stageIndex + 1, totalStages),
+    total: totalStages,
+    defaultValue: "Stage {{current}} of {{total}}",
+  });
+  const stage = localizedStages[Math.min(stageIndex, totalStages - 1)];
   const hasPassed = finalScore === successThreshold;
 
   return (
     <GameShell
-      title="What Is Credit?"
+      title={gameContent?.title || "What Is Credit?"}
       subtitle={subtitle}
       score={showResult ? finalScore : coins}
       coins={coins}
@@ -272,8 +119,8 @@ const WhatIsCredit = () => {
       <div className="space-y-5 text-white">
         <div className="bg-white/10 border border-white/20 rounded-3xl p-8 shadow-2xl max-w-4xl mx-auto">
           <div className="flex justify-between items-center mb-4 text-sm uppercase tracking-[0.3em] text-white/60">
-            <span>Scenario</span>
-            <span>Credit Basics</span>
+            <span>{t(`${baseKey}.scenarioLabel`, { defaultValue: "Scenario" })}</span>
+            <span>{t(`${baseKey}.scenarioValue`, { defaultValue: "Credit Basics" })}</span>
           </div>
           <p className="text-lg text-white/90 mb-6">{stage.prompt}</p>
           <div className="grid grid-cols-2 gap-4">
@@ -293,7 +140,7 @@ const WhatIsCredit = () => {
                   }`}
                 >
                   <div className="text-sm text-white/70 mb-2">
-                    Choice {option.id.toUpperCase()}
+                    {t(`${baseKey}.choiceLabel`, { id: option.id, defaultValue: "Choice {{id}}" })}
                   </div>
                   <p className="text-white font-semibold">{option.label}</p>
                   
@@ -305,7 +152,9 @@ const WhatIsCredit = () => {
         </div>
         {(showResult || showFeedback) && (
           <div className="bg-white/5 border border-white/20 rounded-3xl p-6 shadow-xl max-w-4xl mx-auto space-y-3">
-            <h4 className="text-lg font-semibold text-white">Reflection</h4>
+            <h4 className="text-lg font-semibold text-white">
+              {t(`${baseKey}.reflectionTitle`, { defaultValue: "Reflection" })}
+            </h4>
             {selectedReflection && (
               <div className="max-h-24 overflow-y-auto pr-2">
                 <p className="text-sm text-white/90">{selectedReflection}</p>
@@ -326,10 +175,12 @@ const WhatIsCredit = () => {
                     }}
                     className="rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 px-6 font-semibold shadow-lg hover:opacity-90"
                   >
-                    Continue
+                    {t(`${baseKey}.continueButton`, { defaultValue: "Continue" })}
                   </button>
                 ) : (
-                  <div className="py-2 px-6 text-white font-semibold">Reading...</div>
+                  <div className="py-2 px-6 text-white font-semibold">
+                    {t(`${baseKey}.readingLabel`, { defaultValue: "Reading..." })}
+                  </div>
                 )}
               </div>
             )}
@@ -347,17 +198,15 @@ const WhatIsCredit = () => {
                   ))}
                 </ul>
                 <p className="text-sm text-white/70">
-                  {hasPassed ? (
-                    <>
-                      <strong>Congratulations!</strong> Credit helps only when repayment is planned.
-                    </>
-                  ) : (
-                    <>Skill unlocked: <strong>Credit fundamentals</strong></>
-                  )}
+                  {t(`${baseKey}.skillUnlockedLabel`, { defaultValue: "Skill unlocked:" })}{" "}
+                  <strong>{t(`${baseKey}.skillName`, { defaultValue: "Credit fundamentals" })}</strong>
                 </p>
                 {!hasPassed && (
                   <p className="text-xs text-amber-300">
-                    Answer every stage sharply to earn the full reward.
+                    {t(`${baseKey}.fullRewardHint`, {
+                      total: totalStages,
+                      defaultValue: "Answer all {{total}} choices correctly to earn the full reward.",
+                    })}
                   </p>
                 )}
                 {!hasPassed && (
@@ -365,7 +214,7 @@ const WhatIsCredit = () => {
                     onClick={handleRetry}
                     className="w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 font-semibold shadow-lg hover:opacity-90"
                   >
-                    Try Again
+                    {t(`${baseKey}.tryAgainButton`, { defaultValue: "Try Again" })}
                   </button>
                 )}
               </>

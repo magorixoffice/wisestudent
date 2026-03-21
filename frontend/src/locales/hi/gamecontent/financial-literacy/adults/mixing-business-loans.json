@@ -1,0 +1,176 @@
+{
+  "title": "व्यवसाय ऋण मिलाना",
+  "subtitleProgress": "चरण {{current}} का {{total}}",
+  "sectionHeaderLeft": "परिदृश्य",
+  "sectionHeaderRight": "ऋण उद्देश्य",
+  "choiceLabel": "पसंद {{id}}",
+  "reflectionTitle": "चिंतन",
+  "continueButton": "जारी रखें",
+  "readingLabel": "पढ़ रहे हैं...",
+  "reflectionPromptsTitle": "परावर्तन संकेत",
+  "skillUnlockedLabel": "अनलॉक किया गया कौशल:",
+  "skillName": "ऋण उद्देश्य प्रबंधन",
+  "fullRewardHint": "पूरा रिवॉर्ड पाने के लिए सभी {{total}} विकल्पों का सही जवाब दें।",
+  "tryAgainButton": "पुन: प्रयास करें",
+  "reflectionPrompts": [
+    "व्यक्तिगत और व्यवसाय वित्त के बीच स्पष्ट सीमा कैसे रखें?",
+    "ऋण उद्देश्य मिलाने से बचने के लिए कौन सी व्यवस्था रखेंगे?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "परिदृश्य: व्यक्तिगत ऋण व्यवसाय के लिए—परिणाम?",
+      "options": [
+        {
+          "id": "noissue",
+          "label": "कोई समस्या नहीं",
+          "reflection": "व्यक्तिगत ऋण व्यवसाय में सीमाएँ धुंधली करता है और ट्रैकिंग कठिन।",
+          "isCorrect": false
+        },
+        {
+          "id": "benefit",
+          "label": "बेहतर लचीलापन",
+          "reflection": "मिलाने से स्पष्टता और नियंत्रण कम; प्रबंधन कठिन।",
+          "isCorrect": false
+        },
+        {
+          "id": "savings",
+          "label": "ब्याज में बचत",
+          "reflection": "दरें अलग होती हैं; मिलाने से बचत नहीं, लागत बढ़ सकती है।",
+          "isCorrect": false
+        },
+        {
+          "id": "confusion",
+          "label": "उलझन और चुकौती समस्या",
+          "reflection": "बिल्कुल! मिलाने से यह स्पष्ट नहीं रहता किस उद्देश्य का कर्ज।",
+          "isCorrect": true
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 2,
+      "prompt": "ऋण उद्देश्य मिलाने की मुख्य समस्या?",
+      "options": [
+        {
+          "id": "tracking",
+          "label": "खर्च और चुकौती ट्रैक करना मुश्किल",
+          "reflection": "सही! मिले हुए ऋण में कौन सा खर्च किस पर—समझना लगभग असंभव।",
+          "isCorrect": true
+        },
+        {
+          "id": "convenience",
+          "label": "भुगतान में ज्यादा सुविधा",
+          "reflection": "मिलाने से भुगतान उलझता है, सुविधा नहीं।",
+          "isCorrect": false
+        },
+        {
+          "id": "flexibility",
+          "label": "धन उपयोग में ज्यादा लचीलापन",
+          "reflection": "लचीलापन का भ्रम; वास्तव में अनुशासन और आवंटन कठिन।",
+          "isCorrect": false
+        },
+        {
+          "id": "savings",
+          "label": "प्रोसेसिंग में बचत",
+          "reflection": "कोई बचत नहीं; गलत प्रबंधन से लागत बढ़ सकती है।",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 3,
+      "prompt": "व्यक्तिगत और व्यवसाय ऋण कैसे चलाएं?",
+      "options": [
+        {
+          "id": "mix",
+          "label": "बेहतर उपयोग के लिए मिलाएं",
+          "reflection": "मिलाने से उलझन बढ़ती है; सच्ची लागत समझना मुश्किल।",
+          "isCorrect": false
+        },
+        {
+          "id": "ignore",
+          "label": "अंतर न देखें",
+          "reflection": "अंतर नज़रअंदाज़ करने से दोनों तरफ गंभीर समस्या।",
+          "isCorrect": false
+        },
+        {
+          "id": "separate",
+          "label": "पूरी तरह अलग रखें",
+          "reflection": "बिल्कुल! अलग रखने से स्पष्ट प्रबंधन, आसान ट्रैकिंग, बेहतर निर्णय।",
+          "isCorrect": true
+        },
+        {
+          "id": "combine",
+          "label": "एक बड़े ऋण में मिला दें",
+          "reflection": "एक करने से उद्देश्य अलग प्रबंधन खत्म; जोखिम बढ़ता है।",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 4,
+      "prompt": "ऋण मिलाने की चेतावनी क्या है?",
+      "options": [
+        {
+          "id": "organization",
+          "label": "अच्छे व्यवस्थित रिकॉर्ड",
+          "reflection": "स्पष्ट रिकॉर्ड अलग ऋण का संकेत है, मिलाने का नहीं।",
+          "isCorrect": false
+        },
+        {
+          "id": "confusion",
+          "label": "समझ न आए कौन सा ऋण किस खर्च पर",
+          "reflection": "बिल्कुल! यह साफ संकेत है कि उद्देश्य मिल रहे हैं।",
+          "isCorrect": true
+        },
+        {
+          "id": "clarity",
+          "label": "उद्देश्य स्पष्ट अलग",
+          "reflection": "स्पष्ट अलगाव अच्छा प्रबंधन है।",
+          "isCorrect": false
+        },
+        {
+          "id": "balance",
+          "label": "संतुलित चुकौती अनुसूची",
+          "reflection": "संतुलन अलग ऋण के साथ भी हो सकता है; मुद्दा स्पष्टता का है।",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 5,
+      "prompt": "दीर्घकाल में उद्देश्य मिलाने का प्रभाव?",
+      "options": [
+        {
+          "id": "risk",
+          "label": "वित्तीय जोखिम और अस्थिरता बढ़ना",
+          "reflection": "बिल्कुल! उलझाव से सच्ची वित्तीय सेहत दोनों तरफ समझना मुश्किल।",
+          "isCorrect": true
+        },
+        {
+          "id": "growth",
+          "label": "व्यवसाय वृद्धि और व्यक्तिगत धन",
+          "reflection": "मिलान अक्सर वृद्धि में बाधा; दोनों तरफ उलझन।",
+          "isCorrect": false
+        },
+        {
+          "id": "simplicity",
+          "label": "सरल वित्त प्रबंधन",
+          "reflection": "मिलान जटिल बनाता है; सीमाएँ हट जाती हैं।",
+          "isCorrect": false
+        },
+        {
+          "id": "control",
+          "label": "सभी वित्त पर बेहतर नियंत्रण",
+          "reflection": "नियंत्रण अलगाव और सीमाओं से; मिलाने से खो जाता है।",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    }
+  ]
+}

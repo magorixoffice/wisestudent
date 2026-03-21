@@ -1,0 +1,176 @@
+{
+  "title": "What Is a Financial Shock?",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Financial Shock",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Financial Shock Recognition",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you identify potential financial shocks in your life?",
+    "What emergency fund size would be appropriate for your situation?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Scenario: Which is a financial shock?",
+      "options": [
+        {
+          "id": "planned",
+          "label": "Planned monthly rent",
+          "reflection": "Planned monthly rent is a predictable, regular expense that you budget for. It's not a financial shock since you know about it in advance and can prepare accordingly.",
+          "isCorrect": false
+        },
+        {
+          "id": "sudden",
+          "label": "Sudden medical expense",
+          "reflection": "Exactly! Sudden medical expenses are financial shocks because they're unexpected, urgent, and can be very expensive. They disrupt your normal financial planning.",
+          "isCorrect": true
+        },
+        {
+          "id": "budgeted",
+          "label": "Budgeted grocery shopping",
+          "reflection": "Budgeted grocery shopping is planned spending that you've accounted for in your budget. It's predictable and manageable, not a financial shock.",
+          "isCorrect": false
+        },
+        {
+          "id": "scheduled",
+          "label": "Scheduled car maintenance",
+          "reflection": "Scheduled car maintenance is planned and predictable. You can budget for it in advance, so it doesn't qualify as a financial shock.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 2,
+      "prompt": "What characterizes a financial shock?",
+      "options": [
+        {
+          "id": "unexpected",
+          "label": "Unexpected timing and cost",
+          "reflection": "Perfect! Financial shocks are characterized by their unexpected timing and often unexpected cost. They catch you off guard when you're not prepared for them.",
+          "isCorrect": true
+        },
+        {
+          "id": "planned",
+          "label": "Planned well in advance",
+          "reflection": "If something is planned well in advance, it's not a financial shock. The key characteristic of financial shocks is their unexpected nature.",
+          "isCorrect": false
+        },
+        {
+          "id": "small",
+          "label": "Always small in amount",
+          "reflection": "Financial shocks aren't always small. In fact, they can be quite large and devastating. The defining feature is unpredictability, not size.",
+          "isCorrect": false
+        },
+        {
+          "id": "frequent",
+          "label": "Happen frequently",
+          "reflection": "Financial shocks don't happen frequently by definition. If they happened often, they wouldn't be shocks - you'd expect them and plan for them.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 3,
+      "prompt": "How should you prepare for financial shocks?",
+      "options": [
+        {
+          "id": "ignore",
+          "label": "Ignore them and hope they don't happen",
+          "reflection": "Ignoring financial shocks and hoping they don't happen is not a strategy. It leaves you vulnerable and unprepared when emergencies do occur.",
+          "isCorrect": false
+        },
+        {
+          "id": "credit",
+          "label": "Rely on credit cards for all emergencies",
+          "reflection": "Relying on credit cards for emergencies creates debt that you'll have to pay back with interest. It's better to have savings to cover unexpected expenses.",
+          "isCorrect": false
+        },
+        {
+          "id": "spend",
+          "label": "Spend all your money to avoid having it stolen",
+          "reflection": "Spending all your money to avoid theft is not logical preparation for financial shocks. It actually makes you more vulnerable to financial emergencies.",
+          "isCorrect": false
+        },
+        {
+          "id": "emergency",
+          "label": "Build an emergency fund for unexpected expenses",
+          "reflection": "Excellent! Building an emergency fund is the best way to prepare for financial shocks. It provides a financial cushion when unexpected expenses arise.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 4,
+      "prompt": "What's a common example of a financial shock?",
+      "options": [
+        {
+          "id": "car",
+          "label": "Car accident requiring repairs",
+          "reflection": "Exactly! A car accident requiring repairs is a classic example of a financial shock. It's unexpected, urgent, and can be very expensive.",
+          "isCorrect": true
+        },
+        {
+          "id": "rent",
+          "label": "Monthly rent payment",
+          "reflection": "Monthly rent payment is a regular, predictable expense that you plan for. It's not a financial shock since you know about it in advance.",
+          "isCorrect": false
+        },
+        {
+          "id": "groceries",
+          "label": "Weekly grocery shopping",
+          "reflection": "Weekly grocery shopping is a regular expense that's part of normal budgeting. It's predictable and manageable, not a financial shock.",
+          "isCorrect": false
+        },
+        {
+          "id": "salary",
+          "label": "Regular salary deposit",
+          "reflection": "Regular salary deposits are predictable income, not financial shocks. They're expected and help you manage your regular expenses.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 5,
+      "prompt": "What's the impact of financial shocks?",
+      "options": [
+        {
+          "id": "helpful",
+          "label": "Helpful for building wealth",
+          "reflection": "Financial shocks are not helpful for building wealth. They typically cost money and can set back your financial progress rather than advance it.",
+          "isCorrect": false
+        },
+        {
+          "id": "predictable",
+          "label": "Easily predictable and planned for",
+          "reflection": "If financial shocks were easily predictable and planned for, they wouldn't be shocks. Their disruptive nature comes from their unpredictability.",
+          "isCorrect": false
+        },
+        {
+          "id": "disruptive",
+          "label": "Disruptive to normal financial planning",
+          "reflection": "Exactly! Financial shocks are disruptive to normal financial planning because they're unexpected and can derail your budget and financial goals.",
+          "isCorrect": true
+        },
+        {
+          "id": "beneficial",
+          "label": "Always beneficial in the long run",
+          "reflection": "Financial shocks are not always beneficial. While they can teach valuable lessons, they typically cause financial stress and hardship.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "title": "Supplier Credit Trap",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Supplier Credit",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Supplier Credit Risk Management",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you evaluate supplier credit offers objectively?",
+    "What safeguards should you put in place when accepting credit?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Scenario: Supplier offers unlimited credit. What's the risk?",
+      "options": [
+        {
+          "id": "none",
+          "label": "None",
+          "reflection": "There are always risks with unlimited credit. It can lead to overspending, dependency, and financial stress when repayment is due.",
+          "isCorrect": false
+        },
+        {
+          "id": "hidden",
+          "label": "Hidden pressure and repayment stress",
+          "reflection": "Exactly! Unlimited credit creates an illusion of financial freedom, but the hidden pressure builds until repayment time.",
+          "isCorrect": true
+        },
+        {
+          "id": "benefit",
+          "label": "It's a business benefit with no downside",
+          "reflection": "While supplier credit can be beneficial, unlimited credit without clear terms always carries risks. It's not a free benefit.",
+          "isCorrect": false
+        },
+        {
+          "id": "opportunity",
+          "label": "It's a great opportunity to grow the business",
+          "reflection": "While credit can support growth, unlimited credit without proper controls can lead to uncontrolled spending and financial problems.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 2,
+      "prompt": "What happens when you rely heavily on supplier credit?",
+      "options": [
+        {
+          "id": "dependency",
+          "label": "You become dependent on the supplier",
+          "reflection": "Correct! Heavy reliance on supplier credit creates dependency. You lose negotiating power and become vulnerable to supplier decisions.",
+          "isCorrect": true
+        },
+        {
+          "id": "freedom",
+          "label": "You gain complete financial freedom",
+          "reflection": "Relying on supplier credit actually reduces financial freedom by creating dependencies and obligations that limit your choices.",
+          "isCorrect": false
+        },
+        {
+          "id": "control",
+          "label": "You maintain full control over your business",
+          "reflection": "Actually, heavy reliance on supplier credit reduces your control. You become beholden to the supplier's terms and conditions.",
+          "isCorrect": false
+        },
+        {
+          "id": "growth",
+          "label": "Your business grows without any constraints",
+          "reflection": "While credit can support growth, unlimited credit often leads to uncontrolled spending that can harm rather than help business growth.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 3,
+      "prompt": "How should you manage supplier credit responsibly?",
+      "options": [
+        {
+          "id": "unlimited",
+          "label": "Use as much as the supplier offers",
+          "reflection": "Using unlimited credit without restraint leads to financial problems. It's important to set your own limits regardless of what's offered.",
+          "isCorrect": false
+        },
+        {
+          "id": "ignore",
+          "label": "Ignore the credit terms and spend freely",
+          "reflection": "Ignoring credit terms is dangerous. It leads to unexpected obligations and financial stress when repayment becomes due.",
+          "isCorrect": false
+        },
+        {
+          "id": "maximize",
+          "label": "Maximize usage to get the most value",
+          "reflection": "Maximizing credit usage often backfires. It creates unnecessary debt and financial pressure that can harm your business.",
+          "isCorrect": false
+        },
+        {
+          "id": "limits",
+          "label": "Set your own spending limits",
+          "reflection": "Perfect! Setting your own limits protects you from the temptation of unlimited credit and ensures responsible financial management.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 4,
+      "prompt": "What's a red flag with supplier credit offers?",
+      "options": [
+        {
+          "id": "interest",
+          "label": "Low or no interest rates",
+          "reflection": "While low interest rates seem attractive, they're not necessarily a red flag. The real danger is in unclear terms and conditions.",
+          "isCorrect": false
+        },
+        {
+          "id": "flexibility",
+          "label": "Flexible payment options",
+          "reflection": "Flexible payment options can be beneficial. The red flag is when terms are unclear, not when they're flexible.",
+          "isCorrect": false
+        },
+        {
+          "id": "terms",
+          "label": "Unclear repayment terms",
+          "reflection": "Exactly! Unclear terms are a major red flag. You should always understand exactly when and how much you'll need to repay.",
+          "isCorrect": true
+        },
+        {
+          "id": "trust",
+          "label": "Trusting the supplier completely",
+          "reflection": "Trusting your supplier is good, but blind trust without understanding terms is risky. Always read and understand the fine print.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 5,
+      "prompt": "What's the long-term impact of misusing supplier credit?",
+      "options": [
+        {
+          "id": "success",
+          "label": "Business success and growth",
+          "reflection": "Misusing supplier credit typically leads to financial problems, not success. It can create debt that hinders rather than helps growth.",
+          "isCorrect": false
+        },
+        {
+          "id": "debt",
+          "label": "Accumulated debt and financial stress",
+          "reflection": "Exactly! Misusing supplier credit quietly accumulates debt. The pressure builds until it becomes overwhelming and threatens business stability.",
+          "isCorrect": true
+        },
+        {
+          "id": "freedom",
+          "label": "Increased financial freedom",
+          "reflection": "Misusing credit actually reduces financial freedom by creating obligations and dependencies that limit your future choices.",
+          "isCorrect": false
+        },
+        {
+          "id": "opportunity",
+          "label": "More business opportunities",
+          "reflection": "While credit can enable opportunities, misusing it creates financial burdens that can prevent you from taking advantage of real opportunities.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    }
+  ]
+}

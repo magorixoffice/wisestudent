@@ -1,0 +1,176 @@
+{
+  "title": "Prepayment Awareness",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Loan Optimization",
+  "sectionHeaderRight": "Prepayment Benefits",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Strategic loan prepayment",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you calculate the interest savings from different prepayment amounts?",
+    "What factors should determine the optimal timing and amount for loan prepayments?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Paying extra towards loan early can:",
+      "options": [
+        {
+          "id": "reduce",
+          "label": "Reduce interest burden and shorten loan tenure",
+          "reflection": "Exactly! Early prepayment reduces the principal faster, which decreases the interest calculated on the remaining balance and shortens the overall loan period.",
+          "isCorrect": true
+        },
+        {
+          "id": "increase",
+          "label": "Increase loan cost due to processing fees",
+          "reflection": "Actually, while some loans may have prepayment penalties, the fundamental benefit of early payment is interest reduction that typically outweighs any processing costs.",
+          "isCorrect": false
+        },
+        {
+          "id": "extend",
+          "label": "Extend loan tenure by reducing monthly burden",
+          "reflection": "Early payments actually shorten, not extend, loan tenure. They reduce the principal faster, leading to less interest accumulation over time.",
+          "isCorrect": false
+        },
+        {
+          "id": "complicate",
+          "label": "Complicate loan management without benefits",
+          "reflection": "Strategic prepayment simplifies financial planning by reducing debt faster. While it requires coordination, the interest savings typically provide clear financial benefits.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 2,
+      "prompt": "What's the main benefit of loan prepayment?",
+      "options": [
+        {
+          "id": "flexibility",
+          "label": "Increased monthly payment flexibility",
+          "reflection": "Prepayment typically reduces, rather than increases, monthly flexibility since it requires additional funds. The main benefit is long-term cost reduction, not payment flexibility.",
+          "isCorrect": false
+        },
+        {
+          "id": "approval",
+          "label": "Better chances for future loan approvals",
+          "reflection": "While debt reduction can improve credit metrics, the direct benefit of prepayment is interest savings rather than improved approval odds for future borrowing.",
+          "isCorrect": false
+        },
+        {
+          "id": "tenure",
+          "label": "Extended loan tenure for easier management",
+          "reflection": "Prepayment shortens loan tenure by reducing the principal faster. Extended tenure would actually increase total interest costs rather than providing management benefits.",
+          "isCorrect": false
+        },
+        {
+          "id": "interest",
+          "label": "Significant interest savings over loan lifetime",
+          "reflection": "Correct! Prepaying reduces the principal balance faster, which dramatically decreases the total interest paid over the life of the loan.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 3,
+      "prompt": "When should you consider prepaying a loan?",
+      "options": [
+        {
+          "id": "extra",
+          "label": "When you have extra funds after meeting other obligations",
+          "reflection": "Perfect! Prepayment should come from surplus funds that don't compromise emergency savings, investments, or other essential financial commitments.",
+          "isCorrect": true
+        },
+        {
+          "id": "anytime",
+          "label": "Anytime you have spare cash available",
+          "reflection": "While having cash is necessary, timing matters. Prepayment should align with your overall financial strategy and not compromise more pressing financial needs or opportunities.",
+          "isCorrect": false
+        },
+        {
+          "id": "high",
+          "label": "When interest rates are historically high",
+          "reflection": "Interest rate environment affects investment decisions, but prepayment benefits are primarily about reducing your own debt burden regardless of broader rate trends.",
+          "isCorrect": false
+        },
+        {
+          "id": "urgent",
+          "label": "When facing urgent financial pressures",
+          "reflection": "Urgent pressures typically require addressing immediate needs first. Prepayment is a strategic decision that works best when financial stability is already established.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 4,
+      "prompt": "What should you check before making loan prepayments?",
+      "options": [
+        {
+          "id": "market",
+          "label": "Current market interest rate trends",
+          "reflection": "Market rates affect new borrowing decisions but don't directly impact the benefit calculation for existing loan prepayment, which focuses on reducing your current debt burden.",
+          "isCorrect": false
+        },
+        {
+          "id": "inflation",
+          "label": "Inflation rates and purchasing power changes",
+          "reflection": "Inflation considerations are important for long-term planning, but prepayment decisions should primarily focus on the direct interest savings and loan term reduction benefits.",
+          "isCorrect": false
+        },
+        {
+          "id": "penalties",
+          "label": "Prepayment penalties and processing charges",
+          "reflection": "Exactly! Many loans have prepayment penalties or fees that can reduce the net benefit. Checking terms ensures your prepayment strategy maximizes savings.",
+          "isCorrect": true
+        },
+        {
+          "id": "comparison",
+          "label": "Compare with alternative investment returns",
+          "reflection": "While comparing potential returns is wise, the guaranteed savings from prepayment (reduced interest) often beats speculative investment returns, especially for high-interest debt.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 5,
+      "prompt": "What's the golden rule for loan prepayment?",
+      "options": [
+        {
+          "id": "aggressive",
+          "label": "Aggressively prepay all available loans immediately",
+          "reflection": "Aggressive prepayment without strategic planning can compromise emergency preparedness and other financial goals. Balance is key for optimal long-term financial health.",
+          "isCorrect": false
+        },
+        {
+          "id": "strategic",
+          "label": "Make strategic prepayments when financially advantageous",
+          "reflection": "Perfect! Strategic prepayment considers your complete financial picture - ensuring emergency funds are intact, high-priority goals are funded, and the prepayment provides meaningful interest savings.",
+          "isCorrect": true
+        },
+        {
+          "id": "minimum",
+          "label": "Focus only on minimum required payments",
+          "reflection": "Minimum payments extend loan terms and total costs. Strategic additional payments when feasible provide significant long-term savings and debt reduction benefits.",
+          "isCorrect": false
+        },
+        {
+          "id": "opportunistic",
+          "label": "Prepay whenever extra money becomes available",
+          "reflection": "Opportunistic prepayment without considering overall financial priorities can disrupt emergency planning and other important financial objectives. Strategic timing is essential.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    }
+  ]
+}

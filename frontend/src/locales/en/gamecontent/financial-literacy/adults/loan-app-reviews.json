@@ -1,0 +1,176 @@
+{
+  "title": "Loan App Reviews",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "App Reviews",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Review analysis for financial safety",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you identify trustworthy reviews about loan apps?",
+    "What specific patterns should you look for when reading loan app reviews?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Why should you check reviews for a loan app?",
+      "options": [
+        {
+          "id": "entertainment",
+          "label": "For entertainment",
+          "reflection": "Reviews are not meant for entertainment. They provide important information about user experiences and potential risks with the loan app.",
+          "isCorrect": false
+        },
+        {
+          "id": "rating",
+          "label": "Just to check the rating number",
+          "reflection": "While ratings matter, reading the actual reviews gives you more detailed insights into user experiences and potential issues.",
+          "isCorrect": false
+        },
+        {
+          "id": "features",
+          "label": "To learn about app features only",
+          "reflection": "Reviews do share information about features, but more importantly, they reveal user complaints and risks that are crucial for your financial safety.",
+          "isCorrect": false
+        },
+        {
+          "id": "risks",
+          "label": "To identify user complaints and risks",
+          "reflection": "Exactly! Reviews help you understand potential problems and risks other users have experienced with the loan app.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 2,
+      "prompt": "What can past user experiences reveal about a loan app?",
+      "options": [
+        {
+          "id": "fun",
+          "label": "How entertaining the app is",
+          "reflection": "Loan apps should be evaluated based on safety and reliability, not entertainment value.",
+          "isCorrect": false
+        },
+        {
+          "id": "problems",
+          "label": "Hidden problems and red flags",
+          "reflection": "Correct! Past user experiences often reveal hidden problems that aren't apparent from the app's marketing materials.",
+          "isCorrect": true
+        },
+        {
+          "id": "design",
+          "label": "Only about the app's design",
+          "reflection": "While design is important, user experiences reveal much more significant information about potential risks and problems.",
+          "isCorrect": false
+        },
+        {
+          "id": "speed",
+          "label": "How fast the app works",
+          "reflection": "Speed is just one aspect. Reviews reveal more important information about hidden problems and risks.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 3,
+      "prompt": "Which type of review should you pay most attention to?",
+      "options": [
+        {
+          "id": "positive",
+          "label": "Only positive reviews",
+          "reflection": "Positive reviews are helpful, but they might not reveal potential problems or risks you should be aware of.",
+          "isCorrect": false
+        },
+        {
+          "id": "old",
+          "label": "Only older reviews",
+          "reflection": "Both old and recent reviews are important, but focusing on reviews that mention complaints and issues is most valuable for identifying risks.",
+          "isCorrect": false
+        },
+        {
+          "id": "complaints",
+          "label": "Reviews mentioning complaints and issues",
+          "reflection": "Right! Paying attention to complaints and issues helps you identify potential risks before using the app.",
+          "isCorrect": true
+        },
+        {
+          "id": "new",
+          "label": "Only newest reviews",
+          "reflection": "Recent reviews are important, but the key is to focus on reviews that mention complaints and issues, regardless of when they were posted.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 4,
+      "prompt": "What is the main benefit of reading multiple reviews?",
+      "options": [
+        {
+          "id": "time",
+          "label": "It wastes your time",
+          "reflection": "Actually, reading reviews saves you from potential financial problems by helping you avoid risky apps.",
+          "isCorrect": false
+        },
+        {
+          "id": "pattern",
+          "label": "Identifying patterns of user complaints",
+          "reflection": "Exactly! Looking for patterns in reviews helps you spot recurring issues and potential risks with the loan app.",
+          "isCorrect": true
+        },
+        {
+          "id": "rating",
+          "label": "Calculating average rating",
+          "reflection": "While calculating averages is helpful, the main benefit is identifying patterns of complaints and issues that could affect you.",
+          "isCorrect": false
+        },
+        {
+          "id": "writing",
+          "label": "Improving your writing skills",
+          "reflection": "Reading reviews is primarily about understanding potential risks, not improving writing skills.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 5,
+      "prompt": "How do past user experiences help you?",
+      "options": [
+        {
+          "id": "reveal",
+          "label": "Reveal hidden problems before you use the app",
+          "reflection": "Perfect! Past user experiences reveal hidden problems so you can make informed decisions before encountering them yourself.",
+          "isCorrect": true
+        },
+        {
+          "id": "guess",
+          "label": "Make better guesses about the app",
+          "reflection": "Reviews provide concrete information, not just material for guessing.",
+          "isCorrect": false
+        },
+        {
+          "id": "follow",
+          "label": "Follow others' decisions blindly",
+          "reflection": "Reviews should inform your decision-making, not encourage blind following of others' choices.",
+          "isCorrect": false
+        },
+        {
+          "id": "copy",
+          "label": "Copy others' borrowing strategies",
+          "reflection": "Reviews help you identify risks and problems, not copy others' strategies which may not be suitable for your situation.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    }
+  ]
+}

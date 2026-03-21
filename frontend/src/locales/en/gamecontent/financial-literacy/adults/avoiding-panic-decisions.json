@@ -1,0 +1,171 @@
+{
+  "title": "Avoiding Panic Decisions",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Panic Decisions",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Emergency Decision Management",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you create a personal emergency decision-making framework?",
+    "What specific steps will you take to stay calm during financial stress?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Scenario: Panic borrowing often leads to:",
+      "options": [
+        {
+          "id": "relief",
+          "label": "Quick relief",
+          "reflection": "Panic borrowing might seem to provide quick relief, but it's temporary and creates long-term problems. The initial relief is usually followed by mounting debt stress and financial pressure.",
+          "isCorrect": false
+        },
+        {
+          "id": "solution",
+          "label": "A permanent solution to financial problems",
+          "reflection": "Panic borrowing rarely provides a permanent solution to financial problems. It often creates new problems and can make the original situation worse due to accumulated debt and interest.",
+          "isCorrect": false
+        },
+        {
+          "id": "opportunity",
+          "label": "New financial opportunities",
+          "reflection": "Panic borrowing doesn't create new financial opportunities. Instead, it typically reduces your financial flexibility and can limit future opportunities due to debt obligations.",
+          "isCorrect": false
+        },
+        {
+          "id": "debt",
+          "label": "Long-term debt stress",
+          "reflection": "Exactly! Panic borrowing often leads to long-term debt stress because it creates obligations that compound financial problems rather than solving them sustainably.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "What's the main danger of panic financial decisions?",
+      "options": [
+        {
+          "id": "impulse",
+          "label": "Impulse decisions without proper consideration",
+          "reflection": "Perfect! The main danger of panic financial decisions is making impulse decisions without proper consideration. Panic clouds judgment and leads to choices that seem urgent but aren't well thought out.",
+          "isCorrect": true
+        },
+        {
+          "id": "speed",
+          "label": "Making decisions too quickly",
+          "reflection": "While making decisions quickly can be problematic, the core issue is the lack of proper consideration, not just the speed. Good decisions can be made quickly when they're well-considered.",
+          "isCorrect": false
+        },
+        {
+          "id": "confidence",
+          "label": "Having too much confidence in financial choices",
+          "reflection": "Panic decisions typically involve low confidence, not too much confidence. The problem is acting without sufficient knowledge or consideration, not overconfidence.",
+          "isCorrect": false
+        },
+        {
+          "id": "risk",
+          "label": "Taking calculated financial risks",
+          "reflection": "Calculated financial risks are different from panic decisions. Calculated risks involve analysis and planning, while panic decisions are made without proper risk assessment.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "How can you maintain calm during financial emergencies?",
+      "options": [
+        {
+          "id": "ignore",
+          "label": "Ignore the problem until it goes away",
+          "reflection": "Ignoring the problem until it goes away is dangerous and can make financial emergencies worse. Problems rarely resolve themselves and usually require active, thoughtful management.",
+          "isCorrect": false
+        },
+        {
+          "id": "panic",
+          "label": "React immediately with whatever solution comes to mind",
+          "reflection": "Reacting immediately with whatever solution comes to mind is exactly what leads to panic decisions. This approach bypasses careful consideration and often leads to poor financial choices.",
+          "isCorrect": false
+        },
+        {
+          "id": "spend",
+          "label": "Spend money to feel better about the situation",
+          "reflection": "Spending money to feel better about a financial situation is counterproductive and can make the emergency worse. It's important to address the root cause rather than seek temporary emotional relief.",
+          "isCorrect": false
+        },
+        {
+          "id": "breathe",
+          "label": "Take time to breathe and assess the situation",
+          "reflection": "Excellent! Taking time to breathe and assess the situation helps maintain calm during financial emergencies. This pause allows for better decision-making and prevents panic-driven choices.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "What's a warning sign of poor panic management?",
+      "options": [
+        {
+          "id": "plan",
+          "label": "Having a clear emergency financial plan",
+          "reflection": "Having a clear emergency financial plan is actually a sign of good preparation, not poor panic management. It shows you're ready to handle emergencies calmly and systematically.",
+          "isCorrect": false
+        },
+        {
+          "id": "resources",
+          "label": "Knowing your available financial resources",
+          "reflection": "Knowing your available financial resources is a positive indicator of good financial management, not a warning sign. It demonstrates preparedness and the ability to make informed decisions.",
+          "isCorrect": false
+        },
+        {
+          "id": "anxiety",
+          "label": "Feeling anxious about making financial decisions",
+          "reflection": "Exactly! Feeling anxious about making financial decisions during emergencies is a warning sign of poor panic management. Good preparation and calm decision-making should provide confidence, not anxiety.",
+          "isCorrect": true
+        },
+        {
+          "id": "pause",
+          "label": "Taking time to consider options before acting",
+          "reflection": "Taking time to consider options before acting is a sign of good decision-making, not poor panic management. It shows you're avoiding impulsive choices and thinking through your options carefully.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "What's the benefit of calm financial decision-making?",
+      "options": [
+        {
+          "id": "spending",
+          "label": "Allows more spending on immediate wants",
+          "reflection": "Calm financial decision-making is about protection and sustainability, not enabling more immediate spending. Its value is in making choices that preserve long-term financial security.",
+          "isCorrect": false
+        },
+        {
+          "id": "stability",
+          "label": "Protects long-term financial stability",
+          "reflection": "Exactly! Calm financial decision-making protects long-term financial stability by ensuring that emergency responses are thoughtful and sustainable, preventing decisions that could harm your future financial health.",
+          "isCorrect": true
+        },
+        {
+          "id": "risk",
+          "label": "Enables taking bigger financial risks",
+          "reflection": "Calm financial decision-making actually reduces the need to take big risks by providing a structured approach to handling emergencies. It's about minimizing risk, not increasing it.",
+          "isCorrect": false
+        },
+        {
+          "id": "avoidance",
+          "label": "Helps avoid all financial responsibilities",
+          "reflection": "Calm financial decision-making doesn't help you avoid responsibilities - it helps you handle them better. It's about managing obligations effectively, not avoiding them.",
+          "isCorrect": false
+        }
+      ]
+    }
+  ]
+}

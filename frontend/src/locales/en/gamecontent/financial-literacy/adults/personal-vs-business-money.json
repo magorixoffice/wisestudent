@@ -1,0 +1,176 @@
+{
+  "title": "Personal vs Business Money",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Money Management",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Business-personal finance separation",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you effectively separate personal and business finances in your own situation?",
+    "What steps should you take to implement clear financial separation for your business?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "You run a small shop. Which is safer?",
+      "options": [
+        {
+          "id": "one",
+          "label": "Using one account for everything",
+          "reflection": "Using one account creates confusion between personal and business expenses, making it difficult to track profitability and manage taxes effectively.",
+          "isCorrect": false
+        },
+        {
+          "id": "separate",
+          "label": "Separating personal and business money",
+          "reflection": "Exactly! Separating personal and business money improves clarity and control, making it easier to track expenses, profits, and tax obligations.",
+          "isCorrect": true
+        },
+        {
+          "id": "mixed",
+          "label": "Mixing personal and business money occasionally",
+          "reflection": "Even occasional mixing can lead to confusion and complications in tracking expenses and profits for your business.",
+          "isCorrect": false
+        },
+        {
+          "id": "business",
+          "label": "Using only business money for everything",
+          "reflection": "This approach would mean using business funds for personal expenses, which can create accounting issues and tax complications.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 2,
+      "prompt": "Why is separating personal and business money important?",
+      "options": [
+        {
+          "id": "complicated",
+          "label": "It makes finances more complicated",
+          "reflection": "Actually, separation simplifies financial tracking by clearly defining which expenses belong to the business and which are personal.",
+          "isCorrect": false
+        },
+        {
+          "id": "expensive",
+          "label": "It's expensive to maintain separate accounts",
+          "reflection": "While there may be some bank fees, the benefits of clear financial tracking far outweigh the costs of maintaining separate accounts.",
+          "isCorrect": false
+        },
+        {
+          "id": "clarity",
+          "label": "It provides clarity on business performance",
+          "reflection": "Correct! Separating funds helps you accurately track business profitability and make better financial decisions.",
+          "isCorrect": true
+        },
+        {
+          "id": "unnecessary",
+          "label": "It's unnecessary for small businesses",
+          "reflection": "Separation is important even for small businesses as it helps maintain clear financial records and makes tax preparation easier.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 3,
+      "prompt": "What happens when personal and business money are mixed?",
+      "options": [
+        {
+          "id": "organized",
+          "label": "It's easier to organize finances",
+          "reflection": "Actually, mixing personal and business money makes it difficult to distinguish between business and personal expenses, complicating financial management.",
+          "isCorrect": false
+        },
+        {
+          "id": "confusion",
+          "label": "It creates confusion in tracking business profits",
+          "reflection": "Right! When money is mixed, it becomes challenging to accurately determine your business's true profitability and financial health.",
+          "isCorrect": true
+        },
+        {
+          "id": "tax",
+          "label": "It simplifies tax filing",
+          "reflection": "Mixing funds actually complicates tax filing as you need to sort out which expenses were business-related and which were personal.",
+          "isCorrect": false
+        },
+        {
+          "id": "efficient",
+          "label": "It's more efficient for small businesses",
+          "reflection": "Though it might seem more efficient initially, mixing funds actually makes it harder to track business performance and manage expenses effectively.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 4,
+      "prompt": "How does separating personal and business money help with taxes?",
+      "options": [
+        {
+          "id": "organize",
+          "label": "It helps organize and track deductible expenses",
+          "reflection": "Exactly! Separate accounts make it easier to track business expenses that can be deducted from taxes, ensuring you don't miss any deductions.",
+          "isCorrect": true
+        },
+        {
+          "id": "increase",
+          "label": "It increases your tax burden",
+          "reflection": "Separating money doesn't increase taxes. In fact, it helps ensure you properly deduct business expenses, which can reduce taxable income.",
+          "isCorrect": false
+        },
+        {
+          "id": "avoid",
+          "label": "It helps avoid paying taxes",
+          "reflection": "Separating money doesn't help avoid taxes legally. It helps ensure proper reporting and claiming of legitimate business deductions.",
+          "isCorrect": false
+        },
+        {
+          "id": "complicate",
+          "label": "It complicates tax preparation",
+          "reflection": "Actually, separate accounts simplify tax preparation by clearly organizing business expenses and income, making it easier to prepare accurate returns.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 5,
+      "prompt": "What is the outcome of separating personal and business money?",
+      "options": [
+        {
+          "id": "chaos",
+          "label": "It creates more financial chaos",
+          "reflection": "Actually, separation brings clarity and control rather than chaos. It makes financial management more organized and transparent.",
+          "isCorrect": false
+        },
+        {
+          "id": "expenses",
+          "label": "It increases business expenses",
+          "reflection": "Separation doesn't increase expenses. It helps better track and manage expenses so you can control them more effectively.",
+          "isCorrect": false
+        },
+        {
+          "id": "profit",
+          "label": "It reduces business profit",
+          "reflection": "Separation doesn't reduce profit. It helps you see the true profit by clearly distinguishing between business and personal expenses.",
+          "isCorrect": false
+        },
+        {
+          "id": "control",
+          "label": "Separation improves clarity and control",
+          "reflection": "Perfect! Separating personal and business money improves clarity and control, enabling better financial decision-making and tracking.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 5
+    }
+  ]
+}

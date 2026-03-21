@@ -1,0 +1,176 @@
+{
+  "title": "Multiple Loans Risk",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "scenarioLabel": "Scenario",
+  "scenarioValue": "Multiple Loans",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Multi-loan risk assessment",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you assess whether you're taking on too much debt across multiple loans?",
+    "What warning signs indicate you're approaching your borrowing capacity limits?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Taking many loans at once leads to:",
+      "options": [
+        {
+          "id": "growth",
+          "label": "Faster growth and financial advancement",
+          "reflection": "While multiple loans might seem to accelerate goals, they actually create overwhelming repayment obligations that can derail financial progress.",
+          "isCorrect": false
+        },
+        {
+          "id": "opportunity",
+          "label": "More opportunities to invest and build wealth",
+          "reflection": "Multiple loans increase debt obligations rather than investment capacity. True wealth building requires managing existing debt first.",
+          "isCorrect": false
+        },
+        {
+          "id": "flexibility",
+          "label": "Greater financial flexibility and options",
+          "reflection": "Multiple loan payments actually reduce flexibility by committing large portions of your income to debt service rather than choices.",
+          "isCorrect": false
+        },
+        {
+          "id": "stress",
+          "label": "Higher repayment stress and financial burden",
+          "reflection": "Exactly! Multiple loans multiply your monthly obligations, creating stress and increasing the risk of default.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 2,
+      "prompt": "What's the main danger of loan stacking?",
+      "options": [
+        {
+          "id": "benefits",
+          "label": "Missing out on loan benefits and rewards",
+          "reflection": "The real danger isn't missed rewards - it's the overwhelming debt burden that makes meeting basic financial obligations difficult.",
+          "isCorrect": false
+        },
+        {
+          "id": "default",
+          "label": "Increased risk of default and credit damage",
+          "reflection": "Correct! Multiple loans increase the likelihood of missed payments, defaults, and serious damage to your credit score.",
+          "isCorrect": true
+        },
+        {
+          "id": "approval",
+          "label": "Difficulty getting future loan approvals",
+          "reflection": "While future approvals may be affected, the immediate danger is managing current obligations and avoiding default on existing loans.",
+          "isCorrect": false
+        },
+        {
+          "id": "tracking",
+          "label": "Harder to track all payment due dates",
+          "reflection": "Organization challenges are secondary concerns. The primary risk is the financial strain that makes timely payments nearly impossible.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 3,
+      "prompt": "How does multiple loan debt affect your financial health?",
+      "options": [
+        {
+          "id": "improves",
+          "label": "Improves your debt-to-income ratio",
+          "reflection": "Multiple loans actually worsen your debt-to-income ratio by increasing total debt obligations relative to your income.",
+          "isCorrect": false
+        },
+        {
+          "id": "neutral",
+          "label": "Has no significant impact on financial metrics",
+          "reflection": "Multiple loans significantly impact key financial ratios and create measurable stress on your ability to meet all financial obligations.",
+          "isCorrect": false
+        },
+        {
+          "id": "worsens",
+          "label": "Worsens your debt-to-income ratio and financial stability",
+          "reflection": "Perfect! More loans mean higher debt obligations relative to income, reducing financial stability and borrowing capacity.",
+          "isCorrect": true
+        },
+        {
+          "id": "temporarily",
+          "label": "Temporarily affects credit until loans are paid off",
+          "reflection": "The impact isn't temporary - multiple active loans continuously strain your finances and credit profile while outstanding.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 4,
+      "prompt": "What should you prioritize when considering multiple loans?",
+      "options": [
+        {
+          "id": "manageability",
+          "label": "Ensuring you can manage all payments comfortably",
+          "reflection": "Exactly! Financial health requires confirming you can handle total debt obligations without stress before taking on additional loans.",
+          "isCorrect": true
+        },
+        {
+          "id": "speed",
+          "label": "Getting funds quickly for immediate needs",
+          "reflection": "Speed shouldn't override financial responsibility. Prioritize your ability to manage existing obligations before taking on new debt.",
+          "isCorrect": false
+        },
+        {
+          "id": "interest",
+          "label": "Finding the lowest interest rates available",
+          "reflection": "While interest rates matter, they're secondary to whether you can actually afford the combined payments from all your loans.",
+          "isCorrect": false
+        },
+        {
+          "id": "convenience",
+          "label": "Choosing lenders with convenient payment options",
+          "reflection": "Convenience features don't address the fundamental challenge of managing multiple debt obligations simultaneously.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 5,
+      "prompt": "What's the golden rule for responsible borrowing with multiple needs?",
+      "options": [
+        {
+          "id": "consolidate",
+          "label": "Consolidate needs into one larger loan",
+          "reflection": "Consolidation can help, but the fundamental principle is limiting total debt to what you can comfortably repay, regardless of structure.",
+          "isCorrect": false
+        },
+        {
+          "id": "capacity",
+          "label": "Only borrow what fits your repayment capacity",
+          "reflection": "Perfect! This rule prevents over-leveraging and ensures you maintain financial stability while meeting all debt obligations.",
+          "isCorrect": true
+        },
+        {
+          "id": "timing",
+          "label": "Spread loans over time to reduce monthly impact",
+          "reflection": "Timing strategies don't eliminate the core issue - if total debt exceeds your repayment capacity, problems will eventually surface.",
+          "isCorrect": false
+        },
+        {
+          "id": "emergency",
+          "label": "Keep some loans for emergency backup funding",
+          "reflection": "Emergency funds should come from savings, not additional debt. Backup borrowing creates more financial risk, not security.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    }
+  ]
+}

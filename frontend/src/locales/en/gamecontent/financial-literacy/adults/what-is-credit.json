@@ -1,0 +1,176 @@
+{
+  "title": "What Is Credit?",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "scenarioLabel": "Scenario",
+  "scenarioValue": "Credit Basics",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Credit fundamentals",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can credit be used as a financial tool rather than a burden?",
+    "What steps can you take to build good credit habits?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Credit means:",
+      "options": [
+        {
+          "id": "free",
+          "label": "Free money",
+          "reflection": "Credit is not free money - it must be repaid with interest, making it costly if not managed properly.",
+          "isCorrect": false
+        },
+        {
+          "id": "borrowed",
+          "label": "Borrowed money that must be repaid",
+          "reflection": "Exactly! Credit is borrowed money that must be repaid, usually with interest charges.",
+          "isCorrect": true
+        },
+        {
+          "id": "gift",
+          "label": "A gift from the lender",
+          "reflection": "Credit is a loan that must be repaid, not a gift. Lenders expect repayment with interest.",
+          "isCorrect": false
+        },
+        {
+          "id": "investment",
+          "label": "An investment in your future",
+          "reflection": "While credit can enable investments, it's fundamentally borrowed money that requires repayment.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 2,
+      "prompt": "When is credit helpful?",
+      "options": [
+        {
+          "id": "anytime",
+          "label": "Anytime you want to buy something",
+          "reflection": "Using credit for unnecessary purchases can lead to debt problems and financial stress.",
+          "isCorrect": false
+        },
+        {
+          "id": "emergency",
+          "label": "Only during emergencies",
+          "reflection": "While emergencies may require credit, it's most helpful when you plan for repayment in advance.",
+          "isCorrect": false
+        },
+        {
+          "id": "luxury",
+          "label": "For luxury items you can't afford",
+          "reflection": "Using credit for unaffordable luxury items often leads to financial difficulties and debt.",
+          "isCorrect": false
+        },
+        {
+          "id": "planned",
+          "label": "When repayment is planned",
+          "reflection": "Exactly! Credit is helpful when you have a clear plan for repayment and can afford the payments.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 3,
+      "prompt": "What determines your creditworthiness?",
+      "options": [
+        {
+          "id": "income",
+          "label": "Your income level only",
+          "reflection": "While income matters, creditworthiness depends on multiple factors including payment history and debt levels.",
+          "isCorrect": false
+        },
+        {
+          "id": "assets",
+          "label": "Your physical assets only",
+          "reflection": "Assets are one factor, but creditworthiness is primarily determined by how you manage debt and make payments.",
+          "isCorrect": false
+        },
+        {
+          "id": "history",
+          "label": "Your payment history and debt management",
+          "reflection": "Exactly! Payment history, debt-to-income ratio, and responsible debt management determine creditworthiness.",
+          "isCorrect": true
+        },
+        {
+          "id": "age",
+          "label": "Your age and life stage",
+          "reflection": "Age alone doesn't determine creditworthiness - responsible financial behavior is what matters most.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 4,
+      "prompt": "What is interest on credit?",
+      "options": [
+        {
+          "id": "free",
+          "label": "Free service charge",
+          "reflection": "Interest is not free - it's the cost of borrowing money that you must pay to the lender.",
+          "isCorrect": false
+        },
+        {
+          "id": "cost",
+          "label": "The cost of borrowing money",
+          "reflection": "Exactly! Interest is the fee you pay for the privilege of borrowing money over time.",
+          "isCorrect": true
+        },
+        {
+          "id": "bonus",
+          "label": "Bonus money from the lender",
+          "reflection": "Interest is an expense for borrowers, not a bonus. It's the price of using borrowed funds.",
+          "isCorrect": false
+        },
+        {
+          "id": "discount",
+          "label": "Discount for early repayment",
+          "reflection": "Interest is the ongoing cost of borrowing, separate from any early repayment discounts or fees.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 5,
+      "prompt": "How does credit affect your financial future?",
+      "options": [
+        {
+          "id": "opportunity",
+          "label": "It can create opportunities when used wisely",
+          "reflection": "Exactly! Responsible credit use builds credit history and can enable important financial milestones.",
+          "isCorrect": true
+        },
+        {
+          "id": "negative",
+          "label": "It always creates financial problems",
+          "reflection": "When used responsibly, credit can build financial opportunities and improve your financial standing.",
+          "isCorrect": false
+        },
+        {
+          "id": "neutral",
+          "label": "It has no impact on your future",
+          "reflection": "Credit usage significantly impacts your financial future through credit scores and borrowing capacity.",
+          "isCorrect": false
+        },
+        {
+          "id": "automatic",
+          "label": "It automatically makes you wealthy",
+          "reflection": "Credit is a tool that requires responsible management - it doesn't automatically create wealth.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    }
+  ]
+}

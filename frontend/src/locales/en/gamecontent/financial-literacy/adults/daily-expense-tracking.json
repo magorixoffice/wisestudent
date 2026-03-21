@@ -1,0 +1,176 @@
+{
+  "title": "Daily Expense Tracking",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Expense Tracking",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Daily expense tracking mastery",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you implement daily expense tracking in your business?",
+    "What tools or methods work best for consistent daily expense recording?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "What habit improves business control?",
+      "options": [
+        {
+          "id": "memory",
+          "label": "Memory-based tracking",
+          "reflection": "Memory-based tracking is unreliable and can lead to missed expenses. It's difficult to remember all expenses accurately without proper records.",
+          "isCorrect": false
+        },
+        {
+          "id": "recording",
+          "label": "Daily expense recording",
+          "reflection": "Exactly! Recording expenses daily creates accurate records that help you identify patterns, control spending, and improve business management.",
+          "isCorrect": true
+        },
+        {
+          "id": "weekly",
+          "label": "Weekly summary of expenses",
+          "reflection": "While weekly tracking is better than monthly, daily tracking provides more accurate and timely information for better business control.",
+          "isCorrect": false
+        },
+        {
+          "id": "monthly",
+          "label": "Monthly reconciliation only",
+          "reflection": "Monthly tracking is too infrequent to provide timely insights for effective business control. Daily tracking is more effective.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 2,
+      "prompt": "Why is daily expense tracking important for business?",
+      "options": [
+        {
+          "id": "control",
+          "label": "It provides better control over spending",
+          "reflection": "Correct! Daily tracking gives you real-time visibility into your spending patterns, allowing for better control and decision-making.",
+          "isCorrect": true
+        },
+        {
+          "id": "time",
+          "label": "It saves time",
+          "reflection": "While tracking might seem time-consuming initially, it actually saves time in the long run by preventing financial issues and providing clear insights.",
+          "isCorrect": false
+        },
+        {
+          "id": "software",
+          "label": "It requires special software",
+          "reflection": "Daily tracking doesn't require special software. The key benefit is gaining insight into your spending patterns, not the tool used.",
+          "isCorrect": false
+        },
+        {
+          "id": "paperwork",
+          "label": "It reduces paperwork",
+          "reflection": "Daily tracking might increase some documentation, but the primary benefit is improved financial control and awareness.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 3,
+      "prompt": "What does daily expense tracking help you identify?",
+      "options": [
+        {
+          "id": "income",
+          "label": "Only your sources of income",
+          "reflection": "Daily tracking primarily focuses on expenses, helping you understand where money is going rather than just where it's coming from.",
+          "isCorrect": false
+        },
+        {
+          "id": "customers",
+          "label": "Customer preferences",
+          "reflection": "While customer preferences are important, daily expense tracking specifically helps you understand your spending patterns and financial outflows.",
+          "isCorrect": false
+        },
+        {
+          "id": "competitors",
+          "label": "Competitor pricing strategies",
+          "reflection": "Daily expense tracking helps you understand your own spending patterns, not competitor strategies.",
+          "isCorrect": false
+        },
+        {
+          "id": "patterns",
+          "label": "Spending patterns and unnecessary expenses",
+          "reflection": "Exactly! Daily tracking reveals spending patterns and highlights areas where you might be spending unnecessarily, helping you optimize expenses.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 4,
+      "prompt": "How does daily expense tracking improve business management?",
+      "options": [
+        {
+          "id": "hiding",
+          "label": "By hiding financial problems",
+          "reflection": "Daily tracking does the opposite - it reveals financial issues early so they can be addressed before becoming bigger problems.",
+          "isCorrect": false
+        },
+        {
+          "id": "increasing",
+          "label": "By increasing business expenses",
+          "reflection": "Daily tracking doesn't increase expenses. It helps identify where expenses can be optimized or reduced.",
+          "isCorrect": false
+        },
+        {
+          "id": "revealing",
+          "label": "By revealing financial leaks and trends",
+          "reflection": "Right! Daily tracking reveals financial leaks (unexpected expenses) and trends (patterns over time), enabling proactive management decisions.",
+          "isCorrect": true
+        },
+        {
+          "id": "complicating",
+          "label": "By making finances more complicated",
+          "reflection": "Actually, daily tracking simplifies financial management by providing clear visibility into where money is going.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 5,
+      "prompt": "What is the outcome of consistent daily expense tracking?",
+      "options": [
+        {
+          "id": "forgetfulness",
+          "label": "Increased forgetfulness about spending",
+          "reflection": "Consistent daily tracking does the opposite - it increases awareness and reduces forgetfulness about spending patterns.",
+          "isCorrect": false
+        },
+        {
+          "id": "records",
+          "label": "Records reveal leaks and trends",
+          "reflection": "Perfect! Consistent daily tracking creates records that reveal financial leaks and trends, leading to better financial control and decision-making.",
+          "isCorrect": true
+        },
+        {
+          "id": "inefficiency",
+          "label": "Greater business inefficiency",
+          "reflection": "Daily tracking increases efficiency by highlighting where money is being wasted, leading to better financial management.",
+          "isCorrect": false
+        },
+        {
+          "id": "stress",
+          "label": "More financial stress",
+          "reflection": "Actually, daily tracking reduces financial stress by providing clarity and control over expenses, helping prevent unexpected financial problems.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    }
+  ]
+}

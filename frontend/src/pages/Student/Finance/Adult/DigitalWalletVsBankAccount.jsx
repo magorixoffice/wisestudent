@@ -1,177 +1,20 @@
 import React, { useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Trophy } from "lucide-react";
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getGameDataById } from "../../../../utils/getGameData";
 
-const STAGES = [
-  {
-    id: 1,
-    prompt: "Which is better for long-term savings?",
-    options: [
-      {
-        id: "wallet",
-        label: "Digital wallet",
-        reflection: "Digital wallets are primarily designed for transactions and everyday spending, not for long-term savings.",
-        isCorrect: false,
-      },
-      
-      {
-        id: "same",
-        label: "Both are equally good for savings",
-        reflection: "Bank accounts typically offer better interest rates, security features, and regulatory protection for savings.",
-        isCorrect: false,
-      },
-      {
-        id: "neither",
-        label: "Neither is good for savings",
-        reflection: "Bank accounts are designed to safely store money and often provide interest, making them suitable for savings.",
-        isCorrect: false,
-      },
-      {
-        id: "bank",
-        label: "Bank account",
-        reflection: "Exactly! Bank accounts offer better security, interest, and protection for long-term savings.",
-        isCorrect: true,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 2,
-    prompt: "What is a key difference between digital wallets and bank accounts?",
-    options: [
-      {
-        id: "purpose",
-        label: "Wallets are for spending; banks are for storing money safely",
-        reflection: "Exactly! Digital wallets are designed for convenience in transactions, while banks focus on secure storage and growth of money.",
-        isCorrect: true,
-      },
-      {
-        id: "technology",
-        label: "Banks use older technology than wallets",
-        reflection: "Both use modern technology, but their primary purposes differ significantly.",
-        isCorrect: false,
-      },
-      {
-        id: "fees",
-        label: "Banks always charge higher fees than wallets",
-        reflection: "Fee structures vary, but the main difference lies in the primary purpose of each service.",
-        isCorrect: false,
-      },
-      {
-        id: "access",
-        label: "Banks are accessible 24/7 but wallets are not",
-        reflection: "Both digital wallets and online banking are typically accessible 24/7.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 3,
-    prompt: "Which typically offers better interest rates for savings?",
-    options: [
-      {
-        id: "wallets",
-        label: "Digital wallets",
-        reflection: "Digital wallets typically offer little to no interest on stored funds.",
-        isCorrect: false,
-      },
-      
-      {
-        id: "both",
-        label: "Both offer the same interest rates",
-        reflection: "Bank accounts typically offer significantly higher interest rates compared to digital wallets.",
-        isCorrect: false,
-      },
-      {
-        id: "none",
-        label: "Neither offers interest on savings",
-        reflection: "Bank accounts typically offer interest to promote savings, while wallets generally do not.",
-        isCorrect: false,
-      },
-      {
-        id: "banks",
-        label: "Bank accounts",
-        reflection: "Exactly! Bank accounts, especially savings accounts, typically offer interest on deposits to encourage saving.",
-        isCorrect: true,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 4,
-    prompt: "Which provides better regulatory protection for your money?",
-    options: [
-      {
-        id: "wallets",
-        label: "Digital wallets",
-        reflection: "While wallets have some protection, banks are subject to more comprehensive regulatory oversight.",
-        isCorrect: false,
-      },
-      
-      {
-        id: "same",
-        label: "Both have equal regulatory protection",
-        reflection: "Banks typically have more comprehensive regulatory protection than digital wallets.",
-        isCorrect: false,
-      },
-      {
-        id: "banks",
-        label: "Bank accounts",
-        reflection: "Exactly! Bank accounts are heavily regulated with deposit insurance and consumer protection laws.",
-        isCorrect: true,
-      },
-      {
-        id: "little",
-        label: "Neither provides regulatory protection",
-        reflection: "Bank accounts have substantial regulatory protection through deposit insurance and banking laws.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 5,
-    prompt: "For which purpose are digital wallets primarily designed?",
-    options: [
-      {
-        id: "saving",
-        label: "Long-term savings",
-        reflection: "Digital wallets are not primarily designed for savings but for convenient transactions.",
-        isCorrect: false,
-      },
-      {
-        id: "spending",
-        label: "Convenient day-to-day transactions",
-        reflection: "Exactly! Digital wallets are designed for quick, convenient payments and money transfers.",
-        isCorrect: true,
-      },
-      {
-        id: "investing",
-        label: "Investing money",
-        reflection: "While some wallets offer investment features, their primary purpose is transaction convenience.",
-        isCorrect: false,
-      },
-      {
-        id: "insurance",
-        label: "Providing financial insurance",
-        reflection: "Digital wallets are not primarily designed for insurance but for facilitating payments.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-];
-
-const totalStages = STAGES.length;
-const successThreshold = totalStages;
-
 const DigitalWalletVsBankAccount = () => {
   const location = useLocation();
+  const { t } = useTranslation("gamecontent");
   const gameId = "finance-adults-16";
+  const baseKey = "financial-literacy.adults.digital-wallet-vs-bank-account";
+  const gameContent = t(baseKey, { returnObjects: true });
+  const localizedStages = Array.isArray(gameContent?.stages) ? gameContent.stages : [];
+  const totalStages = localizedStages.length;
+  const successThreshold = totalStages;
   const gameData = getGameDataById(gameId);
   const coinsPerLevel = gameData?.coins || location.state?.coinsPerLevel || 5;
   const totalCoins = gameData?.coins || location.state?.totalCoins || 5;
@@ -189,20 +32,15 @@ const DigitalWalletVsBankAccount = () => {
   const [selectedReflection, setSelectedReflection] = useState(null);
   const [canProceed, setCanProceed] = useState(false);
 
-  const reflectionPrompts = useMemo(
-    () => [
-      "How do digital wallets and bank accounts serve different financial needs?",
-      "Why is it important to use the right tool for savings versus spending?",
-    ],
-    []
-  );
+  const reflectionPrompts = useMemo(() => gameContent?.reflectionPrompts || [], [gameContent]);
 
   const handleSelect = (option) => {
     if (selectedOption || showResult) return;
+    if (!localizedStages.length) return;
     resetFeedback();
     const updatedHistory = [
       ...history,
-      { stageId: STAGES[stageIndex].id, isCorrect: option.isCorrect },
+      { stageId: localizedStages[stageIndex].id, isCorrect: option.isCorrect },
     ];
     setHistory(updatedHistory);
     setSelectedOption(option.id);
@@ -245,13 +83,17 @@ const DigitalWalletVsBankAccount = () => {
     setShowResult(false);
   };
 
-  const subtitle = `Stage ${Math.min(stageIndex + 1, totalStages)} of ${totalStages}`;
-  const stage = STAGES[Math.min(stageIndex, totalStages - 1)];
+  const subtitle = t(`${baseKey}.subtitleProgress`, {
+    current: Math.min(stageIndex + 1, totalStages),
+    total: totalStages,
+    defaultValue: "Stage {{current}} of {{total}}",
+  });
+  const stage = localizedStages[Math.min(stageIndex, totalStages - 1)];
   const hasPassed = finalScore === successThreshold;
 
   return (
     <GameShell
-      title="Digital Wallet vs Bank Account"
+      title={gameContent?.title || "Digital Wallet vs Bank Account"}
       subtitle={subtitle}
       score={showResult ? finalScore : coins}
       coins={coins}
@@ -272,12 +114,12 @@ const DigitalWalletVsBankAccount = () => {
       <div className="space-y-5 text-white">
         <div className="bg-white/10 border border-white/20 rounded-3xl p-8 shadow-2xl max-w-4xl mx-auto">
           <div className="flex justify-between items-center mb-4 text-sm uppercase tracking-[0.3em] text-white/60">
-            <span>Comparison</span>
-            <span>Financial Tools</span>
+            <span>{t(`${baseKey}.scenarioLabel`, { defaultValue: "Scenario" })}</span>
+            <span>{t(`${baseKey}.scenarioValue`, { defaultValue: "Financial Tools" })}</span>
           </div>
           <p className="text-lg text-white/90 mb-6">{stage.prompt}</p>
           <div className="grid grid-cols-2 gap-4">
-            {stage.options.map((option) => {
+            {stage?.options?.map((option) => {
               const isSelected = selectedOption === option.id;
               return (
                 <button
@@ -293,7 +135,7 @@ const DigitalWalletVsBankAccount = () => {
                   }`}
                 >
                   <div className="text-sm text-white/70 mb-2">
-                    Choice {option.id.toUpperCase()}
+                    {t(`${baseKey}.choiceLabel`, { id: option.id, defaultValue: "Choice {{id}}" })}
                   </div>
                   <p className="text-white font-semibold">{option.label}</p>
                   
@@ -305,7 +147,7 @@ const DigitalWalletVsBankAccount = () => {
         </div>
         {(showResult || showFeedback) && (
           <div className="bg-white/5 border border-white/20 rounded-3xl p-6 shadow-xl max-w-4xl mx-auto space-y-3">
-            <h4 className="text-lg font-semibold text-white">Reflection</h4>
+            <h4 className="text-lg font-semibold text-white">{t(`${baseKey}.reflectionTitle`, { defaultValue: "Reflection" })}</h4>
             {selectedReflection && (
               <div className="max-h-24 overflow-y-auto pr-2">
                 <p className="text-sm text-white/90">{selectedReflection}</p>
@@ -326,10 +168,10 @@ const DigitalWalletVsBankAccount = () => {
                     }}
                     className="rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 px-6 font-semibold shadow-lg hover:opacity-90"
                   >
-                    Continue
+                    {t(`${baseKey}.continueButton`, { defaultValue: "Continue" })}
                   </button>
                 ) : (
-                  <div className="py-2 px-6 text-white font-semibold">Reading...</div>
+                  <div className="py-2 px-6 text-white font-semibold">{t(`${baseKey}.readingLabel`, { defaultValue: "Reading..." })}</div>
                 )}
               </div>
             )}
@@ -347,17 +189,12 @@ const DigitalWalletVsBankAccount = () => {
                   ))}
                 </ul>
                 <p className="text-sm text-white/70">
-                  {hasPassed ? (
-                    <>
-                      <strong>Congratulations!</strong> Wallets are for spending; banks are for storing money safely.
-                    </>
-                  ) : (
-                    <>Skill unlocked: <strong>Understanding of financial tools</strong></>
-                  )}
+                  {t(`${baseKey}.skillUnlockedLabel`, { defaultValue: "Skill unlocked:" })}{" "}
+                  <strong>{t(`${baseKey}.skillName`, { defaultValue: "Financial decision making" })}</strong>
                 </p>
                 {!hasPassed && (
                   <p className="text-xs text-amber-300">
-                    Answer every stage sharply to earn the full reward.
+                    {t(`${baseKey}.fullRewardHint`, { total: totalStages, defaultValue: "Answer all {{total}} choices correctly to earn the full reward." })}
                   </p>
                 )}
                 {!hasPassed && (
@@ -365,7 +202,7 @@ const DigitalWalletVsBankAccount = () => {
                     onClick={handleRetry}
                     className="w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 font-semibold shadow-lg hover:opacity-90"
                   >
-                    Try Again
+                    {t(`${baseKey}.tryAgainButton`, { defaultValue: "Try Again" })}
                   </button>
                 )}
               </>

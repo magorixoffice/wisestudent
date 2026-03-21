@@ -1,0 +1,176 @@
+{
+  "title": "Seasonal Income Planning",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Seasonal Income",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Seasonal Income Management",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you balance enjoying peak income while preparing for lean periods?",
+    "What strategies will you use to maintain financial stability throughout the year?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Scenario: Your income is seasonal. What helps?",
+      "options": [
+        {
+          "id": "spend",
+          "label": "Spending freely in peak months",
+          "reflection": "Spending freely during peak months can lead to financial stress during low-income periods. You'll struggle to meet your basic needs when income drops.",
+          "isCorrect": false
+        },
+        {
+          "id": "borrow",
+          "label": "Borrow money when income is low",
+          "reflection": "Relying on borrowing during low-income periods can lead to a debt trap. It's better to build a savings buffer beforehand.",
+          "isCorrect": false
+        },
+        {
+          "id": "save",
+          "label": "Saving for low-income periods",
+          "reflection": "Excellent! Saving during peak months provides a financial cushion that ensures stability during lean periods. This is the key to seasonal income management.",
+          "isCorrect": true
+        },
+        {
+          "id": "ignore",
+          "label": "Ignore the seasonal nature of income",
+          "reflection": "Ignoring the seasonal nature of your income leads to financial surprises and unpreparedness. Planning is essential for income stability.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 2,
+      "prompt": "How much of your peak income should you save for off-season?",
+      "options": [
+        {
+          "id": "none",
+          "label": "None, I'll earn when I work",
+          "reflection": "This approach leaves you vulnerable during off-seasons. Without savings, you'll face financial stress and may need to borrow.",
+          "isCorrect": false
+        },
+        {
+          "id": "half",
+          "label": "At least 50% for lean months",
+          "reflection": "Perfect! Saving at least half your peak income creates a solid buffer. This ensures you can maintain your lifestyle throughout the year.",
+          "isCorrect": true
+        },
+        {
+          "id": "quarter",
+          "label": "Just 25% for emergencies",
+          "reflection": "While 25% is a start, it may not be sufficient for extended low-income periods. Aim for a higher savings rate to ensure stability.",
+          "isCorrect": false
+        },
+        {
+          "id": "all",
+          "label": "Save everything, live minimally",
+          "reflection": "Saving everything can lead to burnout and reduced quality of life. Find a balance between saving and enjoying your peak income.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 3,
+      "prompt": "What's the best way to manage expenses during off-season?",
+      "options": [
+        {
+          "id": "adjust",
+          "label": "Adjust lifestyle to match income",
+          "reflection": "Excellent! Adjusting your lifestyle to match your current income prevents financial strain. This flexibility is key to seasonal income success.",
+          "isCorrect": true
+        },
+        {
+          "id": "same",
+          "label": "Keep spending the same as peak months",
+          "reflection": "Maintaining peak spending during low-income periods quickly depletes your savings. This approach is unsustainable and leads to financial stress.",
+          "isCorrect": false
+        },
+        {
+          "id": "credit",
+          "label": "Use credit cards to maintain lifestyle",
+          "reflection": "Using credit to maintain lifestyle during low-income periods creates debt that's hard to repay. It's better to adjust spending to match income.",
+          "isCorrect": false
+        },
+        {
+          "id": "panic",
+          "label": "Panic and spend irrationally",
+          "reflection": "Panic spending during financial stress makes the situation worse. Stay calm and plan your expenses based on available income.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 4,
+      "prompt": "When should you start planning for the off-season?",
+      "options": [
+        {
+          "id": "later",
+          "label": "When the busy season is over",
+          "reflection": "Waiting until the busy season is over is too late. By then, you've already spent much of your peak income, leaving little for savings.",
+          "isCorrect": false
+        },
+        {
+          "id": "middle",
+          "label": "Halfway through the busy season",
+          "reflection": "Starting halfway through the busy season gives you less time to build adequate savings. It's better to start planning as early as possible.",
+          "isCorrect": false
+        },
+        {
+          "id": "never",
+          "label": "Planning is unnecessary for seasonal work",
+          "reflection": "Without planning, seasonal income leads to financial instability. Planning is essential for managing the natural income fluctuations.",
+          "isCorrect": false
+        },
+        {
+          "id": "early",
+          "label": "Before the busy season starts",
+          "reflection": "Perfect! Planning before the busy season starts allows you to set aside money for lean periods. This proactive approach ensures financial stability.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 5,
+      "prompt": "What's the biggest benefit of seasonal income planning?",
+      "options": [
+        {
+          "id": "stress",
+          "label": "Reduced financial stress year-round",
+          "reflection": "Exactly! Proper planning eliminates the anxiety of not knowing how you'll pay bills during low-income periods. This peace of mind is invaluable.",
+          "isCorrect": true
+        },
+        {
+          "id": "spend",
+          "label": "Ability to spend more during peak times",
+          "reflection": "While planning helps you enjoy peak income, the real benefit is financial stability throughout the year, not just increased spending during busy periods.",
+          "isCorrect": false
+        },
+        {
+          "id": "work",
+          "label": "Freedom to take on more work",
+          "reflection": "Planning doesn't necessarily lead to more work. The main benefit is managing your existing income more effectively for year-round stability.",
+          "isCorrect": false
+        },
+        {
+          "id": "lucky",
+          "label": "Relying on luck to get through lean times",
+          "reflection": "Relying on luck is not a strategy. Proper planning creates predictable outcomes and financial security, regardless of external circumstances.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    }
+  ]
+}

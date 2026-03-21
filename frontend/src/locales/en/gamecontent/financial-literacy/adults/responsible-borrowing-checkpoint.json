@@ -1,0 +1,179 @@
+{
+  "title": "Responsible Borrowing Checkpoint",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Checkpoint",
+  "sectionHeaderRight": "Risk Assessment",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "",
+  "outcomeLabel": "Outcome:",
+  "outcomePassed": "You can now recognise and avoid harmful borrowing patterns.",
+  "outcomeFailed": "Review the scenarios to strengthen your borrowing decisions.",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you evaluate if a borrowing decision is truly necessary?",
+    "What steps should you take before agreeing to any loan?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "You are considering a loan for a luxury vacation. What is the most responsible approach?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Take the loan as vacations are important for mental health",
+          "reflection": "While vacations can be important, borrowing for luxury vacations is generally not financially responsible.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "Save up for the vacation instead of borrowing",
+          "reflection": "Correct! Saving for discretionary expenses like vacations is more financially responsible than borrowing.",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "label": "Take a loan but make it small",
+          "reflection": "Any loan for luxury expenses is unnecessary debt that creates interest obligations.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Borrow using a credit card instead of a loan",
+          "reflection": "Using credit cards for luxury expenses still creates unnecessary debt obligations.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 2,
+      "prompt": "You're experiencing temporary financial stress. What should you do before considering a loan?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Review your budget and cut non-essential expenses first",
+          "reflection": "Exactly! Before borrowing, examine your expenses and see if adjustments can solve the temporary stress.",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "label": "Immediately apply for multiple loans to cover expenses",
+          "reflection": "Applying for multiple loans during stress can lead to over-indebtedness and financial problems.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "Borrow from friends instead of formal lenders",
+          "reflection": "Borrowing from friends can strain relationships and doesn't solve the underlying financial issue.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Use all available credit lines immediately",
+          "reflection": "Using all credit lines can create dangerous over-leverage and doesn't address the root cause.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 3,
+      "prompt": "Your friend encourages you to take a loan for a business opportunity that seems lucrative. What do you do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Trust your friend and take the loan immediately",
+          "reflection": "Making financial decisions based solely on others' advice without your own analysis is risky.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "Take half the loan amount to minimize risk",
+          "reflection": "Even partial borrowing for unverified opportunities carries significant risk.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "Borrow more than suggested to maximize potential profits",
+          "reflection": "Increasing borrowed amounts amplifies potential losses if the opportunity doesn't work out.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Evaluate the business opportunity yourself before deciding",
+          "reflection": "Right! Evaluate any business opportunity based on your own analysis of risks and returns.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 4,
+      "prompt": "You qualify for a loan amount higher than what you need. What is the most responsible choice?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Take the full amount since you qualify",
+          "reflection": "Taking more than you need increases your debt burden unnecessarily and creates higher interest costs.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "Take slightly more to have a buffer",
+          "reflection": "Taking more than needed still creates unnecessary debt obligations, even with a buffer rationale.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "Take only the amount you actually need",
+          "reflection": "Perfect! Borrowing only what you need minimizes your debt obligation and interest costs.",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "label": "Negotiate to increase the approved amount",
+          "reflection": "Increasing approved amounts when you don't need them increases unnecessary debt obligations.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 5,
+      "prompt": "You're considering a loan with an EMI that takes up 60% of your income. What should you do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Take the loan as long as you can make the payments",
+          "reflection": "An EMI that takes 60% of income is extremely risky and leaves no room for other expenses or emergencies.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "Look for a loan with lower EMI or reconsider the need",
+          "reflection": "Correct! EMIs should ideally be below 30% of income to maintain financial stability.",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "label": "Take the loan but reduce other expenses drastically",
+          "reflection": "Reducing other expenses drastically to accommodate high EMIs is unsustainable and risky.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Take the loan and hope your income increases",
+          "reflection": "Relying on future income increases to service high EMIs is risky and can lead to financial stress.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    }
+  ]
+}

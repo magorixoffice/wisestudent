@@ -1,0 +1,171 @@
+{
+  "title": "Short-Term vs Long-Term Thinking",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Thinking Styles",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Long-Term Financial Planning",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you develop better long-term financial thinking habits?",
+    "What specific strategies will you implement to balance short-term needs with long-term goals?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Scenario: Which choice supports long-term stability?",
+      "options": [
+        {
+          "id": "today",
+          "label": "Solving only today's problem",
+          "reflection": "Solving only today's problem provides temporary relief but doesn't address underlying issues. This short-term approach often leads to the same problems recurring and creates long-term financial instability.",
+          "isCorrect": false
+        },
+        {
+          "id": "ignore",
+          "label": "Ignoring both current and future problems",
+          "reflection": "Ignoring both current and future problems leads to mounting issues and financial crisis. Neither short-term nor long-term thinking is beneficial when problems are completely ignored.",
+          "isCorrect": false
+        },
+        {
+          "id": "spend",
+          "label": "Spending all available resources immediately",
+          "reflection": "Spending all available resources immediately depletes your financial buffer and leaves you vulnerable to future emergencies. This approach undermines both short-term and long-term stability.",
+          "isCorrect": false
+        },
+        {
+          "id": "future",
+          "label": "Planning for future needs",
+          "reflection": "Exactly! Planning for future needs supports long-term stability by addressing root causes and preventing problems from recurring. This approach builds financial resilience over time.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "What's the main benefit of long-term financial thinking?",
+      "options": [
+        {
+          "id": "immediate",
+          "label": "Provides immediate gratification",
+          "reflection": "While long-term thinking might occasionally provide satisfaction from progress, its main benefit isn't immediate gratification. The value comes from sustained financial security and stability over time.",
+          "isCorrect": false
+        },
+        {
+          "id": "complexity",
+          "label": "Makes financial decisions more complex",
+          "reflection": "Long-term thinking can make some decisions more complex, but this isn't the main benefit. The complexity is a trade-off for better outcomes, not the primary advantage of long-term planning.",
+          "isCorrect": false
+        },
+        {
+          "id": "prevention",
+          "label": "Prevents problems from recurring",
+          "reflection": "Perfect! The main benefit of long-term financial thinking is preventing problems from recurring by addressing root causes and building sustainable financial habits and systems.",
+          "isCorrect": true
+        },
+        {
+          "id": "delay",
+          "label": "Delays all financial enjoyment indefinitely",
+          "reflection": "Long-term financial thinking doesn't delay all financial enjoyment indefinitely. It's about balancing current needs with future security, allowing for both responsible spending and sustainable planning.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "How should you balance short-term and long-term financial decisions?",
+      "options": [
+        {
+          "id": "balance",
+          "label": "Address immediate needs while building long-term foundations",
+          "reflection": "Excellent! The best approach is to address immediate needs while simultaneously building long-term foundations. This creates stability in both the present and future without neglecting either timeframe.",
+          "isCorrect": true
+        },
+        {
+          "id": "ignore",
+          "label": "Ignore short-term needs to focus completely on long-term goals",
+          "reflection": "Ignoring short-term needs to focus completely on long-term goals can lead to immediate financial crisis and stress. This imbalance often undermines long-term progress due to urgent short-term problems.",
+          "isCorrect": false
+        },
+        {
+          "id": "opposite",
+          "label": "Focus only on short-term needs and let long-term handle itself",
+          "reflection": "Focusing only on short-term needs while letting long-term handle itself often leads to repeated financial stress and missed opportunities for building wealth and security over time.",
+          "isCorrect": false
+        },
+        {
+          "id": "separate",
+          "label": "Keep short-term and long-term finances completely separate",
+          "reflection": "While it can be helpful to categorize finances, keeping short-term and long-term finances completely separate isn't practical. They're interconnected, and decisions in one area affect the other.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "What's a warning sign of poor long-term financial thinking?",
+      "options": [
+        {
+          "id": "plan",
+          "label": "Having detailed long-term financial plans",
+          "reflection": "Having detailed long-term financial plans is actually a sign of good long-term thinking, not poor thinking. It shows you're actively planning for future stability and growth.",
+          "isCorrect": false
+        },
+        {
+          "id": "savings",
+          "label": "Maintaining consistent long-term savings habits",
+          "reflection": "Maintaining consistent long-term savings habits is a positive indicator of good financial management, not a warning sign. It demonstrates commitment to future financial security.",
+          "isCorrect": false
+        },
+        {
+          "id": "review",
+          "label": "Regularly reviewing and adjusting financial strategies",
+          "reflection": "Regularly reviewing and adjusting financial strategies is a sign of good long-term thinking. It shows you're actively managing your financial future and adapting to changing circumstances.",
+          "isCorrect": false
+        },
+        {
+          "id": "repeat",
+          "label": "Repeatedly facing the same financial problems",
+          "reflection": "Exactly! Repeatedly facing the same financial problems is a clear warning sign of poor long-term financial thinking. It indicates that root causes aren't being addressed and sustainable solutions aren't being implemented.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "What's the outcome of consistently applying long-term financial thinking?",
+      "options": [
+        {
+          "id": "spending",
+          "label": "Ability to spend more freely on immediate wants",
+          "reflection": "While long-term financial thinking can eventually provide more financial freedom, its primary outcome isn't enabling more immediate spending. The focus is on stability and security, not increased consumption.",
+          "isCorrect": false
+        },
+        {
+          "id": "stability",
+          "label": "Reduced financial stress and increased stability",
+          "reflection": "Exactly! Consistently applying long-term financial thinking leads to reduced financial stress and increased stability by building resilient financial systems and addressing problems at their source rather than just treating symptoms.",
+          "isCorrect": true
+        },
+        {
+          "id": "complexity",
+          "label": "More complex financial decision-making processes",
+          "reflection": "While long-term thinking can add complexity to some decisions, this isn't the primary outcome. The goal is better financial outcomes, not necessarily more complex processes for their own sake.",
+          "isCorrect": false
+        },
+        {
+          "id": "avoidance",
+          "label": "Ability to avoid all financial responsibilities",
+          "reflection": "Long-term financial thinking doesn't help you avoid responsibilities - it helps you manage them better. It's about taking responsibility for your financial future in a sustainable way.",
+          "isCorrect": false
+        }
+      ]
+    }
+  ]
+}

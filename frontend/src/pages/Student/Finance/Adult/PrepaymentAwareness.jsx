@@ -1,182 +1,37 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import { Trophy } from "lucide-react";
+import { useTranslation } from "react-i18next";
+
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getGameDataById } from "../../../../utils/getGameData";
 
-const PREPAYMENT_AWARENESS_STAGES = [
-  {
-    id: 1,
-    prompt: "Paying extra towards loan early can:",
-    options: [
-      {
-        id: "reduce",
-        label: "Reduce interest burden and shorten loan tenure",
-        reflection: "Exactly! Early prepayment reduces the principal faster, which decreases the interest calculated on the remaining balance and shortens the overall loan period.",
-        isCorrect: true,
-      },
-      {
-        id: "increase",
-        label: "Increase loan cost due to processing fees",
-        reflection: "Actually, while some loans may have prepayment penalties, the fundamental benefit of early payment is interest reduction that typically outweighs any processing costs.",
-        isCorrect: false,
-      },
-      {
-        id: "extend",
-        label: "Extend loan tenure by reducing monthly burden",
-        reflection: "Early payments actually shorten, not extend, loan tenure. They reduce the principal faster, leading to less interest accumulation over time.",
-        isCorrect: false,
-      },
-      {
-        id: "complicate",
-        label: "Complicate loan management without benefits",
-        reflection: "Strategic prepayment simplifies financial planning by reducing debt faster. While it requires coordination, the interest savings typically provide clear financial benefits.",
-        isCorrect: false,
-      },
-    ],
-    reward: 10,
-  },
-  {
-    id: 2,
-    prompt: "What's the main benefit of loan prepayment?",
-    options: [
-     
-      {
-        id: "flexibility",
-        label: "Increased monthly payment flexibility",
-        reflection: "Prepayment typically reduces, rather than increases, monthly flexibility since it requires additional funds. The main benefit is long-term cost reduction, not payment flexibility.",
-        isCorrect: false,
-      },
-      {
-        id: "approval",
-        label: "Better chances for future loan approvals",
-        reflection: "While debt reduction can improve credit metrics, the direct benefit of prepayment is interest savings rather than improved approval odds for future borrowing.",
-        isCorrect: false,
-      },
-      {
-        id: "tenure",
-        label: "Extended loan tenure for easier management",
-        reflection: "Prepayment shortens loan tenure by reducing the principal faster. Extended tenure would actually increase total interest costs rather than providing management benefits.",
-        isCorrect: false,
-      },
-       {
-        id: "interest",
-        label: "Significant interest savings over loan lifetime",
-        reflection: "Correct! Prepaying reduces the principal balance faster, which dramatically decreases the total interest paid over the life of the loan.",
-        isCorrect: true,
-      },
-    ],
-    reward: 10,
-  },
-  {
-    id: 3,
-    prompt: "When should you consider prepaying a loan?",
-    options: [
-      {
-        id: "extra",
-        label: "When you have extra funds after meeting other obligations",
-        reflection: "Perfect! Prepayment should come from surplus funds that don't compromise emergency savings, investments, or other essential financial commitments.",
-        isCorrect: true,
-      },
-      {
-        id: "anytime",
-        label: "Anytime you have spare cash available",
-        reflection: "While having cash is necessary, timing matters. Prepayment should align with your overall financial strategy and not compromise more pressing financial needs or opportunities.",
-        isCorrect: false,
-      },
-      {
-        id: "high",
-        label: "When interest rates are historically high",
-        reflection: "Interest rate environment affects investment decisions, but prepayment benefits are primarily about reducing your own debt burden regardless of broader rate trends.",
-        isCorrect: false,
-      },
-      {
-        id: "urgent",
-        label: "When facing urgent financial pressures",
-        reflection: "Urgent pressures typically require addressing immediate needs first. Prepayment is a strategic decision that works best when financial stability is already established.",
-        isCorrect: false,
-      },
-    ],
-    reward: 10,
-  },
-  {
-    id: 4,
-    prompt: "What should you check before making loan prepayments?",
-    options: [
-     
-      {
-        id: "market",
-        label: "Current market interest rate trends",
-        reflection: "Market rates affect new borrowing decisions but don't directly impact the benefit calculation for existing loan prepayment, which focuses on reducing your current debt burden.",
-        isCorrect: false,
-      },
-      {
-        id: "inflation",
-        label: "Inflation rates and purchasing power changes",
-        reflection: "Inflation considerations are important for long-term planning, but prepayment decisions should primarily focus on the direct interest savings and loan term reduction benefits.",
-        isCorrect: false,
-      },
-       {
-        id: "penalties",
-        label: "Prepayment penalties and processing charges",
-        reflection: "Exactly! Many loans have prepayment penalties or fees that can reduce the net benefit. Checking terms ensures your prepayment strategy maximizes savings.",
-        isCorrect: true,
-      },
-      {
-        id: "comparison",
-        label: "Compare with alternative investment returns",
-        reflection: "While comparing potential returns is wise, the guaranteed savings from prepayment (reduced interest) often beats speculative investment returns, especially for high-interest debt.",
-        isCorrect: false,
-      },
-    ],
-    reward: 10,
-  },
-  {
-    id: 5,
-    prompt: "What's the golden rule for loan prepayment?",
-    options: [
-     
-      {
-        id: "aggressive",
-        label: "Aggressively prepay all available loans immediately",
-        reflection: "Aggressive prepayment without strategic planning can compromise emergency preparedness and other financial goals. Balance is key for optimal long-term financial health.",
-        isCorrect: false,
-      },
-       {
-        id: "strategic",
-        label: "Make strategic prepayments when financially advantageous",
-        reflection: "Perfect! Strategic prepayment considers your complete financial picture - ensuring emergency funds are intact, high-priority goals are funded, and the prepayment provides meaningful interest savings.",
-        isCorrect: true,
-      },
-      {
-        id: "minimum",
-        label: "Focus only on minimum required payments",
-        reflection: "Minimum payments extend loan terms and total costs. Strategic additional payments when feasible provide significant long-term savings and debt reduction benefits.",
-        isCorrect: false,
-      },
-      {
-        id: "opportunistic",
-        label: "Prepay whenever extra money becomes available",
-        reflection: "Opportunistic prepayment without considering overall financial priorities can disrupt emergency planning and other important financial objectives. Strategic timing is essential.",
-        isCorrect: false,
-      },
-    ],
-    reward: 10,
-  },
-];
-
-const totalStages = PREPAYMENT_AWARENESS_STAGES.length;
-const successThreshold = totalStages;
-
 const PrepaymentAwareness = () => {
   const location = useLocation();
+  const { t } = useTranslation("gamecontent");
+
   const gameId = "finance-adults-39";
+  const baseKey = "financial-literacy.adults.prepayment-awareness";
+  const gameContent = t(baseKey, { returnObjects: true });
+
+  const localizedStages = Array.isArray(gameContent?.stages)
+    ? gameContent.stages
+    : [];
+  const reflectionPrompts = Array.isArray(gameContent?.reflectionPrompts)
+    ? gameContent.reflectionPrompts
+    : [];
+
   const gameData = getGameDataById(gameId);
   const coinsPerLevel = gameData?.coins || location.state?.coinsPerLevel || 10;
   const totalCoins = gameData?.coins || location.state?.totalCoins || 10;
   const totalXp = gameData?.xp || location.state?.totalXp || 20;
-  const { flashPoints, showAnswerConfetti, showCorrectAnswerFeedback, resetFeedback } = useGameFeedback();
+
+  const {
+    flashPoints,
+    showAnswerConfetti,
+    showCorrectAnswerFeedback,
+    resetFeedback,
+  } = useGameFeedback();
 
   const [currentStage, setCurrentStage] = useState(0);
   const [coins, setCoins] = useState(0);
@@ -188,50 +43,85 @@ const PrepaymentAwareness = () => {
   const [selectedReflection, setSelectedReflection] = useState(null);
   const [canProceed, setCanProceed] = useState(false);
 
-  const reflectionPrompts = useMemo(
-    () => [
-      "How can you calculate the interest savings from different prepayment amounts?",
-      "What factors should determine the optimal timing and amount for loan prepayments?",
-    ],
-    []
-  );
+  const totalStages = localizedStages.length;
+  const successThreshold = totalStages;
+  if (!totalStages) return null;
+
+  const subtitle = t(`${baseKey}.subtitleProgress`, {
+    current: Math.min(currentStage + 1, totalStages),
+    total: totalStages,
+    defaultValue: "Stage {{current}} of {{total}}",
+  });
+
+  const stage = localizedStages[Math.min(currentStage, totalStages - 1)];
+  const hasPassed = finalScore === successThreshold;
+
+  const headerLeft = t(`${baseKey}.sectionHeaderLeft`, {
+    defaultValue: "Loan Optimization",
+  });
+  const headerRight = t(`${baseKey}.sectionHeaderRight`, {
+    defaultValue: "Prepayment Benefits",
+  });
+  const reflectionTitle = t(`${baseKey}.reflectionTitle`, {
+    defaultValue: "Reflection",
+  });
+  const continueButton = t(`${baseKey}.continueButton`, {
+    defaultValue: "Continue",
+  });
+  const readingLabel = t(`${baseKey}.readingLabel`, {
+    defaultValue: "Reading...",
+  });
+  const reflectionPromptsTitle = t(`${baseKey}.reflectionPromptsTitle`, {
+    defaultValue: "Reflection Prompts",
+  });
+  const skillUnlockedLabel = t(`${baseKey}.skillUnlockedLabel`, {
+    defaultValue: "Skill unlocked:",
+  });
+  const skillName = t(`${baseKey}.skillName`, { defaultValue: "" });
+  const fullRewardHint = t(`${baseKey}.fullRewardHint`, {
+    total: totalStages,
+    defaultValue: "Answer all {{total}} choices correctly to earn the full reward.",
+  });
+  const tryAgainButton = t(`${baseKey}.tryAgainButton`, {
+    defaultValue: "Try Again",
+  });
 
   const handleChoice = (option) => {
     if (selectedOption || showResult) return;
 
     resetFeedback();
-    const currentStageData = PREPAYMENT_AWARENESS_STAGES[currentStage];
+
+    const currentStageData = localizedStages[currentStage];
     const updatedHistory = [
       ...history,
       { stageId: currentStageData.id, isCorrect: option.isCorrect },
     ];
+
     setHistory(updatedHistory);
     setSelectedOption(option.id);
-    setSelectedReflection(option.reflection); // Set the reflection for the selected option
-    setShowFeedback(true); // Show feedback after selection
-    setCanProceed(false); // Disable proceeding initially
-    
-    // Update coins if the answer is correct
+    setSelectedReflection(option.reflection);
+    setShowFeedback(true);
+    setCanProceed(false);
+
     if (option.isCorrect) {
-      setCoins(prevCoins => prevCoins + 1);
+      setCoins((prevCoins) => prevCoins + 1);
     }
-    
-    // Wait for the reflection period before allowing to proceed
+
     setTimeout(() => {
-      setCanProceed(true); // Enable proceeding after showing reflection
-    }, 1500); // Wait 2.5 seconds before allowing to proceed
-    
-    // Handle the final stage separately
+      setCanProceed(true);
+    }, 1500);
+
     if (currentStage === totalStages - 1) {
       setTimeout(() => {
-        const correctCount = updatedHistory.filter((item) => item.isCorrect).length;
+        const correctCount = updatedHistory.filter((item) => item.isCorrect)
+          .length;
         const passed = correctCount === successThreshold;
         setFinalScore(correctCount);
-        setCoins(passed ? totalCoins : 0); // Set final coins based on performance
+        setCoins(passed ? totalCoins : 0);
         setShowResult(true);
-      }, 5500); // Wait longer before showing final results
+      }, 5500);
     }
-    
+
     if (option.isCorrect) {
       showCorrectAnswerFeedback(currentStageData.reward, true);
     } else {
@@ -242,29 +132,28 @@ const PrepaymentAwareness = () => {
   const handleRetry = () => {
     resetFeedback();
     setCurrentStage(0);
+    setCoins(0);
     setHistory([]);
     setSelectedOption(null);
-    setCoins(0);
+    setSelectedReflection(null);
+    setShowFeedback(false);
+    setCanProceed(false);
     setFinalScore(0);
     setShowResult(false);
   };
 
-  const subtitle = `Stage ${Math.min(currentStage + 1, totalStages)} of ${totalStages}`;
-  const stage = PREPAYMENT_AWARENESS_STAGES[Math.min(currentStage, totalStages - 1)];
-  const hasPassed = finalScore === successThreshold;
-
   return (
     <GameShell
-      title="Prepayment Awareness"
+      title={gameContent?.title || "Prepayment Awareness"}
       subtitle={subtitle}
       score={showResult ? finalScore : coins}
       coins={coins}
       coinsPerLevel={coinsPerLevel}
       totalCoins={totalCoins}
       totalXp={totalXp}
-      maxScore={PREPAYMENT_AWARENESS_STAGES.length}
-      currentLevel={Math.min(currentStage + 1, PREPAYMENT_AWARENESS_STAGES.length)}
-      totalLevels={PREPAYMENT_AWARENESS_STAGES.length}
+      maxScore={totalStages}
+      currentLevel={Math.min(currentStage + 1, totalStages)}
+      totalLevels={totalStages}
       gameId={gameId}
       gameType="finance"
       showGameOver={showResult}
@@ -276,10 +165,11 @@ const PrepaymentAwareness = () => {
       <div className="space-y-5 text-white">
         <div className="bg-white/10 border border-white/20 rounded-3xl p-8 shadow-2xl max-w-4xl mx-auto">
           <div className="flex justify-between items-center mb-4 text-sm uppercase tracking-[0.3em] text-white/60">
-            <span>Loan Optimization</span>
-            <span>Prepayment Benefits</span>
+            <span>{headerLeft}</span>
+            <span>{headerRight}</span>
           </div>
           <p className="text-lg text-white/90 mb-6">{stage.prompt}</p>
+
           <div className="grid grid-cols-2 gap-4">
             {stage.options.map((option) => {
               const isSelected = selectedOption === option.id;
@@ -288,31 +178,40 @@ const PrepaymentAwareness = () => {
                   key={option.id}
                   onClick={() => handleChoice(option)}
                   disabled={!!selectedOption}
-                  className={`rounded-2xl border-2 p-5 text-left transition ${isSelected
+                  className={`rounded-2xl border-2 p-5 text-left transition ${
+                    isSelected
                       ? option.isCorrect
                         ? "border-emerald-400 bg-emerald-500/20"
                         : "border-rose-400 bg-rose-500/10"
                       : "border-white/30 bg-white/5 hover:border-white/60 hover:bg-white/10"
-                    }`}
+                  }`}
                 >
                   <div className="flex justify-between items-center mb-2 text-sm text-white/70">
-                    <span>Choice {option.id.toUpperCase()}</span>
-                    
+                    <span>
+                      {t(`${baseKey}.choiceLabel`, {
+                        id: option.id.toUpperCase(),
+                        defaultValue: "Choice {{id}}",
+                      })}
+                    </span>
                   </div>
                   <p className="text-white font-semibold">{option.label}</p>
-                  
                 </button>
               );
             })}
           </div>
+
           {(showResult || showFeedback) && (
             <div className="bg-white/5 border border-white/20 rounded-3xl p-6 shadow-xl max-w-4xl mx-auto space-y-3">
-              <h4 className="text-lg font-semibold text-white">Reflection</h4>
+              <h4 className="text-lg font-semibold text-white">
+                {reflectionTitle}
+              </h4>
+
               {selectedReflection && (
                 <div className="max-h-24 overflow-y-auto pr-2">
                   <p className="text-sm text-white/90">{selectedReflection}</p>
                 </div>
               )}
+
               {showFeedback && !showResult && (
                 <div className="mt-4 flex justify-center">
                   {canProceed ? (
@@ -328,19 +227,20 @@ const PrepaymentAwareness = () => {
                       }}
                       className="rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 px-6 font-semibold shadow-lg hover:opacity-90"
                     >
-                      Continue
+                      {continueButton}
                     </button>
                   ) : (
-                    <div className="py-2 px-6 text-white font-semibold">Reading...</div>
+                    <div className="py-2 px-6 text-white font-semibold">
+                      {readingLabel}
+                    </div>
                   )}
                 </div>
               )}
-              {/* Automatically advance if we're in the last stage and the timeout has passed */}
-              {!showResult && currentStage === totalStages - 1 && canProceed && (
-                <div className="mt-4 flex justify-center">
-                  
-                </div>
-              )}
+
+              {!showResult &&
+                currentStage === totalStages - 1 &&
+                canProceed && <div className="mt-4 flex justify-center" />}
+
               {showResult && (
                 <>
                   <ul className="text-sm list-disc list-inside space-y-1">
@@ -348,57 +248,60 @@ const PrepaymentAwareness = () => {
                       <li key={prompt}>{prompt}</li>
                     ))}
                   </ul>
+
                   <p className="text-sm text-white/70">
-                    Skill unlocked: <strong>Strategic loan prepayment</strong>
+                    {skillUnlockedLabel} <strong>{skillName}</strong>
                   </p>
+
                   {!hasPassed && (
-                    <p className="text-xs text-amber-300">
-                      Answer all {totalStages} choices correctly to earn the full reward.
-                    </p>
+                    <p className="text-xs text-amber-300">{fullRewardHint}</p>
                   )}
+
                   {!hasPassed && (
                     <button
                       onClick={handleRetry}
                       className="w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 font-semibold shadow-lg hover:opacity-90"
                     >
-                      Try Again
+                      {tryAgainButton}
                     </button>
                   )}
                 </>
               )}
             </div>
           )}
-         
-        </div>
-        {showResult && (
-          <div className="bg-white/5 border border-white/20 rounded-3xl p-6 shadow-xl max-w-4xl mx-auto space-y-3">
-            <h4 className="text-lg font-semibold text-white">Reflection Prompts</h4>
-            <ul className="text-sm list-disc list-inside space-y-1">
-              {reflectionPrompts.map((prompt) => (
-                <li key={prompt}>{prompt}</li>
-              ))}
-            </ul>
-            <p className="text-sm text-white/70">
-              Skill unlocked: <strong>Strategic loan prepayment</strong>
-            </p>
-            {!hasPassed && (
-              <p className="text-xs text-amber-300">
-                Answer all {totalStages} choices correctly to earn the full reward.
+
+          {showResult && (
+            <div className="bg-white/5 border border-white/20 rounded-3xl p-6 shadow-xl max-w-4xl mx-auto space-y-3">
+              <h4 className="text-lg font-semibold text-white">
+                {reflectionPromptsTitle}
+              </h4>
+              <ul className="text-sm list-disc list-inside space-y-1">
+                {reflectionPrompts.map((prompt) => (
+                  <li key={prompt}>{prompt}</li>
+                ))}
+              </ul>
+
+              <p className="text-sm text-white/70">
+                {skillUnlockedLabel} <strong>{skillName}</strong>
               </p>
-            )}
-            {!hasPassed && (
-              <button
-                onClick={handleRetry}
-                className="w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 font-semibold shadow-lg hover:opacity-90"
-              >
-                Try Again
-              </button>
-            )}
-          </div>
-        )}
+
+              {!hasPassed && <p className="text-xs text-amber-300">{fullRewardHint}</p>}
+
+              {!hasPassed && (
+                <button
+                  onClick={handleRetry}
+                  className="w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 font-semibold shadow-lg hover:opacity-90"
+                >
+                  {tryAgainButton}
+                </button>
+              )}
+            </div>
+          )}
+        </div>
       </div>
     </GameShell>
   );
 };
 
 export default PrepaymentAwareness;
+

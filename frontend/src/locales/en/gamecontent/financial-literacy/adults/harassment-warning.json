@@ -1,0 +1,176 @@
+{
+  "title": "Harassment Warning",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Consumer Rights",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Harassment Response Awareness",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "What steps should you take if you experience harassment from lenders?",
+    "How can you protect your rights when facing loan-related harassment?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Scenario: What should you do if a lender threatens or harasses you? ",
+      "options": [
+        {
+          "id": "a",
+          "label": "Stay silent",
+          "reflection": "Staying silent allows harassment to continue and doesn't protect your rights or safety.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "Pay immediately to stop the harassment",
+          "reflection": "Paying under duress doesn't address the harassment and may encourage more aggressive tactics.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "Ignore the messages and hope it stops",
+          "reflection": "Ignoring harassment doesn't address the issue and allows it to potentially escalate.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Seek help and report",
+          "reflection": "Correct! Reporting harassment is important for stopping it and protecting your rights.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 2,
+      "prompt": "Why is it important to document harassment from lenders?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It helps improve the lender's customer service",
+          "reflection": "Documentation is for your protection, not to improve the lender's service.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "It speeds up the loan approval process",
+          "reflection": "Documenting harassment doesn't affect loan approval processes.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "Documentation provides evidence for legal action",
+          "reflection": "Exactly! Recording incidents helps authorities take appropriate action against offenders.",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "label": "It reduces the loan interest rate",
+          "reflection": "Interest rates aren't affected by documenting harassment incidents.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 3,
+      "prompt": "Who can you contact if a lender is harassing you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The lender's customer service department",
+          "reflection": "Reporting to the same organization that's harassing you is unlikely to resolve the issue.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "Financial regulators, consumer protection agencies, or law enforcement",
+          "reflection": "Yes! These organizations have authority to address lender misconduct and harassment.",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "label": "Social media influencers",
+          "reflection": "While raising awareness can be helpful, official authorities are the appropriate channels.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Other borrowers facing similar issues",
+          "reflection": "Connecting with others can provide support, but official channels are needed for resolution.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 4,
+      "prompt": "What is the best approach to dealing with loan-related harassment?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Report it immediately and seek professional help",
+          "reflection": "Perfect! Taking immediate action helps protect your rights and stops the harassment.",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "label": "Try to negotiate with the harassers directly",
+          "reflection": "Negotiating with those engaging in harassment is not advisable and may not stop it.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "Wait until the harassment gets worse before acting",
+          "reflection": "Waiting allows harassment to continue and potentially escalate unnecessarily.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Handle it privately to avoid embarrassment",
+          "reflection": "Harassment should be reported to authorities rather than handled privately.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 5,
+      "prompt": "What should you do if lenders contact your family or friends about your debt?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pay the debt immediately to stop the contact",
+          "reflection": "Paying under pressure doesn't address the illegal contact and may encourage more.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "Tell your family/friends not to answer calls",
+          "reflection": "While this might reduce contact, the harassment continues and should be reported.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "Change your phone number and ignore it",
+          "reflection": "Avoiding the issue doesn't address the illegal behavior; reporting is necessary.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Report the violation as this is often prohibited",
+          "reflection": "Correct! Contacting third parties about your debt is often illegal and should be reported.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 3
+    }
+  ]
+}

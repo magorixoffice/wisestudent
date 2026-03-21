@@ -1,0 +1,176 @@
+{
+  "title": "Emotional Borrowing",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Emotional Decisions",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Emotional Borrowing Awareness",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you recognize when emotions are influencing your financial decisions?",
+    "What strategies can help you make borrowing decisions when feeling stressed?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Scenario: Borrowing during emotional stress often leads to: ",
+      "options": [
+        {
+          "id": "a",
+          "label": "Good decisions",
+          "reflection": "Actually, emotional stress often clouds judgment and leads to poor financial decisions.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "No impact on decision quality",
+          "reflection": "Emotional stress significantly impacts decision-making quality, often leading to poor choices.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "Always beneficial outcomes",
+          "reflection": "Borrowing during emotional stress rarely leads to beneficial outcomes due to impaired judgment.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Regret later",
+          "reflection": "Correct! Borrowing during emotional stress often leads to decisions that are regretted later.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 2,
+      "prompt": "What is the best approach to making borrowing decisions during emotional stress?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Make the decision immediately while feeling motivated",
+          "reflection": "Making financial decisions during emotional stress often leads to regrettable choices.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "Ask someone else to make the decision for you",
+          "reflection": "While getting advice is helpful, the decision should still be made thoughtfully when calm.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "Postpone the decision until emotions settle",
+          "reflection": "Perfect! Waiting until you're calm helps ensure better financial decisions.",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "label": "Go with your gut feeling during stress",
+          "reflection": "Gut feelings during stress are often influenced by emotions rather than rational thinking.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 3,
+      "prompt": "How does emotional stress affect financial decision-making?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It improves decision-making by adding urgency",
+          "reflection": "While urgency might seem helpful, stress typically impairs judgment rather than improving it.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "It impairs judgment and leads to impulsive choices",
+          "reflection": "Yes! Emotional stress often causes people to make impulsive financial decisions without proper consideration.",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "label": "It has no effect on financial decisions",
+          "reflection": "Emotional stress significantly affects decision-making processes and financial judgment.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "It always leads to better financial choices",
+          "reflection": "Stress typically leads to poorer decision-making, not better financial choices.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 4,
+      "prompt": "What is the relationship between emotional state and borrowing decisions?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Calm decision-making leads to better outcomes",
+          "reflection": "Exactly! Making borrowing decisions when calm helps ensure they align with your financial goals.",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "label": "Emotional state doesn't matter for financial decisions",
+          "reflection": "Emotional state significantly influences financial decision-making and outcomes.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "Stressed decision-making is more honest",
+          "reflection": "While honesty is important, stress impairs the ability to make well-considered financial choices.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Emotions always improve financial judgment",
+          "reflection": "Emotions often cloud financial judgment rather than improving it.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 5,
+      "prompt": "What should you do if you feel emotional pressure to borrow money?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Borrow immediately to satisfy the emotional need",
+          "reflection": "Borrowing to satisfy emotional needs often leads to financial regret and stress.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "Ignore the emotional aspect and just calculate numbers",
+          "reflection": "While calculations are important, acknowledging emotions and making decisions when calm is better.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "Borrow more than needed to feel secure",
+          "reflection": "Borrowing more than needed during emotional stress is likely to create more financial insecurity.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Take time to cool down before deciding",
+          "reflection": "Excellent! Taking time to cool down helps ensure the decision is based on financial reality rather than emotion.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 3
+    }
+  ]
+}

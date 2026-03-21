@@ -1,0 +1,176 @@
+{
+  "title": "Credit Sales Risk",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Credit Sales",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Credit Sales Management",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you implement a simple credit sales tracking system?",
+    "What credit terms will you establish with customers?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Scenario: Giving goods on credit without records causes:",
+      "options": [
+        {
+          "id": "loyalty",
+          "label": "Customer loyalty",
+          "reflection": "While credit might seem to build customer loyalty, giving goods on credit without records actually creates financial problems and doesn't build sustainable loyalty.",
+          "isCorrect": false
+        },
+        {
+          "id": "trust",
+          "label": "Increased customer trust",
+          "reflection": "Professional credit management with proper records builds trust. Unrecorded credit sales create confusion and can actually damage customer relationships due to lack of clarity.",
+          "isCorrect": false
+        },
+        {
+          "id": "growth",
+          "label": "Business growth",
+          "reflection": "Unrecorded credit sales don't lead to sustainable growth. They create financial chaos that can harm your business's ability to operate effectively and plan for the future.",
+          "isCorrect": false
+        },
+        {
+          "id": "cashflow",
+          "label": "Cash flow problems",
+          "reflection": "Exactly! Giving goods on credit without records leads to cash flow problems because you don't know who owes what, when payments are due, or how much money you're actually owed.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 2,
+      "prompt": "What's the main risk of unrecorded credit sales?",
+      "options": [
+        {
+          "id": "customers",
+          "label": "Loss of customers",
+          "reflection": "Unrecorded credit sales don't necessarily cause loss of customers. The real problem is the financial management issues that arise from poor record-keeping.",
+          "isCorrect": false
+        },
+        {
+          "id": "competition",
+          "label": "Increased competition",
+          "reflection": "Unrecorded credit sales don't directly increase competition. The main issue is internal financial management and cash flow problems.",
+          "isCorrect": false
+        },
+        {
+          "id": "tracking",
+          "label": "Inability to track what's owed",
+          "reflection": "Perfect! The main risk is the inability to track what's owed, when it's due, and to whom. This leads to lost revenue and cash flow problems.",
+          "isCorrect": true
+        },
+        {
+          "id": "prices",
+          "label": "Need to raise prices",
+          "reflection": "While cash flow problems might eventually force price increases, the immediate and main risk is the inability to track and collect what's owed.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 3,
+      "prompt": "How should you manage credit sales properly?",
+      "options": [
+        {
+          "id": "memory",
+          "label": "Rely on memory to track credit sales",
+          "reflection": "Relying on memory is unreliable and leads to forgotten debts, double billing, and cash flow problems. Proper record-keeping is essential for business success.",
+          "isCorrect": false
+        },
+        {
+          "id": "records",
+          "label": "Keep detailed records of all credit transactions",
+          "reflection": "Excellent! Proper credit sales management requires detailed records of what was sold, to whom, when payment is due, and the payment status of each transaction.",
+          "isCorrect": true
+        },
+        {
+          "id": "trust",
+          "label": "Trust customers to pay without reminders",
+          "reflection": "While trust is important, even trusted customers sometimes need reminders. Proper records help you send appropriate follow-ups without being pushy.",
+          "isCorrect": false
+        },
+        {
+          "id": "avoid",
+          "label": "Avoid credit sales entirely",
+          "reflection": "Avoiding credit sales entirely might limit business opportunities. The solution is proper credit management with good record-keeping, not avoiding credit altogether.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 4,
+      "prompt": "What's a warning sign of poor credit sales management?",
+      "options": [
+        {
+          "id": "unknown",
+          "label": "Not knowing how much customers owe",
+          "reflection": "Exactly! Not knowing how much customers owe is a clear warning sign of poor credit sales management. It indicates inadequate record-keeping and potential cash flow problems.",
+          "isCorrect": true
+        },
+        {
+          "id": "records",
+          "label": "Having detailed payment records",
+          "reflection": "Having detailed payment records is actually a sign of good credit sales management, not poor management. It shows you're tracking what's owed properly.",
+          "isCorrect": false
+        },
+        {
+          "id": "followup",
+          "label": "Sending regular payment follow-ups",
+          "reflection": "Sending regular payment follow-ups is a good practice that indicates proper credit management. It's not a warning sign of poor management.",
+          "isCorrect": false
+        },
+        {
+          "id": "terms",
+          "label": "Clear credit terms with customers",
+          "reflection": "Having clear credit terms with customers is excellent practice and shows good credit management. It's not a warning sign but rather a best practice.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 5,
+      "prompt": "What's the long-term impact of proper credit sales management?",
+      "options": [
+        {
+          "id": "complexity",
+          "label": "Increased business complexity",
+          "reflection": "Proper credit sales management actually simplifies business operations by providing clear information about receivables, not by increasing complexity.",
+          "isCorrect": false
+        },
+        {
+          "id": "restrictions",
+          "label": "More restrictions on customer relationships",
+          "reflection": "Good credit management enhances customer relationships by providing clarity and professionalism, rather than creating restrictions.",
+          "isCorrect": false
+        },
+        {
+          "id": "costs",
+          "label": "Higher administrative costs",
+          "reflection": "While there may be some administrative costs, the benefits of proper credit management (better cash flow, reduced bad debt) far outweigh the costs of implementation.",
+          "isCorrect": false
+        },
+        {
+          "id": "stability",
+          "label": "Improved cash flow and business stability",
+          "reflection": "Exactly! Proper credit sales management leads to predictable cash flow, better financial planning, and overall business stability through organized receivables management.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 4
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "title": "Repayment Readiness Checkpoint",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Loan Preparedness",
+  "sectionHeaderRight": "Repayment Mastery",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Loan repayment proficiency",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you calculate the true total cost of a loan before borrowing?",
+    "What emergency planning should accompany loan repayment commitments?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Before taking a loan, you should:",
+      "options": [
+        {
+          "id": "focus",
+          "label": "Focus only on the monthly EMI amount",
+          "reflection": "Actually, EMI-only focus can be misleading. Total loan cost assessment requires examining all fees, charges, and the complete interest burden over the loan term, not just monthly payments.",
+          "isCorrect": false
+        },
+        {
+          "id": "compare",
+          "label": "Compare only interest rates between lenders",
+          "reflection": "While interest rate comparison is important, total cost evaluation requires examining all applicable fees, charges, penalty structures, and terms that significantly impact the overall borrowing expense.",
+          "isCorrect": false
+        },
+        {
+          "id": "assume",
+          "label": "Assume you'll earn more to handle higher payments",
+          "reflection": "Assumptions about future income are risky financial planning. Proper loan evaluation requires basing decisions on current financial capacity and realistic repayment scenarios rather than optimistic projections.",
+          "isCorrect": false
+        },
+        {
+          "id": "calculate",
+          "label": "Calculate total cost including interest and all fees",
+          "reflection": "Exactly! Understanding the complete financial obligation including principal, interest, processing fees, and other charges ensures you can make informed borrowing decisions and realistic repayment plans.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 2,
+      "prompt": "Which EMI payment strategy is most financially responsible?",
+      "options": [
+        {
+          "id": "timely",
+          "label": "Pay on or before due date consistently",
+          "reflection": "Correct! Timely payments protect your credit history, avoid penalties, and demonstrate financial reliability. Payment consistency is fundamental to successful loan management and future borrowing capacity.",
+          "isCorrect": true
+        },
+        {
+          "id": "whenever",
+          "label": "Pay whenever you have spare cash available",
+          "reflection": "Irregular payment timing creates risk of missed due dates, late fees, and credit damage. Systematic, scheduled payments provide reliability and protect your financial standing consistently.",
+          "isCorrect": false
+        },
+        {
+          "id": "minimum",
+          "label": "Pay minimum amounts to preserve cash flow",
+          "reflection": "Minimum payments prevent default but don't protect credit scores and can lead to accumulating interest. Responsible strategy involves complete, timely payment fulfillment for optimal financial outcomes.",
+          "isCorrect": false
+        },
+        {
+          "id": "extra",
+          "label": "Pay extra only when you feel wealthy",
+          "reflection": "Extra payments are beneficial for interest reduction, but the foundation of responsible loan management is consistent, complete payment fulfillment rather than sporadic additional contributions.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 3,
+      "prompt": "If facing temporary income reduction, the best approach is:",
+      "options": [
+        {
+          "id": "ignore",
+          "label": "Ignore the situation and hope it resolves itself",
+          "reflection": "Ignoring payment obligations leads to missed payments, penalties, credit damage, and potential legal action. Proactive communication with documented financial hardship is essential for finding sustainable solutions.",
+          "isCorrect": false
+        },
+        {
+          "id": "borrow",
+          "label": "Take another loan to cover existing loan payments",
+          "reflection": "Debt cycling creates increasingly dangerous financial situations. The solution is communicating with current lenders for structured relief rather than adding more debt burden to solve payment difficulties.",
+          "isCorrect": false
+        },
+        {
+          "id": "communicate",
+          "label": "Contact lender early to discuss restructuring options",
+          "reflection": "Perfect! Early communication prevents defaults and opens doors to payment holidays, EMI reductions, or tenure extensions that provide breathing room during financial hardship while protecting your credit standing.",
+          "isCorrect": true
+        },
+        {
+          "id": "delay",
+          "label": "Delay payments until income naturally improves",
+          "reflection": "Unilateral payment delays without lender agreement create missed payment reporting and credit damage. Formal restructuring requires proactive communication and documented arrangements for sustainable solutions.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 4,
+      "prompt": "What indicates you're ready for loan repayment responsibility?",
+      "options": [
+        {
+          "id": "desire",
+          "label": "Strong desire to own the financed item immediately",
+          "reflection": "Desire alone doesn't create repayment capability. Loan readiness requires financial capacity assessment including stable income, expense management, and emergency preparedness rather than emotional purchasing motivations.",
+          "isCorrect": false
+        },
+        {
+          "id": "stable",
+          "label": "Stable income covering EMI plus emergency buffer",
+          "reflection": "Exactly! Repayment readiness requires consistent income that comfortably covers loan payments while maintaining adequate emergency funds for unexpected expenses, ensuring financial stability during the loan term.",
+          "isCorrect": true
+        },
+        {
+          "id": "approval",
+          "label": "Getting loan approval from multiple lenders",
+          "reflection": "Approval indicates borrowing capacity but doesn't guarantee repayment readiness. True readiness requires stable income, expense management skills, and emergency financial planning for sustainable loan fulfillment.",
+          "isCorrect": false
+        },
+        {
+          "id": "pressure",
+          "label": "Social pressure or peer influence to borrow",
+          "reflection": "External pressure creates poor financial decisions. Loan readiness should be based on personal financial capacity, realistic repayment planning, and genuine need rather than social influences or comparison shopping.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 5,
+      "prompt": "What's the golden rule for successful loan repayment?",
+      "options": [
+        {
+          "id": "affordability",
+          "label": "Borrow only what you can comfortably repay",
+          "reflection": "Perfect! The fundamental principle is matching loan amounts to your repayment capacity with adequate income stability and emergency preparedness, ensuring sustainable financial obligations without compromising other essential needs.",
+          "isCorrect": true
+        },
+        {
+          "id": "maximum",
+          "label": "Borrow maximum amount lenders will approve",
+          "reflection": "Maximum borrowing based on approval limits often exceeds comfortable repayment capacity. Successful loan management requires conservative borrowing within your actual financial means rather than maximum approved amounts.",
+          "isCorrect": false
+        },
+        {
+          "id": "flexible",
+          "label": "Choose loans with the most flexible terms",
+          "reflection": "Flexibility considerations are secondary to fundamental affordability. The key to successful repayment is borrowing within your means and maintaining consistent payment discipline rather than seeking flexible terms that may not address core capacity issues.",
+          "isCorrect": false
+        },
+        {
+          "id": "quick",
+          "label": "Select loans with fastest approval and disbursement",
+          "reflection": "Speed shouldn't override careful financial evaluation. Proper loan readiness involves thorough cost assessment, term analysis, and capacity verification rather than prioritizing quick access over sustainable repayment planning.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    }
+  ]
+}

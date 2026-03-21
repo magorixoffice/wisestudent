@@ -1,0 +1,176 @@
+{
+  "title": "EMI Meaning",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "EMI Basics",
+  "sectionHeaderRight": "Repayment Structure",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "EMI calculation and management",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you calculate if an EMI fits within your monthly budget before taking a loan?",
+    "What factors should you consider when choosing between different EMI options for the same loan amount?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "EMI stands for:",
+      "options": [
+        {
+          "id": "instalment",
+          "label": "Equated Monthly Instalment",
+          "reflection": "Exactly! EMI is the fixed amount you pay each month to gradually repay your loan principal plus accumulated interest over the loan term.",
+          "isCorrect": true
+        },
+        {
+          "id": "income",
+          "label": "Easy Monthly Income",
+          "reflection": "Actually, EMI refers to loan repayment, not income generation. It's about systematically paying back borrowed money in manageable monthly amounts.",
+          "isCorrect": false
+        },
+        {
+          "id": "investment",
+          "label": "Monthly Investment Option",
+          "reflection": "EMI is about debt repayment, not investment. While some loans fund investments, EMI specifically refers to the structured repayment mechanism.",
+          "isCorrect": false
+        },
+        {
+          "id": "insurance",
+          "label": "Emergency Money Insurance",
+          "reflection": "EMI relates to loan repayment schedules, not insurance products. It's a systematic approach to paying back borrowed funds over time.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 2,
+      "prompt": "What's the main purpose of EMI structure?",
+      "options": [
+        {
+          "id": "flexibility",
+          "label": "To provide payment flexibility for borrowers",
+          "reflection": "While EMIs offer predictability, the primary purpose is dividing large loan amounts into manageable, scheduled payments over time.",
+          "isCorrect": false
+        },
+        {
+          "id": "division",
+          "label": "To divide large loan repayment into monthly amounts",
+          "reflection": "Correct! EMIs break down substantial loan obligations into regular, predictable monthly payments that fit within borrowers' budget constraints.",
+          "isCorrect": true
+        },
+        {
+          "id": "profit",
+          "label": "To maximize lender profits from borrowers",
+          "reflection": "Profit maximization isn't the purpose - EMIs serve to make large loan repayments affordable and predictable for both parties involved.",
+          "isCorrect": false
+        },
+        {
+          "id": "convenience",
+          "label": "To make borrowing more convenient for consumers",
+          "reflection": "Convenience is a benefit, but the core purpose is structuring loan repayment into systematic, manageable monthly installments over the loan term.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 3,
+      "prompt": "How is EMI amount calculated?",
+      "options": [
+        {
+          "id": "simple",
+          "label": "Principal divided by number of months",
+          "reflection": "Simple division doesn't account for interest charges. EMI calculations include both principal repayment and accumulated interest over the loan period.",
+          "isCorrect": false
+        },
+        {
+          "id": "negotiation",
+          "label": "Through negotiation between borrower and lender",
+          "reflection": "While terms can be negotiated, EMI amounts are calculated using standardized formulas that factor in principal, interest rate, and loan duration.",
+          "isCorrect": false
+        },
+        {
+          "id": "formula",
+          "label": "Using a formula that includes principal, interest, and tenure",
+          "reflection": "Perfect! EMI uses a mathematical formula incorporating loan amount, interest rate, and repayment period to determine the fixed monthly payment.",
+          "isCorrect": true
+        },
+        {
+          "id": "standard",
+          "label": "Based on industry standard percentages",
+          "reflection": "Industry benchmarks provide guidance, but actual EMI calculations use precise mathematical formulas specific to each loan's principal, rate, and term.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 4,
+      "prompt": "What happens to EMI payments over time?",
+      "options": [
+        {
+          "id": "decreasing",
+          "label": "The payment amount decreases each month",
+          "reflection": "EMI payments remain constant throughout the loan term. What changes is the principal-interest ratio within each payment.",
+          "isCorrect": false
+        },
+        {
+          "id": "increasing",
+          "label": "Payments increase as loan balance decreases",
+          "reflection": "This would be counterproductive - EMIs provide predictability by keeping payments constant while the underlying principal-interest mix evolves.",
+          "isCorrect": false
+        },
+        {
+          "id": "variable",
+          "label": "Amount varies based on monthly income fluctuations",
+          "reflection": "EMI structure provides stability with fixed payments. Variable payments would defeat the purpose of predictable, scheduled loan repayment.",
+          "isCorrect": false
+        },
+        {
+          "id": "constant",
+          "label": "The amount stays the same, but composition changes",
+          "reflection": "Exactly! While your EMI amount remains fixed, early payments are mostly interest with small principal portions, gradually shifting toward more principal over time.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 5,
+      "prompt": "What's the golden rule for EMI management?",
+      "options": [
+        {
+          "id": "affordable",
+          "label": "Select an EMI that fits comfortably in your monthly budget",
+          "reflection": "Perfect! The ideal EMI allows consistent, stress-free payments while maintaining your financial stability and other important financial commitments.",
+          "isCorrect": true
+        },
+        {
+          "id": "maximum",
+          "label": "Choose the highest EMI you can afford for faster repayment",
+          "reflection": "While higher EMIs reduce total interest, the key is selecting an EMI that fits comfortably within your budget without causing financial stress.",
+          "isCorrect": false
+        },
+        {
+          "id": "minimum",
+          "label": "Always choose the minimum EMI to preserve cash flow",
+          "reflection": "Minimum EMIs extend loan terms and increase total interest costs. Balance affordability with reasonable repayment timelines for optimal financial health.",
+          "isCorrect": false
+        },
+        {
+          "id": "flexible",
+          "label": "Opt for flexible EMI options that can be adjusted monthly",
+          "reflection": "Flexibility sounds appealing, but consistent, predictable EMIs provide better financial planning and often more favorable interest terms.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    }
+  ]
+}

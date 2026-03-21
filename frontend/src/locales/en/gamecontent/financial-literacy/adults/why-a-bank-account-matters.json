@@ -1,0 +1,176 @@
+{
+  "title": "Why a Bank Account Matters",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "scenarioLabel": "Scenario",
+  "scenarioValue": "Financial Literacy",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Understanding of banking security",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How do bank accounts protect money from theft or loss?",
+    "What formal financial services become accessible through banking?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "You receive income regularly. Where is it safest to keep?",
+      "options": [
+        {
+          "id": "home",
+          "label": "At home in a safe place",
+          "reflection": "Keeping money at home is risky as it can be stolen, lost, or damaged without any protection.",
+          "isCorrect": false
+        },
+        {
+          "id": "wallet",
+          "label": "In your wallet or purse",
+          "reflection": "Carrying large amounts of cash is risky and impractical for regular income deposits.",
+          "isCorrect": false
+        },
+        {
+          "id": "friend",
+          "label": "With a trusted friend or family member",
+          "reflection": "Relying on others to hold your money creates potential relationship issues and lacks proper protection.",
+          "isCorrect": false
+        },
+        {
+          "id": "bank",
+          "label": "In a bank account",
+          "reflection": "Exactly! Bank accounts provide security, insurance, and protection for your money.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 2,
+      "prompt": "What is a key advantage of having a bank account?",
+      "options": [
+        {
+          "id": "interest",
+          "label": "Earn interest on your deposits",
+          "reflection": "Yes, banks typically pay interest on deposits, helping your money grow over time.",
+          "isCorrect": true
+        },
+        {
+          "id": "access",
+          "label": "Easy access to ATMs only",
+          "reflection": "While ATMs provide convenient access, bank accounts offer many more advantages beyond just ATM access.",
+          "isCorrect": false
+        },
+        {
+          "id": "gifts",
+          "label": "Receive free gifts from banks",
+          "reflection": "While banks sometimes offer promotions, the primary benefit is secure money management, not gifts.",
+          "isCorrect": false
+        },
+        {
+          "id": "prestige",
+          "label": "Show prestige to others",
+          "reflection": "The primary benefit of a bank account is practical financial security, not social status.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 3,
+      "prompt": "How do bank accounts help with budgeting?",
+      "options": [
+        {
+          "id": "spend",
+          "label": "They encourage spending more",
+          "reflection": "Bank accounts are designed to help manage money, not necessarily encourage spending.",
+          "isCorrect": false
+        },
+        {
+          "id": "save",
+          "label": "They automatically save money for you",
+          "reflection": "While banks offer savings tools, they don't automatically save money without your instruction.",
+          "isCorrect": false
+        },
+        {
+          "id": "track",
+          "label": "They provide records of deposits and withdrawals",
+          "reflection": "Exactly! Bank statements help you track your spending and monitor your financial habits.",
+          "isCorrect": true
+        },
+        {
+          "id": "hide",
+          "label": "They hide your money from taxes",
+          "reflection": "Bank accounts create transparency with financial records, not tax evasion.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 4,
+      "prompt": "What happens if your physical cash is stolen?",
+      "options": [
+        {
+          "id": "recover",
+          "label": "You can easily recover the money",
+          "reflection": "Unfortunately, stolen cash is typically unrecoverable since there's no record of who had it.",
+          "isCorrect": false
+        },
+        {
+          "id": "bank",
+          "label": "You lose it permanently with no recourse",
+          "reflection": "Exactly! Cash has no recovery mechanism if lost or stolen, unlike money in insured bank accounts.",
+          "isCorrect": true
+        },
+        {
+          "id": "insure",
+          "label": "Your homeowner's insurance covers it",
+          "reflection": "Most homeowner's insurance has very limited coverage for cash, and theft must often be proven.",
+          "isCorrect": false
+        },
+        {
+          "id": "police",
+          "label": "Police will always find the thief",
+          "reflection": "Police efforts may not always result in recovering stolen cash.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 5,
+      "prompt": "Which service is available only through formal banking?",
+      "options": [
+        {
+          "id": "savings",
+          "label": "Simple savings",
+          "reflection": "Basic saving can be done without a bank, though banks offer better protection and interest.",
+          "isCorrect": false
+        },
+        {
+          "id": "loans",
+          "label": "Access to loans and credit facilities",
+          "reflection": "Exactly! Formal banking relationships enable access to loans, credit cards, and other financial services.",
+          "isCorrect": true
+        },
+        {
+          "id": "exchange",
+          "label": "Currency exchange",
+          "reflection": "Currency exchange can be done through various channels, not exclusively through banks.",
+          "isCorrect": false
+        },
+        {
+          "id": "transfer",
+          "label": "Sending money to others",
+          "reflection": "Money transfers can be done through various services, not exclusively through banks.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    }
+  ]
+}

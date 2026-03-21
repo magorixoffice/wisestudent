@@ -1,0 +1,176 @@
+{
+  "title": "Loan Rejection Reality",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "scenarioLabel": "Scenario",
+  "scenarioValue": "Loan Rejection",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Loan rejection analysis",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can loan rejections serve as valuable financial feedback rather than failures?",
+    "What specific steps can you take to improve your creditworthiness after a rejection?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Why do banks typically reject loan applications?",
+      "options": [
+        {
+          "id": "poor",
+          "label": "Poor repayment history or unclear income",
+          "reflection": "Banks assess risk based on your financial track record and ability to repay. A weak repayment history or unclear income sources signal higher risk.",
+          "isCorrect": true
+        },
+        {
+          "id": "random",
+          "label": "Random decisions",
+          "reflection": "Bank lending decisions are based on systematic risk assessment, not randomness. They follow established criteria to evaluate creditworthiness.",
+          "isCorrect": false
+        },
+        {
+          "id": "bias",
+          "label": "Personal bias against applicants",
+          "reflection": "Professional lending institutions follow standardized procedures and regulations to ensure fair and objective evaluation of all applications.",
+          "isCorrect": false
+        },
+        {
+          "id": "profit",
+          "label": "They don't want to lend money",
+          "reflection": "Banks are in the business of lending money profitably. They reject applications when the risk doesn't match their return requirements.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 2,
+      "prompt": "What does a loan rejection actually indicate about your financial readiness?",
+      "options": [
+        {
+          "id": "punishment",
+          "label": "Punishment for past financial mistakes",
+          "reflection": "Rejection isn't punishment—it's feedback that you need to strengthen certain financial areas before taking on debt obligations.",
+          "isCorrect": false
+        },
+        {
+          "id": "readiness",
+          "label": "Signal that you need to improve financial readiness",
+          "reflection": "Exactly! Rejection identifies specific areas where you need to build stronger financial foundations before qualifying for credit.",
+          "isCorrect": true
+        },
+        {
+          "id": "permanent",
+          "label": "Permanent barrier to future borrowing",
+          "reflection": "Rejection is temporary feedback, not a permanent verdict. You can address the issues and reapply when better prepared.",
+          "isCorrect": false
+        },
+        {
+          "id": "luck",
+          "label": "Bad luck with the application timing",
+          "reflection": "While timing can play a role, rejections primarily reflect whether your current financial profile meets lending criteria.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 3,
+      "prompt": "Which factor is most likely to cause a bank to reject your loan application?",
+      "options": [
+        {
+          "id": "score",
+          "label": "Low credit score or limited credit history",
+          "reflection": "Credit scores and history are primary indicators of repayment reliability. Banks rely heavily on these metrics to assess risk.",
+          "isCorrect": true
+        },
+        {
+          "id": "color",
+          "label": "The color of your application folder",
+          "reflection": "Application appearance doesn't affect lending decisions. Banks focus on financial qualifications and documentation.",
+          "isCorrect": false
+        },
+        {
+          "id": "name",
+          "label": "Unusual spelling of your name",
+          "reflection": "Professional lenders evaluate financial credentials objectively, regardless of personal identifiers like name spelling.",
+          "isCorrect": false
+        },
+        {
+          "id": "branch",
+          "label": "Which bank branch you visited",
+          "reflection": "While branch location might affect processing time, lending decisions are based on standardized financial criteria across all branches.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 4,
+      "prompt": "How should you respond when your loan application gets rejected?",
+      "options": [
+        {
+          "id": "ignore",
+          "label": "Ignore the rejection letter entirely",
+          "reflection": "Ignoring rejection feedback misses valuable information about what you need to improve for future successful applications.",
+          "isCorrect": false
+        },
+        {
+          "id": "improve",
+          "label": "Review reasons and work on improving those areas",
+          "reflection": "Perfect approach! Understanding rejection reasons helps you systematically strengthen your financial profile for future success.",
+          "isCorrect": true
+        },
+        {
+          "id": "complain",
+          "label": "Complain to multiple bank managers",
+          "reflection": "Complaining won't change objective financial criteria. Focus on addressing the specific issues that led to rejection.",
+          "isCorrect": false
+        },
+        {
+          "id": "quit",
+          "label": "Give up on borrowing altogether",
+          "reflection": "Rejection is redirection toward better preparation, not elimination of future borrowing possibilities when you're ready.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 5,
+      "prompt": "What positive outcome can come from a loan rejection experience?",
+      "options": [
+        {
+          "id": "nothing",
+          "label": "Nothing positive—it's just a setback",
+          "reflection": "While disappointing, rejection provides specific feedback that can guide meaningful financial improvement efforts.",
+          "isCorrect": false
+        },
+        {
+          "id": "delay",
+          "label": "Delay in achieving your financial goals",
+          "reflection": "Temporary delays can actually prevent future financial difficulties by ensuring you're properly prepared before taking on debt.",
+          "isCorrect": false
+        },
+        {
+          "id": "frustration",
+          "label": "Increased financial frustration and stress",
+          "reflection": "Frustration is natural, but channeling it productively toward financial improvement creates long-term benefits.",
+          "isCorrect": false
+        },
+        {
+          "id": "motivation",
+          "label": "Motivation to strengthen financial habits and credit profile",
+          "reflection": "Absolutely! Rejection often serves as a catalyst for building better financial discipline and credit management practices.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 10
+    }
+  ]
+}

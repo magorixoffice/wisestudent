@@ -1,0 +1,171 @@
+{
+  "title": "Financial Confidence",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Financial Confidence",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Knowledge-Based Financial Confidence",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you build your financial knowledge systematically?",
+    "What resources will you use to enhance your financial understanding?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Scenario: Financial confidence comes from:",
+      "options": [
+        {
+          "id": "blind",
+          "label": "Taking risks blindly",
+          "reflection": "Taking risks blindly does not build financial confidence. Without understanding the implications, this approach often leads to financial stress and losses.",
+          "isCorrect": false
+        },
+        {
+          "id": "copying",
+          "label": "Copying others' financial decisions",
+          "reflection": "While learning from others can be valuable, simply copying their decisions without understanding doesn't build your own financial confidence. Your situation may be different from theirs.",
+          "isCorrect": false
+        },
+        {
+          "id": "knowledge",
+          "label": "Understanding choices and consequences",
+          "reflection": "Exactly! Financial confidence comes from understanding choices and consequences. Knowledge of how financial decisions impact your situation builds genuine confidence and reduces anxiety.",
+          "isCorrect": true
+        },
+        {
+          "id": "avoiding",
+          "label": "Avoiding all financial decisions",
+          "reflection": "Avoiding financial decisions doesn't build confidence. In fact, it can increase anxiety and prevent you from developing the skills needed for financial success.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "How does understanding financial concepts build confidence?",
+      "options": [
+        {
+          "id": "complexity",
+          "label": "By making financial matters more complex",
+          "reflection": "Understanding financial concepts should simplify decision-making, not make it more complex. Knowledge helps you navigate financial situations with greater ease and confidence.",
+          "isCorrect": false
+        },
+        {
+          "id": "control",
+          "label": "By giving you control over your financial decisions",
+          "reflection": "Perfect! Understanding financial concepts builds confidence by giving you control over your financial decisions. Knowledge enables you to make informed choices rather than feeling overwhelmed by uncertainty.",
+          "isCorrect": true
+        },
+        {
+          "id": "debt",
+          "label": "By encouraging more debt-taking",
+          "reflection": "Understanding financial concepts doesn't encourage more debt-taking. It helps you make informed decisions about when debt is appropriate and when it's not.",
+          "isCorrect": false
+        },
+        {
+          "id": "speed",
+          "label": "By forcing you to make decisions faster",
+          "reflection": "Understanding financial concepts allows you to take time to make thoughtful decisions, not rush into them. Knowledge gives you the tools to evaluate properly.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "What's the difference between blind risk-taking and calculated risk?",
+      "options": [
+        {
+          "id": "understanding",
+          "label": "Calculated risk involves understanding potential outcomes",
+          "reflection": "Excellent! The difference is that calculated risk involves understanding potential outcomes, whereas blind risk-taking doesn't consider consequences. This knowledge-based approach builds confidence.",
+          "isCorrect": true
+        },
+        {
+          "id": "size",
+          "label": "Calculated risks are always smaller",
+          "reflection": "The size of the risk isn't what defines it as calculated. Calculated risks can sometimes be larger if you fully understand the implications and have planned accordingly.",
+          "isCorrect": false
+        },
+        {
+          "id": "frequency",
+          "label": "Calculated risks are taken more frequently",
+          "reflection": "Frequency doesn't define calculated versus blind risk. The key difference is the understanding of potential outcomes, not how often you take risks.",
+          "isCorrect": false
+        },
+        {
+          "id": "random",
+          "label": "Calculated risks are determined randomly",
+          "reflection": "Calculated risks are not random at all. They involve careful consideration of potential outcomes and planning, which is the opposite of randomness.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Why might someone feel anxious about financial decisions?",
+      "options": [
+        {
+          "id": "success",
+          "label": "Too much past financial success",
+          "reflection": "Past financial success wouldn't typically cause anxiety about future decisions. Anxiety usually stems from uncertainty or lack of understanding, not from previous success.",
+          "isCorrect": false
+        },
+        {
+          "id": "confidence",
+          "label": "Too much financial confidence",
+          "reflection": "Too much financial confidence would more likely lead to overconfidence rather than anxiety. Anxiety typically comes from uncertainty, not from being overly confident.",
+          "isCorrect": false
+        },
+        {
+          "id": "simple",
+          "label": "Financial decisions being too simple",
+          "reflection": "Simple decisions wouldn't cause anxiety. Financial anxiety usually stems from complexity and uncertainty, not from simplicity.",
+          "isCorrect": false
+        },
+        {
+          "id": "knowledge",
+          "label": "Lack of knowledge about financial concepts",
+          "reflection": "Exactly! Lack of knowledge about financial concepts often causes anxiety about financial decisions. When you don't understand how things work, uncertainty can lead to stress and hesitation.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "What's the long-term benefit of building financial confidence through knowledge?",
+      "options": [
+        {
+          "id": "complexity",
+          "label": "Increased complexity in financial matters",
+          "reflection": "Building financial confidence through knowledge should simplify your financial life, not make it more complex. Knowledge helps you make better decisions more easily.",
+          "isCorrect": false
+        },
+        {
+          "id": "dependence",
+          "label": "Greater dependence on financial advisors",
+          "reflection": "Building financial confidence through knowledge should reduce dependence on others, not increase it. Knowledge empowers you to make your own informed decisions.",
+          "isCorrect": false
+        },
+        {
+          "id": "independence",
+          "label": "Greater financial independence and peace of mind",
+          "reflection": "Exactly! Building financial confidence through knowledge leads to greater financial independence and peace of mind. Understanding enables you to make decisions confidently without relying on others.",
+          "isCorrect": true
+        },
+        {
+          "id": "stress",
+          "label": "More financial stress and worry",
+          "reflection": "Building financial confidence through knowledge should reduce stress, not increase it. Understanding your finances creates predictability and control, which reduces anxiety.",
+          "isCorrect": false
+        }
+      ]
+    }
+  ]
+}

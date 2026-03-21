@@ -1,0 +1,176 @@
+{
+  "title": "Guaranteed Approval Claim",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Predatory Lending",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Predatory Lending Awareness",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you identify predatory lending practices in loan offers?",
+    "What questions should you ask before accepting any loan?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Scenario: An app promises 'Guaranteed approval, no checks.' What does this mean? ",
+      "options": [
+        {
+          "id": "a",
+          "label": "High-risk lending trap",
+          "reflection": "Correct! No-check loans often come with harsh terms and can lead to financial exploitation.",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "label": "Helpful service",
+          "reflection": "Actually, 'no checks' means they're not assessing your ability to repay, which can lead to problematic debt.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "Efficient and convenient process",
+          "reflection": "Skipping checks may seem efficient but it's risky for both parties and often indicates predatory lending.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Lower interest rates",
+          "reflection": "No-check loans often have higher interest rates due to the increased risk taken by the lender.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 2,
+      "prompt": "Why might a 'no checks' loan be particularly dangerous?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It has better customer service",
+          "reflection": "Customer service quality isn't related to whether checks are performed or not.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "It offers longer repayment periods",
+          "reflection": "Skipping checks doesn't necessarily mean longer repayment periods; it often means riskier terms.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "It provides more loan amount",
+          "reflection": "Without checks, lenders might offer less, not more, and terms are often harsher.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "It bypasses creditworthiness assessment, potentially leading to unaffordable debt",
+          "reflection": "Exactly! Without checking your ability to repay, you might take on debt you can't afford.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 3,
+      "prompt": "What is the likely intention behind 'guaranteed approval' marketing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To help people with poor credit",
+          "reflection": "While they claim to help, the terms are often exploitative rather than helpful.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "To promote financial wellness",
+          "reflection": "These loans typically exploit rather than promote financial wellness.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "To attract borrowers without proper vetting for profit",
+          "reflection": "Yes! These lenders often profit through high fees, interest, or harsh collection practices.",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "label": "To provide competitive interest rates",
+          "reflection": "These loans typically have higher rates, not competitive ones.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 4,
+      "prompt": "How should you approach 'no checks' loan offers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Accept them as they're quick and convenient",
+          "reflection": "Quick convenience often comes with hidden costs and exploitative terms.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "Avoid them as they typically involve exploitative terms",
+          "reflection": "Perfect! These offers usually indicate predatory lending practices that should be avoided.",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "label": "Consider only if you have no other options",
+          "reflection": "Even with limited options, these loans often create more problems than they solve.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Compare with other 'no checks' offers",
+          "reflection": "Comparing exploitative offers doesn't make them any less risky or harmful.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 5,
+      "prompt": "What is the relationship between loan checks and borrower protection?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Checks help ensure the loan is affordable and appropriate",
+          "reflection": "Exactly! Proper checks protect borrowers from taking on unmanageable debt obligations.",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "label": "Checks are only for the lender's benefit",
+          "reflection": "Checks actually protect borrowers by ensuring they can afford the loan terms.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "No checks mean more protection",
+          "reflection": "Skipping checks removes protections for borrowers and increases risk of unaffordable debt.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Checks are outdated and unnecessary",
+          "reflection": "Checks serve an important purpose in ensuring loans are appropriate and affordable.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    }
+  ]
+}

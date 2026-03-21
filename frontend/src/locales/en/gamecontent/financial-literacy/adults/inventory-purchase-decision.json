@@ -1,0 +1,176 @@
+{
+  "title": "Inventory Purchase Decision",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Inventory",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Inventory management decision-making",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you forecast sales to make better inventory decisions?",
+    "What metrics should you track to optimize your inventory purchases?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "You want to buy extra stock. What should you check first?",
+      "options": [
+        {
+          "id": "supplier",
+          "label": "Supplier pressure",
+          "reflection": "Making decisions based on supplier pressure can lead to overstocking and cash flow problems. You should focus on your own business needs.",
+          "isCorrect": false
+        },
+        {
+          "id": "sales",
+          "label": "Expected sales and cash availability",
+          "reflection": "Exactly! You should always check expected sales and cash availability before purchasing inventory to ensure you can sell the items and afford them.",
+          "isCorrect": true
+        },
+        {
+          "id": "discount",
+          "label": "Available discount on bulk purchase",
+          "reflection": "While discounts can be attractive, the primary consideration should be whether you can sell the inventory and whether you have the cash to purchase it.",
+          "isCorrect": false
+        },
+        {
+          "id": "season",
+          "label": "Current season only",
+          "reflection": "Seasonality is important, but you also need to consider expected sales and cash availability to make the right inventory decision.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 2,
+      "prompt": "Why is it important to match inventory to expected sales?",
+      "options": [
+        {
+          "id": "demand",
+          "label": "To match inventory to actual demand",
+          "reflection": "Correct! Matching inventory to expected demand helps avoid overstocking, reduces carrying costs, and ensures cash isn't tied up unnecessarily.",
+          "isCorrect": true
+        },
+        {
+          "id": "storage",
+          "label": "To maximize storage space",
+          "reflection": "The goal isn't to maximize storage space. It's to align inventory with actual customer demand to avoid overstocking.",
+          "isCorrect": false
+        },
+        {
+          "id": "variety",
+          "label": "To offer maximum variety",
+          "reflection": "While variety is important, the primary concern is ensuring inventory matches actual customer demand to avoid excess stock.",
+          "isCorrect": false
+        },
+        {
+          "id": "trend",
+          "label": "To follow market trends",
+          "reflection": "Following trends is important, but the key is to ensure inventory matches expected sales, not just trends.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 3,
+      "prompt": "What is the risk of buying inventory based on 'hope' rather than demand?",
+      "options": [
+        {
+          "id": "confidence",
+          "label": "It shows confidence in business growth",
+          "reflection": "While confidence is good, buying inventory based on hope rather than actual demand can lead to overstocking and cash flow issues.",
+          "isCorrect": false
+        },
+        {
+          "id": "profit",
+          "label": "It guarantees higher profits",
+          "reflection": "Buying inventory without demand backing doesn't guarantee profits. It can lead to losses if the items remain unsold.",
+          "isCorrect": false
+        },
+        {
+          "id": "supply",
+          "label": "It ensures supply chain continuity",
+          "reflection": "Buying without demand forecasting doesn't ensure supply chain continuity. It can actually disrupt cash flow and tie up resources unnecessarily.",
+          "isCorrect": false
+        },
+        {
+          "id": "risk",
+          "label": "It leads to overstocking and cash flow problems",
+          "reflection": "Exactly! Buying inventory based on hope rather than actual demand often results in unsold inventory that ties up cash and incurs storage costs.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 4,
+      "prompt": "How should you determine the right amount of inventory to purchase?",
+      "options": [
+        {
+          "id": "maximum",
+          "label": "Buy as much as possible when prices are low",
+          "reflection": "Buying maximum quantities without considering demand can lead to overstocking and cash flow problems, regardless of low prices.",
+          "isCorrect": false
+        },
+        {
+          "id": "forecast",
+          "label": "Based on sales forecast and turnover rate",
+          "reflection": "Right! Purchasing inventory based on sales forecasts and turnover rates helps ensure you have the right amount of stock to meet demand without overstocking.",
+          "isCorrect": true
+        },
+        {
+          "id": "minimum",
+          "label": "Always buy the minimum possible",
+          "reflection": "Buying minimum quantities might lead to stockouts and lost sales. The right approach is to match purchases to forecasted demand.",
+          "isCorrect": false
+        },
+        {
+          "id": "average",
+          "label": "Same amount as last month",
+          "reflection": "Simply repeating last month's purchases without considering current demand patterns may lead to overstocking or stockouts.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 5,
+      "prompt": "What is the outcome of matching inventory to demand rather than hope?",
+      "options": [
+        {
+          "id": "loss",
+          "label": "Increased business losses",
+          "reflection": "Actually, matching inventory to demand rather than hope typically reduces losses by preventing overstocking and optimizing cash flow.",
+          "isCorrect": false
+        },
+        {
+          "id": "stress",
+          "label": "More business stress",
+          "reflection": "Matching inventory to demand actually reduces stress by ensuring you have the right amount of stock to meet customer needs without overcommitting resources.",
+          "isCorrect": false
+        },
+        {
+          "id": "match",
+          "label": "Inventory should match demand, not hope",
+          "reflection": "Perfect! Matching inventory to actual demand rather than wishful thinking helps optimize cash flow and reduces the risk of overstocking.",
+          "isCorrect": true
+        },
+        {
+          "id": "waste",
+          "label": "More wastage of resources",
+          "reflection": "Actually, matching inventory to demand reduces waste by preventing overstocking and ensuring efficient use of cash resources.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    }
+  ]
+}

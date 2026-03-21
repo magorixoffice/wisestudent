@@ -1,0 +1,176 @@
+{
+  "title": "Personal vs Business Loan",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "scenarioLabel": "Scenario",
+  "scenarioValue": "Loan Selection",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Business financing selection",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can proper loan type selection impact your business financing costs?",
+    "What factors should guide your decision between personal and business financing?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "You run a small shop. Which is better for inventory?",
+      "options": [
+        {
+          "id": "personal",
+          "label": "Personal loan",
+          "reflection": "Personal loans are not ideal for business purposes and may not provide adequate funding or terms for inventory needs.",
+          "isCorrect": false
+        },
+        {
+          "id": "business",
+          "label": "Business loan",
+          "reflection": "Exactly! Business loans are specifically designed for commercial purposes like inventory and typically offer better terms.",
+          "isCorrect": true
+        },
+        {
+          "id": "either",
+          "label": "Either loan type works equally well",
+          "reflection": "Different loan types serve different purposes - business loans are specifically tailored for commercial needs.",
+          "isCorrect": false
+        },
+        {
+          "id": "avoid",
+          "label": "Avoid loans entirely for inventory",
+          "reflection": "While minimizing debt is wise, business loans can be appropriate for inventory when properly planned and managed.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 2,
+      "prompt": "What distinguishes business loans from personal loans?",
+      "options": [
+        {
+          "id": "amount",
+          "label": "Business loans are always larger amounts",
+          "reflection": "Loan amounts depend on needs and creditworthiness, not just the loan type classification.",
+          "isCorrect": false
+        },
+        {
+          "id": "interest",
+          "label": "Personal loans have lower interest rates",
+          "reflection": "Interest rates vary by lender, credit profile, and purpose - business loans can sometimes offer competitive rates.",
+          "isCorrect": false
+        },
+        {
+          "id": "purpose",
+          "label": "Business loans require business purpose documentation",
+          "reflection": "Exactly! Business loans require proof of business use and often involve business credit assessment.",
+          "isCorrect": true
+        },
+        {
+          "id": "approval",
+          "label": "Personal loans are harder to get approved",
+          "reflection": "Approval difficulty depends on credit history and documentation, not necessarily the loan type.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 3,
+      "prompt": "Why match loan type to business purpose?",
+      "options": [
+        {
+          "id": "terms",
+          "label": "Better loan terms and interest rates",
+          "reflection": "Exactly! Matching loan type to purpose often results in more favorable terms and rates designed for that use case.",
+          "isCorrect": true
+        },
+        {
+          "id": "confusion",
+          "label": "To confuse the lender about usage",
+          "reflection": "Transparency about loan purpose builds trust and typically leads to better loan terms and approval chances.",
+          "isCorrect": false
+        },
+        {
+          "id": "complexity",
+          "label": "To make the application process more complex",
+          "reflection": "Proper loan type matching simplifies the process by aligning with lender expectations and requirements.",
+          "isCorrect": false
+        },
+        {
+          "id": "secrecy",
+          "label": "To keep business finances secret",
+          "reflection": "Transparent business financing helps establish credibility and may improve future borrowing opportunities.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 4,
+      "prompt": "What risk does using personal loans for business reduce?",
+      "options": [
+        {
+          "id": "profit",
+          "label": "Profit potential risks",
+          "reflection": "Proper financing doesn't directly impact profit potential - good business decisions and market conditions do.",
+          "isCorrect": false
+        },
+        {
+          "id": "growth",
+          "label": "Business growth opportunities",
+          "reflection": "Appropriate financing can actually enable growth opportunities rather than limiting them.",
+          "isCorrect": false
+        },
+        {
+          "id": "market",
+          "label": "Market competition risks",
+          "reflection": "Loan type selection affects financing costs and terms, not direct market competition dynamics.",
+          "isCorrect": false
+        },
+        {
+          "id": "legal",
+          "label": "Legal compliance risks",
+          "reflection": "Using appropriate business financing helps ensure compliance with business regulations and lender requirements.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 5,
+      "prompt": "How should you evaluate loan type selection?",
+      "options": [
+        {
+          "id": "lowest",
+          "label": "Choose whichever has the lowest monthly payment",
+          "reflection": "Focusing only on monthly payments can hide total costs and may not align with your business objectives.",
+          "isCorrect": false
+        },
+        {
+          "id": "quick",
+          "label": "Select the loan that approves fastest",
+          "reflection": "Quick approval shouldn't override proper loan type matching and thorough terms evaluation.",
+          "isCorrect": false
+        },
+        {
+          "id": "match",
+          "label": "Match loan type to intended business use",
+          "reflection": "Exactly! Aligning loan type with business purpose ensures appropriate terms and reduces potential complications.",
+          "isCorrect": true
+        },
+        {
+          "id": "popular",
+          "label": "Pick whatever other businesses are using",
+          "reflection": "Each business has unique needs - loan selection should be based on your specific circumstances and requirements.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    }
+  ]
+}

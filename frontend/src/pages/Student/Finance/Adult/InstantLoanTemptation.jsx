@@ -1,6 +1,6 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import { Trophy } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getGameDataById } from "../../../../utils/getGameData";
@@ -167,12 +167,20 @@ const INSTANT_LOAN_TEMPTATION_STAGES = [
   },
 ];
 
-const totalStages = INSTANT_LOAN_TEMPTATION_STAGES.length;
-const successThreshold = totalStages;
-
 const InstantLoanTemptation = () => {
   const location = useLocation();
+  const { t } = useTranslation("gamecontent");
   const gameId = "finance-adults-59";
+
+  const baseKey = "financial-literacy.adults.instant-loan-temptation";
+  const gameContent = t(baseKey, { returnObjects: true });
+  const localizedStages = Array.isArray(gameContent?.stages)
+    ? gameContent.stages
+    : INSTANT_LOAN_TEMPTATION_STAGES;
+  const reflectionPrompts = Array.isArray(gameContent?.reflectionPrompts)
+    ? gameContent.reflectionPrompts
+    : [];
+
   const gameData = getGameDataById(gameId);
   const coinsPerLevel = gameData?.coins || location.state?.coinsPerLevel || 3;
   const totalCoins = gameData?.coins || location.state?.totalCoins || 15;
@@ -189,19 +197,17 @@ const InstantLoanTemptation = () => {
   const [selectedReflection, setSelectedReflection] = useState(null);
   const [canProceed, setCanProceed] = useState(false);
 
-  const reflectionPrompts = useMemo(
-    () => [
-      "How can you verify the legitimacy of digital lending platforms?",
-      "What red flags should you watch for in instant loan offers?",
-    ],
-    []
-  );
+  const totalStages = localizedStages.length;
+  const successThreshold = totalStages;
+
+  // Guard placed after hooks (Rule of Hooks safe).
+  if (!totalStages) return null;
 
   const handleChoice = (option) => {
     if (selectedOption || showResult) return;
 
     resetFeedback();
-    const currentStageData = INSTANT_LOAN_TEMPTATION_STAGES[currentStage];
+    const currentStageData = localizedStages[currentStage];
     const updatedHistory = [
       ...history,
       { stageId: currentStageData.id, isCorrect: option.isCorrect },
@@ -245,27 +251,61 @@ const InstantLoanTemptation = () => {
     setCurrentStage(0);
     setHistory([]);
     setSelectedOption(null);
+    setSelectedReflection(null);
+    setShowFeedback(false);
+    setCanProceed(false);
     setCoins(0);
     setFinalScore(0);
     setShowResult(false);
   };
 
-  const subtitle = `Stage ${Math.min(currentStage + 1, totalStages)} of ${totalStages}`;
-  const stage = INSTANT_LOAN_TEMPTATION_STAGES[Math.min(currentStage, totalStages - 1)];
+  const subtitle = t(`${baseKey}.subtitleProgress`, {
+    current: Math.min(currentStage + 1, totalStages),
+    total: totalStages,
+    defaultValue: "Stage {{current}} of {{total}}",
+  });
+  const stage = localizedStages[Math.min(currentStage, totalStages - 1)];
   const hasPassed = finalScore === successThreshold;
+
+  const title = gameContent?.title || "Instant Loan Temptation";
+  const headerLeft = t(`${baseKey}.sectionHeaderLeft`, { defaultValue: "" });
+  const headerRight = t(`${baseKey}.sectionHeaderRight`, { defaultValue: "" });
+  const reflectionTitle = t(`${baseKey}.reflectionTitle`, {
+    defaultValue: "Reflection",
+  });
+  const continueButton = t(`${baseKey}.continueButton`, {
+    defaultValue: "Continue",
+  });
+  const readingLabel = t(`${baseKey}.readingLabel`, {
+    defaultValue: "Reading...",
+  });
+  const reflectionPromptsTitle = t(`${baseKey}.reflectionPromptsTitle`, {
+    defaultValue: "Reflection Prompts",
+  });
+  const skillUnlockedLabel = t(`${baseKey}.skillUnlockedLabel`, {
+    defaultValue: "Skill unlocked:",
+  });
+  const skillName = t(`${baseKey}.skillName`, { defaultValue: "" });
+  const fullRewardHint = t(`${baseKey}.fullRewardHint`, {
+    total: totalStages,
+    defaultValue: "Answer all {{total}} choices correctly to earn the full reward.",
+  });
+  const tryAgainButton = t(`${baseKey}.tryAgainButton`, {
+    defaultValue: "Try Again",
+  });
 
   return (
     <GameShell
-      title="Instant Loan Temptation"
+      title={title}
       subtitle={subtitle}
       score={showResult ? finalScore : coins}
       coins={coins}
       coinsPerLevel={coinsPerLevel}
       totalCoins={totalCoins}
       totalXp={totalXp}
-      maxScore={INSTANT_LOAN_TEMPTATION_STAGES.length}
-      currentLevel={Math.min(currentStage + 1, INSTANT_LOAN_TEMPTATION_STAGES.length)}
-      totalLevels={INSTANT_LOAN_TEMPTATION_STAGES.length}
+      maxScore={totalStages}
+      currentLevel={Math.min(currentStage + 1, totalStages)}
+      totalLevels={totalStages}
       gameId={gameId}
       gameType="finance"
       showGameOver={showResult}
@@ -277,8 +317,8 @@ const InstantLoanTemptation = () => {
       <div className="space-y-5 text-white">
         <div className="bg-white/10 border border-white/20 rounded-3xl p-8 shadow-2xl max-w-4xl mx-auto">
           <div className="flex justify-between items-center mb-4 text-sm uppercase tracking-[0.3em] text-white/60">
-            <span>Scenario</span>
-            <span>Digital Lending</span>
+            <span>{headerLeft}</span>
+            <span>{headerRight}</span>
           </div>
           <p className="text-lg text-white/90 mb-6">{stage.prompt}</p>
           <div className="grid grid-cols-2 gap-4">
@@ -297,7 +337,12 @@ const InstantLoanTemptation = () => {
                     }`}
                 >
                   <div className="flex justify-between items-center mb-2 text-sm text-white/70">
-                    <span>Choice {option.id.toUpperCase()}</span>
+                    <span>
+                      {t(`${baseKey}.choiceLabel`, {
+                        id: option.id.toUpperCase(),
+                        defaultValue: "Choice {{id}}",
+                      })}
+                    </span>
                   </div>
                   <p className="text-white font-semibold">{option.label}</p>
                 </button>
@@ -306,7 +351,7 @@ const InstantLoanTemptation = () => {
           </div>
           {(showResult || showFeedback) && (
             <div className="bg-white/5 border border-white/20 rounded-3xl p-6 shadow-xl max-w-4xl mx-auto space-y-3">
-              <h4 className="text-lg font-semibold text-white">Reflection</h4>
+              <h4 className="text-lg font-semibold text-white">{reflectionTitle}</h4>
               {selectedReflection && (
                 <div className="max-h-24 overflow-y-auto pr-2">
                   <p className="text-sm text-white/90">{selectedReflection}</p>
@@ -327,10 +372,10 @@ const InstantLoanTemptation = () => {
                       }}
                       className="rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 px-6 font-semibold shadow-lg hover:opacity-90"
                     >
-                      Continue
+                      {continueButton}
                     </button>
                   ) : (
-                    <div className="py-2 px-6 text-white font-semibold">Reading...</div>
+                    <div className="py-2 px-6 text-white font-semibold">{readingLabel}</div>
                   )}
                 </div>
               )}
@@ -348,11 +393,11 @@ const InstantLoanTemptation = () => {
                     ))}
                   </ul>
                   <p className="text-sm text-white/70">
-                    Skill unlocked: <strong>Digital Lending Caution</strong>
+                    {skillUnlockedLabel} <strong>{skillName}</strong>
                   </p>
                   {!hasPassed && (
                     <p className="text-xs text-amber-300">
-                      Answer all {totalStages} choices correctly to earn the full reward.
+                      {fullRewardHint}
                     </p>
                   )}
                   {!hasPassed && (
@@ -360,7 +405,7 @@ const InstantLoanTemptation = () => {
                       onClick={handleRetry}
                       className="w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 font-semibold shadow-lg hover:opacity-90"
                     >
-                      Try Again
+                      {tryAgainButton}
                     </button>
                   )}
                 </>
@@ -371,18 +416,18 @@ const InstantLoanTemptation = () => {
         </div>
         {showResult && (
           <div className="bg-white/5 border border-white/20 rounded-3xl p-6 shadow-xl max-w-4xl mx-auto space-y-3">
-            <h4 className="text-lg font-semibold text-white">Reflection Prompts</h4>
+            <h4 className="text-lg font-semibold text-white">{reflectionPromptsTitle}</h4>
             <ul className="text-sm list-disc list-inside space-y-1">
               {reflectionPrompts.map((prompt) => (
                 <li key={prompt}>{prompt}</li>
               ))}
             </ul>
             <p className="text-sm text-white/70">
-              Skill unlocked: <strong>Digital Lending Caution</strong>
+              {skillUnlockedLabel} <strong>{skillName}</strong>
             </p>
             {!hasPassed && (
               <p className="text-xs text-amber-300">
-                Answer all {totalStages} choices correctly to earn the full reward.
+                {fullRewardHint}
               </p>
             )}
             {!hasPassed && (
@@ -390,7 +435,7 @@ const InstantLoanTemptation = () => {
                 onClick={handleRetry}
                 className="w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 font-semibold shadow-lg hover:opacity-90"
               >
-                Try Again
+                {tryAgainButton}
               </button>
             )}
           </div>

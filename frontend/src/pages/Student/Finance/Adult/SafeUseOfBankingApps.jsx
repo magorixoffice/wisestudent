@@ -1,178 +1,20 @@
 import React, { useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Trophy } from "lucide-react";
 import GameShell from "../GameShell";
 import useGameFeedback from "../../../../hooks/useGameFeedback";
 import { getGameDataById } from "../../../../utils/getGameData";
 
-const STAGES = [
-  {
-    id: 1,
-    prompt: "You install a banking app. What should you check first?",
-    options: [
-        {
-        id: "permissions",
-        label: "App permissions and official source",
-        reflection: "Exactly! Verifying the app is from an official source and checking its permissions helps protect your data.",
-        isCorrect: true,
-      },
-      {
-        id: "nothing",
-        label: "Nothing",
-        reflection: "Installing a banking app without verification could expose your financial data to security risks.",
-        isCorrect: false,
-      },
-      
-      {
-        id: "rating",
-        label: "Just the app store rating",
-        reflection: "While ratings are helpful, they don't guarantee security. Checking official sources is more important.",
-        isCorrect: false,
-      },
-      {
-        id: "size",
-        label: "Download size of the app",
-        reflection: "App size doesn't indicate security. Verifying the official source and permissions is more important.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 2,
-    prompt: "What is the safest way to download a banking app?",
-    options: [
-      {
-        id: "thirdparty",
-        label: "From third-party app stores or websites",
-        reflection: "Third-party sources may host malicious versions of banking apps that steal your data.",
-        isCorrect: false,
-      },
-      
-      {
-        id: "link",
-        label: "From links in emails or messages",
-        reflection: "Links in emails or messages may lead to fake apps designed to steal your banking credentials.",
-        isCorrect: false,
-      },
-      {
-        id: "search",
-        label: "From general search engines",
-        reflection: "Search engines may direct you to fake apps. Always use official app stores or bank websites.",
-        isCorrect: false,
-      },
-      {
-        id: "official",
-        label: "From the official app store or bank's website",
-        reflection: "Exactly! Official sources provide authentic apps with security measures in place.",
-        isCorrect: true,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 3,
-    prompt: "When using a banking app, which practice is safest?",
-    options: [
-      {
-        id: "public",
-        label: "Using it on public Wi-Fi networks",
-        reflection: "Public Wi-Fi is insecure and could allow hackers to intercept your banking data.",
-        isCorrect: false,
-      },
-      
-      {
-        id: "anywhere",
-        label: "Using it anywhere with any internet connection",
-        reflection: "Not all connections are secure. Using banking apps on private, secured networks is safer.",
-        isCorrect: false,
-      },
-      {
-        id: "private",
-        label: "Using it on your private, secured network",
-        reflection: "Exactly! Private, secured networks provide better protection for your banking transactions.",
-        isCorrect: true,
-      },
-      {
-        id: "shared",
-        label: "On shared or borrowed devices",
-        reflection: "Shared devices may have malware or store your login information insecurely.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 4,
-    prompt: "What should you do to protect your banking app account?",
-    options: [
-      {
-        id: "simple",
-        label: "Use a simple password that's easy to remember",
-        reflection: "Simple passwords are easier to crack. Strong, unique passwords provide better security.",
-        isCorrect: false,
-      },
-      {
-        id: "strong",
-        label: "Use strong passwords and two-factor authentication",
-        reflection: "Exactly! Strong passwords and 2FA significantly enhance the security of your banking account.",
-        isCorrect: true,
-      },
-      {
-        id: "reuse",
-        label: "Reuse the same password across multiple apps",
-        reflection: "Password reuse increases risk. If one account is compromised, others become vulnerable.",
-        isCorrect: false,
-      },
-      {
-        id: "write",
-        label: "Write down your password in a notebook",
-        reflection: "Writing passwords down creates physical security risks. Digital password managers are safer.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-  {
-    id: 5,
-    prompt: "How often should you log out of your banking app?",
-    options: [
-        {
-        id: "regularly",
-        label: "Regularly, especially when using shared devices",
-        reflection: "Exactly! Regular logout helps protect your account from unauthorized access.",
-        isCorrect: true,
-      },
-      {
-        id: "never",
-        label: "Never log out, just put the app in background",
-        reflection: "Leaving banking apps logged in increases the risk if your device is accessed by others.",
-        isCorrect: false,
-      },
-      
-      {
-        id: "sometimes",
-        label: "Only when you remember to",
-        reflection: "Making logout routine rather than occasional provides more consistent security.",
-        isCorrect: false,
-      },
-      {
-        id: "rarely",
-        label: "Rarely, since the app has automatic security",
-        reflection: "While apps have security features, manual logout adds an extra layer of protection.",
-        isCorrect: false,
-      },
-    ],
-    reward: 5,
-  },
-];
-
-const totalStages = STAGES.length;
-const successThreshold = totalStages;
-
 const SafeUseOfBankingApps = () => {
   const location = useLocation();
+  const { t } = useTranslation("gamecontent");
   const gameId = "finance-adults-17";
+  const baseKey = "financial-literacy.adults.safe-use-of-banking-apps";
+  const gameContent = t(baseKey, { returnObjects: true });
+  const localizedStages = Array.isArray(gameContent?.stages) ? gameContent.stages : [];
+  const totalStages = localizedStages.length;
+  const successThreshold = totalStages;
   const gameData = getGameDataById(gameId);
   const coinsPerLevel = gameData?.coins || location.state?.coinsPerLevel || 5;
   const totalCoins = gameData?.coins || location.state?.totalCoins || 5;
@@ -190,20 +32,15 @@ const SafeUseOfBankingApps = () => {
   const [selectedReflection, setSelectedReflection] = useState(null);
   const [canProceed, setCanProceed] = useState(false);
 
-  const reflectionPrompts = useMemo(
-    () => [
-      "How can you verify that a banking app is legitimate?",
-      "What additional security measures should you implement?",
-    ],
-    []
-  );
+  const reflectionPrompts = useMemo(() => gameContent?.reflectionPrompts || [], [gameContent]);
 
   const handleSelect = (option) => {
     if (selectedOption || showResult) return;
+    if (!localizedStages.length) return;
     resetFeedback();
     const updatedHistory = [
       ...history,
-      { stageId: STAGES[stageIndex].id, isCorrect: option.isCorrect },
+      { stageId: localizedStages[stageIndex].id, isCorrect: option.isCorrect },
     ];
     setHistory(updatedHistory);
     setSelectedOption(option.id);
@@ -246,13 +83,17 @@ const SafeUseOfBankingApps = () => {
     setShowResult(false);
   };
 
-  const subtitle = `Stage ${Math.min(stageIndex + 1, totalStages)} of ${totalStages}`;
-  const stage = STAGES[Math.min(stageIndex, totalStages - 1)];
+  const subtitle = t(`${baseKey}.subtitleProgress`, {
+    current: Math.min(stageIndex + 1, totalStages),
+    total: totalStages,
+    defaultValue: "Stage {{current}} of {{total}}",
+  });
+  const stage = localizedStages[Math.min(stageIndex, totalStages - 1)];
   const hasPassed = finalScore === successThreshold;
 
   return (
     <GameShell
-      title="Safe Use of Banking Apps"
+      title={gameContent?.title || "Safe Use of Banking Apps"}
       subtitle={subtitle}
       score={showResult ? finalScore : coins}
       coins={coins}
@@ -273,12 +114,12 @@ const SafeUseOfBankingApps = () => {
       <div className="space-y-5 text-white">
         <div className="bg-white/10 border border-white/20 rounded-3xl p-8 shadow-2xl max-w-4xl mx-auto">
           <div className="flex justify-between items-center mb-4 text-sm uppercase tracking-[0.3em] text-white/60">
-            <span>Scenario</span>
-            <span>App Security</span>
+            <span>{t(`${baseKey}.scenarioLabel`, { defaultValue: "Scenario" })}</span>
+            <span>{t(`${baseKey}.scenarioValue`, { defaultValue: "Financial Literacy" })}</span>
           </div>
           <p className="text-lg text-white/90 mb-6">{stage.prompt}</p>
           <div className="grid grid-cols-2 gap-4">
-            {stage.options.map((option) => {
+            {stage?.options?.map((option) => {
               const isSelected = selectedOption === option.id;
               return (
                 <button
@@ -294,7 +135,7 @@ const SafeUseOfBankingApps = () => {
                   }`}
                 >
                   <div className="text-sm text-white/70 mb-2">
-                    Choice {option.id.toUpperCase()}
+                    {t(`${baseKey}.choiceLabel`, { id: option.id, defaultValue: "Choice {{id}}" })}
                   </div>
                   <p className="text-white font-semibold">{option.label}</p>
                   
@@ -306,7 +147,7 @@ const SafeUseOfBankingApps = () => {
         </div>
         {(showResult || showFeedback) && (
           <div className="bg-white/5 border border-white/20 rounded-3xl p-6 shadow-xl max-w-4xl mx-auto space-y-3">
-            <h4 className="text-lg font-semibold text-white">Reflection</h4>
+            <h4 className="text-lg font-semibold text-white">{t(`${baseKey}.reflectionTitle`, { defaultValue: "Reflection" })}</h4>
             {selectedReflection && (
               <div className="max-h-24 overflow-y-auto pr-2">
                 <p className="text-sm text-white/90">{selectedReflection}</p>
@@ -327,10 +168,10 @@ const SafeUseOfBankingApps = () => {
                     }}
                     className="rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 px-6 font-semibold shadow-lg hover:opacity-90"
                   >
-                    Continue
+                    {t(`${baseKey}.continueButton`, { defaultValue: "Continue" })}
                   </button>
                 ) : (
-                  <div className="py-2 px-6 text-white font-semibold">Reading...</div>
+                  <div className="py-2 px-6 text-white font-semibold">{t(`${baseKey}.readingLabel`, { defaultValue: "Reading..." })}</div>
                 )}
               </div>
             )}
@@ -348,17 +189,12 @@ const SafeUseOfBankingApps = () => {
                   ))}
                 </ul>
                 <p className="text-sm text-white/70">
-                  {hasPassed ? (
-                    <>
-                      <strong>Congratulations!</strong> Official apps reduce risk of data theft.
-                    </>
-                  ) : (
-                    <>Skill unlocked: <strong>Banking app security awareness</strong></>
-                  )}
+                  {t(`${baseKey}.skillUnlockedLabel`, { defaultValue: "Skill unlocked:" })}{" "}
+                  <strong>{t(`${baseKey}.skillName`, { defaultValue: "Financial decision making" })}</strong>
                 </p>
                 {!hasPassed && (
                   <p className="text-xs text-amber-300">
-                    Answer every stage sharply to earn the full reward.
+                    {t(`${baseKey}.fullRewardHint`, { total: totalStages, defaultValue: "Answer all {{total}} choices correctly to earn the full reward." })}
                   </p>
                 )}
                 {!hasPassed && (
@@ -366,7 +202,7 @@ const SafeUseOfBankingApps = () => {
                     onClick={handleRetry}
                     className="w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 font-semibold shadow-lg hover:opacity-90"
                   >
-                    Try Again
+                    {t(`${baseKey}.tryAgainButton`, { defaultValue: "Try Again" })}
                   </button>
                 )}
               </>

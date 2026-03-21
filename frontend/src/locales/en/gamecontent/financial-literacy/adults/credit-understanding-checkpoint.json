@@ -1,0 +1,176 @@
+{
+  "title": "Credit Understanding Checkpoint",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "scenarioLabel": "Scenario",
+  "scenarioValue": "Understanding Check",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Credit fundamentals mastery",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How does understanding credit fundamentals prevent common financial mistakes?",
+    "What specific behaviors indicate someone is treating credit responsibly versus irresponsibly?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "What's the fundamental difference between credit and income?",
+      "options": [
+        {
+          "id": "source",
+          "label": "Credit comes from lenders, income comes from work",
+          "reflection": "While this describes the source difference, the fundamental distinction is that income is yours to keep while credit must be repaid with interest.",
+          "isCorrect": false
+        },
+        {
+          "id": "access",
+          "label": "Income requires effort, credit requires good credit score",
+          "reflection": "Both require different qualifications, but the key distinction is ownership - income is earned and kept, credit is borrowed and must be returned.",
+          "isCorrect": false
+        },
+        {
+          "id": "repayment",
+          "label": "Income stays with you, credit must be repaid with interest",
+          "reflection": "Exactly! This core difference is why credit should never be treated as income - it creates future financial obligations.",
+          "isCorrect": true
+        },
+        {
+          "id": "timing",
+          "label": "Income is immediate, credit takes time to process",
+          "reflection": "Processing time isn't the key difference. The fundamental distinction is permanence - income becomes your money, credit remains someone else's.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 2,
+      "prompt": "When should you use credit responsibly?",
+      "options": [
+        {
+          "id": "convenience",
+          "label": "For everyday purchases and convenience",
+          "reflection": "Daily purchases on credit create unnecessary debt. Credit should be reserved for strategic financial purposes, not routine spending.",
+          "isCorrect": false
+        },
+        {
+          "id": "strategic",
+          "label": "For investments or emergencies with clear repayment plans",
+          "reflection": "Perfect! Responsible credit use involves strategic purposes like investments or true emergencies with concrete repayment strategies.",
+          "isCorrect": true
+        },
+        {
+          "id": "rewards",
+          "label": "To maximize cashback and rewards programs",
+          "reflection": "Rewards are secondary benefits. Primary consideration should be whether you can afford to repay borrowed amounts without financial strain.",
+          "isCorrect": false
+        },
+        {
+          "id": "status",
+          "label": "To maintain lifestyle and social status",
+          "reflection": "Using credit for status maintenance creates debt to support appearances, leading to financial stress and reduced long-term wealth building.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 3,
+      "prompt": "What's the danger of treating credit like income?",
+      "options": [
+        {
+          "id": "debt",
+          "label": "You'll accumulate debt that creates long-term financial stress",
+          "reflection": "Exactly! When credit feels like income, people overspend and accumulate debt they can't afford to repay, creating lasting financial problems.",
+          "isCorrect": true
+        },
+        {
+          "id": "spending",
+          "label": "You'll spend more freely without budget constraints",
+          "reflection": "While increased spending is a symptom, the real danger is accumulating debt obligations that compound financial stress and reduce future flexibility.",
+          "isCorrect": false
+        },
+        {
+          "id": "habits",
+          "label": "You'll develop poor spending habits permanently",
+          "reflection": "Bad habits are concerning, but the immediate danger is the debt accumulation that makes breaking those habits financially necessary rather than behavioral.",
+          "isCorrect": false
+        },
+        {
+          "id": "tracking",
+          "label": "You'll lose track of your actual financial position",
+          "reflection": "Loss of financial awareness is problematic, but the core issue is the debt creation that makes accurate financial tracking increasingly difficult.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 4,
+      "prompt": "How should you manage credit card limits?",
+      "options": [
+        {
+          "id": "income",
+          "label": "As additional monthly income to spend freely",
+          "reflection": "Credit limits are borrowing capacity, not income. Spending up to your limit creates debt obligations you must repay with interest.",
+          "isCorrect": false
+        },
+        {
+          "id": "opportunity",
+          "label": "As opportunities to make big purchases",
+          "reflection": "Big purchases on credit create long-term debt obligations. True opportunities come from purchases you can afford with actual income.",
+          "isCorrect": false
+        },
+        {
+          "id": "flexibility",
+          "label": "As financial flexibility tools for any situation",
+          "reflection": "Credit cards offer transaction convenience, but the flexibility comes at the cost of interest and repayment obligations if not managed carefully.",
+          "isCorrect": false
+        },
+        {
+          "id": "borrowing",
+          "label": "As maximum borrowing capacity with repayment obligations",
+          "reflection": "Perfect! Understanding that credit limits represent borrowed money you must repay prevents overspending and debt accumulation.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 10
+    },
+    {
+      "id": 5,
+      "prompt": "What's the golden rule for credit usage?",
+      "options": [
+        {
+          "id": "maximum",
+          "label": "Use as much as your credit limit allows",
+          "reflection": "Using maximum credit creates maximum debt. Responsible credit use means borrowing only what you can comfortably repay.",
+          "isCorrect": false
+        },
+        {
+          "id": "emergency",
+          "label": "Save credit for true emergencies only",
+          "reflection": "While emergencies are important, the broader principle is treating credit as temporary support that must be repaid, not income to spend.",
+          "isCorrect": false
+        },
+        {
+          "id": "limit",
+          "label": "Only spend what you can repay by the next billing cycle",
+          "reflection": "Perfect! This rule ensures credit serves as temporary support rather than creating long-term debt obligations.",
+          "isCorrect": true
+        },
+        {
+          "id": "rewards",
+          "label": "Maximize rewards and cashback benefits",
+          "reflection": "Rewards are secondary benefits. The primary responsibility is ensuring you can repay borrowed amounts without financial strain.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 10
+    }
+  ]
+}

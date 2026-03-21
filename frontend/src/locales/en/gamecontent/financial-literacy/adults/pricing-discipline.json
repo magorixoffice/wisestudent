@@ -1,0 +1,176 @@
+{
+  "title": "Pricing Discipline",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Pricing Strategy",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Pricing Strategy Mastery",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you calculate the true cost of your products or services?",
+    "What value do you provide that justifies your pricing?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Scenario: Selling below cost leads to:",
+      "options": [
+        {
+          "id": "growth",
+          "label": "Growth",
+          "reflection": "Selling below cost might attract customers initially, but it creates unsustainable financial pressure and doesn't lead to genuine business growth.",
+          "isCorrect": false
+        },
+        {
+          "id": "losses",
+          "label": "Long-term losses",
+          "reflection": "Exactly! Selling below cost consistently leads to long-term losses. You're essentially paying customers to buy from you, which is financially unsustainable.",
+          "isCorrect": true
+        },
+        {
+          "id": "market",
+          "label": "Market dominance",
+          "reflection": "While low prices might increase market share temporarily, selling below cost doesn't create sustainable market dominance and can harm your business financially.",
+          "isCorrect": false
+        },
+        {
+          "id": "customers",
+          "label": "Customer loyalty",
+          "reflection": "Customers attracted by below-cost pricing aren't loyal to your brand - they're loyal to low prices. When you raise prices, these customers typically leave for even lower prices.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 2,
+      "prompt": "What's the fundamental principle of pricing?",
+      "options": [
+        {
+          "id": "cover",
+          "label": "Cover costs and generate profit",
+          "reflection": "Perfect! The fundamental principle of pricing is to cover all costs (including your time and effort) and generate a reasonable profit to sustain and grow your business.",
+          "isCorrect": true
+        },
+        {
+          "id": "compete",
+          "label": "Always compete on lowest price",
+          "reflection": "Competing solely on price often leads to a race to the bottom. It's better to compete on value, quality, or unique offerings that justify your pricing.",
+          "isCorrect": false
+        },
+        {
+          "id": "match",
+          "label": "Match competitors' prices exactly",
+          "reflection": "Matching competitors' prices exactly removes your ability to differentiate and can lead to pricing below your actual costs if competitors are pricing poorly.",
+          "isCorrect": false
+        },
+        {
+          "id": "discount",
+          "label": "Offer frequent discounts to attract buyers",
+          "reflection": "Frequent discounts train customers to wait for sales rather than pay full price. This reduces revenue and can devalue your brand over time.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 3,
+      "prompt": "How should you determine your pricing?",
+      "options": [
+        {
+          "id": "guess",
+          "label": "Set prices based on gut feeling",
+          "reflection": "Pricing based on gut feeling is risky and often leads to prices that are either too high (losing customers) or too low (losing money). Data-driven pricing is more reliable.",
+          "isCorrect": false
+        },
+        {
+          "id": "lowest",
+          "label": "Price as low as possible to gain customers",
+          "reflection": "Pricing as low as possible to gain customers creates a financially unsustainable business model. It's better to price appropriately and focus on customer value.",
+          "isCorrect": false
+        },
+        {
+          "id": "copy",
+          "label": "Copy pricing from successful businesses",
+          "reflection": "Copying pricing from other businesses doesn't account for your unique costs, value proposition, or market position. Your pricing should reflect your specific business situation.",
+          "isCorrect": false
+        },
+        {
+          "id": "cost",
+          "label": "Calculate all costs plus desired profit margin",
+          "reflection": "Excellent! Proper pricing starts with calculating all direct and indirect costs, then adding a profit margin that reflects the value you provide and your business goals.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 4,
+      "prompt": "What's a warning sign of poor pricing discipline?",
+      "options": [
+        {
+          "id": "profit",
+          "label": "Maintaining healthy profit margins",
+          "reflection": "Maintaining healthy profit margins is actually a sign of good pricing discipline, not poor pricing discipline. It shows you're pricing appropriately for your costs and value.",
+          "isCorrect": false
+        },
+        {
+          "id": "growth",
+          "label": "Steady business growth",
+          "reflection": "Steady business growth can be positive, but it's not necessarily a warning sign of poor pricing. The key is whether that growth is profitable and sustainable.",
+          "isCorrect": false
+        },
+        {
+          "id": "loss",
+          "label": "Consistently operating at a loss",
+          "reflection": "Exactly! Consistently operating at a loss is a clear warning sign that your pricing discipline is poor. It indicates you're not covering your costs or generating adequate profit.",
+          "isCorrect": true
+        },
+        {
+          "id": "customers",
+          "label": "High customer satisfaction",
+          "reflection": "High customer satisfaction is generally positive and doesn't indicate poor pricing discipline. In fact, it often results from good value pricing that meets customer expectations.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    },
+    {
+      "id": 5,
+      "prompt": "What's the benefit of disciplined pricing?",
+      "options": [
+        {
+          "id": "competition",
+          "label": "Ability to undercut all competitors",
+          "reflection": "The ability to undercut competitors often indicates poor pricing discipline rather than good discipline. Sustainable pricing focuses on value, not just being the cheapest.",
+          "isCorrect": false
+        },
+        {
+          "id": "sustainability",
+          "label": "Business sustainability and growth",
+          "reflection": "Exactly! Disciplined pricing ensures your business can cover costs, generate profit, reinvest in growth, and weather financial challenges - creating long-term sustainability.",
+          "isCorrect": true
+        },
+        {
+          "id": "volume",
+          "label": "Maximum sales volume regardless of profit",
+          "reflection": "Maximum sales volume without regard for profit is not beneficial. It's better to have sustainable sales volume at profitable prices that support business health.",
+          "isCorrect": false
+        },
+        {
+          "id": "simplicity",
+          "label": "Simple pricing without any calculations",
+          "reflection": "Simple pricing without calculations often leads to poor financial outcomes. Proper pricing discipline requires understanding costs, value, and market dynamics.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 4
+    }
+  ]
+}

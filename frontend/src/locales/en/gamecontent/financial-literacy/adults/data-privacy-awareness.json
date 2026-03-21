@@ -1,0 +1,176 @@
+{
+  "title": "Data Privacy Awareness",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Data Protection",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Data Privacy Protection",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you protect your personal data when using financial apps?",
+    "What data minimization practices should you follow?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Scenario: Why is data privacy important in loan apps? ",
+      "options": [
+        {
+          "id": "a",
+          "label": "Personal data can be misused",
+          "reflection": "Correct! Personal data can be misused in numerous ways, causing long-term harm.",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "label": "It's not important",
+          "reflection": "Actually, data privacy is crucial as personal information can be misused for various purposes.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "Only financial data matters, not personal data",
+          "reflection": "Both financial and personal data are important and can be misused in different ways.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Data is safe with any app that requests it",
+          "reflection": "Data safety depends on the app's practices and security measures, not just the request itself.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 2,
+      "prompt": "What are potential risks of sharing personal data with loan apps?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It helps improve app functionality",
+          "reflection": "While some data helps functionality, excessive data sharing poses privacy risks.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "It speeds up loan approval processes",
+          "reflection": "Loan approval doesn't require extensive personal data beyond what's necessary.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "It reduces interest rates",
+          "reflection": "Interest rates aren't determined by the amount of personal data shared.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "Data could be sold to third parties or used for harassment",
+          "reflection": "Exactly! Personal data can be misused for marketing, identity theft, or even harassment.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 3,
+      "prompt": "How might loan apps misuse your personal contacts information?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It helps them provide better customer service",
+          "reflection": "Customer service doesn't require access to your personal contacts.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "It helps them verify your identity faster",
+          "reflection": "Identity verification doesn't require access to your contacts list.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "Contact data could be used for collection activities",
+          "reflection": "Yes! Lenders might use contact information to pressure you or reach out to your contacts.",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "label": "It helps them offer personalized loans",
+          "reflection": "Personalized loans don't require access to your contacts information.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 4,
+      "prompt": "What should you consider before sharing personal data with a loan app?",
+      "options": [
+        {
+          "id": "a",
+          "label": "How quickly the app processes loans",
+          "reflection": "Processing speed doesn't determine the necessity of sharing personal data.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "label": "Whether the data requested is necessary for the loan process",
+          "reflection": "Perfect! Only share data that is genuinely required for the loan process.",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "label": "How many other users share the same data",
+          "reflection": "The number of users sharing data doesn't make your data sharing safer.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "How user-friendly the app interface is",
+          "reflection": "Interface friendliness doesn't relate to data privacy safety.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    },
+    {
+      "id": 5,
+      "prompt": "What is the long-term impact of data misuse by loan apps?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Data misuse can cause ongoing privacy and security issues",
+          "reflection": "Yes! Misused data can lead to persistent problems like identity theft, harassment, and privacy violations.",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "label": "It only affects the loan period",
+          "reflection": "Effects of data misuse can extend far beyond the loan period and be long-lasting.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "label": "It improves your credit profile",
+          "reflection": "Data misuse doesn't improve credit profiles; it can actually harm them.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "label": "It helps in faster loan approvals in the future",
+          "reflection": "Data misuse doesn't facilitate future loan approvals; it can cause complications.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 3
+    }
+  ]
+}

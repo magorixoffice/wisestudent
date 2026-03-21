@@ -1,0 +1,176 @@
+{
+  "title": "Digital Safety Checkpoint",
+  "subtitleProgress": "Stage {{current}} of {{total}}",
+  "sectionHeaderLeft": "Scenario",
+  "sectionHeaderRight": "Digital Safety",
+  "choiceLabel": "Choice {{id}}",
+  "reflectionTitle": "Reflection",
+  "continueButton": "Continue",
+  "readingLabel": "Reading...",
+  "reflectionPromptsTitle": "Reflection Prompts",
+  "skillUnlockedLabel": "Skill unlocked:",
+  "skillName": "Digital lending safety awareness",
+  "fullRewardHint": "Answer all {{total}} choices correctly to earn the full reward.",
+  "tryAgainButton": "Try Again",
+  "reflectionPrompts": [
+    "How can you verify if a digital lender is legitimate before borrowing?",
+    "What steps should you take to protect your personal information when using digital lending platforms?"
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "prompt": "Which digital lending practice should you avoid?",
+      "options": [
+        {
+          "id": "quick",
+          "label": "Lenders promising very quick approval",
+          "reflection": "While quick approval isn't always bad, it's not the primary safety concern. The key is regulatory compliance and transparent terms.",
+          "isCorrect": false
+        },
+        {
+          "id": "low",
+          "label": "Lenders with very low interest rates",
+          "reflection": "Extremely low rates can sometimes be a red flag, but the primary safety concern is regulatory compliance and transparent terms.",
+          "isCorrect": false
+        },
+        {
+          "id": "high",
+          "label": "Lenders with high loan amounts",
+          "reflection": "High loan amounts aren't necessarily unsafe. The key is regulatory compliance and understanding the terms of the loan.",
+          "isCorrect": false
+        },
+        {
+          "id": "unregulated",
+          "label": "Lenders that don't follow regulations",
+          "reflection": "Absolutely right! Always choose regulated lenders who follow RBI guidelines to ensure your safety and legal protection.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 2,
+      "prompt": "What should you check before using a digital lending app?",
+      "options": [
+        {
+          "id": "rating",
+          "label": "Only check app store ratings",
+          "reflection": "Ratings are helpful but not sufficient. You need to verify regulatory compliance, read terms carefully, and check the lender's credentials.",
+          "isCorrect": false
+        },
+        {
+          "id": "ads",
+          "label": "Look at how many ads they run",
+          "reflection": "Advertising volume doesn't indicate safety. Focus on verifying the lender's regulatory status and credentials.",
+          "isCorrect": false
+        },
+        {
+          "id": "license",
+          "label": "Verify if the lender has proper licenses",
+          "reflection": "Correct! Checking if the lender has proper licenses and regulatory approval is essential for your safety.",
+          "isCorrect": true
+        },
+        {
+          "id": "friends",
+          "label": "Ask friends if they use it",
+          "reflection": "Friends' experiences can be helpful but don't guarantee safety. Always verify the lender's regulatory compliance yourself.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 3,
+      "prompt": "Which app permission is a major red flag?",
+      "options": [
+        {
+          "id": "location",
+          "label": "Access to location data",
+          "reflection": "Location access is often used for legitimate purposes like verifying your location for loan processing.",
+          "isCorrect": false
+        },
+        {
+          "id": "contacts",
+          "label": "Access to your contacts and call logs",
+          "reflection": "Exactly! Access to contacts and call logs is a major red flag as it enables harassment of your contacts if you face repayment issues.",
+          "isCorrect": true
+        },
+        {
+          "id": "camera",
+          "label": "Access to camera for document upload",
+          "reflection": "Camera access for document upload is often legitimate for KYC purposes.",
+          "isCorrect": false
+        },
+        {
+          "id": "storage",
+          "label": "Access to device storage",
+          "reflection": "Storage access may be needed for legitimate purposes, though it should be monitored carefully.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 4,
+      "prompt": "How can you identify a predatory digital loan offer?",
+      "options": [
+        {
+          "id": "guarantee",
+          "label": "Look for 'guaranteed approval' with no checks",
+          "reflection": "Right! 'Guaranteed approval' with no checks is a classic sign of a predatory lender trying to get you into debt without considering your repayment ability.",
+          "isCorrect": true
+        },
+        {
+          "id": "terms",
+          "label": "Check if terms are clearly explained",
+          "reflection": "Clear terms are actually a good sign. Look for hidden fees, unclear repayment terms, or vague language to identify predatory offers.",
+          "isCorrect": false
+        },
+        {
+          "id": "support",
+          "label": "Evaluate the customer support quality",
+          "reflection": "Good customer support is positive, but predatory lenders often have poor support. The key red flags are things like guaranteed approval with no checks.",
+          "isCorrect": false
+        },
+        {
+          "id": "website",
+          "label": "Check if they have a professional website",
+          "reflection": "A professional website doesn't guarantee legitimacy. Some predatory lenders have polished websites. Look for signs like guaranteed approval with no checks.",
+          "isCorrect": false
+        }
+      ],
+      "reward": 5
+    },
+    {
+      "id": 5,
+      "prompt": "What is the best way to handle digital loan communications?",
+      "options": [
+        {
+          "id": "ignore",
+          "label": "Ignore all digital communications",
+          "reflection": "Ignoring all communications might cause you to miss important notices about your legitimate loans or account status.",
+          "isCorrect": false
+        },
+        {
+          "id": "reply",
+          "label": "Reply to all messages immediately",
+          "reflection": "Replying to all messages without verification can expose you to scams and unauthorized access to your information.",
+          "isCorrect": false
+        },
+        {
+          "id": "forward",
+          "label": "Forward suspicious messages to friends",
+          "reflection": "While sharing with trusted friends might be helpful, the primary approach should be verifying the source of communications before engaging.",
+          "isCorrect": false
+        },
+        {
+          "id": "verify",
+          "label": "Verify the source before responding",
+          "reflection": "Perfect! Always verify the source of digital communications to avoid phishing scams and fraudulent lenders.",
+          "isCorrect": true
+        }
+      ],
+      "reward": 5
+    }
+  ]
+}
