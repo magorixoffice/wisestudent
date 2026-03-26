@@ -1,0 +1,145 @@
+﻿{
+    "title": "পিগি ব্যাংকের গল্প",
+    "subtitleComplete": "গল্প সম্পন্ন!",
+    "subtitleProgress": "প্রশ্ন {{current}} / {{total}}",
+    "questionCounter": "প্রশ্ন {{current}}/{{total}}",
+    "scoreLabel": "স্কোর: {{score}}/{{total}}",
+    "stageEmoji": "🐷",
+    "questions": [
+        {
+            "id": 1,
+            "text": "পিগি ব্যাংকে কোনো সুদ নেই। ব্যাংক অ্যাকাউন্টে আছে। কোনটি ভালো?",
+            "options": [
+                {
+                    "id": "bank",
+                    "text": "ব্যাংক অ্যাকাউন্ট",
+                    "emoji": "🏦",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "piggy",
+                    "text": "পিগি ব্যাংক",
+                    "emoji": "🐷",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "mattress",
+                    "text": "বিছানার নিচে",
+                    "emoji": "🛏️",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "তোমার কাছে ৫০ টাকা আছে। বাড়াতে কোথায় সঞ্চয় করবে?",
+            "options": [
+                {
+                    "id": "jar",
+                    "text": "বাড়িতে কলসিতে",
+                    "emoji": "🏺",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "bank",
+                    "text": "ব্যাংক সঞ্চয় অ্যাকাউন্টে",
+                    "emoji": "💰",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "spend",
+                    "text": "এখনই খরচ করো",
+                    "emoji": "🛍️",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "ব্যাংক ৫% সুদ দেয়। পিগি ব্যাংক ০% দেয়। বুদ্ধিমানের সাথে বেছে নাও।",
+            "options": [
+                {
+                    "id": "bank",
+                    "text": "সুদের জন্য ব্যাংক",
+                    "emoji": "📈",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "piggy",
+                    "text": "মজার জন্য পিগি ব্যাংক",
+                    "emoji": "🐷",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "give",
+                    "text": "দিয়ে দাও",
+                    "emoji": "🎁",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "ব্যাংকে ১০০ টাকা সঞ্চয় করলে ১০৫ টাকা হলো। কেন?",
+            "options": [
+                {
+                    "id": "magic",
+                    "text": "পিগি ব্যাংকের জাদু",
+                    "emoji": "🪄",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "added",
+                    "text": "তুমি আরও টাকা যোগ করেছ",
+                    "emoji": "💸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "interest",
+                    "text": "ব্যাংক সুদ দিয়েছে",
+                    "emoji": "📊",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "পিগি ব্যাংকের চেয়ে ব্যাংক প্রায়ই কেন ভালো?",
+            "options": [
+                {
+                    "id": "safe",
+                    "text": "এটি নিরাপদ এবং টাকা বাড়াতে পারে",
+                    "emoji": "🔒",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "cool",
+                    "text": "এটি শুধু দেখতে ভালো",
+                    "emoji": "🐷",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "carry",
+                    "text": "এটি বহন করা সহজ",
+                    "emoji": "🎒",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,144 @@
+﻿{
+    "title": "উপহারের টাকার গল্প",
+    "subtitleComplete": "গল্প সম্পন্ন!",
+    "subtitleProgress": "প্রশ্ন {{current}} / {{total}}",
+    "questionCounter": "প্রশ্ন {{current}}/{{total}}",
+    "scoreLabel": "স্কোর: {{score}}/{{total}}",
+    "questions": [
+        {
+            "id": 1,
+            "text": "জন্মদিনে উপহারের টাকা পেয়েছ। বুদ্ধিমান প্রথম পদক্ষেপ কী?",
+            "options": [
+                {
+                    "id": "spend",
+                    "text": "সঙ্গে সঙ্গে খরচ করো",
+                    "emoji": "💸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "show",
+                    "text": "বন্ধুদের দেখাও",
+                    "emoji": "👀",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "think",
+                    "text": "প্রয়োজন ও লক্ষ্য নিয়ে ভাবো",
+                    "emoji": "🤔",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "তুমি একটি ব্যাগ চাও যার দাম উপহারের টাকার চেয়ে বেশি। বুদ্ধিমান পছন্দ কী?",
+            "options": [
+                {
+                    "id": "borrow",
+                    "text": "বন্ধুদের কাছ থেকে টাকা ধার নাও",
+                    "emoji": "💳",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "wait",
+                    "text": "অপেক্ষা করো এবং আরও টাকা সঞ্চয় করো",
+                    "emoji": "⏳",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "change",
+                    "text": "পরিবর্তে এলোমেলো কিছু কিনো",
+                    "emoji": "🎲",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "একটি ছোট্ট খেলনা এবং একটি দরকারী জিনিস দেখলে। কোনটি সিদ্ধান্ত নিতে সাহায্য করবে?",
+            "options": [
+                {
+                    "id": "use",
+                    "text": "যেটা বেশি দরকার সেটা বেছে নাও",
+                    "emoji": "⭐",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "fun",
+                    "text": "যেটা মজাদার দেখায় সেটা বেছে নাও",
+                    "emoji": "🎉",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "cheap",
+                    "text": "সবচেয়ে সস্তা জিনিসটা বেছে নাও",
+                    "emoji": "💲",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "বাবা/মা উপহারের টাকার কিছু অংশ সঞ্চয় করার পরামর্শ দিলেন। কী করবে?",
+            "options": [
+                {
+                    "id": "refuse",
+                    "text": "অস্বীকার করো এবং সব খরচ করো",
+                    "emoji": "🙅",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "agree",
+                    "text": "একটি অংশ সঞ্চয় করো এবং বাকিটা পরিকল্পনা করো",
+                    "emoji": "📊",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "forget",
+                    "text": "টাকার কথা ভুলে যাও",
+                    "emoji": "😴",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "উপহারের টাকা তোমাকে কী শেখায়?",
+            "options": [
+                {
+                    "id": "showoff",
+                    "text": "কেনাকাটা দেখানো কীভাবে",
+                    "emoji": "😎",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "spend",
+                    "text": "না ভেবে কীভাবে খরচ করতে হয়",
+                    "emoji": "🔥",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "manage",
+                    "text": "দায়িত্বশীলভাবে টাকা কীভাবে পরিচালনা করতে হয়",
+                    "emoji": "🎯",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        }
+    ]
+}

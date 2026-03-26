@@ -1,0 +1,128 @@
+﻿{
+    "title": "এটিএম গল্প",
+    "subtitleComplete": "সম্পন্ন!",
+    "subtitleProgress": "প্রশ্ন {{current}} / {{total}}",
+    "scoreLabel": "স্কোর: {{score}}/{{total}}",
+    "questions": [
+        {
+            "id": 1,
+            "text": "তোমার বাবা/মা তাদের এটিএম কার্ড দেখাচ্ছেন। তোমার কী করা উচিত?",
+            "options": [
+                {
+                    "id": "ignore",
+                    "text": "এটি উপেক্ষা করো",
+                    "emoji": "😐",
+                    "isCorrect": false
+                },
+                {
+                    "id": "learn",
+                    "text": "এটি কীভাবে কাজ করে তা শেখো",
+                    "emoji": "💳",
+                    "isCorrect": true
+                },
+                {
+                    "id": "play",
+                    "text": "এটি নিয়ে খেলো",
+                    "emoji": "🎮",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "তোমার বাবা/মা এটিএমে পিন প্রবেশ করছেন। তোমার কী করা উচিত?",
+            "options": [
+                {
+                    "id": "memorize",
+                    "text": "পিনটি মুখস্থ করার চেষ্টা করো",
+                    "emoji": "🧠",
+                    "isCorrect": false
+                },
+                {
+                    "id": "tell",
+                    "text": "বন্ধুদের এটি জানাও",
+                    "emoji": "💬",
+                    "isCorrect": false
+                },
+                {
+                    "id": "away",
+                    "text": "গোপনীয়তার জন্য অন্যদিকে তাকাও",
+                    "emoji": "👀",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "তোমার কাছে ১০০ টাকা আছে। সবচেয়ে বুদ্ধিমানের কাজ কী?",
+            "options": [
+                {
+                    "id": "split",
+                    "text": "৫০ টাকা সঞ্চয় করো, ৫০ টাকা খরচ করো",
+                    "emoji": "💰",
+                    "isCorrect": true
+                },
+                {
+                    "id": "toys",
+                    "text": "সব খেলনায় খরচ করো",
+                    "emoji": "🧸",
+                    "isCorrect": false
+                },
+                {
+                    "id": "friends",
+                    "text": "সব বন্ধুদের দিয়ে দাও",
+                    "emoji": "🎁",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "তুমি একটি খেলনা কিনতে চাও যার দাম ২০০ টাকা কিন্তু তোমার কাছে আছে ১৫০ টাকা। কী করবে?",
+            "options": [
+                {
+                    "id": "save",
+                    "text": "আরও টাকা সঞ্চয় করো আগে",
+                    "emoji": "💾",
+                    "isCorrect": true
+                },
+                {
+                    "id": "borrow",
+                    "text": "বন্ধুদের কাছ থেকে ধার নাও",
+                    "emoji": "🙈",
+                    "isCorrect": false
+                },
+                {
+                    "id": "demand",
+                    "text": "বাবা/মার কাছে জোর করে চাও",
+                    "emoji": "😤",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "তোমার বন্ধু তার টিফিনের টাকা হারিয়েছে। তোমার কী করা উচিত?",
+            "options": [
+                {
+                    "id": "ignore",
+                    "text": "তাকে উপেক্ষা করো",
+                    "emoji": "😐",
+                    "isCorrect": false
+                },
+                {
+                    "id": "laugh",
+                    "text": "তাকে নিয়ে হাসো",
+                    "emoji": "😆",
+                    "isCorrect": false
+                },
+                {
+                    "id": "share",
+                    "text": "তার সাথে তোমার টিফিন ভাগ করো",
+                    "emoji": "🍱",
+                    "isCorrect": true
+                }
+            ]
+        }
+    ]
+}

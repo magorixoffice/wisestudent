@@ -1,0 +1,150 @@
+﻿{
+    "title": "புத்திசாலி தேர்வு விளையாட்டு",
+    "subtitlePlaying": "சுற்று {{current}}/{{total}}: உன் புத்திசாலி தேர்வு அறிவை சோதி!",
+    "subtitleReady": "உன் புத்திசாலி தேர்வு அறிவை சோதி!",
+    "readyEmoji": "🧠",
+    "readyTitle": "உன் புத்திசாலி தேர்வு திறனை சோதிக்க தயாரா?",
+    "readyDescription": "புத்திசாலித்தனமான தேர்வுகள் மற்றும் முடிவெடுத்தல் பற்றிய கேள்விகளுக்கு பதிலளி.",
+    "readyInfo": "உனக்கு {{total}} கேள்விகள் உள்ளன, ஒவ்வொன்றும் {{seconds}} விநாடிகள்!",
+    "startButton": "விளையாட்டை தொடங்கு",
+    "roundLabel": "சுற்று:",
+    "timeLabel": "நேரம்:",
+    "scoreLabel": "மதிப்பெண்:",
+    "questions": [
+        {
+            "id": 1,
+            "question": "ஆரோக்கியமாக இருக்க புத்திசாலித்தனமான தேர்வு எது?",
+            "correctAnswer": "உணவு",
+            "options": [
+                {
+                    "text": "உணவு",
+                    "isCorrect": true,
+                    "emoji": "🍎"
+                },
+                {
+                    "text": "கூடுதல் ஐஸ்கிரீம்",
+                    "isCorrect": false,
+                    "emoji": "🍦"
+                },
+                {
+                    "text": "வீடியோ விளையாட்டு",
+                    "isCorrect": false,
+                    "emoji": "🎮"
+                },
+                {
+                    "text": "சிறப்பு பொம்மை",
+                    "isCorrect": false,
+                    "emoji": "🧸"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "question": "கற்றலுக்கு என்ன தேர்வு செய்வாய்?",
+            "correctAnswer": "பள்ளி பொருட்கள்",
+            "options": [
+                {
+                    "text": "புதிய விளையாட்டு",
+                    "isCorrect": false,
+                    "emoji": "🎮"
+                },
+                {
+                    "text": "பள்ளி பொருட்கள்",
+                    "isCorrect": true,
+                    "emoji": "📚"
+                },
+                {
+                    "text": "மிட்டாய்",
+                    "isCorrect": false,
+                    "emoji": "🍬"
+                },
+                {
+                    "text": "சிறப்பு கருவி",
+                    "isCorrect": false,
+                    "emoji": "⌚"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "question": "தினசரி வாழ்க்கைக்கு அத்தியாவசியமானது எது?",
+            "correctAnswer": "ஆடைகள்",
+            "options": [
+                {
+                    "text": "சிறப்பு பொம்மை",
+                    "isCorrect": false,
+                    "emoji": "🧸"
+                },
+                {
+                    "text": "ஆடைகள்",
+                    "isCorrect": true,
+                    "emoji": "👕"
+                },
+                {
+                    "text": "ஐஸ்கிரீம்",
+                    "isCorrect": false,
+                    "emoji": "🍦"
+                },
+                {
+                    "text": "செயல் உருவம்",
+                    "isCorrect": false,
+                    "emoji": "🤖"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "question": "அறிவை பெற எது உதவுகிறது?",
+            "correctAnswer": "புத்தகங்கள்",
+            "options": [
+                {
+                    "text": "மிட்டாய்",
+                    "isCorrect": false,
+                    "emoji": "🍬"
+                },
+                {
+                    "text": "வீடியோ விளையாட்டு",
+                    "isCorrect": false,
+                    "emoji": "🎮"
+                },
+                {
+                    "text": "புதிர் விளையாட்டு",
+                    "isCorrect": false,
+                    "emoji": "🧩"
+                },
+                {
+                    "text": "புத்தகங்கள்",
+                    "isCorrect": true,
+                    "emoji": "📖"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "question": "பள்ளிக்கு செல்ல என்ன தேவை?",
+            "correctAnswer": "பேருந்து டிக்கெட்",
+            "options": [
+                {
+                    "text": "சிறப்பு கருவி",
+                    "isCorrect": false,
+                    "emoji": "⌚"
+                },
+                {
+                    "text": "இசை இயந்திரம்",
+                    "isCorrect": false,
+                    "emoji": "🎵"
+                },
+                {
+                    "text": "பேருந்து டிக்கெட்",
+                    "isCorrect": true,
+                    "emoji": "🚌"
+                },
+                {
+                    "text": "ஸ்மார்ட் வாட்ச்",
+                    "isCorrect": false,
+                    "emoji": "⌚"
+                }
+            ]
+        }
+    ]
+}

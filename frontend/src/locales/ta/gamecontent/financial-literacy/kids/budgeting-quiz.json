@@ -1,0 +1,149 @@
+﻿{
+    "title": "பட்ஜெட் வினாடி வினா",
+    "subtitleComplete": "வினாடி வினா முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "questionCounter": "கேள்வி {{current}}/{{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "questions": [
+        {
+            "id": 1,
+            "iconKey": "calculator",
+            "text": "பட்ஜெட் என்றால் என்ன?",
+            "options": [
+                {
+                    "id": "list",
+                    "text": "ஒரு கடை பட்டியல்",
+                    "emoji": "🛒",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "plan",
+                    "text": "ஒரு செலவு திட்டம்",
+                    "emoji": "🧾",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "free",
+                    "text": "இலவச பணம்",
+                    "emoji": "💸",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "iconKey": "target",
+            "text": "பட்ஜெட் ஏன் செய்ய வேண்டும்?",
+            "options": [
+                {
+                    "id": "track",
+                    "text": "செலவுகளை கண்காணித்து சேமிக்க",
+                    "emoji": "📊",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "spend",
+                    "text": "பணத்தை விரைவாக செலவிட",
+                    "emoji": "💥",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "fun",
+                    "text": "வெறும் வேடிக்கைக்காக",
+                    "emoji": "🎉",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "iconKey": "trendingUp",
+            "text": "ரூ. 100 சம்பாதித்து ரூ. 120 செலவிட்டால் என்ன நடக்கும்?",
+            "options": [
+                {
+                    "id": "save",
+                    "text": "ரூ. 20 சேமிப்பாய்",
+                    "emoji": "💰",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "prize",
+                    "text": "பரிசு வெல்வாய்",
+                    "emoji": "🏆",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "debt",
+                    "text": "கடனில் மூழ்குவாய்",
+                    "emoji": "⚠️",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "iconKey": "checkCircle",
+            "text": "நல்ல பட்ஜெட் பழக்கம் எது?",
+            "options": [
+                {
+                    "id": "guess",
+                    "text": "யூகித்து தற்போக்காக செலவிடு",
+                    "emoji": "🎲",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "plan",
+                    "text": "செலவுகளை பட்டியலிட்டு திட்டமிடு",
+                    "emoji": "📝",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "ignore",
+                    "text": "செலவுகளை கவனிக்காமல் விடு",
+                    "emoji": "🙈",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "iconKey": "piggyBank",
+            "text": "பட்ஜெட்டை பின்பற்றினால் நீ...",
+            "options": [
+                {
+                    "id": "goals",
+                    "text": "கவலையின்றி இலக்குகளை அடைவாய்",
+                    "emoji": "🎯",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "unnecessary",
+                    "text": "தேவையற்ற பொருட்கள் வாங்குவாய்",
+                    "emoji": "🛍️",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "lose",
+                    "text": "பணத்தை கண்காணிப்பதை இழப்பாய்",
+                    "emoji": "🌀",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

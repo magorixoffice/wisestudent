@@ -1,0 +1,73 @@
+﻿{
+    "title": "புதிர்: டிஜிட்டல் கருவிகள்",
+    "subtitleComplete": "புதிர் முடிந்தது!",
+    "subtitleProgress": "டிஜிட்டல் கருவிகளை செயல்பாடுகளுடன் பொருத்துங்கள் ({{current}}/{{total}} பொருத்தப்பட்டது)",
+    "toolsTitle": "டிஜிட்டல் கருவிகள்",
+    "functionsTitle": "டிஜிட்டல் செயல்பாடுகள்",
+    "matchButton": "பொருத்து",
+    "selectToolLabel": "ஒரு டிஜிட்டல் கருவியை தேர்வு செய்யுங்கள்",
+    "selectedToolLabel": "தேர்வு: {{name}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "matchedLabel": "பொருத்தப்பட்டது: {{current}}/{{total}}",
+    "resultSuccessHeader": "சிறப்பான வேலை!",
+    "resultSuccessSubheader": "{{total}} இல் {{score}} டிஜிட்டல் கருவிகளை சரியாக பொருத்தினீர்கள்!",
+    "resultSuccessLesson": "பாடம்: டிஜிட்டல் கருவிகளை புரிந்துகொள்வது பாதுகாப்பான ஆன்லைன் பரிவர்த்தனைகளை செய்ய உதவுகிறது!",
+    "resultTryAgainHeader": "தொடர்ந்து பயிற்சி செய்யுங்கள்!",
+    "resultTryAgainSubheader": "{{total}} இல் {{score}} டிஜிட்டல் கருவிகளை சரியாக பொருத்தினீர்கள்.",
+    "resultTryAgainTip": "குறிப்பு: ஒவ்வொரு டிஜிட்டல் கருவியும் உண்மையில் என்ன செய்கிறது என்று சிந்தியுங்கள்!",
+    "coinsEarned": "+{{coins}} நாணயங்கள்",
+    "tools": [
+        {
+            "id": 1,
+            "name": "UPI",
+            "emoji": "📱"
+        },
+        {
+            "id": 2,
+            "name": "டெபிட் கார்டு",
+            "emoji": "💳"
+        },
+        {
+            "id": 3,
+            "name": "OTP",
+            "emoji": "🔐"
+        },
+        {
+            "id": 4,
+            "name": "QR கோடு",
+            "emoji": "📷"
+        },
+        {
+            "id": 5,
+            "name": "CVV",
+            "emoji": "🔒"
+        }
+    ],
+    "functions": [
+        {
+            "id": 6,
+            "name": "உடனடி பரிமாற்றம்",
+            "emoji": "⚡"
+        },
+        {
+            "id": 7,
+            "name": "வங்கி செலவழிப்பு",
+            "emoji": "🏦"
+        },
+        {
+            "id": 8,
+            "name": "பாதுகாப்பு குறியீடு",
+            "emoji": "🛡️"
+        },
+        {
+            "id": 9,
+            "name": "ஸ்கேன் & செலுத்து",
+            "emoji": "📲"
+        },
+        {
+            "id": 10,
+            "name": "கார்டு பாதுகாப்பு",
+            "emoji": "🧾"
+        }
+    ]
+}

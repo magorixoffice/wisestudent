@@ -1,0 +1,80 @@
+﻿{
+    "title": "வளர்ச்சி புதிர்",
+    "subtitleComplete": "புதிர் முடிந்தது!",
+    "subtitleProgress": "பொருட்களை விளைவுகளுடன் பொருத்துங்கள் ({{matched}}/{{total}} பொருத்தப்பட்டது)",
+    "itemsTitle": "வளர்ச்சி பொருட்கள்",
+    "categoriesTitle": "விளைவுகள்",
+    "selectedLabel": "தேர்ந்தெடுக்கப்பட்டது: {{name}}",
+    "selectItem": "ஒரு பொருளை தேர்ந்தெடு",
+    "matchButton": "பொருத்து",
+    "scoreLabel": "மதிப்பெண்:",
+    "matchedLabel": "பொருத்தப்பட்டது:",
+    "resultGreatEmoji": "🎉",
+    "resultGreatTitle": "சிறப்பாக செய்தாய்!",
+    "resultGreatDescription": "நீ {{total}} பொருட்களில் {{score}} விளைவுகளுடன் சரியாக பொருத்தினாய்!",
+    "coinsLabel": "நாணயங்கள்",
+    "resultLesson": "பாடம்: தாவரங்களைப் போலவே, சேமிப்புகளும் முதலீடுகளும் காலப்போக்கில் வளரும்.",
+    "resultKeepEmoji": "💪",
+    "resultKeepTitle": "தொடர்ந்து பயிற்சி செய்!",
+    "resultKeepDescription": "நீ {{total}} பொருட்களில் {{score}} சரியாக பொருத்தினாய்.",
+    "resultTip": "குறிப்பு: ஒவ்வொரு பொருளும் இயற்கையாக எதாக வளரும் என்று சிந்தி.",
+    "items": [
+        {
+            "id": 1,
+            "name": "விதை",
+            "emoji": "🌱"
+        },
+        {
+            "id": 2,
+            "name": "சேமிப்பு",
+            "emoji": "💰"
+        },
+        {
+            "id": 3,
+            "name": "செடி",
+            "emoji": "🌿"
+        },
+        {
+            "id": 4,
+            "name": "மரக்கன்று",
+            "emoji": "🌳"
+        },
+        {
+            "id": 5,
+            "name": "கிழங்கு",
+            "emoji": "🌻"
+        }
+    ],
+    "categories": [
+        {
+            "id": 6,
+            "name": "மரம்",
+            "emoji": "🌲",
+            "description": "விதை மரமாக வளரலாம்"
+        },
+        {
+            "id": 7,
+            "name": "வளர்ச்சி",
+            "emoji": "📈",
+            "description": "சேமிப்பு மதிப்பில் வளரலாம்"
+        },
+        {
+            "id": 8,
+            "name": "பூ",
+            "emoji": "🌸",
+            "description": "செடி பூவாக மலரலாம்"
+        },
+        {
+            "id": 9,
+            "name": "காடு",
+            "emoji": "🌲",
+            "description": "பல மரக்கன்றுகள் காடாகலாம்"
+        },
+        {
+            "id": 10,
+            "name": "செல்வம்",
+            "emoji": "🏦",
+            "description": "பண பழக்கங்கள் செல்வத்தை வளர்க்கலாம்"
+        }
+    ]
+}

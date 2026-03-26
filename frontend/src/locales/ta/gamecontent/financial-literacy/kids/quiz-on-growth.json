@@ -1,0 +1,145 @@
+﻿{
+    "title": "வளர்ச்சி பற்றிய வினாடி வினா",
+    "subtitleComplete": "வினாடி வினா முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "questionCounter": "கேள்வி {{current}}/{{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "stageEmoji": "📈",
+    "questions": [
+        {
+            "id": 1,
+            "text": "பணம் வளர என்ன உதவுகிறது?",
+            "options": [
+                {
+                    "id": "spend",
+                    "text": "எல்லாவற்றையும் செலவிடுவது",
+                    "emoji": "💸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "waste",
+                    "text": "வீணடிப்பது",
+                    "emoji": "🗑️",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "savings",
+                    "text": "சேமிப்பு + வட்டி",
+                    "emoji": "📈",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "வங்கி பணம் வளர எவ்வாறு உதவுகிறது?",
+            "options": [
+                {
+                    "id": "toys",
+                    "text": "பொம்மைகள் தருவதன் மூலம்",
+                    "emoji": "🧸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "interest",
+                    "text": "வட்டி கொடுப்பதன் மூலம்",
+                    "emoji": "💰",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "hide",
+                    "text": "பணத்தை மறைப்பதன் மூலம்",
+                    "emoji": "🫥",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "பணம் வளர பாதுகாப்பான வழி எது?",
+            "options": [
+                {
+                    "id": "candy",
+                    "text": "மிட்டாய் வாங்குவது",
+                    "emoji": "🍬",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "home",
+                    "text": "வீட்டில் பணம் வைப்பது",
+                    "emoji": "🏠",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "bank",
+                    "text": "வங்கி சேமிப்பு கணக்கு பயன்படுத்துவது",
+                    "emoji": "🏦",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "முதலீடு என்ன செய்கிறது?",
+            "options": [
+                {
+                    "id": "grows",
+                    "text": "உன் பணத்தை வளர்க்கிறது",
+                    "emoji": "📊",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "spends",
+                    "text": "உன் பணத்தை செலவிடுகிறது",
+                    "emoji": "💸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "loses",
+                    "text": "எப்போதும் உன் பணத்தை இழக்கிறது",
+                    "emoji": "📉",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "வங்கியில் பணம் ஏன் சேமிக்க வேண்டும்?",
+            "options": [
+                {
+                    "id": "toys",
+                    "text": "உடனே பொம்மைகள் வாங்க",
+                    "emoji": "🧸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "interest",
+                    "text": "வட்டியுடன் வளரலாம்",
+                    "emoji": "💹",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "fun",
+                    "text": "வேடிக்கையாக இருப்பதால் மட்டும்",
+                    "emoji": "😊",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

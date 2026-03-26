@@ -1,0 +1,146 @@
+﻿{
+    "title": "பொம்மை கடை கதை",
+    "subtitleComplete": "கதை முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "questionLabel": "கேள்வி {{current}}/{{total}}",
+    "questionIndicator": "கேள்வி {{current}}/{{total}}",
+    "questionCounter": "கேள்வி {{current}}/{{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "questions": [
+        {
+            "id": 1,
+            "text": "விற்பவர் 'விரைவில் வாங்காவிட்டால் பொம்மை போய்விடும்!' என்கிறார். என்ன செய்வாய்?",
+            "options": [
+                {
+                    "id": "quick",
+                    "text": "விரைவாக வாங்கு",
+                    "emoji": "⚡",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "check",
+                    "text": "விலை சரிபார்",
+                    "emoji": "💰",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "ignore",
+                    "text": "விற்பவரை கவனிக்காதே",
+                    "emoji": "🤷",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "இரண்டு பொம்மை கடைகள் தெரிகின்றன. புத்திசாலித்தனம் எது?",
+            "options": [
+                {
+                    "id": "compare",
+                    "text": "விலைகளை ஒப்பிடு",
+                    "emoji": "⚖️",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "pay",
+                    "text": "இப்போதே பணம் கட்டு",
+                    "emoji": "💸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "skip",
+                    "text": "இரண்டையும் விட்டுவிடு",
+                    "emoji": "🚶",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "பொம்மை அழகாக தெரிகிறது. என்ன சரிபார்ப்பாய்?",
+            "options": [
+                {
+                    "id": "fast",
+                    "text": "விரைவாக வாங்கு",
+                    "emoji": "🏃",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "quality",
+                    "text": "தரம் கேள்",
+                    "emoji": "🔍",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "guess",
+                    "text": "தரத்தை யூகி",
+                    "emoji": "🎲",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "இணையத்தில் பொம்மை சேல். முதலில் என்ன?",
+            "options": [
+                {
+                    "id": "reviews",
+                    "text": "விமர்சனங்களை படி",
+                    "emoji": "⭐",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "rush",
+                    "text": "அவசரப்படு",
+                    "emoji": "⚡",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "ignore",
+                    "text": "சேலை கவனிக்காதே",
+                    "emoji": "🙈",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "பொம்மை வேண்டும். திட்டம் என்ன?",
+            "options": [
+                {
+                    "id": "spend",
+                    "text": "எல்லாவற்றையும் செலவிடு",
+                    "emoji": "💸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "borrow",
+                    "text": "பணம் கடன் வாங்கு",
+                    "emoji": "💳",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "budget",
+                    "text": "முதலில் பட்ஜெட் போடு",
+                    "emoji": "📊",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        }
+    ]
+}

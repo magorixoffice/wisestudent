@@ -1,0 +1,108 @@
+﻿{
+    "title": "পোস্টার: স্মার্ট কেনাকাটা",
+    "subtitleComplete": "কার্যক্রম সম্পন্ন!",
+    "subtitleProgress": "প্রশ্ন {{current}} / {{total}}",
+    "scoreLabel": "স্কোর: {{score}}/{{total}}",
+    "stages": [
+        {
+            "question": "স্মার্ট কেনাকাটার জন্য সেরা পোস্টারটি বেছে নাও:",
+            "choices": [
+                {
+                    "text": "যা চাও তাই খরচ করো",
+                    "design": "💸",
+                    "correct": false
+                },
+                {
+                    "text": "খরচ করার আগে ভাবো",
+                    "design": "🧠",
+                    "correct": true
+                },
+                {
+                    "text": "এখনই সব কিনো",
+                    "design": "🛒",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "question": "কোন পোস্টারটি স্মার্ট কেনাকাটার অভ্যাস প্রচার করে?",
+            "choices": [
+                {
+                    "text": "কেনাকাটার তালিকা তৈরি করো",
+                    "design": "📝",
+                    "correct": true
+                },
+                {
+                    "text": "না ভেবে কিনো",
+                    "design": "🤦",
+                    "correct": false
+                },
+                {
+                    "text": "সাথে সাথে খরচ করো",
+                    "design": "⚡",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "question": "সেরা কেনাকাটার পোস্টারটি বেছে নাও:",
+            "choices": [
+                {
+                    "text": "আগে কিনো, পরে ভাবো",
+                    "design": "🛍️",
+                    "correct": false
+                },
+                {
+                    "text": "পরিকল্পনা ছাড়া খরচ করো",
+                    "design": "🙈",
+                    "correct": false
+                },
+                {
+                    "text": "দাম তুলনা করো",
+                    "design": "⚖️",
+                    "correct": true
+                }
+            ]
+        },
+        {
+            "question": "স্মার্ট কেনাকাটার পোস্টারটি বেছে নাও:",
+            "choices": [
+                {
+                    "text": "ছাড়ে যা পাও তাই কিনো",
+                    "design": "🏷️",
+                    "correct": true
+                },
+                {
+                    "text": "সবসময় পুরো দামে কিনো",
+                    "design": "💰",
+                    "correct": false
+                },
+                {
+                    "text": "কখনো টাকা বাঁচিও না",
+                    "design": "🚫",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "question": "স্মার্ট কেনাকাটার জন্য কোন পোস্টারটি সবচেয়ে ভালো?",
+            "choices": [
+                {
+                    "text": "সব কিছু আবেগের বশে কিনো",
+                    "design": "💥",
+                    "correct": false
+                },
+                {
+                    "text": "বাজেট ছাড়া খরচ করো",
+                    "design": "📉",
+                    "correct": false
+                },
+                {
+                    "text": "আগে থেকে কেনাকাটা পরিকল্পনা করো",
+                    "design": "🧾",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+}

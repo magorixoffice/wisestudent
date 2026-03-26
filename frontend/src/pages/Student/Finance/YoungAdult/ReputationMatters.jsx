@@ -1,16 +1,14 @@
-import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
-import GameShell from "../GameShell";
-import useGameFeedback from "../../../../hooks/useGameFeedback";
+﻿import { useTranslation } from "react-i18next";
 import { getGameDataById } from "../../../../utils/getGameData";
-import { useTranslation } from "react-i18next";
-import {
-  enFinancialLiteracyYoungAdultGameContent,
-  hiFinancialLiteracyYoungAdultGameContent,
-} from "../../../../i18n/financial-literacy/young-adult";
+import useGameFeedback from "../../../../hooks/useGameFeedback";
+import GameShell from "../GameShell";
+import { useLocation } from "react-router-dom";
+import React, { useState } from "react";
+
+
 
 const ReputationMatters = () => {
-  const { i18n, t } = useTranslation("gamecontent");
+  const { t } = useTranslation("gamecontent");
   const location = useLocation();
   const gameId = "finance-young-adult-99";
   const gameData = getGameDataById(gameId);
@@ -28,12 +26,7 @@ const ReputationMatters = () => {
   const [showFeedback, setShowFeedback] = useState(false);
   const [selectedReflection, setSelectedReflection] = useState(null);
   const [canProceed, setCanProceed] = useState(false);
-
-  const currentLanguage = i18n.language;
-  const isHindi = currentLanguage === "hi";
-  const gameContent = isHindi
-    ? hiFinancialLiteracyYoungAdultGameContent["reputation-matters"]
-    : enFinancialLiteracyYoungAdultGameContent["reputation-matters"];
+  const gameContent = t("financial-literacy.young-adult.reputation-matters", { returnObjects: true });
 
   const stages = Array.isArray(gameContent?.stages) ? gameContent.stages : [];
   const totalStages = stages.length || 0;
@@ -352,3 +345,4 @@ const ReputationMatters = () => {
 };
 
 export default ReputationMatters;
+

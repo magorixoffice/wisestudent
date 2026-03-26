@@ -1,0 +1,145 @@
+﻿{
+    "title": "செல்லப்பிராணி பராமரிப்பு கதை",
+    "subtitleComplete": "கதை முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "questionCounter": "கேள்வி {{current}}/{{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "stageEmoji": "🐶",
+    "questions": [
+        {
+            "id": 1,
+            "text": "செல்லப்பிராணிக்கு உணவு கொடுக்கவும் நடைப்பயிற்சி செய்யவும் தினசரி அட்டவணை தயாரிக்கிறாய். எந்த திறனை பயிற்சி செய்கிறாய்?",
+            "options": [
+                {
+                    "id": "playing",
+                    "text": "விலங்குகளுடன் மட்டும் விளையாடுவது",
+                    "emoji": "🎾",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "luck",
+                    "text": "அதிர்ஷ்டத்தை நம்புவது",
+                    "emoji": "🍀",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "planning",
+                    "text": "திட்டமிடல் மற்றும் ஒழுங்கமைப்பு",
+                    "emoji": "📋",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "செல்லப்பிராணி பராமரிப்பில் காலப்போக்கில் பணம் சம்பாதிக்கிறாய். புத்திசாலித்தனமான அடுத்த படி என்ன?",
+            "options": [
+                {
+                    "id": "track",
+                    "text": "எவ்வளவு சம்பாதிக்கிறாய் என்று கண்காணி",
+                    "emoji": "📊",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "spend",
+                    "text": "உடனே செலவிடு",
+                    "emoji": "⚡",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "forget",
+                    "text": "மறந்துவிடு",
+                    "emoji": "🤷",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "உன் கவலையில் இருக்கும்போது செல்லப்பிராணி நலமற்றதாக தெரிகிறது. முதலில் என்ன செய்வாய்?",
+            "options": [
+                {
+                    "id": "wait",
+                    "text": "காத்திரு, சரியாகிவிடும் என்று நம்பு",
+                    "emoji": "⏳",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "inform",
+                    "text": "உரிமையாளரிடம் விரைவாக தெரிவி",
+                    "emoji": "📞",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "ignore",
+                    "text": "அறிகுறிகளை கவனிக்காமல் விடு",
+                    "emoji": "🙈",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "செல்லப்பிராணி பராமரிப்பை வெற்றிகரமாக முடிக்கிறாய். மீண்டும் நம்பிக்கை பெற எது உதவும்?",
+            "options": [
+                {
+                    "id": "ask",
+                    "text": "அதிக பணம் கேட்பது",
+                    "emoji": "💸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "rush",
+                    "text": "வேலைகளை அவசரமாக செய்வது",
+                    "emoji": "🏃",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "reliable",
+                    "text": "நம்பகமாகவும் கவனமாகவும் இருப்பது",
+                    "emoji": "⭐",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "செல்லப்பிராணி பராமரிப்பு பணம் சம்பாதிப்பது என்பது என்னவென்றும் கற்பிக்கிறது?",
+            "options": [
+                {
+                    "id": "care",
+                    "text": "மற்றவர்களை பொறுப்புடன் கவனிப்பது",
+                    "emoji": "❤️",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "fun",
+                    "text": "வெறும் வேடிக்கையாக இருப்பது மட்டும்",
+                    "emoji": "😄",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "spending",
+                    "text": "அதிகமாக பணம் செலவிடுவது",
+                    "emoji": "🛍️",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

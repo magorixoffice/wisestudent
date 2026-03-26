@@ -1,0 +1,129 @@
+﻿{
+    "title": "தொலைந்த நாணயம் கதை",
+    "subtitleComplete": "கதை முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "questionLabel": "கேள்வி {{current}}/{{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "questions": [
+        {
+            "id": 1,
+            "text": "விளையாட்டு மைதானத்தில் ஒரு பளபளப்பான நாணயம் கிடைக்கிறது. சரியான செயல் என்ன?",
+            "options": [
+                {
+                    "id": "keep",
+                    "text": "உன்னிடமே வைத்துக்கொள்",
+                    "emoji": "🤫",
+                    "isCorrect": false
+                },
+                {
+                    "id": "ask_teacher",
+                    "text": "ஆசிரியரிடம் கொடு",
+                    "emoji": "🧑‍🏫",
+                    "isCorrect": true
+                },
+                {
+                    "id": "ignore",
+                    "text": "தரையிலேயே விட்டுவிடு",
+                    "emoji": "🍂",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "நூலகத்தில் ₹15 கிடைக்கிறது. யாரும் அருகில் இல்லை. என்ன செய்வாய்?",
+            "options": [
+                {
+                    "id": "return",
+                    "text": "நூலகரிடம் கொடு",
+                    "emoji": "📚",
+                    "isCorrect": true
+                },
+                {
+                    "id": "hide",
+                    "text": "பையில் மறைத்து வை",
+                    "emoji": "🎒",
+                    "isCorrect": false
+                },
+                {
+                    "id": "spend",
+                    "text": "உடனே தின்பண்டங்கள் வாங்கு",
+                    "emoji": "🍿",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "நண்பருக்கு ₹20 கிடைக்கிறது, வைத்துக்கொள்ள விரும்புகிறார். என்ன பரிந்துரைப்பாய்?",
+            "options": [
+                {
+                    "id": "keep",
+                    "text": "அமைதியாக வைத்துக்கொள்",
+                    "emoji": "😶",
+                    "isCorrect": false
+                },
+                {
+                    "id": "spend",
+                    "text": "விளையாட்டுகளுக்கு செலவிடு",
+                    "emoji": "🎮",
+                    "isCorrect": false
+                },
+                {
+                    "id": "return",
+                    "text": "சேர்ந்து உரிமையாளரை தேடு",
+                    "emoji": "🕵️‍♂️",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "கடையில் தவறுதலாக கூடுதல் சில்லறை கிடைக்கிறது. நேர்மையான தேர்வு என்ன?",
+            "options": [
+                {
+                    "id": "keep",
+                    "text": "கூடுதல் பணத்தை வைத்துக்கொள்",
+                    "emoji": "🤑",
+                    "isCorrect": false
+                },
+                {
+                    "id": "return",
+                    "text": "கடைக்காரரிடம் திருப்பி கொடு",
+                    "emoji": "💵",
+                    "isCorrect": true
+                },
+                {
+                    "id": "gift",
+                    "text": "நண்பருக்கு கொடு",
+                    "emoji": "🎁",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "கிடைத்த பணத்தில் நேர்மையாக நடந்துகொள்ள வேண்டும் ஏன்?",
+            "options": [
+                {
+                    "id": "respect",
+                    "text": "நம்பிக்கையை வளர்க்கும், பொறுப்பை காட்டும்",
+                    "emoji": "🤝",
+                    "isCorrect": true
+                },
+                {
+                    "id": "buy_more",
+                    "text": "அதிக பொருட்கள் வாங்கலாம்",
+                    "emoji": "🛍️",
+                    "isCorrect": false
+                },
+                {
+                    "id": "luck",
+                    "text": "உடனடி அதிர்ஷ்டம் கிடைக்கும்",
+                    "emoji": "🍀",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

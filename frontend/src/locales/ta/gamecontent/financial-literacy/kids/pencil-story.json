@@ -1,0 +1,145 @@
+﻿{
+    "title": "பென்சில் கதை",
+    "subtitleComplete": "கதை முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "questionCounter": "கேள்வி {{current}}/{{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "stageEmoji": "✏️",
+    "questions": [
+        {
+            "id": 1,
+            "text": "நண்பரிடம் பென்சில் கடன் வாங்குகிறாய். என்ன செய்வாய்?",
+            "options": [
+                {
+                    "id": "yes",
+                    "text": "பயன்படுத்திய பிறகு திருப்பி கொடு",
+                    "emoji": "✅",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "no",
+                    "text": "வைத்துக்கொள்",
+                    "emoji": "❌",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "lose",
+                    "text": "தொலைத்துவிடு",
+                    "emoji": "🙈",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "உனக்கு பென்சில் தேவை, ஆனால் இல்லை. சரியான செயல் என்ன?",
+            "options": [
+                {
+                    "id": "take",
+                    "text": "கேட்காமல் எடு",
+                    "emoji": "🤫",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "ask",
+                    "text": "கடன் கேட்டு திருப்பி கொடு",
+                    "emoji": "🤝",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "skip",
+                    "text": "எழுதுவதை விட்டுவிடு",
+                    "emoji": "✍️",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "கடன் வாங்கிய பென்சிலை உடைக்கிறாய். நேர்மையானது என்ன?",
+            "options": [
+                {
+                    "id": "replace",
+                    "text": "புதிய பென்சிலால் மாற்றி கொடு",
+                    "emoji": "🆕",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "hide",
+                    "text": "மறைத்து வை",
+                    "emoji": "🙈",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "blame",
+                    "text": "வேறு யாரையோ குற்றம் சொல்",
+                    "emoji": "😶",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "பென்சிலுக்கு நண்பர் ₹5 கடன் கொடுக்கிறார். என்ன செய்வாய்?",
+            "options": [
+                {
+                    "id": "candy",
+                    "text": "மிட்டாய்க்கு செலவிடு",
+                    "emoji": "🍬",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "forget",
+                    "text": "திருப்பி கொடுக்க மறந்துவிடு",
+                    "emoji": "😕",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "repay",
+                    "text": "சரியான நேரத்தில் ₹5 திருப்பி கொடு",
+                    "emoji": "💸",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "கடன் வாங்கிய பொருட்களை திருப்பி கொடுப்பது ஏன் முக்கியம்?",
+            "options": [
+                {
+                    "id": "pencils",
+                    "text": "அதிக பென்சில்கள் கிடைக்கும்",
+                    "emoji": "✏️",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "trust",
+                    "text": "நம்பிக்கையை வளர்க்கும்",
+                    "emoji": "🤝",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "popular",
+                    "text": "பிரபலமாவாய்",
+                    "emoji": "👥",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

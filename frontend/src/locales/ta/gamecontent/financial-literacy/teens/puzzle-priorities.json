@@ -1,0 +1,73 @@
+﻿{
+    "title": "முன்னுரிமைகள் புதிர்",
+    "subtitleComplete": "புதிர் முடிந்தது!",
+    "subtitleProgress": "செலவுகளை முன்னுரிமைகளுடன் பொருத்துங்கள் ({{current}}/{{total}} பொருத்தப்பட்டது)",
+    "itemsTitle": "செலவுகள்",
+    "prioritiesTitle": "முன்னுரிமைகள்",
+    "matchButton": "பொருத்து",
+    "selectItemLabel": "ஒரு செலவை தேர்வு செய்யுங்கள்",
+    "selectedItemLabel": "தேர்வு: {{name}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "matchedLabel": "பொருத்தப்பட்டது: {{current}}/{{total}}",
+    "resultSuccessHeader": "சிறப்பான வேலை!",
+    "resultSuccessSubheader": "{{total}} இல் {{score}} செலவுகளை சரியாக பொருத்தினீர்கள்!",
+    "resultSuccessLesson": "பாடம்: செலவு முன்னுரிமைகளை புரிந்துகொள்வது புத்திசாலித்தனமான நிதி முடிவுகளை எடுக்க உதவுகிறது!",
+    "resultTryAgainHeader": "தொடர்ந்து பயிற்சி செய்யுங்கள்!",
+    "resultTryAgainSubheader": "{{total}} இல் {{score}} செலவுகளை சரியாக பொருத்தினீர்கள்.",
+    "resultTryAgainTip": "குறிப்பு: ஒவ்வொரு செலவும் அத்தியாவசியமா அல்லது விவேகமா என்று சிந்தியுங்கள்!",
+    "coinsEarned": "+{{coins}} நாணயங்கள்",
+    "items": [
+        {
+            "id": 1,
+            "name": "பள்ளி கட்டணம்",
+            "emoji": "🎓"
+        },
+        {
+            "id": 2,
+            "name": "மளிகை சாமான்கள்",
+            "emoji": "🛒"
+        },
+        {
+            "id": 3,
+            "name": "வாடகை",
+            "emoji": "🏠"
+        },
+        {
+            "id": 4,
+            "name": "மருந்து",
+            "emoji": "💊"
+        },
+        {
+            "id": 5,
+            "name": "மின்சாரம்",
+            "emoji": "💡"
+        }
+    ],
+    "priorities": [
+        {
+            "id": 6,
+            "name": "தேவை",
+            "emoji": "✅"
+        },
+        {
+            "id": 7,
+            "name": "விருப்பம்",
+            "emoji": "🎁"
+        },
+        {
+            "id": 8,
+            "name": "சேமி",
+            "emoji": "💰"
+        },
+        {
+            "id": 9,
+            "name": "முதலீடு செய்",
+            "emoji": "📈"
+        },
+        {
+            "id": 10,
+            "name": "பகிர்",
+            "emoji": "🤲"
+        }
+    ]
+}

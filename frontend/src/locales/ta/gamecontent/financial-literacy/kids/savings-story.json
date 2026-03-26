@@ -1,0 +1,128 @@
+﻿{
+    "title": "சேமிப்பு கதை",
+    "subtitleComplete": "முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "questions": [
+        {
+            "id": 1,
+            "text": "உங்களுக்கு பரிசாக ₹1000 கிடைத்தது. அதை பாதுகாப்பாக வைக்கும் சிறந்த வழி எது?",
+            "options": [
+                {
+                    "id": "home",
+                    "text": "வீட்டில் வைக்கவும்",
+                    "emoji": "🏠",
+                    "isCorrect": false
+                },
+                {
+                    "id": "bank",
+                    "text": "வங்கி கணக்கு திறக்கவும்",
+                    "emoji": "🏦",
+                    "isCorrect": true
+                },
+                {
+                    "id": "wallet",
+                    "text": "பணப்பையில் வைக்கவும்",
+                    "emoji": "👛",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "பிறந்தநாள் பணத்தை பயன்படுத்தும் புத்திசாலித்தனமான வழி எது?",
+            "options": [
+                {
+                    "id": "split",
+                    "text": "50/50 பிரிக்கவும்",
+                    "emoji": "💵",
+                    "isCorrect": true
+                },
+                {
+                    "id": "spend",
+                    "text": "புதிய கேஜெட்கள் வாங்கவும்",
+                    "emoji": "📱",
+                    "isCorrect": false
+                },
+                {
+                    "id": "spend_all",
+                    "text": "இப்போதே எல்லாவற்றையும் செலவழிக்கவும்",
+                    "emoji": "💸",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "வாரம் ₹200 படிப்பிற்கான பணம் கிடைக்கிறது. சிறந்த திட்டம் என்ன?",
+            "options": [
+                {
+                    "id": "treats",
+                    "text": "சிற்றுண்டி வாங்கவும்",
+                    "emoji": "🍫",
+                    "isCorrect": false
+                },
+                {
+                    "id": "save_half",
+                    "text": "50% சேமிக்கவும்",
+                    "emoji": "💲",
+                    "isCorrect": true
+                },
+                {
+                    "id": "save_all",
+                    "text": "எல்லாவற்றையும் சேமிக்கவும்",
+                    "emoji": "💰",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "வீட்டு வேலைகளிலிருந்து சேமித்த பணத்தை எங்கே வைக்க வேண்டும்?",
+            "options": [
+                {
+                    "id": "piggy",
+                    "text": "குட்டி பேங்க்",
+                    "emoji": "🐷",
+                    "isCorrect": false
+                },
+                {
+                    "id": "pocket",
+                    "text": "உங்கள் பாக்கெட்",
+                    "emoji": "👖",
+                    "isCorrect": false
+                },
+                {
+                    "id": "bank",
+                    "text": "சேமிப்பு கணக்கு",
+                    "emoji": "🏦",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "உங்கள் பணத்தை வளர்க்கும் சிறந்த வழி எது?",
+            "options": [
+                {
+                    "id": "save",
+                    "text": "அதிக வட்டி கணக்கு",
+                    "emoji": "💹",
+                    "isCorrect": true
+                },
+                {
+                    "id": "invest",
+                    "text": "பங்குகளில் முதலீடு செய்யவும்",
+                    "emoji": "📊",
+                    "isCorrect": false
+                },
+                {
+                    "id": "spend",
+                    "text": "சேகரிப்புகள் வாங்கவும்",
+                    "emoji": "🏀",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

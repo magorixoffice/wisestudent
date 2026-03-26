@@ -1,0 +1,102 @@
+﻿{
+    "title": "পেশার ধাঁধা",
+    "subtitleComplete": "ধাঁধা সম্পন্ন!",
+    "subtitleProgress": "পেশাগুলো তারা কী প্রদান করে তার সাথে মেলাও ({{matched}}/{{total}} মেলানো হয়েছে)",
+    "jobsTitle": "পেশাসমূহ",
+    "providedTitle": "তারা কী প্রদান করে",
+    "selectedLabel": "নির্বাচিত: {{name}}",
+    "selectJob": "একটি পেশা বেছে নাও",
+    "matchButton": "মেলাও",
+    "scoreLabel": "স্কোর:",
+    "matchedLabel": "মেলানো হয়েছে:",
+    "resultGreatEmoji": "🎉",
+    "resultGreatTitle": "দারুণ কাজ!",
+    "resultGreatDescription": "তুমি {{total}}টি পেশার মধ্যে {{score}}টি সঠিকভাবে তারা কী প্রদান করে তার সাথে মিলিয়েছ!",
+    "coinsLabel": "কয়েন",
+    "resultLesson": "শিক্ষা: প্রতিটি পেশা মানুষের প্রয়োজন পূরণ করে মূল্য সৃষ্টি করে!",
+    "resultKeepEmoji": "💪",
+    "resultKeepTitle": "অনুশীলন চালিয়ে যাও!",
+    "resultKeepDescription": "তুমি {{total}}টি পেশার মধ্যে {{score}}টি সঠিকভাবে মিলিয়েছ।",
+    "resultTip": "টিপস: প্রতিটি পেশা সমাজের জন্য কী তৈরি বা প্রদান করে তা ভাবো!",
+    "jobs": [
+        {
+            "id": 1,
+            "name": "কৃষক",
+            "emoji": "🌾"
+        },
+        {
+            "id": 2,
+            "name": "শিক্ষক",
+            "emoji": "📚"
+        },
+        {
+            "id": 3,
+            "name": "ডাক্তার",
+            "emoji": "🩺"
+        },
+        {
+            "id": 4,
+            "name": "রাঁধুনি",
+            "emoji": "👩‍🍳"
+        },
+        {
+            "id": 5,
+            "name": "প্রকৌশলী",
+            "emoji": "🔧"
+        }
+    ],
+    "provided": [
+        {
+            "id": 8,
+            "name": "স্বাস্থ্যসেবা",
+            "emoji": "💊",
+            "description": ""
+        },
+        {
+            "id": 10,
+            "name": "অবকাঠামো",
+            "emoji": "🏗️",
+            "description": ""
+        },
+        {
+            "id": 7,
+            "name": "শিক্ষা",
+            "emoji": "📖",
+            "description": ""
+        },
+        {
+            "id": 6,
+            "name": "খাদ্য",
+            "emoji": "🍎",
+            "description": ""
+        },
+        {
+            "id": 9,
+            "name": "রান্না করা খাবার",
+            "emoji": "🍽️",
+            "description": ""
+        }
+    ],
+    "correctMatches": [
+        {
+            "jobId": 1,
+            "providedId": 6
+        },
+        {
+            "jobId": 2,
+            "providedId": 7
+        },
+        {
+            "jobId": 3,
+            "providedId": 8
+        },
+        {
+            "jobId": 4,
+            "providedId": 9
+        },
+        {
+            "jobId": 5,
+            "providedId": 10
+        }
+    ]
+}

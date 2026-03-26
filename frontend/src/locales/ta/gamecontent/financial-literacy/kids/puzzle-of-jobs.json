@@ -1,0 +1,102 @@
+﻿{
+    "title": "தொழில்கள் புதிர்",
+    "subtitleComplete": "புதிர் முடிந்தது!",
+    "subtitleProgress": "தொழில்களை அவை வழங்குவதுடன் பொருத்துங்கள் ({{matched}}/{{total}} பொருத்தப்பட்டது)",
+    "jobsTitle": "தொழில்கள்",
+    "providedTitle": "அவை வழங்புவது",
+    "selectedLabel": "தேர்ந்தெடுக்கப்பட்டது: {{name}}",
+    "selectJob": "ஒரு தொழிலை தேர்ந்தெடு",
+    "matchButton": "பொருத்து",
+    "scoreLabel": "மதிப்பெண்:",
+    "matchedLabel": "பொருத்தப்பட்டது:",
+    "resultGreatEmoji": "🎉",
+    "resultGreatTitle": "சிறப்பாக செய்தாய்!",
+    "resultGreatDescription": "நீ {{total}} தொழில்களில் {{score}} அவை வழங்புவதுடன் சரியாக பொருத்தினாய்!",
+    "coinsLabel": "நாணயங்கள்",
+    "resultLesson": "பாடம்: ஒவ்வொரு தொழிலும் மக்களின் தேவைகளை பூர்த்தி செய்வதன் மூலம் மதிப்பை வழங்கிறது!",
+    "resultKeepEmoji": "💪",
+    "resultKeepTitle": "தொடர்ந்து பயிற்சி செய்!",
+    "resultKeepDescription": "நீ {{total}} தொழில்களில் {{score}} சரியாக பொருத்தினாய்.",
+    "resultTip": "குறிப்பு: ஒவ்வொரு தொழிலும் சமூகத்திற்கு என்ன உருவாக்குகிறது அல்லது வழங்குகிறது என்று சிந்தி!",
+    "jobs": [
+        {
+            "id": 1,
+            "name": "விவசாயி",
+            "emoji": "🌾"
+        },
+        {
+            "id": 2,
+            "name": "ஆசிரியர்",
+            "emoji": "📚"
+        },
+        {
+            "id": 3,
+            "name": "மருத்துவர்",
+            "emoji": "🩺"
+        },
+        {
+            "id": 4,
+            "name": "சமையல்காரர்",
+            "emoji": "👩‍🍳"
+        },
+        {
+            "id": 5,
+            "name": "பொறியாளர்",
+            "emoji": "🔧"
+        }
+    ],
+    "provided": [
+        {
+            "id": 8,
+            "name": "சுகாதாரம்",
+            "emoji": "💊",
+            "description": ""
+        },
+        {
+            "id": 10,
+            "name": "உள்கட்டமைப்பு",
+            "emoji": "🏗️",
+            "description": ""
+        },
+        {
+            "id": 7,
+            "name": "கல்வி",
+            "emoji": "📖",
+            "description": ""
+        },
+        {
+            "id": 6,
+            "name": "உணவு",
+            "emoji": "🍎",
+            "description": ""
+        },
+        {
+            "id": 9,
+            "name": "உணவு வகைகள்",
+            "emoji": "🍽️",
+            "description": ""
+        }
+    ],
+    "correctMatches": [
+        {
+            "jobId": 1,
+            "providedId": 6
+        },
+        {
+            "jobId": 2,
+            "providedId": 7
+        },
+        {
+            "jobId": 3,
+            "providedId": 8
+        },
+        {
+            "jobId": 4,
+            "providedId": 9
+        },
+        {
+            "jobId": 5,
+            "providedId": 10
+        }
+    ]
+}

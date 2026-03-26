@@ -1,0 +1,73 @@
+﻿{
+    "title": "புதிர்: முதலீட்டு வகைகள்",
+    "subtitleComplete": "புதிர் முடிந்தது!",
+    "subtitleProgress": "முதலீடுகளை பண்புகளுடன் பொருத்துங்கள் ({{current}}/{{total}} பொருத்தப்பட்டது)",
+    "investmentsTitle": "முதலீட்டு வகைகள்",
+    "characteristicsTitle": "பண்புகள்",
+    "matchButton": "பொருத்து",
+    "selectInvestmentLabel": "ஒரு முதலீட்டு வகையை தேர்வு செய்யுங்கள்",
+    "selectedInvestmentLabel": "தேர்வு: {{name}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "matchedLabel": "பொருத்தப்பட்டது: {{current}}/{{total}}",
+    "resultSuccessHeader": "சிறப்பான வேலை!",
+    "resultSuccessSubheader": "{{total}} இல் {{score}} முதலீட்டு வகைகளை சரியாக பொருத்தினீர்கள்!",
+    "resultSuccessLesson": "பாடம்: முதலீட்டு பண்புகளை புரிந்துகொள்வது சிந்தித்த நிதி முடிவுகளை எடுக்க உதவுகிறது!",
+    "resultTryAgainHeader": "தொடர்ந்து பயிற்சி செய்யுங்கள்!",
+    "resultTryAgainSubheader": "{{total}} இல் {{score}} முதலீட்டு வகைகளை சரியாக பொருத்தினீர்கள்.",
+    "resultTryAgainTip": "குறிப்பு: ஒவ்வொரு முதலீட்டு வகையின் ஆபத்து நிலை மற்றும் தன்மையைப் பற்றி சிந்தியுங்கள்!",
+    "coinsEarned": "+{{coins}} நாணயங்கள்",
+    "investments": [
+        {
+            "id": 1,
+            "name": "நிலையான வைப்பு",
+            "emoji": "🏦"
+        },
+        {
+            "id": 2,
+            "name": "பங்குகள்",
+            "emoji": "📈"
+        },
+        {
+            "id": 3,
+            "name": "மியூச்சுவல் ஃபண்ட்",
+            "emoji": "📊"
+        },
+        {
+            "id": 4,
+            "name": "பாண்டுகள்",
+            "emoji": "📜"
+        },
+        {
+            "id": 5,
+            "name": "ரியல் எஸ்டேட்",
+            "emoji": "🏠"
+        }
+    ],
+    "characteristics": [
+        {
+            "id": 6,
+            "name": "பாதுகாப்பானது",
+            "emoji": "🛡️"
+        },
+        {
+            "id": 7,
+            "name": "ஆபத்தானது",
+            "emoji": "⚠️"
+        },
+        {
+            "id": 8,
+            "name": "பல்வகைப்படுத்தப்பட்டது",
+            "emoji": "🔄"
+        },
+        {
+            "id": 9,
+            "name": "நிலையானது",
+            "emoji": "💰"
+        },
+        {
+            "id": 10,
+            "name": "நீண்டகாலம்",
+            "emoji": "⏳"
+        }
+    ]
+}

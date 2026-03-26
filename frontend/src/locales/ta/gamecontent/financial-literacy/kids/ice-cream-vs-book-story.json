@@ -1,0 +1,145 @@
+﻿{
+    "title": "ஐஸ்கிரீம் vs பள்ளி புத்தகம் கதை",
+    "subtitleComplete": "கதை முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "questionCounter": "கேள்வி {{current}}/{{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "stageEmoji": "📘",
+    "questions": [
+        {
+            "id": 1,
+            "text": "பள்ளி முடிந்து வருகிறாய், பசிக்கிறது, ஆனால் ஒரு பயிற்சி புத்தகமும் தேவை. சிறந்த தேர்வு என்ன?",
+            "options": [
+                {
+                    "id": "icecream",
+                    "text": "இப்போது ஐஸ்கிரீம் வாங்கு",
+                    "emoji": "🍦",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "book",
+                    "text": "பயிற்சி புத்தகம் வாங்கு",
+                    "emoji": "📘",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "wait",
+                    "text": "எதுவும் வாங்காமல் போ",
+                    "emoji": "🚶",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "இன்று ஐஸ்கிரீம் சாப்பிட்டாய், நாளை புத்தகம் வாங்க பணம் இல்லை. என்ன கற்றுக்கொள்கிறாய்?",
+            "options": [
+                {
+                    "id": "lesson",
+                    "text": "பணம் திட்டமிடுவது முக்கியம்",
+                    "emoji": "🧠",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "sad",
+                    "text": "ஐஸ்கிரீம் எப்போதும் சிறந்தது",
+                    "emoji": "🍦",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "borrow",
+                    "text": "அடுத்த முறை கடன் வாங்கு",
+                    "emoji": "🙏",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "புத்தகம் தேர்வுகளில் உதவுகிறது, ஐஸ்கிரீம் விரைவாக உருகிவிடும். எது நீண்ட நேரம் நீடிக்கும்?",
+            "options": [
+                {
+                    "id": "icecream",
+                    "text": "ஐஸ்கிரீம் மகிழ்ச்சி",
+                    "emoji": "🍨",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "book",
+                    "text": "புத்தகத்தில் இருந்து கிடைக்கும் அறிவு",
+                    "emoji": "📚",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "both",
+                    "text": "இரண்டும் சமமாக நீடிக்கும்",
+                    "emoji": "🤷",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "இன்று புத்தகம் வாங்கி, வேறு ஒரு நாள் ஐஸ்கிரீம் அனுபவிக்க முடிவு செய்கிறாய். எந்த திறனை காட்டுகிறாய்?",
+            "options": [
+                {
+                    "id": "luck",
+                    "text": "நல்ல அதிர்ஷ்டம்",
+                    "emoji": "🍀",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "speed",
+                    "text": "விரைவான முடிவு எடுத்தல்",
+                    "emoji": "⚡",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "patience",
+                    "text": "சுயக்கட்டுப்பாடு",
+                    "emoji": "🧘",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "நீ புத்தகம் தேர்வு செய்யும்போது பெற்றோர் புன்னகைக்கிறார்கள். அவர்கள் ஏன் மகிழ்ச்சிப்படுகிறார்கள்?",
+            "options": [
+                {
+                    "id": "cheap",
+                    "text": "புத்தகங்கள் மலிவானவை",
+                    "emoji": "💸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "smart",
+                    "text": "நீ பொறுப்பான தேர்வு செய்கிறாய்",
+                    "emoji": "✅",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "friends",
+                    "text": "நண்பர்களுக்கு புத்தகங்கள் பிடிக்கும்",
+                    "emoji": "👫",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

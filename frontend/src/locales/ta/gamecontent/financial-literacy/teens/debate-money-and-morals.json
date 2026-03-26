@@ -1,0 +1,129 @@
+﻿{
+    "title": "விவாதம்: பணம் & நெறிமுறை",
+    "subtitleComplete": "விவாதம் முடிந்தது!",
+    "subtitleProgress": "சுற்று {{current}} / {{total}}",
+    "roundLabel": "சுற்று {{current}}/{{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "rounds": [
+        {
+            "id": 1,
+            "statement": "பணம் குணாதிசயத்தை சோதிக்கிறதா?",
+            "options": [
+                {
+                    "id": "yes",
+                    "text": "ஆம், நெறிமுறை அதிக முக்கியம்",
+                    "emoji": "🙂",
+                    "isCorrect": true
+                },
+                {
+                    "id": "no",
+                    "text": "இல்லை, பணம் முக்கியமில்லை",
+                    "emoji": "🤷",
+                    "isCorrect": false
+                },
+                {
+                    "id": "maybe",
+                    "text": "ஒருவேளை, சார்ந்துள்ளது",
+                    "emoji": "🤔",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "statement": "பணத்திற்காக நெறிமுறைகளை சமரசம் செய்ய வேண்டுமா?",
+            "options": [
+                {
+                    "id": "sometimes",
+                    "text": "சில நேரம் சரி",
+                    "emoji": "🤷",
+                    "isCorrect": false
+                },
+                {
+                    "id": "never",
+                    "text": "ஒருபோதும் சமரசம் செய்யாதீர்கள்",
+                    "emoji": "🛡️",
+                    "isCorrect": true
+                },
+                {
+                    "id": "always",
+                    "text": "பணம் முன்னுரிமை",
+                    "emoji": "💰",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "statement": "எது அதிக முக்கியம்: செல்வமா அல்லது நேர்மையா?",
+            "options": [
+                {
+                    "id": "wealth",
+                    "text": "செல்வம்",
+                    "emoji": "💵",
+                    "isCorrect": false
+                },
+                {
+                    "id": "both",
+                    "text": "இரண்டும் சமானமாக",
+                    "emoji": "⚖️",
+                    "isCorrect": false
+                },
+                {
+                    "id": "integrity",
+                    "text": "நேர்மை",
+                    "emoji": "💎",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "statement": "பணக்காரராகவும் நெறிமுறையாகவும் இருக்க முடியுமா?",
+            "options": [
+                {
+                    "id": "yes2",
+                    "text": "ஆம், நிச்சயமாக",
+                    "emoji": "✨",
+                    "isCorrect": true
+                },
+                {
+                    "id": "no2",
+                    "text": "இல்லை, சாத்தியமில்லை",
+                    "emoji": "🚫",
+                    "isCorrect": false
+                },
+                {
+                    "id": "rarely",
+                    "text": "அரிதாகவே சாத்தியம்",
+                    "emoji": "😕",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "statement": "நீடித்த வெற்றியை என்ன உருவாக்குகிறது?",
+            "options": [
+                {
+                    "id": "shortcuts",
+                    "text": "குறுக்குவழிகள் மற்றும் தந்திரங்கள்",
+                    "emoji": "⚡",
+                    "isCorrect": false
+                },
+                {
+                    "id": "ethics",
+                    "text": "நெறிமுறை மற்றும் நேர்மை",
+                    "emoji": "🏆",
+                    "isCorrect": true
+                },
+                {
+                    "id": "luck",
+                    "text": "அதிர்ஷ்டம் மட்டும்",
+                    "emoji": "🍀",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

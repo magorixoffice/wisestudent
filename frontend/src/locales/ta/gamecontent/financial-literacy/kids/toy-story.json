@@ -1,0 +1,145 @@
+﻿{
+    "title": "பொம்மை கதை",
+    "subtitleComplete": "கதை முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "questionCounter": "கேள்வி {{current}}/{{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "stageEmoji": "🧸",
+    "questions": [
+        {
+            "id": 1,
+            "text": "நண்பர் உங்களுக்கு பொம்மை கடன் கொடுக்கிறார். என்ன செய்ய வேண்டும்?",
+            "options": [
+                {
+                    "id": "safe",
+                    "text": "பாதுகாப்பாக வைக்கவும்",
+                    "emoji": "🛡️",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "break",
+                    "text": "உடைக்கவும்",
+                    "emoji": "💔",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "ignore",
+                    "text": "புறக்கணிக்கவும்",
+                    "emoji": "😴",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "பொம்மை கடன் வாங்கினீர்கள். இப்போது என்ன செய்வீர்கள்?",
+            "options": [
+                {
+                    "id": "keep",
+                    "text": "வைத்திருக்கவும்",
+                    "emoji": "🙈",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "lose",
+                    "text": "தொலைத்துவிடவும்",
+                    "emoji": "😞",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "return",
+                    "text": "பொம்மையை திருப்பி கொடுக்கவும்",
+                    "emoji": "🔁",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "நண்பரின் பொம்மை உங்களிடம் உள்ளது. சிறந்தது என்ன?",
+            "options": [
+                {
+                    "id": "care",
+                    "text": "கவனமாக பராமரிக்கவும்",
+                    "emoji": "💝",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "lose",
+                    "text": "தொலைத்துவிடவும்",
+                    "emoji": "😞",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "break",
+                    "text": "உடைக்கவும்",
+                    "emoji": "💔",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "உரிமையாளர் பொம்மையை திரும்பக் கேட்கிறார். என்ன செய்வீர்கள்?",
+            "options": [
+                {
+                    "id": "hide",
+                    "text": "மறைக்கவும்",
+                    "emoji": "🫥",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "give",
+                    "text": "திருப்பி கொடுக்கவும்",
+                    "emoji": "🤝",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "delay",
+                    "text": "திருப்பிக் கொடுப்பதை தாமதப்படுத்தவும்",
+                    "emoji": "⏰",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "பொம்மை கடன் வாங்கும்போது உங்கள் கடமை என்ன?",
+            "options": [
+                {
+                    "id": "careless",
+                    "text": "கவலைப்படாமல் இருக்கவும்",
+                    "emoji": "😓",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "forget",
+                    "text": "மறந்துவிடவும்",
+                    "emoji": "🤷",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "responsible",
+                    "text": "பொறுப்பாக இருக்கவும்",
+                    "emoji": "🔒",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        }
+    ]
+}

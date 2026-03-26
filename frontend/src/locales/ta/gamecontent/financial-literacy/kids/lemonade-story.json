@@ -1,0 +1,145 @@
+﻿{
+    "title": "எலுமிச்சை பானம் கதை",
+    "subtitleComplete": "கதை முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "questionCounter": "கேள்வி {{current}}/{{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "stageEmoji": "🍋",
+    "questions": [
+        {
+            "id": 1,
+            "text": "எலுமிச்சை பானம் கடையில் ₹50 சம்பாதிக்கிறாய். புத்திசாலித்தனமான தேர்வு என்ன?",
+            "options": [
+                {
+                    "id": "toys",
+                    "text": "எல்லாவற்றையும் பொம்மைகளுக்கு செலவிடு",
+                    "emoji": "🧸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "snacks",
+                    "text": "தின்பண்டங்கள் வாங்கு",
+                    "emoji": "🍟",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "save",
+                    "text": "பாதியை பொருட்களுக்கு சேமி",
+                    "emoji": "💰",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "எலுமிச்சைக்கு ₹20 தேவை. உன்னிடம் ₹15 மட்டுமே உள்ளது. என்ன செய்வாய்?",
+            "options": [
+                {
+                    "id": "save",
+                    "text": "₹5 கூடுதலாக சேமி",
+                    "emoji": "🙂",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "borrow",
+                    "text": "₹5 கடன் வாங்கு",
+                    "emoji": "🙈",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "skip",
+                    "text": "எலுமிச்சை வாங்குவதை விட்டுவிடு",
+                    "emoji": "🍋",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "ஒரு வாடிக்கையாளர் ₹5 க்கு பதிலாக ₹10 கொடுக்கிறார். நேர்மையானது என்ன?",
+            "options": [
+                {
+                    "id": "keep",
+                    "text": "₹10 வைத்துக்கொள்",
+                    "emoji": "💸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "return",
+                    "text": "கூடுதல் ₹5 திருப்பி கொடு",
+                    "emoji": "🤝",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "candy",
+                    "text": "அதை மிட்டாய்க்கு செலவிடு",
+                    "emoji": "🍬",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "₹30 சம்பாதிக்கிறாய். இன்றே எல்லாவற்றையும் செலவிட வேண்டுமா?",
+            "options": [
+                {
+                    "id": "no",
+                    "text": "இல்லை, அடுத்த கடைக்கு சேமி",
+                    "emoji": "🙅",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "games",
+                    "text": "ஆம், விளையாட்டுகள் வாங்கு",
+                    "emoji": "🎮",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "give",
+                    "text": "கொடுத்துவிடு",
+                    "emoji": "🎁",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "எலுமிச்சை பானம் கடை வருவாயை திட்டமிடுவது ஏன் புத்திசாலித்தனம்?",
+            "options": [
+                {
+                    "id": "spend",
+                    "text": "அதிகமாக செலவிட உதவும்",
+                    "emoji": "🛍️",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "running",
+                    "text": "கடையை தொடர்ந்து நடத்த உதவும்",
+                    "emoji": "☀️",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "customers",
+                    "text": "அதிக வாடிக்கையாளர்களை பெற உதவும்",
+                    "emoji": "👥",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

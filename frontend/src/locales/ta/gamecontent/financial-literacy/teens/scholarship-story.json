@@ -1,0 +1,134 @@
+﻿{
+    "title": "உதவித்தொகை கதை",
+    "subtitleComplete": "கதை முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "perfectScoreMsg": "{{total}} இல் {{score}} சரியாக பதிலளித்தீர்கள்! விண்ணப்பங்களில் நேர்மையின் முக்கியத்துவத்தை புரிந்துகொண்டீர்கள்!",
+    "lowScoreMsg": "{{total}} இல் {{score}} சரியாக பதிலளித்தீர்கள். நினைவில் கொள்ளுங்கள், உதவித்தொகைக்கு நேர்மை சிறந்த கொள்கை!",
+    "lessonLabel": "பாடம்: உதவித்தொகை மற்றும் பிற வாய்ப்புகளுக்கு விண்ணப்பிக்கும்போது நேர்மை மற்றும் ஒருமைப்பாடு முக்கியம்.",
+    "tryAgain": "மீண்டும் முயற்சிக்கவும்",
+    "tipLabel": "குறிப்பு: நம்பிக்கையை வளர்க்க உதவித்தொகை விண்ணப்பங்களில் எப்போதும் துல்லியமான மற்றும் உண்மையான தகவல் கொடுங்கள்.",
+    "coinsLabel": "+{{count}} நாணயங்கள்",
+    "questions": [
+        {
+            "id": 1,
+            "text": "கூடுதல் உதவித்தொகை பெற மாணவர் பொய் சொல்கிறார். சரியான நடவடிக்கை என்ன?",
+            "options": [
+                {
+                    "id": "lie",
+                    "text": "பணம் பெற பொய் சொல்லவும்",
+                    "emoji": "😈",
+                    "isCorrect": false
+                },
+                {
+                    "id": "truthful",
+                    "text": "நேர்மையாக இருக்கவும்",
+                    "emoji": "📝",
+                    "isCorrect": true
+                },
+                {
+                    "id": "maybe",
+                    "text": "ஒருவேளை, தேவைப்பட்டால்",
+                    "emoji": "🤔",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "உதவித்தொகை விண்ணப்பத்தில் பொய் சொன்னால் என்ன நடக்கும்?",
+            "options": [
+                {
+                    "id": "get-money",
+                    "text": "அதிக பணம் கிடைக்கும்",
+                    "emoji": "💰",
+                    "isCorrect": false
+                },
+                {
+                    "id": "lose-opportunity",
+                    "text": "வாய்ப்பு மற்றும் நம்பிக்கை இழப்பு",
+                    "emoji": "🚫",
+                    "isCorrect": true
+                },
+                {
+                    "id": "nothing",
+                    "text": "எதுவும் நடக்காது",
+                    "emoji": "😊",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "விண்ணப்பங்களில் நேர்மை ஏன் முக்கியம்?",
+            "options": [
+                {
+                    "id": "builds-trust",
+                    "text": "நம்பிக்கை மற்றும் ஒருமைப்பாட்டை வளர்க்கிறது",
+                    "emoji": "🤝",
+                    "isCorrect": true
+                },
+                {
+                    "id": "not-important",
+                    "text": "முக்கியமில்லை",
+                    "emoji": "😴",
+                    "isCorrect": false
+                },
+                {
+                    "id": "waste-time",
+                    "text": "நேரத்தை வீணாக்குகிறது",
+                    "emoji": "⏳",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "விண்ணப்பத்தில் தவறு செய்தால் என்ன செய்ய வேண்டும்?",
+            "options": [
+                {
+                    "id": "hide-mistake",
+                    "text": "தவறை மறைக்கவும்",
+                    "emoji": "🙈",
+                    "isCorrect": false
+                },
+                {
+                    "id": "correct-it",
+                    "text": "நேர்மையாக சரிசெய்யவும்",
+                    "emoji": "✏️",
+                    "isCorrect": true
+                },
+                {
+                    "id": "ignore",
+                    "text": "புறக்கணிக்கவும்",
+                    "emoji": "😴",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "உதவித்தொகைக்கான சிறந்த அணுகுமுறை என்ன?",
+            "options": [
+                {
+                    "id": "honest-application",
+                    "text": "நேர்மையான மற்றும் முழுமையான விண்ணப்பம்",
+                    "emoji": "📝",
+                    "isCorrect": true
+                },
+                {
+                    "id": "exaggerate",
+                    "text": "சாதனைகளை மிகைப்படுத்தவும்",
+                    "emoji": "📈",
+                    "isCorrect": false
+                },
+                {
+                    "id": "copy-others",
+                    "text": "மற்றவர்களிடமிருந்து நகலெடுக்கவும்",
+                    "emoji": "📋",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

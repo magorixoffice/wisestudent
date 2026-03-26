@@ -1,0 +1,129 @@
+﻿{
+    "title": "கடை கதை விளையாட்டு",
+    "subtitleComplete": "கதை முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "questionLabel": "கேள்வி {{current}}/{{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "questions": [
+        {
+            "id": 1,
+            "text": "கடைக்காரர் கூடுதல் சில்லறை தருகிறார். என்ன செய்வாய்?",
+            "options": [
+                {
+                    "id": "return",
+                    "text": "கூடுதல் சில்லறை திருப்பி கொடு",
+                    "emoji": "💸",
+                    "isCorrect": true
+                },
+                {
+                    "id": "keep",
+                    "text": "அமைதியாக வைத்துக்கொள்",
+                    "emoji": "🤫",
+                    "isCorrect": false
+                },
+                {
+                    "id": "spend",
+                    "text": "உடனே செலவிடு",
+                    "emoji": "🛍️",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "மலிவான பொருள் கிடைக்கிறது. அடுத்து என்ன?",
+            "options": [
+                {
+                    "id": "lie",
+                    "text": "விலையைப் பற்றி பொய் சொல்",
+                    "emoji": "🙊",
+                    "isCorrect": false
+                },
+                {
+                    "id": "ignore",
+                    "text": "கவனிக்காமல் விடு",
+                    "emoji": "🙈",
+                    "isCorrect": false
+                },
+                {
+                    "id": "honest",
+                    "text": "நேர்மையாக இரு",
+                    "emoji": "🤗",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "விற்பவர் விலை சொல்கிறார். அடுத்து என்ன?",
+            "options": [
+                {
+                    "id": "bargain",
+                    "text": "நியாயமற்றுசேஷ்பேசு",
+                    "emoji": "😈",
+                    "isCorrect": false
+                },
+                {
+                    "id": "refuse",
+                    "text": "பணம் கட்ட மறு",
+                    "emoji": "🚫",
+                    "isCorrect": false
+                },
+                {
+                    "id": "pay",
+                    "text": "நியாயமாக பணம் கட்டு",
+                    "emoji": "⚖️",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "கணக்கு சீட்டு கிடைக்கிறது. என்ன செய்வாய்?",
+            "options": [
+                {
+                    "id": "check",
+                    "text": "கணக்கு சீட்டை சரிபார்",
+                    "emoji": "🧾",
+                    "isCorrect": true
+                },
+                {
+                    "id": "ignore",
+                    "text": "கணக்கை கவனிக்காதே",
+                    "emoji": "🙈",
+                    "isCorrect": false
+                },
+                {
+                    "id": "throw",
+                    "text": "வீசி எறி",
+                    "emoji": "🗑️",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "கடை அதிக விலை வசூலிக்கிறது. இப்போது என்ன?",
+            "options": [
+                {
+                    "id": "silent",
+                    "text": "அமைதியாக இரு",
+                    "emoji": "😶",
+                    "isCorrect": false
+                },
+                {
+                    "id": "report",
+                    "text": "தவறை தெரிவி",
+                    "emoji": "🗣️",
+                    "isCorrect": true
+                },
+                {
+                    "id": "accept",
+                    "text": "ஏற்றுக்கொள்",
+                    "emoji": "😔",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

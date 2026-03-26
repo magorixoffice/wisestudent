@@ -1,0 +1,149 @@
+﻿{
+    "title": "செலவு விளையாட்டு",
+    "subtitlePlaying": "சுற்று {{current}}/{{total}}: உன் செலவு திறனை சோதி!",
+    "subtitleReady": "உன் செலவு திறனை சோதி!",
+    "readyTitle": "உன் செலவு திறனை சோதிக்க தயாரா?",
+    "readyDescription": "புத்திசாலித்தனமான செலவு மற்றும் பண மேலாண்மை பற்றிய கேள்விகளுக்கு பதிலளி.",
+    "readyInfo": "உனக்கு {{total}} கேள்விகள் உள்ளன, ஒவ்வொன்றும் {{seconds}} விநாடிகள்!",
+    "startButton": "விளையாட்டை தொடங்கு",
+    "roundLabel": "சுற்று:",
+    "timeLabel": "நேரம்:",
+    "scoreLabel": "மதிப்பெண்:",
+    "questions": [
+        {
+            "id": 1,
+            "question": "பெரிய வாங்குதலுக்கு முன் என்ன செய்வாய்?",
+            "correctAnswer": "முன்கூட்டியே திட்டமிடு",
+            "options": [
+                {
+                    "text": "உடனே வாங்கு",
+                    "isCorrect": false,
+                    "emoji": "💸"
+                },
+                {
+                    "text": "முன்கூட்டியே திட்டமிடு",
+                    "isCorrect": true,
+                    "emoji": "📋"
+                },
+                {
+                    "text": "நண்பர்களிடம் கேள்",
+                    "isCorrect": false,
+                    "emoji": "👥"
+                },
+                {
+                    "text": "செலவை கவனிக்காதே",
+                    "isCorrect": false,
+                    "emoji": "🙈"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "question": "செலவுக்கு கிடைக்கும் பணத்தை புத்திசாலித்தனமாக எவ்வாறு செலவிடுவாய்?",
+            "correctAnswer": "முதலில் சிறிதளவு சேமி",
+            "options": [
+                {
+                    "text": "எல்லாவற்றையும் செலவிடு",
+                    "isCorrect": false,
+                    "emoji": "🛍️"
+                },
+                {
+                    "text": "எதுவேனும் வாங்கு",
+                    "isCorrect": false,
+                    "emoji": "🛒"
+                },
+                {
+                    "text": "முதலில் சிறிதளவு சேமி",
+                    "isCorrect": true,
+                    "emoji": "💰"
+                },
+                {
+                    "text": "வீணடி",
+                    "isCorrect": false,
+                    "emoji": "🔥"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "question": "உடனடி வாங்குதலை தவிர்க்க எது உதவுகிறது?",
+            "correctAnswer": "வாங்குவதற்கு முன் காத்திரு",
+            "options": [
+                {
+                    "text": "வாங்குவதற்கு முன் காத்திரு",
+                    "isCorrect": true,
+                    "emoji": "⏳"
+                },
+                {
+                    "text": "உடனே வாங்கு",
+                    "isCorrect": false,
+                    "emoji": "⚡"
+                },
+                {
+                    "text": "அடிக்கடி கடை பார்",
+                    "isCorrect": false,
+                    "emoji": "🏪"
+                },
+                {
+                    "text": "யோசிக்காமல் செலவிடு",
+                    "isCorrect": false,
+                    "emoji": "🤔"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "question": "கடை பார்க்கும்போது எதை ஒப்பிட வேண்டும்?",
+            "correctAnswer": "விலை மற்றும் தரம்",
+            "options": [
+                {
+                    "text": "நிறங்களை மட்டும்",
+                    "isCorrect": false,
+                    "emoji": "🎨"
+                },
+                {
+                    "text": "பிராண்டுகளை மட்டும்",
+                    "isCorrect": false,
+                    "emoji": "🏷️"
+                },
+                {
+                    "text": "பொட்டலத்தை",
+                    "isCorrect": false,
+                    "emoji": "📦"
+                },
+                {
+                    "text": "விலை மற்றும் தரம்",
+                    "isCorrect": true,
+                    "emoji": "🔍"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "question": "புத்திசாலித்தனமான செலவில் முதல் படி எது?",
+            "correctAnswer": "பட்ஜெட் நிர்ணயி",
+            "options": [
+                {
+                    "text": "சுதந்திரமாக செலவிடு",
+                    "isCorrect": false,
+                    "emoji": "💸"
+                },
+                {
+                    "text": "பட்ஜெட் நிர்ணயி",
+                    "isCorrect": true,
+                    "emoji": "📊"
+                },
+                {
+                    "text": "எல்லாவற்றையும் வாங்கு",
+                    "isCorrect": false,
+                    "emoji": "🛍️"
+                },
+                {
+                    "text": "வரம்புகளை கவனிக்காதே",
+                    "isCorrect": false,
+                    "emoji": "🚫"
+                }
+            ]
+        }
+    ]
+}

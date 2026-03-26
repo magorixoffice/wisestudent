@@ -1,0 +1,144 @@
+﻿{
+    "title": "বাবা/মাকে সাহায্যের গল্প",
+    "subtitleComplete": "গল্প সম্পন্ন!",
+    "subtitleProgress": "প্রশ্ন {{current}} / {{total}}",
+    "questionCounter": "প্রশ্ন {{current}}/{{total}}",
+    "scoreLabel": "স্কোর: {{score}}/{{total}}",
+    "questions": [
+        {
+            "id": 1,
+            "text": "বাবা/মার মুদিখানার জন্য ৫০ টাকা দরকার। তোমার কাছে ২০ টাকা আছে। কী করবে?",
+            "options": [
+                {
+                    "id": "give",
+                    "text": "সাহায্য করতে তোমার ২০ টাকা দাও",
+                    "emoji": "🥕",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "candy",
+                    "text": "মিষ্টির জন্য রেখে দাও",
+                    "emoji": "🍬",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "ignore",
+                    "text": "তাদের অনুরোধ উপেক্ষা করো",
+                    "emoji": "😐",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "বাড়িতে কাজ করে ১০ টাকা উপার্জন করেছ। কি সঞ্চয় করবে?",
+            "options": [
+                {
+                    "id": "toys",
+                    "text": "খেলনায় খরচ করবো",
+                    "emoji": "🧸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "save",
+                    "text": "হ্যাঁ, সঞ্চয়ে যোগ করবো",
+                    "emoji": "💰",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "give",
+                    "text": "দিয়ে দেবো",
+                    "emoji": "🎁",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "বাবা/মা ১৫ টাকায় দুধ কিনতে বললেন। তোমার কাছে ২০ টাকা আছে। পরে কী করবে?",
+            "options": [
+                {
+                    "id": "change",
+                    "text": "দুধ কিনো এবং ভাংতি ফেরত দাও",
+                    "emoji": "🧾",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "candy",
+                    "text": "ভাংতি দিয়ে মিষ্টি কিনবো",
+                    "emoji": "🍭",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "keep",
+                    "text": "পুরো ২০ টাকা রেখে দেবো",
+                    "emoji": "🤫",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "১০ টাকা খুঁজে পেলে। বাবা/মা সৎ থাকতে বললেন। কী করবে?",
+            "options": [
+                {
+                    "id": "snacks",
+                    "text": "নাস্তায় খরচ করবো",
+                    "emoji": "🍟",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "hide",
+                    "text": "পকেটে লুকিয়ে রাখবো",
+                    "emoji": "🧥",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "find",
+                    "text": "মালিক খুঁজে বের করার চেষ্টা করবো",
+                    "emoji": "🕵️",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "বাবা/মাকে টাকায় সাহায্য করলে তুমি অনুভব করো...",
+            "options": [
+                {
+                    "id": "proud",
+                    "text": "গর্বিত ও দায়িত্বশীল",
+                    "emoji": "😊",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "sad",
+                    "text": "কম টাকার জন্য দুঃখী",
+                    "emoji": "😔",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "nothing",
+                    "text": "বিশেষ কিছু না",
+                    "emoji": "😐",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

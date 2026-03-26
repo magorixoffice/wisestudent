@@ -1,0 +1,129 @@
+﻿{
+    "title": "টাকা ও ব্যাংকের গল্প",
+    "subtitleComplete": "গল্প সম্পন্ন!",
+    "subtitleProgress": "প্রশ্ন {{current}} / {{total}}",
+    "questionCounter": "প্রশ্ন {{current}}/{{total}}",
+    "scoreLabel": "স্কোর: {{score}}/{{total}}",
+    "questions": [
+        {
+            "id": 1,
+            "text": "দাদি তোমাকে ১০ টাকা উপহার দিয়েছেন। কী করতে চাও?",
+            "options": [
+                {
+                    "id": "spend",
+                    "text": "সব খরচ করবো",
+                    "emoji": "🛍️",
+                    "isCorrect": false
+                },
+                {
+                    "id": "save",
+                    "text": "৫ টাকা সঞ্চয় করবো",
+                    "emoji": "💰",
+                    "isCorrect": true
+                },
+                {
+                    "id": "save-all",
+                    "text": "পুরো ১০ টাকা সঞ্চয় করবো",
+                    "emoji": "🏦",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "তোমার ২০ টাকা সঞ্চয় আছে। বন্ধু সিনেমায় যেতে ডাকল যার টিকেট ১৫ টাকা। কী করবে?",
+            "options": [
+                {
+                    "id": "save",
+                    "text": "পরের জন্য সঞ্চয় করবো",
+                    "emoji": "🏦",
+                    "isCorrect": true
+                },
+                {
+                    "id": "spend",
+                    "text": "সিনেমায় যাবো",
+                    "emoji": "🎬",
+                    "isCorrect": false
+                },
+                {
+                    "id": "split",
+                    "text": "খরচ ভাগ করবো",
+                    "emoji": "🤝",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "রাস্তায় ৫ টাকা পেলে। সেরা কাজ কী?",
+            "options": [
+                {
+                    "id": "spend",
+                    "text": "মিষ্টি কিনবো",
+                    "emoji": "🍬",
+                    "isCorrect": false
+                },
+                {
+                    "id": "give",
+                    "text": "বাবা/মাকে দেবো",
+                    "emoji": "👨‍👩‍👧",
+                    "isCorrect": false
+                },
+                {
+                    "id": "save",
+                    "text": "সঞ্চয় করবো",
+                    "emoji": "🫙",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "জন্মদিন আসছে এবং তুমি ৫০০ টাকার একটি সাইকেল চাও। তোমার কাছে ২০০ টাকা আছে। কী করবে?",
+            "options": [
+                {
+                    "id": "save",
+                    "text": "আরও সঞ্চয় করবো",
+                    "emoji": "📈",
+                    "isCorrect": true
+                },
+                {
+                    "id": "spend",
+                    "text": "এখনই কিনবো",
+                    "emoji": "🛒",
+                    "isCorrect": false
+                },
+                {
+                    "id": "borrow",
+                    "text": "টাকা ধার করবো",
+                    "emoji": "💳",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "৩০ টাকা সঞ্চয় আছে এবং ২৫ টাকার একটি খেলনা সত্যিই পছন্দ হয়েছে। বুদ্ধিমান পছন্দ কী?",
+            "options": [
+                {
+                    "id": "spend",
+                    "text": "খেলনা কিনবো",
+                    "emoji": "🧸",
+                    "isCorrect": false
+                },
+                {
+                    "id": "save",
+                    "text": "বড় কিছুর জন্য সঞ্চয় করবো",
+                    "emoji": "🎯",
+                    "isCorrect": true
+                },
+                {
+                    "id": "wait",
+                    "text": "সেলের জন্য অপেক্ষা করবো",
+                    "emoji": "⏰",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

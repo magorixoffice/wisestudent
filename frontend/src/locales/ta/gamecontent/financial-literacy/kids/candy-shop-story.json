@@ -1,0 +1,145 @@
+﻿{
+    "title": "மிட்டாய் கடை கதை",
+    "subtitleComplete": "கதை முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "questionCounter": "கேள்வி {{current}}/{{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "stageEmoji": "🍬",
+    "questions": [
+        {
+            "id": 1,
+            "text": "கடைக்காரர் ₹10 க்கு பதிலாக ₹20 வசூலிக்கிறார். கணக்கு சீட்டு சரிபார்ப்பாயா?",
+            "options": [
+                {
+                    "id": "yes",
+                    "text": "ஆம், கணக்கு சீட்டை சரிபார்ப்பேன்",
+                    "emoji": "📜",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "no",
+                    "text": "இல்லை, வெறுமனே பணம் கொடுப்பேன்",
+                    "emoji": "💸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "friend",
+                    "text": "நண்பரிடம் சரிபார்க்க சொல்வேன்",
+                    "emoji": "👥",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "உன்னிடம் ₹50 உள்ளது. மிட்டாய் விலை ₹15. எவ்வளவு திருப்பி கொடுக்க வேண்டும்?",
+            "options": [
+                {
+                    "id": "25",
+                    "text": "₹25",
+                    "emoji": "💸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "40",
+                    "text": "₹40",
+                    "emoji": "💵",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "35",
+                    "text": "₹35",
+                    "emoji": "💰",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "கடைக்காரர் ₹35 க்கு பதிலாக ₹30 திருப்பி கொடுக்கிறார். என்ன செய்வாய்?",
+            "options": [
+                {
+                    "id": "ask",
+                    "text": "மரியாதையாக சரியான சில்லறை கேள்",
+                    "emoji": "🗣️",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "take",
+                    "text": "₹30 வாங்கிக்கொண்டு போ",
+                    "emoji": "🚶",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "buy",
+                    "text": "கூடுதல் மிட்டாய் வாங்கு",
+                    "emoji": "🍬",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "தலா ₹10 விலையில் இரண்டு மிட்டாய்கள் வாங்க விரும்புகிறாய். ₹15 இருந்தால் வாங்க முடியுமா?",
+            "options": [
+                {
+                    "id": "yes",
+                    "text": "ஆம், போதுமானது உள்ளது",
+                    "emoji": "😊",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "no",
+                    "text": "இல்லை, ₹20 தேவை",
+                    "emoji": "💰",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "discount",
+                    "text": "தள்ளுபடி கேள்",
+                    "emoji": "🎟️",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "புத்திசாலித்தனமாக கடை பார்க்க சிறந்த வழி எது?",
+            "options": [
+                {
+                    "id": "everything",
+                    "text": "தெரிவதை எல்லாம் வாங்கு",
+                    "emoji": "🛒",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "check",
+                    "text": "விலைகளையும் கணக்கு சீட்டுகளையும் கவனமாக சரிபார்",
+                    "emoji": "🧾",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "friends",
+                    "text": "நண்பர்களுடன் மட்டுமே கடை பார்",
+                    "emoji": "👨‍👩‍👧",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

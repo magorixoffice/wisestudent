@@ -1,0 +1,33 @@
+﻿{
+    "title": "নৈতিকতার জার্নাল",
+    "subtitleComplete": "জার্নাল সম্পন্ন!",
+    "subtitleProgress": "প্রশ্ন {{current}} / {{total}}",
+    "scoreLabel": "স্কোর: {{score}}/{{total}}",
+    "minLengthPrompt": "কমপক্ষে {{minLength}}টি অক্ষর লিখুন",
+    "textareaPlaceholder": "এখানে তোমার জার্নাল এন্ট্রি লিখুন...",
+    "charactersLabel": "অক্ষর",
+    "submitFinalButton": "চূড়ান্ত এন্ট্রি জমা দাও",
+    "submitContinueButton": "জমা দাও ও চালিয়ে যাও",
+    "stages": [
+        {
+            "question": "লিখুন: \"একবার আমি সততার সাথে টাকা ব্যবহার করেছিলাম ___।\"",
+            "minLength": 10
+        },
+        {
+            "question": "লিখুন: \"আমি টাকা দিয়ে কাউকে সাহায্য করেছিলাম ___।\"",
+            "minLength": 10
+        },
+        {
+            "question": "লিখুন: \"একবার টাকা সঞ্চয় করে ভালো লেগেছিল যখন ___।\"",
+            "minLength": 10
+        },
+        {
+            "question": "লিখুন: \"আমি টাকা ভুলভাবে খরচ করা এড়িয়ে গেছিলাম ___।\"",
+            "minLength": 10
+        },
+        {
+            "question": "লিখুন: \"টাকার ব্যাপারে সৎ থাকলে আমি অনুভব করি ___।\"",
+            "minLength": 10
+        }
+    ]
+}

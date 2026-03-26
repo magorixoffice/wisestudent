@@ -1,0 +1,149 @@
+﻿{
+    "title": "বাজেটিং-এর উপর কুইজ",
+    "subtitleComplete": "কুইজ সম্পন্ন!",
+    "subtitleProgress": "প্রশ্ন {{current}} / {{total}}",
+    "questionCounter": "প্রশ্ন {{current}}/{{total}}",
+    "scoreLabel": "স্কোর: {{score}}/{{total}}",
+    "questions": [
+        {
+            "id": 1,
+            "iconKey": "calculator",
+            "text": "বাজেট কী?",
+            "options": [
+                {
+                    "id": "list",
+                    "text": "একটি কেনাকাটার তালিকা",
+                    "emoji": "🛒",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "plan",
+                    "text": "একটি ব্যয়ের পরিকল্পনা",
+                    "emoji": "🧾",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "free",
+                    "text": "বিনামূল্যে টাকা",
+                    "emoji": "💸",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "iconKey": "target",
+            "text": "বাজেট কেন তৈরি করা হয়?",
+            "options": [
+                {
+                    "id": "track",
+                    "text": "খরচ ট্র্যাক করতে এবং সঞ্চয় করতে",
+                    "emoji": "📊",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "spend",
+                    "text": "দ্রুত সব টাকা খরচ করতে",
+                    "emoji": "💥",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "fun",
+                    "text": "শুধু মজার জন্য",
+                    "emoji": "🎉",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "iconKey": "trendingUp",
+            "text": "১০০ টাকা আয় করলে এবং ১২০ টাকা খরচ করলে কী হয়?",
+            "options": [
+                {
+                    "id": "save",
+                    "text": "২০ টাকা সঞ্চয় হয়",
+                    "emoji": "💰",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "prize",
+                    "text": "পুরস্কার পাওয়া যায়",
+                    "emoji": "🏆",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "debt",
+                    "text": "ঋণে পড়তে হয়",
+                    "emoji": "⚠️",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "iconKey": "checkCircle",
+            "text": "কোনটি একটি ভালো বাজেটিং অভ্যাস?",
+            "options": [
+                {
+                    "id": "guess",
+                    "text": "অনুমান করে এলোমেলোভাবে খরচ করো",
+                    "emoji": "🎲",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "plan",
+                    "text": "খরচের তালিকা করো এবং পরিকল্পনা করো",
+                    "emoji": "📝",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "ignore",
+                    "text": "খরচ উপেক্ষা করো",
+                    "emoji": "🙈",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "iconKey": "piggyBank",
+            "text": "বাজেট মেনে চললে তুমি পারবে...",
+            "options": [
+                {
+                    "id": "goals",
+                    "text": "দুশ্চিন্তামুক্তভাবে লক্ষ্য অর্জন করতে",
+                    "emoji": "🎯",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "unnecessary",
+                    "text": "অপ্রয়োজনীয় জিনিস কিনতে",
+                    "emoji": "🛍️",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "lose",
+                    "text": "টাকার হিসাব হারিয়ে ফেলতে",
+                    "emoji": "🌀",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

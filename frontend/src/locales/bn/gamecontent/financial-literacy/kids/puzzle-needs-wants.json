@@ -1,0 +1,79 @@
+﻿{
+    "title": "প্রয়োজন/চাওয়ার ধাঁধা",
+    "subtitleComplete": "ধাঁধা সম্পন্ন!",
+    "subtitleProgress": "জিনিসগুলো শ্রেণীর সাথে মেলাও ({{matched}}/{{total}} মেলানো হয়েছে)",
+    "itemsTitle": "জিনিসপত্র",
+    "categoriesTitle": "শ্রেণীসমূহ",
+    "selectedLabel": "নির্বাচিত: {{name}}",
+    "selectItem": "একটি জিনিস বেছে নাও",
+    "matchButton": "মেলাও",
+    "scoreLabel": "স্কোর:",
+    "matchedLabel": "মেলানো হয়েছে:",
+    "resultGreatEmoji": "🎉",
+    "resultGreatTitle": "দারুণ কাজ!",
+    "resultGreatDescription": "তুমি {{total}}টি জিনিসের মধ্যে {{score}}টি সঠিকভাবে তাদের শ্রেণীর সাথে মিলিয়েছ!",
+    "resultGreatLesson": "শিক্ষা: প্রয়োজন ও চাওয়া বোঝা বুদ্ধিমান আর্থিক সিদ্ধান্ত নিতে সাহায্য করে!",
+    "resultKeepEmoji": "💪",
+    "resultKeepTitle": "অনুশীলন চালিয়ে যাও!",
+    "resultKeepDescription": "তুমি {{total}}টি জিনিসের মধ্যে {{score}}টি সঠিকভাবে মিলিয়েছ।",
+    "resultKeepTip": "টিপস: প্রতিটি জিনিস অপরিহার্য নাকি ঐচ্ছিক তা ভাবো!",
+    "items": [
+        {
+            "id": 1,
+            "name": "পানীয় জল",
+            "emoji": "💧"
+        },
+        {
+            "id": 2,
+            "name": "স্কুলের জুতা",
+            "emoji": "👟"
+        },
+        {
+            "id": 3,
+            "name": "খেলনা গাড়ি",
+            "emoji": "🚗"
+        },
+        {
+            "id": 4,
+            "name": "পকেটমানি",
+            "emoji": "💰"
+        },
+        {
+            "id": 5,
+            "name": "আর্থিক জ্ঞান",
+            "emoji": "📚"
+        }
+    ],
+    "categories": [
+        {
+            "id": 6,
+            "name": "প্রয়োজন",
+            "emoji": "✅",
+            "description": "জীবন বা শেখার জন্য অপরিহার্য"
+        },
+        {
+            "id": 7,
+            "name": "চাওয়া",
+            "emoji": "🎁",
+            "description": "থাকলে ভালো, অপরিহার্য নয়"
+        },
+        {
+            "id": 8,
+            "name": "সঞ্চয়",
+            "emoji": "🏦",
+            "description": "ভবিষ্যৎ ব্যবহারের জন্য আলাদা রাখো"
+        },
+        {
+            "id": 9,
+            "name": "বিনিয়োগ",
+            "emoji": "📈",
+            "description": "মূল্য বাড়াতে টাকা ব্যবহার করো"
+        },
+        {
+            "id": 10,
+            "name": "ভাগ করো",
+            "emoji": "🤲",
+            "description": "অন্যদের সহায়তায় ব্যবহার করো"
+        }
+    ]
+}

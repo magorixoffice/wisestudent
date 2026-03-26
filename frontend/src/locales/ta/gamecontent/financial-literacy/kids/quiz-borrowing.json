@@ -1,0 +1,145 @@
+﻿{
+    "title": "கடன் பற்றிய வினாடி வினா",
+    "subtitleComplete": "வினாடி வினா முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "questionCounter": "கேள்வி {{current}}/{{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "stageEmoji": "🤝",
+    "questions": [
+        {
+            "id": 1,
+            "text": "கடன் வாங்குதல் என்றால் என்ன?",
+            "options": [
+                {
+                    "id": "without",
+                    "text": "கேட்காமல் எடுப்பது",
+                    "emoji": "🙈",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "return",
+                    "text": "பயன்படுத்தி திருப்பி கொடுப்பது",
+                    "emoji": "🔁",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "steal",
+                    "text": "திருடுவது",
+                    "emoji": "😈",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "புத்தகம் கடன் வாங்கிய பிறகு என்ன செய்வாய்?",
+            "options": [
+                {
+                    "id": "return",
+                    "text": "திருப்பி கொடு",
+                    "emoji": "↩️",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "keep",
+                    "text": "எப்போதும் வைத்துக்கொள்",
+                    "emoji": "📚",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "sell",
+                    "text": "விற்று விடு",
+                    "emoji": "💰",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "வங்கியிடம் பணம் கடன் வாங்குவது ஏன் சரியானது?",
+            "options": [
+                {
+                    "id": "repay",
+                    "text": "வட்டியுடன் திருப்பி கொடுக்கிறோம்",
+                    "emoji": "💳",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "free",
+                    "text": "அது இலவச பணம்",
+                    "emoji": "🎁",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "no",
+                    "text": "திருப்பி கொடுக்க வேண்டியதில்லை",
+                    "emoji": "🙃",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "கடன் வாங்கிய பொருட்களை திருப்பி கொடுக்காவிட்டால் என்ன நடக்கும்?",
+            "options": [
+                {
+                    "id": "more",
+                    "text": "கூடுதல் பொருட்கள் கிடைக்கும்",
+                    "emoji": "🎁",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "rewards",
+                    "text": "பரிசுகள் கிடைக்கும்",
+                    "emoji": "🏆",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "trust",
+                    "text": "மக்கள் உன்னை நம்பமாட்டார்கள்",
+                    "emoji": "😞",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "நேர்மையான கடன் வாங்குதல் ஏன் முக்கியம்?",
+            "options": [
+                {
+                    "id": "toys",
+                    "text": "அதிக பொம்மைகள் கிடைக்கும்",
+                    "emoji": "🧸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "trust",
+                    "text": "மற்றவர்களுடன் நம்பிக்கையை வளர்க்கும்",
+                    "emoji": "🤝",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "fun",
+                    "text": "கடன் வாங்குவதை வேடிக்கையாக்கும்",
+                    "emoji": "😊",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

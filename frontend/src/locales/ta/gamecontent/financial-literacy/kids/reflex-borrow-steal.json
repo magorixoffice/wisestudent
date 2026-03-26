@@ -1,0 +1,150 @@
+﻿{
+    "title": "கடன்/திருட்டு விளையாட்டு",
+    "subtitlePlaying": "சுற்று {{current}}/{{total}}: உன் கடன் விளையாட்டு திறனை சோதி!",
+    "subtitleReady": "உன் கடன் விளையாட்டு திறனை சோதி!",
+    "readyEmoji": "🤝",
+    "readyTitle": "தயாராகு!",
+    "readyDescription": "கடன் வாங்குதல் பற்றிய கேள்விகளுக்கு சரியாக பதிலளி.",
+    "readyInfo": "உனக்கு {{total}} கேள்விகள் உள்ளன, ஒவ்வொன்றும் {{seconds}} விநாடிகள்!",
+    "startButton": "விளையாட்டை தொடங்கு",
+    "roundLabel": "சுற்று:",
+    "timeLabel": "நேரம்:",
+    "scoreLabel": "மதிப்பெண்:",
+    "questions": [
+        {
+            "id": 1,
+            "question": "கடன் வாங்கிய பொருட்களை என்ன செய்வாய்?",
+            "correctAnswer": "கடன் வாங்கிய பொருட்களை திருப்பி கொடு",
+            "options": [
+                {
+                    "text": "கடன் வாங்கிய பொருட்களை திருப்பி கொடு",
+                    "isCorrect": true,
+                    "emoji": "↩️"
+                },
+                {
+                    "text": "எப்போதும் வைத்துக்கொள்",
+                    "isCorrect": false,
+                    "emoji": "🚫"
+                },
+                {
+                    "text": "மறைத்து வை",
+                    "isCorrect": false,
+                    "emoji": "🙈"
+                },
+                {
+                    "text": "மறந்துவிடு",
+                    "isCorrect": false,
+                    "emoji": "😴"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "question": "கடனுடன் சரியான செயல் என்ன?",
+            "correctAnswer": "கடனை திருப்பி கொடு",
+            "options": [
+                {
+                    "text": "பணம் கட்டுவதை தவிர்",
+                    "isCorrect": false,
+                    "emoji": "🚫"
+                },
+                {
+                    "text": "கடனை திருப்பி கொடு",
+                    "isCorrect": true,
+                    "emoji": "💰"
+                },
+                {
+                    "text": "கவனிக்காமல் விடு",
+                    "isCorrect": false,
+                    "emoji": "🙈"
+                },
+                {
+                    "text": "மறந்துவிடு",
+                    "isCorrect": false,
+                    "emoji": "😴"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "question": "ஒன்றை கடன் வாங்கும்போது என்ன செய்வாய்?",
+            "correctAnswer": "திருப்பி கொடு",
+            "options": [
+                {
+                    "text": "மறைத்து வை",
+                    "isCorrect": false,
+                    "emoji": "🙈"
+                },
+                {
+                    "text": "வைத்துக்கொள்",
+                    "isCorrect": false,
+                    "emoji": "🚫"
+                },
+                {
+                    "text": "திருப்பி கொடு",
+                    "isCorrect": true,
+                    "emoji": "↩️"
+                },
+                {
+                    "text": "தொலைத்துவிடு",
+                    "isCorrect": false,
+                    "emoji": "❌"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "question": "கடன் வாங்குதலை கையாள நேர்மையான வழி எது?",
+            "correctAnswer": "நேர்மையாக இரு",
+            "options": [
+                {
+                    "text": "ஏமாற்று",
+                    "isCorrect": false,
+                    "emoji": "🚫"
+                },
+                {
+                    "text": "நேர்மையாக இரு",
+                    "isCorrect": true,
+                    "emoji": "✅"
+                },
+                {
+                    "text": "பொய் சொல்",
+                    "isCorrect": false,
+                    "emoji": "🤥"
+                },
+                {
+                    "text": "நடிக்கிறாய்",
+                    "isCorrect": false,
+                    "emoji": "🎭"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "question": "கடன் வாங்கிய பொருட்களை எப்போது திருப்பி கொடுக்க வேண்டும்?",
+            "correctAnswer": "சரியான நேரத்தில் திருப்பி கொடு",
+            "options": [
+                {
+                    "text": "தாமதப்படுத்து",
+                    "isCorrect": false,
+                    "emoji": "⏰"
+                },
+                {
+                    "text": "ஒருபோதும் வேண்டாம்",
+                    "isCorrect": false,
+                    "emoji": "🚫"
+                },
+                {
+                    "text": "பிறகு பார்க்கலாம்",
+                    "isCorrect": false,
+                    "emoji": "🤷"
+                },
+                {
+                    "text": "சரியான நேரத்தில் திருப்பி கொடு",
+                    "isCorrect": true,
+                    "emoji": "⏱️"
+                }
+            ]
+        }
+    ]
+}

@@ -1,11 +1,22 @@
+﻿'use client';
+
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Globe, ChevronDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { LANGUAGE_STORAGE_KEY } from "../i18n";
 
 const defaultLanguages = [
-  { code: "en", label: "English" },
-  { code: "hi", label: "हिन्दी" },
+  { code: "en", label: "English", native: "EN" },
+  { code: "hi", label: "Hindi", native: "हिन्दी" },
+  { code: "ta", label: "Tamil", native: "தமிழ்" },
+  { code: "te", label: "Telugu", native: "తెలుగు" },
+  { code: "bn", label: "Bengali", native: "বাংলা" },
+  { code: "mr", label: "Marathi", native: "मराठी" },
+  { code: "kn", label: "Kannada", native: "ಕನ್ನಡ" },
+  { code: "gu", label: "Gujarati", native: "ગુજરાતી" },
+  { code: "ml", label: "Malayalam", native: "മലയാളം" },
+  { code: "pa", label: "Punjabi", native: "ਪੰਜਾਬੀ" },
+  { code: "ur", label: "Urdu", native: "اردو" },
 ];
 
 const LanguageSelector = ({ languages = defaultLanguages, value, onChange }) => {
@@ -39,8 +50,8 @@ const LanguageSelector = ({ languages = defaultLanguages, value, onChange }) => 
     i18n.changeLanguage(code);
     try {
       window.localStorage.setItem(LANGUAGE_STORAGE_KEY, code);
-    } catch {
-      // Ignore storage errors
+    } catch (e) {
+      console.error("Error saving language preference:", e);
     }
     setIsOpen(false);
     if (onChange) onChange(code);
@@ -63,15 +74,25 @@ const LanguageSelector = ({ languages = defaultLanguages, value, onChange }) => 
           <span className="sm:hidden">Lang</span>
         </span>
         <ChevronDown
-          className={`w-4 h-4 transition-transform duration-200 ${
-            isOpen ? "rotate-180" : ""
-          }`}
+          className={`w-4 h-4 transition-transform duration-200 ${isOpen ? "rotate-180" : ""
+            }`}
         />
       </button>
 
       {isOpen && (
         <div
-          className="absolute right-0 mt-2 w-44 rounded-xl border-2 border-teal-200 bg-white shadow-xl p-2 z-20"
+          className="
+            absolute right-0 mt-2 w-64 h-52 overflow-y-auto rounded-xl border-2 border-teal-200 bg-white shadow-xl p-2 z-20
+            
+            [&::-webkit-scrollbar]:w-1
+            [&::-webkit-scrollbar-track]:bg-transparent
+            [&::-webkit-scrollbar-thumb]:bg-gradient-to-b
+            [&::-webkit-scrollbar-thumb]:from-teal-400
+            [&::-webkit-scrollbar-thumb]:to-blue-500
+            [&::-webkit-scrollbar-thumb]:rounded-full
+            hover:[&::-webkit-scrollbar-thumb]:from-teal-500
+            hover:[&::-webkit-scrollbar-thumb]:to-blue-600
+          "
           role="listbox"
         >
           {languages.map((lang) => {
@@ -80,21 +101,24 @@ const LanguageSelector = ({ languages = defaultLanguages, value, onChange }) => 
               <button
                 key={lang.code}
                 type="button"
-                className={`w-full flex items-center justify-between gap-3 px-3 py-2 rounded-lg text-sm font-semibold transition-all cursor-pointer ${
-                  isActive
+                className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-semibold transition-all cursor-pointer ${isActive
                     ? "bg-gradient-to-r from-teal-400 to-blue-500 text-white shadow"
                     : "text-gray-700 hover:bg-teal-50"
-                }`}
+                  }`}
                 onClick={() => handleSelect(lang.code)}
                 role="option"
                 aria-selected={isActive}
               >
+                {/* Left: English */}
                 <span>{lang.label}</span>
+
+                {/* Right: Native */}
                 <span
-                  className={`w-2.5 h-2.5 rounded-full ${
-                    isActive ? "bg-white" : "bg-teal-400"
-                  }`}
-                />
+                  className={`text-xs ${isActive ? "opacity-100" : "opacity-70"
+                    }`}
+                >
+                  {lang.native}
+                </span>
               </button>
             );
           })}

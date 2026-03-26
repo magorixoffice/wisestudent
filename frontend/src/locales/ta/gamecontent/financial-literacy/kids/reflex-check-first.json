@@ -1,0 +1,167 @@
+﻿{
+    "title": "விளையாட்டு: முதலில் சரிபார்",
+    "subtitleComplete": "விளையாட்டு முடிந்தது!",
+    "roundLabel": "சுற்று {{current}}/{{total}}",
+    "timeUp": "நேரம் முடிந்தது!",
+    "readyEmoji": "🔍",
+    "readyTitle": "தயாராகு!",
+    "readyDescription": "வாங்குவதற்கு முன் சரிபார்ப்பது பற்றிய கேள்விகளுக்கு பதிலளி!",
+    "readyTimeInfo": "ஒவ்வொரு கேள்விக்கும் {{time}} விநாடிகள் உள்ளன.",
+    "readyQuestionInfo": "உனக்கு {{total}} கேள்விகள் உள்ளன, ஒவ்வொன்றும் {{time}} விநாடிகள்!",
+    "startButton": "விளையாட்டை தொடங்கு",
+    "gameRoundLabel": "சுற்று:",
+    "gameTimeLabel": "நேரம்:",
+    "gameScoreLabel": "மதிப்பெண்:",
+    "questions": [
+        {
+            "id": 1,
+            "question": "ஒன்று வாங்குவதற்கு முன் என்ன செய்வாய்?",
+            "correctAnswer": "விலை கேள்",
+            "options": [
+                {
+                    "text": "விலை கேள்",
+                    "isCorrect": true,
+                    "emoji": "💰"
+                },
+                {
+                    "text": "கண்மூடி நம்பு",
+                    "isCorrect": false,
+                    "emoji": "🙈"
+                },
+                {
+                    "text": "உடனே வாங்கு",
+                    "isCorrect": false,
+                    "emoji": "⚡"
+                },
+                {
+                    "text": "செலவை கவனிக்காதே",
+                    "isCorrect": false,
+                    "emoji": "🚫"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "question": "வாங்குவதற்கு முன் என்ன சரிபார்க்க வேண்டும்?",
+            "correctAnswer": "செலவை சரிபார்",
+            "options": [
+                {
+                    "text": "இப்போதே வாங்கு",
+                    "isCorrect": false,
+                    "emoji": "🛒"
+                },
+                {
+                    "text": "சரிபார்ப்பை தவிர்",
+                    "isCorrect": false,
+                    "emoji": "⏭️"
+                },
+                {
+                    "text": "செலவை சரிபார்",
+                    "isCorrect": true,
+                    "emoji": "💵"
+                },
+                {
+                    "text": "விலையை யூகி",
+                    "isCorrect": false,
+                    "emoji": "🎲"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "question": "கடை பார்க்க புத்திசாலித்தனமான வழி எது?",
+            "correctAnswer": "விலைகளை ஒப்பிடு",
+            "options": [
+                {
+                    "text": "விரைவாக பணம் கொடு",
+                    "isCorrect": false,
+                    "emoji": "💸"
+                },
+                {
+                    "text": "விலைகளை ஒப்பிடு",
+                    "isCorrect": true,
+                    "emoji": "⚖️"
+                },
+                {
+                    "text": "முதல் கடையில் வாங்கு",
+                    "isCorrect": false,
+                    "emoji": "🏪"
+                },
+                {
+                    "text": "ஒப்பிடாதே",
+                    "isCorrect": false,
+                    "emoji": "🙈"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "question": "வாங்குவதற்கு முன் என்ன சரிபார்க்க வேண்டும்?",
+            "correctAnswer": "தரத்தை சரிபார்",
+            "options": [
+                {
+                    "text": "தரத்தை சரிபார்",
+                    "isCorrect": true,
+                    "emoji": "🔍"
+                },
+                {
+                    "text": "கவனிக்காமல் விடு",
+                    "isCorrect": false,
+                    "emoji": "🙈"
+                },
+                {
+                    "text": "சரிபார்க்காமல் வாங்கு",
+                    "isCorrect": false,
+                    "emoji": "⚡"
+                },
+                {
+                    "text": "விற்பவரை மட்டும் நம்பு",
+                    "isCorrect": false,
+                    "emoji": "🤝"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "question": "இணையத்தில் வாங்குவதற்கு முன் என்ன செய்வாய்?",
+            "correctAnswer": "விமர்சனங்களை படி",
+            "options": [
+                {
+                    "text": "அவசரப்படு",
+                    "isCorrect": false,
+                    "emoji": "⚡"
+                },
+                {
+                    "text": "விமர்சனங்களை தவிர்",
+                    "isCorrect": false,
+                    "emoji": "⏭️"
+                },
+                {
+                    "text": "உடனே வாங்கு",
+                    "isCorrect": false,
+                    "emoji": "🛒"
+                },
+                {
+                    "text": "விமர்சனங்களை படி",
+                    "isCorrect": true,
+                    "emoji": "⭐"
+                }
+            ]
+        }
+    ],
+    "resultGreat": {
+        "emoji": "🎉",
+        "title": "புத்திசாலி கடை பார்ப்பவர்!",
+        "description": "அருமை! {{score}}/{{total}} சரியாக பதிலளித்தாய்! நீ எப்போதும் வாங்குவதற்கு முன் சரிபார்க்கிறாய்!"
+    },
+    "resultGood": {
+        "emoji": "👍",
+        "title": "நல்ல பழக்கங்கள்!",
+        "description": "நன்றாக செய்தாய்! {{score}}/{{total}} மதிப்பெண் பெற்றாய்! புத்திசாலித்தனமான கடை பழக்கங்களை தொடர்ந்து பயிற்சி செய்!"
+    },
+    "resultKeepPracticing": {
+        "emoji": "💪",
+        "title": "தொடர்ந்து பயிற்சி செய்!",
+        "description": "{{score}}/{{total}} மதிப்பெண் பெற்றாய். வாங்குவதற்கு முன் எப்போதும் சரிபார்த்து ஒப்பிட நினைவில் வை!"
+    }
+}

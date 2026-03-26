@@ -1,0 +1,145 @@
+﻿{
+    "title": "மரம் கதை",
+    "subtitleComplete": "கதை முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "questionCounter": "கேள்வி {{current}}/{{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "stageEmoji": "🌳",
+    "questions": [
+        {
+            "id": 1,
+            "text": "இன்று ஒரு சிறிய மரம் நடுகிறாய். காலப்போக்கில் அது வலுவாக வளர எது உதவும்?",
+            "options": [
+                {
+                    "id": "care",
+                    "text": "தொடர்ந்து தண்ணீர் ஊற்றி கவனி",
+                    "emoji": "💧",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "rush",
+                    "text": "விரைவாக வளர இழுத்துவிடு",
+                    "emoji": "⚡",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "ignore",
+                    "text": "விட்டுவிட்டு மறந்துவிடு",
+                    "emoji": "😴",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "பணம் மரம் போன்றது. அதை மெல்ல பாதுகாப்பாக வளர்க்க எது உதவும்?",
+            "options": [
+                {
+                    "id": "spend",
+                    "text": "எல்லாவற்றையும் விரைவாக செலவிடுவது",
+                    "emoji": "💸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "hide",
+                    "text": "மறைத்து வைத்து ஒருபோதும் பயன்படுத்தாமல்",
+                    "emoji": "🙈",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "plan",
+                    "text": "காலப்போக்கில் புத்திசாலித்தனமாக பயன்படுத்தி சேமிப்பது",
+                    "emoji": "📊",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "கூடுதல் செலவுக்கு பணம் கிடைக்கிறது. மரம் போன்ற புத்திசாலித்தனமான தேர்வு எது?",
+            "options": [
+                {
+                    "id": "waste",
+                    "text": "யோசிக்காமல் செலவிடு",
+                    "emoji": "🔥",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "grow",
+                    "text": "பிற்காலத்தில் வளர சிறிதளவு சேமி",
+                    "emoji": "🌱",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "lose",
+                    "text": "கவலையின்றி வைத்திரு",
+                    "emoji": "📉",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "பழ மரம் ஒவ்வொரு ஆண்டும் பழங்கள் தருகிறது. பணத்தைப் பற்றி இது என்ன கற்பிக்கிறது?",
+            "options": [
+                {
+                    "id": "fast",
+                    "text": "பணம் ஒரு முறை மட்டுமே பயன்படுத்தப்பட வேண்டும்",
+                    "emoji": "⚡",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "luck",
+                    "text": "அதிர்ஷ்டம் மட்டுமே முக்கியம்",
+                    "emoji": "🍀",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "return",
+                    "text": "நல்ல தேர்வுகள் திரும்பத் திரும்ப பலன் தரும்",
+                    "emoji": "🍎",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "மரத்தை மிக முன்னரே வெட்டினால் என்ன நடக்கும்?",
+            "options": [
+                {
+                    "id": "loss",
+                    "text": "எதிர்கால நன்மைகளை இழப்பாய்",
+                    "emoji": "📉",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "gain",
+                    "text": "எப்போதும் அதிகமாக கிடைக்கும்",
+                    "emoji": "💰",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "nothing",
+                    "text": "எதுவும் மாறாது",
+                    "emoji": "😐",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

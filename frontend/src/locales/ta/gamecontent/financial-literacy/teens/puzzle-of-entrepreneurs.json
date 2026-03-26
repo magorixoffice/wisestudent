@@ -1,0 +1,73 @@
+﻿{
+    "title": "தொழில்முனைவோர் புதிர்",
+    "subtitleComplete": "புதிர் முடிந்தது!",
+    "subtitleProgress": "தொழில்முனைவோரை துறைகளுடன் பொருத்துங்கள் ({{current}}/{{total}} பொருத்தப்பட்டது)",
+    "itemsTitle": "தொழில்முனைவோர்",
+    "fieldsTitle": "துறைகள்",
+    "matchButton": "பொருத்து",
+    "selectItemLabel": "ஒரு தொழில்முனைவோரை தேர்வு செய்யுங்கள்",
+    "selectedItemLabel": "தேர்வு: {{name}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "matchedLabel": "பொருத்தப்பட்டது: {{current}}/{{total}}",
+    "resultSuccessHeader": "சிறப்பான வேலை!",
+    "resultSuccessSubheader": "{{total}} இல் {{score}} தொழில்முனைவோரை சரியாக பொருத்தினீர்கள்!",
+    "resultSuccessLesson": "பாடம்: தொழில்முனைவு துறைகளை புரிந்துகொள்வது புதுமையை ஊக்குவிக்கிறது!",
+    "resultTryAgainHeader": "தொடர்ந்து பயிற்சி செய்யுங்கள்!",
+    "resultTryAgainSubheader": "{{total}} இல் {{score}} தொழில்முனைவோரை சரியாக பொருத்தினீர்கள்.",
+    "resultTryAgainTip": "குறிப்பு: ஒவ்வொரு தொழில்முனைவோரும் எந்த துறையில் அதிகமாக அறியப்படுகிறார்கள் என்று சிந்தியுங்கள்!",
+    "coinsEarned": "+{{coins}} நாணயங்கள்",
+    "items": [
+        {
+            "id": 1,
+            "name": "ரத்தன் டாடா",
+            "emoji": "👔"
+        },
+        {
+            "id": 2,
+            "name": "எலான் மஸ்க்",
+            "emoji": "🚀"
+        },
+        {
+            "id": 3,
+            "name": "நாராயண மூர்த்தி",
+            "emoji": "💻"
+        },
+        {
+            "id": 4,
+            "name": "கிரண் மஜும்தார்",
+            "emoji": "🔬"
+        },
+        {
+            "id": 5,
+            "name": "பல்குனி நாயர்",
+            "emoji": "💄"
+        }
+    ],
+    "fields": [
+        {
+            "id": 6,
+            "name": "தொழில்துறை",
+            "emoji": "🏭"
+        },
+        {
+            "id": 7,
+            "name": "புதுமை",
+            "emoji": "💡"
+        },
+        {
+            "id": 8,
+            "name": "IT",
+            "emoji": "💻"
+        },
+        {
+            "id": 9,
+            "name": "பயோடெக்",
+            "emoji": "🧬"
+        },
+        {
+            "id": 10,
+            "name": "இ-காமர்ஸ்",
+            "emoji": "🛒"
+        }
+    ]
+}

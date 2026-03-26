@@ -1,0 +1,145 @@
+﻿{
+    "title": "மதிய உணவு பெட்டி கதை",
+    "subtitleComplete": "கதை முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "questionCounter": "கேள்வி {{current}}/{{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "stageEmoji": "🍽️",
+    "questions": [
+        {
+            "id": 1,
+            "text": "நண்பரின் மதிய உணவை கடன் வாங்குகிறாய். அடுத்த நாள் என்ன செய்வாய்?",
+            "options": [
+                {
+                    "id": "yes",
+                    "text": "பகிர் அல்லது திருப்பி கொடு",
+                    "emoji": "✅",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "no",
+                    "text": "உன்னிடமே வைத்துக்கொள்",
+                    "emoji": "😐",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "forget",
+                    "text": "மறந்துவிடு",
+                    "emoji": "🙈",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "நண்பர் மதிய உணவை பகிர்கிறார். எவ்வாறு பதில் சொல்வாய்?",
+            "options": [
+                {
+                    "id": "nothing",
+                    "text": "எதுவும் சொல்லாதே",
+                    "emoji": "😶",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "share",
+                    "text": "நீயும் ஏதாவது பகிர்",
+                    "emoji": "🤝",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "more",
+                    "text": "இன்னும் அதிகமாக எடு",
+                    "emoji": "🍴",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "மதிய உணவிற்கு உன்னிடம் ₹10 உள்ளது. நண்பருக்கு ₹5 தேவை. சிறந்தது என்ன?",
+            "options": [
+                {
+                    "id": "share",
+                    "text": "நண்பருக்கு ₹5 பகிர்",
+                    "emoji": "💸",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "all",
+                    "text": "எல்லாவற்றையும் உனக்காக செலவிடு",
+                    "emoji": "🍔",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "hide",
+                    "text": "பணத்தை மறைத்து வை",
+                    "emoji": "💰",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "மதிய உணவு பணம் கடன் வாங்கினாய். எப்போது திருப்பி கொடுப்பாய்?",
+            "options": [
+                {
+                    "id": "never",
+                    "text": "ஒருபோதும் திருப்பி கொடுக்காதே",
+                    "emoji": "😞",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "snacks",
+                    "text": "தின்பண்டங்களுக்கு செலவிடு",
+                    "emoji": "🍟",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "next",
+                    "text": "சொன்னபடி அடுத்த நாளே",
+                    "emoji": "✅",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "மதிய உணவை பகிர்வது ஏன் முக்கியம்?",
+            "options": [
+                {
+                    "id": "trust",
+                    "text": "நம்பிக்கையும் அன்பும் வளரும்",
+                    "emoji": "😊",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "food",
+                    "text": "அதிக உணவு கிடைக்கும்",
+                    "emoji": "🍽️",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "popular",
+                    "text": "பிரபலமாவாய்",
+                    "emoji": "👥",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,145 @@
+﻿{
+    "title": "টিফিন বাক্সের গল্প",
+    "subtitleComplete": "গল্প সম্পন্ন!",
+    "subtitleProgress": "প্রশ্ন {{current}} / {{total}}",
+    "questionCounter": "প্রশ্ন {{current}}/{{total}}",
+    "scoreLabel": "স্কোর: {{score}}/{{total}}",
+    "stageEmoji": "🍽️",
+    "questions": [
+        {
+            "id": 1,
+            "text": "বন্ধুর টিফিন ধার নিয়েছ। পরদিন কী করবে?",
+            "options": [
+                {
+                    "id": "yes",
+                    "text": "ভাগ করো বা ফেরত দাও",
+                    "emoji": "✅",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "no",
+                    "text": "নিজে রেখে দাও",
+                    "emoji": "😐",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "forget",
+                    "text": "ভুলে যাও",
+                    "emoji": "🙈",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "বন্ধু টিফিন ভাগ করে নিল। কীভাবে সাড়া দেবে?",
+            "options": [
+                {
+                    "id": "nothing",
+                    "text": "কিছু বলবো না",
+                    "emoji": "😶",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "share",
+                    "text": "পরিবর্তে কিছু ভাগ করো",
+                    "emoji": "🤝",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "more",
+                    "text": "আরও বেশি টিফিন নাও",
+                    "emoji": "🍴",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "টিফিনের জন্য তোমার কাছে ১০ টাকা আছে। বন্ধুর ৫ টাকা দরকার। সেরা কাজ কী?",
+            "options": [
+                {
+                    "id": "share",
+                    "text": "বন্ধুকে ৫ টাকা দাও",
+                    "emoji": "💸",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "all",
+                    "text": "সব নিজের জন্য খরচ করো",
+                    "emoji": "🍔",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "hide",
+                    "text": "টাকা লুকিয়ে রাখো",
+                    "emoji": "💰",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "টিফিনের টাকা ধার নিয়েছ। কখন পরিশোধ করবে?",
+            "options": [
+                {
+                    "id": "never",
+                    "text": "কখনোই পরিশোধ করবো না",
+                    "emoji": "😞",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "snacks",
+                    "text": "নাস্তায় খরচ করবো",
+                    "emoji": "🍟",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "next",
+                    "text": "প্রতিশ্রুতি অনুযায়ী পরদিন",
+                    "emoji": "✅",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "টিফিন ভাগ করা কেন গুরুত্বপূর্ণ?",
+            "options": [
+                {
+                    "id": "trust",
+                    "text": "এটি বিশ্বাস ও সদয়তা গড়ে তোলে",
+                    "emoji": "😊",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "food",
+                    "text": "বেশি খাবার পাওয়া যায়",
+                    "emoji": "🍽️",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "popular",
+                    "text": "এটি তোমাকে জনপ্রিয় করে",
+                    "emoji": "👥",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

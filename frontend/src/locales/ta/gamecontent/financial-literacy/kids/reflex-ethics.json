@@ -1,0 +1,152 @@
+﻿{
+    "title": "விளையாட்டு: நெறிமுறைகள்",
+    "subtitleComplete": "விளையாட்டு முடிந்தது!",
+    "roundLabel": "சுற்று {{current}}/{{total}}",
+    "timeUp": "நேரம் முடிந்தது!",
+    "readyEmoji": "🎯",
+    "readyTitle": "தயாராகு!",
+    "readyDescription": "நெறிமுறையான பண நடத்தை பற்றிய கேள்விகளுக்கு பதிலளி!",
+    "readyTimeInfo": "ஒவ்வொரு கேள்விக்கும் {{time}} விநாடிகள் உள்ளன.",
+    "readyQuestionInfo": "உனக்கு {{total}} கேள்விகள் உள்ளன, ஒவ்வொன்றும் {{time}} விநாடிகள்!",
+    "startButton": "விளையாட்டை தொடங்கு",
+    "gameRoundLabel": "சுற்று:",
+    "gameTimeLabel": "நேரம்:",
+    "gameScoreLabel": "மதிப்பெண்:",
+    "questions": [
+        {
+            "id": 1,
+            "question": "பணத்தில் எப்போதும் என்னாக இருக்க வேண்டும்?",
+            "correctAnswer": "உண்மை",
+            "options": [
+                {
+                    "text": "உண்மை",
+                    "isCorrect": true,
+                    "emoji": "🗣️"
+                },
+                {
+                    "text": "ஏமாற்று",
+                    "isCorrect": false,
+                    "emoji": "🚫"
+                },
+                {
+                    "text": "பொய் சொல்",
+                    "isCorrect": false,
+                    "emoji": "🤥"
+                },
+                {
+                    "text": "வஞ்சி",
+                    "isCorrect": false,
+                    "emoji": "😈"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "question": "நிதி விஷயங்களை எவ்வாறு கையாள வேண்டும்?",
+            "correctAnswer": "நேர்மையாக",
+            "options": [
+                {
+                    "text": "பொய் சொல்",
+                    "isCorrect": false,
+                    "emoji": "🤥"
+                },
+                {
+                    "text": "நேர்மையாக",
+                    "isCorrect": true,
+                    "emoji": "💯"
+                },
+                {
+                    "text": "ஏமாற்று",
+                    "isCorrect": false,
+                    "emoji": "🎭"
+                },
+                {
+                    "text": "தந்திரம் செய்",
+                    "isCorrect": false,
+                    "emoji": "🃏"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "question": "உன் நிதி முடிவுகள் எப்படி இருக்க வேண்டும்?",
+            "correctAnswer": "நியாயமாக",
+            "options": [
+                {
+                    "text": "நியாயமற்றது",
+                    "isCorrect": false,
+                    "emoji": "❌"
+                },
+                {
+                    "text": "சார்பானது",
+                    "isCorrect": false,
+                    "emoji": "🎯"
+                },
+                {
+                    "text": "நியாயமாக",
+                    "isCorrect": true,
+                    "emoji": "⚖️"
+                },
+                {
+                    "text": "பாரபட்சமானது",
+                    "isCorrect": false,
+                    "emoji": "📊"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "question": "நிதி உறவுகளில் என்னை வளர்க்க வேண்டும்?",
+            "correctAnswer": "நம்பிக்கை",
+            "options": [
+                {
+                    "text": "நம்பிக்கை",
+                    "isCorrect": true,
+                    "emoji": "🤝"
+                },
+                {
+                    "text": "வஞ்சி",
+                    "isCorrect": false,
+                    "emoji": "😈"
+                },
+                {
+                    "text": "கையாளு",
+                    "isCorrect": false,
+                    "emoji": "🎭"
+                },
+                {
+                    "text": "சுரண்டு",
+                    "isCorrect": false,
+                    "emoji": "💔"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "question": "பணத்தில் எவ்வாறு நடந்துகொள்ள வேண்டும்?",
+            "correctAnswer": "நெறிமுறையாக",
+            "options": [
+                {
+                    "text": "நேர்மையற்றது",
+                    "isCorrect": false,
+                    "emoji": "🚫"
+                },
+                {
+                    "text": "நியாயமற்றது",
+                    "isCorrect": false,
+                    "emoji": "❌"
+                },
+                {
+                    "text": "ஊழல்",
+                    "isCorrect": false,
+                    "emoji": "💸"
+                },
+                {
+                    "text": "நெறிமுறையாக",
+                    "isCorrect": true,
+                    "emoji": "🌟"
+                }
+            ]
+        }
+    ]
+}

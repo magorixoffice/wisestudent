@@ -1,0 +1,80 @@
+﻿{
+    "title": "বৃদ্ধির ধাঁধা",
+    "subtitleComplete": "ধাঁধা সম্পন্ন!",
+    "subtitleProgress": "জিনিসগুলো ফলাফলের সাথে মেলাও ({{matched}}/{{total}} মেলানো হয়েছে)",
+    "itemsTitle": "বৃদ্ধির জিনিস",
+    "categoriesTitle": "ফলাফল",
+    "selectedLabel": "নির্বাচিত: {{name}}",
+    "selectItem": "একটি জিনিস বেছে নাও",
+    "matchButton": "মেলাও",
+    "scoreLabel": "স্কোর:",
+    "matchedLabel": "মেলানো হয়েছে:",
+    "resultGreatEmoji": "🎉",
+    "resultGreatTitle": "দারুণ কাজ!",
+    "resultGreatDescription": "তুমি {{total}}টি জিনিসের মধ্যে {{score}}টি সঠিকভাবে ফলাফলের সাথে মিলিয়েছ!",
+    "coinsLabel": "কয়েন",
+    "resultLesson": "শিক্ষা: গাছপালার মতো, সঞ্চয় ও বিনিয়োগ সময়ের সাথে বাড়ে।",
+    "resultKeepEmoji": "💪",
+    "resultKeepTitle": "অনুশীলন চালিয়ে যাও!",
+    "resultKeepDescription": "তুমি {{total}}টি জিনিসের মধ্যে {{score}}টি সঠিকভাবে মিলিয়েছ।",
+    "resultTip": "টিপস: প্রতিটি জিনিস স্বাভাবিকভাবে কীতে পরিণত হয় তা ভাবো।",
+    "items": [
+        {
+            "id": 1,
+            "name": "বীজ",
+            "emoji": "🌱"
+        },
+        {
+            "id": 2,
+            "name": "সঞ্চয়",
+            "emoji": "💰"
+        },
+        {
+            "id": 3,
+            "name": "গাছ",
+            "emoji": "🌿"
+        },
+        {
+            "id": 4,
+            "name": "চারা",
+            "emoji": "🌳"
+        },
+        {
+            "id": 5,
+            "name": "বাল্ব",
+            "emoji": "🌻"
+        }
+    ],
+    "categories": [
+        {
+            "id": 6,
+            "name": "বৃক্ষ",
+            "emoji": "🌲",
+            "description": "বীজ গাছ হতে পারে"
+        },
+        {
+            "id": 7,
+            "name": "প্রবৃদ্ধি",
+            "emoji": "📈",
+            "description": "সঞ্চয় মূল্যে বাড়তে পারে"
+        },
+        {
+            "id": 8,
+            "name": "ফুল",
+            "emoji": "🌸",
+            "description": "গাছ ফুলে ফুটতে পারে"
+        },
+        {
+            "id": 9,
+            "name": "বন",
+            "emoji": "🌲",
+            "description": "অনেক চারা মিলে বন হয়"
+        },
+        {
+            "id": 10,
+            "name": "সম্পদ",
+            "emoji": "🏦",
+            "description": "টাকার অভ্যাস সম্পদ গড়তে পারে"
+        }
+    ]
+}

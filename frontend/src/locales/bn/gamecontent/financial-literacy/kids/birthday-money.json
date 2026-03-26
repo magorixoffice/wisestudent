@@ -1,0 +1,144 @@
+﻿{
+    "title": "জন্মদিনের টাকার গল্প",
+    "subtitleComplete": "গল্প সম্পন্ন!",
+    "subtitleProgress": "প্রশ্ন {{current}} / {{total}}",
+    "questionCounter": "প্রশ্ন {{current}}/{{total}}",
+    "scoreLabel": "স্কোর: {{score}}/{{total}}",
+    "questions": [
+        {
+            "id": 1,
+            "text": "জন্মদিনে তুমি ১০০ টাকা পেয়েছ। কী করবে?",
+            "options": [
+                {
+                    "id": "spend",
+                    "text": "সব খেলনা ও মিষ্টিতে খরচ করবো",
+                    "emoji": "🧸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "give",
+                    "text": "সব মাকে রেখে দিতে দেবো",
+                    "emoji": "👩",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "split",
+                    "text": "ভাগ করবো: কিছু মজার জন্য, কিছু সঞ্চয়ের জন্য",
+                    "emoji": "💰",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "'বুদ্ধিমানভাবে ভাগ করা' মানে কী?",
+            "options": [
+                {
+                    "id": "gifts",
+                    "text": "অর্ধেক বন্ধুদের উপহারে খরচ করো",
+                    "emoji": "🎁",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "balance",
+                    "text": "কিছু সঞ্চয়ের জন্য, কিছু মজার জন্য রাখো",
+                    "emoji": "⚖️",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "needs",
+                    "text": "শুধু প্রয়োজনীয় জিনিস কিনো, চাহিদা নয়",
+                    "emoji": "🧺",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "উপহারের টাকার একটি অংশ সঞ্চয় করলে তুমি পারবে...",
+            "options": [
+                {
+                    "id": "forget",
+                    "text": "টাকার কথা ভুলে যেতে",
+                    "emoji": "🙈",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "spend",
+                    "text": "এখন আরও বেশি খরচ করতে",
+                    "emoji": "💸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "bigger",
+                    "text": "পরে বড় জিনিস কিনতে",
+                    "emoji": "🚲",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "পরে বড় কিছু কিনতে চাইলে বুদ্ধিমানের কাজ কী?",
+            "options": [
+                {
+                    "id": "save",
+                    "text": "নিয়মিত ছোট ছোট পরিমাণ সঞ্চয় করো",
+                    "emoji": "🐷",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "borrow",
+                    "text": "বন্ধুদের কাছ থেকে ধার নাও",
+                    "emoji": "🙏",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "wait",
+                    "text": "পরের জন্মদিনের জন্য অপেক্ষা করো",
+                    "emoji": "🎂",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "একটি ভারসাম্যপূর্ণ সিদ্ধান্ত কী?",
+            "options": [
+                {
+                    "id": "all",
+                    "text": "আজই সব খরচ করো",
+                    "emoji": "🛍️",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "enjoy",
+                    "text": "একটু মজা করো এবং বাকিটা সঞ্চয় করো",
+                    "emoji": "🍦",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "none",
+                    "text": "সব সঞ্চয় করো, কোনো মজা নয়",
+                    "emoji": "🔒",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

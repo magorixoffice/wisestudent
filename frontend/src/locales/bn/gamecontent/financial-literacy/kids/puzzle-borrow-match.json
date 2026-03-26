@@ -1,0 +1,80 @@
+﻿{
+    "title": "ধাঁধা: ধার মেলানো",
+    "subtitleComplete": "ধাঁধা সম্পন্ন!",
+    "subtitleProgress": "জিনিসগুলো কাজের সাথে মেলাও ({{matched}}/{{total}} মেলানো হয়েছে)",
+    "itemsTitle": "ধার করা জিনিস",
+    "categoriesTitle": "কাজসমূহ",
+    "selectedLabel": "নির্বাচিত: {{name}}",
+    "selectItem": "একটি জিনিস বেছে নাও",
+    "matchButton": "মেলাও",
+    "scoreLabel": "স্কোর:",
+    "matchedLabel": "মেলানো হয়েছে:",
+    "resultGreatEmoji": "🎉",
+    "resultGreatTitle": "দারুণ কাজ!",
+    "resultGreatDescription": "তুমি {{total}}টি জিনিসের মধ্যে {{score}}টি সঠিকভাবে কাজের সাথে মিলিয়েছ!",
+    "coinsLabel": "কয়েন",
+    "resultLesson": "শিক্ষা: ধার করা জিনিস ফেরত দেওয়া বা দায়িত্বশীলভাবে সামলানো উচিত।",
+    "resultKeepEmoji": "💪",
+    "resultKeepTitle": "অনুশীলন চালিয়ে যাও!",
+    "resultKeepDescription": "তুমি {{total}}টি জিনিসের মধ্যে {{score}}টি সঠিকভাবে মিলিয়েছ।",
+    "resultTip": "টিপস: দৈনন্দিন জীবনে দায়িত্বশীল ধার করা কেমন দেখায় তা ভাবো।",
+    "items": [
+        {
+            "id": 1,
+            "name": "খাতা",
+            "emoji": "📓"
+        },
+        {
+            "id": 2,
+            "name": "বোর্ড গেম",
+            "emoji": "🎲"
+        },
+        {
+            "id": 3,
+            "name": "রাবার",
+            "emoji": "🩹"
+        },
+        {
+            "id": 4,
+            "name": "পকেটমানি",
+            "emoji": "💰"
+        },
+        {
+            "id": 5,
+            "name": "টিফিন বাক্স",
+            "emoji": "🥪"
+        }
+    ],
+    "categories": [
+        {
+            "id": 6,
+            "name": "ফেরত দাও",
+            "emoji": "↩️",
+            "description": "ধার করা জিনিস ফেরত দাও"
+        },
+        {
+            "id": 7,
+            "name": "বন্ধুকে ভাগ দাও",
+            "emoji": "🤝",
+            "description": "ব্যবহারের সময় ন্যায্যভাবে ভাগ করো"
+        },
+        {
+            "id": 8,
+            "name": "টাকা পরিশোধ করো",
+            "emoji": "💳",
+            "description": "ধার করা টাকা ফেরত দাও"
+        },
+        {
+            "id": 9,
+            "name": "ধন্যবাদ বলো",
+            "emoji": "🙏",
+            "description": "ধার দেওয়া ব্যক্তিকে কৃতজ্ঞতা দেখাও"
+        },
+        {
+            "id": 10,
+            "name": "সাবধানে ধার দাও",
+            "emoji": "🛡️",
+            "description": "যত্ন ও নিয়ম মেনে ব্যবহার করো"
+        }
+    ]
+}

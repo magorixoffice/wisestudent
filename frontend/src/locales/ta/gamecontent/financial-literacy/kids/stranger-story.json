@@ -1,0 +1,145 @@
+﻿{
+    "title": "அந்நியர் கதை",
+    "subtitleComplete": "கதை முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "questionLabel": "கேள்வி {{current}}/{{total}}",
+    "questionCounter": "கேள்வி {{current}}/{{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "questions": [
+        {
+            "id": 1,
+            "text": "அந்நியர் உங்கள் முகவரிக்கு பரிமாறாக பொம்மை தருகிறார். என்ன செய்வீர்கள்?",
+            "options": [
+                {
+                    "id": "refuse",
+                    "text": "மறுக்கவும்",
+                    "emoji": "❌",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "accept",
+                    "text": "ஏற்கவும்",
+                    "emoji": "🎁",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "delay",
+                    "text": "முடிவை தாமதப்படுத்தவும்",
+                    "emoji": "⏰",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "யாரோ உங்கள் வங்கி விவரங்கள் கேட்கிறார்கள். இப்போது என்ன செய்வீர்கள்?",
+            "options": [
+                {
+                    "id": "give",
+                    "text": "தகவல் கொடுக்கவும்",
+                    "emoji": "💳",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "partial",
+                    "text": "சில தகவல் கொடுக்கவும்",
+                    "emoji": "🤷",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "no",
+                    "text": "இல்லை என்று சொல்லவும்",
+                    "emoji": "🚫",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "அந்நியர் ஒரு சலுகை வழங்குகிறார். எது பாதுகாப்பானது?",
+            "options": [
+                {
+                    "id": "walk",
+                    "text": "அங்கிருந்து நடந்து செல்லவும்",
+                    "emoji": "🚶",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "engage",
+                    "text": "பேச்சில் ஈடுபடவும்",
+                    "emoji": "💬",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "wait",
+                    "text": "காத்திருந்து பார்க்கவும்",
+                    "emoji": "⏳",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "சந்தேகமான சலுகையை பார்க்கிறீர்கள். என்ன செய்வீர்கள்?",
+            "options": [
+                {
+                    "id": "tell",
+                    "text": "பெரியவர்களிடம் சொல்லவும்",
+                    "emoji": "👨‍👩‍👧",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "quiet",
+                    "text": "மௌனமாக இருக்கவும்",
+                    "emoji": "🤫",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "ignore",
+                    "text": "புறக்கணிக்கவும்",
+                    "emoji": "🙈",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "விசித்திரமான செய்தி கிடைக்கிறது. சிறந்தது என்ன?",
+            "options": [
+                {
+                    "id": "reply",
+                    "text": "பதில் அளிக்கவும்",
+                    "emoji": "💬",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "ignore",
+                    "text": "புறக்கணிக்கவும்",
+                    "emoji": "🚫",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "forward",
+                    "text": "நண்பர்களுக்கு அனுப்பவும்",
+                    "emoji": "📤",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

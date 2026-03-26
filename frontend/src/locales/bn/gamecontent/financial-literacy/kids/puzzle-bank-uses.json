@@ -1,0 +1,38 @@
+﻿{
+    "title": "ধাঁধা: ব্যাংকের ব্যবহার",
+    "subtitleComplete": "সম্পন্ন!",
+    "subtitleProgress": "জিনিসগুলো মেলাও ({{matched}}/{{total}} মেলানো হয়েছে)",
+    "scoreLabel": "স্কোর:",
+    "items": [
+        {
+            "id": 1,
+            "name": "সঞ্চয় অ্যাকাউন্ট",
+            "emoji": "💰"
+        },
+        {
+            "id": 2,
+            "name": "ঋণ",
+            "emoji": "📝"
+        },
+        {
+            "id": 3,
+            "name": "এটিএম",
+            "emoji": "🏧"
+        },
+        {
+            "id": 4,
+            "name": "সুদ",
+            "emoji": "📈"
+        },
+        {
+            "id": 5,
+            "name": "আর্থিক শিক্ষা",
+            "emoji": "📚"
+        }
+    ],
+    "itemsTitle": "জিনিসপত্র",
+    "categoriesTitle": "শ্রেণীসমূহ",
+    "matchedLabel": "মেলানো হয়েছে:",
+    "selectItem": "একটি জিনিস বেছে নাও",
+    "matchButton": "মেলাও"
+}

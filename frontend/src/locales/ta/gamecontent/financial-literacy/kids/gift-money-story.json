@@ -1,0 +1,144 @@
+﻿{
+    "title": "பரிசு பணம் கதை",
+    "subtitleComplete": "கதை முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "questionCounter": "கேள்வி {{current}}/{{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "questions": [
+        {
+            "id": 1,
+            "text": "பிறந்தநாளில் பரிசு பணம் கிடைக்கிறது. புத்திசாலித்தனமான முதல் படி என்ன?",
+            "options": [
+                {
+                    "id": "spend",
+                    "text": "உடனே செலவிடு",
+                    "emoji": "💸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "show",
+                    "text": "நண்பர்களுக்கு காட்டு",
+                    "emoji": "👀",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "think",
+                    "text": "தேவைகளையும் இலக்குகளையும் பற்றி யோசி",
+                    "emoji": "🤔",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "பரிசு பணத்தை விட அதிக விலையுள்ள பையை வாங்க விரும்புகிறாய். புத்திசாலித்தனமான தேர்வு என்ன?",
+            "options": [
+                {
+                    "id": "borrow",
+                    "text": "நண்பர்களிடம் கடன் வாங்கு",
+                    "emoji": "💳",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "wait",
+                    "text": "காத்திருந்து கூடுதலாக சேமி",
+                    "emoji": "⏳",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "change",
+                    "text": "வேறு ஏதாவது வாங்கு",
+                    "emoji": "🎲",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "சிறிய பொம்மையும் பயனுள்ள பொருளும் தெரிகிறது. முடிவு செய்ய என்ன உதவும்?",
+            "options": [
+                {
+                    "id": "use",
+                    "text": "அதிகமாக தேவையான பொருளை தேர்வு செய்",
+                    "emoji": "⭐",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "fun",
+                    "text": "வேடிக்கையாக தெரிவதை தேர்வு செய்",
+                    "emoji": "🎉",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "cheap",
+                    "text": "மலிவானதை தேர்வு செய்",
+                    "emoji": "💲",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "பரிசு பணத்தில் சிறிதளவு சேமிக்க பெற்றோர் பரிந்துரைக்கிறார்கள். என்ன செய்வாய்?",
+            "options": [
+                {
+                    "id": "refuse",
+                    "text": "மறுத்து எல்லாவற்றையும் செலவிடு",
+                    "emoji": "🙅",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "agree",
+                    "text": "சிறிதளவு சேமித்து மீதியை திட்டமிடு",
+                    "emoji": "📊",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "forget",
+                    "text": "பணத்தை மறந்துவிடு",
+                    "emoji": "😴",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "பரிசு பணம் என்ன கற்பிக்கிறது?",
+            "options": [
+                {
+                    "id": "showoff",
+                    "text": "வாங்கியதை காட்டிக்கொள்வது எப்படி என்று",
+                    "emoji": "😎",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "spend",
+                    "text": "யோசிக்காமல் செலவிடுவது எப்படி என்று",
+                    "emoji": "🔥",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "manage",
+                    "text": "பணத்தை பொறுப்புடன் நிர்வகிப்பது எப்படி என்று",
+                    "emoji": "🎯",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        }
+    ]
+}

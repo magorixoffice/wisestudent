@@ -1,0 +1,129 @@
+﻿{
+    "title": "பண நேர்மை வினாடி வினா",
+    "subtitleComplete": "வினாடி வினா முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "questionLabel": "கேள்வி {{current}}/{{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "questions": [
+        {
+            "id": 1,
+            "text": "₹10 கிடைத்தால் நேர்மையான தேர்வு எது?",
+            "options": [
+                {
+                    "id": "keep",
+                    "text": "அமைதியாக வைத்துக்கொள்",
+                    "emoji": "🤫",
+                    "isCorrect": false
+                },
+                {
+                    "id": "snacks",
+                    "text": "தின்பண்டங்களுக்கு செலவிடு",
+                    "emoji": "🍟",
+                    "isCorrect": false
+                },
+                {
+                    "id": "return",
+                    "text": "உரிமையாளருக்கு திருப்பி கொடு",
+                    "emoji": "🤝",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "கூடுதலாக ₹5 சில்லறை கிடைக்கிறது. சரியான செயல் என்ன?",
+            "options": [
+                {
+                    "id": "give",
+                    "text": "கூடுதலை திருப்பி கொடு",
+                    "emoji": "💸",
+                    "isCorrect": true
+                },
+                {
+                    "id": "candy",
+                    "text": "மிட்டாய் வாங்கு",
+                    "emoji": "🍬",
+                    "isCorrect": false
+                },
+                {
+                    "id": "nothing",
+                    "text": "எதுவும் சொல்லாதே",
+                    "emoji": "😶",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "₹20 கடன் வாங்குகிறாய். நேர்மையானது என்ன?",
+            "options": [
+                {
+                    "id": "never",
+                    "text": "ஒருபோதும் திருப்பி கொடுக்காதே",
+                    "emoji": "😞",
+                    "isCorrect": false
+                },
+                {
+                    "id": "repay",
+                    "text": "சரியான நேரத்தில் திருப்பி கொடு",
+                    "emoji": "✅",
+                    "isCorrect": true
+                },
+                {
+                    "id": "spend",
+                    "text": "பதிலாக அதிகமாக செலவிடு",
+                    "emoji": "🛍️",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "₹15 மதிப்புள்ள பொம்மையை உடைக்கிறாய். என்ன செய்வாய்?",
+            "options": [
+                {
+                    "id": "tell",
+                    "text": "சொல்லி பணம் கொடுக்க முன்வா",
+                    "emoji": "🗣️",
+                    "isCorrect": true
+                },
+                {
+                    "id": "hide",
+                    "text": "மறைத்து வை",
+                    "emoji": "🧸",
+                    "isCorrect": false
+                },
+                {
+                    "id": "blame",
+                    "text": "வேறு யாரையோ குற்றம் சொல்",
+                    "emoji": "🙈",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "பணத்தில் நேர்மை ஏன் முக்கியம்?",
+            "options": [
+                {
+                    "id": "trust",
+                    "text": "நம்பிக்கையை ஈட்டும்",
+                    "emoji": "😊",
+                    "isCorrect": true
+                },
+                {
+                    "id": "money",
+                    "text": "கூடுதல் பணம் கிடைக்கும்",
+                    "emoji": "💰",
+                    "isCorrect": false
+                },
+                {
+                    "id": "spend",
+                    "text": "அதிகமாக செலவிட முடியும்",
+                    "emoji": "🛒",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

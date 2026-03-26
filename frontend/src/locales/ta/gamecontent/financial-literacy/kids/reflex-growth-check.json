@@ -1,0 +1,150 @@
+﻿{
+    "title": "வளர்ச்சி சரிபார்ப்பு விளையாட்டு",
+    "subtitlePlaying": "கேள்வி {{current}} / {{total}}: உன் வளர்ச்சி திறனை சோதி!",
+    "subtitleReady": "உன் வளர்ச்சி திறனை சோதி!",
+    "readyEmoji": "📈",
+    "readyTitle": "உன் வளர்ச்சி அறிவை சரிபார்க்க தயாரா?",
+    "readyDescription": "ஒவ்வொரு கேள்விக்கும் சரியான வளர்ச்சி விளைவை தேர்வு செய்.",
+    "readyInfo": "உனக்கு {{total}} கேள்விகள் உள்ளன, ஒவ்வொன்றும் {{seconds}} விநாடிகள்!",
+    "startButton": "விளையாட்டை தொடங்கு",
+    "roundLabel": "கேள்வி:",
+    "timeLabel": "நேரம்:",
+    "scoreLabel": "மதிப்பெண்:",
+    "questions": [
+        {
+            "id": 1,
+            "question": "உன் பணம் வட்டி சம்பாதிக்கும்போது என்ன நடக்கும்?",
+            "correctAnswer": "வட்டி கிடைத்தது",
+            "options": [
+                {
+                    "text": "பணம் இழந்தது",
+                    "isCorrect": false,
+                    "emoji": "💸"
+                },
+                {
+                    "text": "வட்டி கிடைத்தது",
+                    "isCorrect": true,
+                    "emoji": "💰"
+                },
+                {
+                    "text": "மாற்றமில்லை",
+                    "isCorrect": false,
+                    "emoji": "😐"
+                },
+                {
+                    "text": "பணம் திருடப்பட்டது",
+                    "isCorrect": false,
+                    "emoji": "😈"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "question": "காலப்போக்கில் சேமிக்கும்போது என்ன நடக்கும்?",
+            "correctAnswer": "சேமிப்பு வளர்ந்தது",
+            "options": [
+                {
+                    "text": "சேமிப்பு வளர்ந்தது",
+                    "isCorrect": true,
+                    "emoji": "📈"
+                },
+                {
+                    "text": "பணம் செலவிட்டது",
+                    "isCorrect": false,
+                    "emoji": "💸"
+                },
+                {
+                    "text": "பணம் மறைந்துவிட்டது",
+                    "isCorrect": false,
+                    "emoji": "👻"
+                },
+                {
+                    "text": "எதுவும் நடக்கவில்லை",
+                    "isCorrect": false,
+                    "emoji": "😴"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "question": "முதலீடு வெற்றிகரமாக இருக்கும்போது என்ன நடக்கும்?",
+            "correctAnswer": "லாபம் கிடைத்தது",
+            "options": [
+                {
+                    "text": "நஷ்டம் ஏற்பட்டது",
+                    "isCorrect": false,
+                    "emoji": "📉"
+                },
+                {
+                    "text": "பணம் உறைந்தது",
+                    "isCorrect": false,
+                    "emoji": "🧊"
+                },
+                {
+                    "text": "முதலீடு போனது",
+                    "isCorrect": false,
+                    "emoji": "💔"
+                },
+                {
+                    "text": "லாபம் கிடைத்தது",
+                    "isCorrect": true,
+                    "emoji": "💵"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "question": "முதலீட்டு மதிப்பு அதிகரிக்கும்போது என்ன நடக்கும்?",
+            "correctAnswer": "முதலீடு உயர்ந்தது",
+            "options": [
+                {
+                    "text": "முதலீடு உயர்ந்தது",
+                    "isCorrect": true,
+                    "emoji": "🚀"
+                },
+                {
+                    "text": "பணம் குறைந்தது",
+                    "isCorrect": false,
+                    "emoji": "📉"
+                },
+                {
+                    "text": "முதலீடு நின்றது",
+                    "isCorrect": false,
+                    "emoji": "🔒"
+                },
+                {
+                    "text": "மதிப்பு சுழி",
+                    "isCorrect": false,
+                    "emoji": "0️⃣"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "question": "நீண்ட காலத்திற்கு புத்திசாலித்தனமாக முதலீடு செய்யும்போது என்ன நடக்கும்?",
+            "correctAnswer": "செல்வம் வளர்ந்தது",
+            "options": [
+                {
+                    "text": "நிதி சுருங்கியது",
+                    "isCorrect": false,
+                    "emoji": "💸"
+                },
+                {
+                    "text": "செல்வம் அப்படியே இருந்தது",
+                    "isCorrect": false,
+                    "emoji": "➡️"
+                },
+                {
+                    "text": "செல்வம் வளர்ந்தது",
+                    "isCorrect": true,
+                    "emoji": "🌳"
+                },
+                {
+                    "text": "செல்வம் மறைந்தது",
+                    "isCorrect": false,
+                    "emoji": "👻"
+                }
+            ]
+        }
+    ]
+}

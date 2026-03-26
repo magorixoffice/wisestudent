@@ -1,0 +1,149 @@
+﻿{
+    "title": "சேமிப்பு விளையாட்டு",
+    "subtitlePlaying": "சுற்று {{current}}/{{total}}: உன் சேமிப்பு அறிவை சோதி!",
+    "subtitleReady": "உன் சேமிப்பு அறிவை சோதி!",
+    "readyTitle": "உன் சேமிப்பு திறனை சோதிக்க தயாரா?",
+    "readyDescription": "புத்திசாலித்தனமான சேமிப்பு வழிமுறைகள் பற்றிய கேள்விகளுக்கு பதிலளி.",
+    "readyInfo": "உனக்கு {{total}} கேள்விகள் உள்ளன, ஒவ்வொன்றும் {{seconds}} விநாடிகள்!",
+    "startButton": "விளையாட்டை தொடங்கு",
+    "roundLabel": "சுற்று:",
+    "timeLabel": "நேரம்:",
+    "scoreLabel": "மதிப்பெண்:",
+    "questions": [
+        {
+            "id": 1,
+            "question": "பணம் சேமிக்க சிறந்த வழி எது?",
+            "correctAnswer": "சேமிப்பு இலக்கை நிர்ணயி",
+            "options": [
+                {
+                    "text": "தற்போக்காக செலவிடு",
+                    "isCorrect": false,
+                    "emoji": "💸"
+                },
+                {
+                    "text": "சேமிப்பு இலக்கை நிர்ணயி",
+                    "isCorrect": true,
+                    "emoji": "🎯"
+                },
+                {
+                    "text": "கடன் வாங்கு",
+                    "isCorrect": false,
+                    "emoji": "💳"
+                },
+                {
+                    "text": "சேமிப்பை கவனிக்காதே",
+                    "isCorrect": false,
+                    "emoji": "🙈"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "question": "கூடுதல் பணத்தை என்ன செய்வாய்?",
+            "correctAnswer": "சேமித்து வை",
+            "options": [
+                {
+                    "text": "சேமித்து வை",
+                    "isCorrect": true,
+                    "emoji": "💰"
+                },
+                {
+                    "text": "எல்லாவற்றையும் செலவிடு",
+                    "isCorrect": false,
+                    "emoji": "🛍️"
+                },
+                {
+                    "text": "தொலைத்துவிடு",
+                    "isCorrect": false,
+                    "emoji": "📉"
+                },
+                {
+                    "text": "மறந்துவிடு",
+                    "isCorrect": false,
+                    "emoji": "😴"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "question": "தொடர்ந்து சேமிக்க எது உதவுகிறது?",
+            "correctAnswer": "தானியங்கி பரிமாற்றம்",
+            "options": [
+                {
+                    "text": "உடனடியாக செலவிடு",
+                    "isCorrect": false,
+                    "emoji": "🛒"
+                },
+                {
+                    "text": "தானியங்கி பரிமாற்றம்",
+                    "isCorrect": true,
+                    "emoji": "🔄"
+                },
+                {
+                    "text": "திட்டமில்லாமல்",
+                    "isCorrect": false,
+                    "emoji": "📋"
+                },
+                {
+                    "text": "உந்துதல் வரும் வரை காத்திரு",
+                    "isCorrect": false,
+                    "emoji": "⏳"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "question": "நல்ல சேமிப்பு பழக்கம் எது?",
+            "correctAnswer": "முதலில் சேமி, பிறகு செலவிடு",
+            "options": [
+                {
+                    "text": "முதலில் செலவிடு, பிறகு சேமி",
+                    "isCorrect": false,
+                    "emoji": "💸"
+                },
+                {
+                    "text": "ஒருபோதும் சேமிக்காதே",
+                    "isCorrect": false,
+                    "emoji": "🚫"
+                },
+                {
+                    "text": "முதலில் சேமி, பிறகு செலவிடு",
+                    "isCorrect": true,
+                    "emoji": "🏦"
+                },
+                {
+                    "text": "சில நேரம் சேமி",
+                    "isCorrect": false,
+                    "emoji": "⏰"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "question": "பணம் சேமிப்பது ஏன் முக்கியம்?",
+            "correctAnswer": "அவசரகால தயார்நிலை",
+            "options": [
+                {
+                    "text": "காட்டிக்கொள்ள",
+                    "isCorrect": false,
+                    "emoji": "🏆"
+                },
+                {
+                    "text": "உடனடியாக வாங்க",
+                    "isCorrect": false,
+                    "emoji": "🛒"
+                },
+                {
+                    "text": "எந்த காரணமும் இல்லை",
+                    "isCorrect": false,
+                    "emoji": "❓"
+                },
+                {
+                    "text": "அவசரகால தயார்நிலை",
+                    "isCorrect": true,
+                    "emoji": "🚑"
+                }
+            ]
+        }
+    ]
+}

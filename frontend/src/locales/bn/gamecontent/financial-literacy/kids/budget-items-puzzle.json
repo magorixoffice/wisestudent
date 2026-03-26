@@ -1,0 +1,80 @@
+﻿{
+    "title": "ধাঁধা: বাজেটের জিনিসপত্র",
+    "subtitleComplete": "ধাঁধা সম্পন্ন!",
+    "subtitleProgress": "জিনিসগুলো শ্রেণীর সাথে মেলাও ({{matched}}/{{total}} মেলানো হয়েছে)",
+    "itemsTitle": "জিনিসপত্র",
+    "categoriesTitle": "শ্রেণীসমূহ",
+    "selectedLabel": "নির্বাচিত: {{name}}",
+    "selectItem": "একটি জিনিস বেছে নাও",
+    "matchButton": "মেলাও",
+    "scoreLabel": "স্কোর:",
+    "matchedLabel": "মেলানো হয়েছে:",
+    "resultGreatEmoji": "🏆",
+    "resultGreatTitle": "দারুণ কাজ!",
+    "resultGreatDescription": "তুমি {{total}}টি জিনিসের মধ্যে {{score}}টি সঠিকভাবে শ্রেণীর সাথে মিলিয়েছ!",
+    "coinsLabel": "কয়েন",
+    "resultLesson": "শিক্ষা: প্রয়োজন বনাম চাওয়া বোঝা বাজেটে সাহায্য করে!",
+    "resultKeepEmoji": "🧩",
+    "resultKeepTitle": "অনুশীলন চালিয়ে যাও!",
+    "resultKeepDescription": "তুমি {{total}}টি জিনিসের মধ্যে {{score}}টি সঠিকভাবে মিলিয়েছ।",
+    "resultTip": "টিপস: প্রয়োজন হলো বেঁচে থাকার জন্য অপরিহার্য, চাওয়া হলো যা থাকলে ভালো!",
+    "items": [
+        {
+            "id": 1,
+            "name": "মুদিখানার বাজার",
+            "emoji": "🛒"
+        },
+        {
+            "id": 2,
+            "name": "জন্মদিনের উপহার",
+            "emoji": "🎁"
+        },
+        {
+            "id": 3,
+            "name": "স্কুলের সরঞ্জাম",
+            "emoji": "✏️"
+        },
+        {
+            "id": 4,
+            "name": "ভিডিও গেম কনসোল",
+            "emoji": "🎮"
+        },
+        {
+            "id": 5,
+            "name": "অতিরিক্ত নাস্তা",
+            "emoji": "🍿"
+        }
+    ],
+    "categories": [
+        {
+            "id": 6,
+            "name": "অপরিহার্য",
+            "emoji": "✅",
+            "description": "দৈনন্দিন জীবনে অবশ্যই প্রয়োজন"
+        },
+        {
+            "id": 7,
+            "name": "অপ্রয়োজনীয়",
+            "emoji": "➖",
+            "description": "ঐচ্ছিক, বাধ্যতামূলক নয়"
+        },
+        {
+            "id": 8,
+            "name": "স্কুলের জন্য প্রয়োজনীয়",
+            "emoji": "🎒",
+            "description": "শেখার জন্য দরকার"
+        },
+        {
+            "id": 9,
+            "name": "বিলাসিতা",
+            "emoji": "💎",
+            "description": "থাকলে ভালো, দামি"
+        },
+        {
+            "id": 10,
+            "name": "ঐচ্ছিক আনন্দ",
+            "emoji": "🍭",
+            "description": "ছোট্ট আনন্দের খরচ"
+        }
+    ]
+}

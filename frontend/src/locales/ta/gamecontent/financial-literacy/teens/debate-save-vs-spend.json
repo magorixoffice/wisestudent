@@ -1,0 +1,129 @@
+﻿{
+    "title": "விவாதம்: சேமி vs செலவழி",
+    "subtitleComplete": "விவாதம் முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "questionLabel": "கேள்வி {{current}}/{{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "questions": [
+        {
+            "id": 1,
+            "text": "பணத்தை சேமிப்பது சிறந்ததா அல்லது எல்லாவற்றையும் செலவழிப்பது சிறந்ததா?",
+            "options": [
+                {
+                    "id": "spend",
+                    "text": "எல்லாவற்றையும் செலவழிக்கவும்",
+                    "emoji": "🛍️",
+                    "isCorrect": false
+                },
+                {
+                    "id": "save",
+                    "text": "பணம் சேமிக்கவும்",
+                    "emoji": "💰",
+                    "isCorrect": true
+                },
+                {
+                    "id": "waste",
+                    "text": "வீணாக்கவும்",
+                    "emoji": "💸",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "டீனேஜர்கள் சேமிப்பில் கவனம் செலுத்த வேண்டுமா அல்லது இப்போது பணத்தை அனுபவிக்க வேண்டுமா?",
+            "options": [
+                {
+                    "id": "save",
+                    "text": "சேமிப்பில் கவனம் செலுத்துங்கள்",
+                    "emoji": "🏦",
+                    "isCorrect": true
+                },
+                {
+                    "id": "spend",
+                    "text": "இப்போது அனுபவிக்கவும்",
+                    "emoji": "🎉",
+                    "isCorrect": false
+                },
+                {
+                    "id": "ignore",
+                    "text": "சிந்திக்காதீர்கள்",
+                    "emoji": "🙈",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "போனஸ் அல்லது கூடுதல் பணம் கிடைக்கும்போது என்ன செய்ய வேண்டும்?",
+            "options": [
+                {
+                    "id": "spend",
+                    "text": "எல்லாவற்றையும் செலவழிக்கவும்",
+                    "emoji": "💸",
+                    "isCorrect": false
+                },
+                {
+                    "id": "waste",
+                    "text": "வீணாக்கவும்",
+                    "emoji": "🗑️",
+                    "isCorrect": false
+                },
+                {
+                    "id": "save",
+                    "text": "அதிகமாக சேமிக்கவும்",
+                    "emoji": "📈",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "விலையுயர்ந்த பிராண்டட் பொருட்கள் வாங்குவது சிறந்ததா அல்லது மலிவான தரமான பொருட்கள் வாங்குவது சிறந்ததா?",
+            "options": [
+                {
+                    "id": "spend",
+                    "text": "பிராண்டட் பொருட்கள் வாங்கவும்",
+                    "emoji": "💎",
+                    "isCorrect": false
+                },
+                {
+                    "id": "save",
+                    "text": "பிராண்டை விட தரத்தை தேர்வு செய்யுங்கள்",
+                    "emoji": "🎯",
+                    "isCorrect": true
+                },
+                {
+                    "id": "cheap",
+                    "text": "மிகவும் மலிவானதை வாங்கவும்",
+                    "emoji": "💵",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "வாங்க முடியாத பொருட்களை கிரெடிட் கார்டில் வாங்க வேண்டுமா?",
+            "options": [
+                {
+                    "id": "spend",
+                    "text": "ஆம், கிரெடிட் பயன்படுத்துங்கள்",
+                    "emoji": "💳",
+                    "isCorrect": false
+                },
+                {
+                    "id": "borrow",
+                    "text": "பணம் கடன் வாங்கவும்",
+                    "emoji": "🤲",
+                    "isCorrect": false
+                },
+                {
+                    "id": "save",
+                    "text": "இல்லை, கடனை தவிர்க்கவும்",
+                    "emoji": "🛡️",
+                    "isCorrect": true
+                }
+            ]
+        }
+    ]
+}

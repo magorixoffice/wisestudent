@@ -1,0 +1,129 @@
+﻿{
+    "title": "பண வங்கி கதை",
+    "subtitleComplete": "கதை முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "questionCounter": "கேள்வி {{current}}/{{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "questions": [
+        {
+            "id": 1,
+            "text": "உன் பாட்டியிடம் பரிசாக ரூ. 10 கிடைக்கிறது. என்ன செய்ய விரும்புகிறாய்?",
+            "options": [
+                {
+                    "id": "spend",
+                    "text": "எல்லாவற்றையும் செலவிடு",
+                    "emoji": "🛍️",
+                    "isCorrect": false
+                },
+                {
+                    "id": "save",
+                    "text": "ரூ. 5 சேமி",
+                    "emoji": "💰",
+                    "isCorrect": true
+                },
+                {
+                    "id": "save-all",
+                    "text": "ரூ. 10 முழுவதும் சேமி",
+                    "emoji": "🏦",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "உன்னிடம் ரூ. 20 சேமிப்பு உள்ளது. நண்பர் ரூ. 15 விலையுள்ள திரைப்படத்திற்கு அழைக்கிறார். என்ன செய்வாய்?",
+            "options": [
+                {
+                    "id": "save",
+                    "text": "பிற்காலத்திற்கு சேமி",
+                    "emoji": "🏦",
+                    "isCorrect": true
+                },
+                {
+                    "id": "spend",
+                    "text": "திரைப்படத்திற்கு போ",
+                    "emoji": "🎬",
+                    "isCorrect": false
+                },
+                {
+                    "id": "split",
+                    "text": "செலவை பகிர்ந்துகொள்",
+                    "emoji": "🤝",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "தெருவில் ரூ. 5 கிடைக்கிறது. அதனால் செய்ய சிறந்தது என்ன?",
+            "options": [
+                {
+                    "id": "spend",
+                    "text": "மிட்டாய் வாங்கு",
+                    "emoji": "🍬",
+                    "isCorrect": false
+                },
+                {
+                    "id": "give",
+                    "text": "பெற்றோரிடம் கொடு",
+                    "emoji": "👨‍👩‍👧",
+                    "isCorrect": false
+                },
+                {
+                    "id": "save",
+                    "text": "சேமித்து வை",
+                    "emoji": "🫙",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "பிறந்தநாள் வருகிறது, ரூ. 500 விலையுள்ள புதிய சைக்கிள் வேண்டும். தற்போது ரூ. 200 மட்டுமே உள்ளது. என்ன செய்வாய்?",
+            "options": [
+                {
+                    "id": "save",
+                    "text": "கூடுதலாக சேமி",
+                    "emoji": "📈",
+                    "isCorrect": true
+                },
+                {
+                    "id": "spend",
+                    "text": "இப்போதே வாங்கு",
+                    "emoji": "🛒",
+                    "isCorrect": false
+                },
+                {
+                    "id": "borrow",
+                    "text": "பணம் கடன் வாங்கு",
+                    "emoji": "💳",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "உன்னிடம் ரூ. 30 சேமிப்பு உள்ளது, ரூ. 25 விலையுள்ள விரும்பிய பொம்மை தெரிகிறது. புத்திசாலித்தனமான தேர்வு என்ன?",
+            "options": [
+                {
+                    "id": "spend",
+                    "text": "பொம்மை வாங்கு",
+                    "emoji": "🧸",
+                    "isCorrect": false
+                },
+                {
+                    "id": "save",
+                    "text": "பெரியதற்கு சேமி",
+                    "emoji": "🎯",
+                    "isCorrect": true
+                },
+                {
+                    "id": "wait",
+                    "text": "சேல் வரும் வரை காத்திரு",
+                    "emoji": "⏰",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

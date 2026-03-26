@@ -1,0 +1,73 @@
+﻿{
+    "title": "புதிர்: கடன் அடிப்படைகள்",
+    "subtitleComplete": "புதிர் முடிந்தது!",
+    "subtitleProgress": "கடன் விதிமுறைகளை கருத்துகளுடன் பொருத்துங்கள் ({{current}}/{{total}} பொருத்தப்பட்டது)",
+    "termsTitle": "கடன் விதிமுறைகள்",
+    "conceptsTitle": "கடன் கருத்துகள்",
+    "matchButton": "பொருத்து",
+    "selectTermLabel": "ஒரு கடன் விதிமுறையை தேர்வு செய்யுங்கள்",
+    "selectedTermLabel": "தேர்வு: {{name}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "matchedLabel": "பொருத்தப்பட்டது: {{current}}/{{total}}",
+    "resultSuccessHeader": "சிறப்பான வேலை!",
+    "resultSuccessSubheader": "{{total}} இல் {{score}} கடன் விதிமுறைகளை சரியாக பொருத்தினீர்கள்!",
+    "resultSuccessLesson": "பாடம்: கடன் அடிப்படைகளை புரிந்துகொள்வது சிந்தித்த கடன் வாங்கும் முடிவுகளை எடுக்க உதவுகிறது!",
+    "resultTryAgainHeader": "தொடர்ந்து பயிற்சி செய்யுங்கள்!",
+    "resultTryAgainSubheader": "{{total}} இல் {{score}} கடன் விதிமுறைகளை சரியாக பொருத்தினீர்கள்.",
+    "resultTryAgainTip": "குறிப்பு: ஒவ்வொரு கடன் விதிமுறையும் உண்மையில் எதை குறிக்கிறது என்று சிந்தியுங்கள்!",
+    "coinsEarned": "+{{coins}} நாணயங்கள்",
+    "terms": [
+        {
+            "id": 1,
+            "name": "அசல்",
+            "emoji": "💵"
+        },
+        {
+            "id": 2,
+            "name": "வட்டி",
+            "emoji": "💰"
+        },
+        {
+            "id": 3,
+            "name": "கடன் காலம்",
+            "emoji": "📅"
+        },
+        {
+            "id": 4,
+            "name": "EMI",
+            "emoji": "📊"
+        },
+        {
+            "id": 5,
+            "name": "தவறுதல்",
+            "emoji": "⚠️"
+        }
+    ],
+    "concepts": [
+        {
+            "id": 6,
+            "name": "அசல் தொகை",
+            "emoji": "📝"
+        },
+        {
+            "id": 7,
+            "name": "கூடுதல் செலவு",
+            "emoji": "➕"
+        },
+        {
+            "id": 8,
+            "name": "கால அவகாசம்",
+            "emoji": "⏱️"
+        },
+        {
+            "id": 9,
+            "name": "வழக்கமான பேமென்ட்",
+            "emoji": "💳"
+        },
+        {
+            "id": 10,
+            "name": "தவறிய பேமென்ட்கள்",
+            "emoji": "🚫"
+        }
+    ]
+}

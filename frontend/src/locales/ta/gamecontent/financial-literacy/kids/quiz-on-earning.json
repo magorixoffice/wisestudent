@@ -1,0 +1,144 @@
+﻿{
+    "title": "சம்பாதிப்பு வினாடி வினா",
+    "subtitleComplete": "வினாடி வினா முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "questionCounter": "கேள்வி {{current}}/{{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "questions": [
+        {
+            "id": 1,
+            "text": "பணம் சம்பாதிக்கும் சரியான வழி என்ன?",
+            "options": [
+                {
+                    "id": "working",
+                    "text": "வேலை செய்வதன் மூலம்",
+                    "emoji": "💼",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "wasting",
+                    "text": "வீணாக்குவதன் மூலம்",
+                    "emoji": "💸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "sleeping",
+                    "text": "தூங்குவதன் மூலம்",
+                    "emoji": "😴",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "ஒரு விவசாயி எப்படி பணம் சம்பாதிக்கிறார்?",
+            "options": [
+                {
+                    "id": "games",
+                    "text": "கேம் விளையாடுவதன் மூலம்",
+                    "emoji": "🎮",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "crops",
+                    "text": "பயிர்களை விற்பதன் மூலம்",
+                    "emoji": "🌾",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "give",
+                    "text": "உணவை கொடுப்பதன் மூலம்",
+                    "emoji": "🎁",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "கற்பிப்பதன் மூலம் பணம் சம்பாதிக்கும் வேலை எது?",
+            "options": [
+                {
+                    "id": "toymaker",
+                    "text": "பொம்மை தயாரிப்பாளர்",
+                    "emoji": "🧸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "candy",
+                    "text": "மிட்டாய் விற்பனையாளர்",
+                    "emoji": "🍬",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "teacher",
+                    "text": "ஆசிரியர்",
+                    "emoji": "👨‍🏫",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "குழந்தைகள் எப்படி பணம் சம்பாதிக்கலாம்?",
+            "options": [
+                {
+                    "id": "chores",
+                    "text": "வீட்டு வேலைகள் செய்வதன் மூலம்",
+                    "emoji": "🧹",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "tv",
+                    "text": "தொலைக்காட்சி பார்ப்பதன் மூலம்",
+                    "emoji": "📺",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "snacks",
+                    "text": "சிற்றுண்டி சாப்பிடுவதன் மூலம்",
+                    "emoji": "🍪",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "பணம் சம்பாதிப்பது ஏன் முக்கியம்?",
+            "options": [
+                {
+                    "id": "toys",
+                    "text": "இலவச பொம்மைகள் கிடைக்கும்",
+                    "emoji": "🧸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "needs",
+                    "text": "உங்கள் தேவைகளை பூர்த்தி செய்யும்",
+                    "emoji": "😊",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "sleep",
+                    "text": "நன்றாக தூக்கம் வரும்",
+                    "emoji": "😴",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

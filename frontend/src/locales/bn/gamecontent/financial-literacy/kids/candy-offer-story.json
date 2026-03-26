@@ -1,0 +1,144 @@
+﻿{
+    "title": "মিষ্টির অফারের গল্প",
+    "subtitleComplete": "গল্প সম্পন্ন!",
+    "subtitleProgress": "প্রশ্ন {{current}} / {{total}}",
+    "questionCounter": "প্রশ্ন {{current}}/{{total}}",
+    "scoreLabel": "স্কোর: {{score}}/{{total}}",
+    "questions": [
+        {
+            "id": 1,
+            "text": "দোকানে মিষ্টিতে বড় ছাড় দেখলে, কিন্তু তুমি এখন পেট ভরা অনুভব করছ। সেরা পছন্দ কী?",
+            "options": [
+                {
+                    "id": "b",
+                    "text": "সস্তা বলে মিষ্টি কিনবো",
+                    "emoji": "🍬",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "a",
+                    "text": "স্বাস্থ্যের কথা ভাবো এবং মিষ্টি কেনা বাদ দাও",
+                    "emoji": "✅",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "c",
+                    "text": "অন্যরা কিনছে বলে মিষ্টি কিনবো",
+                    "emoji": "👀",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "দোকান বেশি কিনলে অতিরিক্ত মিষ্টি দেওয়ার অফার দিচ্ছে। সিদ্ধান্ত নেওয়ার আগে কী দেখবে?",
+            "options": [
+                {
+                    "id": "a",
+                    "text": "সত্যিই এটা দরকার কিনা",
+                    "emoji": "🤔",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "b",
+                    "text": "প্যাকেট কতটা রঙিন",
+                    "emoji": "🌈",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "c",
+                    "text": "কতটা বিজ্ঞাপন হয়েছে",
+                    "emoji": "📢",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "তুমি মিষ্টি চাও, কিন্তু স্কুল ট্রিপের জন্যও টাকা সঞ্চয় করতে চাও। বুদ্ধিমান সিদ্ধান্ত কী?",
+            "options": [
+                {
+                    "id": "b",
+                    "text": "এখন টাকা খরচ করো পরে ভাববো",
+                    "emoji": "💸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "c",
+                    "text": "অন্য কাউকে মিষ্টির টাকা দিতে বলো",
+                    "emoji": "🙏",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "a",
+                    "text": "গুরুত্বপূর্ণ কাজের জন্য টাকা সঞ্চয় করো",
+                    "emoji": "💡",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "ক্যাশ কাউন্টারের কাছে মিষ্টির অফার দেখলে। দোকান এখানে কেন রাখে?",
+            "options": [
+                {
+                    "id": "b",
+                    "text": "ক্রেতাদের টাকা বাঁচাতে সাহায্য করতে",
+                    "emoji": "💰",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "a",
+                    "text": "দ্রুত এবং পরিকল্পনা ছাড়া কেনাকাটা উৎসাহিত করতে",
+                    "emoji": "⚡",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "c",
+                    "text": "স্বাস্থ্যকর খাবারের বিকল্প প্রতিস্থাপন করতে",
+                    "emoji": "🥗",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "অফারের সময় মিষ্টি না কিনার সিদ্ধান্ত নিলে। তুমি কোন দক্ষতা অনুশীলন করছ?",
+            "options": [
+                {
+                    "id": "a",
+                    "text": "আত্মনিয়ন্ত্রণ এবং বুদ্ধিমান সিদ্ধান্ত গ্রহণ",
+                    "emoji": "🧠",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "b",
+                    "text": "মজা হারানো",
+                    "emoji": "🎈",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "c",
+                    "text": "সবসময় সব মিষ্টি এড়িয়ে চলা",
+                    "emoji": "🚫",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

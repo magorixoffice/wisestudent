@@ -1,0 +1,145 @@
+﻿{
+    "title": "আইসক্রিম বনাম স্কুলের বইয়ের গল্প",
+    "subtitleComplete": "গল্প সম্পন্ন!",
+    "subtitleProgress": "প্রশ্ন {{current}} / {{total}}",
+    "questionCounter": "প্রশ্ন {{current}}/{{total}}",
+    "scoreLabel": "স্কোর: {{score}}/{{total}}",
+    "stageEmoji": "📘",
+    "questions": [
+        {
+            "id": 1,
+            "text": "স্কুল শেষে ক্ষুধার্ত অনুভব করছ, কিন্তু একটি ওয়ার্কবুকও দরকার। সেরা পছন্দ কী?",
+            "options": [
+                {
+                    "id": "icecream",
+                    "text": "এখন আইসক্রিম কিনবো",
+                    "emoji": "🍦",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "book",
+                    "text": "ওয়ার্কবুক কিনবো",
+                    "emoji": "📘",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "wait",
+                    "text": "কিছু না কিনে চলে যাবো",
+                    "emoji": "🚶",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "আজ আইসক্রিম খেলে কালকের বইয়ের জন্য টাকা থাকবে না। কী শিখবে?",
+            "options": [
+                {
+                    "id": "lesson",
+                    "text": "টাকা পরিকল্পনা করা গুরুত্বপূর্ণ",
+                    "emoji": "🧠",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "sad",
+                    "text": "আইসক্রিম সবসময় সেরা",
+                    "emoji": "🍦",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "borrow",
+                    "text": "পরের বার ধার করবো",
+                    "emoji": "🙏",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "বই পরীক্ষায় সাহায্য করে, আর আইসক্রিম দ্রুত গলে যায়। কোনটি বেশিক্ষণ স্থায়ী হয়?",
+            "options": [
+                {
+                    "id": "icecream",
+                    "text": "আইসক্রিমের সুখ",
+                    "emoji": "🍨",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "book",
+                    "text": "বই থেকে জ্ঞান",
+                    "emoji": "📚",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "both",
+                    "text": "দুটো একই সময় স্থায়ী হয়",
+                    "emoji": "🤷",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "আজ বই কিনো এবং অন্যদিন আইসক্রিম উপভোগ করার সিদ্ধান্ত নিলে। কোন দক্ষতা দেখাচ্ছ?",
+            "options": [
+                {
+                    "id": "luck",
+                    "text": "ভালো ভাগ্য",
+                    "emoji": "🍀",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "speed",
+                    "text": "দ্রুত সিদ্ধান্ত গ্রহণ",
+                    "emoji": "⚡",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "patience",
+                    "text": "আত্মনিয়ন্ত্রণ",
+                    "emoji": "🧘",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "তুমি বই বেছে নিলে বাবা/মা হাসলেন। তারা কেন খুশি হলেন?",
+            "options": [
+                {
+                    "id": "cheap",
+                    "text": "বই সস্তা",
+                    "emoji": "💸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "smart",
+                    "text": "তুমি দায়িত্বশীল পছন্দ করেছ",
+                    "emoji": "✅",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "friends",
+                    "text": "বন্ধুরা বই পছন্দ করে",
+                    "emoji": "👫",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

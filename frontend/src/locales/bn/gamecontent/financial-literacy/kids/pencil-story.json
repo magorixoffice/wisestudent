@@ -1,0 +1,145 @@
+﻿{
+    "title": "পেন্সিলের গল্প",
+    "subtitleComplete": "গল্প সম্পন্ন!",
+    "subtitleProgress": "প্রশ্ন {{current}} / {{total}}",
+    "questionCounter": "প্রশ্ন {{current}}/{{total}}",
+    "scoreLabel": "স্কোর: {{score}}/{{total}}",
+    "stageEmoji": "✏️",
+    "questions": [
+        {
+            "id": 1,
+            "text": "বন্ধুর কাছ থেকে একটি পেন্সিল ধার নিয়েছ। কী করবে?",
+            "options": [
+                {
+                    "id": "yes",
+                    "text": "ব্যবহারের পর ফেরত দাও",
+                    "emoji": "✅",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "no",
+                    "text": "রেখে দাও",
+                    "emoji": "❌",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "lose",
+                    "text": "হারিয়ে ফেলো",
+                    "emoji": "🙈",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "পেন্সিল দরকার কিন্তু তোমার কাছে নেই। সঠিক কাজ কী?",
+            "options": [
+                {
+                    "id": "take",
+                    "text": "না জিজ্ঞেস করে নাও",
+                    "emoji": "🤫",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "ask",
+                    "text": "ধার চাও এবং ফেরত দাও",
+                    "emoji": "🤝",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "skip",
+                    "text": "লেখা বাদ দাও",
+                    "emoji": "✍️",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "ধার করা পেন্সিল ভেঙে গেল। সৎ কাজ কী?",
+            "options": [
+                {
+                    "id": "replace",
+                    "text": "নতুন পেন্সিল দিয়ে প্রতিস্থাপন করো",
+                    "emoji": "🆕",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "hide",
+                    "text": "লুকিয়ে রাখো",
+                    "emoji": "🙈",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "blame",
+                    "text": "অন্যকে দোষ দাও",
+                    "emoji": "😶",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "বন্ধু পেন্সিলের জন্য ৫ টাকা ধার দিয়েছে। কী করবে?",
+            "options": [
+                {
+                    "id": "candy",
+                    "text": "মিষ্টিতে খরচ করবো",
+                    "emoji": "🍬",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "forget",
+                    "text": "পরিশোধ ভুলে যাবো",
+                    "emoji": "😕",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "repay",
+                    "text": "সময়মতো ৫ টাকা পরিশোধ করবো",
+                    "emoji": "💸",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "ধার করা জিনিস ফেরত দেওয়া কেন গুরুত্বপূর্ণ?",
+            "options": [
+                {
+                    "id": "pencils",
+                    "text": "আরও পেন্সিল পাওয়া যায়",
+                    "emoji": "✏️",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "trust",
+                    "text": "এটি বিশ্বাস গড়ে তোলে",
+                    "emoji": "🤝",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "popular",
+                    "text": "এটি তোমাকে জনপ্রিয় করে",
+                    "emoji": "👥",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

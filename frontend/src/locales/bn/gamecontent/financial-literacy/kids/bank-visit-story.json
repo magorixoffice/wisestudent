@@ -1,0 +1,128 @@
+﻿{
+    "title": "ব্যাংক পরিদর্শনের গল্প",
+    "subtitleComplete": "সম্পন্ন!",
+    "subtitleProgress": "প্রশ্ন {{current}} / {{total}}",
+    "scoreLabel": "স্কোর: {{score}}/{{total}}",
+    "questions": [
+        {
+            "id": 1,
+            "text": "বাবা/মা তোমাকে ব্যাংকে নিয়ে গেছেন। তুমি কী করবে?",
+            "options": [
+                {
+                    "id": "watch",
+                    "text": "চুপ করে দেখো এবং শেখো",
+                    "emoji": "👀",
+                    "isCorrect": true
+                },
+                {
+                    "id": "play",
+                    "text": "দৌড়াও এবং খেলো",
+                    "emoji": "🏃",
+                    "isCorrect": false
+                },
+                {
+                    "id": "touch",
+                    "text": "সব কিছু ছুঁয়ে দেখো",
+                    "emoji": "👆",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "ব্যাংকের কর্মী তোমাকে স্বাগত জানালেন। কীভাবে সাড়া দেবে?",
+            "options": [
+                {
+                    "id": "ignore",
+                    "text": "সম্পূর্ণ উপেক্ষা করো",
+                    "emoji": "😐",
+                    "isCorrect": false
+                },
+                {
+                    "id": "polite",
+                    "text": "ভদ্র ও সম্মানজনকভাবে উত্তর দাও",
+                    "emoji": "🙏",
+                    "isCorrect": true
+                },
+                {
+                    "id": "rude",
+                    "text": "অসভ্য আচরণ করো",
+                    "emoji": "😠",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "বাবা/মা এটিএম ব্যবহার করছেন। তোমার কী করা উচিত?",
+            "options": [
+                {
+                    "id": "privacy",
+                    "text": "পিছনে সরে গিয়ে গোপনীয়তা দাও",
+                    "emoji": "🔒",
+                    "isCorrect": true
+                },
+                {
+                    "id": "watch",
+                    "text": "পিন মনোযোগ দিয়ে দেখো",
+                    "emoji": "👁️",
+                    "isCorrect": false
+                },
+                {
+                    "id": "buttons",
+                    "text": "এলোমেলো বোতাম চাপো",
+                    "emoji": "🔘",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "নিরাপত্তারক্ষী ব্যাগ চেক করছেন। তোমার প্রতিক্রিয়া?",
+            "options": [
+                {
+                    "id": "angry",
+                    "text": "রক্ষীর উপর রাগ করো",
+                    "emoji": "😠",
+                    "isCorrect": false
+                },
+                {
+                    "id": "refuse",
+                    "text": "চেক করতে অস্বীকার করো",
+                    "emoji": "❌",
+                    "isCorrect": false
+                },
+                {
+                    "id": "understand",
+                    "text": "বোঝো যে এটি নিরাপত্তার জন্য",
+                    "emoji": "🛡️",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "ব্যাংকে দীর্ঘ লাইন। সেরা কাজ কী?",
+            "options": [
+                {
+                    "id": "push",
+                    "text": "ঠেলে আগে যাও",
+                    "emoji": "👊",
+                    "isCorrect": false
+                },
+                {
+                    "id": "wait",
+                    "text": "ধৈর্য ধরে লাইনে অপেক্ষা করো",
+                    "emoji": "⏳",
+                    "isCorrect": true
+                },
+                {
+                    "id": "complain",
+                    "text": "জোরে অভিযোগ করো",
+                    "emoji": "😤",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

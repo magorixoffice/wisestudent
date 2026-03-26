@@ -1,0 +1,165 @@
+﻿{
+    "title": "விளையாட்டு: மோசடி எச்சரிக்கை",
+    "subtitleComplete": "விளையாட்டு முடிந்தது!",
+    "roundLabel": "சுற்று {{current}}/{{total}}",
+    "timeUp": "நேரம் முடிந்தது!",
+    "readyTitle": "மோசடி விழிப்புணர்வை சோதிக்க தயாரா?",
+    "readyDescription": "மோசடிகள் மற்றும் ஏமாற்றுகளிலிருந்து பாதுகாப்பாக இருப்பது பற்றிய கேள்விகளுக்கு பதிலளி.",
+    "readyInfo": "உனக்கு {{total}} கேள்விகள் உள்ளன, ஒவ்வொன்றும் {{time}} விநாடிகள்!",
+    "startButton": "விளையாட்டை தொடங்கு",
+    "gameRoundLabel": "சுற்று:",
+    "gameTimeLabel": "நேரம்:",
+    "gameScoreLabel": "மதிப்பெண்:",
+    "questions": [
+        {
+            "id": 1,
+            "question": "கணக்கு சீட்டு கிடைக்கும்போது என்ன செய்வாய்?",
+            "correctAnswer": "கணக்கு சீட்டை சரிபார்",
+            "options": [
+                {
+                    "text": "கணக்கு சீட்டை சரிபார்",
+                    "isCorrect": true,
+                    "emoji": "🔍"
+                },
+                {
+                    "text": "கவனிக்காமல் விடு",
+                    "isCorrect": false,
+                    "emoji": "🙈"
+                },
+                {
+                    "text": "உடனே பணம் கட்டு",
+                    "isCorrect": false,
+                    "emoji": "💸"
+                },
+                {
+                    "text": "நீக்கிவிடு",
+                    "isCorrect": false,
+                    "emoji": "🗑️"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "question": "சந்தேகமான சலுகையை என்ன செய்வாய்?",
+            "correctAnswer": "சலுகையை சரிபார்",
+            "options": [
+                {
+                    "text": "விரைவாக ஏற்றுக்கொள்",
+                    "isCorrect": false,
+                    "emoji": "⚡"
+                },
+                {
+                    "text": "சலுகையை சரிபார்",
+                    "isCorrect": true,
+                    "emoji": "✅"
+                },
+                {
+                    "text": "உடனே நம்பு",
+                    "isCorrect": false,
+                    "emoji": "🤝"
+                },
+                {
+                    "text": "எச்சரிக்கையை கவனிக்காதே",
+                    "isCorrect": false,
+                    "emoji": "🚫"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "question": "ஒன்று உண்மை என்று நம்ப முடியாத அளவு நல்லதாக தெரிந்தால் என்ன செய்வாய்?",
+            "correctAnswer": "கேள்விகள் கேள்",
+            "options": [
+                {
+                    "text": "கண்மூடி நம்பு",
+                    "isCorrect": false,
+                    "emoji": "😴"
+                },
+                {
+                    "text": "விரைவாக ஏற்றுக்கொள்",
+                    "isCorrect": false,
+                    "emoji": "⚡"
+                },
+                {
+                    "text": "சந்தேகங்களை கவனிக்காதே",
+                    "isCorrect": false,
+                    "emoji": "🙈"
+                },
+                {
+                    "text": "கேள்விகள் கேள்",
+                    "isCorrect": true,
+                    "emoji": "❓"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "question": "பணம் கட்டுவதற்கு முன் என்ன செய்வாய்?",
+            "correctAnswer": "விவரங்களை உறுதிப்படுத்து",
+            "options": [
+                {
+                    "text": "இப்போதே பணம் கட்டு",
+                    "isCorrect": false,
+                    "emoji": "💸"
+                },
+                {
+                    "text": "சரிபார்ப்பை தவிர்",
+                    "isCorrect": false,
+                    "emoji": "⏭️"
+                },
+                {
+                    "text": "விவரங்களை உறுதிப்படுத்து",
+                    "isCorrect": true,
+                    "emoji": "📋"
+                },
+                {
+                    "text": "சரிபார்க்காமல் நம்பு",
+                    "isCorrect": false,
+                    "emoji": "🤝"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "question": "மோசடி கண்டுபிடித்தால் என்ன செய்வாய்?",
+            "correctAnswer": "மோசடியை புகார் செய்",
+            "options": [
+                {
+                    "text": "எதுவும் செய்யாதே",
+                    "isCorrect": false,
+                    "emoji": "😴"
+                },
+                {
+                    "text": "கவனிக்காமல் விடு",
+                    "isCorrect": false,
+                    "emoji": "🙈"
+                },
+                {
+                    "text": "அமைதியாக இரு",
+                    "isCorrect": false,
+                    "emoji": "🤫"
+                },
+                {
+                    "text": "மோசடியை புகார் செய்",
+                    "isCorrect": true,
+                    "emoji": "🚨"
+                }
+            ]
+        }
+    ],
+    "resultGreat": {
+        "emoji": "🎉",
+        "title": "மோசடி கண்டுபிடிக்கும் நிபுணர்!",
+        "description": "அருமை! {{score}}/{{total}} சரியாக பதிலளித்தாய்! மோசடிகளை கண்டுபிடிப்பதில் நீ சிறந்தவன்!"
+    },
+    "resultGood": {
+        "emoji": "👍",
+        "title": "நல்ல விழிப்புணர்வு!",
+        "description": "நன்றாக செய்தாய்! {{score}}/{{total}} மதிப்பெண் பெற்றாய்! மோசடி நிபுணராக மீண்டும் பயிற்சி செய்!"
+    },
+    "resultKeepPracticing": {
+        "emoji": "💪",
+        "title": "தொடர்ந்து பயிற்சி செய்!",
+        "description": "{{score}}/{{total}} மதிப்பெண் பெற்றாய். குறிப்புகளை மதிப்பாய்வு செய்து மோசடி கண்டுபிடிக்கும் திறனை மேம்படுத்த மீண்டும் முயற்சி செய்!"
+    }
+}

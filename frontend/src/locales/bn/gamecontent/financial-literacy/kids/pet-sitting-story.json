@@ -1,0 +1,145 @@
+﻿{
+    "title": "পোষা প্রাণীর যত্নের গল্প",
+    "subtitleComplete": "গল্প সম্পন্ন!",
+    "subtitleProgress": "প্রশ্ন {{current}} / {{total}}",
+    "questionCounter": "প্রশ্ন {{current}}/{{total}}",
+    "scoreLabel": "স্কোর: {{score}}/{{total}}",
+    "stageEmoji": "🐶",
+    "questions": [
+        {
+            "id": 1,
+            "text": "পোষা প্রাণীকে খাওয়ানো ও হাঁটানোর জন্য প্রতিদিনের রুটিন তৈরি করলে। কোন দক্ষতা অনুশীলন করছ?",
+            "options": [
+                {
+                    "id": "playing",
+                    "text": "শুধু প্রাণীর সাথে খেলা",
+                    "emoji": "🎾",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "luck",
+                    "text": "ভাগ্যের উপর নির্ভর করা",
+                    "emoji": "🍀",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "planning",
+                    "text": "পরিকল্পনা ও সংগঠন",
+                    "emoji": "📋",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "পোষা প্রাণীর যত্ন থেকে ধীরে ধীরে টাকা উপার্জন করছ। বুদ্ধিমান পরবর্তী পদক্ষেপ কী?",
+            "options": [
+                {
+                    "id": "track",
+                    "text": "কত উপার্জন করছ তা ট্র্যাক করো",
+                    "emoji": "📊",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "spend",
+                    "text": "সাথে সাথে খরচ করো",
+                    "emoji": "⚡",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "forget",
+                    "text": "ভুলে যাও",
+                    "emoji": "🤷",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "তোমার যত্নে থাকা পোষা প্রাণীটি অসুস্থ মনে হচ্ছে। প্রথমে কী করবে?",
+            "options": [
+                {
+                    "id": "wait",
+                    "text": "অপেক্ষা করো এবং আশা করো সুস্থ হবে",
+                    "emoji": "⏳",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "inform",
+                    "text": "দ্রুত মালিককে জানাও",
+                    "emoji": "📞",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "ignore",
+                    "text": "লক্ষণগুলো উপেক্ষা করো",
+                    "emoji": "🙈",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "পোষা প্রাণীর যত্ন সফলভাবে শেষ করলে। আবার বিশ্বাস পেতে কী সাহায্য করে?",
+            "options": [
+                {
+                    "id": "ask",
+                    "text": "বেশি টাকা চাওয়া",
+                    "emoji": "💸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "rush",
+                    "text": "তাড়াহুড়ো করে কাজ করা",
+                    "emoji": "🏃",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "reliable",
+                    "text": "নির্ভরযোগ্য ও সাবধানী হওয়া",
+                    "emoji": "⭐",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "পোষা প্রাণীর যত্ন তোমাকে শেখায় যে টাকা উপার্জনের অর্থ হলো?",
+            "options": [
+                {
+                    "id": "care",
+                    "text": "দায়িত্বশীলভাবে অন্যদের যত্ন নেওয়া",
+                    "emoji": "❤️",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "fun",
+                    "text": "শুধু মজা করা",
+                    "emoji": "😄",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "spending",
+                    "text": "আরও টাকা খরচ করা",
+                    "emoji": "🛍️",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

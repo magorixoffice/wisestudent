@@ -1,0 +1,150 @@
+﻿{
+    "title": "வேலை vs விளையாட்டு விளையாட்டு",
+    "subtitlePlaying": "சுற்று {{current}}/{{total}}: வேலை vs விளையாட்டு திறனை சோதி!",
+    "subtitleReady": "வேலை vs விளையாட்டு திறனை சோதி!",
+    "readyEmoji": "💼",
+    "readyTitle": "வேலை vs விளையாட்டை சோதிக்க தயாரா?",
+    "readyDescription": "வேலை மற்றும் விளையாட்டுக்கு இடையே சரியான செயலை தேர்வு செய்.",
+    "readyInfo": "உனக்கு {{total}} கேள்விகள் உள்ளன, ஒவ்வொன்றும் {{seconds}} விநாடிகள்!",
+    "startButton": "விளையாட்டை தொடங்கு",
+    "roundLabel": "சுற்று:",
+    "timeLabel": "நேரம்:",
+    "scoreLabel": "மதிப்பெண்:",
+    "questions": [
+        {
+            "id": 1,
+            "question": "பணம் சம்பாதிக்க எது உதவுகிறது?",
+            "correctAnswer": "வேலை",
+            "options": [
+                {
+                    "text": "நேரத்தை வீணடி",
+                    "isCorrect": false,
+                    "emoji": "😴"
+                },
+                {
+                    "text": "நாள் முழுவதும் விளையாடு",
+                    "isCorrect": false,
+                    "emoji": "🎮"
+                },
+                {
+                    "text": "வேலை",
+                    "isCorrect": true,
+                    "emoji": "💼"
+                },
+                {
+                    "text": "எதுவும் செய்யாதே",
+                    "isCorrect": false,
+                    "emoji": "🤷"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "question": "கற்கவும் வளரவும் என்ன செய்வாய்?",
+            "correctAnswer": "படி",
+            "options": [
+                {
+                    "text": "படி",
+                    "isCorrect": true,
+                    "emoji": "📚"
+                },
+                {
+                    "text": "நாள் முழுவதும் விளையாடு",
+                    "isCorrect": false,
+                    "emoji": "🎮"
+                },
+                {
+                    "text": "கற்றலை தவிர்",
+                    "isCorrect": false,
+                    "emoji": "🚫"
+                },
+                {
+                    "text": "கல்வியை கவனிக்காதே",
+                    "isCorrect": false,
+                    "emoji": "😴"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "question": "சம்பாதித்த பணத்தை என்ன செய்வாய்?",
+            "correctAnswer": "சம்பாத்தியத்தை சேமி",
+            "options": [
+                {
+                    "text": "எல்லாவற்றையும் செலவிடு",
+                    "isCorrect": false,
+                    "emoji": "💸"
+                },
+                {
+                    "text": "சம்பாத்தியத்தை சேமி",
+                    "isCorrect": true,
+                    "emoji": "💰"
+                },
+                {
+                    "text": "பணத்தை வீணடி",
+                    "isCorrect": false,
+                    "emoji": "🔥"
+                },
+                {
+                    "text": "தொலைத்துவிடு",
+                    "isCorrect": false,
+                    "emoji": "😞"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "question": "வீட்டில் உதவ என்ன செய்வாய்?",
+            "correctAnswer": "வீட்டு வேலை செய்",
+            "options": [
+                {
+                    "text": "வீட்டு வேலை செய்",
+                    "isCorrect": true,
+                    "emoji": "🧹"
+                },
+                {
+                    "text": "வீட்டு வேலையை தவிர்",
+                    "isCorrect": false,
+                    "emoji": "🚫"
+                },
+                {
+                    "text": "வேலையை தவிர்",
+                    "isCorrect": false,
+                    "emoji": "🙈"
+                },
+                {
+                    "text": "சோம்பேறியாக இரு",
+                    "isCorrect": false,
+                    "emoji": "😴"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "question": "உற்பத்திகரமாக இருக்க எது உதவுகிறது?",
+            "correctAnswer": "வேலையை திட்டமிடு",
+            "options": [
+                {
+                    "text": "சும்மா இரு",
+                    "isCorrect": false,
+                    "emoji": "😴"
+                },
+                {
+                    "text": "நேரத்தை வீணடி",
+                    "isCorrect": false,
+                    "emoji": "⏰"
+                },
+                {
+                    "text": "எதுவும் செய்யாதே",
+                    "isCorrect": false,
+                    "emoji": "🤷"
+                },
+                {
+                    "text": "வேலையை திட்டமிடு",
+                    "isCorrect": true,
+                    "emoji": "📋"
+                }
+            ]
+        }
+    ]
+}

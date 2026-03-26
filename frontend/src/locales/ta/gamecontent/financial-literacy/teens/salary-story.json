@@ -1,0 +1,128 @@
+﻿{
+    "title": "சம்பள கதை",
+    "subtitleComplete": "கதை முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "questions": [
+        {
+            "id": 1,
+            "text": "ஒரு இளம் தொழிலாளர் மாதம் ₹2000 சம்பாதிக்கிறார். சம்பளத்தை என்ன செய்ய வேண்டும்?",
+            "options": [
+                {
+                    "id": "spend",
+                    "text": "எல்லாவற்றையும் செலவழிக்கவும்",
+                    "emoji": "🛍️",
+                    "isCorrect": false
+                },
+                {
+                    "id": "save",
+                    "text": "₹400 (20%) சேமிக்கவும்",
+                    "emoji": "💰",
+                    "isCorrect": true
+                },
+                {
+                    "id": "waste",
+                    "text": "பணம் வீணாக்கவும்",
+                    "emoji": "💸",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "தொழிலாளருக்கு ₹500 போனஸ் கிடைக்கிறது. எப்படி கையாள வேண்டும்?",
+            "options": [
+                {
+                    "id": "save",
+                    "text": "அதிகமாக சேமிக்கவும்",
+                    "emoji": "🏦",
+                    "isCorrect": true
+                },
+                {
+                    "id": "spend",
+                    "text": "ஆடம்பரத்தில் எல்லாவற்றையும் செலவழிக்கவும்",
+                    "emoji": "💎",
+                    "isCorrect": false
+                },
+                {
+                    "id": "ignore",
+                    "text": "போனஸை புறக்கணிக்கவும்",
+                    "emoji": "🙈",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "தொழிலாளரின் செலவுகள் மாதம் ₹1800 ஆக அதிகரிக்கின்றன. புத்திசாலித்தனமான அணுகுமுறை என்ன?",
+            "options": [
+                {
+                    "id": "spend",
+                    "text": "சேமிப்பை நிறுத்தவும்",
+                    "emoji": "💸",
+                    "isCorrect": false
+                },
+                {
+                    "id": "waste",
+                    "text": "அதிகமாக செலவழிக்கவும்",
+                    "emoji": "🛒",
+                    "isCorrect": false
+                },
+                {
+                    "id": "save",
+                    "text": "சேமிப்பை பராமரிக்கவும்",
+                    "emoji": "📈",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "தொழிலாளருக்கு 10% சம்பள உயர்வு கிடைக்கிறது. கூடுதல் பணத்தை என்ன செய்ய வேண்டும்?",
+            "options": [
+                {
+                    "id": "spend",
+                    "text": "வாழ்க்கை தரத்தை உயர்த்தவும்",
+                    "emoji": "💎",
+                    "isCorrect": false
+                },
+                {
+                    "id": "save",
+                    "text": "சேமிப்பை அதிகரிக்கவும்",
+                    "emoji": "🎯",
+                    "isCorrect": true
+                },
+                {
+                    "id": "waste",
+                    "text": "எல்லாவற்றையும் வீணாக்கவும்",
+                    "emoji": "🗑️",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "தொழிலாளர் ₹10,000 கேஜெட் வாங்க விரும்புகிறார். சிறந்த அணுகுமுறை என்ன?",
+            "options": [
+                {
+                    "id": "spend",
+                    "text": "EMI இல் வாங்கவும்",
+                    "emoji": "💳",
+                    "isCorrect": false
+                },
+                {
+                    "id": "borrow",
+                    "text": "பணம் கடன் வாங்கவும்",
+                    "emoji": "🤲",
+                    "isCorrect": false
+                },
+                {
+                    "id": "save",
+                    "text": "காலப்போக்கில் சேமிக்கவும்",
+                    "emoji": "⏳",
+                    "isCorrect": true
+                }
+            ]
+        }
+    ]
+}

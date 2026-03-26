@@ -1,0 +1,144 @@
+﻿{
+    "title": "பள்ளி கண்காட்சி கதை",
+    "subtitleComplete": "கதை முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "questionCounter": "கேள்வி {{current}}/{{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "questions": [
+        {
+            "id": 1,
+            "text": "கண்காட்சி விரைவில் தொடங்குகிறது, உனக்கு மகிழ்ச்சியாக உள்ளது. முதலில் என்ன செய்வாய்?",
+            "options": [
+                {
+                    "id": "run",
+                    "text": "முதல் கடையை நோக்கி ஓடு",
+                    "emoji": "🏃",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "shout",
+                    "text": "மகிழ்ச்சியில் கத்து",
+                    "emoji": "🎉",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "look",
+                    "text": "கண்காட்சியை சுற்றி பார்",
+                    "emoji": "👀",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "பிரபலமான விளையாட்டில் நீண்ட வரிசை உள்ளது. சரியான தேர்வு எது?",
+            "options": [
+                {
+                    "id": "push",
+                    "text": "முன்னால் தள்ளிச் செல்",
+                    "emoji": "🙅",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "wait",
+                    "text": "உன் முறைக்கு காத்திரு",
+                    "emoji": "⏳",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "leave",
+                    "text": "கோபமாக போய்விடு",
+                    "emoji": "😤",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "கடைக்காரர் தவறுதலாக கூடுதல் சில்லறை தருகிறார். என்ன செய்வாய்?",
+            "options": [
+                {
+                    "id": "return",
+                    "text": "கூடுதல் பணத்தை திருப்பி கொடு",
+                    "emoji": "🤝",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "keep",
+                    "text": "கூடுதல் பணத்தை வைத்துக்கொள்",
+                    "emoji": "💵",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "ignore",
+                    "text": "அமைதியாக போய்விடு",
+                    "emoji": "🚶",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "பல சவாரிகளை முயற்சிக்க விரும்புகிறாய், ஆனால் சோர்வாக உணர்கிறாய். புத்திசாலித்தனமான செயல் எது?",
+            "options": [
+                {
+                    "id": "force",
+                    "text": "கட்டாயமாக சவாரி செய்",
+                    "emoji": "😣",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "skip",
+                    "text": "எல்லாவற்றையும் தவிர்",
+                    "emoji": "🚫",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "rest",
+                    "text": "சிறிது ஓய்வு எடு",
+                    "emoji": "🪑",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "கண்காட்சி முடிகிறது, உன்னிடம் ஒரு டிக்கெட் மீதி உள்ளது. என்ன தேர்வு செய்வாய்?",
+            "options": [
+                {
+                    "id": "favorite",
+                    "text": "விருப்பமான செயலை தேர்வு செய்",
+                    "emoji": "⭐",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "random",
+                    "text": "தற்போக்காக பயன்படுத்து",
+                    "emoji": "🎲",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "waste",
+                    "text": "வீசி எறி",
+                    "emoji": "🗑️",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

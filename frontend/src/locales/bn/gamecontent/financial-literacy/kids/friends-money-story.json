@@ -1,0 +1,129 @@
+﻿{
+    "title": "বন্ধুদের টাকার গল্প",
+    "subtitleComplete": "গল্প সম্পন্ন!",
+    "subtitleProgress": "প্রশ্ন {{current}} / {{total}}",
+    "questionLabel": "প্রশ্ন {{current}}/{{total}}",
+    "scoreLabel": "স্কোর: {{score}}/{{total}}",
+    "questions": [
+        {
+            "id": 1,
+            "text": "তোমার বন্ধু একটি খেলনার জন্য টাকা সঞ্চয় করছে। সে পরামর্শ চাইছে। তুমি কী পরামর্শ দেবে?",
+            "options": [
+                {
+                    "id": "spend",
+                    "text": "একসাথে সব টাকা খরচ করো",
+                    "emoji": "💸",
+                    "isCorrect": false
+                },
+                {
+                    "id": "ignore",
+                    "text": "তার অনুরোধ উপেক্ষা করো",
+                    "emoji": "🙈",
+                    "isCorrect": false
+                },
+                {
+                    "id": "save",
+                    "text": "তার সঞ্চয় পরিকল্পনা করতে সাহায্য করো",
+                    "emoji": "📋",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "তোমার বন্ধু নাস্তা কিনতে চায় কিন্তু টাকা নেই। দায়িত্বশীলভাবে কীভাবে সাহায্য করবে?",
+            "options": [
+                {
+                    "id": "share",
+                    "text": "ছোট্ট কিছু দাও এবং সঞ্চয় শেখাও",
+                    "emoji": "🪙",
+                    "isCorrect": true
+                },
+                {
+                    "id": "lend",
+                    "text": "তোমার সব টাকা দিয়ে দাও",
+                    "emoji": "💰",
+                    "isCorrect": false
+                },
+                {
+                    "id": "buy",
+                    "text": "প্রতিদিন তার জন্য নাস্তা কিনো",
+                    "emoji": "🍿",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "তুমি এবং একজন বন্ধু মাঠে কয়েন খুঁজে পেলে। কোনটি ন্যায্য?",
+            "options": [
+                {
+                    "id": "take",
+                    "text": "সব নিজে রেখে দাও",
+                    "emoji": "🤑",
+                    "isCorrect": false
+                },
+                {
+                    "id": "split",
+                    "text": "সমানভাবে ভাগ করো",
+                    "emoji": "⚖️",
+                    "isCorrect": true
+                },
+                {
+                    "id": "ignore",
+                    "text": "কয়েনগুলো সেখানে রেখে দাও",
+                    "emoji": "🍂",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "তোমার বন্ধু একটি প্রজেক্টের জন্য টাকা ধার চাইছে। তোমার কাছে সামান্য আছে। বুদ্ধিমানী কী?",
+            "options": [
+                {
+                    "id": "share_part",
+                    "text": "একটু ধার দাও এবং সীমা বুঝিয়ে বলো",
+                    "emoji": "🤲",
+                    "isCorrect": true
+                },
+                {
+                    "id": "refuse",
+                    "text": "রূঢ়ভাবে না বলো",
+                    "emoji": "😠",
+                    "isCorrect": false
+                },
+                {
+                    "id": "give_all",
+                    "text": "তোমার সব টাকা দিয়ে দাও",
+                    "emoji": "💸",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "বন্ধুদের সাথে সততার সাথে টাকা পরিচালনা করা কেন গুরুত্বপূর্ণ?",
+            "options": [
+                {
+                    "id": "fun",
+                    "text": "এটি খেলাকে আরও মজাদার করে",
+                    "emoji": "🎲",
+                    "isCorrect": false
+                },
+                {
+                    "id": "snacks",
+                    "text": "এটি বেশি নাস্তা পেতে সাহায্য করে",
+                    "emoji": "🍬",
+                    "isCorrect": false
+                },
+                {
+                    "id": "trust",
+                    "text": "এটি বিশ্বাস ও সম্মান গড়ে তোলে",
+                    "emoji": "🤝",
+                    "isCorrect": true
+                }
+            ]
+        }
+    ]
+}

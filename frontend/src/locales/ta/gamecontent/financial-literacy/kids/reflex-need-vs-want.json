@@ -1,0 +1,159 @@
+﻿{
+    "title": "ரிஃப்ளெக்ஸ் நீட் vs வாண்ட்",
+    "subtitlePlaying": "சுற்று {{current}}/{{total}}: தேவைகள் vs விருப்பங்கள் பற்றிய உங்கள் அறிவை சோதியுங்கள்!",
+    "subtitleReady": "தேவைகள் vs விருப்பங்கள் பற்றிய உங்கள் அறிவை சோதியுங்கள்!",
+    "readyEmoji": "📋",
+    "readyTitle": "தேவைகள் vs விருப்பங்கள் அறிவை சோதிக்க தயாரா?",
+    "readyDescription": "தேவைகள் மற்றும் விருப்பங்களுக்கிடையிலான வேறுபாடு பற்றிய கேள்விகளுக்கு பதிலளியுங்கள்.",
+    "readyInfo": "உங்களுக்கு {{total}} கேள்விகள் உள்ளன, ஒவ்வொன்றிற்கும் {{seconds}} வினாடிகள்!",
+    "startButton": "கேம் தொடங்கு",
+    "roundLabel": "சுற்று:",
+    "timeLabel": "நேரம்:",
+    "scoreLabel": "மதிப்பெண்:",
+    "resultGreatEmoji": "🎉",
+    "resultGreatTitle": "சிறப்பான வேலை!",
+    "resultGreatDescription": "{{total}} கேள்விகளில் {{score}} சரியாக பதிலளித்தீர்கள்!",
+    "resultGreatLesson": "பாடம்: தேவைகள் வாழ்வதற்கும் கற்றலுக்கும் அவசியமானவை, விருப்பங்கள் நாம் விரும்பும் ஆனால் தேவையில்லாத விஷயங்கள்!",
+    "resultKeepEmoji": "😔",
+    "resultKeepTitle": "தொடர்ந்து கற்றுக்கொள்ளுங்கள்!",
+    "resultKeepDescription": "{{total}} கேள்விகளில் {{score}} சரியாக பதிலளித்தீர்கள். நினைவில் கொள்ளுங்கள், தேவைகள் உணவு, ஆடைகள் மற்றும் பள்ளி பொருட்கள் போன்ற அவசியமான பொருட்கள்!",
+    "resultKeepTip": "குறிப்பு: தேவைகள் என்பது உணவு, ஆடைகள் மற்றும் பள்ளி பொருட்கள் போல வாழவும் கற்கவும் இருக்க வேண்டியவை.",
+    "tryAgainButton": "மீண்டும் முயற்சிக்கவும்",
+    "questions": [
+        {
+            "id": 1,
+            "question": "எது ஒரு தேவை?",
+            "correctAnswer": "பள்ளிக்கான காலணிகள்",
+            "options": [
+                {
+                    "text": "பள்ளிக்கான காலணிகள்",
+                    "isCorrect": true,
+                    "emoji": "👟"
+                },
+                {
+                    "text": "10வது பொம்மை கார்",
+                    "isCorrect": false,
+                    "emoji": "🚗"
+                },
+                {
+                    "text": "வீடியோ கேம்",
+                    "isCorrect": false,
+                    "emoji": "🎮"
+                },
+                {
+                    "text": "ஆடம்பர கண்ணாடி",
+                    "isCorrect": false,
+                    "emoji": "🕶️"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "question": "ஆரோக்கியமாக இருக்க என்ன தேவை?",
+            "correctAnswer": "ஆரோக்கியமான உணவு",
+            "options": [
+                {
+                    "text": "கூடுதல் மிட்டாய்",
+                    "isCorrect": false,
+                    "emoji": "🍬"
+                },
+                {
+                    "text": "ஆரோக்கியமான உணவு",
+                    "isCorrect": true,
+                    "emoji": "🥗"
+                },
+                {
+                    "text": "ஐஸ்கிரீம்",
+                    "isCorrect": false,
+                    "emoji": "🍦"
+                },
+                {
+                    "text": "சோடா",
+                    "isCorrect": false,
+                    "emoji": "🥤"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "question": "கற்றலுக்கு அவசியமான பொருள் எது?",
+            "correctAnswer": "பள்ளி புத்தகங்கள்",
+            "options": [
+                {
+                    "text": "வீடியோ கேம்",
+                    "isCorrect": false,
+                    "emoji": "🎮"
+                },
+                {
+                    "text": "ஆக்‌ஷன் பிகர்",
+                    "isCorrect": false,
+                    "emoji": "🤖"
+                },
+                {
+                    "text": "புதிர் கேம்",
+                    "isCorrect": false,
+                    "emoji": "🧩"
+                },
+                {
+                    "text": "பள்ளி புத்தகங்கள்",
+                    "isCorrect": true,
+                    "emoji": "📚"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "question": "குளிர் காலத்தில் என்ன தேவை?",
+            "correctAnswer": "குளிர்கால ஜாக்கெட்",
+            "options": [
+                {
+                    "text": "ஆடம்பர கண்ணாடி",
+                    "isCorrect": false,
+                    "emoji": "🕶️"
+                },
+                {
+                    "text": "நீச்சல் குளம்",
+                    "isCorrect": false,
+                    "emoji": "🏊"
+                },
+                {
+                    "text": "குளிர்கால ஜாக்கெட்",
+                    "isCorrect": true,
+                    "emoji": "🧥"
+                },
+                {
+                    "text": "கடற்கரை பந்து",
+                    "isCorrect": false,
+                    "emoji": "🏐"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "question": "பள்ளிக்கு செல்ல என்ன தேவை?",
+            "correctAnswer": "பேருந்து கட்டணம்",
+            "options": [
+                {
+                    "text": "பேருந்து கட்டணம்",
+                    "isCorrect": true,
+                    "emoji": "🚌"
+                },
+                {
+                    "text": "புதிய ஹெட்ஃபோன்",
+                    "isCorrect": false,
+                    "emoji": "🎧"
+                },
+                {
+                    "text": "மியூசிக் பிளேயர்",
+                    "isCorrect": false,
+                    "emoji": "🎵"
+                },
+                {
+                    "text": "ஸ்மார்ட் வாட்ச்",
+                    "isCorrect": false,
+                    "emoji": "⌚"
+                }
+            ]
+        }
+    ]
+}

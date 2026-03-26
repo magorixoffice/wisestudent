@@ -1,0 +1,149 @@
+﻿{
+    "title": "ரிஃப்ளெக்ஸ் மணி சாய்ஸ்",
+    "subtitlePlaying": "கேள்வி {{current}} / {{total}}: உங்கள் பண தேர்வு ரிஃப்ளெக்ஸ்களை சோதியுங்கள்!",
+    "subtitleReady": "உங்கள் பண தேர்வு ரிஃப்ளெக்ஸ்களை சோதியுங்கள்!",
+    "readyTitle": "உங்கள் பண தேர்வுகளை சோதிக்க தயாரா?",
+    "readyDescription": "ஒவ்வொரு கேள்விக்கும் புத்திசாலித்தனமான பண தேர்வை தேர்வு செய்யுங்கள்.",
+    "readyInfo": "உங்களுக்கு {{total}} கேள்விகள் உள்ளன, ஒவ்வொன்றிற்கும் {{seconds}} வினாடிகள்!",
+    "startButton": "கேம் தொடங்கு",
+    "questionLabel": "கேள்வி:",
+    "timeLabel": "நேரம்:",
+    "scoreLabel": "மதிப்பெண்:",
+    "questions": [
+        {
+            "id": 1,
+            "question": "பணத்தை பாதுகாப்பாக வைக்க என்ன செய்ய வேண்டும்?",
+            "correctAnswer": "வைப்பு செய்யுங்கள்",
+            "options": [
+                {
+                    "text": "வீசி எறியுங்கள்",
+                    "isCorrect": false,
+                    "emoji": "🗑️"
+                },
+                {
+                    "text": "தொலைத்துவிடுங்கள்",
+                    "isCorrect": false,
+                    "emoji": "😞"
+                },
+                {
+                    "text": "வைப்பு செய்யுங்கள்",
+                    "isCorrect": true,
+                    "emoji": "📥"
+                },
+                {
+                    "text": "மறந்துவிடுங்கள்",
+                    "isCorrect": false,
+                    "emoji": "😴"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "question": "பணத்தை கையாளும் புத்திசாலித்தனமான வழி எது?",
+            "correctAnswer": "சேமிக்கவும்",
+            "options": [
+                {
+                    "text": "வீணாக்கவும்",
+                    "isCorrect": false,
+                    "emoji": "❌"
+                },
+                {
+                    "text": "சேமிக்கவும்",
+                    "isCorrect": true,
+                    "emoji": "💰"
+                },
+                {
+                    "text": "எல்லாவற்றையும் செலவழிக்கவும்",
+                    "isCorrect": false,
+                    "emoji": "💸"
+                },
+                {
+                    "text": "புறக்கணிக்கவும்",
+                    "isCorrect": false,
+                    "emoji": "🤷"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "question": "பணத்தை பாதுகாப்பாக எங்கே வைக்க வேண்டும்?",
+            "correctAnswer": "வங்கி",
+            "options": [
+                {
+                    "text": "வங்கி",
+                    "isCorrect": true,
+                    "emoji": "🏦"
+                },
+                {
+                    "text": "செலவழிக்கவும்",
+                    "isCorrect": false,
+                    "emoji": "💸"
+                },
+                {
+                    "text": "தொலைக்கவும்",
+                    "isCorrect": false,
+                    "emoji": "📉"
+                },
+                {
+                    "text": "மறைக்கவும்",
+                    "isCorrect": false,
+                    "emoji": "🙈"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "question": "காலப்போக்கில் பணத்தை வளர எது உதவும்?",
+            "correctAnswer": "முதலீடு செய்யுங்கள்",
+            "options": [
+                {
+                    "text": "தொலைக்கவும்",
+                    "isCorrect": false,
+                    "emoji": "📉"
+                },
+                {
+                    "text": "வீணாக்கவும்",
+                    "isCorrect": false,
+                    "emoji": "🔥"
+                },
+                {
+                    "text": "விரைவாக செலவழிக்கவும்",
+                    "isCorrect": false,
+                    "emoji": "⚡"
+                },
+                {
+                    "text": "முதலீடு செய்யுங்கள்",
+                    "isCorrect": true,
+                    "emoji": "📈"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "question": "பணத்திற்கான சிறந்த தேர்வு எது?",
+            "correctAnswer": "சேமி & வளர்",
+            "options": [
+                {
+                    "text": "சேமி & வளர்",
+                    "isCorrect": true,
+                    "emoji": "🌱"
+                },
+                {
+                    "text": "எல்லாவற்றையும் செலவழிக்கவும்",
+                    "isCorrect": false,
+                    "emoji": "💸"
+                },
+                {
+                    "text": "பணத்தை வீணாக்கவும்",
+                    "isCorrect": false,
+                    "emoji": "🔥"
+                },
+                {
+                    "text": "தொலைத்துவிடுங்கள்",
+                    "isCorrect": false,
+                    "emoji": "😞"
+                }
+            ]
+        }
+    ]
+}

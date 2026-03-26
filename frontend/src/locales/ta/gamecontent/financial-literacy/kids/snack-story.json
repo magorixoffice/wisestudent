@@ -1,0 +1,144 @@
+﻿{
+    "title": "தின்பண்டம் கதை",
+    "subtitleComplete": "கதை முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "questionCounter": "கேள்வி {{current}}/{{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "questions": [
+        {
+            "id": 1,
+            "text": "மதிய உணவு தேவை, ஆனால் சிப்ஸ் வேண்டும். என்ன தேர்வு செய்வாய்?",
+            "options": [
+                {
+                    "id": "chips",
+                    "text": "சிப்ஸ் மட்டும்",
+                    "emoji": "🍟",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "lunch",
+                    "text": "சமச்சீரான மதிய உணவு",
+                    "emoji": "🍱",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "sweets",
+                    "text": "இனிப்பு மட்டும்",
+                    "emoji": "🍰",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "பசிக்கிறது. புத்திசாலித்தனமான தேர்வு எது?",
+            "options": [
+                {
+                    "id": "healthy",
+                    "text": "சத்தான தின்பண்டம்",
+                    "emoji": "🥗",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "candy",
+                    "text": "சாக்லேட் பார்",
+                    "emoji": "🍫",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "chips",
+                    "text": "உருளைக்கிழங்கு சிப்ஸ்",
+                    "emoji": "🥔",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "தாகமாக உள்ளது. என்ன தேர்வு செய்வாய்?",
+            "options": [
+                {
+                    "id": "soda",
+                    "text": "குளிர்பானம்",
+                    "emoji": "🥤",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "water",
+                    "text": "தண்ணீர்",
+                    "emoji": "💧",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "juice",
+                    "text": "சுவையூட்டப்பட்ட சாறு",
+                    "emoji": "🧃",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "தின்பண்டம் வேண்டும். மிகவும் ஆரோக்கியமான தேர்வு எது?",
+            "options": [
+                {
+                    "id": "cookies",
+                    "text": "பொட்டலத்தில் வரும் குக்கீஸ்",
+                    "emoji": "🍪",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "candy",
+                    "text": "கம்மி கரடிகள்",
+                    "emoji": "🐻",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "fruit",
+                    "text": "புதிய பழங்கள்",
+                    "emoji": "🍎",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "உணவுக்கு பணம் உள்ளது. சிறந்த முடிவு எது?",
+            "options": [
+                {
+                    "id": "balanced",
+                    "text": "முழுமையான உணவு",
+                    "emoji": "🍽️",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "icecream",
+                    "text": "ஐஸ்கிரீம் மட்டும்",
+                    "emoji": "🍦",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "sweets",
+                    "text": "மிட்டாயும் குளிர்பானமும்",
+                    "emoji": "🍭",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

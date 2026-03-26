@@ -1,0 +1,144 @@
+﻿{
+    "title": "கடை கதை 2",
+    "subtitleComplete": "கதை முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "questionCounter": "கேள்வி {{current}}/{{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "questions": [
+        {
+            "id": 1,
+            "text": "கடையில் இரண்டு பேனாக்களை காண்கிறீர்கள். ஒன்று ₹50 மற்றொன்று ₹15. இரண்டும் ஒரே மாதிரி வேலை செய்கின்றன. எதை வாங்க வேண்டும்?",
+            "options": [
+                {
+                    "id": "costly",
+                    "text": "விலையுயர்ந்த பேனா",
+                    "emoji": "🖊️",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "compare",
+                    "text": "முதலில் மதிப்புரைகளை சரிபார்க்கவும்",
+                    "emoji": "⭐",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "affordable",
+                    "text": "மலிவான பேனா",
+                    "emoji": "💸",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "ஆடைகளுக்கு ₹100 உள்ளது. ₹80 க்கு ஒரு சட்டை மற்றும் ₹30 க்கு ஒத்த சட்டை கிடைக்கிறது. என்ன புத்திசாலித்தனம்?",
+            "options": [
+                {
+                    "id": "affordable",
+                    "text": "மலிவான சட்டை வாங்கவும்",
+                    "emoji": "👕",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "costly",
+                    "text": "விலையுயர்ந்த சட்டை வாங்கவும்",
+                    "emoji": "💰",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "wait",
+                    "text": "சேல் வரும்வரை காத்திருக்கவும்",
+                    "emoji": "🏷️",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "பார்ட்டிக்கு சிற்றுண்டி வாங்குகிறீர்கள். பிராண்ட் A ₹200 மற்றும் பிராண்ட் B ₹120. இரண்டும் ஒரே சுவை. எது?",
+            "options": [
+                {
+                    "id": "costly",
+                    "text": "பிராண்ட் A வாங்கவும்",
+                    "emoji": "📦",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "affordable",
+                    "text": "பிராண்ட் B வாங்கவும்",
+                    "emoji": "🛒",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "mix",
+                    "text": "இரண்டிலும் சிறிது வாங்கவும்",
+                    "emoji": "➗",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "பள்ளிக்கு பை தேவை. ஒன்று ₹800 மற்றொன்று ₹400. இரண்டும் நல்ல தரம். என்ன புத்திசாலித்தனம்?",
+            "options": [
+                {
+                    "id": "affordable",
+                    "text": "₹400 பை வாங்கவும்",
+                    "emoji": "🎒",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "costly",
+                    "text": "₹800 பை வாங்கவும்",
+                    "emoji": "💳",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "borrow",
+                    "text": "இப்போது கடன் வாங்கவும்",
+                    "emoji": "🤝",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "மளிகை வாங்குகிறீர்கள். ஆர்கானிக் காய்கறிகள் ₹300 மற்றும் சாதாரண காய்கறிகள் ₹150. இரண்டும் சத்தானவை. எது?",
+            "options": [
+                {
+                    "id": "costly",
+                    "text": "ஆர்கானிக் காய்கறி வாங்கவும்",
+                    "emoji": "🥦",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "selective",
+                    "text": "இரண்டு வகையும் கலந்து வாங்கவும்",
+                    "emoji": "🥕",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "affordable",
+                    "text": "சாதாரண காய்கறி வாங்கவும்",
+                    "emoji": "🧺",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        }
+    ]
+}

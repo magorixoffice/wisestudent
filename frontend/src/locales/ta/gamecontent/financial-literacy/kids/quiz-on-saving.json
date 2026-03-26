@@ -1,0 +1,129 @@
+﻿{
+    "title": "சேமிப்பு பற்றிய வினாடி வினா",
+    "subtitleComplete": "வினாடி வினா முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "questionCounter": "கேள்வி {{current}}/{{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "questions": [
+        {
+            "id": 1,
+            "text": "சிறந்த சேமிப்பாளர் யார்?",
+            "options": [
+                {
+                    "id": "a",
+                    "text": "எல்லா பணத்தையும் செலவிடுபவர்",
+                    "emoji": "💸",
+                    "isCorrect": false
+                },
+                {
+                    "id": "b",
+                    "text": "பணத்தை வீணடிப்பவர்",
+                    "emoji": "🗑️",
+                    "isCorrect": false
+                },
+                {
+                    "id": "c",
+                    "text": "பணத்தில் ஒரு பகுதியை சேமிப்பவர்",
+                    "emoji": "💰",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "செலவுக்கு கிடைக்கும் பணத்தை என்ன செய்வாய்?",
+            "options": [
+                {
+                    "id": "a",
+                    "text": "உடனே எல்லாவற்றையும் செலவிடு",
+                    "emoji": "🛍️",
+                    "isCorrect": false
+                },
+                {
+                    "id": "b",
+                    "text": "சிறிதளவு சேமித்து சிறிதளவு செலவிடு",
+                    "emoji": "⚖️",
+                    "isCorrect": true
+                },
+                {
+                    "id": "c",
+                    "text": "மறைத்து வை, ஒருபோதும் பயன்படுத்தாதே",
+                    "emoji": "🙈",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "பணம் சேமிப்பது ஏன் முக்கியம்?",
+            "options": [
+                {
+                    "id": "a",
+                    "text": "பிறகு தேவையான பொருட்கள் வாங்க",
+                    "emoji": "🎯",
+                    "isCorrect": true
+                },
+                {
+                    "id": "b",
+                    "text": "நண்பர்களிடம் காட்டிக்கொள்ள",
+                    "emoji": "😎",
+                    "isCorrect": false
+                },
+                {
+                    "id": "c",
+                    "text": "அது அவ்வளவு முக்கியமில்லை",
+                    "emoji": "❌",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "பண வங்கி எதற்கு பயன்படுகிறது?",
+            "options": [
+                {
+                    "id": "a",
+                    "text": "பொம்மைகள் வைக்க",
+                    "emoji": "🧸",
+                    "isCorrect": false
+                },
+                {
+                    "id": "b",
+                    "text": "பணம் சேமிக்க",
+                    "emoji": "🏦",
+                    "isCorrect": true
+                },
+                {
+                    "id": "c",
+                    "text": "உணவு சேமிக்க",
+                    "emoji": "🍕",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "ஒவ்வொரு வாரமும் ரூ. 10 சேமித்தால், 4 வாரங்களில் எவ்வளவு இருக்கும்?",
+            "options": [
+                {
+                    "id": "a",
+                    "text": "ரூ. 20",
+                    "emoji": "💰",
+                    "isCorrect": false
+                },
+                {
+                    "id": "b",
+                    "text": "ரூ. 30",
+                    "emoji": "💵",
+                    "isCorrect": false
+                },
+                {
+                    "id": "c",
+                    "text": "ரூ. 40",
+                    "emoji": "💴",
+                    "isCorrect": true
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+﻿{
+    "title": "புதிர்: வங்கி பயன்பாடுகள்",
+    "subtitleComplete": "முடிந்தது!",
+    "subtitleProgress": "பொருட்களை பொருத்துங்கள் ({{matched}}/{{total}} பொருத்தப்பட்டது)",
+    "scoreLabel": "மதிப்பெண்:",
+    "items": [
+        {
+            "id": 1,
+            "name": "சேமிப்பு கணக்கு",
+            "emoji": "💰"
+        },
+        {
+            "id": 2,
+            "name": "கடன்",
+            "emoji": "📝"
+        },
+        {
+            "id": 3,
+            "name": "ATM",
+            "emoji": "🏧"
+        },
+        {
+            "id": 4,
+            "name": "வட்டி",
+            "emoji": "📈"
+        },
+        {
+            "id": 5,
+            "name": "நிதி கல்வி",
+            "emoji": "📚"
+        }
+    ],
+    "itemsTitle": "பொருட்கள்",
+    "categoriesTitle": "வகைகள்",
+    "matchedLabel": "பொருத்தப்பட்டது:",
+    "selectItem": "ஒரு பொருளை தேர்வு செய்யுங்கள்",
+    "matchButton": "பொருத்து"
+}

@@ -1,0 +1,145 @@
+﻿{
+    "title": "சேமிப்பு பெட்டி கதை",
+    "subtitleComplete": "கதை முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "questionCounter": "கேள்வி {{current}}/{{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "stageEmoji": "🐷",
+    "questions": [
+        {
+            "id": 1,
+            "text": "சேமிப்பு பெட்டியில் வட்டி கிடைக்காது. வங்கி கணக்கில் கிடைக்கும். எது சிறந்தது?",
+            "options": [
+                {
+                    "id": "bank",
+                    "text": "வங்கி கணக்கு",
+                    "emoji": "🏦",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "piggy",
+                    "text": "சேமிப்பு பெட்டி",
+                    "emoji": "🐷",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "mattress",
+                    "text": "மெத்தையின் கீழே",
+                    "emoji": "🛏️",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "உன்னிடம் ₹50 உள்ளது. அதை வளர்க்க எங்கே சேமிக்க வேண்டும்?",
+            "options": [
+                {
+                    "id": "jar",
+                    "text": "வீட்டில் கலசத்தில்",
+                    "emoji": "🏺",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "bank",
+                    "text": "வங்கி சேமிப்பு கணக்கில்",
+                    "emoji": "💰",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "spend",
+                    "text": "இப்போதே செலவிடு",
+                    "emoji": "🛍️",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "வங்கி 5% வட்டி தருகிறது. சேமிப்பு பெட்டி 0% தருகிறது. புத்திசாலித்தனமாக தேர்வு செய்.",
+            "options": [
+                {
+                    "id": "bank",
+                    "text": "வட்டிக்காக வங்கி",
+                    "emoji": "📈",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "piggy",
+                    "text": "வேடிக்கைக்காக சேமிப்பு பெட்டி",
+                    "emoji": "🐷",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "give",
+                    "text": "கொடுத்துவிடு",
+                    "emoji": "🎁",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "வங்கியில் ₹100 சேமிக்கிறாய். அது ₹105 ஆகிறது. ஏன்?",
+            "options": [
+                {
+                    "id": "magic",
+                    "text": "சேமிப்பு பெட்டி மந்திரம்",
+                    "emoji": "🪄",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "added",
+                    "text": "கூடுதல் பணம் சேர்த்தாய்",
+                    "emoji": "💸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "interest",
+                    "text": "வங்கி வட்டி கொடுக்கிறது",
+                    "emoji": "📊",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "சேமிப்பு பெட்டியை விட வங்கி ஏன் பெரும்பாலும் சிறந்தது?",
+            "options": [
+                {
+                    "id": "safe",
+                    "text": "பாதுகாப்பானது மற்றும் பணத்தை வளர்க்கும்",
+                    "emoji": "🔒",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "cool",
+                    "text": "அது மட்டும் அழகாக தெரிகிறது",
+                    "emoji": "🐷",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "carry",
+                    "text": "எடுத்து செல்ல எளிதானது",
+                    "emoji": "🎒",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,129 @@
+﻿{
+    "title": "செலவு பற்றிய வினாடி வினா",
+    "subtitleComplete": "வினாடி வினா முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "questionCounter": "கேள்வி {{current}}/{{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "questions": [
+        {
+            "id": 1,
+            "text": "சிறந்த செலவு பழக்கம் எது?",
+            "options": [
+                {
+                    "id": "a",
+                    "text": "யோசிக்காமல் வாங்கு",
+                    "emoji": "💸",
+                    "isCorrect": false
+                },
+                {
+                    "id": "b",
+                    "text": "ஒப்பிட்டு தேர்வு செய்",
+                    "emoji": "🤔",
+                    "isCorrect": true
+                },
+                {
+                    "id": "c",
+                    "text": "வேடிக்கைக்கு கடன் வாங்கு",
+                    "emoji": "💳",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "புத்திசாலித்தனமாக பணம் செலவிட எது சிறந்தது?",
+            "options": [
+                {
+                    "id": "a",
+                    "text": "முதலில் பட்ஜெட் போடு",
+                    "emoji": "📋",
+                    "isCorrect": true
+                },
+                {
+                    "id": "b",
+                    "text": "ஒரே நேரத்தில் எல்லாவற்றையும் செலவிடு",
+                    "emoji": "🛍️",
+                    "isCorrect": false
+                },
+                {
+                    "id": "c",
+                    "text": "பிரபலமானதை வாங்கு",
+                    "emoji": "🔥",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "பெரிய வாங்குதலுக்கு முன் என்ன செய்வாய்?",
+            "options": [
+                {
+                    "id": "a",
+                    "text": "கடனில் வாங்கு",
+                    "emoji": "💳",
+                    "isCorrect": false
+                },
+                {
+                    "id": "b",
+                    "text": "நண்பர்களிடம் கேள்",
+                    "emoji": "👥",
+                    "isCorrect": false
+                },
+                {
+                    "id": "c",
+                    "text": "முதலில் சேமி",
+                    "emoji": "🏦",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "எதிர்காலத்தில் உதவும் செலவு பழக்கம் எது?",
+            "options": [
+                {
+                    "id": "a",
+                    "text": "விருப்பங்களுக்கு செலவிடு",
+                    "emoji": "🎯",
+                    "isCorrect": false
+                },
+                {
+                    "id": "b",
+                    "text": "தேவைகளுக்கு சேமி",
+                    "emoji": "💰",
+                    "isCorrect": true
+                },
+                {
+                    "id": "c",
+                    "text": "விலையுயர்ந்த பொருட்கள் வாங்கு",
+                    "emoji": "💎",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "கடை பார்க்க புத்திசாலித்தனமான அணுகுமுறை எது?",
+            "options": [
+                {
+                    "id": "a",
+                    "text": "பட்டியல் தயாரி",
+                    "emoji": "📝",
+                    "isCorrect": true
+                },
+                {
+                    "id": "b",
+                    "text": "உடனடியாக வாங்கு",
+                    "emoji": "⚡",
+                    "isCorrect": false
+                },
+                {
+                    "id": "c",
+                    "text": "போக்குவரத்தை பின்பற்று",
+                    "emoji": "📈",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

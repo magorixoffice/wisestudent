@@ -1,0 +1,128 @@
+﻿{
+    "title": "வங்கி வருகை கதை",
+    "subtitleComplete": "முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "questions": [
+        {
+            "id": 1,
+            "text": "பெற்றோர் உன்னை வங்கிக்கு அழைத்து செல்கிறார்கள். என்ன செய்வாய்?",
+            "options": [
+                {
+                    "id": "watch",
+                    "text": "அமைதியாக பார்த்து கற்றுக்கொள்",
+                    "emoji": "👀",
+                    "isCorrect": true
+                },
+                {
+                    "id": "play",
+                    "text": "அங்கும் இங்கும் ஓடி விளையாடு",
+                    "emoji": "🏃",
+                    "isCorrect": false
+                },
+                {
+                    "id": "touch",
+                    "text": "எல்லாவற்றையும் தொடு",
+                    "emoji": "👆",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "வங்கி ஊழியர் வணக்கம் சொல்கிறார். எவ்வாறு பதில் சொல்வாய்?",
+            "options": [
+                {
+                    "id": "ignore",
+                    "text": "அவர்களை முற்றிலும் கவனிக்காமல் விடு",
+                    "emoji": "😐",
+                    "isCorrect": false
+                },
+                {
+                    "id": "polite",
+                    "text": "மரியாதையாகவும் அன்பாகவும் பதில் சொல்",
+                    "emoji": "🙏",
+                    "isCorrect": true
+                },
+                {
+                    "id": "rude",
+                    "text": "அவர்களிடம் முரட்டுத்தனமாக நட",
+                    "emoji": "😠",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "பெற்றோர் தானியங்கி பண இயந்திரம் பயன்படுத்துகிறார்கள். நீ என்ன செய்வாய்?",
+            "options": [
+                {
+                    "id": "privacy",
+                    "text": "பின்வாங்கி தனியுரிமை கொடு",
+                    "emoji": "🔒",
+                    "isCorrect": true
+                },
+                {
+                    "id": "watch",
+                    "text": "கடவுக்குறியை கவனமாக பார்",
+                    "emoji": "👁️",
+                    "isCorrect": false
+                },
+                {
+                    "id": "buttons",
+                    "text": "யாதாவது பொத்தான்களை அழுத்து",
+                    "emoji": "🔘",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "பாதுகாப்பு காவலர் பைகளை சோதிக்கிறார். உன் எதிர்வினை என்ன?",
+            "options": [
+                {
+                    "id": "angry",
+                    "text": "காவலரிடம் கோபப்படு",
+                    "emoji": "😠",
+                    "isCorrect": false
+                },
+                {
+                    "id": "refuse",
+                    "text": "சோதனையை மறு",
+                    "emoji": "❌",
+                    "isCorrect": false
+                },
+                {
+                    "id": "understand",
+                    "text": "இது பாதுகாப்பிற்காக என்று புரிந்துகொள்",
+                    "emoji": "🛡️",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "வங்கியில் நீண்ட வரிசை உள்ளது. சிறந்தது என்ன?",
+            "options": [
+                {
+                    "id": "push",
+                    "text": "முன்னால் போக தள்ளு",
+                    "emoji": "👊",
+                    "isCorrect": false
+                },
+                {
+                    "id": "wait",
+                    "text": "வரிசையில் பொறுமையாக காத்திரு",
+                    "emoji": "⏳",
+                    "isCorrect": true
+                },
+                {
+                    "id": "complain",
+                    "text": "சத்தமாக புலம்பு",
+                    "emoji": "😤",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

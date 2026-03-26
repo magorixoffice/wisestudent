@@ -1,0 +1,141 @@
+﻿{
+    "title": "தேவைகள் vs விருப்பங்கள் வினாடி வினா",
+    "subtitleComplete": "வினாடி வினா முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "questionLabel": "கேள்வி {{current}}/{{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "questions": [
+        {
+            "id": 1,
+            "text": "எது ஒரு விருப்பம்?",
+            "options": [
+                {
+                    "id": "watch",
+                    "text": "ஆடம்பர கடிகாரம்",
+                    "emoji": "⌚",
+                    "isCorrect": true
+                },
+                {
+                    "id": "medicine",
+                    "text": "மருந்து",
+                    "emoji": "💊",
+                    "isCorrect": false
+                },
+                {
+                    "id": "clothes",
+                    "text": "பள்ளி ஆடைகள்",
+                    "emoji": "👕",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "எது ஒரு தேவை?",
+            "options": [
+                {
+                    "id": "game",
+                    "text": "வீடியோ கேம்",
+                    "emoji": "🎮",
+                    "isCorrect": false
+                },
+                {
+                    "id": "food",
+                    "text": "மளிகை சாமான்கள்",
+                    "emoji": "🍎",
+                    "isCorrect": true
+                },
+                {
+                    "id": "phone",
+                    "text": "புதிய ஸ்மார்ட்ஃபோன்",
+                    "emoji": "📱",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "எது ஒரு விருப்பம்?",
+            "options": [
+                {
+                    "id": "rent",
+                    "text": "வாடகை",
+                    "emoji": "🏠",
+                    "isCorrect": false
+                },
+                {
+                    "id": "books",
+                    "text": "பாடப்புத்தகங்கள்",
+                    "emoji": "📚",
+                    "isCorrect": false
+                },
+                {
+                    "id": "concert",
+                    "text": "கச்சேரி டிக்கெட்",
+                    "emoji": "🎤",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "எது ஒரு தேவை?",
+            "options": [
+                {
+                    "id": "water",
+                    "text": "தண்ணீர் கட்டணம்",
+                    "emoji": "💧",
+                    "isCorrect": true
+                },
+                {
+                    "id": "shoes",
+                    "text": "டிசைனர் காலணிகள்",
+                    "emoji": "👟",
+                    "isCorrect": false
+                },
+                {
+                    "id": "party",
+                    "text": "பார்ட்டி பொருட்கள்",
+                    "emoji": "🎉",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "எது ஒரு விருப்பம்?",
+            "options": [
+                {
+                    "id": "internet",
+                    "text": "இணைய கட்டணம்",
+                    "emoji": "🌐",
+                    "isCorrect": false
+                },
+                {
+                    "id": "headphones",
+                    "text": "வயர்லெஸ் ஹெட்ஃபோன்",
+                    "emoji": "🎧",
+                    "isCorrect": true
+                },
+                {
+                    "id": "transport",
+                    "text": "பேருந்து பாஸ்",
+                    "emoji": "🚌",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ],
+    "result": {
+        "winEmoji": "🎉",
+        "winTitle": "சிறப்பான வேலை!",
+        "winMessage": "{{total}} கேள்விகளில் {{score}} சரியாக பதிலளித்தீர்கள்! தேவைகள் மற்றும் விருப்பங்களுக்கிடையிலான வேறுபாட்டை புரிந்துகொண்டீர்கள்!",
+        "coinsEarned": "+{{score}} நாணயங்கள்",
+        "lesson": "பாடம்: தேவைகள் உயிர்வாழ்வதற்கும் கற்றலுக்கும் அவசியமானவை, விருப்பங்கள் இருந்தால் நல்லது ஆனால் தேவையில்லாதவை!",
+        "loseEmoji": "😔",
+        "loseTitle": "தொடர்ந்து கற்றுக்கொள்ளுங்கள்!",
+        "loseMessage": "{{total}} கேள்விகளில் {{score}} சரியாக பதிலளித்தீர்கள். நினைவில் கொள்ளுங்கள், தேவைகள் என்பது உணவு, ஆடைகள் மற்றும் பயன்பாட்டு சேவைகள் போன்ற அத்தியாவசிய பொருட்கள்!",
+        "tryAgain": "மீண்டும் முயற்சிக்கவும்",
+        "tip": "குறிப்பு: தேவைகள் என்பது வாழவும் கற்கவும் இருக்க வேண்டியவை, விருப்பங்கள் விருப்பமான ஆடம்பரங்கள்."
+    }
+}

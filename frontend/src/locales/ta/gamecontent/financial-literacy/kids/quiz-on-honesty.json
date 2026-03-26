@@ -1,0 +1,144 @@
+﻿{
+    "title": "நேர்மை வினாடி வினா",
+    "subtitleComplete": "வினாடி வினா முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "questionCounter": "கேள்வி {{current}}/{{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "questions": [
+        {
+            "id": 1,
+            "text": "யார் நேர்மையானவர்?",
+            "options": [
+                {
+                    "id": "cheat",
+                    "text": "வாடிக்கையாளரை ஏமாற்றுகிறார்",
+                    "emoji": "😈",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "change",
+                    "text": "சரியான சில்லறை கொடுக்கிறார்",
+                    "emoji": "💰",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "lies",
+                    "text": "பொய் சொல்கிறார்",
+                    "emoji": "🙊",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "நேர்மையான கடைக்காரர் என்ன செய்கிறார்?",
+            "options": [
+                {
+                    "id": "fair",
+                    "text": "நியாயமான விலை வசூலிக்கிறார்",
+                    "emoji": "⚖️",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "overcharge",
+                    "text": "அதிக விலை வசூலிக்கிறார்",
+                    "emoji": "💸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "hide",
+                    "text": "பொருட்களை மறைக்கிறார்",
+                    "emoji": "🫥",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "நேர்மை ஷாப்பிங்கில் எப்படி உதவுகிறது?",
+            "options": [
+                {
+                    "id": "free",
+                    "text": "இலவச பொருட்கள் கிடைக்கும்",
+                    "emoji": "🎁",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "spend",
+                    "text": "அதிகமாக செலவழிக்க வைக்கும்",
+                    "emoji": "🛍️",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "trust",
+                    "text": "நம்பிக்கையை உருவாக்கும்",
+                    "emoji": "🤝",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "நேர்மையான கடன் வாங்கும் வழி என்ன?",
+            "options": [
+                {
+                    "id": "return",
+                    "text": "சரியான நேரத்தில் திருப்பி கொடுக்கவும்",
+                    "emoji": "⏰",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "keep",
+                    "text": "எப்போதும் வைத்திருக்கவும்",
+                    "emoji": "🙈",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "more",
+                    "text": "அதிகமாக கடன் வாங்கவும்",
+                    "emoji": "📈",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "பண விஷயங்களில் நேர்மை ஏன் முக்கியம்?",
+            "options": [
+                {
+                    "id": "toys",
+                    "text": "பொம்மைகள் கிடைக்கும்",
+                    "emoji": "🧸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "famous",
+                    "text": "பிரபலமாக்கும்",
+                    "emoji": "⭐",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "trust",
+                    "text": "நம்பிக்கையை சம்பாதிக்கும்",
+                    "emoji": "🤝",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,144 @@
+﻿{
+    "title": "பிறந்தநாள் பணம் கதை",
+    "subtitleComplete": "கதை முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "questionCounter": "கேள்வி {{current}}/{{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "questions": [
+        {
+            "id": 1,
+            "text": "பிறந்தநாளுக்கு ரூ. 100 கிடைக்கிறது. என்ன செய்வாய்?",
+            "options": [
+                {
+                    "id": "spend",
+                    "text": "பொம்மைகள் மற்றும் மிட்டாய்களுக்கு எல்லாவற்றையும் செலவிடு",
+                    "emoji": "🧸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "give",
+                    "text": "பாதுகாப்பாக வைக்க அம்மாவிடம் கொடு",
+                    "emoji": "👩",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "split",
+                    "text": "பிரி: சிறிதளவு வேடிக்கைக்கு, சிறிதளவு சேமிப்புக்கு",
+                    "emoji": "💰",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "'புத்திசாலித்தனமாக பிரிப்பது' என்றால் என்ன?",
+            "options": [
+                {
+                    "id": "gifts",
+                    "text": "நண்பர்களின் பரிசுகளுக்கு பாதியை செலவிடு",
+                    "emoji": "🎁",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "balance",
+                    "text": "சிறிதளவு சேமிப்புக்கும் சிறிதளவு வேடிக்கைக்கும் வை",
+                    "emoji": "⚖️",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "needs",
+                    "text": "தேவையானவை மட்டும் வாங்கு, விருப்பமானவை வேண்டாம்",
+                    "emoji": "🧺",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "பரிசு பணத்தில் ஒரு பகுதி சேமிப்பது உனக்கு உதவும்...",
+            "options": [
+                {
+                    "id": "forget",
+                    "text": "பணத்தை மறந்துவிட",
+                    "emoji": "🙈",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "spend",
+                    "text": "இப்போது அதிகமாக செலவிட",
+                    "emoji": "💸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "bigger",
+                    "text": "பிற்காலத்தில் பெரியவற்றை வாங்க",
+                    "emoji": "🚲",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "பிற்காலத்தில் பெரியதை வாங்க விரும்பினால், புத்திசாலித்தனம் என்ன?",
+            "options": [
+                {
+                    "id": "save",
+                    "text": "தொடர்ந்து சிறிய தொகை சேமி",
+                    "emoji": "🐷",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "borrow",
+                    "text": "நண்பர்களிடம் கடன் வாங்கு",
+                    "emoji": "🙏",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "wait",
+                    "text": "அடுத்த பிறந்தநாளுக்கு காத்திரு",
+                    "emoji": "🎂",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "சமநிலையான முடிவு என்ன?",
+            "options": [
+                {
+                    "id": "all",
+                    "text": "இன்றே எல்லாவற்றையும் செலவிடு",
+                    "emoji": "🛍️",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "enjoy",
+                    "text": "ஒரு சுவையான விஷயம் அனுபவித்து மீதியை சேமி",
+                    "emoji": "🍦",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "none",
+                    "text": "எல்லாவற்றையும் சேமி, வேடிக்கை வேண்டாம்",
+                    "emoji": "🔒",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

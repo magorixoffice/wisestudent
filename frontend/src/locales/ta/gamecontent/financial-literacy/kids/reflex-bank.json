@@ -1,0 +1,151 @@
+﻿{
+    "title": "வங்கி அடிப்படைகள் விளையாட்டு",
+    "subtitleComplete": "முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "questions": [
+        {
+            "id": 1,
+            "question": "வங்கியில் பணம் கட்ட என்ன செய்வாய்?",
+            "correctAnswer": "வரவு வை",
+            "options": [
+                {
+                    "text": "வரவு வை",
+                    "isCorrect": true,
+                    "emoji": "💰"
+                },
+                {
+                    "text": "திருடு",
+                    "isCorrect": false,
+                    "emoji": "🚫"
+                },
+                {
+                    "text": "தொலைத்துவிடு",
+                    "isCorrect": false,
+                    "emoji": "❌"
+                },
+                {
+                    "text": "கவனிக்காமல் விடு",
+                    "isCorrect": false,
+                    "emoji": "🙈"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "question": "பணத்தை பாதுகாப்பாக வைக்க புத்திசாலித்தனமான வழி எது?",
+            "correctAnswer": "சேமி",
+            "options": [
+                {
+                    "text": "செலவிடு",
+                    "isCorrect": false,
+                    "emoji": "💸"
+                },
+                {
+                    "text": "சேமி",
+                    "isCorrect": true,
+                    "emoji": "💵"
+                },
+                {
+                    "text": "வீணடி",
+                    "isCorrect": false,
+                    "emoji": "🗑️"
+                },
+                {
+                    "text": "மறந்துவிடு",
+                    "isCorrect": false,
+                    "emoji": "😴"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "question": "வங்கி கணக்கிலிருந்து பணம் எடுக்க என்ன செய்வாய்?",
+            "correctAnswer": "பணம் எடு",
+            "options": [
+                {
+                    "text": "தொலைத்துவிடு",
+                    "isCorrect": false,
+                    "emoji": "❌"
+                },
+                {
+                    "text": "திருடு",
+                    "isCorrect": false,
+                    "emoji": "🚫"
+                },
+                {
+                    "text": "கவனிக்காமல் விடு",
+                    "isCorrect": false,
+                    "emoji": "🙈"
+                },
+                {
+                    "text": "பணம் எடு",
+                    "isCorrect": true,
+                    "emoji": "🏦"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "question": "வங்கியில் பணம் சேமிக்க தொடங்க என்ன செய்வாய்?",
+            "correctAnswer": "கணக்கு திற",
+            "options": [
+                {
+                    "text": "கவனிக்காமல் விடு",
+                    "isCorrect": false,
+                    "emoji": "🙈"
+                },
+                {
+                    "text": "எல்லாவற்றையும் செலவிடு",
+                    "isCorrect": false,
+                    "emoji": "💸"
+                },
+                {
+                    "text": "கணக்கு திற",
+                    "isCorrect": true,
+                    "emoji": "📝"
+                },
+                {
+                    "text": "மறந்துவிடு",
+                    "isCorrect": false,
+                    "emoji": "😴"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "question": "உன்னிடம் எவ்வளவு பணம் இருக்கிறது என்று அறிய என்ன செய்வாய்?",
+            "correctAnswer": "இருப்பு சரிபார்",
+            "options": [
+                {
+                    "text": "இருப்பு சரிபார்",
+                    "isCorrect": true,
+                    "emoji": "📊"
+                },
+                {
+                    "text": "மறந்துவிடு",
+                    "isCorrect": false,
+                    "emoji": "😴"
+                },
+                {
+                    "text": "எல்லாவற்றையும் செலவிடு",
+                    "isCorrect": false,
+                    "emoji": "💸"
+                },
+                {
+                    "text": "கவனிக்காமல் விடு",
+                    "isCorrect": false,
+                    "emoji": "🙈"
+                }
+            ]
+        }
+    ],
+    "subtitlePlaying": "சுற்று {{current}}/{{total}}",
+    "subtitleReady": "தயாராகு!",
+    "readyTitle": "விளையாட தயாரா?",
+    "readyDescription": "விரைவாக பதிலளித்து சிறந்த விருப்பத்தை தேர்வு செய்.",
+    "readyInfo": "உனக்கு {{total}} கேள்விகள் உள்ளன, ஒவ்வொன்றும் {{seconds}} விநாடிகள்!",
+    "startButton": "விளையாட்டை தொடங்கு",
+    "roundLabel": "சுற்று:",
+    "timeLabel": "நேரம்:"
+}

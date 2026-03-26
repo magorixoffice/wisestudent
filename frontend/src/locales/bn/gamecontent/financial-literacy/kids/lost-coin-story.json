@@ -1,0 +1,129 @@
+﻿{
+    "title": "হারানো কয়েনের গল্প",
+    "subtitleComplete": "গল্প সম্পন্ন!",
+    "subtitleProgress": "প্রশ্ন {{current}} / {{total}}",
+    "questionLabel": "প্রশ্ন {{current}}/{{total}}",
+    "scoreLabel": "স্কোর: {{score}}/{{total}}",
+    "questions": [
+        {
+            "id": 1,
+            "text": "মাঠের কাছে একটি চকচকে কয়েন খুঁজে পেলে। সঠিক কাজ কী?",
+            "options": [
+                {
+                    "id": "keep",
+                    "text": "নিজে রেখে দাও",
+                    "emoji": "🤫",
+                    "isCorrect": false
+                },
+                {
+                    "id": "ask_teacher",
+                    "text": "শিক্ষককে দিয়ে দাও",
+                    "emoji": "🧑‍🏫",
+                    "isCorrect": true
+                },
+                {
+                    "id": "ignore",
+                    "text": "মাটিতে রেখে দাও",
+                    "emoji": "🍂",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "লাইব্রেরিতে ১৫ টাকা খুঁজে পেলে। কেউ আশপাশে নেই। কী করবে?",
+            "options": [
+                {
+                    "id": "return",
+                    "text": "লাইব্রেরিয়ানকে দিয়ে দাও",
+                    "emoji": "📚",
+                    "isCorrect": true
+                },
+                {
+                    "id": "hide",
+                    "text": "ব্যাগে লুকিয়ে রাখো",
+                    "emoji": "🎒",
+                    "isCorrect": false
+                },
+                {
+                    "id": "spend",
+                    "text": "সাথে সাথে নাস্তা কিনো",
+                    "emoji": "🍿",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "একজন বন্ধু ২০ টাকা খুঁজে পেয়েছে এবং রেখে দিতে চাইছে। তুমি কী পরামর্শ দেবে?",
+            "options": [
+                {
+                    "id": "keep",
+                    "text": "চুপ করে রেখে দাও",
+                    "emoji": "😶",
+                    "isCorrect": false
+                },
+                {
+                    "id": "spend",
+                    "text": "গেমে খরচ করো",
+                    "emoji": "🎮",
+                    "isCorrect": false
+                },
+                {
+                    "id": "return",
+                    "text": "একসাথে মালিক খোঁজার চেষ্টা করো",
+                    "emoji": "🕵️‍♂️",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "দোকানে ভুলক্রমে অতিরিক্ত ভাংতি পেলে। সৎ পছন্দ কী?",
+            "options": [
+                {
+                    "id": "keep",
+                    "text": "অতিরিক্ত টাকা রেখে দাও",
+                    "emoji": "🤑",
+                    "isCorrect": false
+                },
+                {
+                    "id": "return",
+                    "text": "দোকানদারকে ফেরত দাও",
+                    "emoji": "💵",
+                    "isCorrect": true
+                },
+                {
+                    "id": "gift",
+                    "text": "বন্ধুকে দিয়ে দাও",
+                    "emoji": "🎁",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "পাওয়া টাকার ব্যাপারে সৎ আচরণ করা কেন উচিত?",
+            "options": [
+                {
+                    "id": "respect",
+                    "text": "এটি বিশ্বাস গড়ে এবং দায়িত্বশীলতা দেখায়",
+                    "emoji": "🤝",
+                    "isCorrect": true
+                },
+                {
+                    "id": "buy_more",
+                    "text": "আরও জিনিস কেনা যায়",
+                    "emoji": "🛍️",
+                    "isCorrect": false
+                },
+                {
+                    "id": "luck",
+                    "text": "এটি তাৎক্ষণিক ভাগ্য আনে",
+                    "emoji": "🍀",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

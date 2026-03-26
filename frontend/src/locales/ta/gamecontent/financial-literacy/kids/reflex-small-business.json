@@ -1,0 +1,150 @@
+﻿{
+    "title": "ரிஃப்ளெக்ஸ் ஸ்மால் பிஸினஸ்",
+    "subtitlePlaying": "சுற்று {{current}}/{{total}}: உங்கள் சிறு வணிக ரிஃப்ளெக்ஸ்களை சோதியுங்கள்!",
+    "subtitleReady": "உங்கள் சிறு வணிக ரிஃப்ளெக்ஸ்களை சோதியுங்கள்!",
+    "readyEmoji": "🏪",
+    "readyTitle": "சிறு வணிக திறன்களை சோதிக்க தயாரா?",
+    "readyDescription": "ஒரு சிறு வணிகத்தை தொடங்குவது மற்றும் நடத்துவது பற்றிய கேள்விகளுக்கு பதிலளியுங்கள்.",
+    "readyInfo": "உங்களுக்கு {{total}} கேள்விகள் உள்ளன, ஒவ்வொன்றிற்கும் {{seconds}} வினாடிகள்!",
+    "startButton": "கேம் தொடங்கு",
+    "roundLabel": "சுற்று:",
+    "timeLabel": "நேரம்:",
+    "scoreLabel": "மதிப்பெண்:",
+    "questions": [
+        {
+            "id": 1,
+            "question": "சிறு வணிகத்தை தொடங்குவதற்கான நல்ல வழி எது?",
+            "correctAnswer": "பேக் & விற்கவும்",
+            "options": [
+                {
+                    "text": "வாங்கி & வீணாக்கவும்",
+                    "isCorrect": false,
+                    "emoji": "💸"
+                },
+                {
+                    "text": "எல்லாவற்றையும் செலவழிக்கவும்",
+                    "isCorrect": false,
+                    "emoji": "🛍️"
+                },
+                {
+                    "text": "பேக் & விற்கவும்",
+                    "isCorrect": true,
+                    "emoji": "🍰"
+                },
+                {
+                    "text": "ஒன்றும் செய்யாதீர்கள்",
+                    "isCorrect": false,
+                    "emoji": "😴"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "question": "உங்கள் திறன்களிலிருந்து எப்படி பணம் சம்பாதிக்கலாம்?",
+            "correctAnswer": "கைவினைப் பொருட்கள் தயாரிக்கவும்",
+            "options": [
+                {
+                    "text": "கைவினைப் பொருட்கள் தயாரிக்கவும்",
+                    "isCorrect": true,
+                    "emoji": "🎨"
+                },
+                {
+                    "text": "எல்லாவற்றையும் செலவழிக்கவும்",
+                    "isCorrect": false,
+                    "emoji": "💸"
+                },
+                {
+                    "text": "நேரத்தை வீணாக்கவும்",
+                    "isCorrect": false,
+                    "emoji": "⏰"
+                },
+                {
+                    "text": "திறன்களை புறக்கணிக்கவும்",
+                    "isCorrect": false,
+                    "emoji": "🙈"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "question": "மற்றவர்களிடமிருந்து பணம் சம்பாதிக்க என்ன உதவும்?",
+            "correctAnswer": "சேவை வழங்கவும்",
+            "options": [
+                {
+                    "text": "ஒன்றும் செய்யாதீர்கள்",
+                    "isCorrect": false,
+                    "emoji": "😴"
+                },
+                {
+                    "text": "என்றும் காத்திருக்கவும்",
+                    "isCorrect": false,
+                    "emoji": "⏳"
+                },
+                {
+                    "text": "வேலையை தவிர்க்கவும்",
+                    "isCorrect": false,
+                    "emoji": "🚫"
+                },
+                {
+                    "text": "சேவை வழங்கவும்",
+                    "isCorrect": true,
+                    "emoji": "🛠️"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "question": "வணிக லாபத்தை என்ன செய்ய வேண்டும்?",
+            "correctAnswer": "லாபத்தை சேமிக்கவும்",
+            "options": [
+                {
+                    "text": "லாபத்தை சேமிக்கவும்",
+                    "isCorrect": true,
+                    "emoji": "💰"
+                },
+                {
+                    "text": "லாபத்தை செலவழிக்கவும்",
+                    "isCorrect": false,
+                    "emoji": "💸"
+                },
+                {
+                    "text": "பணத்தை வீணாக்கவும்",
+                    "isCorrect": false,
+                    "emoji": "🔥"
+                },
+                {
+                    "text": "தொலைத்துவிடுங்கள்",
+                    "isCorrect": false,
+                    "emoji": "😞"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "question": "உங்கள் வணிகம் வெற்றிபெற என்ன உதவும்?",
+            "correctAnswer": "வணிகத்தை வளர்க்கவும்",
+            "options": [
+                {
+                    "text": "பணத்தை வீணாக்கவும்",
+                    "isCorrect": false,
+                    "emoji": "🔥"
+                },
+                {
+                    "text": "வணிகத்தை வளர்க்கவும்",
+                    "isCorrect": true,
+                    "emoji": "📈"
+                },
+                {
+                    "text": "விட்டுவிடுங்கள்",
+                    "isCorrect": false,
+                    "emoji": "😞"
+                },
+                {
+                    "text": "சிறியதாக இருங்கள்",
+                    "isCorrect": false,
+                    "emoji": "📉"
+                }
+            ]
+        }
+    ]
+}

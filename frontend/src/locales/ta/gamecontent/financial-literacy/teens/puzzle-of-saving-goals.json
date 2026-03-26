@@ -1,0 +1,73 @@
+﻿{
+    "title": "புதிர்: சேமிப்பு இலக்குகள்",
+    "subtitleComplete": "புதிர் முடிந்தது!",
+    "subtitleProgress": "இலக்குகளை நோக்கங்களுடன் பொருத்துங்கள் ({{current}}/{{total}} பொருத்தப்பட்டது)",
+    "goalsTitle": "சேமிப்பு இலக்குகள்",
+    "purposesTitle": "சேமிப்பு நோக்கங்கள்",
+    "matchButton": "பொருத்து",
+    "selectGoalLabel": "ஒரு சேமிப்பு இலக்கை தேர்வு செய்யுங்கள்",
+    "selectedGoalLabel": "தேர்வு: {{name}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "matchedLabel": "பொருத்தப்பட்டது: {{current}}/{{total}}",
+    "resultSuccessHeader": "சிறப்பான வேலை!",
+    "resultSuccessSubheader": "{{total}} இல் {{score}} சேமிப்பு இலக்குகளை சரியாக பொருத்தினீர்கள்!",
+    "resultSuccessLesson": "பாடம்: தெளிவான சேமிப்பு இலக்குகளை நிர்ணயிப்பது நிதி பாதுகாப்பை அடைய உதவுகிறது!",
+    "resultTryAgainHeader": "தொடர்ந்து பயிற்சி செய்யுங்கள்!",
+    "resultTryAgainSubheader": "{{total}} இல் {{score}} சேமிப்பு இலக்குகளை சரியாக பொருத்தினீர்கள்.",
+    "resultTryAgainTip": "குறிப்பு: ஒவ்வொரு சேமிப்பு இலக்கின் முதன்மை நன்மையைப் பற்றி சிந்தியுங்கள்!",
+    "coinsEarned": "+{{coins}} நாணயங்கள்",
+    "goals": [
+        {
+            "id": 1,
+            "name": "கல்வி",
+            "emoji": "📚"
+        },
+        {
+            "id": 2,
+            "name": "அவசர நிதி",
+            "emoji": "🚑"
+        },
+        {
+            "id": 3,
+            "name": "கார்",
+            "emoji": "🚗"
+        },
+        {
+            "id": 4,
+            "name": "வீடு",
+            "emoji": "🏠"
+        },
+        {
+            "id": 5,
+            "name": "ஓய்வூதியம்",
+            "emoji": "🌅"
+        }
+    ],
+    "purposes": [
+        {
+            "id": 6,
+            "name": "எதிர்கால வளர்ச்சி",
+            "emoji": "📈"
+        },
+        {
+            "id": 7,
+            "name": "பாதுகாப்பு வலை",
+            "emoji": "🛡️"
+        },
+        {
+            "id": 8,
+            "name": "இயக்கம்",
+            "emoji": "🛣️"
+        },
+        {
+            "id": 9,
+            "name": "நிலைத்தன்மை",
+            "emoji": "🏛️"
+        },
+        {
+            "id": 10,
+            "name": "மன அமைதி",
+            "emoji": "🧘"
+        }
+    ]
+}

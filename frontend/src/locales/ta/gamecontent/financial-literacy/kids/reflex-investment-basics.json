@@ -1,0 +1,150 @@
+﻿{
+    "title": "முதலீட்டு அடிப்படைகள் விளையாட்டு",
+    "subtitlePlaying": "கேள்வி {{current}} / {{total}}: உன் முதலீட்டு திறனை சோதி!",
+    "subtitleReady": "உன் முதலீட்டு திறனை சோதி!",
+    "readyEmoji": "💰",
+    "readyTitle": "முதலீட்டு அடிப்படைகளை கற்க தயாரா?",
+    "readyDescription": "ஒவ்வொரு கேள்விக்கும் சரியான முதலீட்டு செயலை தேர்வு செய்.",
+    "readyInfo": "உனக்கு {{total}} கேள்விகள் உள்ளன, ஒவ்வொன்றும் {{seconds}} விநாடிகள்!",
+    "startButton": "விளையாட்டை தொடங்கு",
+    "roundLabel": "கேள்வி:",
+    "timeLabel": "நேரம்:",
+    "scoreLabel": "மதிப்பெண்:",
+    "questions": [
+        {
+            "id": 1,
+            "question": "பணத்தை வளர்க்க என்ன செய்வாய்?",
+            "correctAnswer": "சேமித்து வளர்",
+            "options": [
+                {
+                    "text": "எல்லாவற்றையும் செலவிடு",
+                    "isCorrect": false,
+                    "emoji": "💸"
+                },
+                {
+                    "text": "மறைத்து வை",
+                    "isCorrect": false,
+                    "emoji": "🙈"
+                },
+                {
+                    "text": "மறந்துவிடு",
+                    "isCorrect": false,
+                    "emoji": "😴"
+                },
+                {
+                    "text": "சேமித்து வளர்",
+                    "isCorrect": true,
+                    "emoji": "🌱"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "question": "பணத்தை புத்திசாலித்தனமாக எவ்வாறு கையாளுவாய்?",
+            "correctAnswer": "புத்திசாலித்தனமாக முதலீடு செய்",
+            "options": [
+                {
+                    "text": "புத்திசாலித்தனமாக முதலீடு செய்",
+                    "isCorrect": true,
+                    "emoji": "💰"
+                },
+                {
+                    "text": "விரைவாக செலவிடு",
+                    "isCorrect": false,
+                    "emoji": "⚡"
+                },
+                {
+                    "text": "வீணடி",
+                    "isCorrect": false,
+                    "emoji": "🔥"
+                },
+                {
+                    "text": "தொலைத்துவிடு",
+                    "isCorrect": false,
+                    "emoji": "📉"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "question": "செல்வத்தை வளர்க்க சிறந்த வழி எது?",
+            "correctAnswer": "செல்வத்தை வளர்",
+            "options": [
+                {
+                    "text": "பணம் இழ",
+                    "isCorrect": false,
+                    "emoji": "💔"
+                },
+                {
+                    "text": "செல்வத்தை வளர்",
+                    "isCorrect": true,
+                    "emoji": "📈"
+                },
+                {
+                    "text": "எல்லாவற்றையும் செலவிடு",
+                    "isCorrect": false,
+                    "emoji": "🛍️"
+                },
+                {
+                    "text": "சேமிப்பை கவனிக்காதே",
+                    "isCorrect": false,
+                    "emoji": "😑"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "question": "உன் பணம் உனக்காக எவ்வாறு உழைக்கலாம்?",
+            "correctAnswer": "வட்டி சம்பாதி",
+            "options": [
+                {
+                    "text": "பணத்தை வீணடி",
+                    "isCorrect": false,
+                    "emoji": "🔥"
+                },
+                {
+                    "text": "உடனே செலவிடு",
+                    "isCorrect": false,
+                    "emoji": "⚡"
+                },
+                {
+                    "text": "வட்டி சம்பாதி",
+                    "isCorrect": true,
+                    "emoji": "💵"
+                },
+                {
+                    "text": "மறந்துவிடு",
+                    "isCorrect": false,
+                    "emoji": "🤷"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "question": "உன் எதிர்காலத்தை பாதுகாக்க எது உதவுகிறது?",
+            "correctAnswer": "சேமிப்பை கட்டமை",
+            "options": [
+                {
+                    "text": "சேமிப்பை கட்டமை",
+                    "isCorrect": true,
+                    "emoji": "🏦"
+                },
+                {
+                    "text": "இப்போதே செலவிடு",
+                    "isCorrect": false,
+                    "emoji": "🛒"
+                },
+                {
+                    "text": "பணத்தை வீணடி",
+                    "isCorrect": false,
+                    "emoji": "💸"
+                },
+                {
+                    "text": "எதிர்காலத்தை கவனிக்காதே",
+                    "isCorrect": false,
+                    "emoji": "😴"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,128 @@
+﻿{
+    "title": "வங்கிகள் பற்றிய வினாடி வினா",
+    "subtitleComplete": "முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "questions": [
+        {
+            "id": 1,
+            "text": "வங்கி என்றால் என்ன?",
+            "options": [
+                {
+                    "id": "toy",
+                    "text": "பொம்மை கடை",
+                    "emoji": "🧸",
+                    "isCorrect": false
+                },
+                {
+                    "id": "safe",
+                    "text": "பணத்தை பாதுகாப்பாக வைக்கும் இடம்",
+                    "emoji": "🏦",
+                    "isCorrect": true
+                },
+                {
+                    "id": "icecream",
+                    "text": "ஐஸ்கிரீம் கடை",
+                    "emoji": "🍦",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "வங்கியின் சேமிப்பு கணக்கு என்ன செய்கிறது?",
+            "options": [
+                {
+                    "id": "toys",
+                    "text": "பொம்மைகள் தருகிறது",
+                    "emoji": "🧸",
+                    "isCorrect": false
+                },
+                {
+                    "id": "food",
+                    "text": "உணவு விற்கிறது",
+                    "emoji": "🍕",
+                    "isCorrect": false
+                },
+                {
+                    "id": "grows",
+                    "text": "உன் பணத்தை வளர்க்கிறது",
+                    "emoji": "📈",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "வங்கியின் தானியங்கி பண இயந்திரத்தில் என்ன செய்யலாம்?",
+            "options": [
+                {
+                    "id": "clothes",
+                    "text": "ஆடை வாங்கலாம்",
+                    "emoji": "👕",
+                    "isCorrect": false
+                },
+                {
+                    "id": "withdraw",
+                    "text": "பணம் எடுக்கலாம்",
+                    "emoji": "💰",
+                    "isCorrect": true
+                },
+                {
+                    "id": "games",
+                    "text": "விளையாட்டு விளையாடலாம்",
+                    "emoji": "🎮",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "வங்கிகள் கடன் ஏன் வழங்குகின்றன?",
+            "options": [
+                {
+                    "id": "borrow",
+                    "text": "பணம் கடன் வாங்க உதவ",
+                    "emoji": "💳",
+                    "isCorrect": true
+                },
+                {
+                    "id": "free",
+                    "text": "இலவச பணம் தர",
+                    "emoji": "🎁",
+                    "isCorrect": false
+                },
+                {
+                    "id": "toys",
+                    "text": "பொம்மைகள் விற்க",
+                    "emoji": "🧸",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "வங்கிகள் பணத்திற்கு ஏன் பாதுகாப்பானவை?",
+            "options": [
+                {
+                    "id": "candy",
+                    "text": "அவை மிட்டாய் தருகின்றன",
+                    "emoji": "🍬",
+                    "isCorrect": false
+                },
+                {
+                    "id": "hide",
+                    "text": "அவை பணத்தை மறைக்கின்றன",
+                    "emoji": "🫥",
+                    "isCorrect": false
+                },
+                {
+                    "id": "protect",
+                    "text": "அவை உன் சேமிப்பை பாதுகாக்கின்றன",
+                    "emoji": "🛡️",
+                    "isCorrect": true
+                }
+            ]
+        }
+    ]
+}

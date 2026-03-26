@@ -1,0 +1,144 @@
+﻿{
+    "title": "பெற்றோருக்கு உதவும் கதை",
+    "subtitleComplete": "கதை முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "questionCounter": "கேள்வி {{current}}/{{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "questions": [
+        {
+            "id": 1,
+            "text": "உங்கள் பெற்றோருக்கு மளிகை சாமான்களுக்கு ₹50 தேவை. உங்களிடம் ₹20 உள்ளது. என்ன செய்வீர்கள்?",
+            "options": [
+                {
+                    "id": "give",
+                    "text": "உதவ உங்கள் ₹20 கொடுங்கள்",
+                    "emoji": "🥕",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "candy",
+                    "text": "மிட்டாய்க்காக வைத்திருங்கள்",
+                    "emoji": "🍬",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "ignore",
+                    "text": "அவர்களின் கோரிக்கையை புறக்கணிக்கவும்",
+                    "emoji": "😐",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "வீட்டில் உதவி ₹10 சம்பாதிக்கிறீர்கள். அதை சேமிக்க வேண்டுமா?",
+            "options": [
+                {
+                    "id": "toys",
+                    "text": "பொம்மைகளில் செலவழியுங்கள்",
+                    "emoji": "🧸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "save",
+                    "text": "ஆம், சேமிப்பில் சேர்க்கவும்",
+                    "emoji": "💰",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "give",
+                    "text": "அதை கொடுத்துவிடுங்கள்",
+                    "emoji": "🎁",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "உங்கள் பெற்றோர் ₹15 க்கு பால் வாங்கச் சொல்கிறார்கள். உங்களிடம் ₹20 உள்ளது. அடுத்து என்ன?",
+            "options": [
+                {
+                    "id": "change",
+                    "text": "பால் வாங்கி சில்லறை திருப்பி கொடுங்கள்",
+                    "emoji": "🧾",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "candy",
+                    "text": "சில்லறையில் மிட்டாய் வாங்குங்கள்",
+                    "emoji": "🍭",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "keep",
+                    "text": "₹20 முழுவதையும் வைத்திருங்கள்",
+                    "emoji": "🤫",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "₹10 கண்டுபிடிக்கிறீர்கள். பெற்றோர் நேர்மையாக இருக்கச் சொல்கிறார்கள். என்ன செய்வீர்கள்?",
+            "options": [
+                {
+                    "id": "snacks",
+                    "text": "சிற்றுண்டிகளில் செலவழியுங்கள்",
+                    "emoji": "🍟",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "hide",
+                    "text": "உங்கள் பாக்கெட்டில் மறைத்து வையுங்கள்",
+                    "emoji": "🧥",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "find",
+                    "text": "உரிமையாளரை கண்டறிய முயற்சிக்கவும்",
+                    "emoji": "🕵️",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "பணத்தில் பெற்றோருக்கு உதவுவது உங்களை எப்படி உணர வைக்கிறது...",
+            "options": [
+                {
+                    "id": "proud",
+                    "text": "பெருமையாகவும் பொறுப்பாகவும்",
+                    "emoji": "😊",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "sad",
+                    "text": "குறைவான பணத்திற்கு சோகமாக",
+                    "emoji": "😔",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "nothing",
+                    "text": "எதுவும் சிறப்பல்ல",
+                    "emoji": "😐",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

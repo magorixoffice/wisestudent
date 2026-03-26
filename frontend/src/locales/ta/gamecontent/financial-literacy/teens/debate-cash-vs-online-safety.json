@@ -1,0 +1,129 @@
+﻿{
+    "title": "விவாதம்: பணம் vs ஆன்லைன் பாதுகாப்பு",
+    "subtitleComplete": "விவாதம் முடிந்தது!",
+    "subtitleProgress": "சுற்று {{current}} / {{total}}",
+    "roundLabel": "சுற்று {{current}}/{{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "rounds": [
+        {
+            "id": 1,
+            "statement": "ஆன்லைன் பணம் பணத்தை விட அதிக ஆபத்தானதா?",
+            "options": [
+                {
+                    "id": "online-riskier",
+                    "text": "ஆன்லைன் அதிக ஆபத்தானது",
+                    "emoji": "💻",
+                    "isCorrect": false
+                },
+                {
+                    "id": "both-safe",
+                    "text": "இரண்டிற்கும் பாதுகாப்பு தேவை",
+                    "emoji": "🛡️",
+                    "isCorrect": true
+                },
+                {
+                    "id": "cash-riskier",
+                    "text": "பணம் அதிக ஆபத்தானது",
+                    "emoji": "💵",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "statement": "பெரிய தொகைகளுக்கு எது பாதுகாப்பானது?",
+            "options": [
+                {
+                    "id": "both-safe2",
+                    "text": "முன்னெச்சரிக்கையுடன் இரண்டும்",
+                    "emoji": "🔒",
+                    "isCorrect": true
+                },
+                {
+                    "id": "only-cash",
+                    "text": "பணம் மட்டும்",
+                    "emoji": "💰",
+                    "isCorrect": false
+                },
+                {
+                    "id": "only-online",
+                    "text": "ஆன்லைன் மட்டும்",
+                    "emoji": "📱",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "statement": "ஆன்லைன் பணத்தின் முக்கிய ஆபத்து என்ன?",
+            "options": [
+                {
+                    "id": "no-risk",
+                    "text": "ஆபத்துகள் இல்லை",
+                    "emoji": "😓",
+                    "isCorrect": false
+                },
+                {
+                    "id": "too-easy",
+                    "text": "பயன்படுத்த மிகவும் எளிது",
+                    "emoji": "😊",
+                    "isCorrect": false
+                },
+                {
+                    "id": "hacking",
+                    "text": "ஹேக்கிங் மற்றும் மோசடி",
+                    "emoji": "👾",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "statement": "ஆன்லைன் பணத்தை எப்படி பாதுகாக்கலாம்?",
+            "options": [
+                {
+                    "id": "strong-password",
+                    "text": "வலுவான கடவுச்சொற்கள் மற்றும் OTP",
+                    "emoji": "🔐",
+                    "isCorrect": true
+                },
+                {
+                    "id": "no-protection",
+                    "text": "பாதுகாப்பு தேவையில்லை",
+                    "emoji": "😴",
+                    "isCorrect": false
+                },
+                {
+                    "id": "share-details",
+                    "text": "சுதந்திரமாக விவரங்கள் பகிர்வும்",
+                    "emoji": "📢",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "statement": "சிறந்த அணுகுமுறை என்ன?",
+            "options": [
+                {
+                    "id": "only-one",
+                    "text": "ஒரே முறையை பயன்படுத்துங்கள்",
+                    "emoji": "🎯",
+                    "isCorrect": false
+                },
+                {
+                    "id": "balance",
+                    "text": "இரண்டையும் பாதுகாப்பாக சமநிலைப்படுத்துங்கள்",
+                    "emoji": "⚖️",
+                    "isCorrect": true
+                },
+                {
+                    "id": "avoid-all",
+                    "text": "எல்லா பணத்தையும் தவிர்க்கவும்",
+                    "emoji": "🚫",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,145 @@
+﻿{
+    "title": "মিষ্টির দোকানের গল্প",
+    "subtitleComplete": "গল্প সম্পন্ন!",
+    "subtitleProgress": "প্রশ্ন {{current}} / {{total}}",
+    "questionCounter": "প্রশ্ন {{current}}/{{total}}",
+    "scoreLabel": "স্কোর: {{score}}/{{total}}",
+    "stageEmoji": "🍬",
+    "questions": [
+        {
+            "id": 1,
+            "text": "দোকানদার ১০ টাকার বদলে ২০ টাকা নিচ্ছেন। তুমি কি বিল দেখবে?",
+            "options": [
+                {
+                    "id": "yes",
+                    "text": "হ্যাঁ, আমি বিল দেখবো",
+                    "emoji": "📜",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "no",
+                    "text": "না, শুধু পেমেন্ট করবো",
+                    "emoji": "💸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "friend",
+                    "text": "বন্ধুকে দেখতে বলবো",
+                    "emoji": "👥",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "তোমার কাছে ৫০ টাকা আছে। মিষ্টির দাম ১৫ টাকা। কত ভাংতি পাবে?",
+            "options": [
+                {
+                    "id": "25",
+                    "text": "২৫ টাকা",
+                    "emoji": "💸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "40",
+                    "text": "৪০ টাকা",
+                    "emoji": "💵",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "35",
+                    "text": "৩৫ টাকা",
+                    "emoji": "💰",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "দোকানদার ৩৫ টাকার বদলে ৩০ টাকা ভাংতি দিলেন। তুমি কী করবে?",
+            "options": [
+                {
+                    "id": "ask",
+                    "text": "ভদ্রভাবে সঠিক ভাংতি চাও",
+                    "emoji": "🗣️",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "take",
+                    "text": "৩০ টাকা নিয়ে চলে যাও",
+                    "emoji": "🚶",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "buy",
+                    "text": "আরও মিষ্টি কিনবো",
+                    "emoji": "🍬",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "তুমি প্রতিটি ১০ টাকায় দুটি মিষ্টি কিনতে চাও। ১৫ টাকায় কি পারবে?",
+            "options": [
+                {
+                    "id": "yes",
+                    "text": "হ্যাঁ, আমার যথেষ্ট আছে",
+                    "emoji": "😊",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "no",
+                    "text": "না, আমার ২০ টাকা দরকার",
+                    "emoji": "💰",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "discount",
+                    "text": "ছাড় চাইবো",
+                    "emoji": "🎟️",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "বুদ্ধিমানের সাথে কেনাকাটা করার সেরা উপায় কী?",
+            "options": [
+                {
+                    "id": "everything",
+                    "text": "দেখামাত্র সব কিনবো",
+                    "emoji": "🛒",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "check",
+                    "text": "দাম ও বিল সাবধানে দেখো",
+                    "emoji": "🧾",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "friends",
+                    "text": "শুধু বন্ধুদের সাথে কেনাকাটা করো",
+                    "emoji": "👨‍👩‍👧",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

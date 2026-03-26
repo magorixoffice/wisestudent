@@ -1,0 +1,145 @@
+﻿{
+    "title": "பொம்மை vs சேமிப்பு கதை",
+    "subtitleComplete": "கதை முடிந்தது!",
+    "subtitleProgress": "கேள்வி {{current}} / {{total}}",
+    "questionCounter": "கேள்வி {{current}}/{{total}}",
+    "scoreLabel": "மதிப்பெண்: {{score}}/{{total}}",
+    "stageEmoji": "🧸",
+    "questions": [
+        {
+            "id": 1,
+            "text": "விருப்பமான பொம்மை ஒரு வாரத்தில் உடைந்துவிடுகிறது. இது என்ன கற்பிக்கிறது?",
+            "options": [
+                {
+                    "id": "buy",
+                    "text": "விரைவாக அதிக பொம்மைகள் வாங்கு",
+                    "emoji": "🛍️",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "ignore",
+                    "text": "பண தேர்வுகள் முக்கியமில்லை",
+                    "emoji": "🙈",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "value",
+                    "text": "பணம் செலவிடுவதற்கு முன் சிந்தி",
+                    "emoji": "🧠",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "ஒவ்வொரு வாரமும் நாணயங்கள் சேமித்து தொகை வளர்வதை பார்க்கிறாய். என்ன கற்றுக்கொள்கிறாய்?",
+            "options": [
+                {
+                    "id": "patience",
+                    "text": "சேமிப்புக்கு பொறுமை தேவை",
+                    "emoji": "⏳",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "boring",
+                    "text": "சேமிப்பு சலிப்பானது",
+                    "emoji": "😐",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "waste",
+                    "text": "நாணயங்கள் பயனற்றவை",
+                    "emoji": "🪙",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "பிற்காலத்தில் விலையுயர்ந்த ஒன்று வேண்டும். சிறந்த பழக்கம் எது?",
+            "options": [
+                {
+                    "id": "rush",
+                    "text": "தெரிவதை எல்லாம் வாங்கு",
+                    "emoji": "🏃",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "plan",
+                    "text": "திட்டமிட்டு மெல்ல சேமி",
+                    "emoji": "📊",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "borrow",
+                    "text": "எப்போதும் கடன் வாங்கு",
+                    "emoji": "🤝",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "வாங்குவதற்கு முன் விலைகளை ஒப்பிடுகிறாய். எந்த திறனை பயன்படுத்துகிறாய்?",
+            "options": [
+                {
+                    "id": "slow",
+                    "text": "மிகவும் மெதுவாக இருப்பது",
+                    "emoji": "🐢",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "lazy",
+                    "text": "கடை பார்ப்பதை தவிர்ப்பது",
+                    "emoji": "😴",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "smart",
+                    "text": "புத்திசாலித்தனமான பண சிந்தனை",
+                    "emoji": "💡",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "ஒவ்வொரு பொம்மையும் வாங்குவதற்கு பதிலாக சேமிக்க தேர்வு செய்கிறாய். இது என்னை வளர்க்கிறது?",
+            "options": [
+                {
+                    "id": "habit",
+                    "text": "நல்ல சேமிப்பு பழக்கங்கள்",
+                    "emoji": "🏦",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "sad",
+                    "text": "வேடிக்கையே இல்லாமல்",
+                    "emoji": "😢",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "fear",
+                    "text": "செலவிடுவதில் பயம்",
+                    "emoji": "😨",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}

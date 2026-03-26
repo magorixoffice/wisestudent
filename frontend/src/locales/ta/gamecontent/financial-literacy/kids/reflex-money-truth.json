@@ -1,0 +1,152 @@
+﻿{
+    "title": "விளையாட்டு: பண உண்மை",
+    "subtitleComplete": "விளையாட்டு முடிந்தது!",
+    "roundLabel": "சுற்று {{current}}/{{total}}",
+    "timeUp": "நேரம் முடிந்தது!",
+    "readyEmoji": "💰",
+    "readyTitle": "தயாராகு!",
+    "readyDescription": "பண உண்மை மற்றும் நேர்மை பற்றிய கேள்விகளுக்கு பதிலளி!",
+    "readyTimeInfo": "ஒவ்வொரு கேள்விக்கும் {{time}} விநாடிகள் உள்ளன.",
+    "readyQuestionInfo": "உனக்கு {{total}} கேள்விகள் உள்ளன, ஒவ்வொன்றும் {{time}} விநாடிகள்!",
+    "startButton": "விளையாட்டை தொடங்கு",
+    "gameRoundLabel": "சுற்று:",
+    "gameTimeLabel": "நேரம்:",
+    "gameScoreLabel": "மதிப்பெண்:",
+    "questions": [
+        {
+            "id": 1,
+            "question": "பள்ளி தரையில் ஒரு நாணயம் கிடைக்கிறது. சரியான முதல் செயல் என்ன?",
+            "correctAnswer": "யாரோ தொலைத்தார்களா என்று கேள்",
+            "options": [
+                {
+                    "text": "விரைவாக வைத்துக்கொள்",
+                    "isCorrect": false,
+                    "emoji": "🏃"
+                },
+                {
+                    "text": "யாரோ தொலைத்தார்களா என்று கேள்",
+                    "isCorrect": true,
+                    "emoji": "🙋"
+                },
+                {
+                    "text": "தின்பண்டங்கள் வாங்கு",
+                    "isCorrect": false,
+                    "emoji": "🍿"
+                },
+                {
+                    "text": "மறைத்து வை",
+                    "isCorrect": false,
+                    "emoji": "🙈"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "question": "நீ முடிக்காத வேலைக்கு யாரோ பணம் தருகிறார்கள். என்ன செய்வாய்?",
+            "correctAnswer": "உண்மையை சொல்",
+            "options": [
+                {
+                    "text": "உண்மையை சொல்",
+                    "isCorrect": true,
+                    "emoji": "🗣️"
+                },
+                {
+                    "text": "எதுவும் சொல்லாதே",
+                    "isCorrect": false,
+                    "emoji": "🤫"
+                },
+                {
+                    "text": "மற்றவர்களை குற்றம் சொல்",
+                    "isCorrect": false,
+                    "emoji": "👉"
+                },
+                {
+                    "text": "போய்விடு",
+                    "isCorrect": false,
+                    "emoji": "🚶"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "question": "நீயும் நண்பரும் சேர்ந்து பணம் சம்பாதித்தீர்கள். பிரச்சினைகளை தவிர்க்க எது உதவும்?",
+            "correctAnswer": "முன்கூட்டியே பகிர்வதை ஒப்புக்கொள்",
+            "options": [
+                {
+                    "text": "உனக்கு அதிகமாக எடு",
+                    "isCorrect": false,
+                    "emoji": "🤑"
+                },
+                {
+                    "text": "காத்திரு, பிறகு வாதிடு",
+                    "isCorrect": false,
+                    "emoji": "💢"
+                },
+                {
+                    "text": "அதிர்ஷ்டம் முடிவு செய்யட்டும்",
+                    "isCorrect": false,
+                    "emoji": "🎲"
+                },
+                {
+                    "text": "முன்கூட்டியே பகிர்வதை ஒப்புக்கொள்",
+                    "isCorrect": true,
+                    "emoji": "🤝"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "question": "கடன் வாங்கிய பணத்தை திருப்பி கொடுப்பதாக சொன்னாய், ஆனால் மறந்துவிட்டாய். எது சிறப்பாக சரிசெய்யும்?",
+            "correctAnswer": "மன்னிப்பு கேட்டு திருப்பி கொடு",
+            "options": [
+                {
+                    "text": "மன்னிப்பு கேட்டு திருப்பி கொடு",
+                    "isCorrect": true,
+                    "emoji": "🙏"
+                },
+                {
+                    "text": "அந்த நபரை தவிர்",
+                    "isCorrect": false,
+                    "emoji": "🙄"
+                },
+                {
+                    "text": "கொடுத்துவிட்டதாக நடி",
+                    "isCorrect": false,
+                    "emoji": "🎭"
+                },
+                {
+                    "text": "சிரித்து விட்டுவிடு",
+                    "isCorrect": false,
+                    "emoji": "😅"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "question": "மீண்டும் பணத்தில் உன்னை நம்ப வைப்பது எது?",
+            "correctAnswer": "வாக்குறுதிகளை காப்பாற்று",
+            "options": [
+                {
+                    "text": "சத்தமாக பேசு",
+                    "isCorrect": false,
+                    "emoji": "📢"
+                },
+                {
+                    "text": "சாக்குகள் சொல்",
+                    "isCorrect": false,
+                    "emoji": "🌀"
+                },
+                {
+                    "text": "வாக்குறுதிகளை காப்பாற்று",
+                    "isCorrect": true,
+                    "emoji": "📌"
+                },
+                {
+                    "text": "கூடுதலாக கேள்",
+                    "isCorrect": false,
+                    "emoji": "💸"
+                }
+            ]
+        }
+    ]
+}

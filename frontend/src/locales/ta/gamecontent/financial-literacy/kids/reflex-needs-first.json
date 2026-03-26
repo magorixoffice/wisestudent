@@ -1,0 +1,150 @@
+﻿{
+    "title": "ரிஃப்ளெக்ஸ் நீட்ஸ் ஃபர்ஸ்ட்",
+    "subtitlePlaying": "சுற்று {{current}}/{{total}}: தேவைகள் vs விருப்பங்களை கண்டறியுங்கள்!",
+    "subtitleReady": "தேவைகள் vs விருப்பங்களை கண்டறியுங்கள்!",
+    "readyEmoji": "✅",
+    "readyTitle": "தேவைகள் vs விருப்பங்கள் திறன்களை சோதிக்க தயாரா?",
+    "readyDescription": "தேவைகள் மற்றும் விருப்பங்களை கண்டறிவது பற்றிய கேள்விகளுக்கு பதிலளியுங்கள்.",
+    "readyInfo": "உங்களுக்கு {{total}} கேள்விகள் உள்ளன, ஒவ்வொன்றிற்கும் {{seconds}} வினாடிகள்!",
+    "startButton": "கேம் தொடங்கு",
+    "roundLabel": "சுற்று:",
+    "timeLabel": "நேரம்:",
+    "scoreLabel": "மதிப்பெண்:",
+    "questions": [
+        {
+            "id": 1,
+            "question": "இவற்றில் எது அடிப்படை தேவை?",
+            "correctAnswer": "உணவு",
+            "options": [
+                {
+                    "text": "வீடியோ கேம்கள்",
+                    "isCorrect": false,
+                    "emoji": "🎮"
+                },
+                {
+                    "text": "உணவு",
+                    "isCorrect": true,
+                    "emoji": "🍲"
+                },
+                {
+                    "text": "டிசைனர் ஆடைகள்",
+                    "isCorrect": false,
+                    "emoji": "👗"
+                },
+                {
+                    "text": "ஆடம்பர கார்",
+                    "isCorrect": false,
+                    "emoji": "🚗"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "question": "கல்விக்கான தேவையை எது குறிக்கிறது?",
+            "correctAnswer": "பள்ளி புத்தகங்கள்",
+            "options": [
+                {
+                    "text": "பள்ளி புத்தகங்கள்",
+                    "isCorrect": true,
+                    "emoji": "📚"
+                },
+                {
+                    "text": "விலையுயர்ந்த பொம்மைகள்",
+                    "isCorrect": false,
+                    "emoji": "🧸"
+                },
+                {
+                    "text": "கேஜெட்கள்",
+                    "isCorrect": false,
+                    "emoji": "📱"
+                },
+                {
+                    "text": "சிற்றுண்டிகள்",
+                    "isCorrect": false,
+                    "emoji": "🍪"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "question": "ஆரோக்கியத்திற்கு எது அவசியம்?",
+            "correctAnswer": "மருந்து",
+            "options": [
+                {
+                    "text": "மிட்டாய்",
+                    "isCorrect": false,
+                    "emoji": "🍬"
+                },
+                {
+                    "text": "சோடா",
+                    "isCorrect": false,
+                    "emoji": "🥤"
+                },
+                {
+                    "text": "மருந்து",
+                    "isCorrect": true,
+                    "emoji": "💊"
+                },
+                {
+                    "text": "நகைகள்",
+                    "isCorrect": false,
+                    "emoji": "💎"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "question": "எது அடிப்படை அவசியம்?",
+            "correctAnswer": "வீடு",
+            "options": [
+                {
+                    "text": "விடுமுறை பயணம்",
+                    "isCorrect": false,
+                    "emoji": "✈️"
+                },
+                {
+                    "text": "பொழுதுபோக்கு",
+                    "isCorrect": false,
+                    "emoji": "🎬"
+                },
+                {
+                    "text": "ஆடம்பர உணவகம்",
+                    "isCorrect": false,
+                    "emoji": "🍽️"
+                },
+                {
+                    "text": "வீடு",
+                    "isCorrect": true,
+                    "emoji": "🏠"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "question": "எது அடிப்படை தேவை?",
+            "correctAnswer": "சுத்தமான தண்ணீர்",
+            "options": [
+                {
+                    "text": "சுத்தமான தண்ணீர்",
+                    "isCorrect": true,
+                    "emoji": "🚰"
+                },
+                {
+                    "text": "ஐஸ்கிரீம்",
+                    "isCorrect": false,
+                    "emoji": "🍦"
+                },
+                {
+                    "text": "டிசைனர் பை",
+                    "isCorrect": false,
+                    "emoji": "👜"
+                },
+                {
+                    "text": "கச்சேரி டிக்கெட்",
+                    "isCorrect": false,
+                    "emoji": "🎟️"
+                }
+            ]
+        }
+    ]
+}

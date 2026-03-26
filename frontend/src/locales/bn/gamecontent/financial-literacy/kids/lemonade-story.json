@@ -1,0 +1,145 @@
+﻿{
+    "title": "লেবুর শরবতের গল্প",
+    "subtitleComplete": "গল্প সম্পন্ন!",
+    "subtitleProgress": "প্রশ্ন {{current}} / {{total}}",
+    "questionCounter": "প্রশ্ন {{current}}/{{total}}",
+    "scoreLabel": "স্কোর: {{score}}/{{total}}",
+    "stageEmoji": "🍋",
+    "questions": [
+        {
+            "id": 1,
+            "text": "লেবুর শরবতের স্টল থেকে ৫০ টাকা উপার্জন করেছ। বুদ্ধিমান পছন্দ কী?",
+            "options": [
+                {
+                    "id": "toys",
+                    "text": "সব খেলনায় খরচ করবো",
+                    "emoji": "🧸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "snacks",
+                    "text": "নাস্তা কিনবো",
+                    "emoji": "🍟",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "save",
+                    "text": "সরঞ্জামের জন্য অর্ধেক সঞ্চয় করবো",
+                    "emoji": "💰",
+                    "description": "",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "লেবুর জন্য ২০ টাকা দরকার। তোমার কাছে ১৫ টাকা আছে। কী করবে?",
+            "options": [
+                {
+                    "id": "save",
+                    "text": "আরও ৫ টাকা সঞ্চয় করবো",
+                    "emoji": "🙂",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "borrow",
+                    "text": "৫ টাকা ধার নেবো",
+                    "emoji": "🙈",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "skip",
+                    "text": "লেবু কেনা বাদ দেবো",
+                    "emoji": "🍋",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "একজন খদ্দের ৫ টাকার বদলে ১০ টাকা দিলেন। সৎ কাজ কী?",
+            "options": [
+                {
+                    "id": "keep",
+                    "text": "১০ টাকা রেখে দেবো",
+                    "emoji": "💸",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "return",
+                    "text": "অতিরিক্ত ৫ টাকা ফেরত দেবো",
+                    "emoji": "🤝",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "candy",
+                    "text": "মিষ্টিতে খরচ করবো",
+                    "emoji": "🍬",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "৩০ টাকা উপার্জন করেছ। আজই সব খরচ করবে?",
+            "options": [
+                {
+                    "id": "no",
+                    "text": "না, পরের স্টলের জন্য সঞ্চয় করবো",
+                    "emoji": "🙅",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "games",
+                    "text": "হ্যাঁ, গেম কিনবো",
+                    "emoji": "🎮",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "give",
+                    "text": "দিয়ে দেবো",
+                    "emoji": "🎁",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "লেবুর শরবতের স্টলের উপার্জন পরিকল্পনা করা কেন বুদ্ধিমানী?",
+            "options": [
+                {
+                    "id": "spend",
+                    "text": "বেশি খরচ করা যায়",
+                    "emoji": "🛍️",
+                    "description": "",
+                    "isCorrect": false
+                },
+                {
+                    "id": "running",
+                    "text": "স্টল চালু রাখা যায়",
+                    "emoji": "☀️",
+                    "description": "",
+                    "isCorrect": true
+                },
+                {
+                    "id": "customers",
+                    "text": "বেশি খদ্দের পাওয়া যায়",
+                    "emoji": "👥",
+                    "description": "",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}
