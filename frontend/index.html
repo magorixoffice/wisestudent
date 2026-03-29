@@ -7,7 +7,7 @@
     <title>Wise Student</title>
     
     <!-- PWA Manifest -->
-    <link rel="manifest" href="/manifest.json?v=2" />
+    <link rel="manifest" href="/manifest.json?v=3" />
     
     <!-- Theme Color -->
     <meta name="theme-color" content="#6366f1" />
@@ -42,7 +42,28 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <script type="module">
+      const isLocalDevHost =
+        location.hostname === "localhost" ||
+        location.hostname === "127.0.0.1" ||
+        location.hostname === "::1";
+
+      if (isLocalDevHost && "serviceWorker" in navigator) {
+        try {
+          const regs = await navigator.serviceWorker.getRegistrations();
+          await Promise.all(regs.map((r) => r.unregister()));
+        } catch {}
+      }
+
+      if (isLocalDevHost && "caches" in window) {
+        try {
+          const keys = await caches.keys();
+          await Promise.all(keys.map((key) => caches.delete(key)));
+        } catch {}
+      }
+
+      await import("/src/main.jsx");
+    </script>
     <!-- Prevent Stripe from initializing if cached - We use Razorpay only -->
     <script>
       // Block Stripe completely - we use Razorpay only

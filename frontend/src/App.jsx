@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
 import TeacherProtectedRoute from "./components/TeacherProtectedRoute";
@@ -7,204 +7,207 @@ import { useAuth } from "./hooks/useAuth";
 // Global UI
 import Navbar from "./components/Navbar";
 // Auth Pages
-import Login from "./pages/Auth/Login";
-import Register from "./pages/Auth/Register";
-import VerifyOTP from "./pages/Auth/VerifyOTP";
-import ForgotPassword from "./pages/Auth/ForgetPassword";
-import ResetPassword from "./pages/Auth/ResetPassword";
-import StakeholderRegister from "./pages/Auth/StakeholderRegister";
-import PendingApprovalPage from "./pages/Auth/PendingApproval";
-import ParentRegister from "./pages/Auth/ParentRegister";
-import SellerRegister from "./pages/Auth/SellerRegister";
-import TeacherRegister from "./pages/Auth/TeacherRegister";
-import AccountTypeSelection from "./pages/Auth/AccountTypeSelection";
 
 // Student Pages
-import StudentAchievements from "./pages/Student/StudentAchievements";
-import StudentDashboard from "./pages/Student/StudentDashboard";
-import StudentActivity from "./pages/Student/StudentActivity";
-import AssignmentAttempt from "./pages/Student/AssignmentAttempt";
-import CategoryView from "./pages/Student/CategoryView";
-import QuickQuiz from "./pages/Student/QuickQuiz";
-import MoodTracker from "./pages/Student/MoodTracker";
-import MindfulnessBreak from "./pages/Student/MindfulnessBreak";
 
-import RewardsPage from "./pages/Student/RewardsPage";
-import RedeemPage from "./pages/Student/RedeemPage";
-import WalletPage from "./pages/Student/WalletPage";
-import Leaderboard from "./pages/Student/Leaderboard";
-import StudentGame from "./pages/Student/StudentGame";
-import Notifications from "./components/Notifications";
-import Profile from "./components/Profile";
-import TeacherProfile from "./pages/School/TeacherProfile";
-import Setting from "./components/Settings";
-import BreathingExercise from "./pages/Student/BreathingExercise";
-import FinancialLiteracy from "./pages/Student/FinancialLiteracy";
-import PaymentPage from "./pages/Student/PaymentPage";
-import SubscriptionCheckout from "./pages/Student/SubscriptionCheckout";
-import PresentationPage from "./pages/Student/PresentationPage";
-import BudgetPlanner from "./pages/Student/BudgetPlanner";
-import InvestmentSimulator from "./pages/Student/InvestmentSimulator";
-import SavingsGoals from "./pages/Student/SavingsGoals";
-import FinancialQuiz from "./pages/Student/FinancialQuiz";
-import ExpenseTracker from "./pages/Student/ExpenseTracker";
-import CreditManagement from "./pages/Student/CreditManagement";
-import DebtTracker from "./pages/Student/DebtTracker";
-import BrainHealthQuiz from "./pages/Student/BrainHealthQuiz";
-import StressManagement from "./pages/Student/StressManagement";
-import GameCategoryPage from "./pages/Games/GameCategoryPage";
-import DCOSGames from "./pages/Games/DCOSGames";
-import BrainTeaserGames from "./pages/Games/BrainTeaserGames";
-import BrainTeaserPlay from "./pages/Games/BrainTeaserPlay";
 
 // Admin Pages
-import AdminDashboard from "./pages/Admin/AdminDashboard";
-import AdminPanel from "./pages/Admin/AdminPanel";
-import AdminAnalytics from "./pages/Admin/AdminAnalytics";
-import AllStudents from "./pages/Admin/AllStudents";
-import AdminRedemptions from "./pages/Admin/AdminRedemptions";
-import FeedbackHistoryModal from "./pages/Admin/FeedbackHistoryModal";
-import AllRedemptions from "./pages/Admin/AllRedemptions";
-import AdminStatsPanel from "./pages/Admin/AdminStatsPanel";
-import AdminUsersPanel from "./pages/Admin/AdminUsersPanel";
-import AdminSettings from "./pages/Admin/AdminSettings";
-import AdminSettingsCommunications from "./pages/Admin/AdminSettingsCommunications";
-import AdminSchoolApprovals from "./pages/Admin/AdminSchoolApprovals";
-import IncidentManagement from "./pages/Admin/IncidentManagement";
-import AdminTrackingDashboard from "./pages/Admin/AdminTrackingDashboard";
-import AdminPaymentTracker from "./pages/Admin/AdminPaymentTracker";
-import AdminProfile from "./pages/Admin/AdminProfile";
-import AdminReports from "./pages/Admin/AdminReports";
-import BehaviorAnalytics from "./pages/Admin/BehaviorAnalytics";
-import SmartInsights from "./pages/Admin/SmartInsights";
-import FinancialConsole from "./pages/Admin/FinancialConsole";
-import SupportDesk from "./pages/Admin/SupportDesk";
-import LifecycleManagement from "./pages/Admin/LifecycleManagement";
-import ContentGovernance from "./pages/Admin/ContentGovernance";
-import AuditTimeline from "./pages/Admin/AuditTimeline";
-import ConfigurationControlCenter from "./pages/Admin/ConfigurationControlCenter";
-import CommunicationSuite from "./pages/Admin/CommunicationSuite";
-import AdminPlatform from "./pages/Admin/AdminPlatform";
-import GoodieOrders from "./pages/Admin/GoodieOrders";
 // Admin CSR & Program Management
-import AdminCSRPartners from "./pages/Admin/AdminCSRPartners";
-import AdminCSRNotifications from "./pages/Admin/AdminCSRNotifications";
-import AdminPrograms from "./pages/Admin/AdminPrograms";
-import AdminProgramCreate from "./pages/Admin/AdminProgramCreate";
-import AdminProgramEdit from "./pages/Admin/AdminProgramEdit";
-import AdminProgramDetail from "./pages/Admin/AdminProgramDetail";
-import AdminProgramSchools from "./pages/Admin/AdminProgramSchools";
-import AdminProgramCheckpoints from "./pages/Admin/AdminProgramCheckpoints";
-import AdminProgramMetrics from "./pages/Admin/AdminProgramMetrics";
-import AdminProgramReports from "./pages/Admin/AdminProgramReports";
 
 // Parent Pages
-import ParentDashboard from "./pages/Parent/ParentDashboard";
-import ParentOverview from "./pages/Parent/ParentOverview";
-import ParentChildren from "./pages/Parent/ParentChildren";
-import ParentChildAnalytics from "./pages/Parent/ParentChildAnalytics";
-import ChildProgress from "./pages/Parent/ChildProgress";
-import ChildMoodWellbeing from "./pages/Parent/ChildMoodWellbeing";
-import ChildWalletRewards from "./pages/Parent/ChildWalletRewards";
-import ParentSettings from "./pages/Parent/ParentSettings";
-import ParentUpgrade from "./pages/Parent/ParentUpgrade";
-import ParentProfile from "./pages/Parent/ParentProfile";
-import ParentGameCategoryPage from "./pages/Parent/Games/ParentGameCategoryPage";
-import UniversalParentGameRenderer from "./pages/Parent/Games/UniversalParentGameRenderer";
-import ParentGamesHub from "./pages/Parent/Games/ParentGamesHub";
-import TeacherGamesHub from "./pages/Teacher/Games/TeacherGamesHub";
-import TeacherGameCategoryPage from "./pages/Teacher/Games/TeacherGameCategoryPage";
-import UniversalTeacherGameRenderer from "./pages/Teacher/Games/UniversalTeacherGameRenderer";
 
 // Seller Pages
-import SellerDashboard from "./pages/Seller/SellerDashboard";
 
 // CSR Pages
-import CSRProfile from "./pages/CSR/CSRProfile";
-import CSRSettings from "./pages/CSR/CSRSettings";
-import CSRNotifications from "./pages/CSR/CSRNotifications";
 import CSRLayout from "./layouts/CSRLayout";
 // New CSR Pages
-import CSRProgramOverview from "./pages/CSR/CSRProgramOverview";
-import CSRStudentReach from "./pages/CSR/CSRStudentReach";
-import CSREngagement from "./pages/CSR/CSREngagement";
-import CSRReadinessExposure from "./pages/CSR/CSRReadinessExposure";
-import CSRSchoolCoverageNew from "./pages/CSR/CSRSchoolCoverageNew";
-import CSRRecognition from "./pages/CSR/CSRRecognition";
-import CSRImpactReports from "./pages/CSR/CSRImpactReports";
 // CSR Status Pages
-import CSRPendingApproval from "./pages/CSR/CSRPendingApproval";
-import CSRRejected from "./pages/CSR/CSRRejected";
-import CSRNoProgram from "./pages/CSR/CSRNoProgram";
 
 // Multi-Tenant Pages
-import CompanySignup from "./pages/MultiTenant/CompanySignup";
-import CreateOrganization from "./pages/MultiTenant/CreateOrganization";
-import SchoolAdminDashboard from "./pages/School/SchoolAdminDashboard";
-import AnnouncementManagement from "./pages/School/AnnouncementManagement";
-import Announcements from "./pages/School/Announcements";
-import SchoolAdminAnalytics from "./pages/School/SchoolAdminAnalytics";
-import SchoolAdminStudents from "./pages/School/SchoolAdminStudents";
-import SchoolAdminTopPerformers from "./pages/School/SchoolAdminTopPerformers";
-import SchoolAdminTeachers from "./pages/School/SchoolAdminTeachers";
-import SchoolAdminClasses from "./pages/School/SchoolAdminClasses";
-import SchoolAdminStaff from "./pages/School/SchoolAdminStaff";
-import SchoolAdminApprovals from "./pages/School/SchoolAdminApprovals";
-import SchoolAdminTemplates from "./pages/School/SchoolAdminTemplates";
-import SchoolAdminNEPTracking from "./pages/School/SchoolAdminNEPTracking";
-import SchoolAdminCompliance from "./pages/School/SchoolAdminCompliance";
-import SchoolAdminBilling from "./pages/School/SchoolAdminBilling";
-import SchoolAdminPaymentTracker from "./pages/School/SchoolAdminPaymentTracker";
-import AdminSchools from "./pages/Admin/AdminSchools";
-import AdminIndividuals from "./pages/Admin/AdminIndividuals";
-import AdminSchoolDetail from "./pages/Admin/AdminSchoolDetail";
-import SchoolAdminEmergency from "./pages/School/SchoolAdminEmergency";
-import SchoolAdminEvents from "./pages/School/SchoolAdminEvents";
-import SchoolAdminSettings from "./pages/School/SchoolAdminSettings";
-import SchoolAdminProfile from "./pages/School/SchoolAdminProfile";
-import SchoolAdminSettingsPersonal from "./pages/School/SchoolAdminSettingsPersonal";
-import SchoolTeacherDashboard from "./pages/School/SchoolTeacherDashboard";
-import SchoolStudentDashboard from "./pages/School/SchoolStudentDashboard";
-import SchoolParentDashboard from "./pages/School/SchoolParentDashboard";
-import TeacherOverview from "./pages/School/TeacherOverview";
-import SchoolTestimonialSubmit from "./pages/School/SchoolTestimonialSubmit";
-import SchoolSponsorship from "./pages/School/SchoolSponsorship";
-import SchoolSponsorshipGallery from "./pages/School/SchoolSponsorshipGallery";
-import SchoolSponsorshipThankYou from "./pages/School/SchoolSponsorshipThankYou";
-import TeacherStudents from "./pages/School/TeacherStudents";
-import TeacherAnalytics from "./pages/School/TeacherAnalytics";
-import TeacherTasks from "./pages/School/TeacherTasks";
-import TeacherChatContacts from "./pages/School/TeacherChatContacts";
-import TeacherSettings from "./pages/School/TeacherSettings";
-import TeacherStudentProgress from "./pages/School/TeacherStudentProgress";
-import TeacherStudentWalletRewards from "./pages/School/TeacherStudentWalletRewards";
-import TeacherParentChat from "./pages/School/TeacherParentChat";
-import TeacherStudentChat from "./pages/School/TeacherStudentChat";
-import SchoolStudentChat from "./pages/School/SchoolStudentChat";
-import ParentChat from "./pages/Parent/ParentChat";
-import AssignmentTracking from "./pages/School/AssignmentTracking";
-import LandingPage from "./pages/LandingPage";
-import PlatformDetails from "./pages/PlatformDetails";
-import IndividualAccountSelection from "./pages/IndividualAccountSelection";
 // Multi-tenant registration pages
-import InstitutionTypeSelection from "./pages/MultiTenant/InstitutionTypeSelection";
-import SchoolRegistration from "./pages/MultiTenant/SchoolRegistration";
 // 404 Page
-import NotFound from "./pages/NotFound";
 import ErrorBoundary from "./components/ErrorBoundary";
 // Toast notification provider
 import { Toaster } from "react-hot-toast";
 
 // Additional Pages
-import About from "./pages/About";
-import Blog from "./pages/Blog";
-import Careers from "./pages/Careers";
-import CareerApply from "./pages/CareerApply";
-import Contact from "./pages/Contact";
-import Terms from "./pages/Terms";
-import Privacy from "./pages/Privacy";
-import Cookies from "./pages/Cookies";
-import UniversalGameRenderer from "./components/UniversalGameRenderer";
+
+
+// Route-level lazy modules to keep the initial graph and chunk pressure low
+const Login = React.lazy(() => import("./pages/Auth/Login"));
+const Register = React.lazy(() => import("./pages/Auth/Register"));
+const VerifyOTP = React.lazy(() => import("./pages/Auth/VerifyOTP"));
+const ForgotPassword = React.lazy(() => import("./pages/Auth/ForgetPassword"));
+const ResetPassword = React.lazy(() => import("./pages/Auth/ResetPassword"));
+const StakeholderRegister = React.lazy(() => import("./pages/Auth/StakeholderRegister"));
+const PendingApprovalPage = React.lazy(() => import("./pages/Auth/PendingApproval"));
+const ParentRegister = React.lazy(() => import("./pages/Auth/ParentRegister"));
+const SellerRegister = React.lazy(() => import("./pages/Auth/SellerRegister"));
+const TeacherRegister = React.lazy(() => import("./pages/Auth/TeacherRegister"));
+const AccountTypeSelection = React.lazy(() => import("./pages/Auth/AccountTypeSelection"));
+const StudentAchievements = React.lazy(() => import("./pages/Student/StudentAchievements"));
+const StudentDashboard = React.lazy(() => import("./pages/Student/StudentDashboard"));
+const StudentActivity = React.lazy(() => import("./pages/Student/StudentActivity"));
+const AssignmentAttempt = React.lazy(() => import("./pages/Student/AssignmentAttempt"));
+const CategoryView = React.lazy(() => import("./pages/Student/CategoryView"));
+const QuickQuiz = React.lazy(() => import("./pages/Student/QuickQuiz"));
+const MoodTracker = React.lazy(() => import("./pages/Student/MoodTracker"));
+const MindfulnessBreak = React.lazy(() => import("./pages/Student/MindfulnessBreak"));
+const RewardsPage = React.lazy(() => import("./pages/Student/RewardsPage"));
+const RedeemPage = React.lazy(() => import("./pages/Student/RedeemPage"));
+const WalletPage = React.lazy(() => import("./pages/Student/WalletPage"));
+const Leaderboard = React.lazy(() => import("./pages/Student/Leaderboard"));
+const StudentGame = React.lazy(() => import("./pages/Student/StudentGame"));
+const Notifications = React.lazy(() => import("./components/Notifications"));
+const Profile = React.lazy(() => import("./components/Profile"));
+const TeacherProfile = React.lazy(() => import("./pages/School/TeacherProfile"));
+const Setting = React.lazy(() => import("./components/Settings"));
+const BreathingExercise = React.lazy(() => import("./pages/Student/BreathingExercise"));
+const FinancialLiteracy = React.lazy(() => import("./pages/Student/FinancialLiteracy"));
+const PaymentPage = React.lazy(() => import("./pages/Student/PaymentPage"));
+const SubscriptionCheckout = React.lazy(() => import("./pages/Student/SubscriptionCheckout"));
+const PresentationPage = React.lazy(() => import("./pages/Student/PresentationPage"));
+const BudgetPlanner = React.lazy(() => import("./pages/Student/BudgetPlanner"));
+const InvestmentSimulator = React.lazy(() => import("./pages/Student/InvestmentSimulator"));
+const SavingsGoals = React.lazy(() => import("./pages/Student/SavingsGoals"));
+const FinancialQuiz = React.lazy(() => import("./pages/Student/FinancialQuiz"));
+const ExpenseTracker = React.lazy(() => import("./pages/Student/ExpenseTracker"));
+const CreditManagement = React.lazy(() => import("./pages/Student/CreditManagement"));
+const DebtTracker = React.lazy(() => import("./pages/Student/DebtTracker"));
+const BrainHealthQuiz = React.lazy(() => import("./pages/Student/BrainHealthQuiz"));
+const StressManagement = React.lazy(() => import("./pages/Student/StressManagement"));
+const GameCategoryPage = React.lazy(() => import("./pages/Games/GameCategoryPage"));
+const DCOSGames = React.lazy(() => import("./pages/Games/DCOSGames"));
+const BrainTeaserGames = React.lazy(() => import("./pages/Games/BrainTeaserGames"));
+const BrainTeaserPlay = React.lazy(() => import("./pages/Games/BrainTeaserPlay"));
+const AdminDashboard = React.lazy(() => import("./pages/Admin/AdminDashboard"));
+const AdminPanel = React.lazy(() => import("./pages/Admin/AdminPanel"));
+const AdminAnalytics = React.lazy(() => import("./pages/Admin/AdminAnalytics"));
+const AllStudents = React.lazy(() => import("./pages/Admin/AllStudents"));
+const AdminRedemptions = React.lazy(() => import("./pages/Admin/AdminRedemptions"));
+const FeedbackHistoryModal = React.lazy(() => import("./pages/Admin/FeedbackHistoryModal"));
+const AllRedemptions = React.lazy(() => import("./pages/Admin/AllRedemptions"));
+const AdminStatsPanel = React.lazy(() => import("./pages/Admin/AdminStatsPanel"));
+const AdminUsersPanel = React.lazy(() => import("./pages/Admin/AdminUsersPanel"));
+const AdminSettings = React.lazy(() => import("./pages/Admin/AdminSettings"));
+const AdminSettingsCommunications = React.lazy(() => import("./pages/Admin/AdminSettingsCommunications"));
+const AdminSchoolApprovals = React.lazy(() => import("./pages/Admin/AdminSchoolApprovals"));
+const IncidentManagement = React.lazy(() => import("./pages/Admin/IncidentManagement"));
+const AdminTrackingDashboard = React.lazy(() => import("./pages/Admin/AdminTrackingDashboard"));
+const AdminPaymentTracker = React.lazy(() => import("./pages/Admin/AdminPaymentTracker"));
+const AdminProfile = React.lazy(() => import("./pages/Admin/AdminProfile"));
+const AdminReports = React.lazy(() => import("./pages/Admin/AdminReports"));
+const BehaviorAnalytics = React.lazy(() => import("./pages/Admin/BehaviorAnalytics"));
+const SmartInsights = React.lazy(() => import("./pages/Admin/SmartInsights"));
+const FinancialConsole = React.lazy(() => import("./pages/Admin/FinancialConsole"));
+const SupportDesk = React.lazy(() => import("./pages/Admin/SupportDesk"));
+const LifecycleManagement = React.lazy(() => import("./pages/Admin/LifecycleManagement"));
+const ContentGovernance = React.lazy(() => import("./pages/Admin/ContentGovernance"));
+const AuditTimeline = React.lazy(() => import("./pages/Admin/AuditTimeline"));
+const ConfigurationControlCenter = React.lazy(() => import("./pages/Admin/ConfigurationControlCenter"));
+const CommunicationSuite = React.lazy(() => import("./pages/Admin/CommunicationSuite"));
+const AdminPlatform = React.lazy(() => import("./pages/Admin/AdminPlatform"));
+const GoodieOrders = React.lazy(() => import("./pages/Admin/GoodieOrders"));
+const AdminCSRPartners = React.lazy(() => import("./pages/Admin/AdminCSRPartners"));
+const AdminCSRNotifications = React.lazy(() => import("./pages/Admin/AdminCSRNotifications"));
+const AdminPrograms = React.lazy(() => import("./pages/Admin/AdminPrograms"));
+const AdminProgramCreate = React.lazy(() => import("./pages/Admin/AdminProgramCreate"));
+const AdminProgramEdit = React.lazy(() => import("./pages/Admin/AdminProgramEdit"));
+const AdminProgramDetail = React.lazy(() => import("./pages/Admin/AdminProgramDetail"));
+const AdminProgramSchools = React.lazy(() => import("./pages/Admin/AdminProgramSchools"));
+const AdminProgramCheckpoints = React.lazy(() => import("./pages/Admin/AdminProgramCheckpoints"));
+const AdminProgramMetrics = React.lazy(() => import("./pages/Admin/AdminProgramMetrics"));
+const AdminProgramReports = React.lazy(() => import("./pages/Admin/AdminProgramReports"));
+const ParentDashboard = React.lazy(() => import("./pages/Parent/ParentDashboard"));
+const ParentOverview = React.lazy(() => import("./pages/Parent/ParentOverview"));
+const ParentChildren = React.lazy(() => import("./pages/Parent/ParentChildren"));
+const ParentChildAnalytics = React.lazy(() => import("./pages/Parent/ParentChildAnalytics"));
+const ChildProgress = React.lazy(() => import("./pages/Parent/ChildProgress"));
+const ChildMoodWellbeing = React.lazy(() => import("./pages/Parent/ChildMoodWellbeing"));
+const ChildWalletRewards = React.lazy(() => import("./pages/Parent/ChildWalletRewards"));
+const ParentSettings = React.lazy(() => import("./pages/Parent/ParentSettings"));
+const ParentUpgrade = React.lazy(() => import("./pages/Parent/ParentUpgrade"));
+const ParentProfile = React.lazy(() => import("./pages/Parent/ParentProfile"));
+const ParentGameCategoryPage = React.lazy(() => import("./pages/Parent/Games/ParentGameCategoryPage"));
+const UniversalParentGameRenderer = React.lazy(() => import("./pages/Parent/Games/UniversalParentGameRenderer"));
+const ParentGamesHub = React.lazy(() => import("./pages/Parent/Games/ParentGamesHub"));
+const TeacherGamesHub = React.lazy(() => import("./pages/Teacher/Games/TeacherGamesHub"));
+const TeacherGameCategoryPage = React.lazy(() => import("./pages/Teacher/Games/TeacherGameCategoryPage"));
+const UniversalTeacherGameRenderer = React.lazy(() => import("./pages/Teacher/Games/UniversalTeacherGameRenderer"));
+const SellerDashboard = React.lazy(() => import("./pages/Seller/SellerDashboard"));
+const CSRProfile = React.lazy(() => import("./pages/CSR/CSRProfile"));
+const CSRSettings = React.lazy(() => import("./pages/CSR/CSRSettings"));
+const CSRNotifications = React.lazy(() => import("./pages/CSR/CSRNotifications"));
+const CSRProgramOverview = React.lazy(() => import("./pages/CSR/CSRProgramOverview"));
+const CSRStudentReach = React.lazy(() => import("./pages/CSR/CSRStudentReach"));
+const CSREngagement = React.lazy(() => import("./pages/CSR/CSREngagement"));
+const CSRReadinessExposure = React.lazy(() => import("./pages/CSR/CSRReadinessExposure"));
+const CSRSchoolCoverageNew = React.lazy(() => import("./pages/CSR/CSRSchoolCoverageNew"));
+const CSRRecognition = React.lazy(() => import("./pages/CSR/CSRRecognition"));
+const CSRImpactReports = React.lazy(() => import("./pages/CSR/CSRImpactReports"));
+const CSRPendingApproval = React.lazy(() => import("./pages/CSR/CSRPendingApproval"));
+const CSRRejected = React.lazy(() => import("./pages/CSR/CSRRejected"));
+const CSRNoProgram = React.lazy(() => import("./pages/CSR/CSRNoProgram"));
+const CompanySignup = React.lazy(() => import("./pages/MultiTenant/CompanySignup"));
+const CreateOrganization = React.lazy(() => import("./pages/MultiTenant/CreateOrganization"));
+const SchoolAdminDashboard = React.lazy(() => import("./pages/School/SchoolAdminDashboard"));
+const AnnouncementManagement = React.lazy(() => import("./pages/School/AnnouncementManagement"));
+const Announcements = React.lazy(() => import("./pages/School/Announcements"));
+const SchoolAdminAnalytics = React.lazy(() => import("./pages/School/SchoolAdminAnalytics"));
+const SchoolAdminStudents = React.lazy(() => import("./pages/School/SchoolAdminStudents"));
+const SchoolAdminTopPerformers = React.lazy(() => import("./pages/School/SchoolAdminTopPerformers"));
+const SchoolAdminTeachers = React.lazy(() => import("./pages/School/SchoolAdminTeachers"));
+const SchoolAdminClasses = React.lazy(() => import("./pages/School/SchoolAdminClasses"));
+const SchoolAdminStaff = React.lazy(() => import("./pages/School/SchoolAdminStaff"));
+const SchoolAdminApprovals = React.lazy(() => import("./pages/School/SchoolAdminApprovals"));
+const SchoolAdminTemplates = React.lazy(() => import("./pages/School/SchoolAdminTemplates"));
+const SchoolAdminNEPTracking = React.lazy(() => import("./pages/School/SchoolAdminNEPTracking"));
+const SchoolAdminCompliance = React.lazy(() => import("./pages/School/SchoolAdminCompliance"));
+const SchoolAdminBilling = React.lazy(() => import("./pages/School/SchoolAdminBilling"));
+const SchoolAdminPaymentTracker = React.lazy(() => import("./pages/School/SchoolAdminPaymentTracker"));
+const AdminSchools = React.lazy(() => import("./pages/Admin/AdminSchools"));
+const AdminIndividuals = React.lazy(() => import("./pages/Admin/AdminIndividuals"));
+const AdminSchoolDetail = React.lazy(() => import("./pages/Admin/AdminSchoolDetail"));
+const SchoolAdminEmergency = React.lazy(() => import("./pages/School/SchoolAdminEmergency"));
+const SchoolAdminEvents = React.lazy(() => import("./pages/School/SchoolAdminEvents"));
+const SchoolAdminSettings = React.lazy(() => import("./pages/School/SchoolAdminSettings"));
+const SchoolAdminProfile = React.lazy(() => import("./pages/School/SchoolAdminProfile"));
+const SchoolAdminSettingsPersonal = React.lazy(() => import("./pages/School/SchoolAdminSettingsPersonal"));
+const SchoolTeacherDashboard = React.lazy(() => import("./pages/School/SchoolTeacherDashboard"));
+const SchoolStudentDashboard = React.lazy(() => import("./pages/School/SchoolStudentDashboard"));
+const SchoolParentDashboard = React.lazy(() => import("./pages/School/SchoolParentDashboard"));
+const TeacherOverview = React.lazy(() => import("./pages/School/TeacherOverview"));
+const SchoolTestimonialSubmit = React.lazy(() => import("./pages/School/SchoolTestimonialSubmit"));
+const SchoolSponsorship = React.lazy(() => import("./pages/School/SchoolSponsorship"));
+const SchoolSponsorshipGallery = React.lazy(() => import("./pages/School/SchoolSponsorshipGallery"));
+const SchoolSponsorshipThankYou = React.lazy(() => import("./pages/School/SchoolSponsorshipThankYou"));
+const TeacherStudents = React.lazy(() => import("./pages/School/TeacherStudents"));
+const TeacherAnalytics = React.lazy(() => import("./pages/School/TeacherAnalytics"));
+const TeacherTasks = React.lazy(() => import("./pages/School/TeacherTasks"));
+const TeacherChatContacts = React.lazy(() => import("./pages/School/TeacherChatContacts"));
+const TeacherSettings = React.lazy(() => import("./pages/School/TeacherSettings"));
+const TeacherStudentProgress = React.lazy(() => import("./pages/School/TeacherStudentProgress"));
+const TeacherStudentWalletRewards = React.lazy(() => import("./pages/School/TeacherStudentWalletRewards"));
+const TeacherParentChat = React.lazy(() => import("./pages/School/TeacherParentChat"));
+const TeacherStudentChat = React.lazy(() => import("./pages/School/TeacherStudentChat"));
+const SchoolStudentChat = React.lazy(() => import("./pages/School/SchoolStudentChat"));
+const ParentChat = React.lazy(() => import("./pages/Parent/ParentChat"));
+const AssignmentTracking = React.lazy(() => import("./pages/School/AssignmentTracking"));
+const LandingPage = React.lazy(() => import("./pages/LandingPage"));
+const PlatformDetails = React.lazy(() => import("./pages/PlatformDetails"));
+const IndividualAccountSelection = React.lazy(() => import("./pages/IndividualAccountSelection"));
+const InstitutionTypeSelection = React.lazy(() => import("./pages/MultiTenant/InstitutionTypeSelection"));
+const SchoolRegistration = React.lazy(() => import("./pages/MultiTenant/SchoolRegistration"));
+const NotFound = React.lazy(() => import("./pages/NotFound"));
+const About = React.lazy(() => import("./pages/About"));
+const Blog = React.lazy(() => import("./pages/Blog"));
+const Careers = React.lazy(() => import("./pages/Careers"));
+const CareerApply = React.lazy(() => import("./pages/CareerApply"));
+const Contact = React.lazy(() => import("./pages/Contact"));
+const Terms = React.lazy(() => import("./pages/Terms"));
+const Privacy = React.lazy(() => import("./pages/Privacy"));
+const Cookies = React.lazy(() => import("./pages/Cookies"));
+const UniversalGameRenderer = React.lazy(() => import("./components/UniversalGameRenderer"));
 
 const App = () => {
   const { user, loading } = useAuth();
@@ -586,7 +589,7 @@ const App = () => {
         !location.pathname.includes("/student-chat/") &&
         !location.pathname.includes("/parent-chat") && <Navbar />}
       <ErrorBoundary>
-        <Routes>
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-gray-500">Loading...</div>}><Routes>
           <Route path="/" element={user ? <RootRedirect /> : <LandingPage />} />
           <Route path="/platform-details" element={<PlatformDetails />} />
           <Route
@@ -2019,7 +2022,7 @@ const App = () => {
 
           {/* 404 */}
           <Route path="*" element={<NotFound />} />
-        </Routes>
+        </Routes></Suspense>
       </ErrorBoundary>
       <Toaster /> {/* Toast notification container */}
     </div>

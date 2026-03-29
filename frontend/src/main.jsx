@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
 import { toast } from "react-hot-toast";
-import "./i18n";
+import { initI18n } from "./i18n";
 
 import { BrowserRouter } from "react-router-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
@@ -13,8 +13,8 @@ import { NotificationProvider } from "./context/NotificationContext";
 import { SocketProvider } from "./context/SocketContext";
 import { SubscriptionProvider } from "./context/SubscriptionContext";
 
-// Register Service Worker for PWA
-if ("serviceWorker" in navigator) {
+// Register Service Worker only in production (dev SW caching can break module resolution)
+if (import.meta.env.PROD && "serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker
       .register("/sw.js")
@@ -37,6 +37,21 @@ window.addEventListener("beforeinstallprompt", (e) => {
 });
 
 const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID || "";
+
+// Dev safeguard: purge any previously registered SW/caches that can serve stale raw modules
+if (import.meta.env.DEV && "serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .getRegistrations()
+    .then((registrations) => Promise.all(registrations.map((r) => r.unregister())))
+    .catch(() => {});
+
+  if ("caches" in window) {
+    caches
+      .keys()
+      .then((keys) => Promise.all(keys.map((key) => caches.delete(key))))
+      .catch(() => {});
+  }
+}
 
 const IGNORED_TOAST_MESSAGES = new Set(["Recommendations updated!"]);
 const sanitizeToastMessage = (message) => {
@@ -79,20 +94,26 @@ if (import.meta.env.DEV && !googleClientId) {
   console.log(`📝 Ensure ${currentOrigin} is added to Authorized JavaScript origins in Google Cloud Console`);
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <GoogleOAuthProvider clientId={googleClientId}>
-      <AuthProvider>
-        <WalletProvider>
-          <NotificationProvider>
-            <SocketProvider>
-              <SubscriptionProvider>
-                <App />
-              </SubscriptionProvider>
-            </SocketProvider>
-          </NotificationProvider>
-        </WalletProvider>
-      </AuthProvider>
-    </GoogleOAuthProvider>
-  </BrowserRouter>
-);
+const renderApp = async () => {
+  await initI18n;
+
+  ReactDOM.createRoot(document.getElementById("root")).render(
+    <BrowserRouter>
+      <GoogleOAuthProvider clientId={googleClientId}>
+        <AuthProvider>
+          <WalletProvider>
+            <NotificationProvider>
+              <SocketProvider>
+                <SubscriptionProvider>
+                  <App />
+                </SubscriptionProvider>
+              </SocketProvider>
+            </NotificationProvider>
+          </WalletProvider>
+        </AuthProvider>
+      </GoogleOAuthProvider>
+    </BrowserRouter>
+  );
+};
+
+renderApp();

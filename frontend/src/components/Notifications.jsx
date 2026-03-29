@@ -42,6 +42,7 @@ import {
 } from "lucide-react";
 import { useAuth } from "../hooks/useAuth";
 import { toast } from "react-toastify";
+import { useSocket } from "../context/SocketContext";
 
 const notificationTypes = {
   info: {
@@ -135,6 +136,7 @@ const getNotificationIcon = (notification) => {
 
 const Notifications = () => {
   const { user } = useAuth();
+  const { socket } = useSocket();
   const [notifications, setNotifications] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState("all");
@@ -251,16 +253,18 @@ const Notifications = () => {
 
   // Realtime socket removal if server emits notification_deleted
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    // lazy import socket.io-client to avoid bundling twice if already provided by context
-    import('socket.io-client').then(({ io }) => {
-      const socket = io('/', { auth: { token } });
-      socket.on('notification_deleted', ({ id }) => {
-        setNotifications(prev => prev.filter(n => (n.id !== id && n._id !== id)));
-      });
-      return () => socket.disconnect();
-    }).catch(() => {});
-  }, []);
+    if (!socket) return;
+
+    const onNotificationDeleted = ({ id }) => {
+      setNotifications((prev) => prev.filter((n) => n.id !== id && n._id !== id));
+    };
+
+    socket.on("notification_deleted", onNotificationDeleted);
+
+    return () => {
+      socket.off("notification_deleted", onNotificationDeleted);
+    };
+  }, [socket]);
 
   const markAsRead = async (id) => {
     try {
